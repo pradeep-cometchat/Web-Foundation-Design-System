@@ -1,0 +1,32 @@
+/* Toast — pixel-perfect match to Figma node 4090:837860 */
+/* A transient notification pill with dark background */
+
+.toast {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  filter: drop-shadow(0px 12px 8px rgba(10, 13, 18, 0.08))
+    drop-shadow(0px 4px 3px rgba(10, 13, 18, 0.03))
+    drop-shadow(0px 2px 1px rgba(10, 13, 18, 0.04));
+}
+
+/* Content: bg static-black (#0a0d12), radius-xs (4px), px-8 py-8 */
+.toast__content {
+  display: flex;
+  align-items: flex-start;
+  padding: 8px;
+  background: var(--color-neutral-lm-950, #0a0d12);
+  border-radius: 4px;
+}
+
+/* Message: Caption 1/Regular — 12px, weight 400, line-height 18px, white, centered */
+.toast__message {
+  font-family: var(--font-family-body, "Inter", sans-serif);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--color-white, #ffffff);
+  text-align: center;
+  white-space: nowrap;
+}

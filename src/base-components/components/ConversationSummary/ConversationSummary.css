@@ -1,0 +1,149 @@
+/* Conversation Summary — pixel-perfect match to Figma node 4043:347990 */
+/* Container: radius-md (8px), shadow-lg, border border-light (#f5f5f5), px-16 py-12, gap-8 */
+
+.conversation-summary {
+  width: 100%;
+  max-width: 100%;
+  background: var(--color-white, #ffffff);
+  border: 1px solid var(--color-neutral-100, #f5f5f5);
+  border-radius: 8px;
+  box-shadow: 0px 12px 16px -4px rgba(10, 13, 18, 0.08),
+    0px 4px 6px -2px rgba(10, 13, 18, 0.03),
+    0px 2px 2px -1px rgba(10, 13, 18, 0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 16px;
+  box-sizing: border-box;
+}
+
+/* ─── Header: flex row, space-between, items-center ─── */
+.conversation-summary__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Heading container: flex row, gap-8, items-center */
+.conversation-summary__heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Title: Body/Medium — 14px, weight 500, line-height 20px, text-primary #181d27 */
+.conversation-summary__title {
+  margin: 0;
+  font-family: var(--font-family-body, "Inter", sans-serif);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-neutral-900, #181d27);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Close button: 20×20 icon */
+.conversation-summary__close-btn {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-neutral-900, #181d27);
+  padding: 0;
+  flex-shrink: 0;
+  border-radius: 4px;
+  transition: background 120ms ease;
+}
+
+.conversation-summary__close-btn:hover {
+  background: var(--color-neutral-50, #fafafa);
+}
+
+.conversation-summary__close-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-xs);
+}
+
+.conversation-summary__close-btn svg {
+  width: 11px;
+  height: 11px;
+}
+
+/* ─── Body/Result: py-4, radius-md (8px) ─── */
+.conversation-summary__body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  gap: 0;
+  row-gap: 2px;
+  padding: 4px 0;
+  border-radius: 8px;
+  width: 100%;
+}
+
+/* Text: Body/Regular — 14px, weight 400, line-height 20px, text-primary #181d27 */
+.conversation-summary__text {
+  margin: 0;
+  font-family: var(--font-family-body, "Inter", sans-serif);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--color-neutral-900, #181d27);
+  flex: 1;
+  min-width: 0;
+}
+
+/* ─── Loading state ─── */
+.conversation-summary--loading .conversation-summary__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.conversation-summary__skeleton {
+  height: 14px;
+  border-radius: 4px;
+  background: var(--color-neutral-100, #f5f5f5);
+  animation: conversation-summary-pulse 1.5s ease-in-out infinite;
+}
+
+.conversation-summary__skeleton--full {
+  width: 100%;
+}
+
+.conversation-summary__skeleton--medium {
+  width: 80%;
+}
+
+.conversation-summary__skeleton--short {
+  width: 60%;
+}
+
+@keyframes conversation-summary-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* ─── Error state ─── */
+.conversation-summary__error {
+  margin: 0;
+  font-family: var(--font-family-body, "Inter", sans-serif);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--color-error, #d92d20);
+}

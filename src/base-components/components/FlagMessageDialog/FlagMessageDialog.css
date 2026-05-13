@@ -1,0 +1,225 @@
+/* Flag Message Dialog — pixel-perfect match to Figma node 4090:860298 */
+/* Container: radius-3xl (20px), shadow-lg, border border-light */
+
+.flag-message-dialog {
+  width: 400px;
+  background: var(--color-white);
+  border: 1px solid var(--color-neutral-100);
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ─── Header ─── */
+.flag-message-dialog__header {
+  padding: 16px;
+  border-bottom: 1px solid var(--color-neutral-100);
+}
+
+.flag-message-dialog__header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.flag-message-dialog__header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flag-message-dialog__title {
+  font-family: var(--font-family-heading);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  color: var(--color-neutral-900);
+}
+
+.flag-message-dialog__close {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-neutral-900);
+  padding: 0;
+  border-radius: var(--radius-xs);
+}
+
+.flag-message-dialog__close:hover {
+  background: var(--color-neutral-50);
+}
+
+.flag-message-dialog__close svg {
+  width: 24px;
+  height: 24px;
+}
+
+.flag-message-dialog__description {
+  margin: 0;
+  font-family: var(--font-family-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--color-neutral-700);
+}
+
+/* ─── Body ─── */
+.flag-message-dialog__body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 12px;
+}
+
+/* Badges */
+.flag-message-dialog__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 20px 0;
+}
+
+.flag-message-dialog__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  font-family: var(--font-family-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-neutral-900);
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease;
+  white-space: nowrap;
+}
+
+.flag-message-dialog__badge:hover {
+  background: var(--color-neutral-50);
+  border-color: var(--color-neutral-300);
+}
+
+.flag-message-dialog__badge--selected {
+  background: var(--color-ep-50);
+  border-color: var(--color-ep-300);
+  color: var(--color-ep-700);
+}
+
+.flag-message-dialog__badge--selected:hover {
+  background: var(--color-ep-100);
+}
+
+/* Text field */
+.flag-message-dialog__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 20px;
+}
+
+.flag-message-dialog__label {
+  font-family: var(--font-family-body);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.flag-message-dialog__label-text {
+  font-weight: 500;
+  color: var(--color-neutral-900);
+}
+
+.flag-message-dialog__label-optional {
+  font-weight: 400;
+  color: var(--color-neutral-600);
+}
+
+.flag-message-dialog__textarea {
+  width: 100%;
+  min-height: 88px;
+  padding: 8px;
+  border: 1px solid var(--color-neutral-100);
+  border-radius: var(--radius-md);
+  background: var(--color-neutral-50);
+  font-family: var(--font-family-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--color-neutral-900);
+  resize: vertical;
+  outline: none;
+  transition: border-color 120ms ease;
+  box-sizing: border-box;
+}
+
+.flag-message-dialog__textarea::placeholder {
+  color: var(--color-neutral-600);
+}
+
+.flag-message-dialog__textarea:focus {
+  border-color: var(--color-ep-300);
+}
+
+/* ─── Buttons ─── */
+.flag-message-dialog__buttons {
+  display: flex;
+  gap: 8px;
+  padding: 20px;
+}
+
+.flag-message-dialog__btn {
+  flex: 1;
+  height: 40px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background 120ms ease;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+}
+
+.flag-message-dialog__btn:focus-visible {
+  box-shadow: var(--focus-ring-xs);
+}
+
+.flag-message-dialog__btn--cancel {
+  background: var(--color-white);
+  color: var(--color-neutral-900);
+  border: 1px solid var(--color-neutral-300);
+}
+
+.flag-message-dialog__btn--cancel:hover {
+  background: var(--color-neutral-50);
+}
+
+/* Report button — disabled state */
+.flag-message-dialog__btn--report {
+  background: var(--color-neutral-200);
+  color: var(--color-white);
+  border: none;
+  cursor: not-allowed;
+}
+
+/* Report button — active/enabled state */
+.flag-message-dialog__btn--report-active {
+  background: var(--color-error);
+  cursor: pointer;
+}
+
+.flag-message-dialog__btn--report-active:hover {
+  background: var(--color-error-700);
+}

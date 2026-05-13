@@ -1,0 +1,167 @@
+/* Reaction List — pixel-perfect match to Figma node 4043:476218 */
+/* A popup showing who reacted, with emoji tabs and a list of reactors */
+
+.reaction-list {
+  background: var(--color-white, #ffffff);
+  border: 1px solid var(--color-neutral-100, #f5f5f5);
+  border-radius: 16px;
+  box-shadow: 0px 12px 16px -4px rgba(10, 13, 18, 0.08),
+    0px 4px 6px -2px rgba(10, 13, 18, 0.03),
+    0px 2px 2px -1px rgba(10, 13, 18, 0.04);
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 280px;
+}
+
+/* ─── Tabs: border-bottom, pt-8, flex row ─── */
+.reaction-list__tabs {
+  display: flex;
+  align-items: center;
+  padding-top: 8px;
+  width: 100%;
+  background: var(--color-white, #ffffff);
+  border-bottom: 1px solid var(--color-neutral-200, #e9eaeb);
+}
+
+/* Tab item base */
+.reaction-list__tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  overflow: clip;
+  font-family: var(--font-family-body, "Inter", sans-serif);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+  color: var(--color-neutral-500, #717680);
+  white-space: nowrap;
+  transition: color 120ms ease;
+  border-bottom: 2px solid transparent;
+}
+
+.reaction-list__tab:hover {
+  color: var(--color-neutral-700, #414651);
+}
+
+.reaction-list__tab:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Active tab: primary color border-bottom + text */
+.reaction-list__tab--active {
+  color: var(--color-ep-500, #6852d6);
+  border-bottom-color: var(--color-ep-500, #6852d6);
+}
+
+.reaction-list__tab--active:hover {
+  color: var(--color-ep-500, #6852d6);
+}
+
+/* ─── List container ─── */
+.reaction-list__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  background: var(--color-white, #ffffff);
+}
+
+/* ─── List item: px-16 py-8, gap-8, flex row ─── */
+.reaction-list__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  width: 100%;
+  background: var(--color-white, #ffffff);
+  border: none;
+  cursor: pointer;
+  transition: background 120ms ease;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.reaction-list__item:hover {
+  background: var(--color-neutral-50, #fafafa);
+}
+
+.reaction-list__item:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-xs);
+  position: relative;
+  z-index: 1;
+}
+
+/* Avatar: 32×32, full-round */
+.reaction-list__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.reaction-list__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text block: flex-1, gap-2, truncated, left-aligned */
+.reaction-list__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* Name: Body/Medium — 14px, weight 500, line-height 20px, text-primary */
+.reaction-list__name {
+  font-family: var(--font-family-body, "Inter", sans-serif);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-neutral-900, #181d27);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Subtitle: Caption 1/Regular — 12px, weight 400, line-height 18px, text-secondary */
+.reaction-list__subtitle {
+  font-family: var(--font-family-body, "Inter", sans-serif);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+  color: var(--color-neutral-600, #414651);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Emoji: 20px, line-height 30px, 24px wide */
+.reaction-list__emoji {
+  font-size: 20px;
+  line-height: 30px;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
