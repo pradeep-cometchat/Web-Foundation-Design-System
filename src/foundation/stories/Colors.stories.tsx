@@ -132,11 +132,11 @@ function ColorStory({ family, shade }: ColorStoryProps) {
   const bestAgainst = onWhite >= onBlack ? "white" : "black";
 
   return (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <div
         style={{
           border: "1px solid var(--color-neutral-200)",
-          borderRadius: 16,
+          borderRadius: "var(--radius-2xl)",
           overflow: "hidden",
           background: "var(--color-white)",
           boxShadow: "var(--shadow-sm)",
@@ -149,18 +149,18 @@ function ColorStory({ family, shade }: ColorStoryProps) {
             height: 200,
             display: "flex",
             alignItems: "flex-end",
-            padding: 24,
+            padding: "var(--space-6)",
           }}
         >
           <span
             style={{
               display: "inline-flex",
               alignItems: "center",
-              gap: 6,
-              fontSize: 12,
-              fontWeight: 600,
+              gap: "var(--space-1-5)",
+              fontSize: "var(--font-size-1)",
+              fontWeight: "var(--font-weight-semibold)",
               padding: "5px 10px",
-              borderRadius: 999,
+              borderRadius: "var(--radius-full)",
               background: "var(--color-white)",
               color:
                 bestRating === "AAA" || bestRating === "AA"
@@ -194,7 +194,7 @@ function ColorStory({ family, shade }: ColorStoryProps) {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-          gap: 16,
+          gap: "var(--space-4)",
           marginTop: 20,
         }}
       >
@@ -228,21 +228,21 @@ const Stat: React.FC<{
   >
     <div
       style={{
-        fontSize: 11,
-        fontWeight: 600,
+        fontSize: "var(--font-size-0)",
+        fontWeight: "var(--font-weight-semibold)",
         letterSpacing: "0.06em",
         textTransform: "uppercase",
         color: "var(--color-neutral-500)",
-        marginBottom: 4,
+        marginBottom: "var(--space-1)",
       }}
     >
       {label}
     </div>
     <div
       style={{
-        fontFamily: mono ? "var(--sb-font-mono)" : "inherit",
-        fontSize: 13,
-        fontWeight: 600,
+        fontFamily: mono ? "var(--font-family-body)" : "inherit",
+        fontSize: "var(--font-size-1)",
+        fontWeight: "var(--font-weight-semibold)",
         color: "var(--color-neutral-900)",
         wordBreak: "break-all",
       }}
@@ -261,7 +261,7 @@ export const Playground: StoryObj<typeof ColorStory> = {
 export const AllPalettes: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Colors"
         description="The complete color system. Hover any swatch to see the hex value, click to copy. Badges reflect the best WCAG contrast against white or black."
@@ -355,7 +355,7 @@ export const AllPalettes: StoryObj = {
 export const AccessibilityAudit: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Accessibility audit"
         description="Contrast ratios against white and black for every shade. Use this to pick safe foreground/background pairings without guessing."
@@ -431,7 +431,7 @@ function SwatchGrid({
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))",
-        gap: 14,
+        gap: "var(--space-3-5)",
       }}
     >
       {entries.map(([key, value]) => (
@@ -458,7 +458,7 @@ function SemanticGrid({
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))",
-        gap: 14,
+        gap: "var(--space-3-5)",
       }}
     >
       {sortSemanticEntries(scale).map(([key, value]) => {
@@ -505,7 +505,7 @@ function toContrastRows(scale: Record<string, string>, prefix: string) {
           style={{
             width: 56,
             height: 28,
-            borderRadius: 6,
+            borderRadius: "var(--radius-sm)",
             background: value,
             border: "1px solid var(--color-neutral-200)",
           }}

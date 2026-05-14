@@ -24,7 +24,7 @@ function IntroductionPage() {
           position: "relative",
           overflow: "hidden",
           padding: "48px 40px",
-          borderRadius: 20,
+          borderRadius: "var(--radius-3xl)",
           background:
             "radial-gradient(120% 120% at 100% 0%, var(--color-info-100, #d1e0ff) 0%, var(--color-info-50, #eff4ff) 35%, var(--color-white, #fff) 75%)",
           border: "1px solid var(--color-info-100, #d1e0ff)",
@@ -50,15 +50,15 @@ function IntroductionPage() {
             style={{
               display: "inline-flex",
               alignItems: "center",
-              gap: 8,
-              fontSize: 11,
-              fontWeight: 600,
+              gap: "var(--space-2)",
+              fontSize: "var(--font-size-0)",
+              fontWeight: "var(--font-weight-semibold)",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
               color: "var(--color-ep-700, #5925dc)",
               background: "var(--color-white, #fff)",
               padding: "6px 12px",
-              borderRadius: 999,
+              borderRadius: "var(--radius-full)",
               border: "1px solid var(--color-ep-200, #d9d6fe)",
               boxShadow: "var(--shadow-xs)",
               marginBottom: 16,
@@ -77,9 +77,9 @@ function IntroductionPage() {
           <h1
             style={{
               margin: 0,
-              fontSize: 44,
+              fontSize: "var(--font-size-7)",
               lineHeight: 1.08,
-              fontWeight: 700,
+              fontWeight: "var(--font-weight-bold)",
               letterSpacing: "-0.025em",
               color: "var(--color-neutral-900, #181d27)",
             }}
@@ -89,7 +89,7 @@ function IntroductionPage() {
           <p
             style={{
               margin: "16px 0 0",
-              fontSize: 17,
+              fontSize: "var(--font-size-3)",
               lineHeight: 1.55,
               color: "var(--color-neutral-700, #414651)",
             }}
@@ -99,7 +99,7 @@ function IntroductionPage() {
             inputs, labels, tags, and more. Each component consumes foundation
             tokens directly and exposes a clean, composable API.
           </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 24 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-2)", marginTop: 24 }}>
             <HeroChip label="components" value="28" />
             <HeroChip label="variants" value="80+" />
             <HeroChip label="tokens" value="Foundation" />
@@ -110,7 +110,7 @@ function IntroductionPage() {
 
       {/* WHAT'S INSIDE */}
       <SectionHeading>What's inside</SectionHeading>
-      <p style={{ color: "var(--color-neutral-600, #535862)", marginTop: 0, maxWidth: 720, fontSize: 14, lineHeight: 1.6 }}>
+      <p style={{ color: "var(--color-neutral-600, #535862)", marginTop: 0, maxWidth: 720, fontSize: "var(--font-size-2)", lineHeight: 1.6 }}>
         28 base components form the atomic layer. Each is documented with interactive controls, accessibility notes, and usage guidelines.
       </p>
 
@@ -118,7 +118,7 @@ function IntroductionPage() {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-          gap: 14,
+          gap: "var(--space-3-5)",
           margin: "20px 0 40px",
         }}
       >
@@ -153,7 +153,7 @@ function IntroductionPage() {
 
       {/* PRINCIPLES */}
       <SectionHeading>Design principles</SectionHeading>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 14, margin: "20px 0 40px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "var(--space-3-5)", margin: "20px 0 40px" }}>
         <PrincipleCard title="Token-first" body="Every color, spacing, and radius value comes from foundation tokens. No magic numbers." />
         <PrincipleCard title="Composable" body="Components are small and focused. Combine them to build complex patterns without tight coupling." />
         <PrincipleCard title="Accessible" body="Keyboard navigation, ARIA attributes, and focus management are built in from the start." />
@@ -162,7 +162,7 @@ function IntroductionPage() {
 
       {/* USAGE */}
       <SectionHeading>Usage</SectionHeading>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 16, margin: "20px 0 40px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "var(--space-4)", margin: "20px 0 40px" }}>
         <div style={panelStyle}>
           <div style={panelLabel}>Import & use</div>
           <pre style={codePre}><code>{`import { Button } from "@base-components/Button";
@@ -211,40 +211,69 @@ function HeroChip({ label, value }: { label: string; value: string }) {
       style={{
         display: "inline-flex",
         alignItems: "center",
-        gap: 6,
-        fontSize: 12,
-        fontWeight: 500,
+        gap: "var(--space-1-5)",
+        fontSize: "var(--font-size-1)",
+        fontWeight: "var(--font-weight-medium)",
         color: "var(--color-neutral-700, #414651)",
         background: "var(--color-white, #fff)",
         border: "1px solid var(--color-neutral-200, #e9eaeb)",
-        borderRadius: 999,
+        borderRadius: "var(--radius-full)",
         padding: "5px 12px",
       }}
     >
-      <span style={{ color: "var(--color-neutral-500, #717680)", fontSize: 11 }}>{label}</span>
-      <span style={{ fontWeight: 600 }}>{value}</span>
+      <span style={{ color: "var(--color-neutral-500, #717680)", fontSize: "var(--font-size-0)" }}>{label}</span>
+      <span style={{ fontWeight: "var(--font-weight-semibold)" }}>{value}</span>
     </span>
   );
 }
 
 function ComponentCard({ name, description }: { name: string; description: string }) {
+  const storyId = `base-components-${name.toLowerCase().replace(/\s+/g, "-")}--docs`;
+
+  const handleClick = () => {
+    try {
+      // Navigate within Storybook using the iframe's parent
+      const baseUrl = window.top?.location.href.split("?")[0] || "";
+      window.top!.location.href = `${baseUrl}?path=/docs/${storyId}`;
+    } catch {
+      // Fallback: try navigating within the iframe
+      window.location.href = `?path=/docs/${storyId}`;
+    }
+  };
+
   return (
-    <div
+    <a
+      href={`?path=/docs/${storyId}`}
+      onClick={(e) => { e.preventDefault(); handleClick(); }}
       style={{
+        display: "block",
         padding: "20px",
-        borderRadius: 12,
+        borderRadius: "var(--radius-xl)",
         border: "1px solid var(--color-neutral-200, #e9eaeb)",
         background: "var(--color-white, #fff)",
-        transition: "box-shadow 0.15s, border-color 0.15s",
+        transition: "box-shadow 0.15s, border-color 0.15s, transform 0.15s",
+        cursor: "pointer",
+        textDecoration: "none",
+        color: "inherit",
+      }}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLElement).style.borderColor = "var(--color-ep-200, #d9d6fe)";
+        (e.currentTarget as HTMLElement).style.boxShadow = "var(--shadow-md)";
+        (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLElement).style.borderColor = "var(--color-neutral-200, #e9eaeb)";
+        (e.currentTarget as HTMLElement).style.boxShadow = "none";
+        (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
       }}
     >
-      <div style={{ fontSize: 14, fontWeight: 600, color: "var(--color-neutral-900, #181d27)", marginBottom: 6 }}>
+      <div style={{ fontSize: "var(--font-size-2)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-900, #181d27)", marginBottom: 6 }}>
         {name}
       </div>
-      <div style={{ fontSize: 13, color: "var(--color-neutral-600, #535862)", lineHeight: 1.5 }}>
+      <div style={{ fontSize: "var(--font-size-1)", color: "var(--color-neutral-600, #535862)", lineHeight: 1.5 }}>
         {description}
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -253,15 +282,15 @@ function PrincipleCard({ title, body }: { title: string; body: string }) {
     <div
       style={{
         padding: "20px",
-        borderRadius: 12,
+        borderRadius: "var(--radius-xl)",
         border: "1px solid var(--color-neutral-200, #e9eaeb)",
         background: "var(--color-neutral-25, #fdfdfd)",
       }}
     >
-      <div style={{ fontSize: 13, fontWeight: 600, color: "var(--color-neutral-900, #181d27)", marginBottom: 6 }}>
+      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-900, #181d27)", marginBottom: 6 }}>
         {title}
       </div>
-      <div style={{ fontSize: 13, color: "var(--color-neutral-600, #535862)", lineHeight: 1.5 }}>
+      <div style={{ fontSize: "var(--font-size-1)", color: "var(--color-neutral-600, #535862)", lineHeight: 1.5 }}>
         {body}
       </div>
     </div>
@@ -272,8 +301,8 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
     <h2
       style={{
-        fontSize: 22,
-        fontWeight: 600,
+        fontSize: "var(--font-size-5)",
+        fontWeight: "var(--font-weight-semibold)",
         letterSpacing: "-0.01em",
         color: "var(--color-neutral-900, #181d27)",
         borderBottom: "1px solid var(--color-neutral-200, #e9eaeb)",
@@ -288,28 +317,28 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
 
 const panelStyle: React.CSSProperties = {
   padding: "24px",
-  borderRadius: 12,
+  borderRadius: "var(--radius-xl)",
   border: "1px solid var(--color-neutral-200, #e9eaeb)",
   background: "var(--color-neutral-25, #fdfdfd)",
 };
 
 const panelLabel: React.CSSProperties = {
-  fontSize: 11,
-  fontWeight: 600,
+  fontSize: "var(--font-size-0)",
+  fontWeight: "var(--font-weight-semibold)",
   letterSpacing: "0.06em",
   textTransform: "uppercase",
   color: "var(--color-neutral-500, #717680)",
-  marginBottom: 12,
+  marginBottom: "var(--space-3)",
 };
 
 const codePre: React.CSSProperties = {
   margin: 0,
   padding: "16px",
-  borderRadius: 8,
+  borderRadius: "var(--radius-md)",
   background: "var(--color-neutral-900, #181d27)",
   color: "var(--color-neutral-100, #f5f5f5)",
-  fontSize: 12,
+  fontSize: "var(--font-size-1)",
   lineHeight: 1.6,
   overflow: "auto",
-  fontFamily: "'SF Mono', 'Fira Code', 'JetBrains Mono', monospace",
+  fontFamily: "var(--font-family-body)",
 };

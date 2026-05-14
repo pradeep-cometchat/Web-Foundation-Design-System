@@ -129,16 +129,16 @@ export const OwnReaction: Story = {
 export const States: StoryObj = {
   parameters: { layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 40, display: "flex", gap: 32, flexWrap: "wrap", justifyContent: "center", alignItems: "flex-start" }}>
-      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+    <div style={{ padding: "var(--space-10)", display: "flex", gap: "var(--space-8)", flexWrap: "wrap", justifyContent: "center", alignItems: "flex-start" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
         <div style={stateLabelStyle}>Single reaction</div>
         <ReactionList tabs={singleReactionTabs} items={singleReactionItems} activeTab="all" />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
         <div style={stateLabelStyle}>Multiple reactions</div>
         <ReactionList tabs={multiReactionTabs} items={multiReactionItems} activeTab="all" />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
         <div style={stateLabelStyle}>Filtered (👍)</div>
         <ReactionList tabs={multiReactionTabs} items={multiReactionItems} activeTab="👍" />
       </div>
@@ -157,8 +157,8 @@ export const Playground: Story = {
 };
 
 const stateLabelStyle: React.CSSProperties = {
-  fontSize: 11,
-  fontWeight: 600,
+  fontSize: "var(--font-size-0)",
+  fontWeight: "var(--font-weight-semibold)",
   textTransform: "uppercase",
   letterSpacing: "0.06em",
   color: "var(--color-neutral-500, #535862)",

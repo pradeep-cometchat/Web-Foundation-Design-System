@@ -91,24 +91,24 @@ export const WithoutArrow: Story = {
 export const States: StoryObj = {
   parameters: { layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", gap: 24, flexWrap: "wrap", justifyContent: "center", alignItems: "flex-start", padding: 40 }}>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+    <div style={{ display: "flex", gap: "var(--space-6)", flexWrap: "wrap", justifyContent: "center", alignItems: "flex-start", padding: "var(--space-10)" }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-2)" }}>
         <div style={stateLabelStyle}>Single</div>
         <ReactionInfo emoji="👍" names={["George Alan"]} />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-2)" }}>
         <div style={stateLabelStyle}>Two names</div>
         <ReactionInfo emoji="❤️" names={["George Alan", "Pourav Raj"]} />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-2)" }}>
         <div style={stateLabelStyle}>Overflow (+5)</div>
         <ReactionInfo emoji="😍" names={["George Alan", "Pourav Raj", "Alice", "Bob", "Charlie", "Dave", "Eve"]} />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-2)" }}>
         <div style={stateLabelStyle}>Different emoji</div>
         <ReactionInfo emoji="🔥" names={["Alice", "Bob", "Charlie"]} maxVisible={3} />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-2)" }}>
         <div style={stateLabelStyle}>No arrow</div>
         <ReactionInfo emoji="😂" names={["George Alan", "Pourav Raj"]} showArrow={false} />
       </div>
@@ -129,8 +129,8 @@ export const Playground: Story = {
 };
 
 const stateLabelStyle: React.CSSProperties = {
-  fontSize: 11,
-  fontWeight: 600,
+  fontSize: "var(--font-size-0)",
+  fontWeight: "var(--font-weight-semibold)",
   textTransform: "uppercase",
   letterSpacing: "0.06em",
   color: "var(--color-neutral-500, #535862)",

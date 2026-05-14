@@ -37,11 +37,11 @@ function RadiusPlayground({ size }: PlaygroundProps) {
   const value = radius[size];
   const cssVar = `var(--radius-${size})`;
   return (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <div
         style={{
           border: "1px solid var(--color-neutral-200)",
-          borderRadius: 16,
+          borderRadius: "var(--radius-2xl)",
           overflow: "hidden",
           background: "var(--color-white)",
           boxShadow: "var(--shadow-sm)",
@@ -49,7 +49,7 @@ function RadiusPlayground({ size }: PlaygroundProps) {
       >
         <div
           style={{
-            padding: 56,
+            padding: "var(--space-12)",
             background:
               "repeating-linear-gradient(45deg, var(--color-neutral-25) 0 8px, var(--color-neutral-50) 8px 16px)",
             display: "flex",
@@ -104,21 +104,21 @@ const Stat: React.FC<{
   >
     <div
       style={{
-        fontSize: 11,
-        fontWeight: 600,
+        fontSize: "var(--font-size-0)",
+        fontWeight: "var(--font-weight-semibold)",
         letterSpacing: "0.06em",
         textTransform: "uppercase",
         color: "var(--color-neutral-500)",
-        marginBottom: 4,
+        marginBottom: "var(--space-1)",
       }}
     >
       {label}
     </div>
     <div
       style={{
-        fontFamily: mono ? "var(--sb-font-mono)" : "inherit",
-        fontSize: 13,
-        fontWeight: 600,
+        fontFamily: mono ? "var(--font-family-body)" : "inherit",
+        fontSize: "var(--font-size-1)",
+        fontWeight: "var(--font-weight-semibold)",
         color: "var(--color-neutral-900)",
         wordBreak: "break-all",
       }}
@@ -137,7 +137,7 @@ export const Playground: StoryObj<typeof RadiusPlayground> = {
 export const Scale: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Border radius"
         description="Rounding scale from sharp to fully rounded. Every row shows a corner preview at the true pixel value."
@@ -151,7 +151,7 @@ export const Scale: StoryObj = {
         style={{
           overflow: "auto",
           border: "1px solid var(--color-neutral-200)",
-          borderRadius: 12,
+          borderRadius: "var(--radius-xl)",
           background: "var(--color-white)",
           boxShadow: "var(--shadow-xs)",
         }}
@@ -161,7 +161,7 @@ export const Scale: StoryObj = {
             width: "100%",
             borderCollapse: "separate",
             borderSpacing: 0,
-            fontSize: 13,
+            fontSize: "var(--font-size-1)",
             color: "var(--color-neutral-900)",
           }}
         >
@@ -219,7 +219,7 @@ export const Scale: StoryObj = {
 export const UsageGuide: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Usage guide"
         description="Rules of thumb for when to reach for each size. Keep radii consistent within a surface so nested shapes feel related."
@@ -237,7 +237,7 @@ export const UsageGuide: StoryObj = {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
-            gap: 14,
+            gap: "var(--space-3-5)",
           }}
         >
           {[
@@ -257,12 +257,12 @@ export const UsageGuide: StoryObj = {
               style={{
                 padding: "14px 16px",
                 border: "1px solid var(--color-neutral-200)",
-                borderRadius: 12,
+                borderRadius: "var(--radius-xl)",
                 background: "var(--color-white)",
                 boxShadow: "var(--shadow-xs)",
                 display: "flex",
                 flexDirection: "column",
-                gap: 8,
+                gap: "var(--space-2)",
               }}
             >
               <code
@@ -276,7 +276,7 @@ export const UsageGuide: StoryObj = {
               >
                 {item.token}
               </code>
-              <div style={{ fontSize: 13, color: "var(--color-neutral-700)" }}>
+              <div style={{ fontSize: "var(--font-size-1)", color: "var(--color-neutral-700)" }}>
                 {item.use}
               </div>
             </div>
@@ -316,8 +316,8 @@ const RadiusCorner: React.FC<{ value: number }> = ({ value }) => {
 
 const th: React.CSSProperties = {
   padding: "11px 16px",
-  fontWeight: 600,
-  fontSize: 11,
+  fontWeight: "var(--font-weight-semibold)",
+  fontSize: "var(--font-size-0)",
   letterSpacing: "0.06em",
   textTransform: "uppercase",
   color: "var(--color-neutral-600)",
@@ -332,12 +332,12 @@ const td: React.CSSProperties = {
 };
 
 const codeStyle: React.CSSProperties = {
-  fontFamily: "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
-  fontSize: 12,
+  fontFamily: "var(--font-family-body)",
+  fontSize: "var(--font-size-1)",
   color: "var(--color-neutral-800)",
   background: "var(--color-neutral-50)",
   padding: "4px 8px",
-  borderRadius: 4,
+  borderRadius: "var(--radius-xs)",
   border: "1px solid var(--color-neutral-200)",
   display: "inline-block",
 };

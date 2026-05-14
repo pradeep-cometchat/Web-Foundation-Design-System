@@ -81,7 +81,7 @@ export const FixedWidth: Story = {
 export const States: StoryObj = {
   parameters: { layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 40, display: "flex", flexDirection: "column", gap: 24, maxWidth: 400, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-10)", display: "flex", flexDirection: "column", gap: "var(--space-6)", maxWidth: 400, margin: "0 auto" }}>
       <div>
         <div style={stateLabelStyle}>Empty (placeholder)</div>
         <SearchBar placeholder="Search" />
@@ -111,10 +111,10 @@ export const Playground: Story = {
 };
 
 const stateLabelStyle: React.CSSProperties = {
-  fontSize: 11,
-  fontWeight: 600,
+  fontSize: "var(--font-size-0)",
+  fontWeight: "var(--font-weight-semibold)",
   textTransform: "uppercase",
   letterSpacing: "0.06em",
   color: "var(--color-neutral-500, #535862)",
-  marginBottom: 8,
+  marginBottom: "var(--space-2)",
 };

@@ -98,7 +98,7 @@ export const Separator: StoryObj<typeof DateTimestamp> = {
 export const Patterns: StoryObj = {
   parameters: { layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
       <Row label="Time">
         <DateTimestamp timestamp="4:56 pm" pattern="time" variant="sent" />
       </Row>
@@ -119,7 +119,7 @@ export const Patterns: StoryObj = {
 export const ReadReceipts: StoryObj = {
   parameters: { layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
       <Row label="Sent (single tick)">
         <DateTimestamp timestamp="4:56 pm" variant="sent" showReadReceipt readStatus="sent" />
       </Row>
@@ -140,7 +140,7 @@ export const ReadReceipts: StoryObj = {
 export const InContext: StoryObj = {
   parameters: { layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 12, maxWidth: 360 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)", maxWidth: 360 }}>
       {/* Separator */}
       <div style={{ display: "flex", justifyContent: "center" }}>
         <DateTimestamp timestamp="Today" variant="separator" />
@@ -148,7 +148,7 @@ export const InContext: StoryObj = {
 
       {/* Received bubble */}
       <div style={{ alignSelf: "flex-start", background: "var(--color-neutral-100)", borderRadius: "var(--radius-xl)", padding: "8px 12px", maxWidth: 280 }}>
-        <div style={{ fontSize: 14, color: "var(--color-neutral-900)", marginBottom: 4 }}>Yes, it's available.</div>
+        <div style={{ fontSize: "var(--font-size-2)", color: "var(--color-neutral-900)", marginBottom: "var(--space-1)" }}>Yes, it's available.</div>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <DateTimestamp timestamp="4:56 pm" variant="received" />
         </div>
@@ -156,10 +156,10 @@ export const InContext: StoryObj = {
 
       {/* Sent bubble */}
       <div style={{ alignSelf: "flex-end", background: "var(--color-ep-600)", borderRadius: "var(--radius-xl)", padding: "8px 12px", maxWidth: 280 }}>
-        <div style={{ fontSize: 14, color: "var(--color-white)", marginBottom: 4 }}>I'll take it. Can you ship it?</div>
+        <div style={{ fontSize: "var(--font-size-2)", color: "var(--color-white)", marginBottom: "var(--space-1)" }}>I'll take it. Can you ship it?</div>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <span className="date-timestamp date-timestamp--sent" style={{ color: "rgba(255,255,255,0.7)" }}>
-            <span className="date-timestamp__receipt date-timestamp__receipt--read" style={{ color: "rgba(255,255,255,0.9)" }}>
+            <span className="date-timestamp__receipt date-timestamp__receipt--read" style={{ color: "var(--color-message-seen)" }}>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L5 11.5L11 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M5.5 8.5L8.5 11.5L14.5 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </span>
             <span className="date-timestamp__text">4:56 pm</span>
@@ -169,7 +169,7 @@ export const InContext: StoryObj = {
 
       {/* Another received */}
       <div style={{ alignSelf: "flex-start", background: "var(--color-neutral-100)", borderRadius: "var(--radius-xl)", padding: "8px 12px", maxWidth: 280 }}>
-        <div style={{ fontSize: 14, color: "var(--color-neutral-900)", marginBottom: 4 }}>Sure! Sending them over now.</div>
+        <div style={{ fontSize: "var(--font-size-2)", color: "var(--color-neutral-900)", marginBottom: "var(--space-1)" }}>Sure! Sending them over now.</div>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <DateTimestamp timestamp="4:58 pm" variant="received" />
         </div>
@@ -194,8 +194,8 @@ export const Playground: StoryObj<typeof DateTimestamp> = {
 
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-      <span style={{ fontSize: 12, fontWeight: 600, color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", width: 160, flexShrink: 0 }}>{label}</span>
+    <div style={{ display: "flex", alignItems: "center", gap: "var(--space-4)" }}>
+      <span style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", width: 160, flexShrink: 0 }}>{label}</span>
       {children}
     </div>
   );

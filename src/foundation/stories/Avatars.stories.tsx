@@ -38,25 +38,8 @@ export const FemaleAvatar: StoryObj = {
   render: () => <AvatarGrid category="Female Avatar" />,
 };
 
-export const CompanyLogo: StoryObj = {
-  name: "Avatar Company Logo",
-  render: () => <AvatarGrid category="Avatar company logo" />,
-};
-
 export const GroupAvatar: StoryObj = {
   render: () => <AvatarGrid category="Group Avatar" />,
-};
-
-export const MediaFootage: StoryObj = {
-  render: () => <AvatarGrid category="Media Footage" />,
-};
-
-export const GifFootage: StoryObj = {
-  render: () => <AvatarGrid category="Gif Footage" />,
-};
-
-export const StickerFootage: StoryObj = {
-  render: () => <AvatarGrid category="Sticker Footage" />,
 };
 
 /* ─── Components ───────────────────────────────────────────────────────────── */
@@ -64,7 +47,7 @@ export const StickerFootage: StoryObj = {
 function AvatarGrid({ category }: { category: AvatarCategory }) {
   const items = avatarRegistry[category];
   return (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title={category}
         description={`${items.length} assets. Click any tile to copy the image URL.`}
@@ -76,7 +59,7 @@ function AvatarGrid({ category }: { category: AvatarCategory }) {
           gridTemplateColumns: category.includes("Footage")
             ? "repeat(auto-fill, minmax(200px, 1fr))"
             : "repeat(auto-fill, minmax(140px, 1fr))",
-          gap: 14,
+          gap: "var(--space-3-5)",
         }}
       >
         {items.map((item) => (
@@ -95,10 +78,20 @@ function AvatarGrid({ category }: { category: AvatarCategory }) {
 function AllAvatars() {
   const [query, setQuery] = useState("");
 
+  const allowedCategories = avatarCategories.filter(
+    (c) => c !== "Avatar company logo" && c !== "Media Footage" && c !== "Gif Footage" && c !== "Sticker Footage"
+  );
+
+  // Move "Group Avatar" to the end
+  const orderedCategories = [
+    ...allowedCategories.filter((c) => c !== "Group Avatar"),
+    ...allowedCategories.filter((c) => c === "Group Avatar"),
+  ];
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return avatarCategories.map((c) => ({ category: c, items: avatarRegistry[c] }));
-    return avatarCategories
+    if (!q) return orderedCategories.map((c) => ({ category: c, items: avatarRegistry[c] }));
+    return orderedCategories
       .map((c) => ({
         category: c,
         items: avatarRegistry[c].filter((i) => i.name.toLowerCase().includes(q)),
@@ -109,13 +102,13 @@ function AllAvatars() {
   const totalShown = filtered.reduce((n, g) => n + g.items.length, 0);
 
   return (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Avatars & Media"
         description="All avatar and media assets from the design system. Click any tile to copy the image URL."
         meta={[
-          { label: "categories", value: String(avatarCategories.length) },
-          { label: "total assets", value: String(avatarTotalCount) },
+          { label: "categories", value: String(orderedCategories.length) },
+          { label: "total assets", value: String(orderedCategories.reduce((n, c) => n + avatarRegistry[c].length, 0)) },
         ]}
       />
 
@@ -129,7 +122,7 @@ function AllAvatars() {
               top: "50%",
               transform: "translateY(-50%)",
               color: "var(--color-neutral-400)",
-              fontSize: 14,
+              fontSize: "var(--font-size-2)",
             }}
           >
             ⌕
@@ -141,9 +134,9 @@ function AllAvatars() {
             placeholder="Search avatars and media"
             style={{
               width: "100%",
-              fontSize: 13,
+              fontSize: "var(--font-size-1)",
               padding: "8px 12px 8px 32px",
-              borderRadius: 8,
+              borderRadius: "var(--radius-md)",
               border: "1px solid var(--color-neutral-200)",
               background: "var(--color-white)",
               outline: "none",
@@ -153,7 +146,7 @@ function AllAvatars() {
             }}
           />
         </div>
-        <div style={{ fontSize: 12, color: "var(--color-neutral-600)", marginTop: 8 }}>
+        <div style={{ fontSize: "var(--font-size-1)", color: "var(--color-neutral-600)", marginTop: "var(--space-2)" }}>
           {totalShown} asset{totalShown === 1 ? "" : "s"}
         </div>
       </div>
@@ -166,7 +159,7 @@ function AllAvatars() {
               gridTemplateColumns: category.includes("Footage")
                 ? "repeat(auto-fill, minmax(200px, 1fr))"
                 : "repeat(auto-fill, minmax(140px, 1fr))",
-              gap: 14,
+              gap: "var(--space-3-5)",
             }}
           >
             {items.map((item) => (
@@ -212,9 +205,9 @@ function AvatarTile({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: 8,
-        padding: 12,
-        borderRadius: 12,
+        gap: "var(--space-2)",
+        padding: "var(--space-3)",
+        borderRadius: "var(--radius-xl)",
         border: `1px solid ${copied ? "var(--color-success-300)" : "var(--color-neutral-200)"}`,
         background: copied ? "var(--color-success-50)" : "var(--color-white)",
         cursor: "pointer",
@@ -246,8 +239,8 @@ function AvatarTile({
       </div>
       <span
         style={{
-          fontSize: 11,
-          fontFamily: "var(--sb-font-mono)",
+          fontSize: "var(--font-size-0)",
+          fontFamily: "var(--font-family-body)",
           color: copied ? "var(--color-success-700)" : "var(--color-neutral-600)",
           maxWidth: "100%",
           overflow: "hidden",

@@ -1,5 +1,5 @@
 /* Link Dialog — pixel-perfect match to Figma node 4099:104917 */
-/* Container: 400px, radius_3 (12px), shadow-lg, border border-light (#f5f5f5) */
+/* Container: 400px, radius-xl (12px), shadow-lg, border border-light */
 
 .link-dialog__overlay {
   position: fixed;
@@ -12,24 +12,23 @@
   position: relative;
   z-index: 1001;
   width: 400px;
-  background: #ffffff;
-  border: 1px solid #f5f5f5;
-  border-radius: 12px;
-  box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.08),
-    0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+  background: var(--color-white);
+  border: 1px solid var(--color-neutral-100);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
   overflow: clip;
   display: flex;
   flex-direction: column;
 }
 
-/* ─── Header: border-bottom border-light, px-16 py-12, gap-12 ─── */
+/* ─── Header ─── */
 .link-dialog__header {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px 16px;
-  border-bottom: 1px solid #f5f5f5;
-  background: #ffffff;
+  padding: 16px;
+  border-bottom: 1px solid var(--color-neutral-100);
+  background: var(--color-white);
 }
 
 .link-dialog__header-text {
@@ -40,22 +39,20 @@
   justify-content: center;
 }
 
-/* Title: Heading 2/Bold — 20px, weight 700, line-height 1.2, #141414 */
 .link-dialog__title {
   margin: 0;
   padding: 0;
   border: none;
-  font-family: var(--font-family-heading, "Roboto", sans-serif);
-  font-size: 20px;
-  font-weight: 700;
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-5);
+  font-weight: var(--font-weight-bold);
   line-height: 1.2;
-  color: #141414;
+  color: var(--color-neutral-900);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-/* Close button: 24×24 icon container */
 .link-dialog__close-btn {
   width: 24px;
   height: 24px;
@@ -65,15 +62,15 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #141414;
+  color: var(--color-neutral-900);
   padding: 0;
   flex-shrink: 0;
-  border-radius: 4px;
+  border-radius: var(--radius-xs);
   transition: background 120ms ease;
 }
 
 .link-dialog__close-btn:hover {
-  background: #fafafa;
+  background: var(--color-neutral-50);
 }
 
 .link-dialog__close-btn:focus-visible {
@@ -81,7 +78,7 @@
   box-shadow: var(--focus-ring-xs);
 }
 
-/* ─── Body: pt-16 pb-20, gap-20 ─── */
+/* ─── Body ─── */
 .link-dialog__body {
   display: flex;
   flex-direction: column;
@@ -91,18 +88,15 @@
   padding-bottom: 20px;
 }
 
-/* ─── Form container: px-16 pb-20, gap-20 ─── */
 .link-dialog__form {
   display: flex;
   flex-direction: column;
   gap: 20px;
   width: 100%;
-  padding: 0 16px;
-  padding-bottom: 20px;
+  padding: 0 16px 20px;
   box-sizing: border-box;
 }
 
-/* ─── Field: gap-2 (outer), gap-4 (inner label+input) ─── */
 .link-dialog__field {
   display: flex;
   flex-direction: column;
@@ -110,61 +104,56 @@
   width: 100%;
 }
 
-/* Label: Heading 4/Medium — 16px, weight 500, line-height 1.2, #141414 */
 .link-dialog__label {
-  font-family: var(--font-family-body, "Roboto", sans-serif);
-  font-size: 16px;
-  font-weight: 500;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-medium);
   line-height: 1.2;
-  color: #141414;
+  color: var(--color-neutral-900);
 }
 
-/* Input: bg white, border #e8e8e8, radius 8px, padding 8px, Body/Regular 14px */
 .link-dialog__input {
   width: 100%;
   padding: 8px;
-  background: #ffffff;
-  border: 1px solid #e8e8e8;
-  border-radius: 8px;
-  font-family: var(--font-family-body, "Roboto", sans-serif);
-  font-size: 14px;
-  font-weight: 400;
+  background: var(--color-white);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-regular);
   line-height: 1.2;
-  color: #141414;
+  color: var(--color-neutral-900);
   outline: none;
   transition: border-color 120ms ease, box-shadow 120ms ease;
   box-sizing: border-box;
 }
 
 .link-dialog__input::placeholder {
-  color: #a1a1a1;
+  color: var(--color-neutral-400);
 }
 
 .link-dialog__input:focus {
-  border-color: #6852d6;
+  border-color: var(--color-ep-600);
   box-shadow: 0 0 0 2px rgba(104, 82, 214, 0.12);
 }
 
-/* ─── Buttons: border-top border-light, pt-12 px-16, gap-12, flex row ─── */
+/* ─── Buttons ─── */
 .link-dialog__buttons {
   display: flex;
   gap: 12px;
   width: 100%;
-  padding-top: 12px;
-  padding-left: 16px;
-  padding-right: 16px;
-  border-top: 1px solid #f5f5f5;
+  padding: 12px 16px 0;
+  border-top: 1px solid var(--color-neutral-100);
   box-sizing: border-box;
 }
 
-/* Shared button base: h-40, radius-8, Button/Medium 14px weight 500 */
 .link-dialog__btn {
   flex: 1;
   height: 40px;
-  border-radius: 8px;
-  font-family: var(--font-family-body, "Roboto", sans-serif);
-  font-size: 14px;
-  font-weight: 500;
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-medium);
   line-height: 1.2;
   cursor: pointer;
   transition: background 120ms ease, border-color 120ms ease;
@@ -181,32 +170,30 @@
   box-shadow: var(--focus-ring-xs);
 }
 
-/* Cancel: border border-dark (#dcdcdc), text #141414, bg white */
 .link-dialog__btn--cancel {
-  background: #ffffff;
-  color: #141414;
-  border: 1px solid #dcdcdc;
+  background: var(--color-white);
+  color: var(--color-neutral-900);
+  border: 1px solid var(--color-neutral-300);
 }
 
 .link-dialog__btn--cancel:hover {
-  background: #fafafa;
+  background: var(--color-neutral-50);
 }
 
 .link-dialog__btn--cancel:active {
-  background: #f5f5f5;
+  background: var(--color-neutral-100);
 }
 
-/* Save: bg primary (#6852d6), text white, no border */
 .link-dialog__btn--save {
-  background: #6852d6;
-  color: #ffffff;
+  background: var(--color-ep-600);
+  color: var(--color-white);
   border: none;
 }
 
 .link-dialog__btn--save:hover {
-  background: #5a45c0;
+  background: var(--color-ep-700);
 }
 
 .link-dialog__btn--save:active {
-  background: #4d39a8;
+  background: var(--color-ep-800);
 }

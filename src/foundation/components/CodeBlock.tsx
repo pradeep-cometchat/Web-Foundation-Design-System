@@ -20,7 +20,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
     <div
       style={{
         position: "relative",
-        borderRadius: 10,
+        borderRadius: "var(--radius-lg)",
         border: "1px solid var(--color-neutral-200)",
         background: "var(--color-neutral-25)",
         overflow: "hidden",
@@ -38,8 +38,8 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
       >
         <span
           style={{
-            fontSize: 11,
-            fontWeight: 600,
+            fontSize: "var(--font-size-0)",
+            fontWeight: "var(--font-weight-semibold)",
             letterSpacing: "0.06em",
             textTransform: "uppercase",
             color: "var(--color-neutral-600)",
@@ -55,8 +55,8 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
           padding: 14,
           overflowX: "auto",
           fontFamily:
-            "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
-          fontSize: 12.5,
+            "var(--font-family-body)",
+          fontSize: "var(--font-size-1)",
           lineHeight: 1.6,
           color: "var(--color-neutral-800)",
         }}

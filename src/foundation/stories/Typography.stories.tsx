@@ -71,11 +71,11 @@ function TypePlayground({ style, weight, sample }: PlaygroundProps) {
   const cssSnippet = `font-size: var(--font-size-${token.sizeKey});\nline-height: var(${lineHeightCssName[token.lineHeightKey]});\nfont-weight: var(--font-weight-${weight});`;
 
   return (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <div
         style={{
           border: "1px solid var(--color-neutral-200)",
-          borderRadius: 16,
+          borderRadius: "var(--radius-2xl)",
           overflow: "hidden",
           background: "var(--color-white)",
           boxShadow: "var(--shadow-sm)",
@@ -158,21 +158,21 @@ const Stat: React.FC<{
   >
     <div
       style={{
-        fontSize: 11,
-        fontWeight: 600,
+        fontSize: "var(--font-size-0)",
+        fontWeight: "var(--font-weight-semibold)",
         letterSpacing: "0.06em",
         textTransform: "uppercase",
         color: "var(--color-neutral-500)",
-        marginBottom: 4,
+        marginBottom: "var(--space-1)",
       }}
     >
       {label}
     </div>
     <div
       style={{
-        fontFamily: mono ? "var(--sb-font-mono)" : "inherit",
-        fontSize: 15,
-        fontWeight: 600,
+        fontFamily: mono ? "var(--font-family-body)" : "inherit",
+        fontSize: "var(--font-size-2)",
+        fontWeight: "var(--font-weight-semibold)",
         color: "var(--color-neutral-900)",
       }}
     >
@@ -194,7 +194,7 @@ export const Playground: StoryObj<typeof TypePlayground> = {
 export const Scale: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Font size scale"
         description="Every font-size token, smallest to largest. Each row shows a live Aa preview alongside the CSS variable."
@@ -213,7 +213,7 @@ export const Scale: StoryObj = {
               style={{
                 fontSize: value,
                 fontFamily: "var(--font-family-heading)",
-                fontWeight: 600,
+                fontWeight: "var(--font-weight-semibold)",
                 color: "var(--color-neutral-900)",
                 lineHeight: 1,
               }}
@@ -233,7 +233,7 @@ export const Scale: StoryObj = {
 export const LineHeights: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Line heights"
         description="Absolute line heights per text tier. Pair each font-size step with its matching line-height for correct rhythm."
@@ -251,7 +251,7 @@ export const LineHeights: StoryObj = {
                 display: "inline-block",
                 width: value,
                 height: 8,
-                borderRadius: 2,
+                borderRadius: "var(--radius-xxs)",
                 background: "var(--color-ep-500)",
               }}
             />
@@ -268,7 +268,7 @@ export const LineHeights: StoryObj = {
 export const Styles: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Text styles"
         description="Every semantic style paired with every supported weight. Copy a ready-to-paste CSS snippet from any row."
@@ -304,10 +304,10 @@ export const Styles: StoryObj = {
                   display: "grid",
                   gridTemplateColumns: "1fr auto auto",
                   alignItems: "center",
-                  gap: 16,
+                  gap: "var(--space-4)",
                   padding: "14px 18px",
                   border: "1px solid var(--color-neutral-200)",
-                  borderRadius: 10,
+                  borderRadius: "var(--radius-lg)",
                   background: "var(--color-white)",
                 }}
               >
@@ -326,8 +326,8 @@ export const Styles: StoryObj = {
                 </span>
                 <span
                   style={{
-                    fontFamily: "var(--sb-font-mono)",
-                    fontSize: 12,
+                    fontFamily: "var(--font-family-body)",
+                    fontSize: "var(--font-size-1)",
                     color: "var(--color-neutral-600)",
                     whiteSpace: "nowrap",
                   }}
@@ -352,7 +352,7 @@ export const Styles: StoryObj = {
 export const Weights: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Font weights"
         description="Four weights map to CSS numeric values. Apply via var(--font-weight-<key>)."
@@ -368,7 +368,7 @@ export const Weights: StoryObj = {
               style={{
                 fontFamily: "var(--font-family-heading)",
                 fontWeight: value,
-                fontSize: 18,
+                fontSize: "var(--font-size-4)",
                 color: "var(--color-neutral-900)",
               }}
             >

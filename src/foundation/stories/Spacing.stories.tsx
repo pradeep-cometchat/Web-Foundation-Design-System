@@ -42,11 +42,11 @@ function SpacingPlayground({ token, axis }: PlaygroundProps) {
   const cssVar = `var(--space-${String(token).replace(".", "-")})`;
 
   return (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <div
         style={{
           border: "1px solid var(--color-neutral-200)",
-          borderRadius: 16,
+          borderRadius: "var(--radius-2xl)",
           overflow: "hidden",
           background: "var(--color-white)",
           boxShadow: "var(--shadow-sm)",
@@ -58,7 +58,7 @@ function SpacingPlayground({ token, axis }: PlaygroundProps) {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            padding: 40,
+            padding: "var(--space-10)",
             background:
               "repeating-linear-gradient(45deg, var(--color-neutral-25) 0 8px, var(--color-neutral-50) 8px 16px)",
             minHeight: axis === "vertical" ? 240 : 120,
@@ -69,7 +69,7 @@ function SpacingPlayground({ token, axis }: PlaygroundProps) {
               background: "var(--color-ep-500)",
               width: axis === "horizontal" ? size : 6,
               height: axis === "vertical" ? size : 18,
-              borderRadius: 3,
+              borderRadius: "var(--radius-xxs)",
               boxShadow: "var(--shadow-sm)",
             }}
           />
@@ -107,21 +107,21 @@ const Stat: React.FC<{
   >
     <div
       style={{
-        fontSize: 11,
-        fontWeight: 600,
+        fontSize: "var(--font-size-0)",
+        fontWeight: "var(--font-weight-semibold)",
         letterSpacing: "0.06em",
         textTransform: "uppercase",
         color: "var(--color-neutral-500)",
-        marginBottom: 4,
+        marginBottom: "var(--space-1)",
       }}
     >
       {label}
     </div>
     <div
       style={{
-        fontFamily: mono ? "var(--sb-font-mono)" : "inherit",
-        fontSize: 14,
-        fontWeight: 600,
+        fontFamily: mono ? "var(--font-family-body)" : "inherit",
+        fontSize: "var(--font-size-2)",
+        fontWeight: "var(--font-weight-semibold)",
         color: "var(--color-neutral-900)",
         wordBreak: "break-all",
       }}
@@ -140,7 +140,7 @@ export const Playground: StoryObj<typeof SpacingPlayground> = {
 export const Scale: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Spacing scale"
         description="A 4px scale with half-steps at the small end. Bars are truncated at 200px for layout purposes."
@@ -168,7 +168,7 @@ export const Scale: StoryObj = {
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: 8,
+                gap: "var(--space-2)",
                 minWidth: 220,
               }}
             >
@@ -177,7 +177,7 @@ export const Scale: StoryObj = {
                   background: "var(--color-ep-500)",
                   width: Math.min(value, 200),
                   height: 10,
-                  borderRadius: 2,
+                  borderRadius: "var(--radius-xxs)",
                 }}
               />
             </div>
@@ -194,7 +194,7 @@ export const Scale: StoryObj = {
 export const LayoutExample: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Layout example"
         description="A card using spacing tokens directly. Every inset, gap, and margin is a variable — nothing is magic."
@@ -205,7 +205,7 @@ export const LayoutExample: StoryObj = {
             padding: "var(--space-6)",
             background: "var(--color-white)",
             border: "1px solid var(--color-neutral-200)",
-            borderRadius: 12,
+            borderRadius: "var(--radius-xl)",
             boxShadow: "var(--shadow-sm)",
             display: "flex",
             flexDirection: "column",
@@ -226,13 +226,13 @@ export const LayoutExample: StoryObj = {
                   width: spacing[key],
                   height: 16,
                   background: "var(--color-ep-500)",
-                  borderRadius: 2,
+                  borderRadius: "var(--radius-xxs)",
                 }}
               />
               <code
                 style={{
-                  fontFamily: "var(--sb-font-mono)",
-                  fontSize: 12,
+                  fontFamily: "var(--font-family-body)",
+                  fontSize: "var(--font-size-1)",
                   color: "var(--color-neutral-700)",
                 }}
               >

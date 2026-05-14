@@ -35,7 +35,7 @@ export const FoundationCard: React.FC<FoundationCardProps> = ({
       }}
       style={{
         padding: 18,
-        borderRadius: 14,
+        borderRadius: "var(--radius-xl)",
         border: "1px solid var(--color-neutral-200)",
         background: "var(--color-white)",
         boxShadow: "var(--shadow-xs)",

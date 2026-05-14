@@ -62,7 +62,7 @@
 }
 
 .date-timestamp__receipt--read {
-  color: var(--color-info);
+  color: var(--color-message-seen);
 }
 
 /* ─── Text ─── */

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import type { AvatarProps, AvatarGroupProps, AvatarLabelGroupProps, AvatarSize } from "./AvatarGroup.types";
 import { avatarRegistry } from "../../../foundation/tokens/avatars";
 import "./AvatarGroup.css";
@@ -15,16 +15,20 @@ export const Avatar: React.FC<AvatarProps> = ({
   statusIcon = "none",
   online = true,
   className,
+  name,
 }) => {
+  const [imgError, setImgError] = useState(false);
   const classes = ["avatar", `avatar--${size}`, className].filter(Boolean).join(" ");
+
+  const showImage = src && !imgError;
 
   return (
     <div className={classes}>
-      {src ? (
+      {showImage ? (
         <div className="avatar__img-wrap">
-          <img src={src} alt={alt} className="avatar__img" />
+          <img src={src} alt={alt} className="avatar__img" onError={() => setImgError(true)} />
         </div>
-      ) : (showIcon || !fallback) ? (
+      ) : showIcon ? (
         <div className="avatar__fallback-wrap">
           <span className="avatar__icon">
             <svg width="50%" height="50%" viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -32,10 +36,12 @@ export const Avatar: React.FC<AvatarProps> = ({
             </svg>
           </span>
         </div>
-      ) : (
+      ) : (fallback || name) ? (
         <div className="avatar__fallback-wrap">
-          <span className="avatar__fallback">{fallback}</span>
+          <span className="avatar__fallback">{fallback || getInitials(name)}</span>
         </div>
+      ) : (
+        <div className="avatar__fallback-wrap" />
       )}
       {(statusIcon === "online" || statusIcon === "offline") && (
         <span className={`avatar__status avatar__status--${online ? "online" : "offline"}`} />
@@ -176,3 +182,14 @@ const CompanyBadge: React.FC<{ size: AvatarSize }> = ({ size }) => {
     </div>
   );
 };
+
+
+/** Extract initials from a name string. */
+function getInitials(name?: string): string {
+  if (!name) return "";
+  const parts = name.trim().split(/\s+/);
+  if (parts.length >= 2) {
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  }
+  return name.slice(0, 2).toUpperCase();
+}

@@ -36,11 +36,11 @@ interface PlaygroundProps {
 function ShadowPlayground({ level }: PlaygroundProps) {
   const token = shadows[level];
   return (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <div
         style={{
           border: "1px solid var(--color-neutral-200)",
-          borderRadius: 16,
+          borderRadius: "var(--radius-2xl)",
           overflow: "hidden",
           background: "var(--color-white)",
           boxShadow: "var(--shadow-sm)",
@@ -48,7 +48,7 @@ function ShadowPlayground({ level }: PlaygroundProps) {
       >
         <div
           style={{
-            padding: 56,
+            padding: "var(--space-12)",
             background: "var(--color-neutral-25)",
             display: "flex",
             justifyContent: "center",
@@ -59,7 +59,7 @@ function ShadowPlayground({ level }: PlaygroundProps) {
             style={{
               width: 280,
               height: 140,
-              borderRadius: 14,
+              borderRadius: "var(--radius-xl)",
               background: "var(--color-white)",
               boxShadow: `var(--shadow-${level})`,
             }}
@@ -111,21 +111,21 @@ const Stat: React.FC<{
   >
     <div
       style={{
-        fontSize: 11,
-        fontWeight: 600,
+        fontSize: "var(--font-size-0)",
+        fontWeight: "var(--font-weight-semibold)",
         letterSpacing: "0.06em",
         textTransform: "uppercase",
         color: "var(--color-neutral-500)",
-        marginBottom: 4,
+        marginBottom: "var(--space-1)",
       }}
     >
       {label}
     </div>
     <div
       style={{
-        fontFamily: mono ? "var(--sb-font-mono)" : "inherit",
-        fontSize: 14,
-        fontWeight: 600,
+        fontFamily: mono ? "var(--font-family-body)" : "inherit",
+        fontSize: "var(--font-size-2)",
+        fontWeight: "var(--font-weight-semibold)",
         color: "var(--color-neutral-900)",
       }}
     >
@@ -143,7 +143,7 @@ export const Playground: StoryObj<typeof ShadowPlayground> = {
 export const Scale: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Elevation scale"
         description="Pick the smallest shadow that communicates the right intent. Over-elevating makes the UI feel noisy."
@@ -154,11 +154,11 @@ export const Scale: StoryObj = {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-          gap: 20,
-          padding: 32,
+          gap: "var(--space-5)",
+          padding: "var(--space-8)",
           background: "var(--color-neutral-25)",
           border: "1px solid var(--color-neutral-200)",
-          borderRadius: 16,
+          borderRadius: "var(--radius-2xl)",
         }}
       >
         {(Object.keys(shadows) as ShadowKey[]).map((key) => (
@@ -167,7 +167,7 @@ export const Scale: StoryObj = {
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: 12,
+              gap: "var(--space-3)",
               alignItems: "center",
             }}
           >
@@ -176,15 +176,15 @@ export const Scale: StoryObj = {
               style={{
                 width: "100%",
                 height: 100,
-                borderRadius: 12,
+                borderRadius: "var(--radius-xl)",
                 background: "var(--color-white)",
                 boxShadow: `var(--shadow-${key})`,
               }}
             />
             <strong
               style={{
-                fontSize: 13,
-                fontWeight: 600,
+                fontSize: "var(--font-size-1)",
+                fontWeight: "var(--font-weight-semibold)",
                 color: "var(--color-neutral-900)",
               }}
             >
@@ -206,7 +206,7 @@ export const Scale: StoryObj = {
 export const Reference: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Shadow reference"
         description="Every elevation token with its layer count and full CSS value."
@@ -225,7 +225,7 @@ export const Reference: StoryObj = {
                 style={{
                   width: 64,
                   height: 32,
-                  borderRadius: 6,
+                  borderRadius: "var(--radius-sm)",
                   background: "var(--color-white)",
                   boxShadow: `var(--shadow-${key})`,
                 }}
@@ -244,7 +244,7 @@ export const Reference: StoryObj = {
 export const UsageGuide: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Usage guide"
         description="Guidelines for when to reach for each elevation. If in doubt, use the smaller one."
@@ -269,7 +269,7 @@ export const UsageGuide: StoryObj = {
                   style={{
                     width: 56,
                     height: 28,
-                    borderRadius: 6,
+                    borderRadius: "var(--radius-sm)",
                     background: "var(--color-white)",
                     boxShadow: "var(--shadow-xs)",
                   }}
@@ -286,7 +286,7 @@ export const UsageGuide: StoryObj = {
                   style={{
                     width: 56,
                     height: 28,
-                    borderRadius: 6,
+                    borderRadius: "var(--radius-sm)",
                     background: "var(--color-white)",
                     boxShadow: "var(--shadow-sm)",
                   }}
@@ -303,7 +303,7 @@ export const UsageGuide: StoryObj = {
                   style={{
                     width: 56,
                     height: 28,
-                    borderRadius: 6,
+                    borderRadius: "var(--radius-sm)",
                     background: "var(--color-white)",
                     boxShadow: "var(--shadow-md)",
                   }}
@@ -320,7 +320,7 @@ export const UsageGuide: StoryObj = {
                   style={{
                     width: 56,
                     height: 28,
-                    borderRadius: 6,
+                    borderRadius: "var(--radius-sm)",
                     background: "var(--color-white)",
                     boxShadow: "var(--shadow-lg)",
                   }}
@@ -337,7 +337,7 @@ export const UsageGuide: StoryObj = {
                   style={{
                     width: 56,
                     height: 28,
-                    borderRadius: 6,
+                    borderRadius: "var(--radius-sm)",
                     background: "var(--color-white)",
                     boxShadow: "var(--shadow-xl)",
                   }}

@@ -50,11 +50,11 @@ export const Callout: React.FC<CalloutProps> = ({
         display: "flex",
         gap: 12,
         padding: "14px 16px",
-        borderRadius: 10,
+        borderRadius: "var(--radius-lg)",
         background: p.bg,
         border: `1px solid ${p.border}`,
         color: "var(--color-neutral-800)",
-        fontSize: 13,
+        fontSize: "var(--font-size-1)",
         lineHeight: 1.6,
       }}
     >
@@ -67,8 +67,8 @@ export const Callout: React.FC<CalloutProps> = ({
           display: "inline-flex",
           alignItems: "center",
           justifyContent: "center",
-          fontSize: 13,
-          fontWeight: 700,
+          fontSize: "var(--font-size-1)",
+          fontWeight: "var(--font-weight-bold)",
           color: p.accent,
         }}
       >
@@ -76,7 +76,7 @@ export const Callout: React.FC<CalloutProps> = ({
       </span>
       <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
         {title && (
-          <strong style={{ color: p.accent, fontSize: 13 }}>{title}</strong>
+          <strong style={{ color: p.accent, fontSize: "var(--font-size-1)" }}>{title}</strong>
         )}
         <div>{children}</div>
       </div>

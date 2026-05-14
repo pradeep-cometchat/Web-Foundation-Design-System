@@ -42,23 +42,23 @@ type Story = StoryObj;
 export const ArrowPositions: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)" }}>
       <Section title="Arrow at bottom (tooltip appears above trigger)">
-        <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "var(--space-6)", flexWrap: "wrap" }}>
           <StaticTooltip title="This is a tooltip" arrow="bottom-left" label="Bottom left" />
           <StaticTooltip title="This is a tooltip" arrow="bottom-center" label="Bottom center" />
           <StaticTooltip title="This is a tooltip" arrow="bottom-right" label="Bottom right" />
         </div>
       </Section>
       <Section title="Arrow at top (tooltip appears below trigger)">
-        <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "var(--space-6)", flexWrap: "wrap" }}>
           <StaticTooltip title="This is a tooltip" arrow="top-left" label="Top left" arrowOnTop />
           <StaticTooltip title="This is a tooltip" arrow="top-center" label="Top center" arrowOnTop />
           <StaticTooltip title="This is a tooltip" arrow="top-right" label="Top right" arrowOnTop />
         </div>
       </Section>
       <Section title="Arrow on sides">
-        <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "var(--space-6)", flexWrap: "wrap" }}>
           <StaticTooltip title="This is a tooltip" arrow="right" label="Arrow right" side="right" />
           <StaticTooltip title="This is a tooltip" arrow="left" label="Arrow left" side="left" />
           <StaticTooltip title="This is a tooltip" arrow="none" label="No arrow" />
@@ -72,7 +72,7 @@ export const ArrowPositions: Story = {
 export const WithSupportingText: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)" }}>
       <Section title="Bottom arrow (tooltip above)">
         <StaticTooltip
           title="This is a tooltip"
@@ -91,7 +91,7 @@ export const WithSupportingText: Story = {
         />
       </Section>
       <Section title="Side arrows">
-        <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "var(--space-6)", flexWrap: "wrap" }}>
           <StaticTooltip
             title="This is a tooltip"
             supportingText="Tooltips are used to describe or identify an element."
@@ -116,7 +116,7 @@ export const WithSupportingText: Story = {
 export const Interactive: Story = {
   parameters: { controls: { disable: true }, layout: "centered" },
   render: () => (
-    <div style={{ display: "flex", gap: 32, padding: 100 }}>
+    <div style={{ display: "flex", gap: "var(--space-8)", padding: "var(--space-24)" }}>
       <Tooltip title="Add to favorites" arrow="bottom-center">
         <TriggerBtn label="Favorite" icon="favorite" />
       </Tooltip>
@@ -135,7 +135,7 @@ export const Playground: Story = {
   args: { title: "This is a tooltip", supportingText: "", arrow: "bottom-center", open: true },
   parameters: { docs: { disable: true }, layout: "centered" },
   render: (args: any) => (
-    <div style={{ padding: 120 }}>
+    <div style={{ padding: "var(--space-24)" }}>
       <Tooltip {...args}>
         <TriggerBtn />
       </Tooltip>
@@ -151,16 +151,16 @@ function TriggerBtn({ label = "Hover me", icon }: { label?: string; icon?: strin
       type="button"
       style={{
         padding: "8px 16px",
-        borderRadius: 8,
+        borderRadius: "var(--radius-md)",
         border: "1px solid var(--color-neutral-lm-300)",
         background: "var(--color-white)",
         fontFamily: "inherit",
-        fontSize: 14,
-        fontWeight: 500,
+        fontSize: "var(--font-size-2)",
+        fontWeight: "var(--font-weight-medium)",
         cursor: "pointer",
         display: "inline-flex",
         alignItems: "center",
-        gap: 6,
+        gap: "var(--space-1-5)",
       }}
     >
       {icon && (
@@ -169,7 +169,7 @@ function TriggerBtn({ label = "Hover me", icon }: { label?: string; icon?: strin
           data-icon="outlined"
           style={{
             fontFamily: "Material Symbols Outlined",
-            fontSize: 18,
+            fontSize: "var(--font-size-4)",
             fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20",
           }}
         >
@@ -257,7 +257,7 @@ function StaticTooltip({
     <div
       style={{
         background: "var(--color-neutral-lm-950)",
-        borderRadius: 8,
+        borderRadius: "var(--radius-md)",
         padding: supportingText ? 12 : "8px 12px",
         width: supportingText ? 320 : "max-content",
         maxWidth: 320,
@@ -266,8 +266,8 @@ function StaticTooltip({
       <div
         style={{
           fontFamily: "var(--font-family-heading)",
-          fontSize: 12,
-          fontWeight: 600,
+          fontSize: "var(--font-size-1)",
+          fontWeight: "var(--font-weight-semibold)",
           color: "var(--color-white)",
           lineHeight: "18px",
         }}
@@ -278,11 +278,11 @@ function StaticTooltip({
         <div
           style={{
             fontFamily: "var(--font-family-heading)",
-            fontSize: 12,
-            fontWeight: 400,
+            fontSize: "var(--font-size-1)",
+            fontWeight: "var(--font-weight-regular)",
             color: "var(--color-white)",
             lineHeight: "18px",
-            marginTop: 4,
+            marginTop: "var(--space-1)",
             opacity: 0.9,
           }}
         >
@@ -298,17 +298,17 @@ function StaticTooltip({
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
-        gap: 4,
+        gap: "var(--space-1)",
       }}
     >
       <span
         style={{
-          fontSize: 11,
-          fontWeight: 600,
+          fontSize: "var(--font-size-0)",
+          fontWeight: "var(--font-weight-semibold)",
           color: "var(--color-neutral-600)",
           textTransform: "uppercase",
           letterSpacing: "0.06em",
-          marginBottom: 4,
+          marginBottom: "var(--space-1)",
         }}
       >
         {label}
@@ -343,12 +343,12 @@ function Section({ title, children }: { title: string; children: React.ReactNode
     <div>
       <div
         style={{
-          fontSize: 12,
-          fontWeight: 600,
+          fontSize: "var(--font-size-1)",
+          fontWeight: "var(--font-weight-semibold)",
           color: "var(--color-neutral-600)",
           textTransform: "uppercase",
           letterSpacing: "0.06em",
-          marginBottom: 12,
+          marginBottom: "var(--space-3)",
         }}
       >
         {title}

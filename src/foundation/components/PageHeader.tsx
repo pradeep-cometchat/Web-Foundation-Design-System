@@ -25,7 +25,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
         gap: 16,
         padding: "32px 32px 28px",
         margin: "0 0 32px",
-        borderRadius: 16,
+        borderRadius: "var(--radius-2xl)",
         background:
           "linear-gradient(135deg, var(--color-ep-50) 0%, var(--color-white) 100%)",
         border: "1px solid var(--color-ep-100)",
@@ -33,8 +33,8 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
     >
       <span
         style={{
-          fontSize: 11,
-          fontWeight: 600,
+          fontSize: "var(--font-size-0)",
+          fontWeight: "var(--font-weight-semibold)",
           letterSpacing: "0.08em",
           textTransform: "uppercase",
           color: "var(--color-ep-700)",
@@ -45,9 +45,9 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
       <h1
         style={{
           margin: 0,
-          fontSize: 36,
+          fontSize: "var(--font-size-7)",
           lineHeight: 1.1,
-          fontWeight: 700,
+          fontWeight: "var(--font-weight-bold)",
           letterSpacing: "-0.02em",
           color: "var(--color-neutral-900)",
         }}
@@ -58,7 +58,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
         <p
           style={{
             margin: 0,
-            fontSize: 16,
+            fontSize: "var(--font-size-3)",
             lineHeight: 1.55,
             color: "var(--color-neutral-600)",
             maxWidth: 720,
@@ -77,10 +77,10 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
                 alignItems: "center",
                 gap: 8,
                 padding: "6px 12px",
-                borderRadius: 999,
+                borderRadius: "var(--radius-full)",
                 background: "var(--color-white)",
                 border: "1px solid var(--color-ep-100)",
-                fontSize: 12,
+                fontSize: "var(--font-size-1)",
                 color: "var(--color-neutral-700)",
               }}
             >

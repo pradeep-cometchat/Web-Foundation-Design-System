@@ -77,7 +77,7 @@ export const LongMessage: Story = {
 export const States: StoryObj = {
   parameters: { layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", gap: 16, flexWrap: "wrap", justifyContent: "center", alignItems: "center", padding: 40 }}>
+    <div style={{ display: "flex", gap: "var(--space-4)", flexWrap: "wrap", justifyContent: "center", alignItems: "center", padding: "var(--space-10)" }}>
       <Toast message="Message Copied" open={true} duration={0} />
       <Toast message="Message Sent" open={true} duration={0} />
       <Toast message="Message Deleted" open={true} duration={0} />

@@ -1,0 +1,264 @@
+/* ══════════════════════════════════════════════
+   Voice Note Popup
+   ══════════════════════════════════════════════ */
+
+.ml-composer__popup {
+  background: var(--color-white);
+  border: 1px solid var(--color-neutral-100);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
+  flex: 1;
+  justify-content: space-between;
+}
+
+/* Title */
+.ml-composer__popup-title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-h4);
+  color: var(--color-neutral-900);
+  text-align: center;
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────────
+   Three-ring wave icon
+   Outer → ep-50  (very pale, only when active)
+   Inner → ep-100 (light, only when active)
+   Center → ep-200 (idle) / ep-600 (recording/paused)
+   ───────────────────────────────────────────── */
+
+.ml-composer__wave {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+}
+
+.ml-composer__wave-outer {
+  width: 110px;
+  height: 110px;
+  border-radius: var(--radius-full);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 300ms ease;
+}
+
+.ml-composer__wave-outer--visible {
+  background: var(--color-ep-50);
+}
+
+@keyframes ml-wave-pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.05); }
+}
+
+.ml-composer__wave-outer--pulse {
+  animation: ml-wave-pulse 1.8s ease-in-out infinite;
+}
+
+.ml-composer__wave-inner {
+  width: 96px;
+  height: 96px;
+  border-radius: var(--radius-full);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 300ms ease;
+}
+
+.ml-composer__wave-inner--visible {
+  background: var(--color-ep-100);
+}
+
+.ml-composer__wave-center {
+  width: 92px;
+  height: 92px;
+  border-radius: var(--radius-full);
+  background: var(--color-ep-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 300ms ease;
+}
+
+.ml-composer__wave-center--active {
+  background: var(--color-ep-600);
+}
+
+.ml-composer__wave-mic {
+  width: 36px;
+  height: 36px;
+  color: var(--color-white);
+}
+
+/* ─────────────────────────────────────────────
+   Duration
+   ───────────────────────────────────────────── */
+
+.ml-composer__duration {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-h4);
+  color: var(--color-neutral-900);
+  letter-spacing: 0.02em;
+}
+
+.ml-composer__duration--muted {
+  color: var(--color-neutral-400);
+}
+
+/* ─────────────────────────────────────────────
+   Preview / playback
+   ───────────────────────────────────────────── */
+
+.ml-composer__preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 8px 0;
+}
+
+.ml-composer__play-btn {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-ep-600);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-white);
+  transition: background 120ms ease;
+}
+
+.ml-composer__play-btn:hover {
+  background: var(--color-ep-700);
+}
+
+.ml-composer__play-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.ml-composer__waveform {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ml-composer__waveform-bars {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.ml-composer__waveform-bar {
+  width: 2px;
+  border-radius: 1px;
+  background: var(--color-neutral-400);
+  flex-shrink: 0;
+}
+
+.ml-composer__preview-duration {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-neutral-600);
+  text-align: left;
+}
+
+/* ─────────────────────────────────────────────
+   Action buttons
+   delete (outline) | record/pause (destructive) | stop (outline)
+   ───────────────────────────────────────────── */
+
+.ml-composer__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ml-composer__action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: background 120ms ease, opacity 120ms ease;
+  padding: 0;
+}
+
+.ml-composer__action-btn--outline {
+  width: 44px;
+  height: 44px;
+  background: var(--color-white);
+  border: 1px solid var(--color-neutral-200);
+  color: var(--color-neutral-500);
+}
+
+.ml-composer__action-btn--outline svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ml-composer__action-btn--outline:hover {
+  background: var(--color-neutral-50);
+  color: var(--color-neutral-700);
+}
+
+/* Send button — purple circle (shown in preview state) */
+.ml-composer__action-btn--send {
+  width: 48px;
+  height: 48px;
+  background: var(--color-ep-600);
+  border: none;
+  border-radius: var(--radius-full);
+  color: var(--color-white);
+}
+
+.ml-composer__action-btn--send svg {
+  width: 24px;
+  height: 24px;
+}
+
+.ml-composer__action-btn--send:hover {
+  background: var(--color-ep-700);
+}
+
+.ml-composer__action-btn--destructive {
+  width: 52px;
+  height: 52px;
+  background: var(--color-error);
+  color: var(--color-white);
+  border-radius: var(--radius-xl);
+}
+
+.ml-composer__action-btn--destructive svg {
+  width: 24px;
+  height: 24px;
+}
+
+.ml-composer__action-btn--destructive:hover {
+  opacity: 0.88;
+}

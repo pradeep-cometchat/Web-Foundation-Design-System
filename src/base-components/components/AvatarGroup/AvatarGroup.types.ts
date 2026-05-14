@@ -16,6 +16,8 @@ export interface AvatarProps {
   size?: AvatarSize;
   /** Fallback text (initials) when no image. */
   fallback?: string;
+  /** User name — used to generate initials when fallback is not provided. */
+  name?: string;
   /** Show icon placeholder instead of image. */
   showIcon?: boolean;
   /** Status icon overlay. */

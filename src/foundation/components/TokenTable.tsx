@@ -57,8 +57,8 @@ export const TokenTable: React.FC<TokenTableProps> = ({
             <h3
               style={{
                 margin: 0,
-                fontSize: 14,
-                fontWeight: 600,
+                fontSize: "var(--font-size-2)",
+                fontWeight: "var(--font-weight-semibold)",
                 color: "var(--color-neutral-900)",
               }}
             >
@@ -75,7 +75,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                   top: "50%",
                   transform: "translateY(-50%)",
                   color: "var(--color-neutral-400)",
-                  fontSize: 14,
+                  fontSize: "var(--font-size-2)",
                   lineHeight: 1,
                 }}
               >
@@ -88,9 +88,9 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                 placeholder="Search tokens"
                 style={{
                   width: "100%",
-                  fontSize: 13,
+                  fontSize: "var(--font-size-1)",
                   padding: "8px 12px 8px 32px",
-                  borderRadius: 8,
+                  borderRadius: "var(--radius-md)",
                   border: "1px solid var(--color-neutral-200)",
                   background: "var(--color-white)",
                   outline: "none",
@@ -114,7 +114,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
         style={{
           overflow: "auto",
           border: "1px solid var(--color-neutral-200)",
-          borderRadius: 12,
+          borderRadius: "var(--radius-xl)",
           background: "var(--color-white)",
           boxShadow: "var(--shadow-xs)",
         }}
@@ -124,7 +124,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
             width: "100%",
             borderCollapse: "separate",
             borderSpacing: 0,
-            fontSize: 13,
+            fontSize: "var(--font-size-1)",
             color: "var(--color-neutral-900)",
           }}
         >
@@ -159,7 +159,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                   {row.description && (
                     <div
                       style={{
-                        fontSize: 11,
+                        fontSize: "var(--font-size-0)",
                         color: "var(--color-neutral-600)",
                         marginTop: 3,
                       }}
@@ -203,8 +203,8 @@ export const TokenTable: React.FC<TokenTableProps> = ({
 
 const th: React.CSSProperties = {
   padding: "11px 16px",
-  fontWeight: 600,
-  fontSize: 11,
+  fontWeight: "var(--font-weight-semibold)",
+  fontSize: "var(--font-size-0)",
   letterSpacing: "0.06em",
   textTransform: "uppercase",
   color: "var(--color-neutral-600)",
@@ -219,11 +219,11 @@ const td: React.CSSProperties = {
 };
 
 const codeStyle: React.CSSProperties = {
-  fontFamily: "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
-  fontSize: 12,
+  fontFamily: "var(--font-family-body)",
+  fontSize: "var(--font-size-1)",
   color: "var(--color-neutral-800)",
   background: "var(--color-neutral-50)",
   padding: "2px 6px",
-  borderRadius: 4,
+  borderRadius: "var(--radius-xs)",
   border: "1px solid var(--color-neutral-200)",
 };

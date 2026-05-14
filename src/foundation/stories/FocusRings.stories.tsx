@@ -46,11 +46,11 @@ function FocusPlayground({ variant, label }: PlaygroundProps) {
     variant === "error" ? "focus-ring-error-xs" : "focus-ring-xs";
 
   return (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <div
         style={{
           border: "1px solid var(--color-neutral-200)",
-          borderRadius: 16,
+          borderRadius: "var(--radius-2xl)",
           overflow: "hidden",
           background: "var(--color-white)",
           boxShadow: "var(--shadow-sm)",
@@ -58,7 +58,7 @@ function FocusPlayground({ variant, label }: PlaygroundProps) {
       >
         <div
           style={{
-            padding: 56,
+            padding: "var(--space-12)",
             background: "var(--color-neutral-25)",
             display: "flex",
             justifyContent: "center",
@@ -68,15 +68,15 @@ function FocusPlayground({ variant, label }: PlaygroundProps) {
             type="button"
             style={{
               padding: "10px 18px",
-              borderRadius: 8,
+              borderRadius: "var(--radius-md)",
               border: "1px solid transparent",
               background:
                 variant === "error"
                   ? "var(--color-error-500)"
                   : "var(--color-ep-500)",
               color: "var(--color-white)",
-              fontWeight: 600,
-              fontSize: 14,
+              fontWeight: "var(--font-weight-semibold)",
+              fontSize: "var(--font-size-2)",
               cursor: "pointer",
               boxShadow: `var(--${cssVarName})`,
               fontFamily: "inherit",
@@ -128,21 +128,21 @@ const Stat: React.FC<{
   >
     <div
       style={{
-        fontSize: 11,
-        fontWeight: 600,
+        fontSize: "var(--font-size-0)",
+        fontWeight: "var(--font-weight-semibold)",
         letterSpacing: "0.06em",
         textTransform: "uppercase",
         color: "var(--color-neutral-500)",
-        marginBottom: 4,
+        marginBottom: "var(--space-1)",
       }}
     >
       {label}
     </div>
     <div
       style={{
-        fontFamily: mono ? "var(--sb-font-mono)" : "inherit",
-        fontSize: 14,
-        fontWeight: 600,
+        fontFamily: mono ? "var(--font-family-body)" : "inherit",
+        fontSize: "var(--font-size-2)",
+        fontWeight: "var(--font-weight-semibold)",
         color: "var(--color-neutral-900)",
       }}
     >
@@ -160,7 +160,7 @@ export const Playground: StoryObj<typeof FocusPlayground> = {
 export const Reference: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Focus ring reference"
         description="Two tokens cover all interactive states: a brand ring for standard controls and an error ring for destructive ones."
@@ -180,7 +180,7 @@ export const Reference: StoryObj = {
                 style={{
                   width: 56,
                   height: 32,
-                  borderRadius: 8,
+                  borderRadius: "var(--radius-md)",
                   background:
                     key === "error"
                       ? "var(--color-error-500)"
@@ -203,7 +203,7 @@ export const Reference: StoryObj = {
 export const Accessibility: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Accessibility notes"
         description="Focus indicators are required by WCAG 2.4.7. These tokens meet the 3:1 non-text contrast requirement (WCAG 1.4.11) on both light and dark surfaces."
@@ -213,7 +213,7 @@ export const Accessibility: StoryObj = {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: 16,
+            gap: "var(--space-4)",
           }}
         >
           <Callout kind="success" title="Do">

@@ -37,8 +37,8 @@ export const Section: React.FC<SectionProps> = ({
           {eyebrow && (
             <span
               style={{
-                fontSize: 11,
-                fontWeight: 600,
+                fontSize: "var(--font-size-0)",
+                fontWeight: "var(--font-weight-semibold)",
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
                 color: "var(--color-ep-700)",
@@ -51,7 +51,7 @@ export const Section: React.FC<SectionProps> = ({
             style={{
               margin: 0,
               fontSize: level === 2 ? 22 : 16,
-              fontWeight: 600,
+              fontWeight: "var(--font-weight-semibold)",
               letterSpacing: "-0.01em",
               color: "var(--color-neutral-900)",
             }}
@@ -67,7 +67,7 @@ export const Section: React.FC<SectionProps> = ({
             margin: "0 0 20px",
             color: "var(--color-neutral-600)",
             maxWidth: 760,
-            fontSize: 14,
+            fontSize: "var(--font-size-2)",
             lineHeight: 1.6,
           }}
         >

@@ -26,7 +26,7 @@ function IntroductionPage() {
           position: "relative",
           overflow: "hidden",
           padding: "48px 40px",
-          borderRadius: 20,
+          borderRadius: "var(--radius-3xl)",
           background:
             "radial-gradient(120% 120% at 0% 0%, var(--color-ep-100) 0%, var(--color-ep-50) 35%, var(--color-white) 75%)",
           border: "1px solid var(--color-ep-100)",
@@ -52,15 +52,15 @@ function IntroductionPage() {
             style={{
               display: "inline-flex",
               alignItems: "center",
-              gap: 8,
-              fontSize: 11,
-              fontWeight: 600,
+              gap: "var(--space-2)",
+              fontSize: "var(--font-size-0)",
+              fontWeight: "var(--font-weight-semibold)",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
               color: "var(--color-ep-700)",
               background: "var(--color-white)",
               padding: "6px 12px",
-              borderRadius: 999,
+              borderRadius: "var(--radius-full)",
               border: "1px solid var(--color-ep-200)",
               boxShadow: "var(--shadow-xs)",
               marginBottom: 16,
@@ -79,9 +79,9 @@ function IntroductionPage() {
           <h1
             style={{
               margin: 0,
-              fontSize: 44,
+              fontSize: "var(--font-size-7)",
               lineHeight: 1.08,
-              fontWeight: 700,
+              fontWeight: "var(--font-weight-bold)",
               letterSpacing: "-0.025em",
               color: "var(--color-neutral-900)",
             }}
@@ -91,7 +91,7 @@ function IntroductionPage() {
           <p
             style={{
               margin: "16px 0 0",
-              fontSize: 17,
+              fontSize: "var(--font-size-3)",
               lineHeight: 1.55,
               color: "var(--color-neutral-700)",
             }}
@@ -101,7 +101,7 @@ function IntroductionPage() {
             inherits from. Treat these as the single source of truth — if a
             value isn't here, it shouldn't be in a component.
           </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 24 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-2)", marginTop: 24 }}>
             <HeroChip label="foundations" value="7" />
             <HeroChip label="tokens" value="180+" />
             <HeroChip label="themes" value="Light · Dark" />
@@ -112,7 +112,7 @@ function IntroductionPage() {
 
       {/* WHAT'S INSIDE */}
       <SectionHeading>What's inside</SectionHeading>
-      <p style={{ color: "var(--color-neutral-600)", marginTop: 0, maxWidth: 720, fontSize: 14, lineHeight: 1.6 }}>
+      <p style={{ color: "var(--color-neutral-600)", marginTop: 0, maxWidth: 720, fontSize: "var(--font-size-2)", lineHeight: 1.6 }}>
         Seven foundations work together. Click any card to open its docs.
       </p>
 
@@ -120,15 +120,15 @@ function IntroductionPage() {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-          gap: 14,
+          gap: "var(--space-3-5)",
           margin: "20px 0 40px",
         }}
       >
         <FoundationCard docsPath="foundation-colors--docs">
           <div style={cardPreview}>
-            <div style={{ display: "flex", gap: 6 }}>
+            <div style={{ display: "flex", gap: "var(--space-1-5)" }}>
               {["#ebe9fe", "#9b8afb", "#6852d6", "#4a1fb8", "#27115f"].map((c) => (
-                <div key={c} style={{ width: 36, height: 36, borderRadius: 8, background: c, border: "1px solid var(--color-neutral-200)" }} />
+                <div key={c} style={{ width: 36, height: 36, borderRadius: "var(--radius-md)", background: c, border: "1px solid var(--color-neutral-200)" }} />
               ))}
             </div>
           </div>
@@ -138,9 +138,9 @@ function IntroductionPage() {
 
         <FoundationCard docsPath="foundation-typography--docs">
           <div style={cardPreview}>
-            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-              <span style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: 32, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--color-neutral-900)", lineHeight: 1 }}>Aa</span>
-              <div style={{ display: "flex", flexDirection: "column", gap: 2, color: "var(--color-neutral-600)", fontSize: 11 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "var(--space-3)" }}>
+              <span style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "var(--font-size-7)", fontWeight: "var(--font-weight-bold)", letterSpacing: "-0.02em", color: "var(--color-neutral-900)", lineHeight: 1 }}>Aa</span>
+              <div style={{ display: "flex", flexDirection: "column", gap: 2, color: "var(--color-neutral-600)", fontSize: "var(--font-size-0)" }}>
                 <span>Title · 32/40</span>
                 <span>Body · 14/20</span>
                 <span>Caption · 12/18</span>
@@ -153,9 +153,9 @@ function IntroductionPage() {
 
         <FoundationCard docsPath="foundation-spacing--docs">
           <div style={cardPreview}>
-            <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
               {[12, 24, 48, 80, 120].map((w) => (
-                <div key={w} style={{ width: w, height: 6, borderRadius: 2, background: "var(--color-ep-500)" }} />
+                <div key={w} style={{ width: w, height: 6, borderRadius: "var(--radius-xxs)", background: "var(--color-ep-500)" }} />
               ))}
             </div>
           </div>
@@ -177,9 +177,9 @@ function IntroductionPage() {
 
         <FoundationCard docsPath="foundation-icons--docs">
           <div style={cardPreview}>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 6 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "var(--space-1-5)" }}>
               {["home", "favorite", "search", "settings"].map((n) => (
-                <span key={n} className="icon-outlined" data-icon="outlined" style={{ fontFamily: "Material Symbols Outlined", fontSize: 22, color: "var(--color-neutral-800)", fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>{n}</span>
+                <span key={n} className="icon-outlined" data-icon="outlined" style={{ fontFamily: "Material Symbols Outlined", fontSize: "var(--font-size-5)", color: "var(--color-neutral-800)", fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>{n}</span>
               ))}
             </div>
           </div>
@@ -189,10 +189,10 @@ function IntroductionPage() {
 
         <FoundationCard docsPath="foundation-effects-shadows--docs">
           <div style={cardPreview}>
-            <div style={{ display: "flex", alignItems: "center", gap: 12, justifyContent: "center" }}>
-              <div style={{ width: 48, height: 32, borderRadius: 6, background: "var(--color-white)", boxShadow: "var(--shadow-sm)" }} />
-              <div style={{ width: 48, height: 32, borderRadius: 6, background: "var(--color-white)", boxShadow: "var(--shadow-md)" }} />
-              <div style={{ width: 48, height: 32, borderRadius: 6, background: "var(--color-white)", boxShadow: "var(--shadow-lg)" }} />
+            <div style={{ display: "flex", alignItems: "center", gap: "var(--space-3)", justifyContent: "center" }}>
+              <div style={{ width: 48, height: 32, borderRadius: "var(--radius-sm)", background: "var(--color-white)", boxShadow: "var(--shadow-sm)" }} />
+              <div style={{ width: 48, height: 32, borderRadius: "var(--radius-sm)", background: "var(--color-white)", boxShadow: "var(--shadow-md)" }} />
+              <div style={{ width: 48, height: 32, borderRadius: "var(--radius-sm)", background: "var(--color-white)", boxShadow: "var(--shadow-lg)" }} />
             </div>
           </div>
           <CardMeta name="Effects" count="Shadows · Focus · Backdrop" />
@@ -202,11 +202,11 @@ function IntroductionPage() {
 
       {/* HOW TO USE */}
       <SectionHeading>How to use tokens</SectionHeading>
-      <p style={{ color: "var(--color-neutral-600)", marginTop: 0, maxWidth: 720, fontSize: 14, lineHeight: 1.6 }}>
+      <p style={{ color: "var(--color-neutral-600)", marginTop: 0, maxWidth: 720, fontSize: "var(--font-size-2)", lineHeight: 1.6 }}>
         Tokens are exposed two ways. Pick whichever fits your stack — they point to the same values.
       </p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 16, margin: "20px 0 40px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "var(--space-4)", margin: "20px 0 40px" }}>
         <div style={panelStyle}>
           <div style={panelLabel}>Recommended · CSS variables</div>
           <p style={panelP}>Every token is available as a CSS custom property.</p>
@@ -239,7 +239,7 @@ import { Icon } from "@foundation/components/Icon";
 
       {/* CONVENTIONS */}
       <SectionHeading>Conventions</SectionHeading>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 14, margin: "20px 0 40px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "var(--space-3-5)", margin: "20px 0 40px" }}>
         <ConventionCard title="Naming" body={<><code>--color-&lt;family&gt;-&lt;shade&gt;</code>, <code>--space-&lt;n&gt;</code>, <code>--radius-&lt;size&gt;</code>, <code>--shadow-&lt;level&gt;</code>. Names match the TypeScript keys.</>} />
         <ConventionCard title="Dark mode" body={<>Use <code>var(--color-neutral-&lt;shade&gt;)</code> — it remaps automatically under <code>[data-theme="dark"]</code>. Toggle the theme from the toolbar.</>} />
         <ConventionCard title="Accessibility" body="Every color swatch shows its best WCAG contrast rating. Focus rings meet the 3:1 non-text contrast requirement." />
@@ -248,7 +248,7 @@ import { Icon } from "@foundation/components/Icon";
 
       {/* CONTRIBUTING */}
       <SectionHeading>Contributing</SectionHeading>
-      <ol style={{ color: "var(--color-neutral-700)", lineHeight: 1.8, fontSize: 14 }}>
+      <ol style={{ color: "var(--color-neutral-700)", lineHeight: 1.8, fontSize: "var(--font-size-2)" }}>
         <li>Edit the relevant <code>tokens/*.ts</code> file.</li>
         <li>Sync the matching CSS variables in <code>tokens/tokens.css</code>.</li>
         <li>Stories auto-update from the token exports.</li>
@@ -260,7 +260,7 @@ import { Icon } from "@foundation/components/Icon";
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h2 style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.01em", color: "var(--color-neutral-900)", borderBottom: "1px solid var(--color-neutral-200)", paddingBottom: 10, margin: "32px 0 8px" }}>
+    <h2 style={{ fontSize: "var(--font-size-5)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "-0.01em", color: "var(--color-neutral-900)", borderBottom: "1px solid var(--color-neutral-200)", paddingBottom: 10, margin: "32px 0 8px" }}>
       {children}
     </h2>
   );

@@ -33,28 +33,18 @@ export default meta;
 
 type Story = StoryObj;
 
-/** Avatar online indicator — all sizes, online and offline. */
+/** Avatar online indicator — all sizes. */
 export const OnlineIndicator: Story = {
   name: "Online Indicator",
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-      <Section title="Offline (all sizes)">
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
-          {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
-            <div key={sz} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
-              <OnlineDot size={sz} online={false} />
-              <span style={{ fontSize: 10, color: "var(--color-neutral-600)", fontFamily: "var(--sb-font-mono)" }}>{sz}</span>
-            </div>
-          ))}
-        </div>
-      </Section>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
       <Section title="Online (all sizes)">
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--space-4)", alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
-            <div key={sz} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+            <div key={sz} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-1-5)" }}>
               <OnlineDot size={sz} online={true} />
-              <span style={{ fontSize: 10, color: "var(--color-neutral-600)", fontFamily: "var(--sb-font-mono)" }}>{sz}</span>
+              <span style={{ fontSize: "var(--font-size-0)", color: "var(--color-neutral-600)", fontFamily: "var(--font-family-body)" }}>{sz}</span>
             </div>
           ))}
         </div>
@@ -63,38 +53,28 @@ export const OnlineIndicator: Story = {
   ),
 };
 
-/** Avatar company icon — Company, Private, Protected types at all sizes. */
-export const CompanyIcon: Story = {
-  name: "Company Icon",
+/** Avatar group icons — Private, Protected types at all sizes. */
+export const GroupIcons: Story = {
+  name: "Group Icons",
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-      <Section title="Company (all sizes)">
-        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-          {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
-            <div key={sz} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
-              <CompanyBadge size={sz} type="company" />
-              <span style={{ fontSize: 10, color: "var(--color-neutral-600)", fontFamily: "var(--sb-font-mono)" }}>{sz}</span>
-            </div>
-          ))}
-        </div>
-      </Section>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
       <Section title="Private (all sizes)">
-        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
-            <div key={sz} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+            <div key={sz} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-1-5)" }}>
               <CompanyBadge size={sz} type="private" />
-              <span style={{ fontSize: 10, color: "var(--color-neutral-600)", fontFamily: "var(--sb-font-mono)" }}>{sz}</span>
+              <span style={{ fontSize: "var(--font-size-0)", color: "var(--color-neutral-600)", fontFamily: "var(--font-family-body)" }}>{sz}</span>
             </div>
           ))}
         </div>
       </Section>
       <Section title="Protected (all sizes)">
-        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
-            <div key={sz} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+            <div key={sz} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-1-5)" }}>
               <CompanyBadge size={sz} type="protected" />
-              <span style={{ fontSize: 10, color: "var(--color-neutral-600)", fontFamily: "var(--sb-font-mono)" }}>{sz}</span>
+              <span style={{ fontSize: "var(--font-size-0)", color: "var(--color-neutral-600)", fontFamily: "var(--font-family-body)" }}>{sz}</span>
             </div>
           ))}
         </div>
@@ -103,59 +83,26 @@ export const CompanyIcon: Story = {
   ),
 };
 
-/** Verified tick — all sizes. */
-export const VerifiedTick: Story = {
-  name: "Verified Tick",
+/** Avatar variants — different content types and fallback behaviors. */
+export const AvatarVariants: Story = {
+  name: "Avatar Variants",
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-      <Section title="All sizes">
-        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-          {([10, 12, 14, 16, 18, 20, 24, 28] as const).map((px) => (
-            <div key={px} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
-              <VerifiedIcon size={px} />
-              <span style={{ fontSize: 10, color: "var(--color-neutral-600)", fontFamily: "var(--sb-font-mono)" }}>{px}px</span>
-            </div>
-          ))}
-        </div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <Section title="With Image">
+        <Avatar src={maleAvatars[0].imageUrl} size="lg" />
       </Section>
-    </div>
-  ),
-};
-
-/** Avatar add button — all sizes and states. */
-export const AddButton: Story = {
-  name: "Add Button",
-  parameters: { controls: { disable: true } },
-  render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-      <Section title="Default (all sizes)">
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
-          <AvatarAddBtn size={24} />
-          <AvatarAddBtn size={32} />
-          <AvatarAddBtn size={40} />
-        </div>
+      <Section title="Initials — Multi-Word Name (JD)">
+        <Avatar size="lg" fallback="JD" name="John Doe" />
       </Section>
-      <Section title="Hover state (simulated with primary color)">
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
-          <AvatarAddBtn size={24} hovered />
-          <AvatarAddBtn size={32} hovered />
-          <AvatarAddBtn size={40} hovered />
-        </div>
+      <Section title="Initials — Single-Word Name (AL)">
+        <Avatar size="lg" fallback="AL" name="Alice" />
       </Section>
-      <Section title="Focus state">
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
-          <AvatarAddBtn size={24} focused />
-          <AvatarAddBtn size={32} focused />
-          <AvatarAddBtn size={40} focused />
-        </div>
+      <Section title="Broken Image URL (Fallback to EU)">
+        <Avatar src="https://broken-url.invalid/avatar.png" size="lg" fallback="EU" name="Example User" />
       </Section>
-      <Section title="Disabled">
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
-          <AvatarAddBtn size={24} disabled />
-          <AvatarAddBtn size={32} disabled />
-          <AvatarAddBtn size={40} disabled />
-        </div>
+      <Section title="Empty Name (No Initials)">
+        <Avatar size="lg" />
       </Section>
     </div>
   ),
@@ -165,74 +112,53 @@ export const AddButton: Story = {
 export const Sizes: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)" }}>
       <Section title="With image — no status icon">
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--space-4)", alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
             <Avatar key={sz} src={maleAvatars[0].imageUrl} size={sz} />
           ))}
         </div>
       </Section>
       <Section title="With image — online indicator">
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--space-4)", alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
             <Avatar key={sz} src={maleAvatars[0].imageUrl} size={sz} statusIcon="online" />
           ))}
         </div>
       </Section>
-      <Section title="With image — company icon">
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
-          {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
-            <Avatar key={sz} src={maleAvatars[0].imageUrl} size={sz} statusIcon="company" />
-          ))}
-        </div>
-      </Section>
-      <Section title="With image — verified tick">
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
-          {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
-            <Avatar key={sz} src={maleAvatars[0].imageUrl} size={sz} statusIcon="verified" />
-          ))}
-        </div>
-      </Section>
-      <Section title="Icon placeholder — no status">
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
-          {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
-            <Avatar key={sz} size={sz} showIcon />
-          ))}
-        </div>
-      </Section>
-      <Section title="Icon placeholder — online indicator">
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
-          {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
-            <Avatar key={sz} size={sz} showIcon statusIcon="online" />
-          ))}
-        </div>
-      </Section>
-      <Section title="Icon placeholder — company icon">
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
-          {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
-            <Avatar key={sz} size={sz} showIcon statusIcon="company" />
-          ))}
-        </div>
-      </Section>
       <Section title="Text (initials) — no status">
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--space-4)", alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
             <Avatar key={sz} size={sz} fallback="OR" />
           ))}
         </div>
       </Section>
       <Section title="Text (initials) — online indicator">
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--space-4)", alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
             <Avatar key={sz} size={sz} fallback="OR" statusIcon="online" />
           ))}
         </div>
       </Section>
-      <Section title="Text (initials) — company icon">
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+      <Section title="Broken image URL (fallback to initials)">
+        <div style={{ display: "flex", gap: "var(--space-4)", alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
-            <Avatar key={sz} size={sz} fallback="OR" statusIcon="company" />
+            <Avatar key={sz} size={sz} src="https://broken-url.invalid/avatar.png" fallback="EU" name="Example User" />
+          ))}
+        </div>
+      </Section>
+      <Section title="Empty name — no status">
+        <div style={{ display: "flex", gap: "var(--space-4)", alignItems: "center" }}>
+          {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
+            <Avatar key={sz} size={sz} />
+          ))}
+        </div>
+      </Section>
+      <Section title="Empty name — online indicator">
+        <div style={{ display: "flex", gap: "var(--space-4)", alignItems: "center" }}>
+          {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
+            <Avatar key={sz} size={sz} statusIcon="online" />
           ))}
         </div>
       </Section>
@@ -240,56 +166,17 @@ export const Sizes: Story = {
   ),
 };
 
-/** Avatar group — all sizes with counter and add button. Matches Figma node 17282-60462. */
-export const Group: Story = {
-  name: "Avatar Group",
-  parameters: { controls: { disable: true } },
-  render: () => {
-    const avatars = [
-      { src: maleAvatars[0].imageUrl },
-      { src: femaleAvatars[0].imageUrl },
-      { src: maleAvatars[1].imageUrl },
-      { src: femaleAvatars[1].imageUrl },
-      { src: maleAvatars[2].imageUrl },
-      { src: femaleAvatars[2].imageUrl },
-      { src: maleAvatars[3].imageUrl },
-      { src: femaleAvatars[3].imageUrl },
-      { src: maleAvatars[4].imageUrl },
-      { src: femaleAvatars[4].imageUrl },
-    ];
-    return (
-      <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-        <Section title="Extra small (xs)">
-          <AvatarGroup avatars={avatars} size="xs" max={5} showAdd onAdd={() => {}} />
-        </Section>
-        <Section title="Small (sm)">
-          <AvatarGroup avatars={avatars} size="sm" max={5} showAdd onAdd={() => {}} />
-        </Section>
-        <Section title="Medium (md)">
-          <AvatarGroup avatars={avatars} size="md" max={5} showAdd onAdd={() => {}} />
-        </Section>
-      </div>
-    );
-  },
-};
-
 /** Avatar label group — all sizes × all status icons. Matches Figma node 17282-60149. */
 export const LabelGroup: Story = {
   name: "Avatar Label Group",
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 24 }}>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "var(--space-6)" }}>
       <Section title="Small — no status">
         <AvatarLabelGroup src={maleAvatars[0].imageUrl} size="sm" name="Olivia Rhye" supportingText="olivia@untitledui.com" />
       </Section>
       <Section title="Small — online">
         <AvatarLabelGroup src={maleAvatars[0].imageUrl} size="sm" name="Olivia Rhye" supportingText="olivia@untitledui.com" statusIcon="online" />
-      </Section>
-      <Section title="Small — company">
-        <AvatarLabelGroup src={maleAvatars[0].imageUrl} size="sm" name="Olivia Rhye" supportingText="olivia@untitledui.com" statusIcon="company" />
-      </Section>
-      <Section title="Small — verified">
-        <AvatarLabelGroup src={maleAvatars[0].imageUrl} size="sm" name="Olivia Rhye" supportingText="olivia@untitledui.com" statusIcon="verified" />
       </Section>
       <Section title="Medium — no status">
         <AvatarLabelGroup src={maleAvatars[0].imageUrl} size="md" name="Olivia Rhye" supportingText="olivia@untitledui.com" />
@@ -297,35 +184,17 @@ export const LabelGroup: Story = {
       <Section title="Medium — online">
         <AvatarLabelGroup src={maleAvatars[0].imageUrl} size="md" name="Olivia Rhye" supportingText="olivia@untitledui.com" statusIcon="online" />
       </Section>
-      <Section title="Medium — company">
-        <AvatarLabelGroup src={maleAvatars[0].imageUrl} size="md" name="Olivia Rhye" supportingText="olivia@untitledui.com" statusIcon="company" />
-      </Section>
-      <Section title="Medium — verified">
-        <AvatarLabelGroup src={maleAvatars[0].imageUrl} size="md" name="Olivia Rhye" supportingText="olivia@untitledui.com" statusIcon="verified" />
-      </Section>
       <Section title="Large — no status">
         <AvatarLabelGroup src={maleAvatars[0].imageUrl} size="lg" name="Olivia Rhye" supportingText="olivia@untitledui.com" />
       </Section>
       <Section title="Large — online">
         <AvatarLabelGroup src={maleAvatars[0].imageUrl} size="lg" name="Olivia Rhye" supportingText="olivia@untitledui.com" statusIcon="online" />
       </Section>
-      <Section title="Large — company">
-        <AvatarLabelGroup src={maleAvatars[0].imageUrl} size="lg" name="Olivia Rhye" supportingText="olivia@untitledui.com" statusIcon="company" />
-      </Section>
-      <Section title="Large — verified">
-        <AvatarLabelGroup src={maleAvatars[0].imageUrl} size="lg" name="Olivia Rhye" supportingText="olivia@untitledui.com" statusIcon="verified" />
-      </Section>
       <Section title="XL — no status">
         <AvatarLabelGroup src={maleAvatars[0].imageUrl} size="xl" name="Olivia Rhye" supportingText="olivia@untitledui.com" />
       </Section>
       <Section title="XL — online">
         <AvatarLabelGroup src={maleAvatars[0].imageUrl} size="xl" name="Olivia Rhye" supportingText="olivia@untitledui.com" statusIcon="online" />
-      </Section>
-      <Section title="XL — company">
-        <AvatarLabelGroup src={maleAvatars[0].imageUrl} size="xl" name="Olivia Rhye" supportingText="olivia@untitledui.com" statusIcon="company" />
-      </Section>
-      <Section title="XL — verified">
-        <AvatarLabelGroup src={maleAvatars[0].imageUrl} size="xl" name="Olivia Rhye" supportingText="olivia@untitledui.com" statusIcon="verified" />
       </Section>
     </div>
   ),
@@ -336,7 +205,7 @@ export const LabelGroup: Story = {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 10 }}>{title}</div>
+      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
       {children}
     </div>
   );

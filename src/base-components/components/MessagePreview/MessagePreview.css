@@ -45,8 +45,8 @@
 /* Sender name — 12px, medium, primary color */
 .message-preview__sender {
   font-family: var(--font-family-body);
-  font-size: 12px;
-  font-weight: 500;
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-medium);
   line-height: 1.2;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -75,8 +75,8 @@
 
 .message-preview__text {
   font-family: var(--font-family-body);
-  font-size: 12px;
-  font-weight: 400;
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-regular);
   line-height: 1.2;
   color: var(--color-neutral-500);
   overflow: hidden;

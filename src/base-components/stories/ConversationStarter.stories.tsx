@@ -92,7 +92,7 @@ export const InContext: StoryObj = {
   parameters: { layout: "padded" },
   render: () => (
     <div style={{ maxWidth: 600, margin: "0 auto" }}>
-      <div style={{ marginBottom: 8 }}>
+      <div style={{ marginBottom: "var(--space-2)" }}>
         <ConversationStarter suggestions={defaultSuggestions} />
       </div>
       <div style={{
@@ -101,23 +101,23 @@ export const InContext: StoryObj = {
         background: "var(--color-white)",
         overflow: "hidden",
       }}>
-        <div style={{ padding: "12px", fontSize: 14, color: "var(--color-neutral-600)" }}>
+        <div style={{ padding: "12px", fontSize: "var(--font-size-2)", color: "var(--color-neutral-600)" }}>
           Type your message...
         </div>
         <div style={{ height: 1, background: "var(--color-neutral-100)" }} />
         <div style={{ padding: "8px 12px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div style={{ display: "flex", gap: 16, color: "var(--color-neutral-500)" }}>
-            <span style={{ fontSize: 20 }}>⊕</span>
-            <span style={{ fontSize: 20 }}>🎤</span>
-            <span style={{ fontSize: 20 }}>😊</span>
-            <span style={{ fontSize: 20 }}>💬</span>
-            <span style={{ fontSize: 14, fontWeight: 500 }}>Aa</span>
+          <div style={{ display: "flex", gap: "var(--space-4)", color: "var(--color-neutral-500)" }}>
+            <span style={{ fontSize: "var(--font-size-5)" }}>⊕</span>
+            <span style={{ fontSize: "var(--font-size-5)" }}>🎤</span>
+            <span style={{ fontSize: "var(--font-size-5)" }}>😊</span>
+            <span style={{ fontSize: "var(--font-size-5)" }}>💬</span>
+            <span style={{ fontSize: "var(--font-size-2)", fontWeight: "var(--font-weight-medium)" }}>Aa</span>
           </div>
           <div style={{
             width: 32, height: 32, borderRadius: "50%",
             background: "var(--color-neutral-200)",
             display: "flex", alignItems: "center", justifyContent: "center",
-            color: "var(--color-neutral-500)", fontSize: 16,
+            color: "var(--color-neutral-500)", fontSize: "var(--font-size-3)",
           }}>▶</div>
         </div>
       </div>

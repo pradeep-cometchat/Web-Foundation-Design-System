@@ -100,11 +100,11 @@ function IconPlayground(props: PlaygroundProps) {
 </span>`;
 
   return (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <div
         style={{
           border: "1px solid var(--color-neutral-200)",
-          borderRadius: 16,
+          borderRadius: "var(--radius-2xl)",
           overflow: "hidden",
           background: "var(--color-white)",
           boxShadow: "var(--shadow-sm)",
@@ -113,7 +113,7 @@ function IconPlayground(props: PlaygroundProps) {
         <div
           aria-label={`${props.name} preview`}
           style={{
-            padding: 56,
+            padding: "var(--space-12)",
             background:
               "repeating-linear-gradient(45deg, var(--color-neutral-25) 0 8px, var(--color-neutral-50) 8px 16px)",
             display: "flex",
@@ -152,7 +152,7 @@ function IconPlayground(props: PlaygroundProps) {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-          gap: 16,
+          gap: "var(--space-4)",
           marginTop: 20,
         }}
       >
@@ -177,21 +177,21 @@ const Stat: React.FC<{
   >
     <div
       style={{
-        fontSize: 11,
-        fontWeight: 600,
+        fontSize: "var(--font-size-0)",
+        fontWeight: "var(--font-weight-semibold)",
         letterSpacing: "0.06em",
         textTransform: "uppercase",
         color: "var(--color-neutral-500)",
-        marginBottom: 4,
+        marginBottom: "var(--space-1)",
       }}
     >
       {label}
     </div>
     <div
       style={{
-        fontFamily: mono ? "var(--sb-font-mono)" : "inherit",
-        fontSize: 13,
-        fontWeight: 600,
+        fontFamily: mono ? "var(--font-family-body)" : "inherit",
+        fontSize: "var(--font-size-1)",
+        fontWeight: "var(--font-weight-semibold)",
         color: "var(--color-neutral-900)",
         wordBreak: "break-all",
       }}
@@ -208,7 +208,7 @@ const CodeCard: React.FC<{ language: string; code: string }> = ({
   <div
     style={{
       border: "1px solid var(--color-neutral-200)",
-      borderRadius: 12,
+      borderRadius: "var(--radius-xl)",
       overflow: "hidden",
       background: "var(--color-neutral-25)",
     }}
@@ -225,8 +225,8 @@ const CodeCard: React.FC<{ language: string; code: string }> = ({
     >
       <span
         style={{
-          fontSize: 11,
-          fontWeight: 600,
+          fontSize: "var(--font-size-0)",
+          fontWeight: "var(--font-weight-semibold)",
           letterSpacing: "0.06em",
           textTransform: "uppercase",
           color: "var(--color-neutral-600)",
@@ -239,9 +239,9 @@ const CodeCard: React.FC<{ language: string; code: string }> = ({
     <pre
       style={{
         margin: 0,
-        padding: 14,
-        fontFamily: "var(--sb-font-mono)",
-        fontSize: 12.5,
+        padding: "var(--space-3-5)",
+        fontFamily: "var(--font-family-body)",
+        fontSize: "var(--font-size-1)",
         lineHeight: 1.6,
         color: "var(--color-neutral-800)",
         overflowX: "auto",
@@ -327,7 +327,7 @@ function BrowseView() {
   const totalShown = results.reduce((n, g) => n + g.icons.length, 0);
 
   return (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Icon library"
         description="Browse a curated set of Material Symbols. Click any icon to copy its ligature name. The full catalog (~3,000 icons) is available at fonts.google.com/icons — any name from there will render correctly."
@@ -342,11 +342,11 @@ function BrowseView() {
         style={{
           display: "flex",
           flexWrap: "wrap",
-          gap: 12,
+          gap: "var(--space-3)",
           marginBottom: 20,
-          padding: 14,
+          padding: "var(--space-3-5)",
           border: "1px solid var(--color-neutral-200)",
-          borderRadius: 12,
+          borderRadius: "var(--radius-xl)",
           background: "var(--color-white)",
           boxShadow: "var(--shadow-xs)",
           alignItems: "center",
@@ -372,9 +372,9 @@ function BrowseView() {
             placeholder="Search icons"
             style={{
               width: "100%",
-              fontSize: 13,
+              fontSize: "var(--font-size-1)",
               padding: "8px 12px 8px 32px",
-              borderRadius: 8,
+              borderRadius: "var(--radius-md)",
               border: "1px solid var(--color-neutral-200)",
               background: "var(--color-white)",
               outline: "none",
@@ -406,9 +406,9 @@ function BrowseView() {
           value={category}
           onChange={(e) => setCategory(e.target.value as IconCategory | "All")}
           style={{
-            fontSize: 13,
+            fontSize: "var(--font-size-1)",
             padding: "8px 12px",
-            borderRadius: 8,
+            borderRadius: "var(--radius-md)",
             border: "1px solid var(--color-neutral-200)",
             background: "var(--color-white)",
             color: "var(--color-neutral-900)",
@@ -426,7 +426,7 @@ function BrowseView() {
 
         <span
           style={{
-            fontSize: 12,
+            fontSize: "var(--font-size-1)",
             color: "var(--color-neutral-600)",
             marginLeft: "auto",
           }}
@@ -438,11 +438,11 @@ function BrowseView() {
       {results.length === 0 ? (
         <div
           style={{
-            padding: 40,
+            padding: "var(--space-10)",
             textAlign: "center",
             color: "var(--color-neutral-500)",
             border: "1px solid var(--color-neutral-200)",
-            borderRadius: 12,
+            borderRadius: "var(--radius-xl)",
             background: "var(--color-neutral-25)",
           }}
         >
@@ -509,9 +509,9 @@ const IconTile: React.FC<{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: 6,
+        gap: "var(--space-1-5)",
         padding: "14px 8px",
-        borderRadius: 10,
+        borderRadius: "var(--radius-lg)",
         border: `1px solid ${
           copied
             ? "var(--color-success-300)"
@@ -542,8 +542,8 @@ const IconTile: React.FC<{
       />
       <span
         style={{
-          fontSize: 11,
-          fontFamily: "var(--sb-font-mono)",
+          fontSize: "var(--font-size-0)",
+          fontFamily: "var(--font-family-body)",
           color: copied
             ? "var(--color-success-700)"
             : "var(--color-neutral-600)",
@@ -574,7 +574,7 @@ function SegmentedControl<T extends string | number>({
       style={{
         display: "inline-flex",
         padding: 3,
-        borderRadius: 8,
+        borderRadius: "var(--radius-md)",
         background: "var(--color-neutral-100)",
         gap: 2,
       }}
@@ -590,9 +590,9 @@ function SegmentedControl<T extends string | number>({
             type="button"
             style={{
               padding: "5px 12px",
-              fontSize: 12,
-              fontWeight: 600,
-              borderRadius: 6,
+              fontSize: "var(--font-size-1)",
+              fontWeight: "var(--font-weight-semibold)",
+              borderRadius: "var(--radius-sm)",
               border: "none",
               background: active ? "var(--color-white)" : "transparent",
               color: active
@@ -616,7 +616,7 @@ function SegmentedControl<T extends string | number>({
 export const Variants: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Style variants"
         description="Three sibling fonts share every ligature name — only the geometry differs. Pick one variant for your product and stick to it."
@@ -625,7 +625,7 @@ export const Variants: StoryObj = {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
-          gap: 16,
+          gap: "var(--space-4)",
           marginBottom: 32,
         }}
       >
@@ -633,27 +633,27 @@ export const Variants: StoryObj = {
           <div
             key={v}
             style={{
-              padding: 24,
-              borderRadius: 12,
+              padding: "var(--space-6)",
+              borderRadius: "var(--radius-xl)",
               border: "1px solid var(--color-neutral-200)",
               background: "var(--color-white)",
               boxShadow: "var(--shadow-xs)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              gap: 14,
+              gap: "var(--space-3-5)",
             }}
           >
             <Icon name="favorite" variant={v} size={72} opticalSize={48} />
             <strong
-              style={{ fontSize: 14, color: "var(--color-neutral-900)" }}
+              style={{ fontSize: "var(--font-size-2)", color: "var(--color-neutral-900)" }}
             >
               {iconVariantLabel[v]}
             </strong>
             <span
               style={{
-                fontSize: 11,
-                fontFamily: "var(--sb-font-mono)",
+                fontSize: "var(--font-size-0)",
+                fontFamily: "var(--font-family-body)",
                 color: "var(--color-neutral-600)",
               }}
             >
@@ -670,7 +670,7 @@ export const Variants: StoryObj = {
         <div
           style={{
             border: "1px solid var(--color-neutral-200)",
-            borderRadius: 12,
+            borderRadius: "var(--radius-xl)",
             overflow: "hidden",
             background: "var(--color-white)",
           }}
@@ -680,7 +680,7 @@ export const Variants: StoryObj = {
               width: "100%",
               borderCollapse: "separate",
               borderSpacing: 0,
-              fontSize: 13,
+              fontSize: "var(--font-size-1)",
             }}
           >
             <thead>
@@ -723,10 +723,10 @@ export const Variants: StoryObj = {
                   <td style={td}>
                     <code
                       style={{
-                        fontFamily: "var(--sb-font-mono)",
-                        fontSize: 12,
+                        fontFamily: "var(--font-family-body)",
+                        fontSize: "var(--font-size-1)",
                         padding: "3px 7px",
-                        borderRadius: 4,
+                        borderRadius: "var(--radius-xs)",
                         background: "var(--color-neutral-50)",
                         border: "1px solid var(--color-neutral-200)",
                       }}
@@ -758,7 +758,7 @@ export const Variants: StoryObj = {
 export const Axes: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Variable axes"
         description="Material Symbols ship as a single variable font with four live axes. Tune them with font-variation-settings or the Icon component props."
@@ -822,7 +822,7 @@ const AxisRow: React.FC<{
         key={v}
         style={{
           padding: "20px 10px 14px",
-          borderRadius: 10,
+          borderRadius: "var(--radius-lg)",
           border: "1px solid var(--color-neutral-200)",
           background: "var(--color-white)",
           display: "flex",
@@ -842,8 +842,8 @@ const AxisRow: React.FC<{
         />
         <span
           style={{
-            fontSize: 11,
-            fontFamily: "var(--sb-font-mono)",
+            fontSize: "var(--font-size-0)",
+            fontFamily: "var(--font-family-body)",
             color: "var(--color-neutral-600)",
           }}
         >
@@ -858,7 +858,7 @@ const AxisRow: React.FC<{
 export const Usage: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Using icons"
         description="Two ways to render an icon: the typed React component, or the CSS utility class."
@@ -902,7 +902,7 @@ export const Usage: StoryObj = {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: 16,
+            gap: "var(--space-4)",
           }}
         >
           <Callout kind="success" title="Meaningful icons">
@@ -930,8 +930,8 @@ export const Usage: StoryObj = {
 
 const th: React.CSSProperties = {
   padding: "11px 16px",
-  fontWeight: 600,
-  fontSize: 11,
+  fontWeight: "var(--font-weight-semibold)",
+  fontSize: "var(--font-size-0)",
   letterSpacing: "0.06em",
   textTransform: "uppercase",
   color: "var(--color-neutral-600)",

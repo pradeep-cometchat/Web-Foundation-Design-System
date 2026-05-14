@@ -34,8 +34,8 @@
 
 /* Emoji: 24px, line-height 32px */
 .reaction-info__emoji {
-  font-size: 24px;
-  line-height: 32px;
+  font-size: var(--font-size-6);
+  line-height: var(--line-height-h1);
 }
 
 /* ─── Text block: gap-0, centered, caption-1 (12px) ─── */
@@ -45,9 +45,9 @@
   align-items: center;
   gap: 0;
   font-family: var(--font-family-body, "Inter", sans-serif);
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 18px;
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-caption-1);
 }
 
 /* Names: white */

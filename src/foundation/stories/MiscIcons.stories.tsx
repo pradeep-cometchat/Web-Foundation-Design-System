@@ -40,14 +40,14 @@ export const FeaturedOutline: StoryObj = { name: "Featured Icons (Outline)", ren
 
 function SizeBar({ size, onChange }: { size: IconSize; onChange: (s: IconSize) => void }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 12, padding: 14, border: "1px solid var(--color-neutral-200)", borderRadius: 12, background: "var(--color-white)", boxShadow: "var(--shadow-xs)", marginBottom: 20 }}>
-      <span style={{ fontSize: 12, fontWeight: 600, color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em" }}>Size</span>
-      <div style={{ display: "inline-flex", padding: 3, borderRadius: 8, background: "var(--color-neutral-100)", gap: 2 }}>
+    <div style={{ display: "flex", alignItems: "center", gap: "var(--space-3)", padding: "var(--space-3-5)", border: "1px solid var(--color-neutral-200)", borderRadius: "var(--radius-xl)", background: "var(--color-white)", boxShadow: "var(--shadow-xs)", marginBottom: 20 }}>
+      <span style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em" }}>Size</span>
+      <div style={{ display: "inline-flex", padding: 3, borderRadius: "var(--radius-md)", background: "var(--color-neutral-100)", gap: 2 }}>
         {SIZES.map((s) => (
-          <button key={s} type="button" onClick={() => onChange(s)} style={{ padding: "4px 10px", fontSize: 12, fontWeight: 600, borderRadius: 6, border: "none", background: s === size ? "var(--color-white)" : "transparent", color: s === size ? "var(--color-neutral-900)" : "var(--color-neutral-600)", cursor: "pointer", fontFamily: "inherit", boxShadow: s === size ? "var(--shadow-xs)" : "none" }}>{s}</button>
+          <button key={s} type="button" onClick={() => onChange(s)} style={{ padding: "4px 10px", fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", borderRadius: "var(--radius-sm)", border: "none", background: s === size ? "var(--color-white)" : "transparent", color: s === size ? "var(--color-neutral-900)" : "var(--color-neutral-600)", cursor: "pointer", fontFamily: "inherit", boxShadow: s === size ? "var(--shadow-xs)" : "none" }}>{s}</button>
         ))}
       </div>
-      <span style={{ fontSize: 11, color: "var(--color-neutral-500)" }}>{size}px</span>
+      <span style={{ fontSize: "var(--font-size-0)", color: "var(--color-neutral-500)" }}>{size}px</span>
     </div>
   );
 }
@@ -68,19 +68,19 @@ function BrowseAll() {
   const totalShown = filtered.reduce((n, g) => n + g.items.length, 0);
 
   return (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader title="Miscellaneous Icons" description="All icons exported as SVG. Adjust size and click any tile to copy SVG code." meta={[{ label: "total", value: String(miscIconTotalCount) }]} />
       <SizeBar size={size} onChange={setSize} />
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 20, alignItems: "center" }}>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-3)", marginBottom: 20, alignItems: "center" }}>
         <div style={{ position: "relative", flex: "1 1 260px", minWidth: 220 }}>
-          <span aria-hidden style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "var(--color-neutral-400)", fontSize: 14 }}>⌕</span>
-          <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search icons" style={{ width: "100%", fontSize: 13, padding: "8px 12px 8px 32px", borderRadius: 8, border: "1px solid var(--color-neutral-200)", background: "var(--color-white)", outline: "none", fontFamily: "inherit", color: "var(--color-neutral-900)" }} />
+          <span aria-hidden style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "var(--color-neutral-400)", fontSize: "var(--font-size-2)" }}>⌕</span>
+          <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search icons" style={{ width: "100%", fontSize: "var(--font-size-1)", padding: "8px 12px 8px 32px", borderRadius: "var(--radius-md)", border: "1px solid var(--color-neutral-200)", background: "var(--color-white)", outline: "none", fontFamily: "inherit", color: "var(--color-neutral-900)" }} />
         </div>
-        <select value={category} onChange={(e) => setCategory(e.target.value as any)} style={{ fontSize: 13, padding: "8px 12px", borderRadius: 8, border: "1px solid var(--color-neutral-200)", background: "var(--color-white)", color: "var(--color-neutral-900)", fontFamily: "inherit", cursor: "pointer" }}>
+        <select value={category} onChange={(e) => setCategory(e.target.value as any)} style={{ fontSize: "var(--font-size-1)", padding: "8px 12px", borderRadius: "var(--radius-md)", border: "1px solid var(--color-neutral-200)", background: "var(--color-white)", color: "var(--color-neutral-900)", fontFamily: "inherit", cursor: "pointer" }}>
           <option value="All">All categories</option>
           {miscIconCategories.map((c) => <option key={c} value={c}>{c}</option>)}
         </select>
-        <span style={{ fontSize: 12, color: "var(--color-neutral-600)", marginLeft: "auto" }}>{totalShown} icons</span>
+        <span style={{ fontSize: "var(--font-size-1)", color: "var(--color-neutral-600)", marginLeft: "auto" }}>{totalShown} icons</span>
       </div>
       {filtered.map(({ category: cat, items }) => (
         <Section key={cat} title={cat} description={`${items.length} icons`}>
@@ -96,7 +96,7 @@ function BrowseAll() {
 function IconGrid({ title, items, isFlag }: { title: string; items: MiscIconAsset[]; isFlag?: boolean }) {
   const [size, setSize] = useState<IconSize>(24);
   return (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader title={title} description={`${items.length} SVG icons. Click any tile to copy SVG code.`} meta={[{ label: "icons", value: String(items.length) }]} />
       <SizeBar size={size} onChange={setSize} />
       <TileGrid items={items} size={size} isFlag={isFlag} />
@@ -113,7 +113,7 @@ function FeaturedGrid({ title, items }: { title: string; items: MiscIconAsset[] 
   const sizeLabels: Record<string, string> = { sm: "Small (sm)", md: "Medium (md)", lg: "Large (lg)", xl: "Extra Large (xl)" };
 
   return (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader title={title} description={`${items.length} SVG icons grouped by size.`} meta={[{ label: "icons", value: String(items.length) }]} />
       <SizeBar size={size} onChange={setSize} />
       {grouped.map(({ size: sz, items: sizeItems }) => (
@@ -158,17 +158,17 @@ function IconTile({ item, size, isFlag }: { item: MiscIconAsset; size: IconSize;
   const h = size;
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", borderRadius: 10, border: `1px solid ${copied ? "var(--color-success-300)" : "var(--color-neutral-200)"}`, background: copied ? "var(--color-success-50)" : "var(--color-white)", overflow: "hidden", boxShadow: "var(--shadow-xs)", transition: "all 120ms ease" }}>
-      <button type="button" onClick={copy} title={`Copy SVG for ${item.name}`} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, padding: 12, cursor: "pointer", fontFamily: "inherit", border: "none", background: "transparent" }}>
+    <div style={{ display: "flex", flexDirection: "column", borderRadius: "var(--radius-lg)", border: `1px solid ${copied ? "var(--color-success-300)" : "var(--color-neutral-200)"}`, background: copied ? "var(--color-success-50)" : "var(--color-white)", overflow: "hidden", boxShadow: "var(--shadow-xs)", transition: "all 120ms ease" }}>
+      <button type="button" onClick={copy} title={`Copy SVG for ${item.name}`} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-1-5)", padding: "var(--space-3)", cursor: "pointer", fontFamily: "inherit", border: "none", background: "transparent" }}>
         <div style={{ width: w, height: h, display: "flex", alignItems: "center", justifyContent: "center" }}>
           <img src={item.svgUrl} alt={item.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} loading="lazy" />
         </div>
-        <span style={{ fontSize: 10, fontFamily: "var(--sb-font-mono)", color: copied ? "var(--color-success-700)" : "var(--color-neutral-600)", maxWidth: "100%", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", textAlign: "center" }}>
+        <span style={{ fontSize: "var(--font-size-0)", fontFamily: "var(--font-family-body)", color: copied ? "var(--color-success-700)" : "var(--color-neutral-600)", maxWidth: "100%", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", textAlign: "center" }}>
           {item.name}
         </span>
       </button>
       <div style={{ borderTop: "1px solid var(--color-neutral-100)", padding: "6px 10px", display: "flex", justifyContent: "center" }}>
-        <button type="button" onClick={copy} style={{ fontSize: 11, fontWeight: 600, color: copied ? "var(--color-success-700)" : "var(--color-ep-700)", background: "none", border: "none", cursor: "pointer", fontFamily: "inherit", padding: "2px 8px", borderRadius: 4 }}>
+        <button type="button" onClick={copy} style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", color: copied ? "var(--color-success-700)" : "var(--color-ep-700)", background: "none", border: "none", cursor: "pointer", fontFamily: "inherit", padding: "2px 8px", borderRadius: "var(--radius-xs)" }}>
           {copied ? "✓ Copied" : copying ? "..." : "Copy SVG"}
         </button>
       </div>

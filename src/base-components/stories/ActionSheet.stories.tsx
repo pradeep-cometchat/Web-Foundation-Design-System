@@ -143,7 +143,7 @@ export const DestructiveActions: StoryObj<typeof ActionSheet> = {
 export const States: StoryObj = {
   parameters: { layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 40, display: "flex", gap: 32, flexWrap: "wrap", justifyContent: "center" }}>
+    <div style={{ padding: "var(--space-10)", display: "flex", gap: "var(--space-8)", flexWrap: "wrap", justifyContent: "center" }}>
       {/* Default */}
       <div>
         <div style={stateLabelStyle}>Default</div>
@@ -234,12 +234,12 @@ export const Playground: StoryObj<typeof ActionSheet> = {
 };
 
 const stateLabelStyle: React.CSSProperties = {
-  fontSize: 11,
-  fontWeight: 600,
+  fontSize: "var(--font-size-0)",
+  fontWeight: "var(--font-weight-semibold)",
   textTransform: "uppercase",
   letterSpacing: "0.06em",
   color: "var(--color-neutral-500)",
-  marginBottom: 8,
+  marginBottom: "var(--space-2)",
   textAlign: "center",
 };
 

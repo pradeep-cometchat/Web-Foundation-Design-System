@@ -66,10 +66,10 @@ backdrop-filter: blur(var(--backdrop-blur-${size}));
 -webkit-backdrop-filter: blur(var(--backdrop-blur-${size}));`;
 
   return (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <div
         style={{
-          borderRadius: 16,
+          borderRadius: "var(--radius-2xl)",
           overflow: "hidden",
           border: "1px solid var(--color-neutral-200)",
           boxShadow: "var(--shadow-sm)",
@@ -77,7 +77,7 @@ backdrop-filter: blur(var(--backdrop-blur-${size}));
       >
         <div
           style={{
-            padding: 40,
+            padding: "var(--space-10)",
             backgroundImage: `url(${BACKDROP_IMAGE})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -140,21 +140,21 @@ const Stat: React.FC<{
   >
     <div
       style={{
-        fontSize: 11,
-        fontWeight: 600,
+        fontSize: "var(--font-size-0)",
+        fontWeight: "var(--font-weight-semibold)",
         letterSpacing: "0.06em",
         textTransform: "uppercase",
         color: "var(--color-neutral-500)",
-        marginBottom: 4,
+        marginBottom: "var(--space-1)",
       }}
     >
       {label}
     </div>
     <div
       style={{
-        fontFamily: mono ? "var(--sb-font-mono)" : "inherit",
-        fontSize: 13,
-        fontWeight: 600,
+        fontFamily: mono ? "var(--font-family-body)" : "inherit",
+        fontSize: "var(--font-size-1)",
+        fontWeight: "var(--font-weight-semibold)",
         color: "var(--color-neutral-900)",
         textTransform: mono && label === "Theme" ? "capitalize" : "none",
       }}
@@ -188,7 +188,7 @@ const BlurCard: React.FC<BlurCardProps> = ({ size, theme, label }) => {
         width: "100%",
         maxWidth: 420,
         padding: "22px 24px",
-        borderRadius: 14,
+        borderRadius: "var(--radius-xl)",
         background: bg,
         border: `1px solid ${borderColor}`,
         backdropFilter: `blur(${token.blur}px)`,
@@ -206,27 +206,27 @@ const BlurCard: React.FC<BlurCardProps> = ({ size, theme, label }) => {
           alignItems: "center",
           justifyContent: "space-between",
           marginBottom: 28,
-          gap: 12,
+          gap: "var(--space-3)",
         }}
       >
-        <strong style={{ fontSize: 15, fontWeight: 600 }}>
+        <strong style={{ fontSize: "var(--font-size-2)", fontWeight: "var(--font-weight-semibold)" }}>
           {label ?? `backdrop-blur-${size}`}
         </strong>
         <span
           style={{
             display: "inline-flex",
             alignItems: "center",
-            gap: 6,
-            fontSize: 12,
+            gap: "var(--space-1-5)",
+            fontSize: "var(--font-size-1)",
             color: mutedColor,
-            fontWeight: 500,
+            fontWeight: "var(--font-weight-medium)",
           }}
         >
           <ThemeGlyph theme={theme} />
           {theme}
         </span>
       </div>
-      <div style={{ fontSize: 11, color: mutedColor, fontFamily: "var(--sb-font-mono)" }}>
+      <div style={{ fontSize: "var(--font-size-0)", color: mutedColor, fontFamily: "var(--font-family-body)" }}>
         Color: {tint.toUpperCase()} · Opacity:{" "}
         {Math.round(token.opacity * 100)}% · Blur: {token.blur}
       </div>
@@ -267,7 +267,7 @@ export const Playground: StoryObj<typeof BlurPlayground> = {
 export const Gallery: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Backdrop blur"
         description="Translucent surfaces for panels, sheets, and floating UI placed over content. Four sizes × two theme tints, rendered over a photo so you can see how each combination reads."
@@ -288,7 +288,7 @@ export const Gallery: StoryObj = {
 
       <div
         style={{
-          borderRadius: 16,
+          borderRadius: "var(--radius-2xl)",
           overflow: "hidden",
           border: "1px solid var(--color-neutral-200)",
           boxShadow: "var(--shadow-sm)",
@@ -296,7 +296,7 @@ export const Gallery: StoryObj = {
       >
         <div
           style={{
-            padding: 40,
+            padding: "var(--space-10)",
             backgroundImage: `url(${BACKDROP_IMAGE})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -306,7 +306,7 @@ export const Gallery: StoryObj = {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-              gap: 20,
+              gap: "var(--space-5)",
             }}
           >
             {backdropBlurOrder.map((size) => (
@@ -315,7 +315,7 @@ export const Gallery: StoryObj = {
                 style={{
                   display: "grid",
                   gridTemplateColumns: "1fr 1fr",
-                  gap: 16,
+                  gap: "var(--space-4)",
                 }}
               >
                 <BlurCard size={size} theme="light" />
@@ -333,7 +333,7 @@ export const Gallery: StoryObj = {
 export const Reference: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 32, maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Backdrop blur reference"
         description="Every size with its blur radius and CSS variable."
@@ -356,7 +356,7 @@ export const Reference: StoryObj = {
                     position: "relative",
                     width: 84,
                     height: 48,
-                    borderRadius: 8,
+                    borderRadius: "var(--radius-md)",
                     overflow: "hidden",
                     backgroundImage: `url(${BACKDROP_IMAGE})`,
                     backgroundSize: "cover",
@@ -370,7 +370,7 @@ export const Reference: StoryObj = {
                       margin: "auto",
                       width: 56,
                       height: 28,
-                      borderRadius: 6,
+                      borderRadius: "var(--radius-sm)",
                       background: "rgba(255,255,255,0.6)",
                       backdropFilter: `blur(${t.blur}px)`,
                       WebkitBackdropFilter: `blur(${t.blur}px)`,
@@ -424,7 +424,7 @@ export const Reference: StoryObj = {
         <div
           style={{
             border: "1px solid var(--color-neutral-200)",
-            borderRadius: 12,
+            borderRadius: "var(--radius-xl)",
             overflow: "hidden",
             background: "var(--color-neutral-25)",
           }}
@@ -441,8 +441,8 @@ export const Reference: StoryObj = {
           >
             <span
               style={{
-                fontSize: 11,
-                fontWeight: 600,
+                fontSize: "var(--font-size-0)",
+                fontWeight: "var(--font-weight-semibold)",
                 letterSpacing: "0.06em",
                 textTransform: "uppercase",
                 color: "var(--color-neutral-600)",
@@ -469,9 +469,9 @@ export const Reference: StoryObj = {
           <pre
             style={{
               margin: 0,
-              padding: 16,
-              fontFamily: "var(--sb-font-mono)",
-              fontSize: 12.5,
+              padding: "var(--space-4)",
+              fontFamily: "var(--font-family-body)",
+              fontSize: "var(--font-size-1)",
               lineHeight: 1.65,
               color: "var(--color-neutral-800)",
               overflowX: "auto",
@@ -507,7 +507,7 @@ const TintSwatch: React.FC<{ color: string; opacity: number; label: string }> = 
       position: "relative",
       width: 84,
       height: 48,
-      borderRadius: 8,
+      borderRadius: "var(--radius-md)",
       overflow: "hidden",
       backgroundImage: `url(${BACKDROP_IMAGE})`,
       backgroundSize: "cover",

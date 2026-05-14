@@ -76,27 +76,27 @@ export const GroupWithAdd: StoryObj = {
 export const AllStates: StoryObj = {
   parameters: { layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
       <div>
-        <div style={{ fontSize: 12, fontWeight: 600, color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>Default</div>
-        <div style={{ display: "flex", gap: 4 }}>
+        <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>Default</div>
+        <div style={{ display: "flex", gap: "var(--space-1)" }}>
           <Reaction emoji="😍" />
           <Reaction emoji="👍" count={2} />
           <Reaction emoji="❤️" count={5} />
         </div>
       </div>
       <div>
-        <div style={{ fontSize: 12, fontWeight: 600, color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>Active (user reacted)</div>
-        <div style={{ display: "flex", gap: 4 }}>
+        <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>Active (user reacted)</div>
+        <div style={{ display: "flex", gap: "var(--space-1)" }}>
           <Reaction emoji="😍" active />
           <Reaction emoji="👍" count={3} active />
           <Reaction emoji="❤️" count={5} active />
         </div>
       </div>
       <div>
-        <div style={{ fontSize: 12, fontWeight: 600, color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>In context (below a message)</div>
+        <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>In context (below a message)</div>
         <div style={{ maxWidth: 300 }}>
-          <div style={{ background: "var(--color-neutral-200)", borderRadius: "var(--radius-xl)", padding: "12px", fontSize: 14, color: "var(--color-neutral-900)", marginBottom: 4 }}>
+          <div style={{ background: "var(--color-neutral-200)", borderRadius: "var(--radius-xl)", padding: "12px", fontSize: "var(--font-size-2)", color: "var(--color-neutral-900)", marginBottom: "var(--space-1)" }}>
             Sure! Sending them over now.
           </div>
           <div style={{ paddingLeft: 4 }}>

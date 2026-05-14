@@ -4,6 +4,7 @@ import path from "node:path";
 
 export default defineConfig({
   plugins: [react()],
+  base: process.env.STORYBOOK_BASE || "/",
   resolve: {
     alias: {
       "@foundation": path.resolve(__dirname, "src/foundation"),

@@ -83,13 +83,13 @@ export const SingleReply: StoryObj<typeof SmartReplies> = {
 export const AllStates: StoryObj = {
   parameters: { layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 40, display: "flex", gap: 24, flexWrap: "wrap", justifyContent: "center", alignItems: "flex-start" }}>
+    <div style={{ padding: "var(--space-10)", display: "flex", gap: "var(--space-6)", flexWrap: "wrap", justifyContent: "center", alignItems: "flex-start" }}>
       <div>
-        <div style={{ fontSize: 12, fontWeight: 600, color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8, textAlign: "center" }}>Loading</div>
+        <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)", textAlign: "center" }}>Loading</div>
         <SmartReplies open loading />
       </div>
       <div>
-        <div style={{ fontSize: 12, fontWeight: 600, color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8, textAlign: "center" }}>Loaded</div>
+        <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)", textAlign: "center" }}>Loaded</div>
         <SmartReplies
           open
           replies={[

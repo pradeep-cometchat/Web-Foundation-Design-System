@@ -78,7 +78,7 @@ export const Symbols: StoryObj<typeof EmojiKeyboard> = {
 export const AllCategories: StoryObj = {
   parameters: { layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 40, display: "flex", gap: 24, flexWrap: "wrap", justifyContent: "center" }}>
+    <div style={{ padding: "var(--space-10)", display: "flex", gap: "var(--space-6)", flexWrap: "wrap", justifyContent: "center" }}>
       <EmojiKeyboard activeCategory="smileys" />
       <EmojiKeyboard activeCategory="animals" />
       <EmojiKeyboard activeCategory="flags" />

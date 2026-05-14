@@ -37,7 +37,7 @@ export const Swatch: React.FC<SwatchProps> = ({
       style={{
         display: "flex",
         flexDirection: "column",
-        borderRadius: 12,
+        borderRadius: "var(--radius-xl)",
         overflow: "hidden",
         border: "1px solid var(--color-neutral-200)",
         background: "var(--color-white)",
@@ -61,11 +61,11 @@ export const Swatch: React.FC<SwatchProps> = ({
               position: "absolute",
               top: 10,
               right: 10,
-              fontSize: 10,
-              fontWeight: 700,
+              fontSize: "var(--font-size-0)",
+              fontWeight: "var(--font-weight-bold)",
               letterSpacing: "0.04em",
               padding: "3px 7px",
-              borderRadius: 999,
+              borderRadius: "var(--radius-full)",
               background: "var(--color-white)",
               color:
                 bestRating === "AAA" || bestRating === "AA"
@@ -91,8 +91,8 @@ export const Swatch: React.FC<SwatchProps> = ({
         <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <strong
             style={{
-              fontSize: 13,
-              fontWeight: 600,
+              fontSize: "var(--font-size-1)",
+              fontWeight: "var(--font-weight-semibold)",
               color: "var(--color-neutral-900)",
               letterSpacing: "-0.005em",
             }}
@@ -101,9 +101,9 @@ export const Swatch: React.FC<SwatchProps> = ({
           </strong>
           <span
             style={{
-              fontSize: 12,
+              fontSize: "var(--font-size-1)",
               fontFamily:
-                "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+                "var(--font-family-body)",
               color: "var(--color-neutral-500)",
               textTransform: "uppercase",
             }}
@@ -112,7 +112,7 @@ export const Swatch: React.FC<SwatchProps> = ({
           </span>
         </div>
         {description && (
-          <div style={{ fontSize: 11, color: "var(--color-neutral-600)" }}>
+          <div style={{ fontSize: "var(--font-size-0)", color: "var(--color-neutral-600)" }}>
             {description}
           </div>
         )}

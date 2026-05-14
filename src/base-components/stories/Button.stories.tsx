@@ -77,19 +77,19 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 const StarIcon = () => (
-  <span className="icon-outlined" data-icon="outlined" style={{ fontFamily: "Material Symbols Outlined", fontSize: 20, fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>
+  <span className="icon-outlined" data-icon="outlined" style={{ fontFamily: "Material Symbols Outlined", fontSize: "var(--font-size-5)", fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>
     star
   </span>
 );
 
 const AddIcon = () => (
-  <span className="icon-outlined" data-icon="outlined" style={{ fontFamily: "Material Symbols Outlined", fontSize: 20, fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>
+  <span className="icon-outlined" data-icon="outlined" style={{ fontFamily: "Material Symbols Outlined", fontSize: "var(--font-size-5)", fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>
     add
   </span>
 );
 
 const DeleteIcon = () => (
-  <span className="icon-outlined" data-icon="outlined" style={{ fontFamily: "Material Symbols Outlined", fontSize: 20, fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>
+  <span className="icon-outlined" data-icon="outlined" style={{ fontFamily: "Material Symbols Outlined", fontSize: "var(--font-size-5)", fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>
     delete
   </span>
 );
@@ -98,9 +98,9 @@ const DeleteIcon = () => (
 export const Hierarchies: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
       <Section title="Standard">
-        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", alignItems: "center" }}>
           <Button variant="primary">Primary</Button>
           <Button variant="secondary">Secondary</Button>
           <Button variant="tertiary">Tertiary</Button>
@@ -109,7 +109,7 @@ export const Hierarchies: Story = {
         </div>
       </Section>
       <Section title="Destructive">
-        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", alignItems: "center" }}>
           <Button variant="destructive-primary">Primary</Button>
           <Button variant="destructive-secondary">Secondary</Button>
           <Button variant="destructive-tertiary">Tertiary</Button>
@@ -124,7 +124,7 @@ export const Hierarchies: Story = {
 export const Sizes: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+    <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "center" }}>
       <Button size="sm">Small</Button>
       <Button size="md">Medium</Button>
       <Button size="lg">Large</Button>
@@ -137,23 +137,23 @@ export const Sizes: Story = {
 export const States: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
       <Section title="Primary states">
-        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "center" }}>
           <Button variant="primary">Default</Button>
           <Button variant="primary" disabled>Disabled</Button>
           <Button variant="primary" loading>Loading</Button>
         </div>
       </Section>
       <Section title="Secondary states">
-        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "center" }}>
           <Button variant="secondary">Default</Button>
           <Button variant="secondary" disabled>Disabled</Button>
           <Button variant="secondary" loading>Loading</Button>
         </div>
       </Section>
       <Section title="Destructive states">
-        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "center" }}>
           <Button variant="destructive-primary">Default</Button>
           <Button variant="destructive-primary" disabled>Disabled</Button>
           <Button variant="destructive-primary" loading>Loading</Button>
@@ -167,22 +167,22 @@ export const States: Story = {
 export const WithIcons: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
       <Section title="Icon left">
-        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "center" }}>
           <Button variant="primary" iconLeft={<StarIcon />}>Favorite</Button>
           <Button variant="secondary" iconLeft={<AddIcon />}>Add item</Button>
           <Button variant="destructive-primary" iconLeft={<DeleteIcon />}>Delete</Button>
         </div>
       </Section>
       <Section title="Icon right">
-        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "center" }}>
           <Button variant="primary" iconRight={<StarIcon />}>Favorite</Button>
           <Button variant="secondary" iconRight={<AddIcon />}>Add item</Button>
         </div>
       </Section>
       <Section title="Icon only">
-        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "center" }}>
           <Button variant="primary" size="sm" iconOnly><StarIcon /></Button>
           <Button variant="primary" size="md" iconOnly><StarIcon /></Button>
           <Button variant="primary" size="lg" iconOnly><StarIcon /></Button>
@@ -199,7 +199,7 @@ export const WithIcons: Story = {
 export const FullWidth: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
   render: () => (
-    <div style={{ width: 360, display: "flex", flexDirection: "column", gap: 12 }}>
+    <div style={{ width: 360, display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
       <Button variant="primary" fullWidth>Sign in</Button>
       <Button variant="secondary" fullWidth>Create account</Button>
       <Button variant="tertiary" fullWidth>Skip for now</Button>
@@ -234,7 +234,7 @@ export const Matrix: Story = {
           <tbody>
             {variants.map((v) => (
               <tr key={v}>
-                <td style={tdStyle}><code style={{ fontSize: 11 }}>{v}</code></td>
+                <td style={tdStyle}><code style={{ fontSize: "var(--font-size-0)" }}>{v}</code></td>
                 {sizes.map((s) => (
                   <td key={s} style={tdStyle}>
                     <Button variant={v} size={s}>Button</Button>
@@ -254,7 +254,7 @@ export const Matrix: Story = {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 10 }}>
+      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>
         {title}
       </div>
       {children}
@@ -263,8 +263,8 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 const thStyle: React.CSSProperties = {
-  fontSize: 11,
-  fontWeight: 600,
+  fontSize: "var(--font-size-0)",
+  fontWeight: "var(--font-weight-semibold)",
   color: "var(--color-neutral-600)",
   textTransform: "uppercase",
   letterSpacing: "0.06em",

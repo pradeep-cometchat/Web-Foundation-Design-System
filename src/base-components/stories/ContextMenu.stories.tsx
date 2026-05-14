@@ -163,7 +163,7 @@ export const CustomWidth: StoryObj<typeof ContextMenu> = {
 export const States: StoryObj = {
   parameters: { layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: 40, display: "flex", gap: 32, flexWrap: "wrap", justifyContent: "center" }}>
+    <div style={{ padding: "var(--space-10)", display: "flex", gap: "var(--space-8)", flexWrap: "wrap", justifyContent: "center" }}>
       <div>
         <div style={stateLabelStyle}>Default</div>
         <div className="context-menu" style={{ width: 160 }}>
@@ -213,22 +213,22 @@ export const States: StoryObj = {
 export const Trigger: StoryObj = {
   parameters: { layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
       <div>
-        <div style={{ fontSize: 12, fontWeight: 600, color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 10 }}>
+        <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>
           Trigger button (kebab icon)
         </div>
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--space-4)", alignItems: "center" }}>
           <ContextMenuTrigger />
-          <span style={{ fontSize: 13, color: "var(--color-neutral-500)" }}>Default</span>
+          <span style={{ fontSize: "var(--font-size-1)", color: "var(--color-neutral-500)" }}>Default</span>
         </div>
       </div>
       <div>
-        <div style={{ fontSize: 12, fontWeight: 600, color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 10 }}>
+        <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>
           In context — appears on message hover
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <div style={{ background: "var(--color-neutral-100)", borderRadius: "var(--radius-xl)", padding: "8px 12px", fontSize: 14, color: "var(--color-neutral-900)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)" }}>
+          <div style={{ background: "var(--color-neutral-100)", borderRadius: "var(--radius-xl)", padding: "8px 12px", fontSize: "var(--font-size-2)", color: "var(--color-neutral-900)" }}>
             Yes, it's available.
           </div>
           <ContextMenuTrigger />
@@ -249,11 +249,11 @@ export const Playground: StoryObj<typeof ContextMenu> = {
 };
 
 const stateLabelStyle: React.CSSProperties = {
-  fontSize: 11,
-  fontWeight: 600,
+  fontSize: "var(--font-size-0)",
+  fontWeight: "var(--font-weight-semibold)",
   textTransform: "uppercase",
   letterSpacing: "0.06em",
   color: "var(--color-neutral-500)",
-  marginBottom: 8,
+  marginBottom: "var(--space-2)",
   textAlign: "center",
 };

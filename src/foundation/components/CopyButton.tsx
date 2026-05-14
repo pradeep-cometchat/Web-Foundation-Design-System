@@ -34,11 +34,11 @@ export const CopyButton: React.FC<CopyButtonProps> = ({
 
   const base: React.CSSProperties = {
     fontFamily:
-      "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
-    fontSize: 12,
-    fontWeight: 500,
+      "var(--font-family-body)",
+    fontSize: "var(--font-size-1)",
+    fontWeight: "var(--font-weight-medium)",
     padding: variant === "ghost" ? "2px 6px" : "5px 10px",
-    borderRadius: 6,
+    borderRadius: "var(--radius-sm)",
     cursor: "pointer",
     transition: "all 120ms ease",
     display: "inline-flex",

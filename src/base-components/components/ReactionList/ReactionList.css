@@ -5,9 +5,7 @@
   background: var(--color-white, #ffffff);
   border: 1px solid var(--color-neutral-100, #f5f5f5);
   border-radius: 16px;
-  box-shadow: 0px 12px 16px -4px rgba(10, 13, 18, 0.08),
-    0px 4px 6px -2px rgba(10, 13, 18, 0.03),
-    0px 2px 2px -1px rgba(10, 13, 18, 0.04);
+  box-shadow: var(--shadow-lg);
   overflow: clip;
   display: flex;
   flex-direction: column;
@@ -40,9 +38,9 @@
   border-top-right-radius: 4px;
   overflow: clip;
   font-family: var(--font-family-body, "Inter", sans-serif);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-body);
   text-align: center;
   color: var(--color-neutral-500, #717680);
   white-space: nowrap;
@@ -135,9 +133,9 @@
 /* Name: Body/Medium — 14px, weight 500, line-height 20px, text-primary */
 .reaction-list__name {
   font-family: var(--font-family-body, "Inter", sans-serif);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-body);
   color: var(--color-neutral-900, #181d27);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -146,8 +144,8 @@
 /* Subtitle: Caption 1/Regular — 12px, weight 400, line-height 18px, text-secondary */
 .reaction-list__subtitle {
   font-family: var(--font-family-body, "Inter", sans-serif);
-  font-size: 12px;
-  font-weight: 400;
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-regular);
   line-height: 14px;
   color: var(--color-neutral-600, #414651);
   overflow: hidden;
@@ -156,8 +154,8 @@
 
 /* Emoji: 20px, line-height 30px, 24px wide */
 .reaction-list__emoji {
-  font-size: 20px;
-  line-height: 30px;
+  font-size: var(--font-size-5);
+  line-height: var(--line-height-h2);
   width: 24px;
   text-align: center;
   flex-shrink: 0;

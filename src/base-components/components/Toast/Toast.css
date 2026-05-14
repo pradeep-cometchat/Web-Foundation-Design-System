@@ -23,9 +23,9 @@
 /* Message: Caption 1/Regular — 12px, weight 400, line-height 18px, white, centered */
 .toast__message {
   font-family: var(--font-family-body, "Inter", sans-serif);
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 18px;
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-caption-1);
   color: var(--color-white, #ffffff);
   text-align: center;
   white-space: nowrap;
