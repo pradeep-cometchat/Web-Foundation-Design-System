@@ -107,6 +107,14 @@ samp,
   line-height: 1.7 !important;
 }
 
+/* Don't override component text colors inside story previews */
+.sbdocs .sb-foundation-root p,
+.sbdocs .sb-foundation-root li {
+  color: unset !important;
+  font-size: unset !important;
+  line-height: unset !important;
+}
+
 /* Inline code chips in MDX. */
 .sbdocs :not(pre) > code {
   background: var(--color-neutral-50, #fafafa) !important;
@@ -133,12 +141,23 @@ samp,
 
 /* The story canvas root. */
 .sb-foundation-root {
-  color: var(--color-neutral-lm-900, #181d27);
+  color: var(--color-text-primary);
   background: transparent;
   line-height: 1.5;
 }
+
+/* Dark mode: story preview containers get dark background */
 [data-theme="dark"] .sb-foundation-root {
-  color: var(--color-neutral-dm-25, #fafafa);
+  background: var(--color-bg-03);
+  color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .sbdocs-preview > div {
+  background: var(--color-bg-03) !important;
+}
+
+[data-theme="dark"] .docs-story {
+  background: var(--color-bg-03) !important;
 }
 
 /* Selection matches the brand. */

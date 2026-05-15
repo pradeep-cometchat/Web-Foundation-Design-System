@@ -37,7 +37,7 @@ const meta: Meta<typeof TypePlayground> = {
   title: "Foundation/Typography",
   component: TypePlayground,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: { layout: "fullscreen", themes: { themeOverride: "Light" } },
   argTypes: {
     style: {
       control: "select",

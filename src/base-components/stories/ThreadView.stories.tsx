@@ -134,6 +134,120 @@ export const States: StoryObj = {
   ),
 };
 
+/** HTML & CSS usage reference for the Thread View component. */
+export const Usage: StoryObj = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <UsageSection title="HTML">
+        <UsageCodeCard language="HTML" code={`<!-- Thread View -->
+<div class="thread-view">
+  <div class="thread-view__header">
+    <div class="thread-view__header-text">
+      <h2 class="thread-view__title">Thread</h2>
+    </div>
+    <div class="thread-view__header-actions">
+      <button class="thread-view__header-btn" type="button"><!-- info icon --></button>
+      <button class="thread-view__header-btn" type="button"><!-- close icon --></button>
+    </div>
+  </div>
+  <div class="thread-view__chat">
+    <div class="thread-view__date-chip">
+      <span class="thread-view__date-chip-text">Today</span>
+    </div>
+    <!-- Sent bubble -->
+    <div class="thread-view__message thread-view__message--sent">
+      <div class="thread-view__bubble thread-view__bubble--sent">
+        <p class="thread-view__bubble-text">Thanks! Looks good.</p>
+        <div class="thread-view__bubble-meta">
+          <span class="thread-view__read-receipt"><!-- tick SVG --></span>
+          <span class="thread-view__bubble-time">4:56 pm</span>
+        </div>
+      </div>
+    </div>
+    <!-- Reply separator -->
+    <div class="thread-view__separator">
+      <span class="thread-view__separator-text">2 replies</span>
+      <div class="thread-view__separator-line"></div>
+    </div>
+    <!-- Received bubble -->
+    <div class="thread-view__message thread-view__message--received">
+      <div class="thread-view__bubble thread-view__bubble--received">
+        <p class="thread-view__bubble-text">Thanks</p>
+        <div class="thread-view__bubble-meta">
+          <span class="thread-view__bubble-time">4:56 pm</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="thread-view__composer">...</div>
+</div>`} />
+      </UsageSection>
+      <UsageSection title="CSS (Foundation Variables)">
+        <UsageCodeCard language="CSS" code={`.thread-view {
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  height: 100%;
+  background: var(--color-bg-01);
+  border: 1px solid var(--color-border-light);
+}
+
+.thread-view__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: 64px;
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.thread-view__title {
+  font-size: var(--font-size-5);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.thread-view__bubble {
+  max-width: 75%;
+  border-radius: var(--radius-xl);
+  padding: var(--space-3) var(--space-3) var(--space-1);
+}
+
+.thread-view__bubble--sent {
+  background: var(--color-ep-500);
+}
+
+.thread-view__bubble--received {
+  background: var(--color-bg-04);
+}
+
+.thread-view__bubble--sent .thread-view__bubble-text {
+  color: var(--color-static-white);
+}
+
+.thread-view__separator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-5);
+}
+
+.thread-view__separator-text {
+  font-size: var(--font-size-2);
+  color: var(--color-text-secondary);
+}
+
+.thread-view__separator-line {
+  flex: 1;
+  height: 1px;
+  background: var(--color-bg-04);
+}`} />
+      </UsageSection>
+    </div>
+  ),
+};
+
 /** Interactive playground — use the controls panel to configure. */
 export const Playground: Story = {
   args: {
@@ -153,3 +267,25 @@ const stateLabelStyle: React.CSSProperties = {
   letterSpacing: "0.06em",
   color: "var(--color-neutral-500, #535862)",
 };
+
+/* ─── Usage helpers ─── */
+
+const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
+  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
+      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+    </div>
+    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
+function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      {children}
+    </div>
+  );
+}

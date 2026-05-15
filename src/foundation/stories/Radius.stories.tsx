@@ -17,7 +17,7 @@ const meta: Meta<typeof RadiusPlayground> = {
   title: "Foundation/Radius",
   component: RadiusPlayground,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: { layout: "fullscreen", themes: { themeOverride: "Light" } },
   argTypes: {
     size: {
       control: "select",

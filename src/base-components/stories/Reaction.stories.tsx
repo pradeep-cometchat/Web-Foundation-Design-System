@@ -114,6 +114,146 @@ export const AllStates: StoryObj = {
   ),
 };
 
+/* ─── Helpers ──────────────────────────────────────────────────────────────── */
+
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      {children}
+    </div>
+  );
+}
+
+const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
+  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
+      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+    </div>
+    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
+const ClassGroup: React.FC<{ title: string; items: string[] }> = ({ title, items }) => (
+  <div style={{ padding: "var(--space-3-5) var(--space-4)", border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", background: "var(--color-bg-01)" }}>
+    <div style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
+      {items.map((item) => (
+        <code key={item} style={{ fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", color: "var(--color-text-primary)", background: "var(--color-bg-02)", padding: "var(--space-0-5) var(--space-2)", borderRadius: "var(--radius-xs)", border: "1px solid var(--color-border-default)", display: "inline-block", width: "fit-content" }}>.{item}</code>
+      ))}
+    </div>
+  </div>
+);
+
+/** Raw HTML + CSS usage with foundation variables. */
+export const Usage: StoryObj = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <Section title="HTML">
+        <CodeCard
+          language="HTML"
+          code={`<!-- Default reaction -->
+<button class="reaction">
+  <span class="reaction__emoji">😍</span>
+  <span class="reaction__count">1</span>
+</button>
+
+<!-- Active reaction (user reacted) -->
+<button class="reaction reaction--active">
+  <span class="reaction__emoji">❤️</span>
+  <span class="reaction__count">3</span>
+</button>
+
+<!-- Add reaction button -->
+<button class="reaction reaction--add">
+  <span class="reaction__emoji">+</span>
+</button>
+
+<!-- Reaction group -->
+<div class="reaction-group">
+  <button class="reaction reaction--active">
+    <span class="reaction__emoji">❤️</span>
+    <span class="reaction__count">3</span>
+  </button>
+  <button class="reaction">
+    <span class="reaction__emoji">😂</span>
+    <span class="reaction__count">2</span>
+  </button>
+  <button class="reaction reaction--add">
+    <span class="reaction__emoji">+</span>
+  </button>
+</div>`}
+        />
+      </Section>
+
+      <Section title="CSS (Foundation Variables)">
+        <CodeCard
+          language="CSS"
+          code={`.reaction {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  height: 24px;
+  padding: var(--space-0-5) var(--space-2);
+  background: var(--color-bg-01);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background 100ms ease, border-color 100ms ease;
+}
+
+.reaction:hover {
+  background: var(--color-bg-02);
+  border-color: var(--color-border-default);
+}
+
+.reaction--active {
+  background: var(--color-ep-50);
+  border-color: var(--color-ep-200);
+}
+
+.reaction--active .reaction__count {
+  color: var(--color-ep-700);
+}
+
+.reaction--add {
+  color: var(--color-icon-tertiary);
+  border-style: dashed;
+}
+
+.reaction__emoji {
+  font-size: var(--font-size-2);
+  line-height: var(--line-height-body);
+}
+
+.reaction__count {
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+}
+
+.reaction-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}`}
+        />
+      </Section>
+
+      <Section title="Available Classes">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+          <ClassGroup title="Modifiers" items={["reaction--active", "reaction--add"]} />
+          <ClassGroup title="Child Elements" items={["reaction__emoji", "reaction__count"]} />
+          <ClassGroup title="Group" items={["reaction-group"]} />
+        </div>
+      </Section>
+    </div>
+  ),
+};
+
 /** Interactive playground. */
 export const Playground: StoryObj<typeof Reaction> = {
   args: { emoji: "😍", count: 3, active: false },

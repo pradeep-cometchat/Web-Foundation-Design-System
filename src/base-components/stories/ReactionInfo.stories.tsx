@@ -116,6 +116,79 @@ export const States: StoryObj = {
   ),
 };
 
+/** HTML & CSS usage reference for the Reaction Info component. */
+export const Usage: StoryObj = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <UsageSection title="HTML">
+        <UsageCodeCard language="HTML" code={`<!-- Reaction Info Tooltip -->
+<div class="reaction-info">
+  <div class="reaction-info__content">
+    <div class="reaction-info__inner">
+      <span class="reaction-info__emoji">😍</span>
+      <div class="reaction-info__text">
+        <span class="reaction-info__names">George Alan, Pourav Raj +5</span>
+        <span class="reaction-info__label">reacted</span>
+      </div>
+    </div>
+  </div>
+  <div class="reaction-info__arrow"></div>
+</div>`} />
+      </UsageSection>
+      <UsageSection title="CSS (Foundation Variables)">
+        <UsageCodeCard language="CSS" code={`.reaction-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: var(--radius-md);
+  filter: drop-shadow(0px 12px 16px rgba(10, 13, 18, 0.08));
+}
+
+.reaction-info__content {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-2);
+  background: var(--color-neutral-lm-950);
+  border-radius: var(--radius-xs);
+}
+
+.reaction-info__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  text-align: center;
+}
+
+.reaction-info__emoji {
+  font-size: var(--font-size-6);
+  line-height: var(--line-height-h1);
+}
+
+.reaction-info__names {
+  font-size: var(--font-size-1);
+  color: var(--color-white);
+}
+
+.reaction-info__label {
+  font-size: var(--font-size-1);
+  color: var(--color-text-secondary);
+}
+
+.reaction-info__arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 6px 0 6px;
+  border-color: var(--color-neutral-lm-950) transparent transparent transparent;
+  align-self: center;
+}`} />
+      </UsageSection>
+    </div>
+  ),
+};
+
 /** Interactive playground — use the controls panel to configure. */
 export const Playground: Story = {
   args: {
@@ -135,3 +208,25 @@ const stateLabelStyle: React.CSSProperties = {
   letterSpacing: "0.06em",
   color: "var(--color-neutral-500, #535862)",
 };
+
+/* ─── Usage helpers ─── */
+
+const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
+  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
+      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+    </div>
+    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
+function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      {children}
+    </div>
+  );
+}

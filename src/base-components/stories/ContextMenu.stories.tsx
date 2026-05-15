@@ -238,6 +238,98 @@ export const Trigger: StoryObj = {
   ),
 };
 
+/** HTML & CSS usage reference for the Context Menu component. */
+export const Usage: StoryObj = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <UsageSection title="HTML">
+        <UsageCodeCard language="HTML" code={`<!-- Context Menu -->
+<div class="context-menu" style="width: 160px">
+  <button class="context-menu__item context-menu__item--first" type="button">
+    <span class="context-menu__item-icon"><!-- SVG icon --></span>
+    <span class="context-menu__item-label">Copy</span>
+  </button>
+  <button class="context-menu__item" type="button">
+    <span class="context-menu__item-icon"><!-- SVG icon --></span>
+    <span class="context-menu__item-label">Reply</span>
+  </button>
+  <button class="context-menu__item context-menu__item--destructive" type="button">
+    <span class="context-menu__item-icon"><!-- SVG icon --></span>
+    <span class="context-menu__item-label">Delete</span>
+  </button>
+</div>
+
+<!-- Trigger button (kebab icon) -->
+<button class="context-menu-trigger" type="button">
+  <!-- three-dot SVG -->
+</button>`} />
+      </UsageSection>
+      <UsageSection title="CSS (Foundation Variables)">
+        <UsageCodeCard language="CSS" code={`.context-menu {
+  background: var(--color-bg-01);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.context-menu__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  height: 40px;
+  background: var(--color-bg-01);
+  font-size: var(--font-size-2);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background-color 0.12s ease;
+}
+
+.context-menu__item--first {
+  height: 44px;
+}
+
+.context-menu__item:hover {
+  background: var(--color-bg-02);
+}
+
+.context-menu__item--destructive {
+  color: var(--color-error);
+}
+
+.context-menu__item--destructive:hover {
+  background: var(--color-error-25);
+}
+
+.context-menu__item-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-icon-tertiary);
+}
+
+.context-menu-trigger {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-01);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.context-menu-trigger:hover {
+  background: var(--color-bg-02);
+  box-shadow: var(--shadow-md);
+}`} />
+      </UsageSection>
+    </div>
+  ),
+};
+
 /** Interactive playground — use the controls panel to configure the Context Menu. */
 export const Playground: StoryObj<typeof ContextMenu> = {
   args: {
@@ -257,3 +349,25 @@ const stateLabelStyle: React.CSSProperties = {
   marginBottom: "var(--space-2)",
   textAlign: "center",
 };
+
+/* ─── Usage helpers ─── */
+
+const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
+  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
+      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+    </div>
+    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
+function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      {children}
+    </div>
+  );
+}

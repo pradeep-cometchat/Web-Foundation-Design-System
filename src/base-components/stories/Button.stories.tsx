@@ -277,6 +277,97 @@ const tdStyle: React.CSSProperties = {
   verticalAlign: "middle",
 };
 
+const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
+  <div
+    style={{
+      border: "1px solid var(--color-neutral-200)",
+      borderRadius: "var(--radius-xl)",
+      overflow: "hidden",
+      background: "var(--color-neutral-25)",
+    }}
+  >
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "var(--space-2) var(--space-3)",
+        borderBottom: "1px solid var(--color-neutral-200)",
+        background: "var(--color-neutral-50)",
+      }}
+    >
+      <span
+        style={{
+          fontSize: "var(--font-size-0)",
+          fontWeight: "var(--font-weight-semibold)",
+          letterSpacing: "0.06em",
+          textTransform: "uppercase",
+          color: "var(--color-neutral-600)",
+        }}
+      >
+        {language}
+      </span>
+    </div>
+    <pre
+      style={{
+        margin: 0,
+        padding: "var(--space-3-5)",
+        fontFamily: "var(--font-family-body)",
+        fontSize: "var(--font-size-1)",
+        lineHeight: 1.6,
+        color: "var(--color-neutral-800)",
+        overflowX: "auto",
+      }}
+    >
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
+const ClassGroup: React.FC<{ title: string; items: string[] }> = ({ title, items }) => (
+  <div
+    style={{
+      padding: "var(--space-3-5) var(--space-4)",
+      border: "1px solid var(--color-neutral-200)",
+      borderRadius: "var(--radius-xl)",
+      background: "var(--color-white)",
+    }}
+  >
+    <div
+      style={{
+        fontSize: "var(--font-size-0)",
+        fontWeight: "var(--font-weight-semibold)",
+        color: "var(--color-neutral-600)",
+        textTransform: "uppercase",
+        letterSpacing: "0.06em",
+        marginBottom: "var(--space-2)",
+      }}
+    >
+      {title}
+    </div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
+      {items.map((item) => (
+        <code
+          key={item}
+          style={{
+            fontFamily: "var(--font-family-body)",
+            fontSize: "var(--font-size-1)",
+            color: "var(--color-neutral-800)",
+            background: "var(--color-neutral-50)",
+            padding: "var(--space-0-5) var(--space-2)",
+            borderRadius: "var(--radius-xs)",
+            border: "1px solid var(--color-neutral-200)",
+            display: "inline-block",
+            width: "fit-content",
+          }}
+        >
+          .{item}
+        </code>
+      ))}
+    </div>
+  </div>
+);
+
 /** Interactive playground — use the controls panel to configure the Button. */
 export const Playground: Story = {
   args: {
@@ -289,4 +380,130 @@ export const Playground: Story = {
     fullWidth: false,
   },
   parameters: { docs: { disable: true } },
+};
+
+/** Raw HTML + CSS usage with foundation variables. */
+export const Usage: Story = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+      <Section title="HTML">
+        <CodeCard
+          language="HTML"
+          code={`<!-- Primary button -->
+<button class="btn btn--primary btn--md">
+  Save changes
+</button>
+
+<!-- Secondary button with leading icon -->
+<button class="btn btn--secondary btn--md">
+  <span class="btn__icon btn__icon--left" aria-hidden="true">
+    <span class="icon-outlined">add</span>
+  </span>
+  <span class="btn__label">Add item</span>
+</button>
+
+<!-- Destructive button -->
+<button class="btn btn--destructive-primary btn--md">
+  <span class="btn__icon btn__icon--left" aria-hidden="true">
+    <span class="icon-outlined">delete</span>
+  </span>
+  <span class="btn__label">Delete</span>
+</button>
+
+<!-- Icon-only button -->
+<button class="btn btn--primary btn--md btn--icon-only" aria-label="Favorite">
+  <span class="icon-outlined">star</span>
+</button>
+
+<!-- Full-width button -->
+<button class="btn btn--primary btn--lg btn--full">
+  Sign in
+</button>
+
+<!-- Disabled button -->
+<button class="btn btn--primary btn--md" disabled>
+  Disabled
+</button>
+
+<!-- Loading button -->
+<button class="btn btn--primary btn--md" aria-busy="true" disabled>
+  <span class="btn__spinner" aria-hidden="true"></span>
+</button>`}
+        />
+      </Section>
+
+      <Section title="CSS (Foundation Variables)">
+        <CodeCard
+          language="CSS"
+          code={`.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease,
+    border-color 120ms ease, box-shadow 120ms ease;
+  white-space: nowrap;
+  user-select: none;
+  outline: none;
+}
+
+.btn:focus-visible {
+  box-shadow: var(--focus-ring-xs);
+}
+
+/* Sizes */
+.btn--sm { height: 36px; padding: var(--space-2) var(--space-3); font-size: var(--font-size-2); line-height: var(--line-height-body); }
+.btn--md { height: 40px; padding: 10px var(--space-3-5); font-size: var(--font-size-2); line-height: var(--line-height-body); }
+.btn--lg { height: 44px; padding: 10px var(--space-4); font-size: var(--font-size-3); line-height: var(--line-height-h4); }
+.btn--xl { height: 48px; padding: var(--space-3) 18px; font-size: var(--font-size-3); line-height: var(--line-height-h4); }
+
+/* Primary */
+.btn--primary { background: var(--color-primary); color: var(--color-white); box-shadow: var(--shadow-xs); }
+.btn--primary:hover { background: var(--color-ep-700); }
+.btn--primary:disabled { background: var(--color-neutral-lm-100); color: var(--color-neutral-lm-400); border: 1px solid var(--color-neutral-lm-200); cursor: not-allowed; }
+
+/* Secondary */
+.btn--secondary { background: var(--color-white); color: var(--color-neutral-lm-700); border: 1px solid var(--color-neutral-lm-300); box-shadow: var(--shadow-xs); }
+.btn--secondary:hover { background: var(--color-neutral-lm-50); color: var(--color-neutral-lm-800); }
+
+/* Tertiary */
+.btn--tertiary { background: transparent; color: var(--color-neutral-lm-600); }
+.btn--tertiary:hover { background: var(--color-neutral-lm-50); color: var(--color-neutral-lm-700); }
+
+/* Destructive Primary */
+.btn--destructive-primary { background: var(--color-error); color: var(--color-white); box-shadow: var(--shadow-xs); }
+.btn--destructive-primary:hover { background: var(--color-error-700); }
+.btn--destructive-primary:focus-visible { box-shadow: var(--focus-ring-error-xs); }
+
+/* Full width & Icon only */
+.btn--full { width: 100%; }
+.btn--icon-only { width: 40px; padding: 0; } /* adjust width per size */
+
+/* Loading spinner */
+.btn__spinner { width: 16px; height: 16px; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: btn-spin 600ms linear infinite; }
+@keyframes btn-spin { to { transform: rotate(360deg); } }`}
+        />
+      </Section>
+
+      <Section title="Available Classes">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+          <ClassGroup title="Variants" items={[
+            "btn--primary", "btn--secondary", "btn--tertiary",
+            "btn--link-color", "btn--link-gray",
+            "btn--destructive-primary", "btn--destructive-secondary",
+            "btn--destructive-tertiary", "btn--destructive-link",
+          ]} />
+          <ClassGroup title="Sizes" items={["btn--sm", "btn--md", "btn--lg", "btn--xl"]} />
+          <ClassGroup title="Modifiers" items={["btn--full", "btn--icon-only"]} />
+          <ClassGroup title="Child Elements" items={["btn__label", "btn__icon", "btn__icon--left", "btn__icon--right", "btn__spinner"]} />
+        </div>
+      </Section>
+    </div>
+  ),
 };

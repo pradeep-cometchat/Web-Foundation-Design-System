@@ -3,8 +3,8 @@
 
 .smart-replies {
   width: 360px;
-  background: var(--color-white);
-  border: 1px solid var(--color-neutral-100);
+  background: var(--color-bg-01);
+  border: 1px solid var(--color-border-light);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-lg);
   padding: var(--space-3);
@@ -26,7 +26,7 @@
   font-size: var(--font-size-3);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-h4);
-  color: var(--color-neutral-900);
+  color: var(--color-text-primary);
 }
 
 .smart-replies__close {
@@ -38,13 +38,13 @@
   border: none;
   background: transparent;
   cursor: pointer;
-  color: var(--color-neutral-900);
+  color: var(--color-text-primary);
   padding: 0;
   border-radius: var(--radius-xs);
 }
 
 .smart-replies__close:hover {
-  background: var(--color-neutral-50);
+  background: var(--color-bg-02);
 }
 
 .smart-replies__close svg {
@@ -63,7 +63,7 @@
 .smart-replies__skeleton {
   height: 67px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(90deg, var(--color-neutral-200) 0%, var(--color-neutral-100) 100%);
+  background: linear-gradient(90deg, var(--color-bg-04) 0%, var(--color-bg-03) 100%);
   animation: smart-replies-shimmer 1.5s ease-in-out infinite;
 }
 
@@ -77,26 +77,26 @@
 .smart-replies__reply {
   width: 100%;
   padding: var(--space-3) var(--space-4);
-  border: 1px solid var(--color-neutral-200);
+  border: 1px solid var(--color-border-default);
   border-radius: var(--radius-lg);
-  background: var(--color-white);
+  background: var(--color-bg-01);
   font-family: var(--font-family-body);
   font-size: var(--font-size-2);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-body);
-  color: var(--color-neutral-900);
+  color: var(--color-text-primary);
   text-align: left;
   cursor: pointer;
   transition: background 120ms ease, border-color 120ms ease;
 }
 
 .smart-replies__reply:hover {
-  background: var(--color-neutral-50);
-  border-color: var(--color-neutral-300);
+  background: var(--color-bg-02);
+  border-color: var(--color-border-dark);
 }
 
 .smart-replies__reply:active {
-  background: var(--color-neutral-100);
+  background: var(--color-bg-03);
 }
 
 .smart-replies__reply:focus-visible {

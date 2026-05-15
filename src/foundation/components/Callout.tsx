@@ -53,7 +53,7 @@ export const Callout: React.FC<CalloutProps> = ({
         borderRadius: "var(--radius-lg)",
         background: p.bg,
         border: `1px solid ${p.border}`,
-        color: "var(--color-neutral-800)",
+        color: "var(--color-text-primary)",
         fontSize: "var(--font-size-1)",
         lineHeight: 1.6,
       }}

@@ -20,7 +20,7 @@ import {
 const meta: Meta = {
   title: "Foundation/Avatars",
   tags: ["!autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: { layout: "fullscreen", themes: { themeOverride: "Light" } },
 };
 export default meta;
 

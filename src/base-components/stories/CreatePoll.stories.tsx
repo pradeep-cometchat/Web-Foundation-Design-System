@@ -56,6 +56,108 @@ export const MaxOptions: StoryObj = {
   render: () => <MaxOptionsDemo />,
 };
 
+/** HTML & CSS usage reference for the Create Poll component. */
+export const Usage: StoryObj = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <UsageSection title="HTML">
+        <UsageCodeCard language="HTML" code={`<!-- Create Poll Dialog -->
+<div class="create-poll">
+  <div class="create-poll__header">
+    <span class="create-poll__title">Create Poll</span>
+    <button class="create-poll__close" type="button"><!-- X icon --></button>
+  </div>
+  <div class="create-poll__body">
+    <div class="create-poll__section">
+      <label class="create-poll__label">Question</label>
+      <input class="create-poll__question-input" placeholder="Ask a question" />
+    </div>
+    <div class="create-poll__section">
+      <div class="create-poll__option-row">
+        <button class="create-poll__drag" type="button"><!-- drag icon --></button>
+        <div class="create-poll__option-field">
+          <input class="create-poll__option-input" placeholder="Option" />
+          <button class="create-poll__emoji-btn" type="button"><!-- emoji icon --></button>
+        </div>
+        <button class="create-poll__remove" type="button"><!-- X icon --></button>
+      </div>
+      <button class="create-poll__add-option" type="button">
+        <!-- + icon --> <span>Add an option</span>
+      </button>
+    </div>
+  </div>
+  <div class="create-poll__footer">
+    <div class="create-poll__buttons">
+      <button class="create-poll__btn create-poll__btn--cancel">Cancel</button>
+      <button class="create-poll__btn create-poll__btn--create create-poll__btn--active">Create</button>
+    </div>
+  </div>
+</div>`} />
+      </UsageSection>
+      <UsageSection title="CSS (Foundation Variables)">
+        <UsageCodeCard language="CSS" code={`.create-poll {
+  width: 420px;
+  background: var(--color-bg-01);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+.create-poll__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.create-poll__title {
+  font-size: var(--font-size-5);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.create-poll__question-input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-2);
+  color: var(--color-text-primary);
+}
+
+.create-poll__option-field {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+}
+
+.create-poll__add-option {
+  color: var(--color-ep-600);
+  font-weight: var(--font-weight-medium);
+}
+
+.create-poll__btn--cancel {
+  background: var(--color-bg-01);
+  border: 1px solid var(--color-border-dark);
+}
+
+.create-poll__btn--active {
+  background: var(--color-ep-600);
+  color: var(--color-white);
+}`} />
+      </UsageSection>
+    </div>
+  ),
+};
+
 /** Interactive playground. */
 export const Playground: StoryObj<typeof CreatePoll> = {
   args: { open: true, maxOptions: 12 },
@@ -191,6 +293,29 @@ function OptionRowDemo({ value }: { value: string }) {
       <button type="button" className="create-poll__remove">
         <svg viewBox="0 0 24 24" fill="none"><path d="M6.4 18.65L5.35 17.6L10.95 12L5.35 6.4L6.4 5.35L12 10.95L17.6 5.35L18.65 6.4L13.05 12L18.65 17.6L17.6 18.65L12 13.05L6.4 18.65Z" fill="currentColor"/></svg>
       </button>
+    </div>
+  );
+}
+
+
+/* ─── Usage helpers ─── */
+
+const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
+  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
+      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+    </div>
+    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
+function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      {children}
     </div>
   );
 }

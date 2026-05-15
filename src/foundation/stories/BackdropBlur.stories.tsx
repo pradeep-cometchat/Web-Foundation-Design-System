@@ -25,7 +25,7 @@ const meta: Meta<typeof BlurPlayground> = {
   title: "Foundation/Effects/Backdrop Blur",
   component: BlurPlayground,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: { layout: "fullscreen", themes: { themeOverride: "Light" } },
   argTypes: {
     size: {
       control: "select",

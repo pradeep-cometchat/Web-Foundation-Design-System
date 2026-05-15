@@ -32,7 +32,7 @@ export interface ConfirmationDialogProps {
 
 const VARIANT_CONFIG: Record<
   ConfirmationDialogVariant,
-  { title: string; description: string; confirmLabel: string; icon: "delete" | "block" | "leave" | "kick" | "translate" | "none" }
+  { title: string; description: string; confirmLabel: string; icon: "delete" | "block" | "leave" | "kick" | "translate" | "transfer" | "none" }
 > = {
   deleteConversation: {
     title: "Delete Conversation?",
@@ -86,7 +86,7 @@ const VARIANT_CONFIG: Record<
     title: "Ownership Transfer",
     description: "Are you sure you want to transfer ownership? This can't be undone, and the new owner will take full control.",
     confirmLabel: "Continue",
-    icon: "none",
+    icon: "transfer",
   },
 };
 
@@ -139,12 +139,24 @@ function KickIcon() {
   );
 }
 
+function TransferIcon() {
+  return (
+    <span
+      className="icon-outlined"
+      style={{ fontSize: 28, fontFamily: "var(--icon-font-outlined)" }}
+    >
+      key
+    </span>
+  );
+}
+
 const ICON_MAP: Record<string, React.FC | null> = {
   delete: DeleteIcon,
   block: BlockIcon,
   leave: LeaveIcon,
   kick: KickIcon,
   translate: TranslateIcon,
+  transfer: TransferIcon,
   none: null,
 };
 
@@ -163,7 +175,7 @@ export function ConfirmationDialog({
   const displayDescription = description || config.description;
   const displayConfirmLabel = confirmLabel || config.confirmLabel;
   const IconComponent = ICON_MAP[config.icon];
-  const isDestructive = config.icon !== "none";
+  const isDestructive = config.icon !== "none" && config.icon !== "transfer";
 
   if (!open) return null;
 
@@ -173,7 +185,7 @@ export function ConfirmationDialog({
         {/* Icon (only if variant has one) */}
         {IconComponent && (
           <div className="confirmation-dialog__icon-wrap">
-            <div className="confirmation-dialog__icon">
+            <div className={`confirmation-dialog__icon ${isDestructive ? "" : "confirmation-dialog__icon--primary"}`}>
               <IconComponent />
             </div>
           </div>

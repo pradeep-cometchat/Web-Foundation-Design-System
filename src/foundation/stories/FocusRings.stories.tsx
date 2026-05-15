@@ -18,7 +18,7 @@ const meta: Meta<typeof FocusPlayground> = {
   title: "Foundation/Effects/Focus Rings",
   component: FocusPlayground,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: { layout: "fullscreen", themes: { themeOverride: "Light" } },
   argTypes: {
     variant: {
       control: "radio",

@@ -58,6 +58,104 @@ export const MinimalReasons: StoryObj<typeof FlagMessageDialog> = {
   },
 };
 
+/** HTML & CSS usage reference for the Flag Message Dialog component. */
+export const Usage: StoryObj = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <UsageSection title="HTML">
+        <UsageCodeCard language="HTML" code={`<!-- Flag Message Dialog -->
+<div class="flag-message-dialog">
+  <div class="flag-message-dialog__header">
+    <div class="flag-message-dialog__header-content">
+      <div class="flag-message-dialog__header-top">
+        <span class="flag-message-dialog__title">Flag Message</span>
+        <button class="flag-message-dialog__close" type="button"><!-- X icon --></button>
+      </div>
+      <p class="flag-message-dialog__description">
+        Select a reason for flagging this message.
+      </p>
+    </div>
+  </div>
+  <div class="flag-message-dialog__body">
+    <div class="flag-message-dialog__badges">
+      <button class="flag-message-dialog__badge" type="button">Spam</button>
+      <button class="flag-message-dialog__badge flag-message-dialog__badge--selected" type="button">
+        Inappropriate content
+      </button>
+      <button class="flag-message-dialog__badge" type="button">Harassment</button>
+    </div>
+    <div class="flag-message-dialog__field">
+      <label class="flag-message-dialog__label">
+        <span class="flag-message-dialog__label-text">Additional details</span>
+        <span class="flag-message-dialog__label-optional"> (optional)</span>
+      </label>
+      <textarea class="flag-message-dialog__textarea" placeholder="Provide more context..."></textarea>
+    </div>
+  </div>
+  <div class="flag-message-dialog__buttons">
+    <button class="flag-message-dialog__btn flag-message-dialog__btn--cancel">Cancel</button>
+    <button class="flag-message-dialog__btn flag-message-dialog__btn--report flag-message-dialog__btn--report-active">Report</button>
+  </div>
+</div>`} />
+      </UsageSection>
+      <UsageSection title="CSS (Foundation Variables)">
+        <UsageCodeCard language="CSS" code={`.flag-message-dialog {
+  width: 400px;
+  background: var(--color-bg-01);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+.flag-message-dialog__title {
+  font-size: var(--font-size-5);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.flag-message-dialog__badge {
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+.flag-message-dialog__badge--selected {
+  background: var(--color-ep-50);
+  border-color: var(--color-ep-300);
+  color: var(--color-ep-700);
+}
+
+.flag-message-dialog__textarea {
+  width: 100%;
+  height: 88px;
+  padding: var(--space-2);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-02);
+  font-size: var(--font-size-2);
+  resize: none;
+}
+
+.flag-message-dialog__btn--report-active {
+  background: var(--color-error);
+  color: var(--color-white);
+}
+
+.flag-message-dialog__btn--report-active:hover {
+  background: var(--color-error-700);
+}`} />
+      </UsageSection>
+    </div>
+  ),
+};
+
 /** Interactive playground. */
 export const Playground: StoryObj<typeof FlagMessageDialog> = {
   args: {
@@ -65,3 +163,26 @@ export const Playground: StoryObj<typeof FlagMessageDialog> = {
   },
   parameters: { docs: { disable: true } },
 };
+
+
+/* ─── Usage helpers ─── */
+
+const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
+  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
+      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+    </div>
+    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
+function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      {children}
+    </div>
+  );
+}

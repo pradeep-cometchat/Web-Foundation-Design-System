@@ -3,8 +3,8 @@
    ══════════════════════════════════════════════ */
 
 .ml-composer__popup {
-  background: var(--color-white);
-  border: 1px solid var(--color-neutral-100);
+  background: var(--color-bg-01);
+  border: 1px solid var(--color-border-light);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-lg);
   padding: 20px 24px 24px;
@@ -25,7 +25,7 @@
   font-size: var(--font-size-3);
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-h4);
-  color: var(--color-neutral-900);
+  color: var(--color-text-primary);
   text-align: center;
   width: 100%;
 }
@@ -56,7 +56,7 @@
 }
 
 .ml-composer__wave-outer--visible {
-  background: var(--color-ep-50);
+  background: rgba(104, 82, 214, 0.08);
 }
 
 @keyframes ml-wave-pulse {
@@ -80,14 +80,14 @@
 }
 
 .ml-composer__wave-inner--visible {
-  background: var(--color-ep-100);
+  background: rgba(104, 82, 214, 0.15);
 }
 
 .ml-composer__wave-center {
   width: 92px;
   height: 92px;
   border-radius: var(--radius-full);
-  background: var(--color-ep-200);
+  background: rgba(104, 82, 214, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,7 +101,7 @@
 .ml-composer__wave-mic {
   width: 36px;
   height: 36px;
-  color: var(--color-white);
+  color: var(--color-static-white);
 }
 
 /* ─────────────────────────────────────────────
@@ -113,12 +113,12 @@
   font-size: var(--font-size-3);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-h4);
-  color: var(--color-neutral-900);
+  color: var(--color-text-primary);
   letter-spacing: 0.02em;
 }
 
 .ml-composer__duration--muted {
-  color: var(--color-neutral-400);
+  color: var(--color-icon-tertiary);
 }
 
 /* ─────────────────────────────────────────────
@@ -145,7 +145,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--color-white);
+  color: var(--color-static-white);
   transition: background 120ms ease;
 }
 
@@ -175,7 +175,7 @@
 .ml-composer__waveform-bar {
   width: 2px;
   border-radius: 1px;
-  background: var(--color-neutral-400);
+  background: var(--color-icon-quaternary);
   flex-shrink: 0;
 }
 
@@ -183,7 +183,7 @@
   font-family: var(--font-family-body);
   font-size: var(--font-size-1);
   font-weight: var(--font-weight-regular);
-  color: var(--color-neutral-600);
+  color: var(--color-text-secondary);
   text-align: left;
 }
 
@@ -212,9 +212,9 @@
 .ml-composer__action-btn--outline {
   width: 44px;
   height: 44px;
-  background: var(--color-white);
-  border: 1px solid var(--color-neutral-200);
-  color: var(--color-neutral-500);
+  background: var(--color-bg-01);
+  border: 1px solid var(--color-border-default);
+  color: var(--color-text-tertiary);
 }
 
 .ml-composer__action-btn--outline svg {
@@ -223,8 +223,8 @@
 }
 
 .ml-composer__action-btn--outline:hover {
-  background: var(--color-neutral-50);
-  color: var(--color-neutral-700);
+  background: var(--color-bg-02);
+  color: var(--color-text-secondary);
 }
 
 /* Send button — purple circle (shown in preview state) */
@@ -234,7 +234,7 @@
   background: var(--color-ep-600);
   border: none;
   border-radius: var(--radius-full);
-  color: var(--color-white);
+  color: var(--color-static-white);
 }
 
 .ml-composer__action-btn--send svg {
@@ -250,7 +250,7 @@
   width: 52px;
   height: 52px;
   background: var(--color-error);
-  color: var(--color-white);
+  color: var(--color-static-white);
   border-radius: var(--radius-xl);
 }
 

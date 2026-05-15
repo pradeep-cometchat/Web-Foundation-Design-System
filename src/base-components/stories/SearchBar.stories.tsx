@@ -102,6 +102,155 @@ export const States: StoryObj = {
   ),
 };
 
+/* ─── Helpers ──────────────────────────────────────────────────────────────── */
+
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      {children}
+    </div>
+  );
+}
+
+const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
+  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
+      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+    </div>
+    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
+const ClassGroup: React.FC<{ title: string; items: string[] }> = ({ title, items }) => (
+  <div style={{ padding: "var(--space-3-5) var(--space-4)", border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", background: "var(--color-bg-01)" }}>
+    <div style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
+      {items.map((item) => (
+        <code key={item} style={{ fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", color: "var(--color-text-primary)", background: "var(--color-bg-02)", padding: "var(--space-0-5) var(--space-2)", borderRadius: "var(--radius-xs)", border: "1px solid var(--color-border-default)", display: "inline-block", width: "fit-content" }}>.{item}</code>
+      ))}
+    </div>
+  </div>
+);
+
+/** Raw HTML + CSS usage with foundation variables. */
+export const Usage: Story = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <Section title="HTML">
+        <CodeCard
+          language="HTML"
+          code={`<!-- Search bar (empty) -->
+<div class="search-bar">
+  <div class="search-bar__input-wrapper">
+    <span class="search-bar__icon">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path d="M16.5 16.5L12.875 12.875M14.8333 8.16667C14.8333 11.8486 11.8486 14.8333 8.16667 14.8333C4.48477 14.8333 1.5 11.8486 1.5 8.16667C1.5 4.48477 4.48477 1.5 8.16667 1.5C11.8486 1.5 14.8333 4.48477 14.8333 8.16667Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+    <input class="search-bar__input" placeholder="Search" />
+  </div>
+</div>
+
+<!-- Search bar with value and clear button -->
+<div class="search-bar">
+  <div class="search-bar__input-wrapper">
+    <span class="search-bar__icon">
+      <svg><!-- search icon --></svg>
+    </span>
+    <input class="search-bar__input" value="Design system" />
+    <button class="search-bar__clear" aria-label="Clear search">
+      <svg><!-- close icon --></svg>
+    </button>
+  </div>
+</div>`}
+        />
+      </Section>
+
+      <Section title="CSS (Foundation Variables)">
+        <CodeCard
+          language="CSS"
+          code={`.search-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.search-bar__input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex: 1;
+  height: 40px;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-bg-03);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-full);
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+.search-bar__input-wrapper:focus-within {
+  border-color: var(--color-border-default);
+  background: var(--color-bg-01);
+}
+
+.search-bar__icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-icon-tertiary);
+}
+
+.search-bar__input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+}
+
+.search-bar__input::placeholder {
+  color: var(--color-icon-tertiary);
+}
+
+.search-bar__clear {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-icon-tertiary);
+  border-radius: 50%;
+}
+
+.search-bar__clear:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-04);
+}`}
+        />
+      </Section>
+
+      <Section title="Available Classes">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+          <ClassGroup title="Root" items={["search-bar"]} />
+          <ClassGroup title="Child Elements" items={["search-bar__input-wrapper", "search-bar__icon", "search-bar__input", "search-bar__clear"]} />
+        </div>
+      </Section>
+    </div>
+  ),
+};
+
 /** Interactive playground — use the controls panel to configure. */
 export const Playground: Story = {
   args: {

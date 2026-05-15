@@ -95,32 +95,108 @@ export const InContext: StoryObj = {
       <div style={{ marginBottom: "var(--space-2)" }}>
         <ConversationStarter suggestions={defaultSuggestions} />
       </div>
+      {/* Message Composer */}
       <div style={{
-        border: "1px solid var(--color-neutral-200)",
+        border: "1px solid var(--color-border-default)",
         borderRadius: "var(--radius-md)",
-        background: "var(--color-white)",
+        background: "var(--color-bg-01)",
         overflow: "hidden",
       }}>
-        <div style={{ padding: "12px", fontSize: "var(--font-size-2)", color: "var(--color-neutral-600)" }}>
+        {/* Input area */}
+        <div style={{ padding: "var(--space-3)", fontSize: "var(--font-size-2)", color: "var(--color-text-tertiary)", fontFamily: "var(--font-family-body)", lineHeight: "var(--line-height-body)" }}>
           Type your message...
         </div>
-        <div style={{ height: 1, background: "var(--color-neutral-100)" }} />
-        <div style={{ padding: "8px 12px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div style={{ display: "flex", gap: "var(--space-4)", color: "var(--color-neutral-500)" }}>
-            <span style={{ fontSize: "var(--font-size-5)" }}>⊕</span>
-            <span style={{ fontSize: "var(--font-size-5)" }}>🎤</span>
-            <span style={{ fontSize: "var(--font-size-5)" }}>😊</span>
-            <span style={{ fontSize: "var(--font-size-5)" }}>💬</span>
-            <span style={{ fontSize: "var(--font-size-2)", fontWeight: "var(--font-weight-medium)" }}>Aa</span>
+        {/* Divider */}
+        <div style={{ borderTop: "1px solid var(--color-border-light)" }} />
+        {/* Actions bar */}
+        <div style={{ padding: "var(--space-1-5) var(--space-3)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div style={{ display: "flex", gap: "var(--space-2)", alignItems: "center" }}>
+            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--color-icon-quaternary)", padding: "var(--space-1-5)" }}>add_circle</span>
+            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--color-icon-quaternary)", padding: "var(--space-1-5)" }}>mic</span>
+            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--color-icon-quaternary)", padding: "var(--space-1-5)" }}>mood</span>
+            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--color-icon-quaternary)", padding: "var(--space-1-5)" }}>sticky_note_2</span>
+            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--color-icon-quaternary)", padding: "var(--space-1-5)" }}>match_case</span>
+            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--color-icon-quaternary)", padding: "var(--space-1-5)" }}>auto_awesome</span>
           </div>
           <div style={{
-            width: 32, height: 32, borderRadius: "50%",
-            background: "var(--color-neutral-200)",
+            width: 36, height: 36,
+            borderRadius: "var(--radius-full)",
+            background: "var(--color-bg-disabled)",
+            border: "2px solid rgba(255,255,255,0.12)",
             display: "flex", alignItems: "center", justifyContent: "center",
-            color: "var(--color-neutral-500)", fontSize: "var(--font-size-3)",
-          }}>▶</div>
+            boxShadow: "var(--shadow-xs)",
+          }}>
+            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--color-icon-quaternary)" }}>send</span>
+          </div>
         </div>
       </div>
+    </div>
+  ),
+};
+
+/** HTML & CSS usage reference for the Conversation Starter component. */
+export const Usage: StoryObj = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <UsageSection title="HTML">
+        <UsageCodeCard language="HTML" code={`<!-- Conversation Starter -->
+<div class="conversation-starter">
+  <div class="conversation-starter__tags">
+    <button class="conversation-starter__tag" type="button">
+      Hi there! How's it going?
+    </button>
+    <button class="conversation-starter__tag" type="button">
+      Hey, how are you doing today?
+    </button>
+    <button class="conversation-starter__tag" type="button">
+      Hello! How's your day been so far?
+    </button>
+  </div>
+</div>`} />
+      </UsageSection>
+      <UsageSection title="CSS (Foundation Variables)">
+        <UsageCodeCard language="CSS" code={`.conversation-starter {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-2xl);
+}
+
+.conversation-starter__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.conversation-starter__tag {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1-5) var(--space-5);
+  background: var(--color-bg-02);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+
+.conversation-starter__tag:hover {
+  background: var(--color-bg-03);
+  border-color: var(--color-border-dark);
+}
+
+.conversation-starter__tag:active {
+  background: var(--color-bg-04);
+}
+
+.conversation-starter__tag:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-xs);
+}`} />
+      </UsageSection>
     </div>
   ),
 };
@@ -133,3 +209,26 @@ export const Playground: StoryObj<typeof ConversationStarter> = {
   },
   parameters: { docs: { disable: true } },
 };
+
+
+/* ─── Usage helpers ─── */
+
+const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
+  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
+      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+    </div>
+    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
+function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      {children}
+    </div>
+  );
+}

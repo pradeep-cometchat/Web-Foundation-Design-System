@@ -147,16 +147,16 @@ export const InContext: StoryObj = {
       </div>
 
       {/* Received bubble */}
-      <div style={{ alignSelf: "flex-start", background: "var(--color-neutral-100)", borderRadius: "var(--radius-xl)", padding: "var(--space-2) var(--space-3)", maxWidth: "var(--space-70, 280px)" }}>
-        <div style={{ fontSize: "var(--font-size-2)", color: "var(--color-neutral-900)", marginBottom: "var(--space-1)" }}>Yes, it's available.</div>
+      <div style={{ alignSelf: "flex-start", background: "var(--color-received-bubble-bg)", borderRadius: "var(--radius-xl)", padding: "var(--space-2) var(--space-3)", maxWidth: "var(--space-70, 280px)" }}>
+        <div style={{ fontSize: "var(--font-size-2)", color: "var(--color-received-bubble-text)", marginBottom: "var(--space-1)" }}>Yes, it's available.</div>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <DateTimestamp timestamp="4:56 pm" variant="received" />
         </div>
       </div>
 
       {/* Sent bubble */}
-      <div style={{ alignSelf: "flex-end", background: "var(--color-ep-600)", borderRadius: "var(--radius-xl)", padding: "var(--space-2) var(--space-3)", maxWidth: "var(--space-70, 280px)" }}>
-        <div style={{ fontSize: "var(--font-size-2)", color: "var(--color-white)", marginBottom: "var(--space-1)" }}>I'll take it. Can you ship it?</div>
+      <div style={{ alignSelf: "flex-end", background: "var(--color-send-bubble-bg)", borderRadius: "var(--radius-xl)", padding: "var(--space-2) var(--space-3)", maxWidth: "var(--space-70, 280px)" }}>
+        <div style={{ fontSize: "var(--font-size-2)", color: "var(--color-send-bubble-text)", marginBottom: "var(--space-1)" }}>I'll take it. Can you ship it?</div>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <span className="date-timestamp date-timestamp--sent" style={{ color: "rgba(255,255,255,0.7)" }}>
             <span className="date-timestamp__receipt date-timestamp__receipt--read" style={{ color: "var(--color-message-seen)" }}>
@@ -168,12 +168,78 @@ export const InContext: StoryObj = {
       </div>
 
       {/* Another received */}
-      <div style={{ alignSelf: "flex-start", background: "var(--color-neutral-100)", borderRadius: "var(--radius-xl)", padding: "var(--space-2) var(--space-3)", maxWidth: "var(--space-70, 280px)" }}>
-        <div style={{ fontSize: "var(--font-size-2)", color: "var(--color-neutral-900)", marginBottom: "var(--space-1)" }}>Sure! Sending them over now.</div>
+      <div style={{ alignSelf: "flex-start", background: "var(--color-received-bubble-bg)", borderRadius: "var(--radius-xl)", padding: "var(--space-2) var(--space-3)", maxWidth: "var(--space-70, 280px)" }}>
+        <div style={{ fontSize: "var(--font-size-2)", color: "var(--color-received-bubble-text)", marginBottom: "var(--space-1)" }}>Sure! Sending them over now.</div>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <DateTimestamp timestamp="4:58 pm" variant="received" />
         </div>
       </div>
+    </div>
+  ),
+};
+
+/** HTML & CSS usage reference for the Date Timestamp component. */
+export const Usage: StoryObj = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <Section title="HTML">
+        <UsageCodeCard language="HTML" code={`<!-- Sent message timestamp with read receipt -->
+<span class="date-timestamp date-timestamp--sent">
+  <span class="date-timestamp__receipt date-timestamp__receipt--read">
+    <!-- double-tick SVG -->
+  </span>
+  <span class="date-timestamp__text">4:56 pm</span>
+</span>
+
+<!-- Received message timestamp -->
+<span class="date-timestamp date-timestamp--received">
+  <span class="date-timestamp__text">4:56 pm</span>
+</span>
+
+<!-- Date separator chip -->
+<span class="date-timestamp date-timestamp--separator">Today</span>`} />
+      </Section>
+      <Section title="CSS (Foundation Variables)">
+        <UsageCodeCard language="CSS" code={`.date-timestamp {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-0-5);
+  height: 24px;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-caption-2);
+}
+
+.date-timestamp--sent {
+  color: var(--color-text-tertiary);
+}
+
+.date-timestamp--received {
+  color: var(--color-text-tertiary);
+}
+
+.date-timestamp--separator {
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+  background: var(--color-bg-03);
+  border-radius: var(--radius-full);
+  padding: var(--space-0-5) var(--space-2);
+  height: auto;
+}
+
+.date-timestamp__receipt {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.date-timestamp__receipt--read {
+  color: var(--color-message-seen);
+}`} />
+      </Section>
     </div>
   ),
 };
@@ -196,6 +262,29 @@ function Row({ label, children }: { label: string; children: React.ReactNode }) 
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "var(--space-4)" }}>
       <span style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", width: 160, flexShrink: 0 }}>{label}</span>
+      {children}
+    </div>
+  );
+}
+
+
+/* ─── Usage helpers ─── */
+
+const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
+  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
+      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+    </div>
+    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
       {children}
     </div>
   );

@@ -18,7 +18,7 @@ const meta: Meta = {
   title: "Foundation/Tooltip",
   component: Tooltip,
   tags: ["autodocs"],
-  parameters: { layout: "padded" },
+  parameters: { layout: "padded", themes: { themeOverride: "Light" } },
   argTypes: {
     title: { control: "text", table: { category: "Content" } },
     supportingText: { control: "text", table: { category: "Content" } },

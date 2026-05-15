@@ -2,8 +2,8 @@
 /* A popup showing who reacted, with emoji tabs and a list of reactors */
 
 .reaction-list {
-  background: var(--color-white, #ffffff);
-  border: 1px solid var(--color-neutral-100, #f5f5f5);
+  background: var(--color-bg-01);
+  border: 1px solid var(--color-border-light);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-lg);
   overflow: clip;
@@ -19,8 +19,8 @@
   align-items: center;
   padding-top: 8px;
   width: 100%;
-  background: var(--color-white, #ffffff);
-  border-bottom: 1px solid var(--color-neutral-200, #e9eaeb);
+  background: var(--color-bg-01);
+  border-bottom: 1px solid var(--color-border-default);
 }
 
 /* Tab item base */
@@ -42,14 +42,14 @@
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-body);
   text-align: center;
-  color: var(--color-neutral-500, #717680);
+  color: var(--color-text-tertiary);
   white-space: nowrap;
   transition: color 120ms ease;
   border-bottom: 2px solid transparent;
 }
 
 .reaction-list__tab:hover {
-  color: var(--color-neutral-700, #414651);
+  color: var(--color-text-secondary);
 }
 
 .reaction-list__tab:focus-visible {
@@ -73,7 +73,7 @@
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  background: var(--color-white, #ffffff);
+  background: var(--color-bg-01);
 }
 
 /* ─── List item: px-16 py-8, gap-8, flex row ─── */
@@ -83,7 +83,7 @@
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
   width: 100%;
-  background: var(--color-white, #ffffff);
+  background: var(--color-bg-01);
   border: none;
   cursor: pointer;
   transition: background 120ms ease;
@@ -92,7 +92,7 @@
 }
 
 .reaction-list__item:hover {
-  background: var(--color-neutral-50, #fafafa);
+  background: var(--color-bg-02);
 }
 
 .reaction-list__item:focus-visible {
@@ -136,7 +136,7 @@
   font-size: var(--font-size-2);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-body);
-  color: var(--color-neutral-900, #181d27);
+  color: var(--color-text-primary);
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -147,7 +147,7 @@
   font-size: var(--font-size-1);
   font-weight: var(--font-weight-regular);
   line-height: 14px;
-  color: var(--color-neutral-600, #414651);
+  color: var(--color-text-secondary);
   overflow: hidden;
   text-overflow: ellipsis;
 }

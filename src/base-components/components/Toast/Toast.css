@@ -16,7 +16,7 @@
   display: flex;
   align-items: flex-start;
   padding: var(--space-2);
-  background: var(--color-neutral-lm-950, #0a0d12);
+  background: var(--color-static-black);
   border-radius: var(--radius-xs);
 }
 
@@ -26,7 +26,7 @@
   font-size: var(--font-size-1);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-caption-1);
-  color: var(--color-white, #ffffff);
+  color: var(--color-static-white);
   text-align: center;
   white-space: nowrap;
 }

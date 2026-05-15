@@ -250,6 +250,17 @@ export const GroupLabelGroup: Story = {
 
 /* ─── Helpers ──────────────────────────────────────────────────────────────── */
 
+const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
+  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
+      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+    </div>
+    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
@@ -316,6 +327,132 @@ function CompanyBadge({ size, type }: { size: AvatarSize; type: "company" | "pri
     </div>
   );
 }
+
+/** HTML & CSS usage reference for the Avatar Group component. */
+export const Usage: Story = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <Section title="HTML">
+        <CodeCard language="HTML" code={`<!-- Single Avatar with image -->
+<div class="avatar avatar--lg">
+  <div class="avatar__img-wrap">
+    <img class="avatar__img" src="avatar.jpg" alt="User" />
+  </div>
+  <span class="avatar__status avatar__status--online"></span>
+</div>
+
+<!-- Avatar with initials fallback -->
+<div class="avatar avatar--md">
+  <div class="avatar__fallback-wrap">
+    <span class="avatar__fallback">JD</span>
+  </div>
+</div>
+
+<!-- Avatar Group (stacked) -->
+<div class="avatar-group avatar-group--md">
+  <div class="avatar avatar--md">
+    <div class="avatar__img-wrap"><img class="avatar__img" src="a1.jpg" alt="" /></div>
+  </div>
+  <div class="avatar avatar--md">
+    <div class="avatar__img-wrap"><img class="avatar__img" src="a2.jpg" alt="" /></div>
+  </div>
+  <div class="avatar-group__counter">+3</div>
+  <button class="avatar-group__add" type="button">+</button>
+</div>
+
+<!-- Avatar Label Group -->
+<div class="avatar-label-group avatar-label-group--md">
+  <div class="avatar avatar--md">
+    <div class="avatar__img-wrap"><img class="avatar__img" src="avatar.jpg" alt="" /></div>
+  </div>
+  <div class="avatar-label-group__text">
+    <span class="avatar-label-group__name">Olivia Rhye</span>
+    <span class="avatar-label-group__supporting">olivia@email.com</span>
+  </div>
+</div>`} />
+      </Section>
+      <Section title="CSS (Foundation Variables)">
+        <CodeCard language="CSS" code={`.avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  overflow: visible;
+}
+
+.avatar--xs { width: 24px; height: 24px; }
+.avatar--sm { width: 32px; height: 32px; }
+.avatar--md { width: 40px; height: 40px; }
+.avatar--lg { width: 48px; height: 48px; }
+.avatar--xl { width: 56px; height: 56px; }
+.avatar--2xl { width: 64px; height: 64px; }
+
+.avatar__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-full);
+}
+
+.avatar__fallback-wrap {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: var(--color-ep-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar__fallback {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-white);
+  text-transform: uppercase;
+}
+
+.avatar__status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-white);
+}
+
+.avatar__status--online { background: var(--color-success-500); }
+.avatar__status--offline { background: var(--color-neutral-lm-400); }
+
+.avatar-group {
+  display: inline-flex;
+  align-items: center;
+}
+
+.avatar-group .avatar {
+  border: 2px solid var(--color-white);
+  margin-left: -8px;
+}
+
+.avatar-label-group {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.avatar-label-group__name {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-neutral-lm-900);
+}
+
+.avatar-label-group__supporting {
+  font-weight: var(--font-weight-regular);
+  color: var(--color-neutral-lm-600);
+}`} />
+      </Section>
+    </div>
+  ),
+};
 
 /** Interactive playground — use the controls panel to configure the Avatar. */
 export const Playground: Story = {

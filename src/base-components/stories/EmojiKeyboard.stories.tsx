@@ -86,6 +86,101 @@ export const AllCategories: StoryObj = {
   ),
 };
 
+/** HTML & CSS usage reference for the Emoji Keyboard component. */
+export const Usage: StoryObj = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <UsageSection title="HTML">
+        <UsageCodeCard language="HTML" code={`<!-- Emoji Keyboard -->
+<div class="emoji-keyboard">
+  <div class="emoji-keyboard__header">
+    <span class="emoji-keyboard__category-label">Smileys & People</span>
+    <div class="emoji-keyboard__search">
+      <span class="emoji-keyboard__search-icon"><!-- search SVG --></span>
+      <span class="emoji-keyboard__search-text">Search</span>
+    </div>
+  </div>
+  <div class="emoji-keyboard__grid">
+    <button class="emoji-keyboard__emoji" type="button">😀</button>
+    <button class="emoji-keyboard__emoji" type="button">😃</button>
+    <button class="emoji-keyboard__emoji" type="button">😄</button>
+    <!-- 10 per row -->
+  </div>
+  <div class="emoji-keyboard__tabs">
+    <button class="emoji-keyboard__tab emoji-keyboard__tab--active" type="button">
+      <span class="emoji-keyboard__tab-icon">😊</span>
+    </button>
+    <button class="emoji-keyboard__tab" type="button">
+      <span class="emoji-keyboard__tab-icon">🐶</span>
+    </button>
+  </div>
+</div>`} />
+      </UsageSection>
+      <UsageSection title="CSS (Foundation Variables)">
+        <UsageCodeCard language="CSS" code={`.emoji-keyboard {
+  width: 300px;
+  height: 348px;
+  background: var(--color-bg-01);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.emoji-keyboard__search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  height: 28px;
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-bg-03);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-full);
+}
+
+.emoji-keyboard__grid {
+  flex: 1;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(10, 24px);
+  gap: var(--space-2) var(--space-3);
+  padding: 0 var(--space-3) var(--space-3);
+}
+
+.emoji-keyboard__emoji {
+  width: 24px;
+  height: 24px;
+  font-size: var(--font-size-5);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: var(--radius-xs);
+}
+
+.emoji-keyboard__emoji:hover {
+  background: var(--color-bg-03);
+}
+
+.emoji-keyboard__tab {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.emoji-keyboard__tab--active {
+  background: var(--color-ep-100);
+}`} />
+      </UsageSection>
+    </div>
+  ),
+};
+
 /** Interactive playground. */
 export const Playground: StoryObj<typeof EmojiKeyboard> = {
   args: {
@@ -94,3 +189,26 @@ export const Playground: StoryObj<typeof EmojiKeyboard> = {
   },
   parameters: { docs: { disable: true } },
 };
+
+
+/* ─── Usage helpers ─── */
+
+const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
+  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
+      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+    </div>
+    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
+function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      {children}
+    </div>
+  );
+}

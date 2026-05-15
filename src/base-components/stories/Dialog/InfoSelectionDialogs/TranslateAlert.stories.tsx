@@ -48,7 +48,7 @@ export const WarningAlert: Story = {
     alertIcon: "warning",
     alertTitle: "Connection Lost",
     alertDescription: "Please check your internet connection.",
-    alertButtonLabel: "OK",
+    alertButtonLabel: "Retry",
   },
 };
 

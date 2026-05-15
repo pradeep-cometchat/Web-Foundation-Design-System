@@ -18,20 +18,20 @@
 
 /* Sent message timestamp — gray text, right-aligned */
 .date-timestamp--sent {
-  color: var(--color-neutral-500);
+  color: var(--color-text-tertiary);
 }
 
 /* Received message timestamp — gray text */
 .date-timestamp--received {
-  color: var(--color-neutral-500);
+  color: var(--color-text-tertiary);
 }
 
 /* Date separator (e.g. "Today", "Yesterday") — centered chip */
 .date-timestamp--separator {
-  color: var(--color-neutral-600);
+  color: var(--color-text-secondary);
   font-size: var(--font-size-1);
   font-weight: var(--font-weight-medium);
-  background: var(--color-neutral-100);
+  background: var(--color-bg-03);
   border-radius: var(--radius-full);
   padding: var(--space-0-5) var(--space-2);
   height: auto;
@@ -54,11 +54,11 @@
 }
 
 .date-timestamp__receipt--sent {
-  color: var(--color-neutral-400);
+  color: var(--color-icon-tertiary);
 }
 
 .date-timestamp__receipt--delivered {
-  color: var(--color-neutral-400);
+  color: var(--color-icon-tertiary);
 }
 
 .date-timestamp__receipt--read {

@@ -27,8 +27,8 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
         margin: "0 0 var(--space-8)",
         borderRadius: "var(--radius-2xl)",
         background:
-          "linear-gradient(135deg, var(--color-ep-50) 0%, var(--color-white) 100%)",
-        border: "1px solid var(--color-ep-100)",
+          "linear-gradient(135deg, var(--color-bg-02) 0%, var(--color-bg-01) 100%)",
+        border: "1px solid var(--color-border-default)",
       }}
     >
       <span
@@ -49,7 +49,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
           lineHeight: 1.1,
           fontWeight: "var(--font-weight-bold)",
           letterSpacing: "-0.02em",
-          color: "var(--color-neutral-900)",
+          color: "var(--color-text-primary)",
         }}
       >
         {title}
@@ -60,7 +60,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
             margin: 0,
             fontSize: "var(--font-size-3)",
             lineHeight: 1.55,
-            color: "var(--color-neutral-600)",
+            color: "var(--color-text-secondary)",
             maxWidth: 720,
           }}
         >
@@ -78,16 +78,16 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
                 gap: "var(--space-2)",
                 padding: "var(--space-1-5) var(--space-3)",
                 borderRadius: "var(--radius-full)",
-                background: "var(--color-white)",
-                border: "1px solid var(--color-ep-100)",
+                background: "var(--color-bg-01)",
+                border: "1px solid var(--color-border-default)",
                 fontSize: "var(--font-size-1)",
-                color: "var(--color-neutral-700)",
+                color: "var(--color-text-secondary)",
               }}
             >
-              <strong style={{ color: "var(--color-neutral-900)" }}>
+              <strong style={{ color: "var(--color-text-primary)" }}>
                 {m.value}
               </strong>
-              <span style={{ color: "var(--color-neutral-500)" }}>{m.label}</span>
+              <span style={{ color: "var(--color-text-tertiary)" }}>{m.label}</span>
             </span>
           ))}
         </div>

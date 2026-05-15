@@ -23,7 +23,6 @@ const preview: Preview = {
           "Foundation",
           [
             "Introduction",
-            "Colors",
             "Typography",
             "Spacing",
             "Radius",
@@ -31,6 +30,8 @@ const preview: Preview = {
             "Misc Icons",
             "Avatars",
             "Tooltip",
+            "Colors",
+            ["Primitive", "Theme"],
             "Effects",
             ["Shadows", "Focus Rings", "Backdrop Blur"],
           ],
@@ -105,14 +106,7 @@ const preview: Preview = {
         ],
       },
     },
-    backgrounds: {
-      default: "Surface",
-      values: [
-        { name: "Surface", value: "#ffffff" },
-        { name: "Subtle", value: "#fafafa" },
-        { name: "Dark", value: "#0a0d12" },
-      ],
-    },
+    backgrounds: { disable: true },
     a11y: {
       element: "#storybook-root",
       config: {},

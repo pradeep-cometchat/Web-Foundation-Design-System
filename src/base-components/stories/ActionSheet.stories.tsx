@@ -222,6 +222,101 @@ export const States: StoryObj = {
   ),
 };
 
+/** HTML & CSS usage reference for the Action Sheet component. */
+export const Usage: StoryObj = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <UsageSection title="HTML">
+        <CodeCard language="HTML" code={`<!-- Action Sheet -->
+<div class="action-sheet" style="width: 244px">
+  <button class="action-sheet__item" type="button">
+    <span class="action-sheet__item-icon"><!-- SVG icon --></span>
+    <span class="action-sheet__item-label">Camera</span>
+  </button>
+  <button class="action-sheet__item" type="button">
+    <span class="action-sheet__item-icon"><!-- SVG icon --></span>
+    <span class="action-sheet__item-label">Attach Image</span>
+  </button>
+  <button class="action-sheet__item action-sheet__item--destructive" type="button">
+    <span class="action-sheet__item-icon"><!-- SVG icon --></span>
+    <span class="action-sheet__item-label">Delete</span>
+  </button>
+</div>
+
+<!-- With title -->
+<div class="action-sheet" style="width: 244px">
+  <div class="action-sheet__title">Actions</div>
+  <button class="action-sheet__item" type="button">
+    <span class="action-sheet__item-icon"><!-- SVG icon --></span>
+    <span class="action-sheet__item-label">Edit</span>
+  </button>
+</div>`} />
+      </UsageSection>
+      <UsageSection title="CSS (Foundation Variables)">
+        <CodeCard language="CSS" code={`.action-sheet {
+  background: var(--color-bg-01);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.action-sheet__title {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.action-sheet__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  height: 44px;
+  background: var(--color-bg-01);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background-color 0.12s ease;
+}
+
+.action-sheet__item:hover {
+  background: var(--color-bg-02);
+}
+
+.action-sheet__item:active {
+  background: var(--color-bg-03);
+}
+
+.action-sheet__item--destructive {
+  color: var(--color-error-500);
+}
+
+.action-sheet__item--destructive:hover {
+  background: var(--color-error-25);
+}
+
+.action-sheet__item-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-ep-600);
+}
+
+.action-sheet__item--destructive .action-sheet__item-icon {
+  color: var(--color-error-500);
+}`} />
+      </UsageSection>
+    </div>
+  ),
+};
+
 /** Interactive playground — use the controls panel to configure the Action Sheet. */
 export const Playground: StoryObj<typeof ActionSheet> = {
   args: {
@@ -306,5 +401,27 @@ function ReportIcon() {
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M14.4 6L14 4H5V21H7V14H12.6L13 16H20V6H14.4Z" fill="currentColor"/>
     </svg>
+  );
+}
+
+/* ─── Usage helpers ─── */
+
+const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
+  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
+      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+    </div>
+    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
+function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      {children}
+    </div>
   );
 }

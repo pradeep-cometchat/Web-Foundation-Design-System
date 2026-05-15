@@ -1,9 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Swatch } from "../components/Swatch";
 import { Section } from "../components/Section";
 import { PageHeader } from "../components/PageHeader";
 import { Callout } from "../components/Callout";
-import { TokenTable } from "../components/TokenTable";
 import { contrastRatio, wcagRating } from "../components/contrast";
 import {
   extendedPrimary,
@@ -28,9 +27,10 @@ import {
 const meta: Meta<typeof ColorStory> = {
   title: "Foundation/Colors",
   component: ColorStory,
-  tags: ["autodocs"],
+  tags: ["!autodocs"],
   parameters: {
     layout: "fullscreen",
+    themes: { themeOverride: "Light" },
     docs: {
       description: {
         component:
@@ -251,171 +251,6 @@ const Stat: React.FC<{
     </div>
   </div>
 );
-
-export const Playground: StoryObj<typeof ColorStory> = {
-  args: { family: "extendedPrimary", shade: "500" },
-  parameters: { docs: { disable: true } },
-};
-
-/** Full palette reference — every family, every shade. */
-export const AllPalettes: StoryObj = {
-  parameters: { controls: { disable: true }, layout: "fullscreen" },
-  render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
-      <PageHeader
-        title="Colors"
-        description="The complete color system. Hover any swatch to see the hex value, click to copy. Badges reflect the best WCAG contrast against white or black."
-        meta={[
-          { label: "families", value: "7" },
-          { label: "tokens", value: "74" },
-          { label: "scale", value: "25 → 950" },
-        ]}
-      />
-
-      <Section
-        title="Primary"
-        description="The brand anchor. Use Primary for your main CTA and key brand moments."
-      >
-        <SwatchGrid
-          entries={Object.entries(primaryColors)}
-          cssVarOf={(k) =>
-            k === "primary"
-              ? "var(--color-primary)"
-              : "var(--color-white)"
-          }
-          labelOf={(k) => (k === "primary" ? "primary" : "white")}
-        />
-      </Section>
-
-      <Section
-        title="Extended Primary"
-        description="The full 12-step tint/shade of the brand. Use for hovers, backgrounds, and subtle surfaces."
-      >
-        <SwatchGrid
-          entries={Object.entries(extendedPrimary)}
-          cssVarOf={(k) => `var(--color-ep-${k})`}
-          labelOf={(k) => `ep-${k}`}
-        />
-      </Section>
-
-      <Section
-        title="Neutral · Light Mode"
-        description="Surfaces, text, and dividers for light backgrounds. In app code, prefer --color-neutral-<shade>; it automatically swaps to dark values under [data-theme='dark']."
-      >
-        <SwatchGrid
-          entries={Object.entries(neutralLight)}
-          cssVarOf={(k) => `var(--color-neutral-lm-${k})`}
-          labelOf={(k) => `neutral-lm-${k}`}
-        />
-      </Section>
-
-      <Section
-        title="Neutral · Dark Mode"
-        description="Paired values for dark backgrounds."
-      >
-        <SwatchGrid
-          entries={Object.entries(neutralDark)}
-          cssVarOf={(k) => `var(--color-neutral-dm-${k})`}
-          labelOf={(k) => `neutral-dm-${k}`}
-        />
-      </Section>
-
-      <Section
-        title="Info"
-        description="Informational states: links, banners, non-destructive notices."
-      >
-        <SemanticGrid scale={info} family="info" />
-      </Section>
-
-      <Section
-        title="Warning"
-        description="Non-blocking cautions. Use sparingly to avoid normalization."
-      >
-        <SemanticGrid scale={warning} family="warning" />
-      </Section>
-
-      <Section
-        title="Success"
-        description="Confirmation, completed states, positive outcomes."
-      >
-        <SemanticGrid scale={success} family="success" />
-      </Section>
-
-      <Section
-        title="Error"
-        description="Destructive actions and blocking error states."
-      >
-        <SemanticGrid scale={error} family="error" />
-      </Section>
-    </div>
-  ),
-};
-
-/** Contrast reference — every shade against #fff and #000. */
-export const AccessibilityAudit: StoryObj = {
-  parameters: { controls: { disable: true }, layout: "fullscreen" },
-  render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
-      <PageHeader
-        title="Accessibility audit"
-        description="Contrast ratios against white and black for every shade. Use this to pick safe foreground/background pairings without guessing."
-        meta={[
-          { label: "AAA", value: "≥ 7:1" },
-          { label: "AA", value: "≥ 4.5:1" },
-          { label: "AA Large", value: "≥ 3:1" },
-        ]}
-      />
-      <Section title="Extended Primary">
-        <TokenTable
-          rows={toContrastRows(extendedPrimary, "--color-ep-")}
-          previewHeader="Shade"
-          valueHeader="Hex"
-          searchable={false}
-        />
-      </Section>
-      <Section title="Neutral (Light Mode)">
-        <TokenTable
-          rows={toContrastRows(neutralLight, "--color-neutral-lm-")}
-          previewHeader="Shade"
-          valueHeader="Hex"
-          searchable={false}
-        />
-      </Section>
-      <Section title="Info">
-        <TokenTable
-          rows={toContrastRows(info, "--color-info-")}
-          previewHeader="Shade"
-          valueHeader="Hex"
-          searchable={false}
-        />
-      </Section>
-      <Section title="Warning">
-        <TokenTable
-          rows={toContrastRows(warning, "--color-warning-")}
-          previewHeader="Shade"
-          valueHeader="Hex"
-          searchable={false}
-        />
-      </Section>
-      <Section title="Success">
-        <TokenTable
-          rows={toContrastRows(success, "--color-success-")}
-          previewHeader="Shade"
-          valueHeader="Hex"
-          searchable={false}
-        />
-      </Section>
-      <Section title="Error">
-        <TokenTable
-          rows={toContrastRows(error, "--color-error-")}
-          previewHeader="Shade"
-          valueHeader="Hex"
-          searchable={false}
-        />
-      </Section>
-    </div>
-  ),
-};
 
 function SwatchGrid({
   entries,

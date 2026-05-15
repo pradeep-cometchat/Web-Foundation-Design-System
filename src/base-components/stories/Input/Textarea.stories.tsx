@@ -125,6 +125,102 @@ export const AllStates: Story = {
 };
 
 /* ═══════════════════════════════════════════════════════════════════════════
+   USAGE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+export const Usage: Story = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <UsageSection title="HTML">
+        <UsageCodeCard language="HTML" code={`<!-- Textarea Field -->
+<div class="textarea-field">
+  <div class="textarea-field__label-wrap">
+    <label class="textarea-field__label">Description</label>
+    <span class="textarea-field__required">*</span>
+  </div>
+  <textarea class="textarea-field__input" rows="4" placeholder="Enter a description..."></textarea>
+  <span class="textarea-field__hint">This is a hint text to help user.</span>
+</div>
+
+<!-- Error state -->
+<div class="textarea-field">
+  <div class="textarea-field__label-wrap">
+    <label class="textarea-field__label">Description</label>
+    <span class="textarea-field__required">*</span>
+  </div>
+  <textarea class="textarea-field__input textarea-field__input--error" rows="4">Content here</textarea>
+  <span class="textarea-field__hint textarea-field__hint--error">This is an error message.</span>
+</div>
+
+<!-- Disabled state -->
+<div class="textarea-field textarea-field--disabled">
+  <div class="textarea-field__label-wrap">
+    <label class="textarea-field__label">Description</label>
+  </div>
+  <textarea class="textarea-field__input" rows="4" disabled placeholder="Enter a description..."></textarea>
+</div>`} />
+      </UsageSection>
+      <UsageSection title="CSS (Foundation Variables)">
+        <UsageCodeCard language="CSS" code={`.textarea-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1-5);
+  width: 100%;
+}
+
+.textarea-field__label {
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+
+.textarea-field__required {
+  color: var(--color-text-highlight);
+}
+
+.textarea-field__input {
+  width: 100%;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-01);
+  box-shadow: var(--shadow-xs);
+  font-size: var(--font-size-3);
+  color: var(--color-text-primary);
+  resize: vertical;
+}
+
+.textarea-field__input:focus {
+  border-color: var(--color-ep-600);
+  box-shadow: var(--focus-ring-xs);
+}
+
+.textarea-field__input--error {
+  border-color: var(--color-error);
+}
+
+.textarea-field__input:disabled {
+  background: var(--color-bg-disabled);
+  border-color: var(--color-border-default);
+  cursor: not-allowed;
+  resize: none;
+}
+
+.textarea-field__hint {
+  font-size: var(--font-size-1);
+  color: var(--color-text-tertiary);
+}
+
+.textarea-field__hint--error {
+  color: var(--color-error);
+}`} />
+      </UsageSection>
+    </div>
+  ),
+};
+
+/* ═══════════════════════════════════════════════════════════════════════════
    PLAYGROUND
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -152,3 +248,26 @@ export const Playground: Story = {
     rows: { control: { type: "range", min: 2, max: 10 } },
   },
 };
+
+
+/* ─── Usage helpers ─── */
+
+const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
+  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
+      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+    </div>
+    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
+function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      {children}
+    </div>
+  );
+}

@@ -9,6 +9,7 @@ const meta: Meta = {
     layout: "fullscreen",
     controls: { disable: true },
     actions: { disable: true },
+    themes: { themeOverride: "Light" },
   },
 };
 export default meta;

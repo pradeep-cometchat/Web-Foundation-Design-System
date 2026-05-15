@@ -18,7 +18,7 @@ const single = (Story: React.ComponentType) => (
       width: 400,
       background: "var(--color-bg-01)",
       border: "1px solid var(--color-border-default)",
-      borderRadius: "var(--radius-lg)",
+      
       overflow: "hidden",
     }}
   >
@@ -98,32 +98,6 @@ export const AvatarIcon: Story = {
 };
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   STATUS ICON
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-export const StatusOnline: Story = {
-  name: "Status — Online",
-  decorators: [single],
-  args: {
-    avatarUrl: group[5].imageUrl,
-    title: "Artistic Design",
-    description: "24 Members",
-    statusIcon: "online",
-  },
-};
-
-export const StatusOffline: Story = {
-  name: "Status — Offline",
-  decorators: [single],
-  args: {
-    avatarUrl: group[1].imageUrl,
-    title: "Bright Mind",
-    description: "12 Members",
-    statusIcon: "offline",
-  },
-};
-
-/* ═══════════════════════════════════════════════════════════════════════════
    GROUP TYPE
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -197,7 +171,7 @@ const Wrap = ({ label, children }: { label: string; children: React.ReactNode })
       style={{
         background: "var(--color-bg-01)",
         border: "1px solid var(--color-border-default)",
-        borderRadius: "var(--radius-lg)",
+        
         overflow: "hidden",
       }}
     >
@@ -291,7 +265,7 @@ export const GroupList: Story = {
           width: 400,
           background: "var(--color-bg-01)",
           border: "1px solid var(--color-border-default)",
-          borderRadius: "var(--radius-lg)",
+          
           overflow: "hidden",
         }}
       >
@@ -317,6 +291,104 @@ export const GroupList: Story = {
 };
 
 /* ═══════════════════════════════════════════════════════════════════════════
+   USAGE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+export const Usage: Story = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <UsageSection title="HTML">
+        <UsageCodeCard language="HTML" code={`<!-- Group Item -->
+<div class="list-item">
+  <div class="list-item__leading">
+    <div class="list-item__avatar">
+      <img src="group-avatar.jpg" alt="Artistic Design" />
+    </div>
+  </div>
+  <div class="list-item__content">
+    <span class="list-item__title">Artistic Design</span>
+    <div class="list-item__subtitle">
+      <span class="list-item__subtitle-text">24 Members</span>
+    </div>
+  </div>
+</div>
+
+<!-- Group Item with type badge (private) -->
+<div class="list-item">
+  <div class="list-item__leading">
+    <div class="list-item__avatar">
+      <img src="group-avatar.jpg" alt="Bright Mind" />
+      <!-- Private badge SVG positioned absolute bottom-right -->
+    </div>
+  </div>
+  <div class="list-item__content">
+    <span class="list-item__title">Bright Mind</span>
+    <div class="list-item__subtitle">
+      <span class="list-item__subtitle-text">12 Members</span>
+    </div>
+  </div>
+</div>`} />
+      </UsageSection>
+      <UsageSection title="CSS (Foundation Variables)">
+        <UsageCodeCard language="CSS" code={`.list-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-bg-01);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  min-height: var(--space-14);
+  transition: background 0.15s ease;
+}
+
+.list-item:hover {
+  background: var(--color-bg-02);
+}
+
+.list-item__avatar {
+  position: relative;
+  width: var(--space-10);
+  height: var(--space-10);
+  border-radius: var(--radius-full);
+  overflow: visible;
+}
+
+.list-item__avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+}
+
+.list-item__content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0-5);
+}
+
+.list-item__title {
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-item__subtitle {
+  font-size: var(--font-size-1);
+  color: var(--color-text-secondary);
+}`} />
+      </UsageSection>
+    </div>
+  ),
+};
+
+/* ═══════════════════════════════════════════════════════════════════════════
    PLAYGROUND
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -328,7 +400,6 @@ export const Playground: Story = {
     avatarUrl: group[5].imageUrl,
     avatarIcon: "group",
     avatarText: "AD",
-    statusIcon: "none",
     groupType: "none",
     title: "Artistic Design",
     description: "24 Members",
@@ -339,10 +410,32 @@ export const Playground: Story = {
     avatarUrl: { control: "text" },
     avatarText: { control: "text" },
     avatarIcon: { control: "text" },
-    statusIcon: { control: "select", options: ["none", "online", "offline"] },
     groupType: { control: "select", options: ["none", "public", "private", "protected"] },
     title: { control: "text" },
     description: { control: "text" },
     state: { control: "radio", options: ["default", "hover", "pressed"] },
   },
 };
+
+
+/* ─── Usage helpers ─── */
+
+const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
+  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
+      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+    </div>
+    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
+function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      {children}
+    </div>
+  );
+}

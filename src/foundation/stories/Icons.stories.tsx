@@ -30,7 +30,7 @@ const meta: Meta<typeof IconPlayground> = {
   title: "Foundation/Icons",
   component: IconPlayground,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: { layout: "fullscreen", themes: { themeOverride: "Light" } },
   argTypes: {
     name: {
       control: "text",

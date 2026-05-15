@@ -44,7 +44,7 @@ export interface CallItemProps {
 const directionIcon: Record<CallDirection, string> = {
   incoming: "call_received",
   outgoing: "call_made",
-  declined: "phone_disabled",
+  declined: "close",
   missed: "call_missed",
 };
 

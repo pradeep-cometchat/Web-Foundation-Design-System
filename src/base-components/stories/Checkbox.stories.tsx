@@ -120,13 +120,6 @@ export const Examples: Story = {
   ),
 };
 
-/** Interactive playground — use the controls panel to configure. */
-export const Playground: Story = {
-  args: { size: "md", checked: false, indeterminate: false, label: "Remember me", description: "Save my login details for next time.", disabled: false },
-  parameters: { docs: { disable: true } },
-  render: (args) => <ControlledCheckbox {...(args as any)} />,
-};
-
 /* ─── Helpers ──────────────────────────────────────────────────────────────── */
 
 function ControlledCheckbox(props: React.ComponentProps<typeof Checkbox>) {
@@ -142,3 +135,174 @@ function Section({ title, children }: { title: string; children: React.ReactNode
     </div>
   );
 }
+
+const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
+  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
+      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+    </div>
+    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
+const ClassGroup: React.FC<{ title: string; items: string[] }> = ({ title, items }) => (
+  <div style={{ padding: "var(--space-3-5) var(--space-4)", border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", background: "var(--color-bg-01)" }}>
+    <div style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
+      {items.map((item) => (
+        <code key={item} style={{ fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", color: "var(--color-text-primary)", background: "var(--color-bg-02)", padding: "var(--space-0-5) var(--space-2)", borderRadius: "var(--radius-xs)", border: "1px solid var(--color-border-default)", display: "inline-block", width: "fit-content" }}>.{item}</code>
+      ))}
+    </div>
+  </div>
+);
+
+/** Raw HTML + CSS usage with foundation variables. */
+export const Usage: Story = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <Section title="HTML">
+        <CodeCard
+          language="HTML"
+          code={`<!-- Basic checkbox (medium) -->
+<label class="checkbox">
+  <button class="checkbox__box checkbox__box--md" role="checkbox" aria-checked="false">
+    <span class="checkbox__icon"><!-- check icon --></span>
+  </button>
+  <div class="checkbox__text">
+    <span class="checkbox__label">Remember me</span>
+    <span class="checkbox__description">Save my login details for next time.</span>
+  </div>
+</label>
+
+<!-- Checked checkbox -->
+<label class="checkbox">
+  <button class="checkbox__box checkbox__box--md checkbox__box--checked" role="checkbox" aria-checked="true">
+    <span class="checkbox__icon">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+        <path d="M10 3L4.5 8.5L2 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </button>
+  <div class="checkbox__text">
+    <span class="checkbox__label">Email notifications</span>
+  </div>
+</label>
+
+<!-- Small checkbox -->
+<label class="checkbox">
+  <button class="checkbox__box checkbox__box--sm" role="checkbox" aria-checked="false">
+    <span class="checkbox__icon"></span>
+  </button>
+  <div class="checkbox__text">
+    <span class="checkbox__label">Agree to terms</span>
+  </div>
+</label>
+
+<!-- Disabled checkbox -->
+<label class="checkbox checkbox--disabled">
+  <button class="checkbox__box checkbox__box--md checkbox__box--checked" disabled role="checkbox" aria-checked="true">
+    <span class="checkbox__icon"><!-- check icon --></span>
+  </button>
+  <div class="checkbox__text">
+    <span class="checkbox__label">Managed by admin</span>
+  </div>
+</label>
+
+<!-- Radio variant -->
+<label class="checkbox">
+  <button class="checkbox__box checkbox__box--md checkbox__box--radio" role="radio" aria-checked="false">
+    <span class="checkbox__icon"></span>
+  </button>
+  <div class="checkbox__text">
+    <span class="checkbox__label">Option A</span>
+  </div>
+</label>`}
+        />
+      </Section>
+
+      <Section title="CSS (Foundation Variables)">
+        <CodeCard
+          language="CSS"
+          code={`.checkbox {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-family: var(--font-family-heading);
+  cursor: pointer;
+}
+
+.checkbox--disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.checkbox__box {
+  position: relative;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--color-neutral-lm-300);
+  background: transparent;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+
+.checkbox__box--sm { width: 16px; height: 16px; border-radius: var(--radius-xs); }
+.checkbox__box--md { width: 20px; height: 20px; border-radius: var(--radius-sm); }
+.checkbox__box--radio { border-radius: var(--radius-full); }
+
+.checkbox__box:hover:not(:disabled) {
+  border-color: var(--color-primary);
+}
+
+.checkbox__box:focus-visible {
+  box-shadow: var(--focus-ring-xs);
+}
+
+.checkbox__box--checked {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.checkbox__box--checked:hover:not(:disabled) {
+  background: var(--color-ep-700);
+  border-color: var(--color-ep-700);
+}
+
+.checkbox__label {
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-neutral-lm-700);
+  line-height: var(--line-height-h4);
+}
+
+.checkbox__description {
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-neutral-lm-600);
+  line-height: var(--line-height-body);
+}`}
+        />
+      </Section>
+
+      <Section title="Available Classes">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+          <ClassGroup title="Sizes" items={["checkbox__box--sm", "checkbox__box--md"]} />
+          <ClassGroup title="States" items={["checkbox__box--checked", "checkbox--disabled"]} />
+          <ClassGroup title="Variants" items={["checkbox__box--radio"]} />
+          <ClassGroup title="Child Elements" items={["checkbox__box", "checkbox__icon", "checkbox__text", "checkbox__label", "checkbox__description"]} />
+        </div>
+      </Section>
+    </div>
+  ),
+};
+
+/** Interactive playground — use the controls panel to configure. */
+export const Playground: Story = {
+  args: { size: "md", checked: false, indeterminate: false, label: "Remember me", description: "Save my login details for next time.", disabled: false },
+  parameters: { docs: { disable: true } },
+  render: (args) => <ControlledCheckbox {...(args as any)} />,
+};

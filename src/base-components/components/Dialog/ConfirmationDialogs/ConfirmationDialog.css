@@ -42,6 +42,10 @@
   color: var(--color-error);
 }
 
+.confirmation-dialog__icon--primary {
+  color: var(--color-ep-600);
+}
+
 /* Text */
 .confirmation-dialog__text {
   display: flex;

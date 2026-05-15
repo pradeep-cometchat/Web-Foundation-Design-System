@@ -17,7 +17,7 @@ const meta: Meta<typeof ShadowPlayground> = {
   title: "Foundation/Effects/Shadows",
   component: ShadowPlayground,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: { layout: "fullscreen", themes: { themeOverride: "Light" } },
   argTypes: {
     level: {
       control: "select",

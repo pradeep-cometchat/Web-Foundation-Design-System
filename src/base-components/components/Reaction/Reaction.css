@@ -7,8 +7,8 @@
   gap: var(--space-1);
   height: 24px;
   padding: var(--space-0-5) var(--space-2);
-  background: var(--color-white);
-  border: 1px solid var(--color-neutral-100);
+  background: var(--color-bg-01);
+  border: 1px solid var(--color-border-light);
   border-radius: var(--radius-full);
   cursor: pointer;
   transition: background 100ms ease, border-color 100ms ease;
@@ -16,17 +16,17 @@
 }
 
 .reaction:hover {
-  background: var(--color-neutral-50);
-  border-color: var(--color-neutral-200);
+  background: var(--color-bg-02);
+  border-color: var(--color-border-default);
 }
 
 .reaction--active {
-  background: var(--color-ep-50);
-  border-color: var(--color-ep-200);
+  background: var(--color-bg-primary);
+  border-color: var(--color-border-primary);
 }
 
 .reaction--active:hover {
-  background: var(--color-ep-100);
+  background: var(--color-bg-secondary);
 }
 
 .reaction:focus-visible {
@@ -43,22 +43,22 @@
   font-size: var(--font-size-1);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-caption-1);
-  color: var(--color-neutral-900);
+  color: var(--color-text-primary);
 }
 
 .reaction--active .reaction__count {
-  color: var(--color-ep-700);
+  color: var(--color-static-white);
 }
 
 /* Add reaction button */
 .reaction--add {
-  color: var(--color-neutral-400);
+  color: var(--color-icon-tertiary);
   border-style: dashed;
 }
 
 .reaction--add:hover {
-  color: var(--color-neutral-600);
-  border-color: var(--color-neutral-300);
+  color: var(--color-text-secondary);
+  border-color: var(--color-border-dark);
 }
 
 .reaction--add .reaction__emoji {

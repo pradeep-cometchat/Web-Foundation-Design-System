@@ -59,7 +59,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                 margin: 0,
                 fontSize: "var(--font-size-2)",
                 fontWeight: "var(--font-weight-semibold)",
-                color: "var(--color-neutral-900)",
+                color: "var(--color-text-primary)",
               }}
             >
               {title}
@@ -91,11 +91,11 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                   fontSize: "var(--font-size-1)",
                   padding: "8px 12px 8px 32px",
                   borderRadius: "var(--radius-md)",
-                  border: "1px solid var(--color-neutral-200)",
-                  background: "var(--color-white)",
+                  border: "1px solid var(--color-border-default)",
+                  background: "var(--color-bg-01)",
                   outline: "none",
                   fontFamily: "inherit",
-                  color: "var(--color-neutral-900)",
+                  color: "var(--color-text-primary)",
                   boxShadow: "var(--shadow-xs)",
                 }}
                 onFocus={(e) =>
@@ -113,9 +113,9 @@ export const TokenTable: React.FC<TokenTableProps> = ({
       <div
         style={{
           overflow: "auto",
-          border: "1px solid var(--color-neutral-200)",
+          border: "1px solid var(--color-border-default)",
           borderRadius: "var(--radius-xl)",
-          background: "var(--color-white)",
+          background: "var(--color-bg-01)",
           boxShadow: "var(--shadow-xs)",
         }}
       >
@@ -125,11 +125,11 @@ export const TokenTable: React.FC<TokenTableProps> = ({
             borderCollapse: "separate",
             borderSpacing: 0,
             fontSize: "var(--font-size-1)",
-            color: "var(--color-neutral-900)",
+            color: "var(--color-text-primary)",
           }}
         >
           <thead>
-            <tr style={{ background: "var(--color-neutral-50)", textAlign: "left" }}>
+            <tr style={{ background: "var(--color-bg-02)", textAlign: "left" }}>
               <th style={th}>{previewHeader}</th>
               <th style={th}>Token</th>
               <th style={th}>{valueHeader}</th>
@@ -148,8 +148,8 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                     hovered === row.name
                       ? "var(--color-ep-25)"
                       : i % 2 === 0
-                      ? "var(--color-white)"
-                      : "var(--color-neutral-25)",
+                      ? "var(--color-bg-01)"
+                      : "var(--color-bg-02)",
                   transition: "background 120ms ease",
                 }}
               >
@@ -207,23 +207,23 @@ const th: React.CSSProperties = {
   fontSize: "var(--font-size-0)",
   letterSpacing: "0.06em",
   textTransform: "uppercase",
-  color: "var(--color-neutral-600)",
-  borderBottom: "1px solid var(--color-neutral-200)",
+  color: "var(--color-text-tertiary)",
+  borderBottom: "1px solid var(--color-border-default)",
   whiteSpace: "nowrap",
 };
 
 const td: React.CSSProperties = {
   padding: "12px 16px",
   verticalAlign: "middle",
-  borderBottom: "1px solid var(--color-neutral-100)",
+  borderBottom: "1px solid var(--color-border-light)",
 };
 
 const codeStyle: React.CSSProperties = {
   fontFamily: "var(--font-family-body)",
   fontSize: "var(--font-size-1)",
-  color: "var(--color-neutral-800)",
-  background: "var(--color-neutral-50)",
+  color: "var(--color-text-primary)",
+  background: "var(--color-bg-02)",
   padding: "2px 6px",
   borderRadius: "var(--radius-xs)",
-  border: "1px solid var(--color-neutral-200)",
+  border: "1px solid var(--color-border-default)",
 };

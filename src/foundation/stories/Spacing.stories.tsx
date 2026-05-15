@@ -14,7 +14,7 @@ const meta: Meta<typeof SpacingPlayground> = {
   title: "Foundation/Spacing",
   component: SpacingPlayground,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: { layout: "fullscreen", themes: { themeOverride: "Light" } },
   argTypes: {
     token: {
       control: "select",

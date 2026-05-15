@@ -34,7 +34,7 @@
   width: var(--space-12);
   height: var(--space-12);
   border-radius: var(--radius-full);
-  background: var(--color-ep-100);
+  background: var(--color-bg-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -129,7 +129,7 @@
 }
 
 .call-item__direction--declined {
-  color: var(--color-warning-500);
+  color: var(--color-error-500);
 }
 
 .call-item__direction--missed {

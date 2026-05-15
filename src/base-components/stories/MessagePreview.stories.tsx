@@ -94,6 +94,93 @@ export const AllModes: StoryObj = {
   ),
 };
 
+/** HTML & CSS usage reference for the Message Preview component. */
+export const Usage: StoryObj = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <UsageSection title="HTML">
+        <UsageCodeCard language="HTML" code={`<!-- Reply mode -->
+<div class="message-preview">
+  <div class="message-preview__border message-preview__border--reply"></div>
+  <div class="message-preview__content">
+    <span class="message-preview__sender message-preview__sender--reply">George Alan</span>
+    <div class="message-preview__text-container">
+      <span class="message-preview__text">Awesome! Can I see a couple of pictures?</span>
+    </div>
+  </div>
+  <button class="message-preview__close" type="button"><!-- X icon --></button>
+</div>
+
+<!-- Deleted mode -->
+<div class="message-preview">
+  <div class="message-preview__border message-preview__border--deleted"></div>
+  <div class="message-preview__content">
+    <span class="message-preview__sender message-preview__sender--deleted">Dave</span>
+    <div class="message-preview__text-container">
+      <span class="message-preview__deleted-icon"><!-- block icon --></span>
+      <span class="message-preview__text">This message was deleted</span>
+    </div>
+  </div>
+</div>`} />
+      </UsageSection>
+      <UsageSection title="CSS (Foundation Variables)">
+        <UsageCodeCard language="CSS" code={`.message-preview {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  background: var(--color-bg-03);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  position: relative;
+}
+
+.message-preview__border {
+  width: 4px;
+  align-self: stretch;
+  border-radius: var(--radius-xs) 0 0 var(--radius-xs);
+}
+
+.message-preview__border--reply {
+  background: var(--color-ep-600);
+}
+
+.message-preview__sender {
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-medium);
+}
+
+.message-preview__sender--reply {
+  color: var(--color-ep-600);
+}
+
+.message-preview__text {
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-tertiary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.message-preview__close {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-tertiary);
+}
+
+.message-preview__close:hover {
+  background: var(--color-bg-04);
+}`} />
+      </UsageSection>
+    </div>
+  ),
+};
+
 /** Interactive playground. */
 export const Playground: StoryObj<typeof MessagePreview> = {
   args: {
@@ -104,3 +191,26 @@ export const Playground: StoryObj<typeof MessagePreview> = {
   },
   parameters: { docs: { disable: true } },
 };
+
+
+/* ─── Usage helpers ─── */
+
+const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
+  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
+      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+    </div>
+    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
+function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      {children}
+    </div>
+  );
+}

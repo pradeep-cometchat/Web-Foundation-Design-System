@@ -19,7 +19,7 @@
 }
 
 .list-item--selected {
-  background: var(--color-ep-50);
+  background: var(--color-bg-primary);
 }
 
 .list-item--selected .list-item__title,
@@ -38,7 +38,7 @@
   height: var(--space-10);
   border-radius: var(--radius-full);
   overflow: visible;
-  background: var(--color-ep-100);
+  background: var(--color-bg-secondary);
   display: flex;
   align-items: center;
   justify-content: center;

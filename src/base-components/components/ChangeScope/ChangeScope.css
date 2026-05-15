@@ -203,7 +203,7 @@
 
 .change-scope__btn--save {
   background: var(--color-ep-600);
-  color: var(--color-white);
+  color: var(--color-static-white);
   border: none;
 }
 

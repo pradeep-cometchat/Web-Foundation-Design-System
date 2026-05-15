@@ -19,7 +19,7 @@ const single = (Story: React.ComponentType) => (
       width: 400,
       background: "var(--color-bg-01)",
       border: "1px solid var(--color-border-default)",
-      borderRadius: "var(--radius-lg)",
+      
       overflow: "hidden",
     }}
   >
@@ -117,56 +117,6 @@ export const StatusOffline: Story = {
 };
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   WITH SUBTITLE
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-export const WithTextContent: Story = {
-  name: "With Text Content",
-  decorators: [single],
-  args: {
-    avatarUrl: male[5].imageUrl,
-    title: "George Alan",
-    textContent: "Hey, let's catch up later!",
-  },
-};
-
-export const WithMessageStatus: Story = {
-  name: "With Message Status",
-  decorators: [single],
-  args: {
-    avatarUrl: male[5].imageUrl,
-    title: "George Alan",
-    messageStatus: "read",
-    textContent: "Hey, let's catch up later!",
-  },
-};
-
-export const WithMessageType: Story = {
-  name: "With Message Type",
-  decorators: [single],
-  args: {
-    avatarUrl: female[1].imageUrl,
-    title: "Emma Rose",
-    messageType: "photo",
-    messageTypeLabel: true,
-  },
-};
-
-export const FullPreview: Story = {
-  name: "Full Preview",
-  decorators: [single],
-  args: {
-    avatarUrl: male[5].imageUrl,
-    title: "George Alan",
-    statusIcon: "online",
-    messageStatus: "read",
-    messageType: "photo",
-    messageTypeLabel: true,
-    textContent: "Hey, let's catch up later!",
-  },
-};
-
-/* ═══════════════════════════════════════════════════════════════════════════
    DIVIDER & SKELETON
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -208,7 +158,7 @@ const Wrap = ({ label, children }: { label: string; children: React.ReactNode })
       style={{
         background: "var(--color-bg-01)",
         border: "1px solid var(--color-border-default)",
-        borderRadius: "var(--radius-lg)",
+        
         overflow: "hidden",
       }}
     >
@@ -241,24 +191,6 @@ export const AllStates: Story = {
         <Wrap label="Status — Online">
           <UserItem avatarUrl={male[5].imageUrl} title="George Alan" statusIcon="online" />
         </Wrap>
-        <Wrap label="With Text Content">
-          <UserItem
-            avatarUrl={male[5].imageUrl}
-            title="George Alan"
-            textContent="Hey, let's catch up later!"
-          />
-        </Wrap>
-        <Wrap label="Full Preview">
-          <UserItem
-            avatarUrl={male[5].imageUrl}
-            title="George Alan"
-            statusIcon="online"
-            messageStatus="read"
-            messageType="photo"
-            messageTypeLabel
-            textContent="Hey, let's catch up later!"
-          />
-        </Wrap>
         <Wrap label="Skeleton — Start">
           <UserItemSkeleton tone="start" />
         </Wrap>
@@ -287,7 +219,7 @@ export const AlphabetList: Story = {
           width: 400,
           background: "var(--color-bg-01)",
           border: "1px solid var(--color-border-default)",
-          borderRadius: "var(--radius-lg)",
+          
           overflow: "hidden",
         }}
       >
@@ -303,6 +235,102 @@ export const AlphabetList: Story = {
         <UserItemDivider label="O" />
         <UserItem avatarUrl={female[10].imageUrl} title="Olivia Rhye" />
       </div>
+    </div>
+  ),
+};
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   USAGE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+export const Usage: Story = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <UsageSection title="HTML">
+        <UsageCodeCard language="HTML" code={`<!-- User Item -->
+<div class="list-item">
+  <div class="list-item__leading">
+    <div class="list-item__avatar">
+      <img src="avatar.jpg" alt="George Alan" />
+      <span class="list-item__status" style="background: var(--color-success-500)"></span>
+    </div>
+  </div>
+  <div class="list-item__content">
+    <span class="list-item__title">George Alan</span>
+    <div class="list-item__subtitle">
+      <span class="list-item__subtitle-text">Hey, let's catch up later!</span>
+    </div>
+  </div>
+</div>
+
+<!-- User Item with initials -->
+<div class="list-item">
+  <div class="list-item__leading">
+    <div class="list-item__avatar">
+      <span class="list-item__avatar-initials">GA</span>
+    </div>
+  </div>
+  <div class="list-item__content">
+    <span class="list-item__title">George Alan</span>
+  </div>
+</div>`} />
+      </UsageSection>
+      <UsageSection title="CSS (Foundation Variables)">
+        <UsageCodeCard language="CSS" code={`.list-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-bg-01);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  min-height: var(--space-14);
+  transition: background 0.15s ease;
+}
+
+.list-item:hover {
+  background: var(--color-bg-02);
+}
+
+.list-item__avatar {
+  position: relative;
+  width: var(--space-10);
+  height: var(--space-10);
+  border-radius: var(--radius-full);
+  background: var(--color-ep-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-item__avatar-initials {
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-ep-700);
+}
+
+.list-item__status {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: var(--space-2-5);
+  height: var(--space-2-5);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-bg-01);
+}
+
+.list-item__title {
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.list-item__subtitle {
+  font-size: var(--font-size-1);
+  color: var(--color-text-secondary);
+}`} />
+      </UsageSection>
     </div>
   ),
 };
@@ -347,3 +375,26 @@ export const Playground: Story = {
     state: { control: "radio", options: ["default", "hover", "pressed"] },
   },
 };
+
+
+/* ─── Usage helpers ─── */
+
+const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
+  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
+      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+    </div>
+    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
+function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      {children}
+    </div>
+  );
+}

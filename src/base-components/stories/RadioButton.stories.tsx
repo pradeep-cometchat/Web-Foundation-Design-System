@@ -107,6 +107,93 @@ export const RadioGroupExample: Story = {
   ),
 };
 
+/** HTML & CSS usage reference for the Radio Button component. */
+export const Usage: Story = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <Section title="HTML">
+        <CodeCard language="HTML" code={`<!-- Radio Button (uses Checkbox markup with type="radio") -->
+<label class="checkbox checkbox--md">
+  <input class="checkbox__input" type="radio" name="group" />
+  <span class="checkbox__control checkbox__control--radio">
+    <span class="checkbox__dot"></span>
+  </span>
+  <span class="checkbox__text">
+    <span class="checkbox__label">Option A</span>
+    <span class="checkbox__description">First option description.</span>
+  </span>
+</label>
+
+<!-- Radio Group -->
+<div role="radiogroup" aria-label="Preference">
+  <label class="checkbox checkbox--md">
+    <input class="checkbox__input" type="radio" name="pref" checked />
+    <span class="checkbox__control checkbox__control--radio checkbox__control--checked">
+      <span class="checkbox__dot"></span>
+    </span>
+    <span class="checkbox__text">
+      <span class="checkbox__label">All notifications</span>
+      <span class="checkbox__description">Get notified for every message.</span>
+    </span>
+  </label>
+  <label class="checkbox checkbox--md">
+    <input class="checkbox__input" type="radio" name="pref" />
+    <span class="checkbox__control checkbox__control--radio">
+      <span class="checkbox__dot"></span>
+    </span>
+    <span class="checkbox__text">
+      <span class="checkbox__label">Mentions only</span>
+      <span class="checkbox__description">Only when someone mentions you.</span>
+    </span>
+  </label>
+</div>`} />
+      </Section>
+      <Section title="CSS (Foundation Variables)">
+        <CodeCard language="CSS" code={`/* Radio uses the same .checkbox base with --radio modifier */
+.checkbox__control--radio {
+  border-radius: var(--radius-full);
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--color-neutral-lm-300);
+  background: var(--color-bg-01);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox__control--radio.checkbox__control--checked {
+  border-color: var(--color-ep-700);
+  background: var(--color-ep-700);
+}
+
+.checkbox__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+}
+
+.checkbox__control--radio:focus-visible {
+  box-shadow: var(--focus-ring-xs);
+}
+
+.checkbox__label {
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.checkbox__description {
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+}`} />
+      </Section>
+    </div>
+  ),
+};
+
 /** Interactive playground — use the controls panel to configure. */
 export const Playground: Story = {
   args: {
@@ -162,3 +249,14 @@ function Section({ title, children }: { title: string; children: React.ReactNode
     </div>
   );
 }
+
+const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
+  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
+      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+    </div>
+    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <code>{code}</code>
+    </pre>
+  </div>
+);
