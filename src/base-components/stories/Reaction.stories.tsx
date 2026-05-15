@@ -95,11 +95,11 @@ export const AllStates: StoryObj = {
       </div>
       <div>
         <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>In context (below a message)</div>
-        <div style={{ maxWidth: 300 }}>
-          <div style={{ background: "var(--color-neutral-200)", borderRadius: "var(--radius-xl)", padding: "12px", fontSize: "var(--font-size-2)", color: "var(--color-neutral-900)", marginBottom: "var(--space-1)" }}>
+        <div style={{ maxWidth: "var(--space-80, 300px)" }}>
+          <div style={{ background: "var(--color-neutral-200)", borderRadius: "var(--radius-xl)", padding: "var(--space-3)", fontSize: "var(--font-size-2)", color: "var(--color-neutral-900)" }}>
             Sure! Sending them over now.
           </div>
-          <div style={{ paddingLeft: 4 }}>
+          <div style={{ paddingLeft: 4, marginTop: -8 }}>
             <ReactionGroup
               reactions={[
                 { emoji: "😍", count: 1 },

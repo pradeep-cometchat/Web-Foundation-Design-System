@@ -41,7 +41,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
   return (
     <section
       aria-label={title ?? "Token table"}
-      style={{ display: "flex", flexDirection: "column", gap: 14 }}
+      style={{ display: "flex", flexDirection: "column", gap: "var(--space-3-5)" }}
     >
       {(title || searchable) && (
         <div
@@ -49,7 +49,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            gap: 12,
+            gap: "var(--space-3)",
             flexWrap: "wrap",
           }}
         >

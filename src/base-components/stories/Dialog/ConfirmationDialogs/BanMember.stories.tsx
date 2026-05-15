@@ -23,6 +23,32 @@ export const Default: Story = {
   args: { variant: "banMember" },
 };
 
+export const CustomTitle: Story = {
+  name: "Custom Title",
+  args: {
+    variant: "banMember",
+    title: "Ban @toxic_user from Community?",
+  },
+};
+
+export const CustomDescription: Story = {
+  name: "Custom Description",
+  args: {
+    variant: "banMember",
+    description:
+      "This member will be permanently removed and will not be able to rejoin this group. All their messages will remain visible.",
+  },
+};
+
+export const CustomLabels: Story = {
+  name: "Custom Labels",
+  args: {
+    variant: "banMember",
+    confirmLabel: "Ban Permanently",
+    cancelLabel: "Nevermind",
+  },
+};
+
 export const Playground: Story = {
   args: { variant: "banMember", open: true },
   parameters: { docs: { disable: true } },

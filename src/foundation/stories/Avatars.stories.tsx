@@ -5,7 +5,6 @@ import { Section } from "../components/Section";
 import {
   avatarRegistry,
   avatarCategories,
-  avatarTotalCount,
   type AvatarCategory,
 } from "../tokens/avatars";
 

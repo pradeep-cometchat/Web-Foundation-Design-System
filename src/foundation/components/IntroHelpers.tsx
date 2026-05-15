@@ -9,7 +9,7 @@ export const CardMeta: React.FC<{ name: string; count: string }> = ({
       display: "flex",
       justifyContent: "space-between",
       alignItems: "baseline",
-      gap: 8,
+      gap: "var(--space-2)",
     }}
   >
     <strong style={{ fontSize: "var(--font-size-2)", color: "var(--color-neutral-900)" }}>
@@ -34,7 +34,7 @@ export const ConventionCard: React.FC<{
 }> = ({ title, body }) => (
   <div
     style={{
-      padding: "16px 18px",
+      padding: "var(--space-4) var(--space-4)",
       borderRadius: "var(--radius-xl)",
       border: "1px solid var(--color-neutral-200)",
       background: "var(--color-white)",
@@ -46,7 +46,7 @@ export const ConventionCard: React.FC<{
         display: "block",
         fontSize: "var(--font-size-2)",
         color: "var(--color-neutral-900)",
-        marginBottom: 6,
+        marginBottom: "var(--space-1-5)",
       }}
     >
       {title}
@@ -71,8 +71,8 @@ export const HeroChip: React.FC<{ label: string; value: string }> = ({
     style={{
       display: "inline-flex",
       alignItems: "center",
-      gap: 8,
-      padding: "8px 14px",
+      gap: "var(--space-2)",
+      padding: "var(--space-2) var(--space-3-5)",
       borderRadius: "var(--radius-full)",
       background: "var(--color-white)",
       border: "1px solid var(--color-neutral-200)",
@@ -94,7 +94,7 @@ export const cardPreview: React.CSSProperties = {
   background:
     "linear-gradient(180deg, var(--color-neutral-25) 0%, var(--color-white) 100%)",
   border: "1px solid var(--color-neutral-100)",
-  padding: 12,
+  padding: "var(--space-3)",
   overflow: "hidden",
 };
 
@@ -105,14 +105,14 @@ export const cardDesc: React.CSSProperties = {
 };
 
 export const cardLinkStyle: React.CSSProperties = {
-  padding: 18,
+  padding: "var(--space-4)",
   borderRadius: "var(--radius-xl)",
   border: "1px solid var(--color-neutral-200)",
   background: "var(--color-white)",
   boxShadow: "var(--shadow-xs)",
   display: "flex",
   flexDirection: "column",
-  gap: 12,
+  gap: "var(--space-3)",
   transition: "all 160ms ease",
   textDecoration: "none",
   color: "inherit",
@@ -120,14 +120,14 @@ export const cardLinkStyle: React.CSSProperties = {
 };
 
 export const panelStyle: React.CSSProperties = {
-  padding: 20,
+  padding: "var(--space-5)",
   borderRadius: "var(--radius-xl)",
   border: "1px solid var(--color-neutral-200)",
   background: "var(--color-white)",
   boxShadow: "var(--shadow-xs)",
   display: "flex",
   flexDirection: "column",
-  gap: 10,
+  gap: "var(--space-2-5)",
 };
 
 export const panelLabel: React.CSSProperties = {
@@ -147,7 +147,7 @@ export const panelP: React.CSSProperties = {
 
 export const codePre: React.CSSProperties = {
   margin: 0,
-  padding: 14,
+  padding: "var(--space-3-5)",
   borderRadius: "var(--radius-lg)",
   background: "var(--color-neutral-50)",
   border: "1px solid var(--color-neutral-200)",

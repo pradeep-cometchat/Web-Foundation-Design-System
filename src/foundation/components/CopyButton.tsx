@@ -43,7 +43,7 @@ export const CopyButton: React.FC<CopyButtonProps> = ({
     transition: "all 120ms ease",
     display: "inline-flex",
     alignItems: "center",
-    gap: 6,
+    gap: "var(--space-1-5)",
     lineHeight: 1.2,
     whiteSpace: "nowrap",
   };

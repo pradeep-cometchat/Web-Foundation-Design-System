@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Input } from "../Input";
 import "./LinkDialog.css";
 
 export interface LinkDialogProps {
@@ -24,23 +25,6 @@ export interface LinkDialogProps {
   onCancel?: () => void;
   /** Callback when save is clicked, receives text and url values */
   onSave?: (text: string, url: string) => void;
-}
-
-function CloseIcon() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 14 14"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
 }
 
 export function LinkDialog({
@@ -89,42 +73,26 @@ export function LinkDialog({
             onClick={onCancel}
             aria-label="Close"
           >
-            <CloseIcon />
+            <span className="icon-outlined" style={{ fontSize: 20 }}>close</span>
           </button>
         </div>
 
         {/* Body */}
         <div className="link-dialog__body">
           <div className="link-dialog__form">
-            {/* Text field */}
-            <div className="link-dialog__field">
-              <label className="link-dialog__label" htmlFor="link-dialog-text">
-                Text
-              </label>
-              <input
-                id="link-dialog-text"
-                className="link-dialog__input"
-                type="text"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                placeholder={textPlaceholder}
-              />
-            </div>
-
-            {/* URL field */}
-            <div className="link-dialog__field">
-              <label className="link-dialog__label" htmlFor="link-dialog-url">
-                Link
-              </label>
-              <input
-                id="link-dialog-url"
-                className="link-dialog__input"
-                type="url"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                placeholder={urlPlaceholder}
-              />
-            </div>
+            <Input
+              label="Text"
+              placeholder={textPlaceholder}
+              value={text}
+              onChange={setText}
+            />
+            <Input
+              label="Link"
+              type="url"
+              placeholder={urlPlaceholder}
+              value={url}
+              onChange={setUrl}
+            />
           </div>
 
           {/* Buttons */}

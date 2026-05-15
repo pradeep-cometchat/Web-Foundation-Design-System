@@ -23,6 +23,32 @@ export const Default: Story = {
   args: { variant: "transferOwnership" },
 };
 
+export const CustomTitle: Story = {
+  name: "Custom Title",
+  args: {
+    variant: "transferOwnership",
+    title: "Transfer Ownership to @alex_admin?",
+  },
+};
+
+export const CustomDescription: Story = {
+  name: "Custom Description",
+  args: {
+    variant: "transferOwnership",
+    description:
+      "You will lose all owner privileges and become a regular member. The new owner will have full control over group settings and members.",
+  },
+};
+
+export const CustomLabels: Story = {
+  name: "Custom Labels",
+  args: {
+    variant: "transferOwnership",
+    confirmLabel: "Transfer Now",
+    cancelLabel: "Keep Ownership",
+  },
+};
+
 export const Playground: Story = {
   args: { variant: "transferOwnership", open: true },
   parameters: { docs: { disable: true } },

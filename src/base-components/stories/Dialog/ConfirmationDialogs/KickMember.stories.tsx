@@ -23,6 +23,32 @@ export const Default: Story = {
   args: { variant: "kickMember" },
 };
 
+export const CustomTitle: Story = {
+  name: "Custom Title",
+  args: {
+    variant: "kickMember",
+    title: "Remove from Design Team?",
+  },
+};
+
+export const CustomDescription: Story = {
+  name: "Custom Description",
+  args: {
+    variant: "kickMember",
+    description:
+      "This member will be removed from the group but can rejoin if they have an invite link. Their previous messages will remain.",
+  },
+};
+
+export const CustomLabels: Story = {
+  name: "Custom Labels",
+  args: {
+    variant: "kickMember",
+    confirmLabel: "Remove Member",
+    cancelLabel: "Keep in Group",
+  },
+};
+
 export const Playground: Story = {
   args: { variant: "kickMember", open: true },
   parameters: { docs: { disable: true } },

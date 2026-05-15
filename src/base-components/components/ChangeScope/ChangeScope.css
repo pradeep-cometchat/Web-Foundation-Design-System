@@ -3,8 +3,8 @@
 
 .change-scope {
   width: 400px;
-  background: var(--color-white);
-  border: 1px solid var(--color-neutral-100);
+  background: var(--color-bg-01);
+  border: 1px solid var(--color-border-default);
   border-radius: var(--radius-3xl);
   box-shadow: var(--shadow-lg);
   overflow: hidden;
@@ -14,8 +14,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  padding: 24px 24px 12px;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-6) var(--space-3);
 }
 
 /* ─── Icon: 80px circle, background-02, primary colored icon ─── */
@@ -23,7 +23,7 @@
   width: 80px;
   height: 80px;
   border-radius: var(--radius-full);
-  background: var(--color-neutral-50);
+  background: var(--color-bg-03);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,7 +50,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
+  gap: var(--space-2);
   text-align: center;
   width: 100%;
 }
@@ -59,8 +59,8 @@
   font-family: var(--font-family-heading);
   font-size: var(--font-size-5);
   font-weight: var(--font-weight-medium);
-  line-height: 1.2;
-  color: var(--color-neutral-900);
+  line-height: var(--line-height-h3);
+  color: var(--color-text-primary);
   width: 100%;
 }
 
@@ -68,15 +68,15 @@
   font-family: var(--font-family-body);
   font-size: var(--font-size-2);
   font-weight: var(--font-weight-regular);
-  line-height: 1.2;
-  color: var(--color-neutral-500);
+  line-height: var(--line-height-body);
+  color: var(--color-text-tertiary);
   width: 100%;
 }
 
 /* ─── Role list: rounded container with shadow ─── */
 .change-scope__list {
   width: 100%;
-  border: 1px solid var(--color-neutral-100);
+  border: 1px solid var(--color-border-default);
   border-radius: var(--radius-md);
   overflow: hidden;
   display: flex;
@@ -86,27 +86,31 @@
 .change-scope__item {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-3);
   height: 48px;
-  padding: 8px 16px;
-  background: var(--color-white);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-bg-01);
   cursor: pointer;
   transition: background 120ms ease;
   border: none;
-  border-right: 1px solid var(--color-neutral-100);
+  border-bottom: 1px solid var(--color-border-default);
   position: relative;
 }
 
+.change-scope__item:last-child {
+  border-bottom: none;
+}
+
 .change-scope__item:hover {
-  background: var(--color-neutral-50);
+  background: var(--color-bg-02);
 }
 
 .change-scope__item--selected {
-  background: var(--color-neutral-100);
+  background: var(--color-bg-03);
 }
 
 .change-scope__item--selected:hover {
-  background: var(--color-neutral-100);
+  background: var(--color-bg-03);
 }
 
 /* ─── Radio button ─── */
@@ -114,7 +118,7 @@
   width: 20px;
   height: 20px;
   border-radius: var(--radius-full);
-  border: 1.5px solid var(--color-neutral-200);
+  border: 1.5px solid var(--color-border-dark);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -138,15 +142,15 @@
   font-family: var(--font-family-body);
   font-size: var(--font-size-2);
   font-weight: var(--font-weight-medium);
-  line-height: 1.2;
-  color: var(--color-neutral-500);
+  line-height: var(--line-height-body);
+  color: var(--color-text-tertiary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .change-scope__item--selected .change-scope__item-label {
-  color: var(--color-neutral-900);
+  color: var(--color-text-primary);
 }
 
 /* Hidden native radio */
@@ -161,9 +165,9 @@
 /* ─── Buttons ─── */
 .change-scope__buttons {
   display: flex;
-  gap: 8px;
+  gap: var(--space-2);
   width: 100%;
-  padding: 12px 0;
+  padding: var(--space-3) 0;
 }
 
 .change-scope__btn {
@@ -173,14 +177,14 @@
   font-family: var(--font-family-body);
   font-size: var(--font-size-2);
   font-weight: var(--font-weight-medium);
-  line-height: 1.2;
+  line-height: var(--line-height-body);
   cursor: pointer;
   transition: background 120ms ease;
   outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 20px;
+  padding: var(--space-2) var(--space-5);
 }
 
 .change-scope__btn:focus-visible {
@@ -188,13 +192,13 @@
 }
 
 .change-scope__btn--cancel {
-  background: var(--color-white);
-  color: var(--color-neutral-900);
-  border: 1px solid var(--color-neutral-300);
+  background: var(--color-bg-01);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-dark);
 }
 
 .change-scope__btn--cancel:hover {
-  background: var(--color-neutral-50);
+  background: var(--color-bg-02);
 }
 
 .change-scope__btn--save {

@@ -22,9 +22,9 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: 16,
-        padding: "32px 32px 28px",
-        margin: "0 0 32px",
+        gap: "var(--space-4)",
+        padding: "var(--space-8) var(--space-8) var(--space-6)",
+        margin: "0 0 var(--space-8)",
         borderRadius: "var(--radius-2xl)",
         background:
           "linear-gradient(135deg, var(--color-ep-50) 0%, var(--color-white) 100%)",
@@ -68,15 +68,15 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
         </p>
       )}
       {meta && meta.length > 0 && (
-        <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 4 }}>
+        <div style={{ display: "flex", gap: "var(--space-2)", flexWrap: "wrap", marginTop: "var(--space-1)" }}>
           {meta.map((m) => (
             <span
               key={m.label}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                gap: 8,
-                padding: "6px 12px",
+                gap: "var(--space-2)",
+                padding: "var(--space-1-5) var(--space-3)",
                 borderRadius: "var(--radius-full)",
                 background: "var(--color-white)",
                 border: "1px solid var(--color-ep-100)",

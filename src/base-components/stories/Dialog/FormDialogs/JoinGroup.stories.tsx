@@ -23,6 +23,11 @@ export const Default: Story = {
   args: { variant: "joinGroup" },
 };
 
+export const WithPasswordVisible: Story = {
+  name: "With Password Visible",
+  args: { variant: "joinGroup" },
+};
+
 export const Playground: Story = {
   args: { variant: "joinGroup", open: true },
   parameters: { docs: { disable: true } },

@@ -82,13 +82,13 @@ export const Swatch: React.FC<SwatchProps> = ({
       </div>
       <div
         style={{
-          padding: "12px 14px 14px",
+          padding: "var(--space-3) var(--space-3-5) var(--space-3-5)",
           display: "flex",
           flexDirection: "column",
-          gap: 8,
+          gap: "var(--space-2)",
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-0-5)" }}>
           <strong
             style={{
               fontSize: "var(--font-size-1)",
@@ -116,7 +116,7 @@ export const Swatch: React.FC<SwatchProps> = ({
             {description}
           </div>
         )}
-        <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "var(--space-1-5)", flexWrap: "wrap" }}>
           <CopyButton value={value} label="HEX" variant="solid" />
           <CopyButton value={cssVar} label="CSS" variant="solid" />
         </div>

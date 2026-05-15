@@ -21,19 +21,19 @@ export const Section: React.FC<SectionProps> = ({
 }) => {
   const Heading = (level === 2 ? "h2" : "h3") as keyof JSX.IntrinsicElements;
   return (
-    <section style={{ marginBottom: 40 }}>
+    <section style={{ marginBottom: "var(--space-10)" }}>
       <div
         style={{
           display: "flex",
           alignItems: "flex-end",
           justifyContent: "space-between",
-          gap: 16,
-          marginBottom: description ? 8 : 20,
-          paddingBottom: 12,
+          gap: "var(--space-4)",
+          marginBottom: description ? "var(--space-2)" : "var(--space-5)",
+          paddingBottom: "var(--space-3)",
           borderBottom: "1px solid var(--color-neutral-200)",
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
           {eyebrow && (
             <span
               style={{
@@ -50,7 +50,7 @@ export const Section: React.FC<SectionProps> = ({
           <Heading
             style={{
               margin: 0,
-              fontSize: level === 2 ? 22 : 16,
+              fontSize: level === 2 ? "var(--font-size-5)" : "var(--font-size-3)",
               fontWeight: "var(--font-weight-semibold)",
               letterSpacing: "-0.01em",
               color: "var(--color-neutral-900)",
@@ -64,7 +64,7 @@ export const Section: React.FC<SectionProps> = ({
       {description && (
         <p
           style={{
-            margin: "0 0 20px",
+            margin: "0 0 var(--space-5)",
             color: "var(--color-neutral-600)",
             maxWidth: 760,
             fontSize: "var(--font-size-2)",

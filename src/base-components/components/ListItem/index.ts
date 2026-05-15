@@ -30,4 +30,5 @@ export type {
   GroupItemProps,
   GroupItemSkeletonProps,
   GroupItemState,
+  GroupType,
 } from "./GroupItem";

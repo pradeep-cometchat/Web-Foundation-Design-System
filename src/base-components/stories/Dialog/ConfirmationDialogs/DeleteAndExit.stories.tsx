@@ -23,6 +23,32 @@ export const Default: Story = {
   args: { variant: "deleteAndExit" },
 };
 
+export const CustomTitle: Story = {
+  name: "Custom Title",
+  args: {
+    variant: "deleteAndExit",
+    title: "Delete and Exit Marketing Chat?",
+  },
+};
+
+export const CustomDescription: Story = {
+  name: "Custom Description",
+  args: {
+    variant: "deleteAndExit",
+    description:
+      "All messages will be permanently deleted and you will be removed from this group. This action cannot be undone.",
+  },
+};
+
+export const CustomLabels: Story = {
+  name: "Custom Labels",
+  args: {
+    variant: "deleteAndExit",
+    confirmLabel: "Delete & Exit",
+    cancelLabel: "Cancel",
+  },
+};
+
 export const Playground: Story = {
   args: { variant: "deleteAndExit", open: true },
   parameters: { docs: { disable: true } },

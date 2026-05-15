@@ -1,10 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Avatar, AvatarGroup, AvatarLabelGroup } from "../components/AvatarGroup/AvatarGroup.impl";
+import { Avatar, AvatarLabelGroup } from "../components/AvatarGroup/AvatarGroup.impl";
 import type { AvatarSize } from "../components/AvatarGroup/AvatarGroup.types";
 import { avatarRegistry } from "../../foundation/tokens/avatars";
 
 const maleAvatars = avatarRegistry["Male Avatar"];
-const femaleAvatars = avatarRegistry["Female Avatar"];
 
 /**
  * Avatar system — individual avatars, grouped stacks, and labeled profiles.
@@ -200,6 +199,55 @@ export const LabelGroup: Story = {
   ),
 };
 
+/** Group avatar label group — all sizes × group types (Public, Private, Protected). */
+export const GroupLabelGroup: Story = {
+  name: "Group Avatar Label Group",
+  parameters: { controls: { disable: true } },
+  render: () => {
+    const groupAvatars = avatarRegistry["Group Avatar"];
+    return (
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+        <Section title="Small — Public">
+          <GroupAvatarLabel src={groupAvatars[5].imageUrl} size="sm" name="Epic Game" supportingText="248 Members" groupType="public" />
+        </Section>
+        <Section title="Small — Private">
+          <GroupAvatarLabel src={groupAvatars[1].imageUrl} size="sm" name="Bright Mind" supportingText="12 Members" groupType="private" />
+        </Section>
+        <Section title="Small — Protected">
+          <GroupAvatarLabel src={groupAvatars[8].imageUrl} size="sm" name="Innovative Online Shopping" supportingText="56 Members" groupType="protected" />
+        </Section>
+        <Section title="Medium — Public">
+          <GroupAvatarLabel src={groupAvatars[5].imageUrl} size="md" name="Epic Game" supportingText="248 Members" groupType="public" />
+        </Section>
+        <Section title="Medium — Private">
+          <GroupAvatarLabel src={groupAvatars[1].imageUrl} size="md" name="Bright Mind" supportingText="12 Members" groupType="private" />
+        </Section>
+        <Section title="Medium — Protected">
+          <GroupAvatarLabel src={groupAvatars[8].imageUrl} size="md" name="Innovative Online Shopping" supportingText="56 Members" groupType="protected" />
+        </Section>
+        <Section title="Large — Public">
+          <GroupAvatarLabel src={groupAvatars[5].imageUrl} size="lg" name="Epic Game" supportingText="248 Members" groupType="public" />
+        </Section>
+        <Section title="Large — Private">
+          <GroupAvatarLabel src={groupAvatars[1].imageUrl} size="lg" name="Bright Mind" supportingText="12 Members" groupType="private" />
+        </Section>
+        <Section title="Large — Protected">
+          <GroupAvatarLabel src={groupAvatars[8].imageUrl} size="lg" name="Innovative Online Shopping" supportingText="56 Members" groupType="protected" />
+        </Section>
+        <Section title="XL — Public">
+          <GroupAvatarLabel src={groupAvatars[5].imageUrl} size="xl" name="Epic Game" supportingText="248 Members" groupType="public" />
+        </Section>
+        <Section title="XL — Private">
+          <GroupAvatarLabel src={groupAvatars[1].imageUrl} size="xl" name="Bright Mind" supportingText="12 Members" groupType="private" />
+        </Section>
+        <Section title="XL — Protected">
+          <GroupAvatarLabel src={groupAvatars[8].imageUrl} size="xl" name="Innovative Online Shopping" supportingText="56 Members" groupType="protected" />
+        </Section>
+      </div>
+    );
+  },
+};
+
 /* ─── Helpers ──────────────────────────────────────────────────────────────── */
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -269,47 +317,51 @@ function CompanyBadge({ size, type }: { size: AvatarSize; type: "company" | "pri
   );
 }
 
-function VerifiedIcon({ size }: { size: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12.3553 2.83363C12.5073 3.20115 12.7989 3.49327 13.1662 3.64579L14.4541 4.17925C14.8217 4.33149 15.1137 4.6235 15.2659 4.99104C15.4182 5.35858 15.4182 5.77155 15.2659 6.13909L14.7328 7.42606C14.5805 7.79376 14.5803 8.20715 14.7333 8.57467L15.2655 9.86125C15.3409 10.0433 15.3798 10.2384 15.3798 10.4355C15.3799 10.6325 15.3411 10.8277 15.2657 11.0097C15.1902 11.1918 15.0797 11.3572 14.9403 11.4966C14.801 11.6359 14.6355 11.7464 14.4534 11.8217L13.1665 12.3548C12.7989 12.5068 12.5068 12.7985 12.3543 13.1657L11.8208 14.4536C11.6686 14.8212 11.3766 15.1132 11.009 15.2654C10.6415 15.4177 10.2285 15.4177 9.86099 15.2654L8.57403 14.7323C8.20648 14.5805 7.79366 14.5808 7.42634 14.7332L6.13845 15.2659C5.77111 15.4178 5.3585 15.4177 4.99126 15.2655C4.62402 15.1134 4.33217 14.8218 4.17982 14.4546L3.6462 13.1663C3.49424 12.7988 3.20256 12.5067 2.83527 12.3542L1.54739 11.8207C1.18 11.6686 0.88808 11.3767 0.735782 11.0094C0.583485 10.6421 0.583278 10.2293 0.735208 9.86181L1.26829 8.57484C1.42015 8.20729 1.41984 7.79447 1.26742 7.42715L0.735111 6.13834C0.659639 5.9563 0.620778 5.76117 0.620746 5.56411C0.620714 5.36704 0.659514 5.1719 0.734926 4.98984C0.81034 4.80778 0.920888 4.64236 1.06026 4.50304C1.19962 4.36371 1.36508 4.25322 1.54716 4.17786L2.83413 3.64479C3.20132 3.49296 3.49327 3.20164 3.6459 2.83478L4.17936 1.54689C4.3316 1.17935 4.62361 0.887337 4.99115 0.735096C5.3587 0.582855 5.77166 0.582855 6.1392 0.735096L7.42617 1.26817C7.79372 1.42004 8.20654 1.41973 8.57386 1.26731L9.86229 0.735923C10.2298 0.583767 10.6427 0.583799 11.0101 0.736009C11.3776 0.88822 11.6696 1.18015 11.8218 1.54759L12.3555 2.83587L12.3553 2.83363Z" fill="#528BFF" />
-      <path fillRule="evenodd" clipRule="evenodd" d="M11.1333 5.90291C11.2401 5.73503 11.276 5.53157 11.2328 5.33728C11.1897 5.14299 11.0711 4.9738 10.9033 4.86691C10.7354 4.76003 10.5319 4.72422 10.3376 4.76735C10.1433 4.81048 9.97414 4.92903 9.86726 5.09691L6.93026 9.71191L5.58626 8.03191C5.46201 7.8765 5.2811 7.7768 5.08335 7.75477C4.88559 7.73273 4.68718 7.79016 4.53176 7.91441C4.37634 8.03867 4.27665 8.21957 4.25462 8.41733C4.23258 8.61508 4.29001 8.8135 4.41426 8.96891L6.41426 11.4689C6.4888 11.5622 6.58453 11.6363 6.6935 11.6852C6.80246 11.734 6.92152 11.7561 7.04075 11.7497C7.15998 11.7432 7.27595 11.7084 7.37901 11.6481C7.48207 11.5877 7.56923 11.5037 7.63326 11.4029L11.1333 5.90291Z" fill="white" />
-    </svg>
-  );
-}
-
-function AvatarAddBtn({ size, hovered, focused, disabled }: { size: number; hovered?: boolean; focused?: boolean; disabled?: boolean }) {
-  return (
-    <button
-      type="button"
-      disabled={disabled}
-      style={{
-        width: size,
-        height: size,
-        borderRadius: "50%",
-        background: "var(--color-white)",
-        border: `1.5px dashed ${hovered ? "var(--color-primary)" : "var(--color-neutral-lm-300)"}`,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        cursor: disabled ? "not-allowed" : "pointer",
-        opacity: disabled ? 0.5 : 1,
-        color: hovered ? "var(--color-primary)" : "var(--color-neutral-lm-500)",
-        boxShadow: focused ? "var(--focus-ring-xs)" : "none",
-        padding: 0,
-        outline: "none",
-      }}
-    >
-      <svg width={size * 0.4} height={size * 0.4} viewBox="0 0 16 16" fill="none">
-        <path d="M8 3v10M3 8h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    </button>
-  );
-}
-
 /** Interactive playground — use the controls panel to configure the Avatar. */
 export const Playground: Story = {
   args: { size: "lg", statusIcon: "online" },
   parameters: { docs: { disable: true } },
   render: (args: any) => <Avatar src={maleAvatars[0].imageUrl} alt="Ben Scott" {...args} />,
 };
+
+/* ─── Group Avatar Label (helper for Group Label Group story) ──────────────── */
+
+function GroupAvatarLabel({ src, size, name, supportingText, groupType }: { src: string; size: "sm" | "md" | "lg" | "xl"; name: string; supportingText: string; groupType: "public" | "private" | "protected" }) {
+  const avatarSizeMap: Record<string, string> = { sm: "32px", md: "40px", lg: "48px", xl: "56px" };
+  const badgeSizeMap: Record<string, number> = { sm: 14, md: 16, lg: 20, xl: 22 };
+  const avatarPx = avatarSizeMap[size];
+  const badgePx = badgeSizeMap[size];
+
+  const showBadge = groupType !== "public";
+
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "var(--space-3)" }}>
+      <div style={{ position: "relative", width: avatarPx, height: avatarPx, flexShrink: 0 }}>
+        <img
+          src={src}
+          alt={name}
+          style={{ width: "100%", height: "100%", borderRadius: "var(--radius-full)", objectFit: "cover", display: "block" }}
+        />
+        {showBadge && (
+          <span style={{ position: "absolute", right: -2, bottom: -2, width: badgePx, height: badgePx, display: "flex" }}>
+            {groupType === "private" ? (
+              <svg viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
+                <circle cx="8.5" cy="8.5" r="7.9" fill="#079455" stroke="white" strokeWidth="1.17" />
+                <path d="M6.03 12.62c-.22 0-.4-.08-.55-.23a.75.75 0 0 1-.23-.55V7.77c0-.22.08-.4.23-.55a.75.75 0 0 1 .55-.24h.52V6.11c0-.54.19-1 .57-1.38.38-.38.84-.57 1.38-.57.54 0 1 .19 1.38.57.38.38.57.84.57 1.38v.87h.52c.22 0 .4.08.55.23.15.15.23.34.23.55v4.07c0 .22-.08.4-.23.55a.75.75 0 0 1-.55.23H6.03zM8.5 10.56c.21 0 .39-.07.54-.22.15-.15.22-.33.22-.54 0-.21-.07-.39-.22-.54a.73.73 0 0 0-.54-.22.73.73 0 0 0-.54.22.73.73 0 0 0-.22.54c0 .21.07.39.22.54.15.15.33.22.54.22zM7.2 6.98h2.6V6.11c0-.36-.13-.67-.38-.92a1.25 1.25 0 0 0-.92-.38c-.36 0-.67.13-.92.38-.25.25-.38.56-.38.92v.87z" fill="white" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
+                <circle cx="8.5" cy="8.5" r="7.9" fill="#DC6803" stroke="white" strokeWidth="1.17" />
+                <path d="M8.5 12.56c-.05 0-.09 0-.13-.01a.6.6 0 0 1-.13-.03c-.91-.33-1.64-.9-2.18-1.73-.54-.83-.81-1.72-.81-2.68V6.16c0-.16.05-.31.14-.44a.7.7 0 0 1 .37-.29l2.47-.92a.8.8 0 0 1 .27-.05c.09 0 .18.02.27.05l2.47.92c.15.06.27.16.37.29.1.13.14.28.14.44v1.95c0 .96-.27 1.85-.81 2.68-.54.83-1.27 1.4-2.18 1.73a.6.6 0 0 1-.13.03c-.04.01-.09.01-.13.01z" fill="white" />
+              </svg>
+            )}
+          </span>
+        )}
+      </div>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <span style={{ fontFamily: "var(--font-family-heading)", fontWeight: "var(--font-weight-medium)", fontSize: size === "sm" ? "var(--font-size-2)" : size === "md" ? "var(--font-size-2)" : size === "lg" ? "var(--font-size-3)" : "var(--font-size-4)", lineHeight: size === "lg" ? "var(--line-height-h4)" : "var(--line-height-body)", color: "var(--color-text-primary)" }}>{name}</span>
+        <span style={{ fontFamily: "var(--font-family-body)", fontWeight: "var(--font-weight-regular)", fontSize: size === "sm" ? "var(--font-size-1)" : "var(--font-size-2)", lineHeight: "var(--line-height-body)", color: "var(--color-text-secondary)" }}>{supportingText}</span>
+      </div>
+    </div>
+  );
+}

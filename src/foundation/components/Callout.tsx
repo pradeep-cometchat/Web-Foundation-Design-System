@@ -48,8 +48,8 @@ export const Callout: React.FC<CalloutProps> = ({
     <aside
       style={{
         display: "flex",
-        gap: 12,
-        padding: "14px 16px",
+        gap: "var(--space-3)",
+        padding: "var(--space-3-5) var(--space-4)",
         borderRadius: "var(--radius-lg)",
         background: p.bg,
         border: `1px solid ${p.border}`,
@@ -74,7 +74,7 @@ export const Callout: React.FC<CalloutProps> = ({
       >
         {p.icon}
       </span>
-      <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-0-5)" }}>
         {title && (
           <strong style={{ color: p.accent, fontSize: "var(--font-size-1)" }}>{title}</strong>
         )}

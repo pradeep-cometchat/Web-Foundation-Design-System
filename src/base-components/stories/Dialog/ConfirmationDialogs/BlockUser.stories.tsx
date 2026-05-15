@@ -23,6 +23,32 @@ export const Default: Story = {
   args: { variant: "blockUser" },
 };
 
+export const CustomTitle: Story = {
+  name: "Custom Title",
+  args: {
+    variant: "blockUser",
+    title: "Block @john_doe?",
+  },
+};
+
+export const CustomDescription: Story = {
+  name: "Custom Description",
+  args: {
+    variant: "blockUser",
+    description:
+      "Blocking this user will prevent them from sending you messages, seeing your online status, or adding you to groups.",
+  },
+};
+
+export const CustomLabels: Story = {
+  name: "Custom Labels",
+  args: {
+    variant: "blockUser",
+    confirmLabel: "Yes, Block",
+    cancelLabel: "Go Back",
+  },
+};
+
 export const Playground: Story = {
   args: { variant: "blockUser", open: true },
   parameters: { docs: { disable: true } },

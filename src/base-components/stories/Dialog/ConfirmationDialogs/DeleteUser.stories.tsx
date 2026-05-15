@@ -23,6 +23,32 @@ export const Default: Story = {
   args: { variant: "deleteUser" },
 };
 
+export const CustomTitle: Story = {
+  name: "Custom Title",
+  args: {
+    variant: "deleteUser",
+    title: "Delete @jane_smith?",
+  },
+};
+
+export const CustomDescription: Story = {
+  name: "Custom Description",
+  args: {
+    variant: "deleteUser",
+    description:
+      "This action will permanently delete the user account and all associated data including messages, media, and group memberships.",
+  },
+};
+
+export const CustomLabels: Story = {
+  name: "Custom Labels",
+  args: {
+    variant: "deleteUser",
+    confirmLabel: "Delete Account",
+    cancelLabel: "Keep Account",
+  },
+};
+
 export const Playground: Story = {
   args: { variant: "deleteUser", open: true },
   parameters: { docs: { disable: true } },

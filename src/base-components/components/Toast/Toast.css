@@ -5,19 +5,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   filter: drop-shadow(0px 12px 8px rgba(10, 13, 18, 0.08))
     drop-shadow(0px 4px 3px rgba(10, 13, 18, 0.03))
     drop-shadow(0px 2px 1px rgba(10, 13, 18, 0.04));
 }
 
-/* Content: bg static-black (#0a0d12), radius-xs (4px), px-8 py-8 */
+/* Content: bg static-black, radius-xs, px-8 py-8 */
 .toast__content {
   display: flex;
   align-items: flex-start;
-  padding: 8px;
+  padding: var(--space-2);
   background: var(--color-neutral-lm-950, #0a0d12);
-  border-radius: 4px;
+  border-radius: var(--radius-xs);
 }
 
 /* Message: Caption 1/Regular — 12px, weight 400, line-height 18px, white, centered */

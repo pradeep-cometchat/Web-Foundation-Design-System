@@ -4,6 +4,7 @@ import { withThemeByDataAttribute } from "@storybook/addon-themes";
 import "../src/foundation/tokens/tokens.css";
 import "./preview.css";
 import { FoundationDocsPage } from "./DocsPage";
+import { foundationTheme } from "./theme";
 
 const preview: Preview = {
   parameters: {
@@ -45,6 +46,18 @@ const preview: Preview = {
             "Conversation Summary",
             "Create Poll",
             "Date",
+            "Emoji Keyboard",
+            "Flag Message Dialog",
+            "Message Preview",
+            "Radio Button",
+            "Reaction",
+            "Reaction Info",
+            "Reaction List",
+            "Search Bar",
+            "Smart Replies",
+            "Thread View",
+            "Toast",
+            "Typing Indicator",
             "Dialog",
             [
               "Confirmation Dialogs",
@@ -74,8 +87,6 @@ const preview: Preview = {
                 "Translate Alert",
               ],
             ],
-            "Emoji Keyboard",
-            "Flag Message Dialog",
             "Input",
             [
               "Input",
@@ -89,16 +100,6 @@ const preview: Preview = {
               "Group Item",
             ],
             "Media Recorder",
-            "Message Preview",
-            "Radio Button",
-            "Reaction",
-            "Reaction Info",
-            "Reaction List",
-            "Search Bar",
-            "Smart Replies",
-            "Thread View",
-            "Toast",
-            "Typing Indicator",
           ],
           "*",
         ],
@@ -121,6 +122,7 @@ const preview: Preview = {
     docs: {
       toc: { headingSelector: "h2, h3" },
       page: FoundationDocsPage,
+      theme: foundationTheme,
     },
   },
   decorators: [

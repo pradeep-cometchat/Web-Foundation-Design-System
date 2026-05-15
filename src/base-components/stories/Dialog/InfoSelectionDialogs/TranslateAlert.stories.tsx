@@ -23,9 +23,54 @@ export const Default: Story = {
   args: {
     variant: "alert",
     alertTitle: "Message Already in Selected Language",
-    alertDescription: "Selected language for translation is similar to the language of the original message.",
+    alertDescription:
+      "Selected language for translation is similar to the language of the original message.",
     alertButtonLabel: "Understood",
     alertIcon: "translate",
+  },
+};
+
+export const BlockAlert: Story = {
+  name: "Block Alert",
+  args: {
+    variant: "alert",
+    alertIcon: "block",
+    alertTitle: "User Blocked",
+    alertDescription: "You have blocked this user.",
+    alertButtonLabel: "OK",
+  },
+};
+
+export const WarningAlert: Story = {
+  name: "Warning Alert",
+  args: {
+    variant: "alert",
+    alertIcon: "warning",
+    alertTitle: "Connection Lost",
+    alertDescription: "Please check your internet connection.",
+    alertButtonLabel: "OK",
+  },
+};
+
+export const ErrorAlert: Story = {
+  name: "Error Alert",
+  args: {
+    variant: "alert",
+    alertIcon: "error",
+    alertTitle: "Message Failed",
+    alertDescription: "Failed to send message. Please try again.",
+    alertButtonLabel: "OK",
+  },
+};
+
+export const InfoAlert: Story = {
+  name: "Info Alert",
+  args: {
+    variant: "alert",
+    alertIcon: "info",
+    alertTitle: "New Feature",
+    alertDescription: "You can now translate messages in real-time.",
+    alertButtonLabel: "OK",
   },
 };
 
@@ -33,7 +78,8 @@ export const Playground: Story = {
   args: {
     variant: "alert",
     alertTitle: "Message Already in Selected Language",
-    alertDescription: "Selected language for translation is similar to the language of the original message.",
+    alertDescription:
+      "Selected language for translation is similar to the language of the original message.",
     alertButtonLabel: "Understood",
     alertIcon: "translate",
     open: true,
@@ -43,7 +89,10 @@ export const Playground: Story = {
     alertTitle: { control: "text" },
     alertDescription: { control: "text" },
     alertButtonLabel: { control: "text" },
-    alertIcon: { control: "select", options: ["block", "warning", "info", "error", "translate"] },
+    alertIcon: {
+      control: "select",
+      options: ["block", "warning", "info", "error", "translate"],
+    },
     open: { control: "boolean" },
   },
 };

@@ -27,7 +27,17 @@ export const CustomContent: Story = {
   args: {
     variant: "deleteConversation",
     title: "Delete Chat with John?",
-    description: "All messages in this chat will be permanently removed. This cannot be undone.",
+    description:
+      "All messages in this chat will be permanently removed. This cannot be undone.",
+  },
+};
+
+export const CustomLabels: Story = {
+  name: "Custom Labels",
+  args: {
+    variant: "deleteConversation",
+    confirmLabel: "Delete Forever",
+    cancelLabel: "Keep Chat",
   },
 };
 

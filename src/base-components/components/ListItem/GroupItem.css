@@ -67,12 +67,30 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 12px;
-  height: 12px;
+  width: var(--space-3);
+  height: var(--space-3);
   border-radius: var(--radius-full);
   border: 2px solid var(--color-bg-01);
   box-sizing: content-box;
-  margin: -2px;
+  margin: calc(-1 * var(--space-0-5));
+}
+
+/* Group type badge (private/protected) */
+.group-item__type-badge {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.group-item__type-badge-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 /* Content */

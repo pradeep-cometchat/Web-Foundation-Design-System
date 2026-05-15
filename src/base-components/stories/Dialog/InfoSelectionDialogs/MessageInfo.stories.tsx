@@ -1,5 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { InfoSelectionDialog } from "../../../components/Dialog/InfoSelectionDialogs";
+import { avatarRegistry } from "../../../../foundation/tokens/avatars";
+
+const female = avatarRegistry["Female Avatar"];
+const male = avatarRegistry["Male Avatar"];
 
 const meta: Meta<typeof InfoSelectionDialog> = {
   title: "Base Components/Dialog/Info Selection Dialogs/Message Info",
@@ -22,10 +26,10 @@ function Inline({ children }: { children: React.ReactNode }) {
 export const Default: Story = {
   args: {
     variant: "messageInfo",
-    messagePreview: "Hey! Are we still meeting tomorrow at 3pm?",
+    messagePreview: "Thanks! Looks good.",
     messageInfoItems: [
-      { label: "Delivered", timestamp: "Today, 2:45 PM" },
-      { label: "Read", timestamp: "Today, 2:47 PM" },
+      { label: "Read", timestamp: "24/8/2024, 5:02 pm" },
+      { label: "Delivered", timestamp: "24/8/2024, 4:56 pm" },
     ],
   },
 };
@@ -33,10 +37,114 @@ export const Default: Story = {
 export const Unread: Story = {
   args: {
     variant: "messageInfo",
-    messagePreview: "This message hasn't been read yet.",
+    messagePreview: "Thanks! Looks good.",
     messageInfoItems: [
-      { label: "Delivered", timestamp: "Today, 10:30 AM" },
-      { label: "Read", timestamp: "—" },
+      { label: "Read", timestamp: "---" },
+      { label: "Delivered", timestamp: "---" },
+    ],
+  },
+};
+
+export const DeliveredOnly: Story = {
+  name: "Delivered Only",
+  args: {
+    variant: "messageInfo",
+    messagePreview: "Thanks! Looks good.",
+    messageInfoItems: [
+      { label: "Read", timestamp: "---" },
+      { label: "Delivered", timestamp: "24/8/2024, 4:56 pm" },
+    ],
+  },
+};
+
+export const Error: Story = {
+  args: {
+    variant: "messageInfo",
+    messagePreview: "Thanks! Looks good.",
+    messageInfoError: "Looks like something went wrong.\nPlease try again.",
+  },
+};
+
+export const GroupMessageInfo: Story = {
+  name: "Group Message Info",
+  args: {
+    variant: "messageInfo",
+    messagePreview: "Thanks! Looks good.",
+    groupMessageInfoUsers: [
+      {
+        name: "Andrew Joseph",
+        avatar: male[6].imageUrl,
+        readTimestamp: "22 Apr, 01:36 pm",
+        deliveredTimestamp: "22 Apr, 12:15 pm",
+      },
+      {
+        name: "Nancy Grace",
+        avatar: female[8].imageUrl,
+        readTimestamp: "28 Apr, 01:51 pm",
+        deliveredTimestamp: "28 Apr, 01:51 pm",
+      },
+      {
+        name: "Susan Marie",
+        avatar: female[11].imageUrl,
+        readTimestamp: "05 May, 08:35 pm",
+        deliveredTimestamp: "05 May, 08:35 pm",
+      },
+    ],
+  },
+};
+
+export const GroupPartiallyRead: Story = {
+  name: "Group — Partially Read",
+  args: {
+    variant: "messageInfo",
+    messagePreview: "Thanks! Looks good.",
+    groupMessageInfoUsers: [
+      {
+        name: "Andrew Joseph",
+        avatar: male[6].imageUrl,
+        readTimestamp: "22 Apr, 01:36 pm",
+        deliveredTimestamp: "22 Apr, 12:15 pm",
+      },
+      {
+        name: "Nancy Grace",
+        avatar: female[8].imageUrl,
+        readTimestamp: "---",
+        deliveredTimestamp: "28 Apr, 01:51 pm",
+      },
+      {
+        name: "Susan Marie",
+        avatar: female[11].imageUrl,
+        readTimestamp: "---",
+        deliveredTimestamp: "05 May, 08:35 pm",
+      },
+    ],
+  },
+};
+
+export const GroupUnread: Story = {
+  name: "Group — Unread",
+  args: {
+    variant: "messageInfo",
+    messagePreview: "Thanks! Looks good.",
+    groupMessageInfoUsers: [
+      {
+        name: "Andrew Joseph",
+        avatar: male[6].imageUrl,
+        readTimestamp: "---",
+        deliveredTimestamp: "22 Apr, 12:15 pm",
+      },
+      {
+        name: "Nancy Grace",
+        avatar: female[8].imageUrl,
+        readTimestamp: "---",
+        deliveredTimestamp: "28 Apr, 01:51 pm",
+      },
+      {
+        name: "Susan Marie",
+        avatar: female[11].imageUrl,
+        readTimestamp: "---",
+        deliveredTimestamp: "---",
+      },
     ],
   },
 };
@@ -45,15 +153,17 @@ export const Playground: Story = {
   args: {
     variant: "messageInfo",
     open: true,
-    messagePreview: "Hello! How are you?",
+    messagePreview: "Thanks! Looks good.",
     messageInfoItems: [
-      { label: "Delivered", timestamp: "Today, 3:00 PM" },
-      { label: "Read", timestamp: "Today, 3:02 PM" },
+      { label: "Read", timestamp: "24/8/2024, 5:02 pm" },
+      { label: "Delivered", timestamp: "24/8/2024, 4:56 pm" },
     ],
+    messageInfoError: "",
   },
   parameters: { docs: { disable: true } },
   argTypes: {
     open: { control: "boolean" },
     messagePreview: { control: "text" },
+    messageInfoError: { control: "text" },
   },
 };

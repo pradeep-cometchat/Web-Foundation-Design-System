@@ -140,14 +140,14 @@ export const ReadReceipts: StoryObj = {
 export const InContext: StoryObj = {
   parameters: { layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)", maxWidth: 360 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)", maxWidth: "var(--space-90, 360px)" }}>
       {/* Separator */}
       <div style={{ display: "flex", justifyContent: "center" }}>
         <DateTimestamp timestamp="Today" variant="separator" />
       </div>
 
       {/* Received bubble */}
-      <div style={{ alignSelf: "flex-start", background: "var(--color-neutral-100)", borderRadius: "var(--radius-xl)", padding: "8px 12px", maxWidth: 280 }}>
+      <div style={{ alignSelf: "flex-start", background: "var(--color-neutral-100)", borderRadius: "var(--radius-xl)", padding: "var(--space-2) var(--space-3)", maxWidth: "var(--space-70, 280px)" }}>
         <div style={{ fontSize: "var(--font-size-2)", color: "var(--color-neutral-900)", marginBottom: "var(--space-1)" }}>Yes, it's available.</div>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <DateTimestamp timestamp="4:56 pm" variant="received" />
@@ -155,7 +155,7 @@ export const InContext: StoryObj = {
       </div>
 
       {/* Sent bubble */}
-      <div style={{ alignSelf: "flex-end", background: "var(--color-ep-600)", borderRadius: "var(--radius-xl)", padding: "8px 12px", maxWidth: 280 }}>
+      <div style={{ alignSelf: "flex-end", background: "var(--color-ep-600)", borderRadius: "var(--radius-xl)", padding: "var(--space-2) var(--space-3)", maxWidth: "var(--space-70, 280px)" }}>
         <div style={{ fontSize: "var(--font-size-2)", color: "var(--color-white)", marginBottom: "var(--space-1)" }}>I'll take it. Can you ship it?</div>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <span className="date-timestamp date-timestamp--sent" style={{ color: "rgba(255,255,255,0.7)" }}>
@@ -168,7 +168,7 @@ export const InContext: StoryObj = {
       </div>
 
       {/* Another received */}
-      <div style={{ alignSelf: "flex-start", background: "var(--color-neutral-100)", borderRadius: "var(--radius-xl)", padding: "8px 12px", maxWidth: 280 }}>
+      <div style={{ alignSelf: "flex-start", background: "var(--color-neutral-100)", borderRadius: "var(--radius-xl)", padding: "var(--space-2) var(--space-3)", maxWidth: "var(--space-70, 280px)" }}>
         <div style={{ fontSize: "var(--font-size-2)", color: "var(--color-neutral-900)", marginBottom: "var(--space-1)" }}>Sure! Sending them over now.</div>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <DateTimestamp timestamp="4:58 pm" variant="received" />

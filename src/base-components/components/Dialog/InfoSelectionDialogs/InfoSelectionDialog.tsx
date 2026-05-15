@@ -8,6 +8,13 @@ export interface MessageInfoItem {
   timestamp: string;
 }
 
+export interface GroupMessageInfoUser {
+  name: string;
+  avatar?: string;
+  readTimestamp?: string;
+  deliveredTimestamp?: string;
+}
+
 export interface MemberItem {
   name: string;
   avatar?: string;
@@ -23,10 +30,14 @@ export interface InfoSelectionDialogProps {
   variant: InfoSelectionDialogVariant;
   /** Whether the modal is open. */
   open?: boolean;
-  /** Message info items (for messageInfo variant). */
+  /** Message info items (for messageInfo variant — user chat). */
   messageInfoItems?: MessageInfoItem[];
   /** Message text preview (for messageInfo variant). */
   messagePreview?: string;
+  /** Error message to display instead of info items (for messageInfo variant). */
+  messageInfoError?: string;
+  /** Group message info users — shows per-user read/delivered times (for messageInfo variant — group chat). */
+  groupMessageInfoUsers?: GroupMessageInfoUser[];
   /** Members list (for addMembers/transferOwnership variants). */
   members?: MemberItem[];
   /** Alert title (for alert variant). */
@@ -137,7 +148,17 @@ function AlertContent({
 }
 
 /* ─── Message Info Content ─── */
-function MessageInfoContent({ messagePreview, items }: { messagePreview?: string; items?: MessageInfoItem[] }) {
+function MessageInfoContent({
+  messagePreview,
+  items,
+  errorMessage,
+  groupUsers,
+}: {
+  messagePreview?: string;
+  items?: MessageInfoItem[];
+  errorMessage?: string;
+  groupUsers?: GroupMessageInfoUser[];
+}) {
   return (
     <div className="info-dialog__body">
       {messagePreview && (
@@ -145,14 +166,47 @@ function MessageInfoContent({ messagePreview, items }: { messagePreview?: string
           <div className="info-dialog__message-bubble">{messagePreview}</div>
         </div>
       )}
-      <div className="info-dialog__info-list">
-        {items?.map((item, i) => (
-          <div key={i} className="info-dialog__info-item">
-            <span className="info-dialog__info-label">{item.label}</span>
-            <span className="info-dialog__info-value">{item.timestamp}</span>
-          </div>
-        ))}
-      </div>
+      {errorMessage ? (
+        <div className="info-dialog__message-error">
+          <span className="info-dialog__message-error-text">{errorMessage}</span>
+        </div>
+      ) : groupUsers && groupUsers.length > 0 ? (
+        <div className="info-dialog__group-info-list">
+          {groupUsers.map((user, i) => (
+            <div key={i} className="info-dialog__group-info-user">
+              <div className="info-dialog__group-info-avatar">
+                {user.avatar ? (
+                  <img src={user.avatar} alt={user.name} />
+                ) : (
+                  <span>{user.name.charAt(0)}</span>
+                )}
+              </div>
+              <div className="info-dialog__group-info-content">
+                <div className="info-dialog__group-info-name">{user.name}</div>
+                <div className="info-dialog__group-info-row">
+                  <span className="info-dialog__group-info-label">Read</span>
+                  <span className="info-dialog__group-info-time">{user.readTimestamp || "---"}</span>
+                </div>
+                <div className="info-dialog__group-info-row">
+                  <span className="info-dialog__group-info-label">Delivered</span>
+                  <span className="info-dialog__group-info-time">{user.deliveredTimestamp || "---"}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="info-dialog__info-list">
+          {items?.map((item, i) => (
+            <div key={i} className="info-dialog__info-section">
+              <div className="info-dialog__info-item">
+                <span className="info-dialog__info-label">{item.label}</span>
+                <span className="info-dialog__info-value">{item.timestamp}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -216,6 +270,8 @@ export function InfoSelectionDialog({
   open = true,
   messageInfoItems,
   messagePreview,
+  messageInfoError,
+  groupMessageInfoUsers,
   members,
   alertTitle = "You are no longer part of the group",
   alertDescription = "You have been banned from this group by the administrator.",
@@ -259,7 +315,12 @@ export function InfoSelectionDialog({
 
         {/* Content */}
         {variant === "messageInfo" && (
-          <MessageInfoContent messagePreview={messagePreview} items={messageInfoItems} />
+          <MessageInfoContent
+            messagePreview={messagePreview}
+            items={messageInfoItems}
+            errorMessage={messageInfoError}
+            groupUsers={groupMessageInfoUsers}
+          />
         )}
         {(variant === "addMembers" || variant === "transferOwnership") && (
           <MemberSelectionContent members={members} selectionType={variant === "transferOwnership" ? "radio" : "checkbox"} />

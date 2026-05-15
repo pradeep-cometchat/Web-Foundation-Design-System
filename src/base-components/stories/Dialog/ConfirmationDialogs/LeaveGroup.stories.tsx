@@ -23,6 +23,32 @@ export const Default: Story = {
   args: { variant: "leaveGroup" },
 };
 
+export const CustomTitle: Story = {
+  name: "Custom Title",
+  args: {
+    variant: "leaveGroup",
+    title: "Leave Project Alpha?",
+  },
+};
+
+export const CustomDescription: Story = {
+  name: "Custom Description",
+  args: {
+    variant: "leaveGroup",
+    description:
+      "You will no longer receive messages from this group. You can rejoin later if the group is public or if you receive a new invite.",
+  },
+};
+
+export const CustomLabels: Story = {
+  name: "Custom Labels",
+  args: {
+    variant: "leaveGroup",
+    confirmLabel: "Leave Group",
+    cancelLabel: "Stay",
+  },
+};
+
 export const Playground: Story = {
   args: { variant: "leaveGroup", open: true },
   parameters: { docs: { disable: true } },

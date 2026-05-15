@@ -4,7 +4,7 @@
 .reaction-list {
   background: var(--color-white, #ffffff);
   border: 1px solid var(--color-neutral-100, #f5f5f5);
-  border-radius: 16px;
+  border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-lg);
   overflow: clip;
   display: flex;
@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: center;
   height: 40px;
-  padding: 8px 16px;
+  padding: var(--space-2) var(--space-4);
   border: none;
   background: none;
   cursor: pointer;
@@ -80,8 +80,8 @@
 .reaction-list__item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
   width: 100%;
   background: var(--color-white, #ffffff);
   border: none;
@@ -106,7 +106,7 @@
 .reaction-list__avatar {
   width: 32px;
   height: 32px;
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -121,7 +121,7 @@
 .reaction-list__text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: var(--space-0-5);
   flex: 1;
   min-width: 0;
   justify-content: center;

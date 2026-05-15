@@ -124,6 +124,43 @@ export const StatusOffline: Story = {
 };
 
 /* ═══════════════════════════════════════════════════════════════════════════
+   GROUP TYPE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+export const PublicGroup: Story = {
+  name: "Group Type — Public",
+  decorators: [single],
+  args: {
+    avatarUrl: group[5].imageUrl,
+    title: "Epic Game",
+    description: "248 Members",
+    groupType: "public",
+  },
+};
+
+export const PrivateGroup: Story = {
+  name: "Group Type — Private",
+  decorators: [single],
+  args: {
+    avatarUrl: group[1].imageUrl,
+    title: "Bright Mind",
+    description: "12 Members",
+    groupType: "private",
+  },
+};
+
+export const ProtectedGroup: Story = {
+  name: "Group Type — Protected",
+  decorators: [single],
+  args: {
+    avatarUrl: group[8].imageUrl,
+    title: "Innovative Online Shopping",
+    description: "56 Members",
+    groupType: "protected",
+  },
+};
+
+/* ═══════════════════════════════════════════════════════════════════════════
    SKELETON
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -205,6 +242,30 @@ export const AllStates: Story = {
             state="pressed"
           />
         </Wrap>
+        <Wrap label="Group Type — Public">
+          <GroupItem
+            avatarUrl={group[5].imageUrl}
+            title="Epic Game"
+            description="248 Members"
+            groupType="public"
+          />
+        </Wrap>
+        <Wrap label="Group Type — Private">
+          <GroupItem
+            avatarUrl={group[1].imageUrl}
+            title="Bright Mind"
+            description="12 Members"
+            groupType="private"
+          />
+        </Wrap>
+        <Wrap label="Group Type — Protected">
+          <GroupItem
+            avatarUrl={group[8].imageUrl}
+            title="Innovative Online Shopping"
+            description="56 Members"
+            groupType="protected"
+          />
+        </Wrap>
         <Wrap label="Skeleton — Start">
           <GroupItemSkeleton tone="start" />
         </Wrap>
@@ -268,6 +329,7 @@ export const Playground: Story = {
     avatarIcon: "group",
     avatarText: "AD",
     statusIcon: "none",
+    groupType: "none",
     title: "Artistic Design",
     description: "24 Members",
     state: "default",
@@ -278,6 +340,7 @@ export const Playground: Story = {
     avatarText: { control: "text" },
     avatarIcon: { control: "text" },
     statusIcon: { control: "select", options: ["none", "online", "offline"] },
+    groupType: { control: "select", options: ["none", "public", "private", "protected"] },
     title: { control: "text" },
     description: { control: "text" },
     state: { control: "radio", options: ["default", "hover", "pressed"] },
