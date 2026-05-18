@@ -38,6 +38,7 @@ const preview: Preview = {
           "Base Components",
           [
             "Introduction",
+            "Header",
             "Action Sheet",
             "Button",
             "Avatar Group",
@@ -101,6 +102,14 @@ const preview: Preview = {
               "Group Item",
             ],
             "Media Recorder",
+          ],
+          "Core Components",
+          [
+            "Introduction",
+            "Conversation List",
+            "Chat Area",
+            "Chat Bubbles",
+            "Message Composer",
           ],
           "*",
         ],
