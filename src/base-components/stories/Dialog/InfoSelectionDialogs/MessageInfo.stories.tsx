@@ -167,3 +167,130 @@ export const Playground: Story = {
     messageInfoError: { control: "text" },
   },
 };
+
+function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div style={{ marginBottom: "var(--space-6)" }}>
+      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-text-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      {children}
+    </div>
+  );
+}
+
+function UsageCodeCard({ language, code }: { language: string; code: string }) {
+  return (
+    <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
+        <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+      </div>
+      <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+        <code>{code}</code>
+      </pre>
+    </div>
+  );
+}
+
+export const Usage: Story = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <UsageSection title="HTML">
+        <UsageCodeCard language="HTML" code={`<div class="info-dialog__overlay">
+  <div class="info-dialog">
+    <div class="info-dialog__header">
+      <h2 class="info-dialog__title">Message Info</h2>
+      <button class="info-dialog__close">
+        <!-- Close icon SVG -->
+      </button>
+    </div>
+    <div class="info-dialog__body">
+      <div class="info-dialog__message-preview">
+        <span class="info-dialog__message-bubble">Thanks! Looks good.</span>
+      </div>
+      <div class="info-dialog__info-list">
+        <div class="info-dialog__info-item">
+          <span class="info-dialog__info-label">Read</span>
+          <span class="info-dialog__info-value">24/8/2024, 5:02 pm</span>
+        </div>
+        <div class="info-dialog__info-item">
+          <span class="info-dialog__info-label">Delivered</span>
+          <span class="info-dialog__info-value">24/8/2024, 4:56 pm</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`} />
+      </UsageSection>
+      <UsageSection title="CSS (Foundation Variables)">
+        <UsageCodeCard language="CSS" code={`.info-dialog__overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 13, 18, 0.5);
+  z-index: 1000;
+}
+
+.info-dialog {
+  width: 400px;
+  max-height: 680px;
+  background: var(--color-bg-01);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+}
+
+.info-dialog__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.info-dialog__title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-5);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.info-dialog__close {
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: none;
+  border-radius: var(--radius-md);
+  color: var(--color-icon-secondary);
+  cursor: pointer;
+}
+
+.info-dialog__body {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-dialog__message-bubble {
+  background: var(--color-ep-600);
+  color: var(--color-static-white);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-2);
+  display: inline-block;
+}
+
+.info-dialog__info-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) 0;
+}`} />
+      </UsageSection>
+    </div>
+  ),
+};

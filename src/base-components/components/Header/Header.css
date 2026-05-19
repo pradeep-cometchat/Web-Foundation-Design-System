@@ -12,18 +12,23 @@
   box-sizing: border-box;
 }
 
+h1.screen-header__title,
 .screen-header__title {
   flex: 1 0 0;
   min-width: 0;
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-6);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-h1);
-  color: var(--color-text-primary);
+  font-family: var(--font-family-heading) !important;
+  font-size: 24px !important;
+  font-weight: var(--font-weight-bold) !important;
+  line-height: 32px !important;
+  color: var(--color-text-primary) !important;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-bottom: none !important;
+  letter-spacing: normal !important;
 }
 
 .screen-header__actions {
@@ -69,4 +74,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Back button */
+.screen-header__back-btn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--color-icon-primary);
+  padding: 0;
+  flex-shrink: 0;
+  transition: background 120ms ease;
+}
+
+.screen-header__back-btn:hover {
+  background: var(--color-bg-02);
+}
+
+.screen-header__back-btn .icon-outlined {
+  font-size: 24px;
 }

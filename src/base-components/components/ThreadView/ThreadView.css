@@ -140,14 +140,14 @@
   padding: var(--space-3) var(--space-3) var(--space-1);
 }
 
-/* Sent bubble: bg #6852d6 */
+/* Sent bubble: bg */
 .thread-view__bubble--sent {
-  background: var(--color-ep-500);
+  background: var(--color-send-bubble-bg);
 }
 
-/* Received bubble: bg #e9eaeb */
+/* Received bubble: bg */
 .thread-view__bubble--received {
-  background: var(--color-bg-04);
+  background: var(--color-received-bubble-bg);
 }
 
 /* Body/Regular — 14px, 400, line-height 20px */
@@ -160,13 +160,14 @@
 }
 
 /* Sent text: WHITE — !important to override Storybook global p styles */
-.thread-view__bubble--sent .thread-view__bubble-text {
-  color: var(--color-static-white) !important;
+.thread-view__bubble--sent .thread-view__bubble-text,
+.sb-foundation-root .thread-view__bubble--sent .thread-view__bubble-text {
+  color: #ffffff !important;
 }
 
 /* Received text: dark */
 .thread-view__bubble--received .thread-view__bubble-text {
-  color: var(--color-text-primary) !important;
+  color: var(--color-received-bubble-text) !important;
 }
 
 /* Timestamp row */
@@ -189,13 +190,14 @@
 }
 
 /* Sent timestamp: WHITE — !important to override Storybook global p styles */
-.thread-view__bubble--sent .thread-view__bubble-time {
-  color: var(--color-static-white) !important;
+.thread-view__bubble--sent .thread-view__bubble-time,
+.sb-foundation-root .thread-view__bubble--sent .thread-view__bubble-time {
+  color: #ffffff !important;
 }
 
 /* Received timestamp: secondary */
 .thread-view__bubble--received .thread-view__bubble-time {
-  color: var(--color-text-secondary) !important;
+  color: var(--color-received-bubble-timestamp) !important;
 }
 
 /* Read receipt icon — green checkmark */

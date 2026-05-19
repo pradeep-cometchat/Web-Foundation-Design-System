@@ -13,6 +13,10 @@ export interface HeaderAction {
 export interface HeaderProps {
   /** Title text displayed on the left */
   title?: string;
+  /** Show a back arrow button on the left */
+  showBack?: boolean;
+  /** Click handler for the back button */
+  onBackClick?: () => void;
   /** Up to 3 action icon buttons */
   actions?: HeaderAction[];
   /** Whether to show the more (kebab) menu button */
@@ -25,6 +29,8 @@ export interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({
   title = "Chats",
+  showBack = false,
+  onBackClick,
   actions = [],
   showMore = true,
   onMoreClick,
@@ -34,7 +40,17 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <div className={classes}>
-      <p className="screen-header__title">{title}</p>
+      {showBack && (
+        <button
+          type="button"
+          className="screen-header__back-btn"
+          aria-label="Go back"
+          onClick={onBackClick}
+        >
+          <span className="icon-outlined">arrow_back</span>
+        </button>
+      )}
+      <h1 className="screen-header__title">{title}</h1>
       <div className="screen-header__actions">
         {actions.map((action, i) => (
           <button

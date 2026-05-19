@@ -14,7 +14,7 @@ import { FlagMessageDialog } from "../components/FlagMessageDialog";
  * - Cancel: outlined button, Report: disabled (`--color-neutral-200` bg) until a reason is selected, then `--color-error` bg
  */
 const meta: Meta<typeof FlagMessageDialog> = {
-  title: "Base Components/Flag Message Dialog",
+  title: "Base Components/Dialog/Form Dialogs/Flag Message Dialog",
   component: FlagMessageDialog,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

@@ -8,6 +8,7 @@ const meta: Meta<typeof Header> = {
   parameters: { layout: "centered" },
   argTypes: {
     title: { control: "text", description: "Title text." },
+    showBack: { control: "boolean", description: "Show back arrow button." },
     showMore: { control: "boolean", description: "Show the kebab menu button." },
     actions: { control: false },
   },
@@ -110,6 +111,31 @@ export const CustomTitle: Story = {
   },
 };
 
+export const WithBackButton: Story = {
+  name: "With Back Button",
+  decorators: [wrapper],
+  args: {
+    title: "George Alan",
+    showBack: true,
+    actions: [
+      { icon: "videocam", ariaLabel: "Video call" },
+      { icon: "call", ariaLabel: "Voice call" },
+    ],
+    showMore: true,
+  },
+};
+
+export const BackButtonNoActions: Story = {
+  name: "Back Button — No Actions",
+  decorators: [wrapper],
+  args: {
+    title: "Settings",
+    showBack: true,
+    actions: [],
+    showMore: false,
+  },
+};
+
 /* ═══════════════════════════════════════════════════════════════════════════
    ALL STATES
    ═══════════════════════════════════════════════════════════════════════════ */
@@ -160,6 +186,20 @@ export const AllStates: Story = {
             showMore
           />
         </Wrap>
+        <Wrap label="With Back Button">
+          <Header
+            title="George Alan"
+            showBack
+            actions={[
+              { icon: "videocam", ariaLabel: "Video call" },
+              { icon: "call", ariaLabel: "Voice call" },
+            ]}
+            showMore
+          />
+        </Wrap>
+        <Wrap label="Back Button — No Actions">
+          <Header title="Settings" showBack actions={[]} showMore={false} />
+        </Wrap>
       </div>
     </div>
   ),
@@ -196,7 +236,7 @@ export const Usage: Story = {
           language="HTML"
           code={`<!-- Screen Header with 3 actions + more -->
 <div class="screen-header">
-  <p class="screen-header__title">Chats</p>
+  <h1 class="screen-header__title">Chats</h1>
   <div class="screen-header__actions">
     <button class="screen-header__action-btn" aria-label="New chat">
       <span class="screen-header__action-icon icon-outlined">edit_square</span>
@@ -213,9 +253,28 @@ export const Usage: Story = {
   </div>
 </div>
 
+<!-- Header with back button -->
+<div class="screen-header">
+  <button class="screen-header__back-btn" aria-label="Go back">
+    <span class="icon-outlined">arrow_back</span>
+  </button>
+  <h1 class="screen-header__title">George Alan</h1>
+  <div class="screen-header__actions">
+    <button class="screen-header__action-btn" aria-label="Video call">
+      <span class="screen-header__action-icon icon-outlined">videocam</span>
+    </button>
+    <button class="screen-header__action-btn" aria-label="Voice call">
+      <span class="screen-header__action-icon icon-outlined">call</span>
+    </button>
+    <button class="screen-header__action-btn" aria-label="More actions">
+      <span class="screen-header__action-icon icon-outlined">more_vert</span>
+    </button>
+  </div>
+</div>
+
 <!-- Header without actions -->
 <div class="screen-header">
-  <p class="screen-header__title">Contacts</p>
+  <h1 class="screen-header__title">Contacts</h1>
   <div class="screen-header__actions"></div>
 </div>`}
         />
@@ -239,14 +298,33 @@ export const Usage: Story = {
   flex: 1 0 0;
   min-width: 0;
   font-family: var(--font-family-heading);
-  font-size: var(--font-size-6);
+  font-size: 24px; /* var(--font-size-6) */
   font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-h1);
+  line-height: 32px; /* var(--line-height-h1) */
   color: var(--color-text-primary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin: 0;
+}
+
+.screen-header__back-btn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--color-icon-primary);
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.screen-header__back-btn:hover {
+  background: var(--color-bg-02);
 }
 
 .screen-header__actions {
@@ -288,7 +366,7 @@ export const Usage: Story = {
       <Section title="Available Classes">
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
           <ClassGroup title="Container" items={["screen-header"]} />
-          <ClassGroup title="Elements" items={["screen-header__title", "screen-header__actions", "screen-header__action-btn", "screen-header__action-icon"]} />
+          <ClassGroup title="Elements" items={["screen-header__title", "screen-header__back-btn", "screen-header__actions", "screen-header__action-btn", "screen-header__action-icon"]} />
         </div>
       </Section>
     </div>

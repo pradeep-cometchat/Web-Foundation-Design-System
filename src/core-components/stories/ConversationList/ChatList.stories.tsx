@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Header } from "../../../base-components/components/Header";
 import { Button } from "../../../base-components/components/Button";
+import { SearchBar } from "../../../base-components/components/SearchBar";
 import { ConversationItem, ConversationItemSkeleton } from "../../../base-components/components/ListItem";
 import { avatarRegistry } from "../../../foundation/tokens/avatars";
 
@@ -345,10 +346,7 @@ export const AllStates: StoryObj = {
 function SearchField() {
   return (
     <div style={{ padding: "var(--space-2) var(--space-4)" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: "var(--space-1)", height: 36, padding: "0 var(--space-3)", background: "var(--color-bg-02)", border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-md)" }}>
-        <span className="icon-outlined" style={{ fontSize: 20, color: "var(--color-icon-tertiary)" }}>search</span>
-        <span style={{ flex: 1, fontSize: "var(--font-size-2)", color: "var(--color-text-placeholder)", lineHeight: "var(--line-height-body)" }}>Search chats or messages</span>
-      </div>
+      <SearchBar placeholder="Search chats or messages" />
     </div>
   );
 }
@@ -356,10 +354,7 @@ function SearchField() {
 function SearchFieldActive() {
   return (
     <div style={{ padding: "var(--space-2) var(--space-4)" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: "var(--space-1)", height: 36, padding: "0 var(--space-3)", background: "var(--color-bg-01)", border: "1px solid var(--color-border-primary)", borderRadius: "var(--radius-md)", boxShadow: "var(--focus-ring-xs)" }}>
-        <span className="icon-outlined" style={{ fontSize: 20, color: "var(--color-icon-tertiary)" }}>search</span>
-        <span style={{ flex: 1, fontSize: "var(--font-size-2)", color: "var(--color-text-primary)", lineHeight: "var(--line-height-body)" }}></span>
-      </div>
+      <SearchBar placeholder="Search chats or messages" value="" />
     </div>
   );
 }

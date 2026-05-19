@@ -38,10 +38,9 @@ const preview: Preview = {
           "Base Components",
           [
             "Introduction",
-            "Header",
             "Action Sheet",
-            "Button",
             "Avatar Group",
+            "Button",
             "Checkbox",
             "Context Menu",
             "Conversation Starter",
@@ -49,7 +48,7 @@ const preview: Preview = {
             "Create Poll",
             "Date",
             "Emoji Keyboard",
-            "Flag Message Dialog",
+            "Header",
             "Message Preview",
             "Radio Button",
             "Reaction",
@@ -78,6 +77,7 @@ const preview: Preview = {
                 "Create Group",
                 "Join Group",
                 "Link Dialog",
+                "Flag Message Dialog",
               ],
               "Info Selection Dialogs",
               [
@@ -107,6 +107,9 @@ const preview: Preview = {
           [
             "Introduction",
             "Conversation List",
+            [
+              "Users List",
+            ],
             "Chat Area",
             "Chat Bubbles",
             "Message Composer",
