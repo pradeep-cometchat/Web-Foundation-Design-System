@@ -83,7 +83,7 @@
   align-content: center;
   gap: 0;
   row-gap: var(--space-0-5);
-  padding: 4px 0;
+  padding: var(--space-1) 0;
   border-radius: var(--radius-md);
   width: 100%;
 }

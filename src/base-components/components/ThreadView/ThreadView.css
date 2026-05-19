@@ -162,7 +162,7 @@
 /* Sent text: WHITE — !important to override Storybook global p styles */
 .thread-view__bubble--sent .thread-view__bubble-text,
 .sb-foundation-root .thread-view__bubble--sent .thread-view__bubble-text {
-  color: #ffffff !important;
+  color: var(--color-static-white) !important;
 }
 
 /* Received text: dark */
@@ -192,7 +192,7 @@
 /* Sent timestamp: WHITE — !important to override Storybook global p styles */
 .thread-view__bubble--sent .thread-view__bubble-time,
 .sb-foundation-root .thread-view__bubble--sent .thread-view__bubble-time {
-  color: #ffffff !important;
+  color: var(--color-static-white) !important;
 }
 
 /* Received timestamp: secondary */

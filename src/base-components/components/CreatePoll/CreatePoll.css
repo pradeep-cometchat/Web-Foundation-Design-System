@@ -56,7 +56,7 @@
 .create-poll__body {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--space-5);
   padding: var(--space-4);
 }
 
@@ -223,7 +223,7 @@
   line-height: var(--line-height-body);
   color: var(--color-ep-600);
   cursor: pointer;
-  padding: 4px 0;
+  padding: var(--space-1) 0;
 }
 
 .create-poll__add-option:hover {
