@@ -409,7 +409,7 @@ export const Usage: StoryObj = {
 
       <UsageSection title="Design Tokens">
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
-          <StateCard title="Border Radius" description="var(--radius-lg) — Outer container corners" />
+          <StateCard title="Border Radius" description="var(--radius-xl) — 12px uniform on all corners" />
           <StateCard title="Grid Gap" description="2px — Between grid images" />
           <StateCard title="Overlay (4+)" description="rgba(0, 0, 0, 0.5) — Dark overlay with white '+N' text" />
           <StateCard title="Loading Overlay" description="Blurred image with centered cancel button" />
@@ -441,7 +441,7 @@ const SAMPLE_IMAGES = [
 function ImageBubble({ layout, extraCount = 0, variant = "sent", time = "4:56 pm", status = "read" }: { layout: ImageLayout; extraCount?: number; variant?: "sent" | "received"; time?: string; status?: "sent" | "delivered" | "read" }) {
   const size = 232;
   const gap = 2;
-  const radius = "var(--radius-lg)";
+  const radius = "var(--radius-xl)";
   const isSent = variant === "sent";
 
   const wrapperStyle: React.CSSProperties = {
@@ -609,7 +609,7 @@ function ImageBubble({ layout, extraCount = 0, variant = "sent", time = "4:56 pm
 
 function ReceiptIcon({ status }: { status: "sent" | "delivered" | "read" }) {
   const isRead = status === "read";
-  const color = isRead ? "#34D399" : "rgba(255, 255, 255, 0.7)";
+  const color = isRead ? "var(--color-message-seen)" : "rgba(255, 255, 255, 0.7)";
   if (status === "sent") {
     return (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -677,3 +677,8 @@ function StateCard({ title, description }: { title: string; description: string 
     </div>
   );
 }
+
+/** Interactive playground. */
+export const Playground: StoryObj = {
+  parameters: { docs: { disable: true } },
+};

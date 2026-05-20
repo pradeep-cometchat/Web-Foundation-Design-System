@@ -247,7 +247,6 @@
   flex-direction: column;
   padding: 0 var(--space-2) var(--space-2);
   flex-shrink: 0;
-  border-top: 1px solid var(--color-border-default);
 }
 
 .thread-view__composer-inner {
@@ -302,9 +301,16 @@
   color: var(--color-text-tertiary);
 }
 
+.thread-view__composer-icon--text {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+}
+
 .thread-view__composer-icon svg {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 .thread-view__send-btn {

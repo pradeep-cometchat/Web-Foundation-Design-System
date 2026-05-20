@@ -255,18 +255,12 @@ function ChatHeader({ showBack = true, showTyping = false, status = "Online" }: 
 function ChatHeaderSkeleton() {
   return (
     <div className="chat-header">
-      <div className="chat-header__skeleton chat-header__skeleton--back" />
       <div className="chat-header__info">
         <div className="chat-header__skeleton chat-header__skeleton--avatar" />
         <div className="chat-header__text">
           <div className="chat-header__skeleton chat-header__skeleton--name" />
           <div className="chat-header__skeleton chat-header__skeleton--status" />
         </div>
-      </div>
-      <div className="chat-header__actions">
-        <div className="chat-header__skeleton chat-header__skeleton--action" />
-        <div className="chat-header__skeleton chat-header__skeleton--action" />
-        <div className="chat-header__skeleton chat-header__skeleton--action" />
       </div>
     </div>
   );
@@ -306,3 +300,9 @@ function StateCard({ title, description }: { title: string; description: string 
     </div>
   );
 }
+
+
+/** Interactive playground. */
+export const Playground: StoryObj = {
+  parameters: { docs: { disable: true } },
+};

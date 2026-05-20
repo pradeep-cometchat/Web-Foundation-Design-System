@@ -63,7 +63,7 @@ const inputBox: React.CSSProperties = { padding: 12, fontSize: 14, lineHeight: "
 const bottomToolbar: React.CSSProperties = { display: "flex", alignItems: "center", gap: 12, padding: "6px 12px", borderTop: "1px solid var(--color-border-light)" };
 const actionsLeft: React.CSSProperties = { display: "flex", alignItems: "center", gap: 8, flex: 1 };
 const actionBtn: React.CSSProperties = { display: "flex", alignItems: "center", justifyContent: "center", width: 32, height: 32, padding: 6, borderRadius: 8, background: "transparent", border: "none", cursor: "pointer" };
-const aaActive: React.CSSProperties = { ...actionBtn, background: "var(--color-bg-04)", padding: 4 };
+const aaActive: React.CSSProperties = { ...actionBtn, background: "transparent", padding: 4 };
 const sendActive: React.CSSProperties = { width: 36, height: 36, borderRadius: "50%", border: "2px solid rgba(255,255,255,0.12)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "var(--shadow-xs)", background: "var(--color-bg-solid)", color: "var(--color-static-white)" };
 const selectionBg: React.CSSProperties = { background: "var(--color-bg-secondary)", borderRadius: 2, padding: "0 1px" };
 
@@ -111,7 +111,7 @@ function BottomToolbar() {
         <button style={actionBtn} aria-label="Sticker"><IconSticker /></button>
         <button style={aaActive} aria-label="Formatting">
           <svg width="20" height="20" viewBox="0 0 14.1 9.375" fill="none">
-            <path d="M2.1 6.833l-.667 1.854a.83.83 0 0 1-.27.354.74.74 0 0 1-.418.126c-.264 0-.469-.108-.614-.324-.146-.215-.17-.44-.073-.677L2.933.5a.83.83 0 0 1 .282-.365A.74.74 0 0 1 3.642 0h.583c.153 0 .299.045.438.135a.83.83 0 0 1 .291.365l2.875 7.688c.097.236.07.458-.083.666-.153.209-.354.313-.604.313a.74.74 0 0 1-.417-.135.83.83 0 0 1-.271-.365l-.646-1.834H2.1Zm.48-1.333h2.728L3.975 1.708h-.084L2.58 5.5Zm8.228 3.875c-.708 0-1.27-.191-1.687-.573-.417-.382-.625-.885-.625-1.51 0-.611.24-1.115.72-1.51.479-.396 1.093-.594 1.843-.594.32 0 .632.028.938.084.305.055.569.132.791.229v-.25c0-.403-.142-.73-.427-.98-.285-.25-.663-.374-1.135-.374a1.7 1.7 0 0 0-.615.094 1.5 1.5 0 0 0-.552.28c-.181.14-.351.188-.51.147a.56.56 0 0 1-.386-.23.47.47 0 0 1-.146-.395c0-.153.076-.285.229-.396.278-.222.59-.385.938-.49.347-.104.701-.156 1.063-.156.958 0 1.673.226 2.146.677.471.451.708 1.128.708 2.031v3.063a.63.63 0 0 1-.168.458.58.58 0 0 1-.469.187.58.58 0 0 1-.458-.197.63.63 0 0 1-.188-.49v-.104h-.083a1.8 1.8 0 0 1-.792.729c-.333.167-.701.25-1.104.25Zm.25-1.125c.486 0 .9-.167 1.24-.5.34-.333.51-.722.51-1.167a2.2 2.2 0 0 0-.698-.26 3.3 3.3 0 0 0-.802-.094c-.444 0-.791.097-1.041.292-.25.194-.375.451-.375.77 0 .278.111.507.333.688.222.18.5.271.833.271Z" fill="#535862"/>
+            <path d="M2.1 6.833l-.667 1.854a.83.83 0 0 1-.27.354.74.74 0 0 1-.418.126c-.264 0-.469-.108-.614-.324-.146-.215-.17-.44-.073-.677L2.933.5a.83.83 0 0 1 .282-.365A.74.74 0 0 1 3.642 0h.583c.153 0 .299.045.438.135a.83.83 0 0 1 .291.365l2.875 7.688c.097.236.07.458-.083.666-.153.209-.354.313-.604.313a.74.74 0 0 1-.417-.135.83.83 0 0 1-.271-.365l-.646-1.834H2.1Zm.48-1.333h2.728L3.975 1.708h-.084L2.58 5.5Zm8.228 3.875c-.708 0-1.27-.191-1.687-.573-.417-.382-.625-.885-.625-1.51 0-.611.24-1.115.72-1.51.479-.396 1.093-.594 1.843-.594.32 0 .632.028.938.084.305.055.569.132.791.229v-.25c0-.403-.142-.73-.427-.98-.285-.25-.663-.374-1.135-.374a1.7 1.7 0 0 0-.615.094 1.5 1.5 0 0 0-.552.28c-.181.14-.351.188-.51.147a.56.56 0 0 1-.386-.23.47.47 0 0 1-.146-.395c0-.153.076-.285.229-.396.278-.222.59-.385.938-.49.347-.104.701-.156 1.063-.156.958 0 1.673.226 2.146.677.471.451.708 1.128.708 2.031v3.063a.63.63 0 0 1-.168.458.58.58 0 0 1-.469.187.58.58 0 0 1-.458-.197.63.63 0 0 1-.188-.49v-.104h-.083a1.8 1.8 0 0 1-.792.729c-.333.167-.701.25-1.104.25Zm.25-1.125c.486 0 .9-.167 1.24-.5.34-.333.51-.722.51-1.167a2.2 2.2 0 0 0-.698-.26 3.3 3.3 0 0 0-.802-.094c-.444 0-.791.097-1.041.292-.25.194-.375.451-.375.77 0 .278.111.507.333.688.222.18.5.271.833.271Z" fill="var(--color-text-highlight)"/>
           </svg>
         </button>
         <button style={{ ...actionBtn, padding: 4 }} aria-label="AI features"><IconAI /></button>
@@ -256,7 +256,7 @@ export const Code: Story = {
   render: () => (
     <div style={{ padding: 24 }}>
       <FormattingComposer active="code">
-        Hey! <span style={{ border: "1px solid #e9eaeb", borderRadius: 12, padding: "2px 4px", display: "inline-flex" }}><span style={{ background: "var(--color-bg-secondary)", padding: "2px 6px", color: "var(--color-text-highlight)", fontFamily: "monospace" }}>Code</span></span>
+        Hey! <span style={{ border: "1px solid var(--color-border-default)", borderRadius: 12, padding: "2px 4px", display: "inline-flex" }}><span style={{ background: "var(--color-bg-secondary)", padding: "2px 6px", color: "var(--color-text-highlight)", fontFamily: "monospace" }}>Code</span></span>
       </FormattingComposer>
     </div>
   ),
@@ -268,7 +268,7 @@ export const CodeBlock: Story = {
   render: () => (
     <div style={{ padding: 24 }}>
       <FormattingComposer active="codeBlock">
-        <div style={{ background: "#f5f5f5", borderRadius: 8, padding: "10px 12px" }}>
+        <div style={{ background: "var(--color-bg-03)", borderRadius: 8, padding: "10px 12px" }}>
           <div style={{ background: "var(--color-bg-secondary)", display: "inline", fontFamily: "monospace", fontSize: 13, lineHeight: "22px" }}>
             {"import React from 'react';"}<br/>
             {"function App() {"}<br/>
@@ -293,8 +293,8 @@ export const AllFormattingTypes: Story = {
       <Section title="Ordered List"><FormattingComposer active="orderedList"><div style={{ background: "var(--color-bg-secondary)", borderRadius: 2, padding: "2px 4px", display: "inline-block" }}><div>1. First item</div><div>2. Second item</div><div>3. Third item</div></div></FormattingComposer></Section>
       <Section title="Bullet-point List"><FormattingComposer active="bulletList"><div style={{ background: "var(--color-bg-secondary)", borderRadius: 2, padding: "2px 4px", display: "inline-block" }}><div>• First item</div><div>• Second item</div><div>• Third item</div></div></FormattingComposer></Section>
       <Section title="Block Quote"><FormattingComposer active="blockQuote">Hey! <span style={{ ...selectionBg, borderLeft: "2px solid var(--color-border-primary)", paddingLeft: 4 }}>Block Quote</span></FormattingComposer></Section>
-      <Section title="Code"><FormattingComposer active="code">Hey! <span style={{ border: "1px solid #e9eaeb", borderRadius: 12, padding: "2px 4px", display: "inline-flex" }}><span style={{ background: "var(--color-bg-secondary)", padding: "2px 6px", color: "var(--color-text-highlight)", fontFamily: "monospace" }}>Code</span></span></FormattingComposer></Section>
-      <Section title="Code Block"><FormattingComposer active="codeBlock"><div style={{ background: "#f5f5f5", borderRadius: 8, padding: "10px 12px" }}><div style={{ background: "var(--color-bg-secondary)", display: "inline", fontFamily: "monospace", fontSize: 13, lineHeight: "22px" }}>{"import React from 'react';"}<br/>{"function App() {"}<br/>{"  return <h1>Hello, World!</h1>;"}</div></div></FormattingComposer></Section>
+      <Section title="Code"><FormattingComposer active="code">Hey! <span style={{ border: "1px solid var(--color-border-default)", borderRadius: 12, padding: "2px 4px", display: "inline-flex" }}><span style={{ background: "var(--color-bg-secondary)", padding: "2px 6px", color: "var(--color-text-highlight)", fontFamily: "monospace" }}>Code</span></span></FormattingComposer></Section>
+      <Section title="Code Block"><FormattingComposer active="codeBlock"><div style={{ background: "var(--color-bg-03)", borderRadius: 8, padding: "10px 12px" }}><div style={{ background: "var(--color-bg-secondary)", display: "inline", fontFamily: "monospace", fontSize: 13, lineHeight: "22px" }}>{"import React from 'react';"}<br/>{"function App() {"}<br/>{"  return <h1>Hello, World!</h1>;"}</div></div></FormattingComposer></Section>
     </div>
   ),
 };
@@ -428,8 +428,8 @@ Active button style:
 /* ─── Docs Helper ──────────────────────────────────────────────────────────── */
 
 const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
-  <div style={{ border: "1px solid #e9eaeb", borderRadius: 12, overflow: "hidden", marginBottom: 16 }}>
-    <div style={{ padding: "8px 12px", borderBottom: "1px solid #e9eaeb", background: "#fafafa" }}>
+  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: 12, overflow: "hidden", marginBottom: 16 }}>
+    <div style={{ padding: "8px 12px", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
       <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-secondary)" }}>{language}</span>
     </div>
     <pre style={{ margin: 0, padding: 14, fontSize: 12, lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto", background: "var(--color-bg-01)" }}>

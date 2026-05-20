@@ -389,7 +389,7 @@ export const Usage: StoryObj = {
           <StateCard title="Received Background" description="var(--color-received-bubble-bg) — Light gray" />
           <StateCard title="Play Button BG" description="rgba(0, 0, 0, 0.4) — Semi-transparent dark" />
           <StateCard title="Duration Badge BG" description="rgba(0, 0, 0, 0.6) — Darker semi-transparent" />
-          <StateCard title="Border Radius" description="var(--radius-lg) outer, var(--radius-md) inner" />
+          <StateCard title="Border Radius" description="var(--radius-xl) outer, var(--radius-md) inner" />
         </div>
       </UsageSection>
 
@@ -419,7 +419,7 @@ function VideoBubble({ layout, variant, extraCount = 0 }: { layout: VideoLayout;
   const isSent = variant === "sent";
 
   const wrapperStyle: React.CSSProperties = {
-    borderRadius: "var(--radius-lg)",
+    borderRadius: "var(--radius-xl)",
     overflow: "hidden",
     background: isSent ? "var(--color-send-bubble-bg)" : "var(--color-received-bubble-bg)",
     padding: "var(--space-2)",
@@ -640,3 +640,8 @@ function StateCard({ title, description }: { title: string; description: string 
     </div>
   );
 }
+
+/** Interactive playground. */
+export const Playground: StoryObj = {
+  parameters: { docs: { disable: true } },
+};

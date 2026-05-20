@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ThreadView } from "../components/ThreadView";
-import type { ThreadMessage } from "../components/ThreadView";
+import { ThreadView } from "../../../base-components/components/ThreadView";
+import type { ThreadMessage } from "../../../base-components/components/ThreadView";
 
 /**
  * A side panel displaying a threaded conversation with the parent message,
@@ -15,7 +15,7 @@ import type { ThreadMessage } from "../components/ThreadView";
  * - Composer: input + toolbar with icons + send button
  */
 const meta: Meta<typeof ThreadView> = {
-  title: "Base Components/Thread View",
+  title: "Core Components/Info Area/Thread View",
   component: ThreadView,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

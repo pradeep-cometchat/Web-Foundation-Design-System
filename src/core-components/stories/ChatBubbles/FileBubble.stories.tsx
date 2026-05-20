@@ -174,7 +174,7 @@ export const Usage: StoryObj = {
           <StateCard title="File Meta (Received)" description="var(--color-text-tertiary)" />
           <StateCard title="Download Icon (Sent)" description="var(--color-static-white)" />
           <StateCard title="Download Icon (Received)" description="var(--color-icon-highlight-primary)" />
-          <StateCard title="Border Radius" description="var(--radius-lg) — Rounded corners on the bubble" />
+          <StateCard title="Border Radius" description="var(--radius-xl) — 12px uniform on all corners" />
         </div>
       </UsageSection>
 
@@ -207,28 +207,12 @@ function FileBubble({
   return (
     <div
       style={{
-        borderRadius: "var(--radius-lg)",
+        borderRadius: "var(--radius-xl)",
         overflow: "hidden",
         minWidth: 240,
         background: isSent ? "var(--color-send-bubble-bg)" : "var(--color-received-bubble-bg)",
       }}
     >
-      {/* Preview area */}
-      <div
-        style={{
-          background: "var(--color-static-white)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "var(--space-8) var(--space-4)",
-          borderRadius: "var(--radius-md)",
-          margin: "var(--space-2)",
-          marginBottom: 0,
-        }}
-      >
-        <FileTypeIcon type={fileType} size="large" />
-      </div>
-
       {/* Info bar */}
       <div
         style={{
@@ -309,9 +293,9 @@ function FileTypeIcon({ type, size }: { type: "pdf" | "doc" | "xls"; size: "larg
   const h = isLarge ? 80 : 22;
 
   const colors: Record<string, { bg: string; fold: string; text: string }> = {
-    pdf: { bg: "#E53935", fold: "#C62828", text: "PDF" },
-    doc: { bg: "#1E88E5", fold: "#1565C0", text: "DOC" },
-    xls: { bg: "#43A047", fold: "#2E7D32", text: "XLS" },
+    pdf: { bg: "var(--color-bg-error-solid)", fold: "var(--color-error-800)", text: "PDF" },
+    doc: { bg: "var(--color-bg-info-solid)", fold: "var(--color-info-800)", text: "DOC" },
+    xls: { bg: "var(--color-bg-success-solid)", fold: "var(--color-success-800)", text: "XLS" },
   };
 
   const c = colors[type];
@@ -467,3 +451,8 @@ function StateCard({ title, description }: { title: string; description: string 
     </div>
   );
 }
+
+/** Interactive playground. */
+export const Playground: StoryObj = {
+  parameters: { docs: { disable: true } },
+};

@@ -294,7 +294,7 @@ function WhiteboardIcon() {
 
 function ReceiptIcon({ status }: { status: "sent" | "delivered" | "read" }) {
   const isRead = status === "read";
-  const color = isRead ? "#34D399" : "rgba(255, 255, 255, 0.7)";
+  const color = isRead ? "var(--color-message-seen)" : "rgba(255, 255, 255, 0.7)";
 
   if (status === "sent") {
     return (
@@ -499,3 +499,8 @@ function StateCard({ title, description }: { title: string; description: string 
     </div>
   );
 }
+
+/** Interactive playground. */
+export const Playground: StoryObj = {
+  parameters: { docs: { disable: true } },
+};

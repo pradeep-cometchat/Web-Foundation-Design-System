@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ConversationStarter } from "../../../base-components/components/ConversationStarter";
 import { ConversationSummary } from "../../../base-components/components/ConversationSummary";
+import { SmartReplies } from "../../../base-components/components/SmartReplies";
 
 /**
  * The Panel feature of the Single Line Composer displays AI-powered panels
@@ -72,12 +73,13 @@ const IconClose = () => (
 /* ─── Styles ───────────────────────────────────────────────────────────────── */
 
 const composerBox: React.CSSProperties = {
-  width: 800,
+  width: "100%",
   display: "flex",
   flexDirection: "column",
   background: "var(--color-bg-01)",
   border: "1px solid var(--color-border-default)",
   borderRadius: 8,
+  boxSizing: "border-box",
 };
 
 const inputBox: React.CSSProperties = {
@@ -212,13 +214,13 @@ function SuggestReply({ suggestions, onClose, onSelect }: SuggestReplyProps) {
 
 function ComposerPlaceholder() {
   return (
-    <div style={{ width: 800, display: "flex", alignItems: "center", gap: 8, background: "white", border: "1px solid #e9eaeb", borderRadius: 8, padding: "8px 12px" }}>
+    <div style={{ width: 800, display: "flex", alignItems: "center", gap: 8, background: "var(--color-bg-01)", border: "1px solid var(--color-border-default)", borderRadius: 8, padding: "8px 12px" }}>
       <button style={actionButton} aria-label="Attach file"><IconAddCircle /></button>
-      <div style={{ flex: 1, fontSize: 14, lineHeight: "20px", fontFamily: "'Inter', sans-serif", color: "#717680" }}>Enter your message here</div>
+      <div style={{ flex: 1, fontSize: 14, lineHeight: "20px", fontFamily: "'Inter', sans-serif", color: "var(--color-text-placeholder)" }}>Enter your message here</div>
       <button style={actionButton} aria-label="Emoji"><IconMood /></button>
       <button style={actionButton} aria-label="Sticker"><IconSticker /></button>
       <button style={actionButton} aria-label="Voice record"><IconMic /></button>
-      <div style={{ ...sendBase, background: "#f5f5f5", color: "#A4A7AE" }}><IconSend /></div>
+      <div style={{ ...sendBase, background: "var(--color-bg-03)", color: "var(--color-icon-disabled)" }}><IconSend /></div>
     </div>
   );
 }
@@ -261,9 +263,9 @@ export const ConversationStarterPanel: Story = {
 export const SuggestReplyPanel: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
   render: () => (
-    <div style={{ padding: 24, width: 800 }}>
+    <div style={{ padding: 24, width: 800, display: "flex", flexDirection: "column" }}>
       <div style={{ marginBottom: 8 }}>
-        <SuggestReply suggestions={suggestReplySuggestions} />
+        <SmartReplies replies={suggestReplySuggestions} />
       </div>
       <ComposerPlaceholder />
     </div>
@@ -319,7 +321,7 @@ export const Usage: Story = {
       <Section title="Suggest a Reply (CSS)">
         <CodeCard language="CSS" code={`.suggest-reply {
   background: white;
-  border: 1px solid #e9eaeb;
+  border: 1px solid var(--color-border-default);
   border-radius: 8px;
   overflow: hidden;
 }
@@ -328,12 +330,12 @@ export const Usage: Story = {
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid var(--color-border-light);
 }
 .suggest-reply__title {
   font-size: 16px;
   font-weight: 500;
-  color: #181d27;
+  color: var(--color-text-primary);
 }
 .suggest-reply__close {
   width: 28px;
@@ -341,13 +343,13 @@ export const Usage: Story = {
   background: transparent;
   border: none;
   cursor: pointer;
-  color: #535862;
+  color: var(--color-text-secondary);
 }
 .suggest-reply__item {
   padding: 12px 16px;
   font-size: 14px;
-  color: #181d27;
-  border-bottom: 1px solid #f5f5f5;
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-border-light);
   border-left: 2px solid transparent;
   cursor: pointer;
 }
@@ -421,7 +423,7 @@ export const Playground: Story = {
             <ConversationStarter suggestions={conversationStarterSuggestions} />
           )}
           {panelType === "suggestReply" && (
-            <SuggestReply suggestions={suggestReplySuggestions} />
+            <SmartReplies replies={suggestReplySuggestions} />
           )}
           {panelType === "conversationSummary" && (
             <ConversationSummary text={conversationSummaryText} />

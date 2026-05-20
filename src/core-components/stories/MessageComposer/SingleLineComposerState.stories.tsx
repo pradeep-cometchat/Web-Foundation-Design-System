@@ -226,26 +226,26 @@ export const Usage: Story = {
   display: flex;
   flex-direction: column;
   background: white;
-  border: 1px solid #e9eaeb;
+  border: 1px solid var(--color-border-default);
   border-radius: 8px;
 }
 .composer__input {
   padding: 12px;
   font-size: 14px;
   line-height: 20px;
-  color: #181d27;
+  color: var(--color-text-primary);
   outline: none;
 }
 .composer__input:empty::before {
   content: attr(data-placeholder);
-  color: #717680;
+  color: var(--color-text-placeholder);
 }
 .composer__toolbar {
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 6px 12px;
-  border-top: 1px solid #f5f5f5;
+  border-top: 1px solid var(--color-border-light);
 }
 .composer__actions {
   display: flex;
@@ -274,11 +274,11 @@ export const Usage: Story = {
   box-shadow: 0 1px 2px rgba(10,13,18,0.05);
 }
 .composer__send[disabled] {
-  background: #f5f5f5;
-  color: #A4A7AE;
+  background: var(--color-bg-03);
+  color: var(--color-icon-disabled);
 }
 .composer__send:not([disabled]) {
-  background: #6852d6;
+  background: var(--color-bg-solid);
   color: white;
 }`} />
       </Section>

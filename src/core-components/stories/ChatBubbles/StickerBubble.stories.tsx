@@ -169,7 +169,7 @@ export const Usage: StoryObj = {
 
       <UsageSection title="Anatomy">
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
-          <StateCard title="Bubble Background" description="Rounded container (var(--radius-lg)) with sent/received background color." />
+          <StateCard title="Bubble Background" description="Rounded container (var(--radius-xl)) with sent/received background color." />
           <StateCard title="Sticker Image" description="PNG with transparent background, rendered at 160×160 centered in the bubble." />
           <StateCard title="Timestamp + Receipt" description="Bottom-right aligned below the sticker. Same pattern as other bubbles." />
         </div>
@@ -180,7 +180,7 @@ export const Usage: StoryObj = {
           <StateCard title="Sent Background" description="var(--color-send-bubble-bg) — Primary purple" />
           <StateCard title="Received Background" description="var(--color-received-bubble-bg) — Light gray" />
           <StateCard title="Sticker Size" description="160×160px in chat bubble context" />
-          <StateCard title="Border Radius" description="var(--radius-lg) — Rounded corners" />
+          <StateCard title="Border Radius" description="var(--radius-xl) — 12px uniform corners" />
           <StateCard title="Source" description="avatarRegistry['Sticker Footage'] from foundation/tokens/avatars.ts" />
         </div>
       </UsageSection>
@@ -212,7 +212,7 @@ function StickerBubble({
   return (
     <div
       style={{
-        borderRadius: "var(--radius-lg)",
+        borderRadius: "var(--radius-xl)",
         background: isSent ? "var(--color-send-bubble-bg)" : "var(--color-received-bubble-bg)",
         padding: "var(--space-3)",
         display: "flex",
@@ -248,7 +248,7 @@ function StickerBubble({
 
 function ReceiptIcon({ status }: { status: "sent" | "delivered" | "read" }) {
   const isRead = status === "read";
-  const color = isRead ? "#34D399" : "rgba(255, 255, 255, 0.7)";
+  const color = isRead ? "var(--color-message-seen)" : "rgba(255, 255, 255, 0.7)";
   if (status === "sent") {
     return (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -310,3 +310,8 @@ function StateCard({ title, description }: { title: string; description: string 
     </div>
   );
 }
+
+/** Interactive playground. */
+export const Playground: StoryObj = {
+  parameters: { docs: { disable: true } },
+};

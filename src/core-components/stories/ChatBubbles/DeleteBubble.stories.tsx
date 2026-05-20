@@ -179,7 +179,7 @@ export const Usage: StoryObj = {
           <StateCard title="Received Background" description="var(--color-received-bubble-bg) — Light gray" />
           <StateCard title="Sent Text/Icon" description="rgba(255, 255, 255, 0.7) — Muted white" />
           <StateCard title="Received Text/Icon" description="var(--color-text-tertiary) — Muted dark" />
-          <StateCard title="Border Radius" description="var(--radius-lg) with var(--radius-xs) on tail corner" />
+          <StateCard title="Border Radius" description="var(--radius-xl) — 12px uniform on all corners" />
         </div>
       </UsageSection>
 
@@ -254,7 +254,7 @@ function DeleteBubble({
 
 function ReceiptIcon({ status }: { status: "sent" | "delivered" | "read" }) {
   const isRead = status === "read";
-  const color = isRead ? "#34D399" : "rgba(255, 255, 255, 0.7)";
+  const color = isRead ? "var(--color-message-seen)" : "rgba(255, 255, 255, 0.7)";
 
   if (status === "sent") {
     return (
@@ -410,3 +410,8 @@ function StateCard({ title, description }: { title: string; description: string 
     </div>
   );
 }
+
+/** Interactive playground. */
+export const Playground: StoryObj = {
+  parameters: { docs: { disable: true } },
+};

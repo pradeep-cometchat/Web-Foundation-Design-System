@@ -160,6 +160,15 @@ const attachmentItems = [
 
 const stickerTabs = ["🕐", "😊", "🐻", "🍔", "⚽", "🚗", "💡", "🎵"];
 
+const stickerImages = [
+  "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/b93ef91c-07e3-4c69-8c3b-abe87a2007bf",
+  "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/82839107-6efc-4a55-a53d-da2460f7111c",
+  "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/99d357d1-7499-4f9d-806d-b0e28e4fc953",
+  "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/9c81c176-7d75-47ec-90a2-22df905a8cb0",
+  "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/07293b78-a1d8-489c-ad60-0d3a1a25ccc4",
+  "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/df84d621-8da9-4e3c-b732-9118ab70eb24",
+];
+
 function StickerPicker() {
   return (
     <div style={{ width: 340, background: "var(--color-bg-01)", borderRadius: 12, border: "1px solid var(--color-border-default)", boxShadow: "0 4px 16px rgba(0,0,0,0.08)", overflow: "hidden" }}>
@@ -173,18 +182,18 @@ function StickerPicker() {
       </div>
       {/* Search */}
       <div style={{ padding: "8px 12px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 14px", background: "var(--color-bg-01)", borderRadius: 20, border: "1px solid var(--color-border-default)" }}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14Z" fill="#A4A7AE"/></svg>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 14px", background: "var(--color-bg-03)", borderRadius: 20 }}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14Z" fill="currentColor" style={{ color: "var(--color-icon-tertiary)" }}/></svg>
           <span style={{ fontSize: 14, color: "var(--color-text-placeholder)" }}>Search sticker</span>
         </div>
       </div>
       {/* Section title */}
       <div style={{ padding: "4px 12px 8px", fontSize: 14, fontWeight: 600, color: "var(--color-text-primary)" }}>Recent used</div>
-      {/* Sticker grid */}
+      {/* Sticker grid - foundation stickers */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8, padding: "0 12px 16px" }}>
-        {["😄", "😍", "🤓", "😮", "😭", "🥹"].map((sticker, i) => (
-          <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 12, background: "var(--color-bg-03)", cursor: "pointer", height: 90 }}>
-            <span style={{ fontSize: 52, lineHeight: 1 }}>{sticker}</span>
+        {stickerImages.map((url, i) => (
+          <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 12, background: "var(--color-bg-03)", cursor: "pointer", height: 90, padding: 8 }}>
+            <img src={url} alt={`Sticker ${String(i + 1).padStart(2, "0")}`} style={{ width: 64, height: 64, objectFit: "contain" }} />
           </div>
         ))}
       </div>

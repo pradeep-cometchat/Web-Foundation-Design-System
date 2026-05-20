@@ -6,6 +6,7 @@
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "deploy": "STORYBOOK_BASE=/Web-Foundation-Design-System/ npm run build-storybook && npx gh-pages -d storybook-static --dotfiles",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

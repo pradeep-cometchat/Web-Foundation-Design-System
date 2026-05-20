@@ -103,10 +103,11 @@ function IntroductionPage() {
             value isn't here, it shouldn't be in a component.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-2)", marginTop: 24 }}>
-            <HeroChip label="foundations" value="7" />
-            <HeroChip label="tokens" value="180+" />
+            <HeroChip label="foundations" value="8" />
+            <HeroChip label="tokens" value="190+" />
             <HeroChip label="themes" value="Light · Dark" />
             <HeroChip label="font" value="Inter" />
+            <HeroChip label="responsive" value="Mobile · Tablet · Desktop" />
           </div>
         </div>
       </div>
@@ -198,6 +199,18 @@ function IntroductionPage() {
           </div>
           <CardMeta name="Effects" count="Shadows · Focus · Backdrop" />
           <div style={cardDesc}>5 elevations, 2 focus rings, and 4 backdrop blur sizes with paired light and dark tints.</div>
+        </FoundationCard>
+
+        <FoundationCard docsPath="foundation-introduction--overview">
+          <div style={cardPreview}>
+            <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)" }}>
+              <div style={{ width: 20, height: 36, borderRadius: "var(--radius-xs)", border: "1.5px solid var(--color-ep-500)" }} />
+              <div style={{ width: 32, height: 36, borderRadius: "var(--radius-xs)", border: "1.5px solid var(--color-ep-400)" }} />
+              <div style={{ width: 52, height: 36, borderRadius: "var(--radius-xs)", border: "1.5px solid var(--color-ep-300)" }} />
+            </div>
+          </div>
+          <CardMeta name="Responsive" count="3 breakpoints · Adaptive tokens" />
+          <div style={cardDesc}>Mobile-first breakpoints at 768px and 1024px. Adaptive CSS variables for bubble widths, image sizes, and touch targets.</div>
         </FoundationCard>
       </div>
 

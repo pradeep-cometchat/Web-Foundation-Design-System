@@ -35,7 +35,7 @@ const config: StorybookConfig = {
     },
   },
   viteFinal: async (config) => {
-    config.base = process.env.STORYBOOK_BASE || "/";
+    config.base = process.env.STORYBOOK_BASE || "/Web-Foundation-Design-System/";
     return config;
   },
 };

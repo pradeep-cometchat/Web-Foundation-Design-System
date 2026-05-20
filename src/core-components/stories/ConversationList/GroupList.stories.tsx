@@ -385,3 +385,10 @@ function StateCard({ title, description }: { title: string; description: string 
     </div>
   );
 }
+
+
+
+/** Interactive playground. */
+export const Playground: StoryObj = {
+  parameters: { docs: { disable: true } },
+};

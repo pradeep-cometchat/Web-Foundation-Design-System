@@ -61,6 +61,7 @@ export const Overview: StoryObj = {
         >
           Higher-level composed components built from Base Components and Foundation tokens.
           These represent complete UI patterns ready for integration into product screens.
+          All components are responsive and adapt to mobile, tablet, and desktop viewports.
         </p>
       </header>
 

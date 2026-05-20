@@ -657,14 +657,14 @@ export const Usage: Story = {
 .attachment--video {
   width: 72px;
   height: 72px;
-  background: #e9eaeb;
+  background: var(--color-bg-04);
 }
 .attachment--document,
 .attachment--audio {
   width: 200px;
   height: 72px;
-  border: 1px solid #e9eaeb;
-  background: #fafafa;
+  border: 1px solid var(--color-border-default);
+  background: var(--color-bg-02);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -681,9 +681,9 @@ export const Usage: Story = {
   align-items: center;
   justify-content: center;
 }
-.attachment__badge--close { background: #181d27; color: white; }
-.attachment__badge--error { background: #d92d20; color: white; }
-.attachment__badge--loading { background: #181d27; }
+.attachment__badge--close { background: var(--color-bg-01-solid); color: var(--color-static-white); }
+.attachment__badge--error { background: var(--color-bg-error-solid); color: var(--color-static-white); }
+.attachment__badge--loading { background: var(--color-bg-01-solid); }
 .attachment__play-overlay {
   position: absolute;
   top: 50%; left: 50%;
@@ -699,7 +699,7 @@ export const Usage: Story = {
 .attachment__play-btn {
   width: 32px; height: 32px;
   border-radius: 50%;
-  background: #6852d6;
+  background: var(--color-bg-solid);
   color: white;
   display: flex;
   align-items: center;
@@ -713,7 +713,7 @@ export const Usage: Story = {
 }
 .attachment__duration {
   font-size: 11px;
-  color: #535862;
+  color: var(--color-text-secondary);
 }`} />
       </Section>
     </div>

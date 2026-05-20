@@ -283,7 +283,7 @@ export const Usage: StoryObj = {
           <StateCard title="Received Waveform" description="var(--color-icon-highlight-primary) — Purple" />
           <StateCard title="Play Button (Sent)" description="var(--color-bg-solid) white background, purple icon" />
           <StateCard title="Play Button (Received)" description="var(--color-bg-solid) white background, purple icon" />
-          <StateCard title="Border Radius" description="var(--radius-lg) with var(--radius-xs) on tail corner" />
+          <StateCard title="Border Radius" description="var(--radius-xl) — 12px uniform on all corners" />
         </div>
       </UsageSection>
 
@@ -440,7 +440,7 @@ function PlayIcon({ playing, color }: { playing?: boolean; color: string }) {
 
 function ReceiptIcon({ status }: { status: "sent" | "delivered" | "read" }) {
   const isRead = status === "read";
-  const color = isRead ? "#34D399" : "rgba(255, 255, 255, 0.7)";
+  const color = isRead ? "var(--color-message-seen)" : "rgba(255, 255, 255, 0.7)";
 
   if (status === "sent") {
     return (
@@ -606,3 +606,8 @@ function StateCard({ title, description }: { title: string; description: string 
     </div>
   );
 }
+
+/** Interactive playground. */
+export const Playground: StoryObj = {
+  parameters: { docs: { disable: true } },
+};

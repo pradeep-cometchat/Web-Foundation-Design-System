@@ -165,7 +165,7 @@ function PollBubble({ variant }: { variant: "sent" | "received" }) {
   return (
     <div
       style={{
-        borderRadius: "var(--radius-lg)",
+        borderRadius: "var(--radius-xl)",
         background: isSent ? "var(--color-send-bubble-bg)" : "var(--color-received-bubble-bg)",
         minWidth: 280,
         maxWidth: 320,
@@ -215,7 +215,7 @@ function PollBubble({ variant }: { variant: "sent" | "received" }) {
               </div>
             </div>
             {/* Progress bar — starts aligned with answer text */}
-            <div style={{ marginLeft: 36, height: 8, borderRadius: 4, background: isSent ? "rgba(255,255,255,0.2)" : "#d5d7da", overflow: "hidden" }}>
+            <div style={{ marginLeft: 36, height: 8, borderRadius: 4, background: isSent ? "rgba(255,255,255,0.2)" : "var(--color-border-dark)", overflow: "hidden" }}>
               <div style={{ height: "100%", width: `${option.progress * 100}%`, borderRadius: 4, background: isSent ? "var(--color-static-white)" : "var(--color-icon-highlight-primary)" }} />
             </div>
           </div>
@@ -294,3 +294,8 @@ function StateCard({ title, description }: { title: string; description: string 
     </div>
   );
 }
+
+/** Interactive playground. */
+export const Playground: StoryObj = {
+  parameters: { docs: { disable: true } },
+};

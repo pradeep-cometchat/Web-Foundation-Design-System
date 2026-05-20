@@ -2,6 +2,8 @@ import React from "react";
 import type { Preview } from "@storybook/react";
 import { withThemeByDataAttribute } from "@storybook/addon-themes";
 import "../src/foundation/tokens/tokens.css";
+import "../src/foundation/tokens/responsive.css";
+import "../src/foundation/tokens/responsive-components.css";
 import "./preview.css";
 import { FoundationDocsPage } from "./DocsPage";
 import { foundationTheme } from "./theme";

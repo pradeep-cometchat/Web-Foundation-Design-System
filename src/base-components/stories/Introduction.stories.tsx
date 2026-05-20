@@ -105,6 +105,7 @@ function IntroductionPage() {
             <HeroChip label="variants" value="80+" />
             <HeroChip label="tokens" value="Foundation" />
             <HeroChip label="a11y" value="WCAG AA" />
+            <HeroChip label="responsive" value="Mobile · Tablet · Desktop" />
           </div>
         </div>
       </div>
@@ -159,6 +160,7 @@ function IntroductionPage() {
         <PrincipleCard title="Composable" body="Components are small and focused. Combine them to build complex patterns without tight coupling." />
         <PrincipleCard title="Accessible" body="Keyboard navigation, ARIA attributes, and focus management are built in from the start." />
         <PrincipleCard title="Themeable" body="Light and dark modes work automatically through CSS variable remapping. No prop changes needed." />
+        <PrincipleCard title="Responsive" body="Mobile-first with adaptive layouts. Components scale from 320px mobile to desktop with touch-friendly targets on all viewports." />
       </div>
 
       {/* USAGE */}

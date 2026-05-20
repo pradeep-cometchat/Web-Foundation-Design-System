@@ -208,7 +208,7 @@ export const Usage: StoryObj = {
   align-items: center;
   gap: var(--space-3);
   padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   min-width: 220px;
 }
 
@@ -310,7 +310,7 @@ export const Usage: StoryObj = {
           <StateCard title="Incoming Background" description="var(--color-received-bubble-bg) — Light gray" />
           <StateCard title="Icon Circle" description="var(--color-static-white) background, 36×36, full radius" />
           <StateCard title="Icon Color" description="var(--color-icon-highlight-primary) — Purple on both variants" />
-          <StateCard title="Border Radius" description="var(--radius-lg) — Rounded corners on the bubble" />
+          <StateCard title="Border Radius" description="var(--radius-xl) — 12px uniform on all corners" />
           <StateCard title="Padding" description="var(--space-3) vertical, var(--space-4) horizontal" />
         </div>
       </UsageSection>
@@ -342,7 +342,7 @@ function CallBubble({
       style={{
         display: "flex",
         flexDirection: "column",
-        borderRadius: "var(--radius-lg)",
+        borderRadius: "var(--radius-xl)",
         overflow: "hidden",
         background: isOutgoing ? "var(--color-send-bubble-bg)" : "var(--color-received-bubble-bg)",
         minWidth: 220,
@@ -608,3 +608,8 @@ function StateCard({ title, description }: { title: string; description: string 
     </div>
   );
 }
+
+/** Interactive playground. */
+export const Playground: StoryObj = {
+  parameters: { docs: { disable: true } },
+};
