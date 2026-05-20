@@ -14,26 +14,26 @@ export default meta;
 
 export const Overview: StoryObj = {
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <header
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "var(--space-4)",
-          padding: "var(--space-8)",
-          marginBottom: "var(--space-8)",
-          borderRadius: "var(--radius-2xl)",
-          background: "linear-gradient(135deg, var(--color-ep-50) 0%, var(--color-static-white) 100%)",
-          border: "1px solid var(--color-ep-100)",
+          gap: "var(--cometchat-spacing-4)",
+          padding: "var(--cometchat-spacing-8)",
+          marginBottom: "var(--cometchat-spacing-8)",
+          borderRadius: "var(--cometchat-radius-4)",
+          background: "linear-gradient(135deg, var(--cometchat-extended-primary-color-50) 0%, var(--cometchat-static-white) 100%)",
+          border: "1px solid var(--cometchat-extended-primary-color-100)",
         }}
       >
         <span
           style={{
-            fontSize: "var(--font-size-0)",
-            fontWeight: "var(--font-weight-semibold)",
+            fontSize: "10px",
+            fontWeight: "600",
             letterSpacing: "0.08em",
             textTransform: "uppercase",
-            color: "var(--color-ep-700)",
+            color: "var(--cometchat-extended-primary-color-700)",
           }}
         >
           Core Components
@@ -41,11 +41,11 @@ export const Overview: StoryObj = {
         <h1
           style={{
             margin: 0,
-            fontSize: "var(--font-size-7)",
-            lineHeight: "var(--line-height-title)",
-            fontWeight: "var(--font-weight-bold)",
+            fontSize: "32px",
+            lineHeight: "40px",
+            fontWeight: "700",
             letterSpacing: "-0.02em",
-            color: "var(--color-text-primary)",
+            color: "var(--cometchat-text-color-primary)",
           }}
         >
           Core Components
@@ -53,9 +53,9 @@ export const Overview: StoryObj = {
         <p
           style={{
             margin: 0,
-            fontSize: "var(--font-size-3)",
-            lineHeight: "var(--line-height-h4)",
-            color: "var(--color-text-secondary)",
+            fontSize: "16px",
+            lineHeight: "24px",
+            color: "var(--cometchat-text-color-secondary)",
             maxWidth: 720,
           }}
         >
@@ -69,7 +69,7 @@ export const Overview: StoryObj = {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-          gap: "var(--space-4)",
+          gap: "var(--cometchat-spacing-4)",
         }}
       >
         <ComponentCard
@@ -97,22 +97,22 @@ function ComponentCard({ title, description }: { title: string; description: str
   return (
     <div
       style={{
-        padding: "var(--space-5)",
-        borderRadius: "var(--radius-xl)",
-        border: "1px solid var(--color-border-default)",
-        background: "var(--color-bg-01)",
-        boxShadow: "var(--shadow-xs)",
+        padding: "var(--cometchat-spacing-5)",
+        borderRadius: "var(--cometchat-radius-3)",
+        border: "1px solid var(--cometchat-border-color-default)",
+        background: "var(--cometchat-background-color-01)",
+        boxShadow: "var(--cometchat-shadow-xs)",
         display: "flex",
         flexDirection: "column",
-        gap: "var(--space-2)",
+        gap: "var(--cometchat-spacing-2)",
       }}
     >
       <strong
         style={{
-          fontSize: "var(--font-size-3)",
-          fontWeight: "var(--font-weight-semibold)",
-          color: "var(--color-text-primary)",
-          lineHeight: "var(--line-height-h4)",
+          fontSize: "16px",
+          fontWeight: "600",
+          color: "var(--cometchat-text-color-primary)",
+          lineHeight: "24px",
         }}
       >
         {title}
@@ -120,9 +120,9 @@ function ComponentCard({ title, description }: { title: string; description: str
       <p
         style={{
           margin: 0,
-          fontSize: "var(--font-size-2)",
-          lineHeight: "var(--line-height-body)",
-          color: "var(--color-text-tertiary)",
+          fontSize: "14px",
+          lineHeight: "20px",
+          color: "var(--cometchat-text-color-tertiary)",
         }}
       >
         {description}

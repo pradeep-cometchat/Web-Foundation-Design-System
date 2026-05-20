@@ -155,41 +155,41 @@ export const Usage: StoryObj = {
   </div>
 </div>`} />
       </UsageSection>
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <UsageCodeCard language="CSS" code={`.conversation-starter {
   width: 100%;
   overflow: hidden;
-  border-radius: var(--radius-2xl);
+  border-radius: var(--cometchat-radius-4);
 }
 
 .conversation-starter__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
+  gap: var(--cometchat-spacing-2);
   align-items: center;
 }
 
 .conversation-starter__tag {
   display: inline-flex;
   align-items: center;
-  padding: var(--space-1-5) var(--space-5);
-  background: var(--color-bg-02);
-  border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-full);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-regular);
-  color: var(--color-text-primary);
+  padding: 6px var(--cometchat-spacing-5);
+  background: var(--cometchat-background-color-02);
+  border: 1px solid var(--cometchat-border-color-default);
+  border-radius: var(--cometchat-radius-max);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--cometchat-text-color-primary);
   cursor: pointer;
   transition: background 120ms ease, border-color 120ms ease;
 }
 
 .conversation-starter__tag:hover {
-  background: var(--color-bg-03);
-  border-color: var(--color-border-dark);
+  background: var(--cometchat-background-color-03);
+  border-color: var(--cometchat-border-color-dark);
 }
 
 .conversation-starter__tag:active {
-  background: var(--color-bg-04);
+  background: var(--cometchat-background-color-04);
 }
 
 .conversation-starter__tag:focus-visible {

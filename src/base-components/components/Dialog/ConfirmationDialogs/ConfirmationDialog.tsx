@@ -132,7 +132,7 @@ function KickIcon() {
   return (
     <span
       className="icon-outlined"
-      style={{ fontSize: 32, fontFamily: "var(--icon-font-outlined)" }}
+      style={{ fontSize: 32, fontFamily: "var(--cometchat-font-family)" }}
     >
       close
     </span>
@@ -143,7 +143,7 @@ function TransferIcon() {
   return (
     <span
       className="icon-outlined"
-      style={{ fontSize: 28, fontFamily: "var(--icon-font-outlined)" }}
+      style={{ fontSize: 28, fontFamily: "var(--cometchat-font-family)" }}
     >
       key
     </span>

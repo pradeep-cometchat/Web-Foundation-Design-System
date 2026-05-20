@@ -4,10 +4,10 @@
 .message-preview {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--cometchat-spacing-2);
   width: 100%;
-  background: var(--color-bg-04);
-  border-radius: var(--radius-xs);
+  background: var(--cometchat-background-color-04);
+  border-radius: var(--cometchat-radius-1);
   overflow: hidden;
   position: relative;
 }
@@ -17,19 +17,19 @@
   width: 4px;
   align-self: stretch;
   flex-shrink: 0;
-  border-radius: var(--radius-xs) 0 0 var(--radius-xs);
+  border-radius: var(--cometchat-radius-1) 0 0 var(--cometchat-radius-1);
 }
 
 .message-preview__border--reply {
-  background: var(--color-ep-600);
+  background: var(--cometchat-extended-primary-color-600);
 }
 
 .message-preview__border--edit {
-  background: var(--color-ep-600);
+  background: var(--cometchat-extended-primary-color-600);
 }
 
 .message-preview__border--deleted {
-  background: var(--color-ep-600);
+  background: var(--cometchat-extended-primary-color-600);
 }
 
 /* Content area */
@@ -38,47 +38,47 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
-  padding: var(--space-2) var(--space-2) var(--space-2) 0;
+  gap: var(--cometchat-spacing-1);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-2) var(--cometchat-spacing-2) 0;
 }
 
 /* Sender name — 12px, medium, primary color */
 .message-preview__sender {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-1);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-body);
+  font-family: var(--cometchat-font-family);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .message-preview__sender--reply {
-  color: var(--color-ep-600);
+  color: var(--cometchat-extended-primary-color-600);
 }
 
 .message-preview__sender--edit {
-  color: var(--color-ep-600);
+  color: var(--cometchat-extended-primary-color-600);
 }
 
 .message-preview__sender--deleted {
-  color: var(--color-ep-600);
+  color: var(--cometchat-extended-primary-color-600);
 }
 
 /* Message text — 12px, regular, secondary color */
 .message-preview__text-container {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--cometchat-spacing-1);
   height: 16px;
 }
 
 .message-preview__text {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-1);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body);
-  color: var(--color-text-tertiary);
+  font-family: var(--cometchat-font-family);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--cometchat-text-color-tertiary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -93,7 +93,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-tertiary);
+  color: var(--cometchat-text-color-tertiary);
   flex-shrink: 0;
 }
 
@@ -105,8 +105,8 @@
 /* Close button — 20px, top-right */
 .message-preview__close {
   position: absolute;
-  top: var(--space-2);
-  right: var(--space-2);
+  top: var(--cometchat-spacing-2);
+  right: var(--cometchat-spacing-2);
   width: 20px;
   height: 20px;
   display: flex;
@@ -115,14 +115,14 @@
   border: none;
   background: transparent;
   cursor: pointer;
-  color: var(--color-text-tertiary);
+  color: var(--cometchat-text-color-tertiary);
   padding: 0;
-  border-radius: var(--radius-xs);
+  border-radius: var(--cometchat-radius-1);
 }
 
 .message-preview__close:hover {
-  color: var(--color-text-secondary);
-  background: var(--color-bg-04);
+  color: var(--cometchat-text-color-secondary);
+  background: var(--cometchat-background-color-04);
 }
 
 .message-preview__close svg {

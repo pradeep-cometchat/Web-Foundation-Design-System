@@ -117,14 +117,14 @@ export const Usage: StoryObj = {
   </div>
 </div>`} />
       </UsageSection>
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <UsageCodeCard language="CSS" code={`.emoji-keyboard {
   width: 300px;
   height: 348px;
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-3xl);
-  box-shadow: var(--shadow-lg);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-5);
+  box-shadow: 0px 12px 16px -4px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -133,12 +133,12 @@ export const Usage: StoryObj = {
 .emoji-keyboard__search {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--cometchat-spacing-1);
   height: 28px;
-  padding: var(--space-1) var(--space-2);
-  background: var(--color-bg-03);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-full);
+  padding: var(--cometchat-spacing-1) var(--cometchat-spacing-2);
+  background: var(--cometchat-background-color-03);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-max);
 }
 
 .emoji-keyboard__grid {
@@ -146,22 +146,22 @@ export const Usage: StoryObj = {
   overflow-y: auto;
   display: grid;
   grid-template-columns: repeat(10, 24px);
-  gap: var(--space-2) var(--space-3);
-  padding: 0 var(--space-3) var(--space-3);
+  gap: var(--cometchat-spacing-2) var(--cometchat-spacing-3);
+  padding: 0 var(--cometchat-spacing-3) var(--cometchat-spacing-3);
 }
 
 .emoji-keyboard__emoji {
   width: 24px;
   height: 24px;
-  font-size: var(--font-size-5);
+  font-size: 20px;
   border: none;
   background: transparent;
   cursor: pointer;
-  border-radius: var(--radius-xs);
+  border-radius: var(--cometchat-radius-1);
 }
 
 .emoji-keyboard__emoji:hover {
-  background: var(--color-bg-03);
+  background: var(--cometchat-background-color-03);
 }
 
 .emoji-keyboard__tab {
@@ -169,12 +169,12 @@ export const Usage: StoryObj = {
   height: 32px;
   border: none;
   background: transparent;
-  border-radius: var(--radius-md);
+  border-radius: var(--cometchat-radius-2);
   cursor: pointer;
 }
 
 .emoji-keyboard__tab--active {
-  background: var(--color-ep-100);
+  background: var(--cometchat-extended-primary-color-100);
 }`} />
       </UsageSection>
     </div>

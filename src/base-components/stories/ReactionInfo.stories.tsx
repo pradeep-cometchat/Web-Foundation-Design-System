@@ -136,44 +136,44 @@ export const Usage: StoryObj = {
   <div class="reaction-info__arrow"></div>
 </div>`} />
       </UsageSection>
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <UsageCodeCard language="CSS" code={`.reaction-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-radius: var(--radius-md);
+  border-radius: var(--cometchat-radius-2);
   filter: drop-shadow(0px 12px 16px rgba(10, 13, 18, 0.08));
 }
 
 .reaction-info__content {
   display: flex;
   flex-direction: column;
-  padding: var(--space-2);
+  padding: var(--cometchat-spacing-2);
   background: var(--color-neutral-lm-950);
-  border-radius: var(--radius-xs);
+  border-radius: var(--cometchat-radius-1);
 }
 
 .reaction-info__inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--cometchat-spacing-1);
   text-align: center;
 }
 
 .reaction-info__emoji {
-  font-size: var(--font-size-6);
-  line-height: var(--line-height-h1);
+  font-size: 24px;
+  line-height: 28.8px;
 }
 
 .reaction-info__names {
-  font-size: var(--font-size-1);
+  font-size: 12px;
   color: var(--color-white);
 }
 
 .reaction-info__label {
-  font-size: var(--font-size-1);
-  color: var(--color-text-secondary);
+  font-size: 12px;
+  color: var(--cometchat-text-color-secondary);
 }
 
 .reaction-info__arrow {

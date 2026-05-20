@@ -99,30 +99,30 @@ export const Usage: StoryObj = {
   </div>
 </div>`} />
       </UsageSection>
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <UsageCodeCard language="CSS" code={`.flag-message-dialog {
   width: 400px;
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-3xl);
-  box-shadow: var(--shadow-lg);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-5);
+  box-shadow: 0px 12px 16px -4px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
 }
 
 .flag-message-dialog__title {
-  font-size: var(--font-size-5);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cometchat-text-color-primary);
 }
 
 .flag-message-dialog__badge {
-  padding: var(--space-1) var(--space-3);
-  border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-full);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-primary);
+  padding: var(--cometchat-spacing-1) var(--cometchat-spacing-3);
+  border: 1px solid var(--cometchat-border-color-default);
+  border-radius: var(--cometchat-radius-max);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cometchat-text-color-primary);
   cursor: pointer;
 }
 
@@ -135,16 +135,16 @@ export const Usage: StoryObj = {
 .flag-message-dialog__textarea {
   width: 100%;
   height: 88px;
-  padding: var(--space-2);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-md);
-  background: var(--color-bg-02);
-  font-size: var(--font-size-2);
+  padding: var(--cometchat-spacing-2);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-2);
+  background: var(--cometchat-background-color-02);
+  font-size: 14px;
   resize: none;
 }
 
 .flag-message-dialog__btn--report-active {
-  background: var(--color-error);
+  background: var(--cometchat-error-color);
   color: var(--color-white);
 }
 

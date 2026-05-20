@@ -123,8 +123,8 @@ function AvatarPlaceholder({ name }: { name: string }) {
         justifyContent: "center",
         background: "var(--color-neutral-200, #e9eaeb)",
         fontFamily: "var(--font-family-body, Inter, sans-serif)",
-        fontSize: "var(--font-size-1)",
-        fontWeight: "var(--font-weight-semibold)",
+        fontSize: "12px",
+        fontWeight: "600",
         color: "var(--color-neutral-600, #535862)",
       }}
     >

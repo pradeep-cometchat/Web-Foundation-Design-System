@@ -280,7 +280,7 @@ export const Usage: Story = {
         />
       </Section>
 
-      <Section title="CSS (Foundation Variables)">
+      <Section title="CSS (CometChat Tokens)">
         <CodeCard
           language="CSS"
           code={`.screen-header {
@@ -288,20 +288,20 @@ export const Usage: Story = {
   align-items: center;
   width: 100%;
   height: 64px;
-  padding: var(--space-3) var(--space-4);
-  background: var(--color-bg-01);
-  border-bottom: 1px solid var(--color-border-default);
+  padding: var(--cometchat-spacing-3) var(--cometchat-spacing-4);
+  background: var(--cometchat-background-color-01);
+  border-bottom: 1px solid var(--cometchat-border-color-default);
   box-sizing: border-box;
 }
 
 .screen-header__title {
   flex: 1 0 0;
   min-width: 0;
-  font-family: var(--font-family-heading);
-  font-size: 24px; /* var(--font-size-6) */
-  font-weight: var(--font-weight-bold);
-  line-height: 32px; /* var(--line-height-h1) */
-  color: var(--color-text-primary);
+  font-family: var(--cometchat-font-family);
+  font-size: 24px; /* 24px */
+  font-weight: 700;
+  line-height: 32px; /* 28.8px */
+  color: var(--cometchat-text-color-primary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -316,21 +316,21 @@ export const Usage: Story = {
   justify-content: center;
   border: none;
   background: transparent;
-  border-radius: var(--radius-md);
+  border-radius: var(--cometchat-radius-2);
   cursor: pointer;
-  color: var(--color-icon-primary);
+  color: var(--cometchat-icon-color-primary);
   padding: 0;
   flex-shrink: 0;
 }
 
 .screen-header__back-btn:hover {
-  background: var(--color-bg-02);
+  background: var(--cometchat-background-color-02);
 }
 
 .screen-header__actions {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--cometchat-spacing-2);
   flex-shrink: 0;
 }
 
@@ -342,15 +342,15 @@ export const Usage: Story = {
   justify-content: center;
   border: none;
   background: transparent;
-  border-radius: var(--radius-md);
+  border-radius: var(--cometchat-radius-2);
   cursor: pointer;
   color: var(--color-icon-quaternary);
   padding: 0;
 }
 
 .screen-header__action-btn:hover {
-  background: var(--color-bg-02);
-  color: var(--color-icon-tertiary);
+  background: var(--cometchat-background-color-02);
+  color: var(--cometchat-icon-color-tertiary);
 }
 
 .screen-header__action-icon {

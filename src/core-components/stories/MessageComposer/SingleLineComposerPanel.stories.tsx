@@ -45,64 +45,13 @@ const IconSticker = () => (
   </svg>
 );
 
-const IconFormatting = () => (
-  <svg width="20" height="20" viewBox="0 0 14.1 9.375" fill="none">
-    <path d="M2.1 6.833l-.667 1.854a.83.83 0 0 1-.27.354.74.74 0 0 1-.418.126c-.264 0-.469-.108-.614-.324-.146-.215-.17-.44-.073-.677L2.933.5a.83.83 0 0 1 .282-.365A.74.74 0 0 1 3.642 0h.583c.153 0 .299.045.438.135a.83.83 0 0 1 .291.365l2.875 7.688c.097.236.07.458-.083.666-.153.209-.354.313-.604.313a.74.74 0 0 1-.417-.135.83.83 0 0 1-.271-.365l-.646-1.834H2.1Zm.48-1.333h2.728L3.975 1.708h-.084L2.58 5.5Zm8.228 3.875c-.708 0-1.27-.191-1.687-.573-.417-.382-.625-.885-.625-1.51 0-.611.24-1.115.72-1.51.479-.396 1.093-.594 1.843-.594.32 0 .632.028.938.084.305.055.569.132.791.229v-.25c0-.403-.142-.73-.427-.98-.285-.25-.663-.374-1.135-.374a1.7 1.7 0 0 0-.615.094 1.5 1.5 0 0 0-.552.28c-.181.14-.351.188-.51.147a.56.56 0 0 1-.386-.23.47.47 0 0 1-.146-.395c0-.153.076-.285.229-.396.278-.222.59-.385.938-.49.347-.104.701-.156 1.063-.156.958 0 1.673.226 2.146.677.471.451.708 1.128.708 2.031v3.063a.63.63 0 0 1-.168.458.58.58 0 0 1-.469.187.58.58 0 0 1-.458-.197.63.63 0 0 1-.188-.49v-.104h-.083a1.8 1.8 0 0 1-.792.729c-.333.167-.701.25-1.104.25Zm.25-1.125c.486 0 .9-.167 1.24-.5.34-.333.51-.722.51-1.167a2.2 2.2 0 0 0-.698-.26 3.3 3.3 0 0 0-.802-.094c-.444 0-.791.097-1.041.292-.25.194-.375.451-.375.77 0 .278.111.507.333.688.222.18.5.271.833.271Z" fill="#A4A7AE"/>
-  </svg>
-);
-
-const IconAI = () => (
-  <svg width="22" height="22" viewBox="0 0 20 20" fill="none" style={{ minWidth: 22, minHeight: 22 }}>
-    <path d="M7.377 5.43c.083-.406.663-.406.746 0a5 5 0 0 0 3.947 3.947c.406.083.406.663 0 .746a5 5 0 0 0-3.947 3.947c-.083.406-.663.406-.746 0a5 5 0 0 0-3.947-3.947c-.406-.083-.406-.663 0-.746A5 5 0 0 0 7.377 5.43Z" stroke="#A4A7AE" strokeWidth="1.25" fill="none"/>
-    <path d="M13.913 4.145a.03.03 0 0 1 .049 0 3.38 3.38 0 0 0 2.393 2.393.03.03 0 0 1 0 .049 3.38 3.38 0 0 0-2.393 2.393.03.03 0 0 1-.049 0 3.38 3.38 0 0 0-2.393-2.393.03.03 0 0 1 0-.049 3.38 3.38 0 0 0 2.393-2.393Z" stroke="#A4A7AE" strokeWidth="1.25" fill="none"/>
-  </svg>
-);
-
 const IconSend = () => (
   <svg width="16" height="14" viewBox="0 0 15.78 13.6" fill="none">
     <path d="M1.267 13.52c-.302.121-.589.095-.86-.077-.271-.172-.407-.422-.407-.751V8.47L6.923 6.797 0 5.124V.903C0 .574.136.324.407.152.678-.02.965-.046 1.267.075L15.223 5.96c.372.166.558.447.558.84 0 .393-.186.673-.558.836L1.267 13.52Z" fill="currentColor"/>
   </svg>
 );
 
-const IconClose = () => (
-  <svg width="12" height="12" viewBox="0 0 11 11" fill="none">
-    <path d="M1.1 11L0 9.9L4.4 5.5L0 1.1L1.1 0L5.5 4.4L9.9 0L11 1.1L6.6 5.5L11 9.9L9.9 11L5.5 6.6L1.1 11Z" fill="currentColor"/>
-  </svg>
-);
-
 /* ─── Styles ───────────────────────────────────────────────────────────────── */
-
-const composerBox: React.CSSProperties = {
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-  background: "var(--color-bg-01)",
-  border: "1px solid var(--color-border-default)",
-  borderRadius: 8,
-  boxSizing: "border-box",
-};
-
-const inputBox: React.CSSProperties = {
-  padding: 12,
-  fontSize: 14,
-  lineHeight: "20px",
-  fontFamily: "'Inter', sans-serif",
-};
-
-const toolbarBox: React.CSSProperties = {
-  display: "flex",
-  alignItems: "center",
-  gap: 12,
-  padding: "6px 12px",
-  borderTop: "1px solid var(--color-border-light)",
-};
-
-const actionsLeft: React.CSSProperties = {
-  display: "flex",
-  alignItems: "center",
-  gap: 8,
-  flex: 1,
-};
 
 const actionButton: React.CSSProperties = {
   display: "flex",
@@ -130,97 +79,17 @@ const sendBase: React.CSSProperties = {
 
 /* ─── Suggest a Reply Panel (inline) ───────────────────────────────────────── */
 
-interface SuggestReplyProps {
-  suggestions: string[];
-  onClose?: () => void;
-  onSelect?: (suggestion: string) => void;
-}
-
-function SuggestReply({ suggestions, onClose, onSelect }: SuggestReplyProps) {
-  return (
-    <div
-      style={{
-        background: "var(--color-bg-01)",
-        border: "1px solid var(--color-border-default)",
-        borderRadius: 8,
-        overflow: "hidden",
-      }}
-    >
-      {/* Header */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "12px 16px",
-          borderBottom: "1px solid var(--color-border-light)",
-        }}
-      >
-        <span
-          style={{
-            fontSize: 16,
-            fontWeight: 500,
-            color: "var(--color-text-primary)",
-            fontFamily: "'Inter', sans-serif",
-          }}
-        >
-          Suggest a reply
-        </span>
-        <button
-          type="button"
-          onClick={onClose}
-          aria-label="Close suggest a reply"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: 28,
-            height: 28,
-            background: "transparent",
-            border: "none",
-            cursor: "pointer",
-            borderRadius: 4,
-            color: "var(--color-text-secondary)",
-          }}
-        >
-          <IconClose />
-        </button>
-      </div>
-      {/* Body */}
-      <div>
-        {suggestions.map((suggestion, index) => (
-          <div
-            key={index}
-            onClick={() => onSelect?.(suggestion)}
-            style={{
-              padding: "12px 16px",
-              fontSize: 14,
-              color: "var(--color-text-primary)",
-              fontFamily: "'Inter', sans-serif",
-              borderBottom: index < suggestions.length - 1 ? "1px solid var(--color-border-light)" : "none",
-              borderLeft: "2px solid transparent",
-              cursor: "pointer",
-            }}
-          >
-            {suggestion}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 /* ─── Composer (Placeholder State) ─────────────────────────────────────────── */
 
 function ComposerPlaceholder() {
   return (
-    <div style={{ width: 800, display: "flex", alignItems: "center", gap: 8, background: "var(--color-bg-01)", border: "1px solid var(--color-border-default)", borderRadius: 8, padding: "8px 12px" }}>
+    <div style={{ width: 800, display: "flex", alignItems: "center", gap: 8, background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: 8, padding: "8px 12px" }}>
       <button style={actionButton} aria-label="Attach file"><IconAddCircle /></button>
-      <div style={{ flex: 1, fontSize: 14, lineHeight: "20px", fontFamily: "'Inter', sans-serif", color: "var(--color-text-placeholder)" }}>Enter your message here</div>
+      <div style={{ flex: 1, fontSize: 14, lineHeight: "20px", fontFamily: "'Inter', sans-serif", color: "var(--cometchat-text-color-placeholder)" }}>Enter your message here</div>
       <button style={actionButton} aria-label="Emoji"><IconMood /></button>
       <button style={actionButton} aria-label="Sticker"><IconSticker /></button>
       <button style={actionButton} aria-label="Voice record"><IconMic /></button>
-      <div style={{ ...sendBase, background: "var(--color-bg-03)", color: "var(--color-icon-disabled)" }}><IconSend /></div>
+      <div style={{ ...sendBase, background: "var(--cometchat-background-color-03)", color: "var(--cometchat-icon-color-disabled)" }}><IconSend /></div>
     </div>
   );
 }
@@ -321,7 +190,7 @@ export const Usage: Story = {
       <Section title="Suggest a Reply (CSS)">
         <CodeCard language="CSS" code={`.suggest-reply {
   background: white;
-  border: 1px solid var(--color-border-default);
+  border: 1px solid var(--cometchat-border-color-default);
   border-radius: 8px;
   overflow: hidden;
 }
@@ -330,12 +199,12 @@ export const Usage: Story = {
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--cometchat-border-color-light);
 }
 .suggest-reply__title {
   font-size: 16px;
   font-weight: 500;
-  color: var(--color-text-primary);
+  color: var(--cometchat-text-color-primary);
 }
 .suggest-reply__close {
   width: 28px;
@@ -343,13 +212,13 @@ export const Usage: Story = {
   background: transparent;
   border: none;
   cursor: pointer;
-  color: var(--color-text-secondary);
+  color: var(--cometchat-text-color-secondary);
 }
 .suggest-reply__item {
   padding: 12px 16px;
   font-size: 14px;
-  color: var(--color-text-primary);
-  border-bottom: 1px solid var(--color-border-light);
+  color: var(--cometchat-text-color-primary);
+  border-bottom: 1px solid var(--cometchat-border-color-light);
   border-left: 2px solid transparent;
   cursor: pointer;
 }
@@ -380,7 +249,7 @@ export const Usage: Story = {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--color-text-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>
+      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>
         {title}
       </div>
       {children}
@@ -389,11 +258,11 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
-  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: 12, overflow: "hidden", marginBottom: 16 }}>
-    <div style={{ padding: "8px 12px", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
-      <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-secondary)" }}>{language}</span>
+  <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: 12, overflow: "hidden", marginBottom: 16 }}>
+    <div style={{ padding: "8px 12px", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-02)" }}>
+      <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-secondary)" }}>{language}</span>
     </div>
-    <pre style={{ margin: 0, padding: 14, fontSize: 12, lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto", background: "var(--color-bg-01)" }}>
+    <pre style={{ margin: 0, padding: 14, fontSize: 12, lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto", background: "var(--cometchat-background-color-01)" }}>
       <code>{code}</code>
     </pre>
   </div>

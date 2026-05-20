@@ -4,15 +4,15 @@
 .conversation-summary {
   width: 100%;
   max-width: 100%;
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-2);
+  box-shadow: var(--cometchat-shadow-lg);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-  padding: var(--space-3) var(--space-4);
+  gap: var(--cometchat-spacing-2);
+  padding: var(--cometchat-spacing-3) var(--cometchat-spacing-4);
   box-sizing: border-box;
 }
 
@@ -28,17 +28,17 @@
 .conversation-summary__heading {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--cometchat-spacing-2);
 }
 
 /* Title: Body/Medium — 14px, weight 500, line-height 20px, text-primary #181d27 */
 .conversation-summary__title {
   margin: 0;
   font-family: var(--font-family-body, "Inter", sans-serif);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-body);
-  color: var(--color-text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--cometchat-text-color-primary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -54,20 +54,20 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--color-text-primary);
+  color: var(--cometchat-text-color-primary);
   padding: 0;
   flex-shrink: 0;
-  border-radius: var(--radius-xs);
+  border-radius: var(--cometchat-radius-1);
   transition: background 120ms ease;
 }
 
 .conversation-summary__close-btn:hover {
-  background: var(--color-bg-02);
+  background: var(--cometchat-background-color-02);
 }
 
 .conversation-summary__close-btn:focus-visible {
   outline: none;
-  box-shadow: var(--focus-ring-xs);
+  box-shadow: var(--cometchat-focus-ring);
 }
 
 .conversation-summary__close-btn svg {
@@ -82,9 +82,9 @@
   align-items: center;
   align-content: center;
   gap: 0;
-  row-gap: var(--space-0-5);
-  padding: var(--space-1) 0;
-  border-radius: var(--radius-md);
+  row-gap: var(--cometchat-spacing);
+  padding: var(--cometchat-spacing-1) 0;
+  border-radius: var(--cometchat-radius-2);
   width: 100%;
 }
 
@@ -92,10 +92,10 @@
 .conversation-summary__text {
   margin: 0;
   font-family: var(--font-family-body, "Inter", sans-serif);
-  font-size: var(--font-size-2) !important;
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body) !important;
-  color: var(--color-text-primary) !important;
+  font-size: 14px !important;
+  font-weight: 400;
+  line-height: 20px !important;
+  color: var(--cometchat-text-color-primary) !important;
   flex: 1;
   min-width: 0;
 }
@@ -105,13 +105,13 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-2);
+  gap: var(--cometchat-spacing-2);
 }
 
 .conversation-summary__skeleton {
   height: 14px;
-  border-radius: var(--radius-xs);
-  background: var(--color-bg-03);
+  border-radius: var(--cometchat-radius-1);
+  background: var(--cometchat-background-color-03);
   animation: conversation-summary-pulse 1.5s ease-in-out infinite;
 }
 
@@ -140,8 +140,8 @@
 .conversation-summary__error {
   margin: 0;
   font-family: var(--font-family-body, "Inter", sans-serif);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
   color: var(--color-error, #d92d20);
 }

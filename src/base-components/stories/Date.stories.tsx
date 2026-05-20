@@ -200,32 +200,32 @@ export const Usage: StoryObj = {
 <!-- Date separator chip -->
 <span class="date-timestamp date-timestamp--separator">Today</span>`} />
       </Section>
-      <Section title="CSS (Foundation Variables)">
+      <Section title="CSS (CometChat Tokens)">
         <UsageCodeCard language="CSS" code={`.date-timestamp {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-0-5);
+  gap: var(--cometchat-spacing);
   height: 24px;
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-1);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-caption-2);
+  font-family: var(--cometchat-font-family);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px;
 }
 
 .date-timestamp--sent {
-  color: var(--color-text-tertiary);
+  color: var(--cometchat-text-color-tertiary);
 }
 
 .date-timestamp--received {
-  color: var(--color-text-tertiary);
+  color: var(--cometchat-text-color-tertiary);
 }
 
 .date-timestamp--separator {
-  color: var(--color-text-secondary);
-  font-weight: var(--font-weight-medium);
-  background: var(--color-bg-03);
-  border-radius: var(--radius-full);
-  padding: var(--space-0-5) var(--space-2);
+  color: var(--cometchat-text-color-secondary);
+  font-weight: 500;
+  background: var(--cometchat-background-color-03);
+  border-radius: var(--cometchat-radius-max);
+  padding: var(--cometchat-spacing) var(--cometchat-spacing-2);
   height: auto;
 }
 

@@ -149,14 +149,14 @@ export const Usage: Story = {
   </label>
 </div>`} />
       </Section>
-      <Section title="CSS (Foundation Variables)">
+      <Section title="CSS (CometChat Tokens)">
         <CodeCard language="CSS" code={`/* Radio uses the same .checkbox base with --radio modifier */
 .checkbox__control--radio {
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
   width: 20px;
   height: 20px;
   border: 1.5px solid var(--color-neutral-lm-300);
-  background: var(--color-bg-01);
+  background: var(--cometchat-background-color-01);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -170,7 +170,7 @@ export const Usage: Story = {
 .checkbox__dot {
   width: 8px;
   height: 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
   background: var(--color-white);
 }
 
@@ -179,15 +179,15 @@ export const Usage: Story = {
 }
 
 .checkbox__label {
-  font-size: var(--font-size-3);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-primary);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--cometchat-text-color-primary);
 }
 
 .checkbox__description {
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-regular);
-  color: var(--color-text-secondary);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--cometchat-text-color-secondary);
 }`} />
       </Section>
     </div>

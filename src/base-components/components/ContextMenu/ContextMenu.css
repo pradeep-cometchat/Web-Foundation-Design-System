@@ -11,10 +11,10 @@
 .context-menu {
   position: relative;
   z-index: 1000;
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-2);
+  box-shadow: var(--cometchat-shadow-lg);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -25,50 +25,50 @@
 .context-menu__item {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
+  gap: var(--cometchat-spacing-2);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-4);
   height: 40px;
   width: 100%;
   border: none;
-  background: var(--color-bg-01);
+  background: var(--cometchat-background-color-01);
   cursor: pointer;
   transition: background-color 0.12s ease;
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body);
-  color: var(--color-text-primary);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--cometchat-text-color-primary);
   text-align: left;
 }
 
 /* First item is taller (44px) per Figma */
 .context-menu__item--first {
   height: 44px;
-  padding: 10px var(--space-4);
+  padding: 10px var(--cometchat-spacing-4);
 }
 
 .context-menu__item:hover {
-  background: var(--color-bg-02);
+  background: var(--cometchat-background-color-02);
 }
 
 .context-menu__item:active {
-  background: var(--color-bg-03);
+  background: var(--cometchat-background-color-03);
 }
 
 .context-menu__item:focus-visible {
   outline: none;
-  box-shadow: var(--focus-ring-xs);
+  box-shadow: var(--cometchat-focus-ring);
   z-index: 1;
   position: relative;
 }
 
 /* Destructive item */
 .context-menu__item--destructive {
-  color: var(--color-error);
+  color: var(--cometchat-error-color);
 }
 
 .context-menu__item--destructive:hover {
-  background: var(--color-bg-03);
+  background: var(--cometchat-background-color-03);
 }
 
 /* Icon */
@@ -78,7 +78,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-icon-tertiary);
+  color: var(--cometchat-icon-color-tertiary);
   flex-shrink: 0;
 }
 
@@ -88,7 +88,7 @@
 }
 
 .context-menu__item--destructive .context-menu__item-icon {
-  color: var(--color-error);
+  color: var(--cometchat-error-color);
 }
 
 /* Label */
@@ -102,7 +102,7 @@
 
 /* Hover preview for docs */
 .context-menu__item--hover-preview {
-  background: var(--color-bg-02);
+  background: var(--cometchat-background-color-02);
 }
 
 
@@ -110,29 +110,29 @@
 .context-menu-trigger {
   width: 32px;
   height: 32px;
-  border-radius: var(--radius-full);
-  background: var(--color-bg-01);
+  border-radius: var(--cometchat-radius-max);
+  background: var(--cometchat-background-color-01);
   border: none;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--cometchat-shadow-sm);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--color-text-secondary);
+  color: var(--cometchat-text-color-secondary);
   transition: background 120ms ease, box-shadow 120ms ease;
   padding: 0;
   outline: none;
 }
 
 .context-menu-trigger:hover {
-  background: var(--color-bg-02);
-  box-shadow: var(--shadow-md);
+  background: var(--cometchat-background-color-02);
+  box-shadow: var(--cometchat-shadow-md);
 }
 
 .context-menu-trigger:active {
-  background: var(--color-bg-03);
+  background: var(--cometchat-background-color-03);
 }
 
 .context-menu-trigger:focus-visible {
-  box-shadow: var(--focus-ring-xs);
+  box-shadow: var(--cometchat-focus-ring);
 }

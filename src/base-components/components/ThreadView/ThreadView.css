@@ -7,8 +7,8 @@
   width: 420px;
   height: 100%;
   min-height: 0;
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-light);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-light);
   overflow: hidden;
 }
 
@@ -16,11 +16,11 @@
 .thread-view__header {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--cometchat-spacing-3);
   height: 64px;
-  padding: var(--space-2) var(--space-4);
-  background: var(--color-bg-01);
-  border-bottom: 1px solid var(--color-border-light);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-4);
+  background: var(--cometchat-background-color-01);
+  border-bottom: 1px solid var(--cometchat-border-color-light);
   flex-shrink: 0;
 }
 
@@ -32,11 +32,11 @@
 /* Title: Heading 2/Bold — 20px, 700, line-height 30px */
 .thread-view__title {
   margin: 0;
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-5);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-h2);
-  color: var(--color-text-primary);
+  font-family: var(--cometchat-font-family);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  color: var(--cometchat-text-color-primary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -45,7 +45,7 @@
 .thread-view__header-actions {
   display: flex;
   align-items: center;
-  gap: var(--space-4);
+  gap: var(--cometchat-spacing-4);
   flex-shrink: 0;
 }
 
@@ -58,15 +58,15 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--color-text-primary);
+  color: var(--cometchat-text-color-primary);
   padding: 0;
-  border-radius: var(--radius-xs);
+  border-radius: var(--cometchat-radius-1);
   transition: background 120ms ease;
 }
 
 .thread-view__header-btn:hover {
-  background: var(--color-bg-02);
-  color: var(--color-text-secondary);
+  background: var(--cometchat-background-color-02);
+  color: var(--cometchat-text-color-secondary);
 }
 
 /* ─── Chat area: flex-1, overflow-y auto, pt-12 ─── */
@@ -77,7 +77,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: var(--space-3);
+  padding-top: var(--cometchat-spacing-3);
 }
 
 /* Hide scrollbar */
@@ -95,21 +95,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-1) var(--space-2);
-  background: var(--color-bg-02);
-  border: 1px solid var(--color-border-dark);
-  border-radius: var(--radius-xs);
-  box-shadow: var(--shadow-xs);
+  padding: var(--cometchat-spacing-1) var(--cometchat-spacing-2);
+  background: var(--cometchat-background-color-02);
+  border: 1px solid var(--cometchat-border-color-dark);
+  border-radius: var(--cometchat-radius-1);
+  box-shadow: var(--cometchat-shadow-xs);
   margin-bottom: 0;
 }
 
 /* Caption 1/Medium — 12px, 500, line-height 18px */
 .thread-view__date-chip-text {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-1);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-caption-1);
-  color: var(--color-text-primary);
+  font-family: var(--cometchat-font-family);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  color: var(--cometchat-text-color-primary);
   text-align: center;
   white-space: nowrap;
 }
@@ -118,7 +118,7 @@
 .thread-view__message {
   display: flex;
   width: 100%;
-  padding: var(--space-2) var(--space-4);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-4);
   box-sizing: border-box;
 }
 
@@ -133,41 +133,41 @@
 /* ─── Bubble: radius-xl (12px), max-width 75% ─── */
 .thread-view__bubble {
   max-width: 75%;
-  border-radius: var(--radius-xl);
+  border-radius: var(--cometchat-radius-3);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: var(--space-3) var(--space-3) var(--space-1);
+  padding: var(--cometchat-spacing-3) var(--cometchat-spacing-3) var(--cometchat-spacing-1);
 }
 
 /* Sent bubble: bg */
 .thread-view__bubble--sent {
-  background: var(--color-send-bubble-bg);
+  background: var(--cometchat-send-bubble-background);
 }
 
 /* Received bubble: bg */
 .thread-view__bubble--received {
-  background: var(--color-received-bubble-bg);
+  background: var(--cometchat-received-bubble-background);
 }
 
 /* Body/Regular — 14px, 400, line-height 20px */
 .thread-view__bubble-text {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
   margin: 0;
 }
 
 /* Sent text: WHITE — !important to override Storybook global p styles */
 .thread-view__bubble--sent .thread-view__bubble-text,
 .sb-foundation-root .thread-view__bubble--sent .thread-view__bubble-text {
-  color: var(--color-static-white) !important;
+  color: var(--cometchat-static-white) !important;
 }
 
 /* Received text: dark */
 .thread-view__bubble--received .thread-view__bubble-text {
-  color: var(--color-received-bubble-text) !important;
+  color: var(--cometchat-received-bubble-text) !important;
 }
 
 /* Timestamp row */
@@ -175,16 +175,16 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: var(--space-1);
-  padding: var(--space-1) 0;
+  gap: var(--cometchat-spacing-1);
+  padding: var(--cometchat-spacing-1) 0;
 }
 
 /* Caption 2/Regular — 10px, 400, line-height 16px */
 .thread-view__bubble-time {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-0);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-caption-2);
+  font-family: var(--cometchat-font-family);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 16px;
   text-align: right;
   white-space: nowrap;
 }
@@ -192,12 +192,12 @@
 /* Sent timestamp: WHITE — !important to override Storybook global p styles */
 .thread-view__bubble--sent .thread-view__bubble-time,
 .sb-foundation-root .thread-view__bubble--sent .thread-view__bubble-time {
-  color: var(--color-static-white) !important;
+  color: var(--cometchat-static-white) !important;
 }
 
 /* Received timestamp: secondary */
 .thread-view__bubble--received .thread-view__bubble-time {
-  color: var(--color-received-bubble-timestamp) !important;
+  color: var(--cometchat-received-bubble-timestamp) !important;
 }
 
 /* Read receipt icon — green checkmark */
@@ -219,77 +219,77 @@
 .thread-view__separator {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-1) var(--space-5);
+  gap: var(--cometchat-spacing-2);
+  padding: var(--cometchat-spacing-1) var(--cometchat-spacing-5);
   width: 100%;
   box-sizing: border-box;
 }
 
 /* Body/Regular — 14px, 400, line-height 20px, text-secondary */
 .thread-view__separator-text {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body);
-  color: var(--color-text-secondary);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--cometchat-text-color-secondary);
   white-space: nowrap;
 }
 
 .thread-view__separator-line {
   flex: 1;
   height: 1px;
-  background: var(--color-bg-04);
+  background: var(--cometchat-background-color-04);
 }
 
 /* ─── Composer ─── */
 .thread-view__composer {
   display: flex;
   flex-direction: column;
-  padding: 0 var(--space-2) var(--space-2);
+  padding: 0 var(--cometchat-spacing-2) var(--cometchat-spacing-2);
   flex-shrink: 0;
 }
 
 .thread-view__composer-inner {
   display: flex;
   flex-direction: column;
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-md);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-2);
 }
 
 .thread-view__composer-input {
-  padding: var(--space-3);
+  padding: var(--cometchat-spacing-3);
   border: none;
   background: transparent;
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body);
-  color: var(--color-text-primary);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--cometchat-text-color-primary);
   outline: none;
   resize: none;
 }
 
 .thread-view__composer-input::placeholder {
-  color: var(--color-text-secondary);
+  color: var(--cometchat-text-color-secondary);
 }
 
 .thread-view__composer-divider {
   height: 1px;
-  background: var(--color-bg-03);
+  background: var(--cometchat-background-color-03);
 }
 
 .thread-view__composer-toolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-2) var(--space-3);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-3);
 }
 
 .thread-view__composer-icons {
   display: flex;
   align-items: center;
-  gap: var(--space-4);
+  gap: var(--cometchat-spacing-4);
 }
 
 .thread-view__composer-icon {
@@ -298,14 +298,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-tertiary);
+  color: var(--cometchat-text-color-tertiary);
 }
 
 .thread-view__composer-icon--text {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-tertiary);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cometchat-text-color-tertiary);
 }
 
 .thread-view__composer-icon svg {
@@ -316,19 +316,19 @@
 .thread-view__send-btn {
   width: 32px;
   height: 32px;
-  border-radius: var(--radius-full);
-  background: var(--color-bg-04);
+  border-radius: var(--cometchat-radius-max);
+  background: var(--cometchat-background-color-04);
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--color-text-tertiary);
-  padding: var(--space-1);
+  color: var(--cometchat-text-color-tertiary);
+  padding: var(--cometchat-spacing-1);
   transition: background 120ms ease;
 }
 
 .thread-view__send-btn:hover {
-  background: var(--color-ep-500);
-  color: var(--color-static-white);
+  background: var(--cometchat-extended-primary-color-500);
+  color: var(--cometchat-static-white);
 }

@@ -221,7 +221,7 @@ export const Usage: Story = {
   </div>
 </div>`} />
       </UsageSection>
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <UsageCodeCard language="CSS" code={`.info-dialog__overlay {
   position: fixed;
   inset: 0;
@@ -235,9 +235,9 @@ export const Usage: Story = {
 .info-dialog {
   width: 400px;
   max-height: 680px;
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-2xl);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-default);
+  border-radius: var(--cometchat-radius-4);
   box-shadow: var(--shadow-xl);
   display: flex;
   flex-direction: column;
@@ -247,15 +247,15 @@ export const Usage: Story = {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-4) var(--space-6);
-  border-bottom: 1px solid var(--color-border-light);
+  padding: var(--cometchat-spacing-4) var(--cometchat-spacing-6);
+  border-bottom: 1px solid var(--cometchat-border-color-light);
 }
 
 .info-dialog__title {
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-5);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+  font-family: var(--cometchat-font-family);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--cometchat-text-color-primary);
 }
 
 .info-dialog__close {
@@ -263,8 +263,8 @@ export const Usage: Story = {
   height: 44px;
   border: none;
   background: none;
-  border-radius: var(--radius-md);
-  color: var(--color-icon-secondary);
+  border-radius: var(--cometchat-radius-2);
+  color: var(--cometchat-icon-color-secondary);
   cursor: pointer;
 }
 
@@ -276,19 +276,19 @@ export const Usage: Story = {
 }
 
 .info-dialog__message-bubble {
-  background: var(--color-ep-600);
-  color: var(--color-static-white);
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-lg);
-  font-size: var(--font-size-2);
+  background: var(--cometchat-primary-color);
+  color: var(--cometchat-static-white);
+  padding: var(--cometchat-spacing-3) var(--cometchat-spacing-4);
+  border-radius: 10px;
+  font-size: 14px;
   display: inline-block;
 }
 
 .info-dialog__info-item {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
-  padding: var(--space-3) 0;
+  gap: var(--cometchat-spacing-1);
+  padding: var(--cometchat-spacing-3) 0;
 }`} />
       </UsageSection>
     </div>

@@ -18,7 +18,7 @@ import {
  * logos, or media thumbnails.
  */
 const meta: Meta = {
-  title: "Foundation/Avatars",
+  title: "CometChat Foundation/Avatars",
   tags: ["!autodocs"],
   parameters: { layout: "fullscreen", themes: { themeOverride: "Light" } },
 };
@@ -46,7 +46,7 @@ export const GroupAvatar: StoryObj = {
 function AvatarGrid({ category }: { category: AvatarCategory }) {
   const items = avatarRegistry[category];
   return (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title={category}
         description={`${items.length} assets. Click any tile to copy the image URL.`}
@@ -58,7 +58,7 @@ function AvatarGrid({ category }: { category: AvatarCategory }) {
           gridTemplateColumns: category.includes("Footage")
             ? "repeat(auto-fill, minmax(200px, 1fr))"
             : "repeat(auto-fill, minmax(140px, 1fr))",
-          gap: "var(--space-3-5)",
+          gap: "var(--cometchat-spacing-3-5)",
         }}
       >
         {items.map((item) => (
@@ -101,7 +101,7 @@ function AllAvatars() {
   const totalShown = filtered.reduce((n, g) => n + g.items.length, 0);
 
   return (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Avatars & Media"
         description="All avatar and media assets from the design system. Click any tile to copy the image URL."
@@ -121,7 +121,7 @@ function AllAvatars() {
               top: "50%",
               transform: "translateY(-50%)",
               color: "var(--color-neutral-400)",
-              fontSize: "var(--font-size-2)",
+              fontSize: "14px",
             }}
           >
             ⌕
@@ -133,19 +133,19 @@ function AllAvatars() {
             placeholder="Search avatars and media"
             style={{
               width: "100%",
-              fontSize: "var(--font-size-1)",
+              fontSize: "12px",
               padding: "8px 12px 8px 32px",
-              borderRadius: "var(--radius-md)",
+              borderRadius: "var(--cometchat-radius-2)",
               border: "1px solid var(--color-neutral-200)",
-              background: "var(--color-white)",
+              background: "var(--cometchat-static-white)",
               outline: "none",
               fontFamily: "inherit",
               color: "var(--color-neutral-900)",
-              boxShadow: "var(--shadow-xs)",
+              boxShadow: "var(--cometchat-shadow-xs)",
             }}
           />
         </div>
-        <div style={{ fontSize: "var(--font-size-1)", color: "var(--color-neutral-600)", marginTop: "var(--space-2)" }}>
+        <div style={{ fontSize: "12px", color: "var(--color-neutral-600)", marginTop: "var(--cometchat-spacing-2)" }}>
           {totalShown} asset{totalShown === 1 ? "" : "s"}
         </div>
       </div>
@@ -158,7 +158,7 @@ function AllAvatars() {
               gridTemplateColumns: category.includes("Footage")
                 ? "repeat(auto-fill, minmax(200px, 1fr))"
                 : "repeat(auto-fill, minmax(140px, 1fr))",
-              gap: "var(--space-3-5)",
+              gap: "var(--cometchat-spacing-3-5)",
             }}
           >
             {items.map((item) => (
@@ -204,15 +204,15 @@ function AvatarTile({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: "var(--space-2)",
-        padding: "var(--space-3)",
-        borderRadius: "var(--radius-xl)",
+        gap: "var(--cometchat-spacing-2)",
+        padding: "var(--cometchat-spacing-3)",
+        borderRadius: "var(--cometchat-radius-3)",
         border: `1px solid ${copied ? "var(--color-success-300)" : "var(--color-neutral-200)"}`,
-        background: copied ? "var(--color-success-50)" : "var(--color-white)",
+        background: copied ? "var(--color-success-50)" : "var(--cometchat-static-white)",
         cursor: "pointer",
         fontFamily: "inherit",
         transition: "all 120ms ease",
-        boxShadow: "var(--shadow-xs)",
+        boxShadow: "var(--cometchat-shadow-xs)",
       }}
     >
       <div
@@ -238,9 +238,9 @@ function AvatarTile({
       </div>
       <span
         style={{
-          fontSize: "var(--font-size-0)",
-          fontFamily: "var(--font-family-body)",
-          color: copied ? "var(--color-success-700)" : "var(--color-neutral-600)",
+          fontSize: "10px",
+          fontFamily: "var(--cometchat-font-family)",
+          color: copied ? "var(--cometchat-success-color)" : "var(--color-neutral-600)",
           maxWidth: "100%",
           overflow: "hidden",
           textOverflow: "ellipsis",

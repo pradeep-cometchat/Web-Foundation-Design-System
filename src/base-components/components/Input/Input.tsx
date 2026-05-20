@@ -50,7 +50,7 @@ export function Input({
       )}
       <div className={`input-field__container ${hasError ? "input-field__container--error" : ""}`}>
         {leadingIcon && (
-          <span className="input-field__icon input-field__icon--leading icon-outlined" style={{ fontFamily: "var(--icon-font-outlined)" }}>
+          <span className="input-field__icon input-field__icon--leading icon-outlined" style={{ fontFamily: "var(--cometchat-font-family)" }}>
             {leadingIcon}
           </span>
         )}
@@ -63,7 +63,7 @@ export function Input({
           onChange={(e) => onChange?.(e.target.value)}
         />
         {trailingIcon && (
-          <span className="input-field__icon input-field__icon--trailing icon-outlined" style={{ fontFamily: "var(--icon-font-outlined)" }}>
+          <span className="input-field__icon input-field__icon--trailing icon-outlined" style={{ fontFamily: "var(--cometchat-font-family)" }}>
             {trailingIcon}
           </span>
         )}

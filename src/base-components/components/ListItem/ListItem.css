@@ -1,13 +1,13 @@
 .list-item {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-2) var(--space-4);
-  background: var(--color-bg-01);
-  border-radius: var(--radius-md);
+  gap: var(--cometchat-spacing-3);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-4);
+  background: var(--cometchat-background-color-01);
+  border-radius: var(--cometchat-radius-2);
   cursor: pointer;
   transition: background 0.15s ease;
-  font-family: var(--font-family-body);
+  font-family: var(--cometchat-font-family);
   user-select: none;
   min-height: var(--space-14, 56px);
   outline: none;
@@ -15,16 +15,16 @@
 
 .list-item:hover,
 .list-item--hovered {
-  background: var(--color-bg-02);
+  background: var(--cometchat-background-color-02);
 }
 
 .list-item--selected {
-  background: var(--color-bg-primary);
+  background: var(--cometchat-extended-primary-color-50);
 }
 
 .list-item--selected .list-item__title,
 .list-item--selected .list-item__subtitle-text {
-  color: var(--color-text-primary);
+  color: var(--cometchat-text-color-primary);
 }
 
 /* Leading / Avatar */
@@ -34,28 +34,28 @@
 
 .list-item__avatar {
   position: relative;
-  width: var(--space-10);
-  height: var(--space-10);
-  border-radius: var(--radius-full);
+  width: var(--cometchat-spacing-10);
+  height: var(--cometchat-spacing-10);
+  border-radius: var(--cometchat-radius-max);
   overflow: visible;
-  background: var(--color-bg-secondary);
+  background: var(--cometchat-extended-primary-color-100);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-ep-700);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-semibold);
+  color: var(--cometchat-extended-primary-color-700);
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .list-item__avatar img {
   width: 100%;
   height: 100%;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
   object-fit: cover;
 }
 
 .list-item__avatar-initials {
-  font-family: var(--font-family-body);
+  font-family: var(--cometchat-font-family);
 }
 
 .list-item__status {
@@ -64,8 +64,8 @@
   bottom: 0;
   width: var(--space-2-5, 10px);
   height: var(--space-2-5, 10px);
-  border-radius: var(--radius-full);
-  border: 2px solid var(--color-bg-01);
+  border-radius: var(--cometchat-radius-max);
+  border: 2px solid var(--cometchat-background-color-01);
 }
 
 /* Content */
@@ -74,14 +74,14 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-0-5);
+  gap: var(--cometchat-spacing);
 }
 
 .list-item__title {
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-primary);
-  line-height: var(--line-height-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cometchat-text-color-primary);
+  line-height: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -90,16 +90,16 @@
 .list-item__subtitle {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
-  font-size: var(--font-size-1);
-  color: var(--color-text-secondary);
-  line-height: var(--line-height-caption-1);
+  gap: var(--cometchat-spacing-1);
+  font-size: 12px;
+  color: var(--cometchat-text-color-secondary);
+  line-height: 18px;
   min-width: 0;
 }
 
 .list-item__subtitle-icon {
-  font-size: var(--font-size-2);
-  color: var(--color-icon-tertiary);
+  font-size: 14px;
+  color: var(--cometchat-icon-color-tertiary);
   flex-shrink: 0;
 }
 
@@ -115,13 +115,13 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: var(--space-1);
+  gap: var(--cometchat-spacing-1);
 }
 
 .list-item__trailing-text {
-  font-size: var(--font-size-0);
-  color: var(--color-text-tertiary);
-  line-height: var(--line-height-caption-2);
+  font-size: 10px;
+  color: var(--cometchat-text-color-tertiary);
+  line-height: 16px;
   white-space: nowrap;
 }
 
@@ -131,20 +131,20 @@
 }
 
 .list-item__trailing-icon {
-  font-size: var(--font-size-5);
-  color: var(--color-icon-tertiary);
+  font-size: 20px;
+  color: var(--cometchat-icon-color-tertiary);
 }
 
 /* Unread badge (used as trailingNode) */
 .list-item__unread-badge {
-  background: var(--color-ep-600);
-  color: var(--color-static-white);
-  font-size: var(--font-size-0);
-  font-weight: var(--font-weight-semibold);
+  background: var(--cometchat-extended-primary-color-600);
+  color: var(--cometchat-static-white);
+  font-size: 10px;
+  font-weight: 600;
   min-width: var(--space-4-5, 18px);
   height: var(--space-4-5, 18px);
-  padding: 0 var(--space-1);
-  border-radius: var(--radius-full);
+  padding: 0 var(--cometchat-spacing-1);
+  border-radius: var(--cometchat-radius-max);
   display: flex;
   align-items: center;
   justify-content: center;

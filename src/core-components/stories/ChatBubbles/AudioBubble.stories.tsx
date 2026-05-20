@@ -128,7 +128,7 @@ export const AllVariants: StoryObj = {
   name: "All Variants",
   parameters: { layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)", width: 500, padding: "var(--space-4)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-4)", width: 500, padding: "var(--cometchat-spacing-4)" }}>
       <AudioBubble variant="sent" status="read" currentTime="00:00" duration="00:32" time="4:56 pm" />
       <AudioBubble variant="received" currentTime="00:00" duration="00:32" time="4:56 pm" />
       <AudioBubble variant="sent" status="read" currentTime="00:14" duration="00:32" time="4:56 pm" playing progress={0.44} />
@@ -144,7 +144,7 @@ export const AllVariants: StoryObj = {
 export const Usage: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <UsageSection title="HTML Structure">
         <CodeCard
           language="HTML"
@@ -195,23 +195,23 @@ export const Usage: StoryObj = {
         />
       </UsageSection>
 
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <CodeCard
           language="CSS"
           code={`.chat-bubble-audio {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2);
+  gap: var(--cometchat-spacing-2);
+  padding: var(--cometchat-spacing-2);
   min-width: 200px;
 }
 
 .chat-bubble-audio-btn {
   width: 32px;
   height: 32px;
-  border-radius: var(--radius-full);
-  background: var(--color-bg-solid);
-  color: var(--color-static-white);
+  border-radius: var(--cometchat-radius-max);
+  background: var(--cometchat-background-color-solid);
+  color: var(--cometchat-static-white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -221,7 +221,7 @@ export const Usage: StoryObj = {
 }
 
 .chat-bubble-wrapper--received .chat-bubble-audio-btn {
-  background: var(--color-bg-solid);
+  background: var(--cometchat-background-color-solid);
 }
 
 .chat-bubble-audio-wave {
@@ -235,7 +235,7 @@ export const Usage: StoryObj = {
 .chat-bubble-audio-bar {
   width: 3px;
   border-radius: 1px;
-  background: var(--color-icon-tertiary);
+  background: var(--cometchat-icon-color-tertiary);
 }
 
 .chat-bubble-wrapper--sent .chat-bubble-audio-bar {
@@ -243,8 +243,8 @@ export const Usage: StoryObj = {
 }
 
 .chat-bubble-audio-time {
-  font-size: var(--font-size-0);
-  color: var(--color-text-tertiary);
+  font-size: 10px;
+  color: var(--cometchat-text-color-tertiary);
   white-space: nowrap;
 }
 
@@ -255,7 +255,7 @@ export const Usage: StoryObj = {
       </UsageSection>
 
       <UsageSection title="Variants">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <StateCard title="Sent — Default" description="Purple background, white play button, white waveform bars. Shows single check for sent status." />
           <StateCard title="Sent — Delivered" description="Same as default with double check (✓✓) in white/muted color indicating delivery." />
           <StateCard title="Sent — Read" description="Double check (✓✓) in green/highlight color indicating the message was read." />
@@ -266,7 +266,7 @@ export const Usage: StoryObj = {
       </UsageSection>
 
       <UsageSection title="Anatomy">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <StateCard title="Play/Pause Button" description="Circular button (48×48) with play_arrow or pause icon. White bg with purple icon on both variants." />
           <StateCard title="Waveform" description="Series of vertical bars with varying heights representing audio amplitude. Animates on playback." />
           <StateCard title="Duration Label" description="Shows current time / total duration (e.g. 00:00/00:32). Updates during playback." />
@@ -276,14 +276,14 @@ export const Usage: StoryObj = {
       </UsageSection>
 
       <UsageSection title="Design Tokens">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
-          <StateCard title="Sent Background" description="var(--color-send-bubble-bg) — Primary purple" />
-          <StateCard title="Received Background" description="var(--color-received-bubble-bg) — Light gray" />
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
+          <StateCard title="Sent Background" description="var(--cometchat-send-bubble-background) — Primary purple" />
+          <StateCard title="Received Background" description="var(--cometchat-received-bubble-background) — Light gray" />
           <StateCard title="Sent Waveform" description="rgba(255, 255, 255, 0.6) — Semi-transparent white" />
-          <StateCard title="Received Waveform" description="var(--color-icon-highlight-primary) — Purple" />
-          <StateCard title="Play Button (Sent)" description="var(--color-bg-solid) white background, purple icon" />
-          <StateCard title="Play Button (Received)" description="var(--color-bg-solid) white background, purple icon" />
-          <StateCard title="Border Radius" description="var(--radius-xl) — 12px uniform on all corners" />
+          <StateCard title="Received Waveform" description="var(--cometchat-icon-color-highlight) — Purple" />
+          <StateCard title="Play Button (Sent)" description="var(--cometchat-background-color-solid) white background, purple icon" />
+          <StateCard title="Play Button (Received)" description="var(--cometchat-background-color-solid) white background, purple icon" />
+          <StateCard title="Border Radius" description="var(--cometchat-radius-3) — 12px uniform on all corners" />
         </div>
       </UsageSection>
 
@@ -325,14 +325,14 @@ function AudioBubble({
     <div className={`chat-bubble-wrapper chat-bubble-wrapper--${variant}`}>
       <div
         className="chat-bubble-body"
-        style={{ padding: "var(--space-3)", minWidth: 240 }}
+        style={{ padding: "var(--cometchat-spacing-3)", minWidth: 240 }}
       >
         {/* Audio player row */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "var(--space-3)",
+            gap: "var(--cometchat-spacing-3)",
           }}
         >
           {/* Play button — large circular */}
@@ -340,8 +340,8 @@ function AudioBubble({
             style={{
               width: 48,
               height: 48,
-              borderRadius: "var(--radius-full)",
-              background: "var(--color-static-white)",
+              borderRadius: "var(--cometchat-radius-max)",
+              background: "var(--cometchat-static-white)",
               border: "none",
               display: "flex",
               alignItems: "center",
@@ -350,7 +350,7 @@ function AudioBubble({
               flexShrink: 0,
             }}
           >
-            <PlayIcon playing={playing} color={isSent ? "var(--color-icon-highlight-primary)" : "var(--color-icon-highlight-primary)"} />
+            <PlayIcon playing={playing} color={isSent ? "var(--cometchat-icon-color-highlight)" : "var(--cometchat-icon-color-highlight)"} />
           </button>
 
           {/* Waveform + duration stacked */}
@@ -378,10 +378,10 @@ function AudioBubble({
                       borderRadius: 1.5,
                       background: isSent
                         ? isActive
-                          ? "var(--color-static-white)"
+                          ? "var(--cometchat-static-white)"
                           : "rgba(255, 255, 255, 0.5)"
                         : isActive
-                          ? "var(--color-icon-highlight-primary)"
+                          ? "var(--cometchat-icon-color-highlight)"
                           : "rgba(108, 92, 231, 0.4)",
                       flexShrink: 0,
                     }}
@@ -393,9 +393,9 @@ function AudioBubble({
             {/* Duration */}
             <span
               style={{
-                fontSize: "var(--font-size-1)",
-                fontFamily: "var(--font-family-body)",
-                color: isSent ? "rgba(255, 255, 255, 0.8)" : "var(--color-text-secondary)",
+                fontSize: "12px",
+                fontFamily: "var(--cometchat-font-family)",
+                color: isSent ? "rgba(255, 255, 255, 0.8)" : "var(--cometchat-text-color-secondary)",
                 lineHeight: 1,
               }}
             >
@@ -410,8 +410,8 @@ function AudioBubble({
             display: "flex",
             alignItems: "center",
             justifyContent: "flex-end",
-            gap: "var(--space-1)",
-            marginTop: "var(--space-2)",
+            gap: "var(--cometchat-spacing-1)",
+            marginTop: "var(--cometchat-spacing-2)",
           }}
         >
           <span className="chat-bubble-meta-time">{time}</span>
@@ -440,7 +440,7 @@ function PlayIcon({ playing, color }: { playing?: boolean; color: string }) {
 
 function ReceiptIcon({ status }: { status: "sent" | "delivered" | "read" }) {
   const isRead = status === "read";
-  const color = isRead ? "var(--color-message-seen)" : "rgba(255, 255, 255, 0.7)";
+  const color = isRead ? "var(--cometchat-message-seen-color)" : "rgba(255, 255, 255, 0.7)";
 
   if (status === "sent") {
     return (
@@ -474,11 +474,11 @@ function Wrapper({ children, width = 360 }: { children: React.ReactNode; width?:
         width,
         display: "flex",
         flexDirection: "column",
-        gap: "var(--space-4)",
-        padding: "var(--space-4)",
-        background: "var(--color-bg-01)",
-        borderRadius: "var(--radius-xl)",
-        border: "1px solid var(--color-border-default)",
+        gap: "var(--cometchat-spacing-4)",
+        padding: "var(--cometchat-spacing-4)",
+        background: "var(--cometchat-background-color-01)",
+        borderRadius: "var(--cometchat-radius-3)",
+        border: "1px solid var(--cometchat-border-color-default)",
       }}
     >
       {children}
@@ -490,9 +490,9 @@ function Label({ children }: { children: React.ReactNode }) {
   return (
     <span
       style={{
-        fontSize: "var(--font-size-0)",
-        fontWeight: "var(--font-weight-semibold)",
-        color: "var(--color-text-tertiary)",
+        fontSize: "10px",
+        fontWeight: "600",
+        color: "var(--cometchat-text-color-tertiary)",
         textTransform: "uppercase",
         letterSpacing: "0.06em",
       }}
@@ -504,17 +504,17 @@ function Label({ children }: { children: React.ReactNode }) {
 
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div style={{ marginBottom: "var(--space-6)" }}>
+    <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
       <div
         style={{
-          fontSize: "var(--font-size-1)",
-          fontWeight: "var(--font-weight-semibold)",
-          color: "var(--color-text-secondary)",
+          fontSize: "12px",
+          fontWeight: "600",
+          color: "var(--cometchat-text-color-secondary)",
           textTransform: "uppercase",
           letterSpacing: "0.06em",
-          marginBottom: "var(--space-2)",
-          paddingBottom: "var(--space-2)",
-          borderBottom: "1px solid var(--color-border-default)",
+          marginBottom: "var(--cometchat-spacing-2)",
+          paddingBottom: "var(--cometchat-spacing-2)",
+          borderBottom: "1px solid var(--cometchat-border-color-default)",
         }}
       >
         {title}
@@ -528,10 +528,10 @@ function CodeCard({ language, code }: { language: string; code: string }) {
   return (
     <div
       style={{
-        border: "1px solid var(--color-border-default)",
-        borderRadius: "var(--radius-xl)",
+        border: "1px solid var(--cometchat-border-color-default)",
+        borderRadius: "var(--cometchat-radius-3)",
         overflow: "hidden",
-        background: "var(--color-bg-02)",
+        background: "var(--cometchat-background-color-02)",
       }}
     >
       <div
@@ -539,18 +539,18 @@ function CodeCard({ language, code }: { language: string; code: string }) {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          padding: "var(--space-2) var(--space-3)",
-          borderBottom: "1px solid var(--color-border-default)",
-          background: "var(--color-bg-03)",
+          padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)",
+          borderBottom: "1px solid var(--cometchat-border-color-default)",
+          background: "var(--cometchat-background-color-03)",
         }}
       >
         <span
           style={{
-            fontSize: "var(--font-size-0)",
-            fontWeight: "var(--font-weight-semibold)",
+            fontSize: "10px",
+            fontWeight: "600",
             letterSpacing: "0.06em",
             textTransform: "uppercase",
-            color: "var(--color-text-secondary)",
+            color: "var(--cometchat-text-color-secondary)",
           }}
         >
           {language}
@@ -559,11 +559,11 @@ function CodeCard({ language, code }: { language: string; code: string }) {
       <pre
         style={{
           margin: 0,
-          padding: "var(--space-3-5)",
-          fontFamily: "var(--font-family-body)",
-          fontSize: "var(--font-size-1)",
+          padding: "var(--cometchat-spacing-3-5)",
+          fontFamily: "var(--cometchat-font-family)",
+          fontSize: "12px",
           lineHeight: 1.6,
-          color: "var(--color-text-primary)",
+          color: "var(--cometchat-text-color-primary)",
           overflowX: "auto",
         }}
       >
@@ -577,28 +577,28 @@ function StateCard({ title, description }: { title: string; description: string 
   return (
     <div
       style={{
-        padding: "var(--space-3-5) var(--space-4)",
-        border: "1px solid var(--color-border-default)",
-        borderRadius: "var(--radius-xl)",
-        background: "var(--color-bg-01)",
+        padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)",
+        border: "1px solid var(--cometchat-border-color-default)",
+        borderRadius: "var(--cometchat-radius-3)",
+        background: "var(--cometchat-background-color-01)",
       }}
     >
       <strong
         style={{
-          fontSize: "var(--font-size-2)",
-          fontWeight: "var(--font-weight-semibold)",
-          color: "var(--color-text-primary)",
+          fontSize: "14px",
+          fontWeight: "600",
+          color: "var(--cometchat-text-color-primary)",
           display: "block",
-          marginBottom: "var(--space-1)",
+          marginBottom: "var(--cometchat-spacing-1)",
         }}
       >
         {title}
       </strong>
       <span
         style={{
-          fontSize: "var(--font-size-1)",
-          color: "var(--color-text-tertiary)",
-          lineHeight: "var(--line-height-caption-1)",
+          fontSize: "12px",
+          color: "var(--cometchat-text-color-tertiary)",
+          lineHeight: "18px",
         }}
       >
         {description}

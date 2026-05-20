@@ -22,7 +22,7 @@ import {
  * flips.
  */
 const meta: Meta<typeof BlurPlayground> = {
-  title: "Foundation/Effects/Backdrop Blur",
+  title: "CometChat Foundation/Effects/Backdrop Blur",
   component: BlurPlayground,
   tags: ["autodocs"],
   parameters: { layout: "fullscreen", themes: { themeOverride: "Light" } },
@@ -62,22 +62,22 @@ function BlurPlayground({ size, theme, label }: PlaygroundProps) {
   const token = backdropBlur[size];
   const bg = hexToRgba(token.tint[theme], token.opacity);
   const cssSnippet = `background: ${bg};
-backdrop-filter: blur(var(--backdrop-blur-${size}));
--webkit-backdrop-filter: blur(var(--backdrop-blur-${size}));`;
+backdrop-filter: blur(var(--cometchat-backdrop-blur-${size}));
+-webkit-backdrop-filter: blur(var(--cometchat-backdrop-blur-${size}));`;
 
   return (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <div
         style={{
-          borderRadius: "var(--radius-2xl)",
+          borderRadius: "var(--cometchat-radius-4)",
           overflow: "hidden",
-          border: "1px solid var(--color-neutral-200)",
-          boxShadow: "var(--shadow-sm)",
+          border: "1px solid var(--cometchat-border-color-default)",
+          boxShadow: "var(--cometchat-shadow-sm)",
         }}
       >
         <div
           style={{
-            padding: "var(--space-10)",
+            padding: "var(--cometchat-spacing-10)",
             backgroundImage: `url(${BACKDROP_IMAGE})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -93,8 +93,8 @@ backdrop-filter: blur(var(--backdrop-blur-${size}));
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
-            background: "var(--color-neutral-25)",
-            borderTop: "1px solid var(--color-neutral-200)",
+            background: "var(--cometchat-background-color-01)",
+            borderTop: "1px solid var(--cometchat-border-color-default)",
           }}
         >
           <Stat label="Token" value={`backdrop-blur-${size}`} />
@@ -135,27 +135,27 @@ const Stat: React.FC<{
   <div
     style={{
       padding: "14px 16px",
-      borderLeft: divider ? "1px solid var(--color-neutral-200)" : "none",
+      borderLeft: divider ? "1px solid var(--cometchat-border-color-default)" : "none",
     }}
   >
     <div
       style={{
-        fontSize: "var(--font-size-0)",
-        fontWeight: "var(--font-weight-semibold)",
+        fontSize: "10px",
+        fontWeight: "600",
         letterSpacing: "0.06em",
         textTransform: "uppercase",
-        color: "var(--color-neutral-500)",
-        marginBottom: "var(--space-1)",
+        color: "var(--cometchat-text-color-tertiary)",
+        marginBottom: "var(--cometchat-spacing-1)",
       }}
     >
       {label}
     </div>
     <div
       style={{
-        fontFamily: mono ? "var(--font-family-body)" : "inherit",
-        fontSize: "var(--font-size-1)",
-        fontWeight: "var(--font-weight-semibold)",
-        color: "var(--color-neutral-900)",
+        fontFamily: mono ? "var(--cometchat-font-family)" : "inherit",
+        fontSize: "12px",
+        fontWeight: "600",
+        color: "var(--cometchat-text-color-primary)",
         textTransform: mono && label === "Theme" ? "capitalize" : "none",
       }}
     >
@@ -188,7 +188,7 @@ const BlurCard: React.FC<BlurCardProps> = ({ size, theme, label }) => {
         width: "100%",
         maxWidth: 420,
         padding: "22px 24px",
-        borderRadius: "var(--radius-xl)",
+        borderRadius: "var(--cometchat-radius-3)",
         background: bg,
         border: `1px solid ${borderColor}`,
         backdropFilter: `blur(${token.blur}px)`,
@@ -206,27 +206,27 @@ const BlurCard: React.FC<BlurCardProps> = ({ size, theme, label }) => {
           alignItems: "center",
           justifyContent: "space-between",
           marginBottom: 28,
-          gap: "var(--space-3)",
+          gap: "var(--cometchat-spacing-3)",
         }}
       >
-        <strong style={{ fontSize: "var(--font-size-2)", fontWeight: "var(--font-weight-semibold)" }}>
+        <strong style={{ fontSize: "14px", fontWeight: "600" }}>
           {label ?? `backdrop-blur-${size}`}
         </strong>
         <span
           style={{
             display: "inline-flex",
             alignItems: "center",
-            gap: "var(--space-1-5)",
-            fontSize: "var(--font-size-1)",
+            gap: "var(--cometchat-spacing-1-5)",
+            fontSize: "12px",
             color: mutedColor,
-            fontWeight: "var(--font-weight-medium)",
+            fontWeight: "500",
           }}
         >
           <ThemeGlyph theme={theme} />
           {theme}
         </span>
       </div>
-      <div style={{ fontSize: "var(--font-size-0)", color: mutedColor, fontFamily: "var(--font-family-body)" }}>
+      <div style={{ fontSize: "10px", color: mutedColor, fontFamily: "var(--cometchat-font-family)" }}>
         Color: {tint.toUpperCase()} · Opacity:{" "}
         {Math.round(token.opacity * 100)}% · Blur: {token.blur}
       </div>
@@ -267,7 +267,7 @@ export const Playground: StoryObj<typeof BlurPlayground> = {
 export const Gallery: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Backdrop blur"
         description="Translucent surfaces for panels, sheets, and floating UI placed over content. Four sizes × two theme tints, rendered over a photo so you can see how each combination reads."
@@ -288,15 +288,15 @@ export const Gallery: StoryObj = {
 
       <div
         style={{
-          borderRadius: "var(--radius-2xl)",
+          borderRadius: "var(--cometchat-radius-4)",
           overflow: "hidden",
-          border: "1px solid var(--color-neutral-200)",
-          boxShadow: "var(--shadow-sm)",
+          border: "1px solid var(--cometchat-border-color-default)",
+          boxShadow: "var(--cometchat-shadow-sm)",
         }}
       >
         <div
           style={{
-            padding: "var(--space-10)",
+            padding: "var(--cometchat-spacing-10)",
             backgroundImage: `url(${BACKDROP_IMAGE})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -306,7 +306,7 @@ export const Gallery: StoryObj = {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-              gap: "var(--space-5)",
+              gap: "var(--cometchat-spacing-5)",
             }}
           >
             {backdropBlurOrder.map((size) => (
@@ -315,7 +315,7 @@ export const Gallery: StoryObj = {
                 style={{
                   display: "grid",
                   gridTemplateColumns: "1fr 1fr",
-                  gap: "var(--space-4)",
+                  gap: "var(--cometchat-spacing-4)",
                 }}
               >
                 <BlurCard size={size} theme="light" />
@@ -333,7 +333,7 @@ export const Gallery: StoryObj = {
 export const Reference: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Backdrop blur reference"
         description="Every size with its blur radius and CSS variable."
@@ -348,7 +348,7 @@ export const Reference: StoryObj = {
             return {
               name: `backdrop-blur-${size}`,
               value: `${t.blur}px`,
-              cssVar: `var(--backdrop-blur-${size})`,
+              cssVar: `var(--cometchat-backdrop-blur-${size})`,
               preview: (
                 <div
                   aria-hidden
@@ -356,7 +356,7 @@ export const Reference: StoryObj = {
                     position: "relative",
                     width: 84,
                     height: 48,
-                    borderRadius: "var(--radius-md)",
+                    borderRadius: "var(--cometchat-radius-2)",
                     overflow: "hidden",
                     backgroundImage: `url(${BACKDROP_IMAGE})`,
                     backgroundSize: "cover",
@@ -370,7 +370,7 @@ export const Reference: StoryObj = {
                       margin: "auto",
                       width: 56,
                       height: 28,
-                      borderRadius: "var(--radius-sm)",
+                      borderRadius: "var(--cometchat-radius-1-5)",
                       background: "rgba(255,255,255,0.6)",
                       backdropFilter: `blur(${t.blur}px)`,
                       WebkitBackdropFilter: `blur(${t.blur}px)`,
@@ -398,7 +398,7 @@ export const Reference: StoryObj = {
             {
               name: "backdrop-bg-light",
               value: "rgba(255, 255, 255, 0.6)",
-              cssVar: "var(--backdrop-bg-light)",
+              cssVar: "var(--cometchat-backdrop-bg-light)",
               preview: (
                 <TintSwatch color="#ffffff" opacity={0.6} label="light" />
               ),
@@ -406,7 +406,7 @@ export const Reference: StoryObj = {
             {
               name: "backdrop-bg-dark",
               value: "rgba(0, 0, 0, 0.6)",
-              cssVar: "var(--backdrop-bg-dark)",
+              cssVar: "var(--cometchat-backdrop-bg-dark)",
               preview: (
                 <TintSwatch color="#000000" opacity={0.6} label="dark" />
               ),
@@ -423,10 +423,10 @@ export const Reference: StoryObj = {
       >
         <div
           style={{
-            border: "1px solid var(--color-neutral-200)",
-            borderRadius: "var(--radius-xl)",
+            border: "1px solid var(--cometchat-border-color-default)",
+            borderRadius: "var(--cometchat-radius-3)",
             overflow: "hidden",
-            background: "var(--color-neutral-25)",
+            background: "var(--cometchat-background-color-01)",
           }}
         >
           <div
@@ -435,33 +435,33 @@ export const Reference: StoryObj = {
               justifyContent: "space-between",
               alignItems: "center",
               padding: "10px 14px",
-              borderBottom: "1px solid var(--color-neutral-200)",
-              background: "var(--color-neutral-50)",
+              borderBottom: "1px solid var(--cometchat-border-color-default)",
+              background: "var(--cometchat-background-color-02)",
             }}
           >
             <span
               style={{
-                fontSize: "var(--font-size-0)",
-                fontWeight: "var(--font-weight-semibold)",
+                fontSize: "10px",
+                fontWeight: "600",
                 letterSpacing: "0.06em",
                 textTransform: "uppercase",
-                color: "var(--color-neutral-600)",
+                color: "var(--cometchat-text-color-secondary)",
               }}
             >
               CSS
             </span>
             <CopyButton
               value={`.glass-panel {
-  background: var(--backdrop-bg-light);
-  backdrop-filter: blur(var(--backdrop-blur-md));
-  -webkit-backdrop-filter: blur(var(--backdrop-blur-md));
-  border: 1px solid var(--backdrop-border-light);
+  background: var(--cometchat-backdrop-bg-light);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--cometchat-backdrop-border-light);
   border-radius: 12px;
 }
 
 [data-theme="dark"] .glass-panel {
-  background: var(--backdrop-bg-dark);
-  border-color: var(--backdrop-border-dark);
+  background: var(--cometchat-backdrop-bg-dark);
+  border-color: var(--cometchat-backdrop-border-dark);
 }`}
               label="Copy"
             />
@@ -469,25 +469,25 @@ export const Reference: StoryObj = {
           <pre
             style={{
               margin: 0,
-              padding: "var(--space-4)",
-              fontFamily: "var(--font-family-body)",
-              fontSize: "var(--font-size-1)",
+              padding: "var(--cometchat-spacing-4)",
+              fontFamily: "var(--cometchat-font-family)",
+              fontSize: "12px",
               lineHeight: 1.65,
-              color: "var(--color-neutral-800)",
+              color: "var(--cometchat-neutral-color-800)",
               overflowX: "auto",
             }}
           >
             <code>{`.glass-panel {
-  background: var(--backdrop-bg-light);
-  backdrop-filter: blur(var(--backdrop-blur-md));
-  -webkit-backdrop-filter: blur(var(--backdrop-blur-md));
-  border: 1px solid var(--backdrop-border-light);
+  background: var(--cometchat-backdrop-bg-light);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--cometchat-backdrop-border-light);
   border-radius: 12px;
 }
 
 [data-theme="dark"] .glass-panel {
-  background: var(--backdrop-bg-dark);
-  border-color: var(--backdrop-border-dark);
+  background: var(--cometchat-backdrop-bg-dark);
+  border-color: var(--cometchat-backdrop-border-dark);
 }`}</code>
           </pre>
         </div>
@@ -507,7 +507,7 @@ const TintSwatch: React.FC<{ color: string; opacity: number; label: string }> = 
       position: "relative",
       width: 84,
       height: 48,
-      borderRadius: "var(--radius-md)",
+      borderRadius: "var(--cometchat-radius-2)",
       overflow: "hidden",
       backgroundImage: `url(${BACKDROP_IMAGE})`,
       backgroundSize: "cover",

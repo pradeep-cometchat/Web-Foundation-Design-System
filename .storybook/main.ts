@@ -2,6 +2,8 @@ import type { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
   stories: [
+    "../src/cometchat-foundation/**/*.mdx",
+    "../src/cometchat-foundation/**/*.stories.@(ts|tsx)",
     "../src/foundation/**/*.mdx",
     "../src/foundation/**/*.stories.@(ts|tsx)",
     "../src/base-components/**/*.mdx",

@@ -64,20 +64,14 @@ const IconSend = () => (
   </svg>
 );
 
-const IconClose = () => (
-  <svg width="12" height="12" viewBox="0 0 11 11" fill="none">
-    <path d="M1.1 11L0 9.9L4.4 5.5L0 1.1L1.1 0L5.5 4.4L9.9 0L11 1.1L6.6 5.5L11 9.9L9.9 11L5.5 6.6L1.1 11Z" fill="currentColor"/>
-  </svg>
-);
-
 /* ─── Styles ───────────────────────────────────────────────────────────────── */
 
 const composerBox: React.CSSProperties = {
   width: "100%",
   display: "flex",
   flexDirection: "column",
-  background: "var(--color-bg-01)",
-  border: "1px solid var(--color-border-default)",
+  background: "var(--cometchat-background-color-01)",
+  border: "1px solid var(--cometchat-border-color-default)",
   borderRadius: 8,
   boxSizing: "border-box",
 };
@@ -94,7 +88,7 @@ const toolbarBox: React.CSSProperties = {
   alignItems: "center",
   gap: 12,
   padding: "6px 12px",
-  borderTop: "1px solid var(--color-border-light)",
+  borderTop: "1px solid var(--cometchat-border-color-light)",
 };
 
 const actionsLeft: React.CSSProperties = {
@@ -128,95 +122,13 @@ const sendBase: React.CSSProperties = {
   boxShadow: "0px 1px 2px rgba(10,13,18,0.05)",
 };
 
-/* ─── Suggest a Reply Panel (inline) ───────────────────────────────────────── */
-
-interface SuggestReplyProps {
-  suggestions: string[];
-  onClose?: () => void;
-  onSelect?: (suggestion: string) => void;
-}
-
-function SuggestReply({ suggestions, onClose, onSelect }: SuggestReplyProps) {
-  return (
-    <div
-      style={{
-        background: "var(--color-bg-01)",
-        border: "1px solid var(--color-border-default)",
-        borderRadius: 8,
-        overflow: "hidden",
-      }}
-    >
-      {/* Header */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "12px 16px",
-          borderBottom: "1px solid var(--color-border-light)",
-        }}
-      >
-        <span
-          style={{
-            fontSize: 16,
-            fontWeight: 500,
-            color: "var(--color-text-primary)",
-            fontFamily: "'Inter', sans-serif",
-          }}
-        >
-          Suggest a reply
-        </span>
-        <button
-          type="button"
-          onClick={onClose}
-          aria-label="Close suggest a reply"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: 28,
-            height: 28,
-            background: "transparent",
-            border: "none",
-            cursor: "pointer",
-            borderRadius: 4,
-            color: "var(--color-text-secondary)",
-          }}
-        >
-          <IconClose />
-        </button>
-      </div>
-      {/* Body */}
-      <div>
-        {suggestions.map((suggestion, index) => (
-          <div
-            key={index}
-            onClick={() => onSelect?.(suggestion)}
-            style={{
-              padding: "12px 16px",
-              fontSize: 14,
-              color: "var(--color-text-primary)",
-              fontFamily: "'Inter', sans-serif",
-              borderBottom: index < suggestions.length - 1 ? "1px solid var(--color-border-light)" : "none",
-              borderLeft: "2px solid transparent",
-              cursor: "pointer",
-            }}
-          >
-            {suggestion}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 /* ─── Composer (Placeholder State) ─────────────────────────────────────────── */
 
 function ComposerPlaceholder() {
   return (
     <div style={composerBox}>
       <div style={inputBox}>
-        <span style={{ color: "var(--color-text-placeholder)" }}>Type your message...</span>
+        <span style={{ color: "var(--cometchat-text-color-placeholder)" }}>Type your message...</span>
       </div>
       <div style={toolbarBox}>
         <div style={actionsLeft}>
@@ -227,7 +139,7 @@ function ComposerPlaceholder() {
           <button style={actionButton} aria-label="Formatting"><IconFormatting /></button>
           <button style={{ ...actionButton, padding: 4 }} aria-label="AI features"><IconAI /></button>
         </div>
-        <div style={{ ...sendBase, background: "var(--color-bg-03)", color: "var(--color-icon-disabled)" }}>
+        <div style={{ ...sendBase, background: "var(--cometchat-background-color-03)", color: "var(--cometchat-icon-color-disabled)" }}>
           <IconSend />
         </div>
       </div>
@@ -331,7 +243,7 @@ export const Usage: Story = {
       <Section title="Suggest a Reply (CSS)">
         <CodeCard language="CSS" code={`.suggest-reply {
   background: white;
-  border: 1px solid var(--color-border-default);
+  border: 1px solid var(--cometchat-border-color-default);
   border-radius: 8px;
   overflow: hidden;
 }
@@ -340,12 +252,12 @@ export const Usage: Story = {
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--cometchat-border-color-light);
 }
 .suggest-reply__title {
   font-size: 16px;
   font-weight: 500;
-  color: var(--color-text-primary);
+  color: var(--cometchat-text-color-primary);
 }
 .suggest-reply__close {
   width: 28px;
@@ -353,13 +265,13 @@ export const Usage: Story = {
   background: transparent;
   border: none;
   cursor: pointer;
-  color: var(--color-text-secondary);
+  color: var(--cometchat-text-color-secondary);
 }
 .suggest-reply__item {
   padding: 12px 16px;
   font-size: 14px;
-  color: var(--color-text-primary);
-  border-bottom: 1px solid var(--color-border-light);
+  color: var(--cometchat-text-color-primary);
+  border-bottom: 1px solid var(--cometchat-border-color-light);
   border-left: 2px solid transparent;
   cursor: pointer;
 }
@@ -390,7 +302,7 @@ export const Usage: Story = {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--color-text-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>
+      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>
         {title}
       </div>
       {children}
@@ -399,11 +311,11 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
-  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: 12, overflow: "hidden", marginBottom: 16 }}>
-    <div style={{ padding: "8px 12px", borderBottom: "1px solid var(--color-border-default)", background: "#fafafa" }}>
-      <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-secondary)" }}>{language}</span>
+  <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: 12, overflow: "hidden", marginBottom: 16 }}>
+    <div style={{ padding: "8px 12px", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "#fafafa" }}>
+      <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-secondary)" }}>{language}</span>
     </div>
-    <pre style={{ margin: 0, padding: 14, fontSize: 12, lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto", background: "var(--color-bg-01)" }}>
+    <pre style={{ margin: 0, padding: 14, fontSize: 12, lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto", background: "var(--cometchat-background-color-01)" }}>
       <code>{code}</code>
     </pre>
   </div>

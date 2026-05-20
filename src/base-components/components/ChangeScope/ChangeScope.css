@@ -3,10 +3,10 @@
 
 .change-scope {
   width: 400px;
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-3xl);
-  box-shadow: var(--shadow-lg);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-default);
+  border-radius: var(--cometchat-radius-5);
+  box-shadow: var(--cometchat-shadow-lg);
   overflow: hidden;
 }
 
@@ -14,16 +14,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-6) var(--space-6) var(--space-3);
+  gap: var(--cometchat-spacing-3);
+  padding: var(--cometchat-spacing-6) var(--cometchat-spacing-6) var(--cometchat-spacing-3);
 }
 
 /* ─── Icon: 80px circle, background-02, primary colored icon ─── */
 .change-scope__icon {
   width: 80px;
   height: 80px;
-  border-radius: var(--radius-full);
-  background: var(--color-bg-03);
+  border-radius: var(--cometchat-radius-max);
+  background: var(--cometchat-background-color-03);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,7 +37,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-ep-600);
+  color: var(--cometchat-extended-primary-color-600);
 }
 
 .change-scope__icon-inner svg {
@@ -50,34 +50,34 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-2);
+  gap: var(--cometchat-spacing-2);
   text-align: center;
   width: 100%;
 }
 
 .change-scope__title {
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-5);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-h3);
-  color: var(--color-text-primary);
+  font-family: var(--cometchat-font-family);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  color: var(--cometchat-text-color-primary);
   width: 100%;
 }
 
 .change-scope__description {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body);
-  color: var(--color-text-tertiary);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--cometchat-text-color-tertiary);
   width: 100%;
 }
 
 /* ─── Role list: rounded container with shadow ─── */
 .change-scope__list {
   width: 100%;
-  border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--cometchat-border-color-default);
+  border-radius: var(--cometchat-radius-2);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -86,14 +86,14 @@
 .change-scope__item {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--cometchat-spacing-3);
   height: 48px;
-  padding: var(--space-2) var(--space-4);
-  background: var(--color-bg-01);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-4);
+  background: var(--cometchat-background-color-01);
   cursor: pointer;
   transition: background 120ms ease;
   border: none;
-  border-bottom: 1px solid var(--color-border-default);
+  border-bottom: 1px solid var(--cometchat-border-color-default);
   position: relative;
 }
 
@@ -102,23 +102,23 @@
 }
 
 .change-scope__item:hover {
-  background: var(--color-bg-02);
+  background: var(--cometchat-background-color-02);
 }
 
 .change-scope__item--selected {
-  background: var(--color-bg-03);
+  background: var(--cometchat-background-color-03);
 }
 
 .change-scope__item--selected:hover {
-  background: var(--color-bg-03);
+  background: var(--cometchat-background-color-03);
 }
 
 /* ─── Radio button ─── */
 .change-scope__radio {
   width: 20px;
   height: 20px;
-  border-radius: var(--radius-full);
-  border: 1.5px solid var(--color-border-dark);
+  border-radius: var(--cometchat-radius-max);
+  border: 1.5px solid var(--cometchat-border-color-dark);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -127,30 +127,30 @@
 }
 
 .change-scope__radio--checked {
-  border-color: var(--color-ep-600);
+  border-color: var(--cometchat-extended-primary-color-600);
 }
 
 .change-scope__radio-dot {
   width: 10px;
   height: 10px;
-  border-radius: var(--radius-full);
-  background: var(--color-ep-600);
+  border-radius: var(--cometchat-radius-max);
+  background: var(--cometchat-extended-primary-color-600);
 }
 
 /* ─── Item label ─── */
 .change-scope__item-label {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-body);
-  color: var(--color-text-tertiary);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--cometchat-text-color-tertiary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .change-scope__item--selected .change-scope__item-label {
-  color: var(--color-text-primary);
+  color: var(--cometchat-text-color-primary);
 }
 
 /* Hidden native radio */
@@ -165,52 +165,52 @@
 /* ─── Buttons ─── */
 .change-scope__buttons {
   display: flex;
-  gap: var(--space-2);
+  gap: var(--cometchat-spacing-2);
   width: 100%;
-  padding: var(--space-3) 0;
+  padding: var(--cometchat-spacing-3) 0;
 }
 
 .change-scope__btn {
   flex: 1;
   height: 40px;
-  border-radius: var(--radius-md);
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-body);
+  border-radius: var(--cometchat-radius-2);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
   cursor: pointer;
   transition: background 120ms ease;
   outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-2) var(--space-5);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-5);
 }
 
 .change-scope__btn:focus-visible {
-  box-shadow: var(--focus-ring-xs);
+  box-shadow: var(--cometchat-focus-ring);
 }
 
 .change-scope__btn--cancel {
-  background: var(--color-bg-01);
-  color: var(--color-text-primary);
-  border: 1px solid var(--color-border-dark);
+  background: var(--cometchat-background-color-01);
+  color: var(--cometchat-text-color-primary);
+  border: 1px solid var(--cometchat-border-color-dark);
 }
 
 .change-scope__btn--cancel:hover {
-  background: var(--color-bg-02);
+  background: var(--cometchat-background-color-02);
 }
 
 .change-scope__btn--save {
-  background: var(--color-ep-600);
-  color: var(--color-static-white);
+  background: var(--cometchat-extended-primary-color-600);
+  color: var(--cometchat-static-white);
   border: none;
 }
 
 .change-scope__btn--save:hover {
-  background: var(--color-ep-700);
+  background: var(--cometchat-extended-primary-color-700);
 }
 
 .change-scope__btn--save:active {
-  background: var(--color-ep-800);
+  background: var(--cometchat-extended-primary-color-800);
 }

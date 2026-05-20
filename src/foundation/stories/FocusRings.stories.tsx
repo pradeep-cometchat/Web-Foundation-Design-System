@@ -15,7 +15,7 @@ import { focusRings, type FocusRingKey } from "../tokens/shadows";
  * variant for destructive controls so the focus color matches intent.
  */
 const meta: Meta<typeof FocusPlayground> = {
-  title: "Foundation/Effects/Focus Rings",
+  title: "CometChat Foundation/Effects/Focus Rings",
   component: FocusPlayground,
   tags: ["autodocs"],
   parameters: { layout: "fullscreen", themes: { themeOverride: "Light" } },
@@ -43,23 +43,23 @@ interface PlaygroundProps {
 function FocusPlayground({ variant, label }: PlaygroundProps) {
   const token = focusRings[variant];
   const cssVarName =
-    variant === "error" ? "focus-ring-error-xs" : "focus-ring-xs";
+    variant === "error" ? "focus-ring-error" : "focus-ring";
 
   return (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <div
         style={{
-          border: "1px solid var(--color-neutral-200)",
-          borderRadius: "var(--radius-2xl)",
+          border: "1px solid var(--cometchat-border-color-default)",
+          borderRadius: "var(--cometchat-radius-4)",
           overflow: "hidden",
-          background: "var(--color-white)",
-          boxShadow: "var(--shadow-sm)",
+          background: "var(--cometchat-static-white)",
+          boxShadow: "var(--cometchat-shadow-sm)",
         }}
       >
         <div
           style={{
-            padding: "var(--space-12)",
-            background: "var(--color-neutral-25)",
+            padding: "var(--cometchat-spacing-12)",
+            background: "var(--cometchat-background-color-01)",
             display: "flex",
             justifyContent: "center",
           }}
@@ -68,17 +68,17 @@ function FocusPlayground({ variant, label }: PlaygroundProps) {
             type="button"
             style={{
               padding: "10px 18px",
-              borderRadius: "var(--radius-md)",
+              borderRadius: "var(--cometchat-radius-2)",
               border: "1px solid transparent",
               background:
                 variant === "error"
-                  ? "var(--color-error-500)"
-                  : "var(--color-ep-500)",
-              color: "var(--color-white)",
-              fontWeight: "var(--font-weight-semibold)",
-              fontSize: "var(--font-size-2)",
+                  ? "var(--cometchat-error-color)"
+                  : "var(--cometchat-extended-primary-color-500)",
+              color: "var(--cometchat-static-white)",
+              fontWeight: "600",
+              fontSize: "14px",
               cursor: "pointer",
-              boxShadow: `var(--${cssVarName})`,
+              boxShadow: `var(--cometchat-${cssVarName})`,
               fontFamily: "inherit",
             }}
           >
@@ -89,13 +89,13 @@ function FocusPlayground({ variant, label }: PlaygroundProps) {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(2, 1fr)",
-            borderTop: "1px solid var(--color-neutral-200)",
+            borderTop: "1px solid var(--cometchat-border-color-default)",
           }}
         >
           <Stat label="Token" value={token.name} />
           <Stat
             label="CSS variable"
-            value={`var(--${cssVarName})`}
+            value={`var(--cometchat-${cssVarName})`}
             mono
             divider
           />
@@ -122,28 +122,28 @@ const Stat: React.FC<{
   <div
     style={{
       padding: "16px 20px",
-      borderLeft: divider ? "1px solid var(--color-neutral-200)" : "none",
-      background: "var(--color-neutral-25)",
+      borderLeft: divider ? "1px solid var(--cometchat-border-color-default)" : "none",
+      background: "var(--cometchat-background-color-01)",
     }}
   >
     <div
       style={{
-        fontSize: "var(--font-size-0)",
-        fontWeight: "var(--font-weight-semibold)",
+        fontSize: "10px",
+        fontWeight: "600",
         letterSpacing: "0.06em",
         textTransform: "uppercase",
-        color: "var(--color-neutral-500)",
-        marginBottom: "var(--space-1)",
+        color: "var(--cometchat-text-color-tertiary)",
+        marginBottom: "var(--cometchat-spacing-1)",
       }}
     >
       {label}
     </div>
     <div
       style={{
-        fontFamily: mono ? "var(--font-family-body)" : "inherit",
-        fontSize: "var(--font-size-2)",
-        fontWeight: "var(--font-weight-semibold)",
-        color: "var(--color-neutral-900)",
+        fontFamily: mono ? "var(--cometchat-font-family)" : "inherit",
+        fontSize: "14px",
+        fontWeight: "600",
+        color: "var(--cometchat-text-color-primary)",
       }}
     >
       {value}
@@ -160,7 +160,7 @@ export const Playground: StoryObj<typeof FocusPlayground> = {
 export const Reference: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Focus ring reference"
         description="Two tokens cover all interactive states: a brand ring for standard controls and an error ring for destructive ones."
@@ -169,23 +169,23 @@ export const Reference: StoryObj = {
         rows={(Object.keys(focusRings) as FocusRingKey[]).map((key) => {
           const t = focusRings[key];
           const cssVarName =
-            key === "error" ? "focus-ring-error-xs" : "focus-ring-xs";
+            key === "error" ? "focus-ring-error" : "focus-ring";
           return {
             name: t.name,
             value: t.description ?? "",
-            cssVar: `var(--${cssVarName})`,
+            cssVar: `var(--cometchat-${cssVarName})`,
             preview: (
               <div
                 aria-hidden
                 style={{
                   width: 56,
                   height: 32,
-                  borderRadius: "var(--radius-md)",
+                  borderRadius: "var(--cometchat-radius-2)",
                   background:
                     key === "error"
-                      ? "var(--color-error-500)"
-                      : "var(--color-ep-500)",
-                  boxShadow: `var(--${cssVarName})`,
+                      ? "var(--cometchat-error-color)"
+                      : "var(--cometchat-extended-primary-color-500)",
+                  boxShadow: `var(--cometchat-${cssVarName})`,
                   margin: 10,
                 }}
               />
@@ -203,7 +203,7 @@ export const Reference: StoryObj = {
 export const Accessibility: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Accessibility notes"
         description="Focus indicators are required by WCAG 2.4.7. These tokens meet the 3:1 non-text contrast requirement (WCAG 1.4.11) on both light and dark surfaces."
@@ -213,7 +213,7 @@ export const Accessibility: StoryObj = {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "var(--space-4)",
+            gap: "var(--cometchat-spacing-4)",
           }}
         >
           <Callout kind="success" title="Do">

@@ -433,18 +433,18 @@ export const Usage: Story = {
         />
       </Section>
 
-      <Section title="CSS (Foundation Variables)">
+      <Section title="CSS (CometChat Tokens)">
         <CodeCard
           language="CSS"
           code={`.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-1);
+  gap: var(--cometchat-spacing-1);
   border: none;
-  border-radius: var(--radius-md);
-  font-family: var(--font-family-heading);
-  font-weight: var(--font-weight-semibold);
+  border-radius: var(--cometchat-radius-2);
+  font-family: var(--cometchat-font-family);
+  font-weight: 500;
   cursor: pointer;
   transition: background 120ms ease, color 120ms ease,
     border-color 120ms ease, box-shadow 120ms ease;
@@ -458,18 +458,18 @@ export const Usage: Story = {
 }
 
 /* Sizes */
-.btn--sm { height: 36px; padding: var(--space-2) var(--space-3); font-size: var(--font-size-2); line-height: var(--line-height-body); }
-.btn--md { height: 40px; padding: 10px var(--space-3-5); font-size: var(--font-size-2); line-height: var(--line-height-body); }
-.btn--lg { height: 44px; padding: 10px var(--space-4); font-size: var(--font-size-3); line-height: var(--line-height-h4); }
-.btn--xl { height: 48px; padding: var(--space-3) 18px; font-size: var(--font-size-3); line-height: var(--line-height-h4); }
+.btn--sm { height: 36px; padding: var(--cometchat-spacing-2) var(--cometchat-spacing-3); font-size: 14px; line-height: 16.8px; }
+.btn--md { height: 40px; padding: 10px 14px; font-size: 14px; line-height: 16.8px; }
+.btn--lg { height: 44px; padding: 10px var(--cometchat-spacing-4); font-size: 16px; line-height: 19.2px; }
+.btn--xl { height: 48px; padding: var(--cometchat-spacing-3) 18px; font-size: 16px; line-height: 19.2px; }
 
 /* Primary */
-.btn--primary { background: var(--color-primary); color: var(--color-white); box-shadow: var(--shadow-xs); }
+.btn--primary { background: var(--cometchat-primary-color); color: var(--color-white); box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.05); }
 .btn--primary:hover { background: var(--color-ep-700); }
 .btn--primary:disabled { background: var(--color-neutral-lm-100); color: var(--color-neutral-lm-400); border: 1px solid var(--color-neutral-lm-200); cursor: not-allowed; }
 
 /* Secondary */
-.btn--secondary { background: var(--color-white); color: var(--color-neutral-lm-700); border: 1px solid var(--color-neutral-lm-300); box-shadow: var(--shadow-xs); }
+.btn--secondary { background: var(--color-white); color: var(--color-neutral-lm-700); border: 1px solid var(--color-neutral-lm-300); box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.05); }
 .btn--secondary:hover { background: var(--color-neutral-lm-50); color: var(--color-neutral-lm-800); }
 
 /* Tertiary */
@@ -477,7 +477,7 @@ export const Usage: Story = {
 .btn--tertiary:hover { background: var(--color-neutral-lm-50); color: var(--color-neutral-lm-700); }
 
 /* Destructive Primary */
-.btn--destructive-primary { background: var(--color-error); color: var(--color-white); box-shadow: var(--shadow-xs); }
+.btn--destructive-primary { background: var(--cometchat-error-color); color: var(--color-white); box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.05); }
 .btn--destructive-primary:hover { background: var(--color-error-700); }
 .btn--destructive-primary:focus-visible { box-shadow: var(--focus-ring-error-xs); }
 

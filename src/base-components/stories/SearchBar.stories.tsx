@@ -170,7 +170,7 @@ export const Usage: Story = {
         />
       </Section>
 
-      <Section title="CSS (Foundation Variables)">
+      <Section title="CSS (CometChat Tokens)">
         <CodeCard
           language="CSS"
           code={`.search-bar {
@@ -182,19 +182,19 @@ export const Usage: Story = {
 .search-bar__input-wrapper {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--cometchat-spacing-1);
   flex: 1;
   height: 40px;
-  padding: var(--space-2) var(--space-3);
-  background: var(--color-bg-03);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-full);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-3);
+  background: var(--cometchat-background-color-03);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-max);
   transition: border-color 120ms ease, background 120ms ease;
 }
 
 .search-bar__input-wrapper:focus-within {
-  border-color: var(--color-border-default);
-  background: var(--color-bg-01);
+  border-color: var(--cometchat-border-color-default);
+  background: var(--cometchat-background-color-01);
 }
 
 .search-bar__icon {
@@ -203,7 +203,7 @@ export const Usage: Story = {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-icon-tertiary);
+  color: var(--cometchat-icon-color-tertiary);
 }
 
 .search-bar__input {
@@ -211,14 +211,14 @@ export const Usage: Story = {
   border: none;
   background: transparent;
   outline: none;
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-3);
-  font-weight: var(--font-weight-regular);
-  color: var(--color-text-primary);
+  font-family: var(--cometchat-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--cometchat-text-color-primary);
 }
 
 .search-bar__input::placeholder {
-  color: var(--color-icon-tertiary);
+  color: var(--cometchat-icon-color-tertiary);
 }
 
 .search-bar__clear {
@@ -230,13 +230,13 @@ export const Usage: Story = {
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--color-icon-tertiary);
+  color: var(--cometchat-icon-color-tertiary);
   border-radius: 50%;
 }
 
 .search-bar__clear:hover {
-  color: var(--color-text-primary);
-  background: var(--color-bg-04);
+  color: var(--cometchat-text-color-primary);
+  background: var(--cometchat-background-color-04);
 }`}
         />
       </Section>

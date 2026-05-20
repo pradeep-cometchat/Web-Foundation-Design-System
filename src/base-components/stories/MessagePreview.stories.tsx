@@ -124,14 +124,14 @@ export const Usage: StoryObj = {
   </div>
 </div>`} />
       </UsageSection>
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <UsageCodeCard language="CSS" code={`.message-preview {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--cometchat-spacing-2);
   width: 100%;
-  background: var(--color-bg-03);
-  border-radius: var(--radius-xs);
+  background: var(--cometchat-background-color-03);
+  border-radius: var(--cometchat-radius-1);
   overflow: hidden;
   position: relative;
 }
@@ -139,26 +139,26 @@ export const Usage: StoryObj = {
 .message-preview__border {
   width: 4px;
   align-self: stretch;
-  border-radius: var(--radius-xs) 0 0 var(--radius-xs);
+  border-radius: var(--cometchat-radius-1) 0 0 var(--cometchat-radius-1);
 }
 
 .message-preview__border--reply {
-  background: var(--color-ep-600);
+  background: var(--cometchat-primary-color);
 }
 
 .message-preview__sender {
-  font-size: var(--font-size-1);
-  font-weight: var(--font-weight-medium);
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .message-preview__sender--reply {
-  color: var(--color-ep-600);
+  color: var(--cometchat-primary-color);
 }
 
 .message-preview__text {
-  font-size: var(--font-size-1);
-  font-weight: var(--font-weight-regular);
-  color: var(--color-text-tertiary);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--cometchat-text-color-tertiary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -166,15 +166,15 @@ export const Usage: StoryObj = {
 
 .message-preview__close {
   position: absolute;
-  top: var(--space-2);
-  right: var(--space-2);
+  top: var(--cometchat-spacing-2);
+  right: var(--cometchat-spacing-2);
   width: 20px;
   height: 20px;
-  color: var(--color-text-tertiary);
+  color: var(--cometchat-text-color-tertiary);
 }
 
 .message-preview__close:hover {
-  background: var(--color-bg-04);
+  background: var(--cometchat-background-color-04);
 }`} />
       </UsageSection>
     </div>

@@ -2,10 +2,10 @@
 
 .create-poll {
   width: 420px;
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-3xl);
-  box-shadow: var(--shadow-lg);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-5);
+  box-shadow: var(--cometchat-shadow-lg);
   display: flex;
   flex-direction: column;
 }
@@ -16,17 +16,17 @@
   align-items: center;
   justify-content: space-between;
   height: 64px;
-  padding: var(--space-2) var(--space-4);
-  border-bottom: 1px solid var(--color-border-light);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-4);
+  border-bottom: 1px solid var(--cometchat-border-color-light);
   flex-shrink: 0;
 }
 
 .create-poll__title {
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-5);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-h2);
-  color: var(--color-text-primary);
+  font-family: var(--cometchat-font-family);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  color: var(--cometchat-text-color-primary);
 }
 
 .create-poll__close {
@@ -38,13 +38,13 @@
   border: none;
   background: transparent;
   cursor: pointer;
-  color: var(--color-text-primary);
+  color: var(--cometchat-text-color-primary);
   padding: 0;
-  border-radius: var(--radius-xs);
+  border-radius: var(--cometchat-radius-1);
 }
 
 .create-poll__close:hover {
-  background: var(--color-bg-02);
+  background: var(--cometchat-background-color-02);
 }
 
 .create-poll__close svg {
@@ -56,53 +56,53 @@
 .create-poll__body {
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
-  padding: var(--space-4);
+  gap: var(--cometchat-spacing-5);
+  padding: var(--cometchat-spacing-4);
 }
 
 .create-poll__section {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--cometchat-spacing-3);
 }
 
 .create-poll__label {
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-3);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-h4);
-  color: var(--color-text-primary);
+  font-family: var(--cometchat-font-family);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--cometchat-text-color-primary);
 }
 
 /* Question input — rounded, larger */
 .create-poll__question-input {
   width: 100%;
-  padding: var(--space-3) var(--space-4);
-  border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-md);
-  background: var(--color-bg-01);
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body);
-  color: var(--color-text-primary);
+  padding: var(--cometchat-spacing-3) var(--cometchat-spacing-4);
+  border: 1px solid var(--cometchat-border-color-default);
+  border-radius: var(--cometchat-radius-2);
+  background: var(--cometchat-background-color-01);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--cometchat-text-color-primary);
   outline: none;
   box-sizing: border-box;
 }
 
 .create-poll__question-input::placeholder {
-  color: var(--color-icon-tertiary);
+  color: var(--cometchat-icon-color-tertiary);
 }
 
 .create-poll__question-input:focus {
-  border-color: var(--color-ep-300);
+  border-color: var(--cometchat-extended-primary-color-300);
 }
 
 /* ─── Option row ─── */
 .create-poll__option-row {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--cometchat-spacing-2);
 }
 
 /* Drag handle */
@@ -114,7 +114,7 @@
   justify-content: center;
   border: none;
   background: transparent;
-  color: var(--color-icon-tertiary);
+  color: var(--cometchat-icon-color-tertiary);
   cursor: grab;
   padding: 0;
   flex-shrink: 0;
@@ -131,15 +131,15 @@
   display: flex;
   align-items: center;
   min-width: 0;
-  padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-md);
-  background: var(--color-bg-01);
-  gap: var(--space-2);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-3);
+  border: 1px solid var(--cometchat-border-color-default);
+  border-radius: var(--cometchat-radius-2);
+  background: var(--cometchat-background-color-01);
+  gap: var(--cometchat-spacing-2);
 }
 
 .create-poll__option-field:focus-within {
-  border-color: var(--color-ep-300);
+  border-color: var(--cometchat-extended-primary-color-300);
 }
 
 .create-poll__option-input {
@@ -147,17 +147,17 @@
   min-width: 0;
   border: none;
   background: transparent;
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body);
-  color: var(--color-text-primary);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--cometchat-text-color-primary);
   outline: none;
   padding: 0;
 }
 
 .create-poll__option-input::placeholder {
-  color: var(--color-icon-tertiary);
+  color: var(--cometchat-icon-color-tertiary);
 }
 
 /* Emoji button inside option */
@@ -169,15 +169,15 @@
   justify-content: center;
   border: none;
   background: transparent;
-  color: var(--color-icon-tertiary);
+  color: var(--cometchat-icon-color-tertiary);
   cursor: pointer;
   padding: 0;
   flex-shrink: 0;
-  border-radius: var(--radius-xs);
+  border-radius: var(--cometchat-radius-1);
 }
 
 .create-poll__emoji-btn:hover {
-  color: var(--color-text-secondary);
+  color: var(--cometchat-text-color-secondary);
 }
 
 .create-poll__emoji-btn svg {
@@ -194,15 +194,15 @@
   justify-content: center;
   border: none;
   background: transparent;
-  color: var(--color-icon-tertiary);
+  color: var(--cometchat-icon-color-tertiary);
   cursor: pointer;
   padding: 0;
   flex-shrink: 0;
-  border-radius: var(--radius-xs);
+  border-radius: var(--cometchat-radius-1);
 }
 
 .create-poll__remove:hover {
-  color: var(--color-text-secondary);
+  color: var(--cometchat-text-color-secondary);
 }
 
 .create-poll__remove svg {
@@ -214,20 +214,20 @@
 .create-poll__add-option {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--cometchat-spacing-2);
   border: none;
   background: transparent;
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-body);
-  color: var(--color-ep-600);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--cometchat-extended-primary-color-600);
   cursor: pointer;
-  padding: var(--space-1) 0;
+  padding: var(--cometchat-spacing-1) 0;
 }
 
 .create-poll__add-option:hover {
-  color: var(--color-ep-700);
+  color: var(--cometchat-extended-primary-color-700);
 }
 
 .create-poll__add-option svg {
@@ -239,50 +239,50 @@
 .create-poll__footer {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  padding: var(--space-4);
-  border-top: 1px solid var(--color-border-light);
+  gap: var(--cometchat-spacing-3);
+  padding: var(--cometchat-spacing-4);
+  border-top: 1px solid var(--cometchat-border-color-light);
 }
 
 /* Error banner */
 .create-poll__error {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-3);
-  background: var(--color-bg-error-primary);
-  border-radius: var(--radius-md);
+  gap: var(--cometchat-spacing-2);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-3);
+  background: var(--cometchat-background-color-error);
+  border-radius: var(--cometchat-radius-2);
 }
 
 .create-poll__error svg {
   width: 20px;
   height: 20px;
-  color: var(--color-icon-error-primary);
+  color: var(--cometchat-icon-color-error);
   flex-shrink: 0;
 }
 
 .create-poll__error span {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-caption-1);
-  color: var(--color-text-error);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--cometchat-text-color-error);
 }
 
 /* Buttons */
 .create-poll__buttons {
   display: flex;
-  gap: var(--space-2);
+  gap: var(--cometchat-spacing-2);
 }
 
 .create-poll__btn {
   flex: 1;
   height: 44px;
-  border-radius: var(--radius-md);
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-body);
+  border-radius: var(--cometchat-radius-2);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
   cursor: pointer;
   outline: none;
   display: flex;
@@ -292,32 +292,32 @@
 }
 
 .create-poll__btn:focus-visible {
-  box-shadow: var(--focus-ring-xs);
+  box-shadow: var(--cometchat-focus-ring);
 }
 
 .create-poll__btn--cancel {
-  background: var(--color-bg-01);
-  color: var(--color-text-primary);
-  border: 1px solid var(--color-border-dark);
+  background: var(--cometchat-background-color-01);
+  color: var(--cometchat-text-color-primary);
+  border: 1px solid var(--cometchat-border-color-dark);
 }
 
 .create-poll__btn--cancel:hover {
-  background: var(--color-bg-02);
+  background: var(--cometchat-background-color-02);
 }
 
 .create-poll__btn--create {
-  background: var(--color-bg-04);
-  color: var(--color-icon-tertiary);
+  background: var(--cometchat-background-color-04);
+  color: var(--cometchat-icon-color-tertiary);
   border: none;
   cursor: not-allowed;
 }
 
 .create-poll__btn--active {
-  background: var(--color-ep-600);
-  color: var(--color-static-white);
+  background: var(--cometchat-extended-primary-color-600);
+  color: var(--cometchat-static-white);
   cursor: pointer;
 }
 
 .create-poll__btn--active:hover {
-  background: var(--color-ep-700);
+  background: var(--cometchat-extended-primary-color-700);
 }

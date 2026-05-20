@@ -14,7 +14,7 @@ import { shadows, type ShadowKey } from "../tokens/shadows";
  * alone are not a reliable visual cue in high-contrast modes.
  */
 const meta: Meta<typeof ShadowPlayground> = {
-  title: "Foundation/Effects/Shadows",
+  title: "CometChat Foundation/Effects/Shadows",
   component: ShadowPlayground,
   tags: ["autodocs"],
   parameters: { layout: "fullscreen", themes: { themeOverride: "Light" } },
@@ -36,20 +36,20 @@ interface PlaygroundProps {
 function ShadowPlayground({ level }: PlaygroundProps) {
   const token = shadows[level];
   return (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <div
         style={{
-          border: "1px solid var(--color-neutral-200)",
-          borderRadius: "var(--radius-2xl)",
+          border: "1px solid var(--cometchat-border-color-default)",
+          borderRadius: "var(--cometchat-radius-4)",
           overflow: "hidden",
-          background: "var(--color-white)",
-          boxShadow: "var(--shadow-sm)",
+          background: "var(--cometchat-static-white)",
+          boxShadow: "var(--cometchat-shadow-sm)",
         }}
       >
         <div
           style={{
-            padding: "var(--space-12)",
-            background: "var(--color-neutral-25)",
+            padding: "var(--cometchat-spacing-12)",
+            background: "var(--cometchat-background-color-01)",
             display: "flex",
             justifyContent: "center",
           }}
@@ -59,9 +59,9 @@ function ShadowPlayground({ level }: PlaygroundProps) {
             style={{
               width: 280,
               height: 140,
-              borderRadius: "var(--radius-xl)",
-              background: "var(--color-white)",
-              boxShadow: `var(--shadow-${level})`,
+              borderRadius: "var(--cometchat-radius-3)",
+              background: "var(--cometchat-static-white)",
+              boxShadow: `var(--cometchat-shadow-${level})`,
             }}
           />
         </div>
@@ -69,7 +69,7 @@ function ShadowPlayground({ level }: PlaygroundProps) {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(2, 1fr)",
-            borderTop: "1px solid var(--color-neutral-200)",
+            borderTop: "1px solid var(--cometchat-border-color-default)",
           }}
         >
           <Stat label="Token" value={token.name} />
@@ -85,7 +85,7 @@ function ShadowPlayground({ level }: PlaygroundProps) {
             {
               name: token.name,
               value: token.css,
-              cssVar: `var(--shadow-${level})`,
+              cssVar: `var(--cometchat-shadow-${level})`,
             },
           ]}
         />
@@ -104,29 +104,29 @@ const Stat: React.FC<{
     style={{
       padding: "16px 20px",
       borderLeft: divider
-        ? "1px solid var(--color-neutral-200)"
+        ? "1px solid var(--cometchat-border-color-default)"
         : "none",
-      background: "var(--color-neutral-25)",
+      background: "var(--cometchat-background-color-01)",
     }}
   >
     <div
       style={{
-        fontSize: "var(--font-size-0)",
-        fontWeight: "var(--font-weight-semibold)",
+        fontSize: "10px",
+        fontWeight: "600",
         letterSpacing: "0.06em",
         textTransform: "uppercase",
-        color: "var(--color-neutral-500)",
-        marginBottom: "var(--space-1)",
+        color: "var(--cometchat-text-color-tertiary)",
+        marginBottom: "var(--cometchat-spacing-1)",
       }}
     >
       {label}
     </div>
     <div
       style={{
-        fontFamily: mono ? "var(--font-family-body)" : "inherit",
-        fontSize: "var(--font-size-2)",
-        fontWeight: "var(--font-weight-semibold)",
-        color: "var(--color-neutral-900)",
+        fontFamily: mono ? "var(--cometchat-font-family)" : "inherit",
+        fontSize: "14px",
+        fontWeight: "600",
+        color: "var(--cometchat-text-color-primary)",
       }}
     >
       {value}
@@ -143,7 +143,7 @@ export const Playground: StoryObj<typeof ShadowPlayground> = {
 export const Scale: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Elevation scale"
         description="Pick the smallest shadow that communicates the right intent. Over-elevating makes the UI feel noisy."
@@ -154,11 +154,11 @@ export const Scale: StoryObj = {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-          gap: "var(--space-5)",
-          padding: "var(--space-8)",
-          background: "var(--color-neutral-25)",
-          border: "1px solid var(--color-neutral-200)",
-          borderRadius: "var(--radius-2xl)",
+          gap: "var(--cometchat-spacing-5)",
+          padding: "var(--cometchat-spacing-8)",
+          background: "var(--cometchat-background-color-01)",
+          border: "1px solid var(--cometchat-border-color-default)",
+          borderRadius: "var(--cometchat-radius-4)",
         }}
       >
         {(Object.keys(shadows) as ShadowKey[]).map((key) => (
@@ -167,7 +167,7 @@ export const Scale: StoryObj = {
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: "var(--space-3)",
+              gap: "var(--cometchat-spacing-3)",
               alignItems: "center",
             }}
           >
@@ -176,22 +176,22 @@ export const Scale: StoryObj = {
               style={{
                 width: "100%",
                 height: 100,
-                borderRadius: "var(--radius-xl)",
-                background: "var(--color-white)",
-                boxShadow: `var(--shadow-${key})`,
+                borderRadius: "var(--cometchat-radius-3)",
+                background: "var(--cometchat-static-white)",
+                boxShadow: `var(--cometchat-shadow-${key})`,
               }}
             />
             <strong
               style={{
-                fontSize: "var(--font-size-1)",
-                fontWeight: "var(--font-weight-semibold)",
-                color: "var(--color-neutral-900)",
+                fontSize: "12px",
+                fontWeight: "600",
+                color: "var(--cometchat-text-color-primary)",
               }}
             >
               shadow-{key}
             </strong>
             <CopyButton
-              value={`var(--shadow-${key})`}
+              value={`var(--cometchat-shadow-${key})`}
               label="Copy"
               variant="solid"
             />
@@ -206,7 +206,7 @@ export const Scale: StoryObj = {
 export const Reference: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Shadow reference"
         description="Every elevation token with its layer count and full CSS value."
@@ -217,7 +217,7 @@ export const Reference: StoryObj = {
           return {
             name: s.name,
             value: `${s.layers.length} layer${s.layers.length > 1 ? "s" : ""}`,
-            cssVar: `var(--shadow-${key})`,
+            cssVar: `var(--cometchat-shadow-${key})`,
             description: s.css,
             preview: (
               <div
@@ -225,9 +225,9 @@ export const Reference: StoryObj = {
                 style={{
                   width: 64,
                   height: 32,
-                  borderRadius: "var(--radius-sm)",
-                  background: "var(--color-white)",
-                  boxShadow: `var(--shadow-${key})`,
+                  borderRadius: "var(--cometchat-radius-1-5)",
+                  background: "var(--cometchat-static-white)",
+                  boxShadow: `var(--cometchat-shadow-${key})`,
                 }}
               />
             ),
@@ -244,7 +244,7 @@ export const Reference: StoryObj = {
 export const UsageGuide: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Usage guide"
         description="Guidelines for when to reach for each elevation. If in doubt, use the smaller one."
@@ -262,16 +262,16 @@ export const UsageGuide: StoryObj = {
             {
               name: "shadow-xs",
               value: "Inputs, chips, subtle lift",
-              cssVar: "var(--shadow-xs)",
+              cssVar: "var(--cometchat-shadow-xs)",
               preview: (
                 <div
                   aria-hidden
                   style={{
                     width: 56,
                     height: 28,
-                    borderRadius: "var(--radius-sm)",
-                    background: "var(--color-white)",
-                    boxShadow: "var(--shadow-xs)",
+                    borderRadius: "var(--cometchat-radius-1-5)",
+                    background: "var(--cometchat-static-white)",
+                    boxShadow: "var(--cometchat-shadow-xs)",
                   }}
                 />
               ),
@@ -279,16 +279,16 @@ export const UsageGuide: StoryObj = {
             {
               name: "shadow-sm",
               value: "Cards, list items",
-              cssVar: "var(--shadow-sm)",
+              cssVar: "var(--cometchat-shadow-sm)",
               preview: (
                 <div
                   aria-hidden
                   style={{
                     width: 56,
                     height: 28,
-                    borderRadius: "var(--radius-sm)",
-                    background: "var(--color-white)",
-                    boxShadow: "var(--shadow-sm)",
+                    borderRadius: "var(--cometchat-radius-1-5)",
+                    background: "var(--cometchat-static-white)",
+                    boxShadow: "var(--cometchat-shadow-sm)",
                   }}
                 />
               ),
@@ -296,16 +296,16 @@ export const UsageGuide: StoryObj = {
             {
               name: "shadow-md",
               value: "Dropdowns, menus, floating buttons",
-              cssVar: "var(--shadow-md)",
+              cssVar: "var(--cometchat-shadow-md)",
               preview: (
                 <div
                   aria-hidden
                   style={{
                     width: 56,
                     height: 28,
-                    borderRadius: "var(--radius-sm)",
-                    background: "var(--color-white)",
-                    boxShadow: "var(--shadow-md)",
+                    borderRadius: "var(--cometchat-radius-1-5)",
+                    background: "var(--cometchat-static-white)",
+                    boxShadow: "var(--cometchat-shadow-md)",
                   }}
                 />
               ),
@@ -313,16 +313,16 @@ export const UsageGuide: StoryObj = {
             {
               name: "shadow-lg",
               value: "Popovers, tooltips with elevation",
-              cssVar: "var(--shadow-lg)",
+              cssVar: "var(--cometchat-shadow-lg)",
               preview: (
                 <div
                   aria-hidden
                   style={{
                     width: 56,
                     height: 28,
-                    borderRadius: "var(--radius-sm)",
-                    background: "var(--color-white)",
-                    boxShadow: "var(--shadow-lg)",
+                    borderRadius: "var(--cometchat-radius-1-5)",
+                    background: "var(--cometchat-static-white)",
+                    boxShadow: "var(--cometchat-shadow-lg)",
                   }}
                 />
               ),
@@ -330,16 +330,16 @@ export const UsageGuide: StoryObj = {
             {
               name: "shadow-xl",
               value: "Modals, sheets, dialogs",
-              cssVar: "var(--shadow-xl)",
+              cssVar: "var(--cometchat-shadow-xl)",
               preview: (
                 <div
                   aria-hidden
                   style={{
                     width: 56,
                     height: 28,
-                    borderRadius: "var(--radius-sm)",
-                    background: "var(--color-white)",
-                    boxShadow: "var(--shadow-xl)",
+                    borderRadius: "var(--cometchat-radius-1-5)",
+                    background: "var(--cometchat-static-white)",
+                    boxShadow: "var(--cometchat-shadow-xl)",
                   }}
                 />
               ),

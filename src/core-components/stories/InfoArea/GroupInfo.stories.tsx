@@ -19,7 +19,7 @@ const female = avatarRegistry["Female Avatar"];
 
 export const Default: StoryObj = {
   render: () => (
-    <div style={{ width: 420, height: 800, display: "flex", flexDirection: "column", background: "var(--color-bg-01)", border: "1px solid var(--color-border-default)", overflow: "hidden" }}>
+    <div style={{ width: 420, height: 800, display: "flex", flexDirection: "column", background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", overflow: "hidden" }}>
       <GroupInfoHeader />
       <div style={{ flex: 1, overflowY: "auto", display: "flex", flexDirection: "column" }}>
         <GroupInfoProfile />
@@ -37,9 +37,9 @@ export const Default: StoryObj = {
 export const AllStates: StoryObj = {
   parameters: { layout: "fullscreen" },
   render: () => (
-    <div style={{ display: "flex", gap: "var(--space-6)", padding: "var(--space-8)", overflowX: "auto" }}>
+    <div style={{ display: "flex", gap: "var(--cometchat-spacing-6)", padding: "var(--cometchat-spacing-8)", overflowX: "auto" }}>
       <StateLabel label="Default">
-        <div style={{ width: 420, height: 800, display: "flex", flexDirection: "column", background: "var(--color-bg-01)", border: "1px solid var(--color-border-default)", overflow: "hidden" }}>
+        <div style={{ width: 420, height: 800, display: "flex", flexDirection: "column", background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", overflow: "hidden" }}>
           <GroupInfoHeader />
           <div style={{ flex: 1, overflowY: "auto", display: "flex", flexDirection: "column" }}>
             <GroupInfoProfile />
@@ -59,7 +59,7 @@ export const AllStates: StoryObj = {
 export const Usage: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <UsageSection title="HTML Structure">
         <CodeCard
           language="HTML"
@@ -120,7 +120,7 @@ export const Usage: StoryObj = {
         />
       </UsageSection>
 
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <CodeCard
           language="CSS"
           code={`.group-info {
@@ -128,8 +128,8 @@ export const Usage: StoryObj = {
   flex-direction: column;
   width: 420px;
   height: 100%;
-  background: var(--color-bg-01);
-  border-left: 1px solid var(--color-border-light);
+  background: var(--cometchat-background-color-01);
+  border-left: 1px solid var(--cometchat-border-color-light);
 }
 
 .group-info__header {
@@ -138,7 +138,7 @@ export const Usage: StoryObj = {
   gap: 8px;
   height: 64px;
   padding: 8px 16px;
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--cometchat-border-color-light);
 }
 
 .group-info__profile {
@@ -152,27 +152,27 @@ export const Usage: StoryObj = {
 .group-info__avatar {
   width: 120px;
   height: 120px;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
   overflow: hidden;
 }
 
 .group-info__name {
-  font-family: var(--font-family-heading);
+  font-family: var(--cometchat-font-family);
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
-  color: var(--color-text-primary);
+  color: var(--cometchat-text-color-primary);
 }
 
 .group-info__meta {
   font-size: 12px;
   line-height: 18px;
-  color: var(--color-text-secondary);
+  color: var(--cometchat-text-color-secondary);
 }
 
 .group-info__action-list {
-  border-top: 1px solid var(--color-border-light);
-  border-bottom: 1px solid var(--color-border-light);
+  border-top: 1px solid var(--cometchat-border-color-light);
+  border-bottom: 1px solid var(--cometchat-border-color-light);
 }
 
 .group-info__action-item {
@@ -184,19 +184,19 @@ export const Usage: StoryObj = {
 }
 
 .group-info__action-item--highlight {
-  color: var(--color-extended-primary-600);
+  color: var(--cometchat-extended-primary-color-600);
 }
 
 .group-info__action-item--danger {
-  color: var(--color-error-600);
+  color: var(--cometchat-error-color);
 }
 
 .group-info__tabs {
   display: flex;
   margin: 0 16px;
-  background: var(--color-bg-03);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-full);
+  background: var(--cometchat-background-color-03);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-max);
 }
 
 .group-info__tab {
@@ -205,51 +205,51 @@ export const Usage: StoryObj = {
   font-size: 14px;
   font-weight: 500;
   text-align: center;
-  border-radius: var(--radius-full);
-  color: var(--color-text-quaternary);
+  border-radius: var(--cometchat-radius-max);
+  color: var(--cometchat-text-color-tertiary);
 }
 
 .group-info__tab--active {
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-light);
-  color: var(--color-extended-primary-600);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-light);
+  color: var(--cometchat-extended-primary-color-600);
 }
 
 .group-info__member-badge--owner {
-  background: var(--color-extended-primary-600);
+  background: var(--cometchat-extended-primary-color-600);
   color: white;
   padding: 4px 12px;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
   font-size: 12px;
 }
 
 .group-info__member-badge--admin {
-  background: var(--color-extended-primary-100);
-  border: 1px solid var(--color-extended-primary-400);
-  color: var(--color-extended-primary-600);
+  background: var(--cometchat-extended-primary-color-100);
+  border: 1px solid var(--cometchat-extended-primary-color-400);
+  color: var(--cometchat-extended-primary-color-600);
   padding: 4px 12px;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
   font-size: 12px;
 }
 
 .group-info__member-badge--moderator {
-  background: var(--color-extended-primary-100);
-  color: var(--color-extended-primary-600);
+  background: var(--cometchat-extended-primary-color-100);
+  color: var(--cometchat-extended-primary-color-600);
   padding: 4px 12px;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
   font-size: 12px;
 }`}
         />
       </UsageSection>
 
       <UsageSection title="States">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <StateCard title="Default" description="Shows group avatar, name, member count, action buttons (Add Members, Leave, Delete and Exit), tabbed member list with role badges." />
         </div>
       </UsageSection>
 
       <UsageSection title="Composed From">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <StateCard title="SearchBar" description="Base Component — Search input used in the members section." />
           <StateCard title="Avatar" description="Foundation — Group avatar images from the avatar registry." />
         </div>
@@ -265,8 +265,8 @@ export const Usage: StoryObj = {
 function GroupInfoHeader() {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 8, height: 64, padding: "8px 16px", borderBottom: "1px solid var(--color-border-light, #f5f5f5)" }}>
-      <span className="icon-rounded" style={{ fontSize: 24, color: "var(--color-text-primary)", cursor: "pointer" }}>close</span>
-      <span style={{ flex: 1, fontFamily: "var(--font-family-heading)", fontSize: 20, fontWeight: 700, lineHeight: "30px", color: "var(--color-text-primary)" }}>Group Info</span>
+      <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-text-color-primary)", cursor: "pointer" }}>close</span>
+      <span style={{ flex: 1, fontFamily: "var(--cometchat-font-family)", fontSize: 20, fontWeight: 700, lineHeight: "30px", color: "var(--cometchat-text-color-primary)" }}>Group Info</span>
     </div>
   );
 }
@@ -278,7 +278,7 @@ function GroupInfoProfile() {
         <img src={group[7].imageUrl} alt="Innovative Online Shopping" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0, width: 244, textAlign: "center" }}>
-        <p style={{ margin: 0, fontFamily: "var(--font-family-heading)", fontSize: 20, fontWeight: 500, lineHeight: "30px", color: "var(--color-text-primary)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", width: "100%" }}>Innovative Online Shop...</p>
+        <p style={{ margin: 0, fontFamily: "var(--cometchat-font-family)", fontSize: 20, fontWeight: 500, lineHeight: "30px", color: "var(--cometchat-text-color-primary)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", width: "100%" }}>Innovative Online Shop...</p>
         <span style={{ fontSize: 12, lineHeight: "18px", color: "var(--color-text-secondary, #414651)" }}>44 Members</span>
       </div>
     </div>
@@ -313,10 +313,10 @@ function GroupInfoMembersTabs() {
       {/* Tabs — compact height */}
       <div style={{ padding: "16px 16px 0" }}>
         <div style={{ display: "flex", background: "var(--color-bg-03, #f5f5f5)", border: "1px solid var(--color-border-light, #f5f5f5)", borderRadius: "var(--radius-full, 9999px)", overflow: "hidden" }}>
-          <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", height: 32, padding: "6px 16px", borderRadius: "var(--radius-full, 9999px)", background: "var(--color-bg-01, white)", border: "1px solid var(--color-border-light, #f5f5f5)", fontFamily: "var(--font-family-heading)", fontSize: 14, fontWeight: 500, lineHeight: "20px", color: "var(--color-extended-primary-600, #6852d6)", cursor: "pointer" }}>
+          <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", height: 32, padding: "6px 16px", borderRadius: "var(--radius-full, 9999px)", background: "var(--color-bg-01, white)", border: "1px solid var(--color-border-light, #f5f5f5)", fontFamily: "var(--cometchat-font-family)", fontSize: 14, fontWeight: 500, lineHeight: "20px", color: "var(--color-extended-primary-600, #6852d6)", cursor: "pointer" }}>
             View Members
           </div>
-          <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", height: 32, padding: "6px 16px", borderRadius: "var(--radius-full, 9999px)", fontFamily: "var(--font-family-heading)", fontSize: 14, fontWeight: 500, lineHeight: "20px", color: "var(--color-text-quaternary, #717680)", cursor: "pointer" }}>
+          <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", height: 32, padding: "6px 16px", borderRadius: "var(--radius-full, 9999px)", fontFamily: "var(--cometchat-font-family)", fontSize: 14, fontWeight: 500, lineHeight: "20px", color: "var(--color-text-quaternary, #717680)", cursor: "pointer" }}>
             Banned Members
           </div>
         </div>
@@ -385,7 +385,7 @@ function MemberItem({ name, avatar, role }: { name: string; avatar: string; role
         <img src={avatar} alt={name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "space-between", minWidth: 0 }}>
-        <span style={{ fontFamily: "var(--font-family-heading)", fontSize: 16, fontWeight: 500, lineHeight: "24px", color: "var(--color-text-primary, #181d27)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{name}</span>
+        <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: 16, fontWeight: 500, lineHeight: "24px", color: "var(--color-text-primary, #181d27)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{name}</span>
         {role && <span style={badgeStyles[role]}>{role.charAt(0).toUpperCase() + role.slice(1)}</span>}
       </div>
     </div>
@@ -398,8 +398,8 @@ function MemberItem({ name, avatar, role }: { name: string; avatar: string; role
 
 function StateLabel({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
-      <span style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-medium)", color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}>{label}</span>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
+      <span style={{ fontSize: "12px", fontWeight: "500", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}>{label}</span>
       {children}
     </div>
   );
@@ -407,8 +407,8 @@ function StateLabel({ label, children }: { label: string; children: React.ReactN
 
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div style={{ marginBottom: "var(--space-6)" }}>
-      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-text-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)", paddingBottom: "var(--space-2)", borderBottom: "1px solid var(--color-border-default)" }}>{title}</div>
+    <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>{title}</div>
       {children}
     </div>
   );
@@ -416,11 +416,11 @@ function UsageSection({ title, children }: { title: string; children: React.Reac
 
 function CodeCard({ language, code }: { language: string; code: string }) {
   return (
-    <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-02)" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-03)" }}>
-        <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-secondary)" }}>{language}</span>
+    <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", background: "var(--cometchat-background-color-02)" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-03)" }}>
+        <span style={{ fontSize: "10px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-secondary)" }}>{language}</span>
       </div>
-      <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <pre style={{ margin: 0, padding: "var(--cometchat-spacing-3-5)", fontFamily: "var(--cometchat-font-family)", fontSize: "12px", lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto" }}>
         <code>{code}</code>
       </pre>
     </div>
@@ -429,9 +429,9 @@ function CodeCard({ language, code }: { language: string; code: string }) {
 
 function StateCard({ title, description }: { title: string; description: string }) {
   return (
-    <div style={{ padding: "var(--space-3-5) var(--space-4)", border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", background: "var(--color-bg-01)" }}>
-      <strong style={{ fontSize: "var(--font-size-2)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-text-primary)", display: "block", marginBottom: "var(--space-1)" }}>{title}</strong>
-      <span style={{ fontSize: "var(--font-size-1)", color: "var(--color-text-tertiary)", lineHeight: "var(--line-height-caption-1)" }}>{description}</span>
+    <div style={{ padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
+      <strong style={{ fontSize: "14px", fontWeight: "600", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>{title}</strong>
+      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "18px" }}>{description}</span>
     </div>
   );
 }

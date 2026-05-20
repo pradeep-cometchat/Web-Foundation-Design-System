@@ -253,46 +253,46 @@ export const Usage: StoryObj = {
   </button>
 </div>`} />
       </UsageSection>
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <CodeCard language="CSS" code={`.action-sheet {
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-2xl);
-  box-shadow: var(--shadow-lg);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-4);
+  box-shadow: 0px 12px 16px -4px rgba(0,0,0,0.08);
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
 .action-sheet__title {
-  padding: var(--space-3) var(--space-4);
-  font-size: var(--font-size-1);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-tertiary);
+  padding: var(--cometchat-spacing-3) var(--cometchat-spacing-4);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--cometchat-text-color-tertiary);
   text-transform: uppercase;
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--cometchat-border-color-light);
 }
 
 .action-sheet__item {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-3) var(--space-4);
+  gap: var(--cometchat-spacing-2);
+  padding: var(--cometchat-spacing-3) var(--cometchat-spacing-4);
   height: 44px;
-  background: var(--color-bg-01);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-regular);
-  color: var(--color-text-primary);
+  background: var(--cometchat-background-color-01);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--cometchat-text-color-primary);
   cursor: pointer;
   transition: background-color 0.12s ease;
 }
 
 .action-sheet__item:hover {
-  background: var(--color-bg-02);
+  background: var(--cometchat-background-color-02);
 }
 
 .action-sheet__item:active {
-  background: var(--color-bg-03);
+  background: var(--cometchat-background-color-03);
 }
 
 .action-sheet__item--destructive {
@@ -306,7 +306,7 @@ export const Usage: StoryObj = {
 .action-sheet__item-icon {
   width: 24px;
   height: 24px;
-  color: var(--color-ep-600);
+  color: var(--cometchat-primary-color);
 }
 
 .action-sheet__item--destructive .action-sheet__item-icon {

@@ -178,24 +178,24 @@ export const Usage: Story = {
   <span class="typing-indicator__text">2 people are typing</span>
 </div>`} />
       </Section>
-      <Section title="CSS (Foundation Variables)">
+      <Section title="CSS (CometChat Tokens)">
         <UsageCodeCard language="CSS" code={`.typing-indicator {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--cometchat-spacing-1);
 }
 
 .typing-indicator__dots {
   display: flex;
   align-items: center;
-  gap: var(--space-0-5);
+  gap: var(--cometchat-spacing);
 }
 
 .typing-indicator__dot {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: var(--color-ep-500);
+  background: var(--cometchat-extended-primary-color-500);
   animation: typing-dot-bounce 1.4s infinite ease-in-out both;
 }
 
@@ -208,10 +208,10 @@ export const Usage: Story = {
 }
 
 .typing-indicator__text {
-  font-size: var(--font-size-1);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-caption-1);
-  color: var(--color-ep-500);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.4px;
+  color: var(--cometchat-extended-primary-color-500);
 }`} />
       </Section>
     </div>

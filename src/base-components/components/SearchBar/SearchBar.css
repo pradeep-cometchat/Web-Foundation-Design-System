@@ -10,27 +10,26 @@
 .search-bar__input-wrapper {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--cometchat-spacing-1);
   flex: 1;
   min-width: 0;
   height: 40px;
-  padding: var(--space-2) var(--space-3);
-  background: var(--color-bg-04);
-  border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-full);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-3);
+  background: var(--cometchat-background-color-04);
+  border: 1px solid var(--cometchat-border-color-default);
+  border-radius: var(--cometchat-radius-max);
   overflow: clip;
   transition: border-color 120ms ease, background 120ms ease;
   box-sizing: border-box;
 }
 
 .search-bar__input-wrapper:hover {
-  background: var(--color-bg-03);
-  border-color: var(--color-border-dark);
+  background: var(--cometchat-background-color-03);
+  border-color: var(--cometchat-border-color-dark);
 }
 
 .search-bar__input-wrapper:focus-within {
-  background: var(--color-bg-03);
-  border-color: var(--color-ep-600);
+  background: var(--cometchat-background-color-03);
 }
 
 /* Search icon: 24×24 */
@@ -41,7 +40,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: var(--color-icon-tertiary);
+  color: var(--cometchat-icon-color-tertiary);
 }
 
 .search-bar__icon svg {
@@ -56,16 +55,16 @@
   border: none;
   background: transparent;
   outline: none;
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-3);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body);
-  color: var(--color-text-primary);
+  font-family: var(--cometchat-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--cometchat-text-color-primary);
   padding: 0;
 }
 
 .search-bar__input::placeholder {
-  color: var(--color-icon-tertiary);
+  color: var(--cometchat-icon-color-tertiary);
 }
 
 /* Clear button: 20×20, appears when input has value */
@@ -79,15 +78,15 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--color-icon-tertiary);
+  color: var(--cometchat-icon-color-tertiary);
   padding: 0;
   border-radius: 50%;
   transition: color 120ms ease, background 120ms ease;
 }
 
 .search-bar__clear:hover {
-  color: var(--color-text-primary);
-  background: var(--color-bg-04);
+  color: var(--cometchat-text-color-primary);
+  background: var(--cometchat-background-color-04);
 }
 
 .search-bar__clear svg {

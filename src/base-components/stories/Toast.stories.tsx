@@ -150,14 +150,14 @@ export const Usage: Story = {
         />
       </Section>
 
-      <Section title="CSS (Foundation Variables)">
+      <Section title="CSS (CometChat Tokens)">
         <CodeCard
           language="CSS"
           code={`.toast {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-md);
+  border-radius: var(--cometchat-radius-2);
   filter: drop-shadow(0px 12px 8px rgba(10, 13, 18, 0.08))
     drop-shadow(0px 4px 3px rgba(10, 13, 18, 0.03))
     drop-shadow(0px 2px 1px rgba(10, 13, 18, 0.04));
@@ -166,16 +166,16 @@ export const Usage: Story = {
 .toast__content {
   display: flex;
   align-items: flex-start;
-  padding: var(--space-2);
+  padding: var(--cometchat-spacing-2);
   background: var(--color-neutral-lm-950, #0a0d12);
-  border-radius: var(--radius-xs);
+  border-radius: var(--cometchat-radius-1);
 }
 
 .toast__message {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-1);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-caption-1);
+  font-family: var(--cometchat-font-family);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.4px;
   color: var(--color-white);
   text-align: center;
   white-space: nowrap;

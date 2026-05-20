@@ -52,17 +52,6 @@ const IconSticker = () => (
     <path d="M200-160q-33 0-56.5-23.5T120-240v-480q0-33 23.5-56.5T200-800h560q33 0 56.5 23.5T840-720v320L600-160H200Zm0-80h360v-120q0-33 23.5-56.5T640-440h120v-280H200v480Z" fill="currentColor"/>
   </svg>
 );
-const IconFormatting = () => (
-  <svg width="20" height="20" viewBox="0 0 14.1 9.375" fill="none">
-    <path d="M2.1 6.833l-.667 1.854a.83.83 0 0 1-.27.354.74.74 0 0 1-.418.126c-.264 0-.469-.108-.614-.324-.146-.215-.17-.44-.073-.677L2.933.5a.83.83 0 0 1 .282-.365A.74.74 0 0 1 3.642 0h.583c.153 0 .299.045.438.135a.83.83 0 0 1 .291.365l2.875 7.688c.097.236.07.458-.083.666-.153.209-.354.313-.604.313a.74.74 0 0 1-.417-.135.83.83 0 0 1-.271-.365l-.646-1.834H2.1Zm.48-1.333h2.728L3.975 1.708h-.084L2.58 5.5Zm8.228 3.875c-.708 0-1.27-.191-1.687-.573-.417-.382-.625-.885-.625-1.51 0-.611.24-1.115.72-1.51.479-.396 1.093-.594 1.843-.594.32 0 .632.028.938.084.305.055.569.132.791.229v-.25c0-.403-.142-.73-.427-.98-.285-.25-.663-.374-1.135-.374a1.7 1.7 0 0 0-.615.094 1.5 1.5 0 0 0-.552.28c-.181.14-.351.188-.51.147a.56.56 0 0 1-.386-.23.47.47 0 0 1-.146-.395c0-.153.076-.285.229-.396.278-.222.59-.385.938-.49.347-.104.701-.156 1.063-.156.958 0 1.673.226 2.146.677.471.451.708 1.128.708 2.031v3.063a.63.63 0 0 1-.168.458.58.58 0 0 1-.469.187.58.58 0 0 1-.458-.197.63.63 0 0 1-.188-.49v-.104h-.083a1.8 1.8 0 0 1-.792.729c-.333.167-.701.25-1.104.25Zm.25-1.125c.486 0 .9-.167 1.24-.5.34-.333.51-.722.51-1.167a2.2 2.2 0 0 0-.698-.26 3.3 3.3 0 0 0-.802-.094c-.444 0-.791.097-1.041.292-.25.194-.375.451-.375.77 0 .278.111.507.333.688.222.18.5.271.833.271Z" fill="currentColor"/>
-  </svg>
-);
-const IconAI = () => (
-  <svg width="22" height="22" viewBox="0 0 20 20" fill="none" style={{ minWidth: 22, minHeight: 22 }}>
-    <path d="M7.377 5.43c.083-.406.663-.406.746 0a5 5 0 0 0 3.947 3.947c.406.083.406.663 0 .746a5 5 0 0 0-3.947 3.947c-.083.406-.663.406-.746 0a5 5 0 0 0-3.947-3.947c-.406-.083-.406-.663 0-.746A5 5 0 0 0 7.377 5.43Z" stroke="currentColor" strokeWidth="1.25" fill="none"/>
-    <path d="M13.913 4.145a.03.03 0 0 1 .049 0 3.38 3.38 0 0 0 2.393 2.393.03.03 0 0 1 0 .049 3.38 3.38 0 0 0-2.393 2.393.03.03 0 0 1-.049 0 3.38 3.38 0 0 0-2.393-2.393.03.03 0 0 1 0-.049 3.38 3.38 0 0 0 2.393-2.393Z" stroke="currentColor" strokeWidth="1.25" fill="none"/>
-  </svg>
-);
 const IconSend = () => (
   <svg width="16" height="14" viewBox="0 0 15.78 13.6" fill="none">
     <path d="M1.267 13.52c-.302.121-.589.095-.86-.077-.271-.172-.407-.422-.407-.751V8.47L6.923 6.797 0 5.124V.903C0 .574.136.324.407.152.678-.02.965-.046 1.267.075L15.223 5.96c.372.166.558.447.558.84 0 .393-.186.673-.558.836L1.267 13.52Z" fill="currentColor"/>
@@ -87,13 +76,6 @@ const IconStickerFilled = () => (
     <path d="M560-240v-120q0-33 23.5-56.5T640-440h120L560-240Z" fill="white"/>
   </svg>
 );
-const IconAIFilled = () => (
-  <svg width="22" height="22" viewBox="0 0 20 20" fill="none" style={{ minWidth: 22, minHeight: 22 }}>
-    <path d="M7.377 5.43c.083-.406.663-.406.746 0a5 5 0 0 0 3.947 3.947c.406.083.406.663 0 .746a5 5 0 0 0-3.947 3.947c-.083.406-.663.406-.746 0a5 5 0 0 0-3.947-3.947c-.406-.083-.406-.663 0-.746A5 5 0 0 0 7.377 5.43Z" fill="currentColor" stroke="currentColor" strokeWidth="0.5"/>
-    <path d="M13.913 4.145a.03.03 0 0 1 .049 0 3.38 3.38 0 0 0 2.393 2.393.03.03 0 0 1 0 .049 3.38 3.38 0 0 0-2.393 2.393.03.03 0 0 1-.049 0 3.38 3.38 0 0 0-2.393-2.393.03.03 0 0 1 0-.049 3.38 3.38 0 0 0 2.393-2.393Z" fill="currentColor" stroke="currentColor" strokeWidth="0.5"/>
-  </svg>
-);
-
 /* ─── Styles ───────────────────────────────────────────────────────────────── */
 
 const composerRow: React.CSSProperties = {
@@ -101,8 +83,8 @@ const composerRow: React.CSSProperties = {
   display: "flex",
   alignItems: "center",
   gap: 8,
-  background: "var(--color-bg-01)",
-  border: "1px solid var(--color-border-default)",
+  background: "var(--cometchat-background-color-01)",
+  border: "1px solid var(--cometchat-border-color-default)",
   borderRadius: 8,
   padding: "8px 12px",
 };
@@ -123,12 +105,12 @@ const actionBtn: React.CSSProperties = {
   background: "transparent",
   border: "none",
   cursor: "pointer",
-  color: "var(--color-icon-disabled)",
+  color: "var(--cometchat-icon-color-disabled)",
 };
 const actionBtnActive: React.CSSProperties = {
   ...actionBtn,
   background: "transparent",
-  color: "var(--color-text-highlight)",
+  color: "var(--cometchat-text-color-highlight)",
 };
 
 const sendDisabled: React.CSSProperties = {
@@ -140,8 +122,8 @@ const sendDisabled: React.CSSProperties = {
   alignItems: "center",
   justifyContent: "center",
   boxShadow: "0px 1px 2px rgba(10,13,18,0.05)",
-  background: "var(--color-bg-03)",
-  color: "var(--color-icon-disabled)",
+  background: "var(--cometchat-background-color-03)",
+  color: "var(--cometchat-icon-color-disabled)",
 };
 
 /* ─── Action Sheet Items ───────────────────────────────────────────────────── */
@@ -171,28 +153,28 @@ const stickerImages = [
 
 function StickerPicker() {
   return (
-    <div style={{ width: 340, background: "var(--color-bg-01)", borderRadius: 12, border: "1px solid var(--color-border-default)", boxShadow: "0 4px 16px rgba(0,0,0,0.08)", overflow: "hidden" }}>
+    <div style={{ width: 340, background: "var(--cometchat-background-color-01)", borderRadius: 12, border: "1px solid var(--cometchat-border-color-default)", boxShadow: "0 4px 16px rgba(0,0,0,0.08)", overflow: "hidden" }}>
       {/* Tabs */}
-      <div style={{ display: "flex", alignItems: "center", gap: 4, padding: "10px 12px", borderBottom: "1px solid var(--color-border-light)" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 4, padding: "10px 12px", borderBottom: "1px solid var(--cometchat-border-color-light)" }}>
         {stickerTabs.map((tab, i) => (
-          <div key={i} style={{ width: 32, height: 32, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, background: i === 0 ? "var(--color-bg-primary)" : "transparent", cursor: "pointer" }}>
+          <div key={i} style={{ width: 32, height: 32, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, background: i === 0 ? "var(--cometchat-extended-primary-color-50)" : "transparent", cursor: "pointer" }}>
             {tab}
           </div>
         ))}
       </div>
       {/* Search */}
       <div style={{ padding: "8px 12px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 14px", background: "var(--color-bg-03)", borderRadius: 20 }}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14Z" fill="currentColor" style={{ color: "var(--color-icon-tertiary)" }}/></svg>
-          <span style={{ fontSize: 14, color: "var(--color-text-placeholder)" }}>Search sticker</span>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 14px", background: "var(--cometchat-background-color-03)", borderRadius: 20 }}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14Z" fill="currentColor" style={{ color: "var(--cometchat-icon-color-tertiary)" }}/></svg>
+          <span style={{ fontSize: 14, color: "var(--cometchat-text-color-placeholder)" }}>Search sticker</span>
         </div>
       </div>
       {/* Section title */}
-      <div style={{ padding: "4px 12px 8px", fontSize: 14, fontWeight: 600, color: "var(--color-text-primary)" }}>Recent used</div>
+      <div style={{ padding: "4px 12px 8px", fontSize: 14, fontWeight: 600, color: "var(--cometchat-text-color-primary)" }}>Recent used</div>
       {/* Sticker grid - foundation stickers */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8, padding: "0 12px 16px" }}>
         {stickerImages.map((url, i) => (
-          <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 12, background: "var(--color-bg-03)", cursor: "pointer", height: 90, padding: 8 }}>
+          <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 12, background: "var(--cometchat-background-color-03)", cursor: "pointer", height: 90, padding: 8 }}>
             <img src={url} alt={`Sticker ${String(i + 1).padStart(2, "0")}`} style={{ width: 64, height: 64, objectFit: "contain" }} />
           </div>
         ))}
@@ -203,9 +185,9 @@ function StickerPicker() {
 
 /* ─── Format Toolbar (for formatting active state) ─────────────────────────── */
 
-const fmtBtn: React.CSSProperties = { display: "flex", alignItems: "center", justifyContent: "center", width: 32, height: 32, padding: 6, borderRadius: 8, background: "transparent", border: "none", cursor: "pointer", color: "var(--color-text-secondary)", fontSize: 16 };
-const separator: React.CSSProperties = { width: 1, height: 20, background: "var(--color-bg-04)", margin: "0 4px" };
-const formatToolbar: React.CSSProperties = { display: "flex", alignItems: "center", gap: 8, padding: 8, background: "var(--color-bg-02)", borderBottom: "1px solid var(--color-border-light)", borderRadius: "8px 8px 0 0" };
+const fmtBtn: React.CSSProperties = { display: "flex", alignItems: "center", justifyContent: "center", width: 32, height: 32, padding: 6, borderRadius: 8, background: "transparent", border: "none", cursor: "pointer", color: "var(--cometchat-text-color-secondary)", fontSize: 16 };
+const separator: React.CSSProperties = { width: 1, height: 20, background: "var(--cometchat-background-color-04)", margin: "0 4px" };
+const formatToolbar: React.CSSProperties = { display: "flex", alignItems: "center", gap: 8, padding: 8, background: "var(--cometchat-background-color-02)", borderBottom: "1px solid var(--cometchat-border-color-light)", borderRadius: "8px 8px 0 0" };
 
 function FormatToolbarRow() {
   return (
@@ -264,7 +246,7 @@ function ComposerWithAction({ active }: { active: ActionType }) {
         </div>
       )}
       {/* Composer wrapper */}
-      <div style={{ width: 800, border: active === "formatting" ? "1px solid var(--color-border-default)" : "none", borderRadius: 8 }}>
+      <div style={{ width: 800, border: active === "formatting" ? "1px solid var(--cometchat-border-color-default)" : "none", borderRadius: 8 }}>
         {/* Format toolbar when formatting is active — inside composer wrapper */}
         {active === "formatting" && <FormatToolbarRow />}
         {/* Single line composer row */}
@@ -275,7 +257,7 @@ function ComposerWithAction({ active }: { active: ActionType }) {
           </button>
 
           {/* Input area — flex: 1 */}
-          <div style={{ flex: 1, fontSize: 14, lineHeight: "20px", fontFamily: "'Inter', sans-serif", color: "var(--color-text-placeholder)" }}>
+          <div style={{ flex: 1, fontSize: 14, lineHeight: "20px", fontFamily: "'Inter', sans-serif", color: "var(--cometchat-text-color-placeholder)" }}>
             Enter your message here
           </div>
 
@@ -303,7 +285,7 @@ function ComposerWithAction({ active }: { active: ActionType }) {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--color-text-placeholder)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>{title}</div>
+      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--cometchat-text-color-placeholder)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>{title}</div>
       {children}
     </div>
   );
@@ -388,14 +370,14 @@ export const Playground: Story = {
 export const Usage: Story = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
-      <div style={{ marginBottom: "var(--space-6)" }}>
-        <div style={{ fontSize: "var(--font-size-1)", fontWeight: 600, color: "var(--color-text-secondary)", textTransform: "uppercase" as const, letterSpacing: "0.06em", marginBottom: "var(--space-2)", paddingBottom: "var(--space-2)", borderBottom: "1px solid var(--color-border-default)" }}>Action Types</div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "var(--space-3)" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
+      <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
+        <div style={{ fontSize: "12px", fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase" as const, letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>Action Types</div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           {(["sticker", "emoji", "formatting", "ai"] as const).map(a => (
-            <div key={a} style={{ padding: "var(--space-3)", border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", background: "var(--color-bg-01)" }}>
-              <strong style={{ fontSize: "var(--font-size-2)", color: "var(--color-text-primary)", display: "block", marginBottom: "var(--space-1)" }}>{a}</strong>
-              <span style={{ fontSize: "var(--font-size-1)", color: "var(--color-text-tertiary)" }}>Panel overlay for {a} action.</span>
+            <div key={a} style={{ padding: "var(--cometchat-spacing-3)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
+              <strong style={{ fontSize: "14px", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>{a}</strong>
+              <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)" }}>Panel overlay for {a} action.</span>
             </div>
           ))}
         </div>

@@ -182,12 +182,12 @@ export const Usage: StoryObj = {
   </div>
 </div>`} />
       </UsageSection>
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <UsageCodeCard language="CSS" code={`.reaction-list {
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-2xl);
-  box-shadow: var(--shadow-lg);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-4);
+  box-shadow: 0px 12px 16px -4px rgba(0,0,0,0.08);
   width: 280px;
   display: flex;
   flex-direction: column;
@@ -197,55 +197,55 @@ export const Usage: StoryObj = {
   display: flex;
   align-items: center;
   padding-top: 8px;
-  border-bottom: 1px solid var(--color-border-default);
+  border-bottom: 1px solid var(--cometchat-border-color-default);
 }
 
 .reaction-list__tab {
   height: 40px;
-  padding: var(--space-2) var(--space-4);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-tertiary);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-4);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cometchat-text-color-tertiary);
   border-bottom: 2px solid transparent;
 }
 
 .reaction-list__tab--active {
-  color: var(--color-ep-500);
-  border-bottom-color: var(--color-ep-500);
+  color: var(--cometchat-extended-primary-color-500);
+  border-bottom-color: var(--cometchat-extended-primary-color-500);
 }
 
 .reaction-list__item {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
+  gap: var(--cometchat-spacing-2);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-4);
   cursor: pointer;
 }
 
 .reaction-list__item:hover {
-  background: var(--color-bg-02);
+  background: var(--cometchat-background-color-02);
 }
 
 .reaction-list__avatar {
   width: 32px;
   height: 32px;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
   overflow: hidden;
 }
 
 .reaction-list__name {
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cometchat-text-color-primary);
 }
 
 .reaction-list__subtitle {
-  font-size: var(--font-size-1);
-  color: var(--color-text-secondary);
+  font-size: 12px;
+  color: var(--cometchat-text-color-secondary);
 }
 
 .reaction-list__emoji {
-  font-size: var(--font-size-5);
+  font-size: 20px;
   width: 24px;
 }`} />
       </UsageSection>

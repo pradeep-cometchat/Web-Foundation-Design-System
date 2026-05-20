@@ -117,7 +117,7 @@ export const Usage: Story = {
   </div>
 </div>`} />
       </UsageSection>
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <UsageCodeCard language="CSS" code={`.form-dialog__overlay {
   position: fixed;
   inset: 0;
@@ -130,10 +130,10 @@ export const Usage: Story = {
 
 .form-dialog {
   width: 400px;
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-2xl);
-  box-shadow: var(--shadow-lg);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-default);
+  border-radius: var(--cometchat-radius-4);
+  box-shadow: 0px 12px 16px -4px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
 }
@@ -142,54 +142,54 @@ export const Usage: Story = {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-3) var(--space-6);
-  border-bottom: 1px solid var(--color-border-default);
+  padding: var(--cometchat-spacing-3) var(--cometchat-spacing-6);
+  border-bottom: 1px solid var(--cometchat-border-color-default);
 }
 
 .form-dialog__tabs {
   display: flex;
-  gap: var(--space-1);
-  padding: var(--space-1);
-  border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-full);
-  background: var(--color-bg-02);
+  gap: var(--cometchat-spacing-1);
+  padding: var(--cometchat-spacing-1);
+  border: 1px solid var(--cometchat-border-color-default);
+  border-radius: var(--cometchat-radius-max);
+  background: var(--cometchat-background-color-02);
 }
 
 .form-dialog__tab--active {
-  background: var(--color-bg-01);
-  color: var(--color-text-highlight);
-  box-shadow: var(--shadow-sm);
+  background: var(--cometchat-background-color-01);
+  color: var(--cometchat-text-color-highlight);
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1);
 }
 
 .form-dialog__body {
-  padding: var(--space-6);
+  padding: var(--cometchat-spacing-6);
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--cometchat-spacing-6);
 }
 
 .form-dialog__input {
   height: 44px;
-  padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border-dark);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-3);
-  color: var(--color-text-primary);
-  background: var(--color-bg-01);
-  box-shadow: var(--shadow-xs);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-3);
+  border: 1px solid var(--cometchat-border-color-dark);
+  border-radius: var(--cometchat-radius-2);
+  font-size: 16px;
+  color: var(--cometchat-text-color-primary);
+  background: var(--cometchat-background-color-01);
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.05);
   width: 100%;
 }
 
 .form-dialog__input:focus {
-  border-color: var(--color-ep-600);
+  border-color: var(--cometchat-primary-color);
   box-shadow: var(--focus-ring-xs);
 }
 
 .form-dialog__btn--submit {
   background: var(--color-btn-primary-bg);
-  color: var(--color-static-white);
+  color: var(--cometchat-static-white);
   border: 2px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-md);
+  border-radius: var(--cometchat-radius-2);
   height: 44px;
 }`} />
       </UsageSection>

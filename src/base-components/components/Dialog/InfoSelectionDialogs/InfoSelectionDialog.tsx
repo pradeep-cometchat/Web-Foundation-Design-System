@@ -109,22 +109,22 @@ function AlertContent({
         <div className="info-dialog__alert-icon">
           {icon === "block" && <BlockAlertIcon />}
           {icon === "warning" && (
-            <span className="icon-outlined" style={{ fontSize: 32, fontFamily: "var(--icon-font-outlined)" }}>
+            <span className="icon-outlined" style={{ fontSize: 32, fontFamily: "var(--cometchat-font-family)" }}>
               warning
             </span>
           )}
           {icon === "info" && (
-            <span className="icon-outlined" style={{ fontSize: 32, fontFamily: "var(--icon-font-outlined)" }}>
+            <span className="icon-outlined" style={{ fontSize: 32, fontFamily: "var(--cometchat-font-family)" }}>
               info
             </span>
           )}
           {icon === "error" && (
-            <span className="icon-outlined" style={{ fontSize: 32, fontFamily: "var(--icon-font-outlined)" }}>
+            <span className="icon-outlined" style={{ fontSize: 32, fontFamily: "var(--cometchat-font-family)" }}>
               error
             </span>
           )}
           {icon === "translate" && (
-            <span className="icon-outlined" style={{ fontSize: 32, fontFamily: "var(--icon-font-outlined)" }}>
+            <span className="icon-outlined" style={{ fontSize: 32, fontFamily: "var(--cometchat-font-family)" }}>
               translate
             </span>
           )}

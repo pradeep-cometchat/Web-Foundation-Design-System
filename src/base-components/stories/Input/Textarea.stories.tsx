@@ -161,59 +161,59 @@ export const Usage: Story = {
   <textarea class="textarea-field__input" rows="4" disabled placeholder="Enter a description..."></textarea>
 </div>`} />
       </UsageSection>
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <UsageCodeCard language="CSS" code={`.textarea-field {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1-5);
+  gap: 6px;
   width: 100%;
 }
 
 .textarea-field__label {
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cometchat-text-color-secondary);
 }
 
 .textarea-field__required {
-  color: var(--color-text-highlight);
+  color: var(--cometchat-text-color-highlight);
 }
 
 .textarea-field__input {
   width: 100%;
-  padding: var(--space-3);
-  border: 1px solid var(--color-border-dark);
-  border-radius: var(--radius-md);
-  background: var(--color-bg-01);
-  box-shadow: var(--shadow-xs);
-  font-size: var(--font-size-3);
-  color: var(--color-text-primary);
+  padding: var(--cometchat-spacing-3);
+  border: 1px solid var(--cometchat-border-color-dark);
+  border-radius: var(--cometchat-radius-2);
+  background: var(--cometchat-background-color-01);
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.05);
+  font-size: 16px;
+  color: var(--cometchat-text-color-primary);
   resize: vertical;
 }
 
 .textarea-field__input:focus {
-  border-color: var(--color-ep-600);
+  border-color: var(--cometchat-primary-color);
   box-shadow: var(--focus-ring-xs);
 }
 
 .textarea-field__input--error {
-  border-color: var(--color-error);
+  border-color: var(--cometchat-error-color);
 }
 
 .textarea-field__input:disabled {
   background: var(--color-bg-disabled);
-  border-color: var(--color-border-default);
+  border-color: var(--cometchat-border-color-default);
   cursor: not-allowed;
   resize: none;
 }
 
 .textarea-field__hint {
-  font-size: var(--font-size-1);
-  color: var(--color-text-tertiary);
+  font-size: 12px;
+  color: var(--cometchat-text-color-tertiary);
 }
 
 .textarea-field__hint--error {
-  color: var(--color-error);
+  color: var(--cometchat-error-color);
 }`} />
       </UsageSection>
     </div>

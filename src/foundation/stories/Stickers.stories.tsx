@@ -10,7 +10,7 @@ import "../../foundation/tokens/tokens.css";
  * Source: `foundation/tokens/avatars.ts` → "Sticker Footage" category.
  */
 const meta: Meta = {
-  title: "Foundation/Stickers",
+  title: "CometChat Foundation/Stickers",
   tags: ["autodocs"],
   parameters: {
     layout: "padded",
@@ -73,7 +73,7 @@ export const StickerSizes: StoryObj = {
           Stickers can be rendered at different sizes depending on context.
         </p>
       </div>
-      <div style={{ display: "flex", alignItems: "flex-end", gap: "var(--space-8)", padding: "var(--space-6)" }}>
+      <div style={{ display: "flex", alignItems: "flex-end", gap: "var(--cometchat-spacing-8)", padding: "var(--cometchat-spacing-6)" }}>
         <div style={{ textAlign: "center" }}>
           <img src={stickers[0].imageUrl} alt={stickers[0].name} style={{ width: 48, height: 48, objectFit: "contain" }} />
           <span style={sizeLabelStyle}>48px (sm)</span>
@@ -102,7 +102,7 @@ export const StickerSizes: StoryObj = {
 export const Usage: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <UsageSection title="Token Source">
         <CodeCard
           language="TypeScript"
@@ -141,7 +141,7 @@ const stickers = avatarRegistry["Sticker Footage"];
       </UsageSection>
 
       <UsageSection title="Specifications">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <StateCard title="Format" description="PNG with transparent background, pre-rendered at 2× resolution." />
           <StateCard title="Source" description="avatarRegistry['Sticker Footage'] in foundation/tokens/avatars.ts" />
           <StateCard title="Sizes" description="sm: 48px, md: 80px, lg: 120px (chat bubble), xl: 160px (preview)." />
@@ -159,44 +159,44 @@ const stickers = avatarRegistry["Sticker Footage"];
    ═══════════════════════════════════════════════════════════════════════════ */
 
 const headerStyle: React.CSSProperties = {
-  marginBottom: "var(--space-6)",
-  paddingBottom: "var(--space-4)",
-  borderBottom: "1px solid var(--color-border-default)",
+  marginBottom: "var(--cometchat-spacing-6)",
+  paddingBottom: "var(--cometchat-spacing-4)",
+  borderBottom: "1px solid var(--cometchat-border-color-default)",
 };
 
 const titleStyle: React.CSSProperties = {
-  fontFamily: "var(--font-family-heading)",
-  fontSize: "var(--font-size-5)",
+  fontFamily: "var(--cometchat-font-family)",
+  fontSize: "20px",
   fontWeight: 600,
-  lineHeight: "var(--line-height-h2)",
-  color: "var(--color-text-primary)",
+  lineHeight: "30px",
+  color: "var(--cometchat-text-color-primary)",
   margin: 0,
-  marginBottom: "var(--space-2)",
+  marginBottom: "var(--cometchat-spacing-2)",
 };
 
 const descStyle: React.CSSProperties = {
-  fontFamily: "var(--font-family-body)",
-  fontSize: "var(--font-size-2)",
-  lineHeight: "var(--line-height-body)",
-  color: "var(--color-text-tertiary)",
+  fontFamily: "var(--cometchat-font-family)",
+  fontSize: "14px",
+  lineHeight: "20px",
+  color: "var(--cometchat-text-color-tertiary)",
   margin: 0,
 };
 
 const gridStyle: React.CSSProperties = {
   display: "grid",
   gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",
-  gap: "var(--space-4)",
+  gap: "var(--cometchat-spacing-4)",
 };
 
 const cardStyle: React.CSSProperties = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  gap: "var(--space-2)",
-  padding: "var(--space-4)",
-  borderRadius: "var(--radius-xl)",
-  border: "1px solid var(--color-border-default)",
-  background: "var(--color-bg-01)",
+  gap: "var(--cometchat-spacing-2)",
+  padding: "var(--cometchat-spacing-4)",
+  borderRadius: "var(--cometchat-radius-3)",
+  border: "1px solid var(--cometchat-border-color-default)",
+  background: "var(--cometchat-background-color-01)",
 };
 
 const stickerImgStyle: React.CSSProperties = {
@@ -206,10 +206,10 @@ const stickerImgStyle: React.CSSProperties = {
 };
 
 const cardLabelStyle: React.CSSProperties = {
-  fontFamily: "var(--font-family-body)",
-  fontSize: "var(--font-size-1)",
+  fontFamily: "var(--cometchat-font-family)",
+  fontSize: "12px",
   fontWeight: 500,
-  color: "var(--color-text-secondary)",
+  color: "var(--cometchat-text-color-secondary)",
 };
 
 const listStyle: React.CSSProperties = {
@@ -220,9 +220,9 @@ const listStyle: React.CSSProperties = {
 const listItemStyle: React.CSSProperties = {
   display: "flex",
   alignItems: "center",
-  gap: "var(--space-4)",
-  padding: "var(--space-3) var(--space-4)",
-  borderBottom: "1px solid var(--color-border-light)",
+  gap: "var(--cometchat-spacing-4)",
+  padding: "var(--cometchat-spacing-3) var(--cometchat-spacing-4)",
+  borderBottom: "1px solid var(--cometchat-border-color-light)",
 };
 
 const listStickerImgStyle: React.CSSProperties = {
@@ -232,17 +232,17 @@ const listStickerImgStyle: React.CSSProperties = {
 };
 
 const listLabelStyle: React.CSSProperties = {
-  fontFamily: "var(--font-family-body)",
-  fontSize: "var(--font-size-3)",
+  fontFamily: "var(--cometchat-font-family)",
+  fontSize: "16px",
   fontWeight: 500,
-  color: "var(--color-text-primary)",
+  color: "var(--cometchat-text-color-primary)",
 };
 
 const sizeLabelStyle: React.CSSProperties = {
-  fontFamily: "var(--font-family-body)",
-  fontSize: "var(--font-size-1)",
-  color: "var(--color-text-tertiary)",
-  marginTop: "var(--space-2)",
+  fontFamily: "var(--cometchat-font-family)",
+  fontSize: "12px",
+  color: "var(--cometchat-text-color-tertiary)",
+  marginTop: "var(--cometchat-spacing-2)",
   display: "block",
 };
 
@@ -252,8 +252,8 @@ const sizeLabelStyle: React.CSSProperties = {
 
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div style={{ marginBottom: "var(--space-6)" }}>
-      <div style={{ fontSize: "var(--font-size-1)", fontWeight: 600, color: "var(--color-text-secondary)", textTransform: "uppercase" as const, letterSpacing: "0.06em", marginBottom: "var(--space-2)", paddingBottom: "var(--space-2)", borderBottom: "1px solid var(--color-border-default)" }}>{title}</div>
+    <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
+      <div style={{ fontSize: "12px", fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase" as const, letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>{title}</div>
       {children}
     </div>
   );
@@ -261,11 +261,11 @@ function UsageSection({ title, children }: { title: string; children: React.Reac
 
 function CodeCard({ language, code }: { language: string; code: string }) {
   return (
-    <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-02)" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-03)" }}>
-        <span style={{ fontSize: "var(--font-size-0)", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" as const, color: "var(--color-text-secondary)" }}>{language}</span>
+    <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", background: "var(--cometchat-background-color-02)" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-03)" }}>
+        <span style={{ fontSize: "10px", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" as const, color: "var(--cometchat-text-color-secondary)" }}>{language}</span>
       </div>
-      <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <pre style={{ margin: 0, padding: "var(--cometchat-spacing-3-5)", fontFamily: "var(--cometchat-font-family)", fontSize: "12px", lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto" }}>
         <code>{code}</code>
       </pre>
     </div>
@@ -274,9 +274,9 @@ function CodeCard({ language, code }: { language: string; code: string }) {
 
 function StateCard({ title, description }: { title: string; description: string }) {
   return (
-    <div style={{ padding: "var(--space-3-5) var(--space-4)", border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", background: "var(--color-bg-01)" }}>
-      <strong style={{ fontSize: "var(--font-size-2)", fontWeight: 600, color: "var(--color-text-primary)", display: "block", marginBottom: "var(--space-1)" }}>{title}</strong>
-      <span style={{ fontSize: "var(--font-size-1)", color: "var(--color-text-tertiary)", lineHeight: "var(--line-height-caption-1)" }}>{description}</span>
+    <div style={{ padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
+      <strong style={{ fontSize: "14px", fontWeight: 600, color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>{title}</strong>
+      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "18px" }}>{description}</span>
     </div>
   );
 }

@@ -22,7 +22,7 @@ const group = avatarRegistry["Group Avatar"];
 
 export const Default: StoryObj = {
   render: () => (
-    <div style={{ width: 400, height: 800, display: "flex", flexDirection: "column", background: "var(--color-bg-01)", border: "1px solid var(--color-border-default)", overflow: "hidden" }}>
+    <div style={{ width: 400, height: 800, display: "flex", flexDirection: "column", background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", overflow: "hidden" }}>
       <Header title="Chats" actions={[]} showMore />
       <SearchField />
       <div style={{ flex: 1, overflowY: "auto", display: "flex", flexDirection: "column" }}>
@@ -110,7 +110,7 @@ export const Default: StoryObj = {
 
 export const Skeleton: StoryObj = {
   render: () => (
-    <div style={{ width: 400, height: 800, display: "flex", flexDirection: "column", background: "var(--color-bg-01)", border: "1px solid var(--color-border-default)", overflow: "hidden" }}>
+    <div style={{ width: 400, height: 800, display: "flex", flexDirection: "column", background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", overflow: "hidden" }}>
       <Header title="Chats" actions={[]} showMore />
       <SearchField />
       <div style={{ flex: 1, overflowY: "auto", display: "flex", flexDirection: "column" }}>
@@ -135,17 +135,17 @@ export const Skeleton: StoryObj = {
 
 export const Empty: StoryObj = {
   render: () => (
-    <div style={{ width: 400, height: 800, display: "flex", flexDirection: "column", background: "var(--color-bg-01)", border: "1px solid var(--color-border-default)", overflow: "hidden" }}>
+    <div style={{ width: 400, height: 800, display: "flex", flexDirection: "column", background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", overflow: "hidden" }}>
       <Header title="Chats" actions={[]} showMore />
       <SearchField />
-      <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "var(--space-10)" }}>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-4)" }}>
-          <div style={{ width: 48, height: 48, borderRadius: "var(--radius-xl)", border: "1px solid var(--color-border-dark)", background: "var(--color-bg-01)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
-            <span className="icon-rounded" style={{ fontSize: 28, color: "var(--color-text-primary)" }}>chat</span>
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "var(--cometchat-spacing-10)" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-4)" }}>
+          <div style={{ width: 48, height: 48, borderRadius: "var(--cometchat-radius-3)", border: "1px solid var(--cometchat-border-color-dark)", background: "var(--cometchat-background-color-01)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+            <span className="icon-rounded" style={{ fontSize: 28, color: "var(--cometchat-text-color-primary)" }}>chat</span>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-1)", textAlign: "center", maxWidth: 352 }}>
-            <span style={{ fontFamily: "var(--font-family-heading)", fontSize: "var(--font-size-3)", fontWeight: "var(--font-weight-semibold)", lineHeight: "var(--line-height-h4)", color: "var(--color-text-primary)" }}>No Conversations Yet</span>
-            <span style={{ fontSize: "var(--font-size-2)", fontWeight: "var(--font-weight-regular)", lineHeight: "var(--line-height-body)", color: "var(--color-text-tertiary)" }}>Start a new chat to begin messaging your contacts.</span>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-1)", textAlign: "center", maxWidth: 352 }}>
+            <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: "600", lineHeight: "24px", color: "var(--cometchat-text-color-primary)" }}>No Conversations Yet</span>
+            <span style={{ fontSize: "14px", fontWeight: "400", lineHeight: "20px", color: "var(--cometchat-text-color-tertiary)" }}>Start a new chat to begin messaging your contacts.</span>
           </div>
         </div>
       </div>
@@ -159,18 +159,18 @@ export const Empty: StoryObj = {
 
 export const Error: StoryObj = {
   render: () => (
-    <div style={{ width: 400, height: 800, display: "flex", flexDirection: "column", background: "var(--color-bg-01)", border: "1px solid var(--color-border-default)", overflow: "hidden" }}>
+    <div style={{ width: 400, height: 800, display: "flex", flexDirection: "column", background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", overflow: "hidden" }}>
       <Header title="Chats" actions={[]} showMore />
       <SearchField />
-      <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "var(--space-10)" }}>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-6)" }}>
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-4)" }}>
-            <div style={{ width: 48, height: 48, borderRadius: "var(--radius-xl)", border: "1px solid var(--color-border-dark)", background: "var(--color-bg-01)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
-              <span className="icon-rounded" style={{ fontSize: 28, color: "var(--color-text-primary)" }}>warning</span>
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "var(--cometchat-spacing-10)" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-6)" }}>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-4)" }}>
+            <div style={{ width: 48, height: 48, borderRadius: "var(--cometchat-radius-3)", border: "1px solid var(--cometchat-border-color-dark)", background: "var(--cometchat-background-color-01)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+              <span className="icon-rounded" style={{ fontSize: 28, color: "var(--cometchat-text-color-primary)" }}>warning</span>
             </div>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-1)", textAlign: "center", maxWidth: 352 }}>
-              <span style={{ fontFamily: "var(--font-family-heading)", fontSize: "var(--font-size-3)", fontWeight: "var(--font-weight-semibold)", lineHeight: "var(--line-height-h4)", color: "var(--color-text-primary)" }}>Oops!</span>
-              <span style={{ fontSize: "var(--font-size-2)", fontWeight: "var(--font-weight-regular)", lineHeight: "var(--line-height-body)", color: "var(--color-text-tertiary)" }}>Looks like something went wrong.<br />Please try again.</span>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-1)", textAlign: "center", maxWidth: 352 }}>
+              <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: "600", lineHeight: "24px", color: "var(--cometchat-text-color-primary)" }}>Oops!</span>
+              <span style={{ fontSize: "14px", fontWeight: "400", lineHeight: "20px", color: "var(--cometchat-text-color-tertiary)" }}>Looks like something went wrong.<br />Please try again.</span>
             </div>
           </div>
           <Button variant="primary" size="md">Retry</Button>
@@ -186,7 +186,7 @@ export const Error: StoryObj = {
 
 export const Search: StoryObj = {
   render: () => (
-    <div style={{ width: 400, height: 800, display: "flex", flexDirection: "column", background: "var(--color-bg-01)", border: "1px solid var(--color-border-default)", overflow: "hidden" }}>
+    <div style={{ width: 400, height: 800, display: "flex", flexDirection: "column", background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", overflow: "hidden" }}>
       <Header title="Chats" actions={[]} showMore />
       <SearchFieldActive />
       <FilterChips />
@@ -256,9 +256,9 @@ export const Search: StoryObj = {
 export const AllStates: StoryObj = {
   parameters: { layout: "fullscreen" },
   render: () => (
-    <div style={{ display: "flex", gap: "var(--space-6)", padding: "var(--space-8)", overflowX: "auto" }}>
+    <div style={{ display: "flex", gap: "var(--cometchat-spacing-6)", padding: "var(--cometchat-spacing-8)", overflowX: "auto" }}>
       <StateLabel label="Default">
-        <div style={{ width: 400, height: 700, display: "flex", flexDirection: "column", background: "var(--color-bg-01)", border: "1px solid var(--color-border-default)", overflow: "hidden" }}>
+        <div style={{ width: 400, height: 700, display: "flex", flexDirection: "column", background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", overflow: "hidden" }}>
           <Header title="Chats" actions={[]} showMore />
           <SearchField />
           <div style={{ flex: 1, overflowY: "auto", display: "flex", flexDirection: "column" }}>
@@ -271,7 +271,7 @@ export const AllStates: StoryObj = {
       </StateLabel>
 
       <StateLabel label="Skeleton">
-        <div style={{ width: 400, height: 700, display: "flex", flexDirection: "column", background: "var(--color-bg-01)", border: "1px solid var(--color-border-default)", overflow: "hidden" }}>
+        <div style={{ width: 400, height: 700, display: "flex", flexDirection: "column", background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", overflow: "hidden" }}>
           <Header title="Chats" actions={[]} showMore />
           <SearchField />
           <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
@@ -285,17 +285,17 @@ export const AllStates: StoryObj = {
       </StateLabel>
 
       <StateLabel label="Empty">
-        <div style={{ width: 400, height: 700, display: "flex", flexDirection: "column", background: "var(--color-bg-01)", border: "1px solid var(--color-border-default)", overflow: "hidden" }}>
+        <div style={{ width: 400, height: 700, display: "flex", flexDirection: "column", background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", overflow: "hidden" }}>
           <Header title="Chats" actions={[]} showMore />
           <SearchField />
-          <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "var(--space-10)" }}>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-4)" }}>
-              <div style={{ width: 48, height: 48, borderRadius: "var(--radius-xl)", border: "1px solid var(--color-border-dark)", background: "var(--color-bg-01)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
-                <span className="icon-rounded" style={{ fontSize: 28, color: "var(--color-text-primary)" }}>chat</span>
+          <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "var(--cometchat-spacing-10)" }}>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-4)" }}>
+              <div style={{ width: 48, height: 48, borderRadius: "var(--cometchat-radius-3)", border: "1px solid var(--cometchat-border-color-dark)", background: "var(--cometchat-background-color-01)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+                <span className="icon-rounded" style={{ fontSize: 28, color: "var(--cometchat-text-color-primary)" }}>chat</span>
               </div>
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-1)", textAlign: "center", maxWidth: 352 }}>
-                <span style={{ fontFamily: "var(--font-family-heading)", fontSize: "var(--font-size-3)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-text-primary)" }}>No Conversations Yet</span>
-                <span style={{ fontSize: "var(--font-size-2)", color: "var(--color-text-tertiary)" }}>Start a new chat to begin messaging your contacts.</span>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-1)", textAlign: "center", maxWidth: 352 }}>
+                <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: "600", color: "var(--cometchat-text-color-primary)" }}>No Conversations Yet</span>
+                <span style={{ fontSize: "14px", color: "var(--cometchat-text-color-tertiary)" }}>Start a new chat to begin messaging your contacts.</span>
               </div>
             </div>
           </div>
@@ -303,18 +303,18 @@ export const AllStates: StoryObj = {
       </StateLabel>
 
       <StateLabel label="Error">
-        <div style={{ width: 400, height: 700, display: "flex", flexDirection: "column", background: "var(--color-bg-01)", border: "1px solid var(--color-border-default)", overflow: "hidden" }}>
+        <div style={{ width: 400, height: 700, display: "flex", flexDirection: "column", background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", overflow: "hidden" }}>
           <Header title="Chats" actions={[]} showMore />
           <SearchField />
-          <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "var(--space-10)" }}>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-6)" }}>
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-4)" }}>
-                <div style={{ width: 48, height: 48, borderRadius: "var(--radius-xl)", border: "1px solid var(--color-border-dark)", background: "var(--color-bg-01)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
-                  <span className="icon-rounded" style={{ fontSize: 28, color: "var(--color-text-primary)" }}>warning</span>
+          <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "var(--cometchat-spacing-10)" }}>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-6)" }}>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-4)" }}>
+                <div style={{ width: 48, height: 48, borderRadius: "var(--cometchat-radius-3)", border: "1px solid var(--cometchat-border-color-dark)", background: "var(--cometchat-background-color-01)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+                  <span className="icon-rounded" style={{ fontSize: 28, color: "var(--cometchat-text-color-primary)" }}>warning</span>
                 </div>
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-1)", textAlign: "center", maxWidth: 352 }}>
-                  <span style={{ fontFamily: "var(--font-family-heading)", fontSize: "var(--font-size-3)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-text-primary)" }}>Oops!</span>
-                  <span style={{ fontSize: "var(--font-size-2)", color: "var(--color-text-tertiary)" }}>Looks like something went wrong.<br />Please try again.</span>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-1)", textAlign: "center", maxWidth: 352 }}>
+                  <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: "600", color: "var(--cometchat-text-color-primary)" }}>Oops!</span>
+                  <span style={{ fontSize: "14px", color: "var(--cometchat-text-color-tertiary)" }}>Looks like something went wrong.<br />Please try again.</span>
                 </div>
               </div>
               <Button variant="primary" size="md">Retry</Button>
@@ -324,7 +324,7 @@ export const AllStates: StoryObj = {
       </StateLabel>
 
       <StateLabel label="Search">
-        <div style={{ width: 400, height: 700, display: "flex", flexDirection: "column", background: "var(--color-bg-01)", border: "1px solid var(--color-border-default)", overflow: "hidden" }}>
+        <div style={{ width: 400, height: 700, display: "flex", flexDirection: "column", background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", overflow: "hidden" }}>
           <Header title="Chats" actions={[]} showMore />
           <SearchFieldActive />
           <FilterChips />
@@ -345,7 +345,7 @@ export const AllStates: StoryObj = {
 
 function SearchField() {
   return (
-    <div style={{ padding: "var(--space-2) var(--space-4)" }}>
+    <div style={{ padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-4)" }}>
       <SearchBar placeholder="Search chats or messages" />
     </div>
   );
@@ -353,7 +353,7 @@ function SearchField() {
 
 function SearchFieldActive() {
   return (
-    <div style={{ padding: "var(--space-2) var(--space-4)" }}>
+    <div style={{ padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-4)" }}>
       <SearchBar placeholder="Search chats or messages" value="" />
     </div>
   );
@@ -362,21 +362,21 @@ function SearchFieldActive() {
 function FilterChips() {
   const chips = ["All", "Unread", "Groups", "Photos", "Videos", "Audio", "Documents", "Gifs", "Links"];
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-2)", padding: "0 var(--space-4) var(--space-3)" }}>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--cometchat-spacing-2)", padding: "0 var(--cometchat-spacing-4) var(--cometchat-spacing-3)" }}>
       {chips.map((chip, i) => (
         <span
           key={chip}
           style={{
-            padding: "var(--space-1) var(--space-3)",
-            borderRadius: "var(--radius-full)",
-            fontSize: "var(--font-size-1)",
-            fontWeight: "var(--font-weight-medium)",
-            lineHeight: "var(--line-height-caption-1)",
+            padding: "var(--cometchat-spacing-1) var(--cometchat-spacing-3)",
+            borderRadius: "var(--cometchat-radius-max)",
+            fontSize: "12px",
+            fontWeight: "500",
+            lineHeight: "18px",
             cursor: "pointer",
-            border: "1px solid var(--color-border-default)",
-            background: i === 0 ? "var(--color-bg-solid)" : "var(--color-bg-01)",
-            color: i === 0 ? "var(--color-static-white)" : "var(--color-text-primary)",
-            borderColor: i === 0 ? "var(--color-bg-solid)" : "var(--color-border-default)",
+            border: "1px solid var(--cometchat-border-color-default)",
+            background: i === 0 ? "var(--cometchat-background-color-solid)" : "var(--cometchat-background-color-01)",
+            color: i === 0 ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)",
+            borderColor: i === 0 ? "var(--cometchat-background-color-solid)" : "var(--cometchat-border-color-default)",
           }}
         >
           {chip}
@@ -388,8 +388,8 @@ function FilterChips() {
 
 function StateLabel({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
-      <span style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-medium)", color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}>{label}</span>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
+      <span style={{ fontSize: "12px", fontWeight: "500", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}>{label}</span>
       {children}
     </div>
   );
@@ -403,7 +403,7 @@ function StateLabel({ label, children }: { label: string; children: React.ReactN
 export const Usage: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <UsageSection title="HTML Structure">
         <CodeCard
           language="HTML"
@@ -467,7 +467,7 @@ export const Usage: StoryObj = {
         />
       </UsageSection>
 
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <CodeCard
           language="CSS"
           code={`.chat-list {
@@ -475,31 +475,31 @@ export const Usage: StoryObj = {
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background: var(--color-bg-01);
-  border-right: 1px solid var(--color-border-default);
+  background: var(--cometchat-background-color-01);
+  border-right: 1px solid var(--cometchat-border-color-default);
   overflow: hidden;
 }
 
 .chat-list__search {
-  padding: var(--space-2) var(--space-4);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-4);
 }
 
 .chat-list__search-input {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--cometchat-spacing-1);
   height: 36px;
-  padding: 0 var(--space-3);
-  background: var(--color-bg-02);
-  border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-md);
-  color: var(--color-icon-tertiary);
+  padding: 0 var(--cometchat-spacing-3);
+  background: var(--cometchat-background-color-02);
+  border: 1px solid var(--cometchat-border-color-default);
+  border-radius: var(--cometchat-radius-2);
+  color: var(--cometchat-icon-color-tertiary);
 }
 
 .chat-list__search-input:focus-within {
-  background: var(--color-bg-01);
-  border-color: var(--color-border-primary);
-  box-shadow: var(--focus-ring-xs);
+  background: var(--cometchat-background-color-01);
+  border-color: var(--cometchat-border-color-highlight);
+  box-shadow: var(--cometchat-focus-ring);
 }
 
 .chat-list__search-input input {
@@ -507,36 +507,36 @@ export const Usage: StoryObj = {
   border: none;
   background: transparent;
   outline: none;
-  font-size: var(--font-size-2);
-  color: var(--color-text-primary);
+  font-size: 14px;
+  color: var(--cometchat-text-color-primary);
 }
 
 .chat-list__search-input input::placeholder {
-  color: var(--color-text-placeholder);
+  color: var(--cometchat-text-color-tertiary);
 }
 
 .chat-list__filters {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
-  padding: 0 var(--space-4) var(--space-3);
+  gap: var(--cometchat-spacing-2);
+  padding: 0 var(--cometchat-spacing-4) var(--cometchat-spacing-3);
 }
 
 .chat-list__chip {
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-full);
-  font-size: var(--font-size-1);
-  font-weight: var(--font-weight-medium);
-  border: 1px solid var(--color-border-default);
-  background: var(--color-bg-01);
-  color: var(--color-text-primary);
+  padding: var(--cometchat-spacing-1) var(--cometchat-spacing-3);
+  border-radius: var(--cometchat-radius-max);
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--cometchat-border-color-default);
+  background: var(--cometchat-background-color-01);
+  color: var(--cometchat-text-color-primary);
   cursor: pointer;
 }
 
 .chat-list__chip--active {
-  background: var(--color-bg-solid);
-  color: var(--color-static-white);
-  border-color: var(--color-bg-solid);
+  background: var(--cometchat-background-color-solid);
+  color: var(--cometchat-static-white);
+  border-color: var(--cometchat-background-color-solid);
 }
 
 .chat-list__items {
@@ -552,34 +552,34 @@ export const Usage: StoryObj = {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--space-4);
-  padding: var(--space-10);
+  gap: var(--cometchat-spacing-4);
+  padding: var(--cometchat-spacing-10);
   text-align: center;
 }
 
 .chat-list__empty-icon {
   width: 48px;
   height: 48px;
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--color-border-dark);
-  background: var(--color-bg-01);
+  border-radius: var(--cometchat-radius-3);
+  border: 1px solid var(--cometchat-border-color-dark);
+  background: var(--cometchat-background-color-01);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 28px;
-  color: var(--color-text-primary);
+  color: var(--cometchat-text-color-primary);
 }
 
 .chat-list__empty-title {
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-3);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+  font-family: var(--cometchat-font-family);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--cometchat-text-color-primary);
 }
 
 .chat-list__empty-description {
-  font-size: var(--font-size-2);
-  color: var(--color-text-tertiary);
+  font-size: 14px;
+  color: var(--cometchat-text-color-tertiary);
   max-width: 352px;
 }
 
@@ -588,7 +588,7 @@ export const Usage: StoryObj = {
       </UsageSection>
 
       <UsageSection title="States">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <StateCard title="Default" description="Header + Search + Conversation items list. The primary state showing all recent conversations." />
           <StateCard title="Skeleton" description="Loading state with skeleton placeholders while conversations are being fetched." />
           <StateCard title="Empty" description="Shown when there are no conversations. Displays a chat icon, title, and description." />
@@ -598,7 +598,7 @@ export const Usage: StoryObj = {
       </UsageSection>
 
       <UsageSection title="Composed From">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <StateCard title="Header" description="Base Component — Screen header with title and action buttons." />
           <StateCard title="Button" description="Base Component — Primary button used for Retry action in error state." />
           <StateCard title="ConversationItem" description="Base Component — Individual conversation row with avatar, name, message preview, timestamp." />
@@ -614,8 +614,8 @@ export const Usage: StoryObj = {
 
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div style={{ marginBottom: "var(--space-6)" }}>
-      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-text-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)", paddingBottom: "var(--space-2)", borderBottom: "1px solid var(--color-border-default)" }}>{title}</div>
+    <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>{title}</div>
       {children}
     </div>
   );
@@ -623,11 +623,11 @@ function UsageSection({ title, children }: { title: string; children: React.Reac
 
 function CodeCard({ language, code }: { language: string; code: string }) {
   return (
-    <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-02)" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-03)" }}>
-        <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-secondary)" }}>{language}</span>
+    <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", background: "var(--cometchat-background-color-02)" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-03)" }}>
+        <span style={{ fontSize: "10px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-secondary)" }}>{language}</span>
       </div>
-      <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <pre style={{ margin: 0, padding: "var(--cometchat-spacing-3-5)", fontFamily: "var(--cometchat-font-family)", fontSize: "12px", lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto" }}>
         <code>{code}</code>
       </pre>
     </div>
@@ -636,9 +636,9 @@ function CodeCard({ language, code }: { language: string; code: string }) {
 
 function StateCard({ title, description }: { title: string; description: string }) {
   return (
-    <div style={{ padding: "var(--space-3-5) var(--space-4)", border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", background: "var(--color-bg-01)" }}>
-      <strong style={{ fontSize: "var(--font-size-2)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-text-primary)", display: "block", marginBottom: "var(--space-1)" }}>{title}</strong>
-      <span style={{ fontSize: "var(--font-size-1)", color: "var(--color-text-tertiary)", lineHeight: "var(--line-height-caption-1)" }}>{description}</span>
+    <div style={{ padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
+      <strong style={{ fontSize: "14px", fontWeight: "600", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>{title}</strong>
+      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "18px" }}>{description}</span>
     </div>
   );
 }

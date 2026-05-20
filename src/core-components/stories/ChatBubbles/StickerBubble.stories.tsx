@@ -71,28 +71,28 @@ export const AllVariants: StoryObj = {
   name: "All Variants",
   parameters: { layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-6)", padding: "var(--space-4)" }}>
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--cometchat-spacing-6)", padding: "var(--cometchat-spacing-4)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
         <Label>Sent — Read</Label>
         <StickerBubble variant="sent" status="read" stickerUrl={STICKERS[0]} time="4:56 pm" />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
         <Label>Sent — Delivered</Label>
         <StickerBubble variant="sent" status="delivered" stickerUrl={STICKERS[1]} time="4:56 pm" />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
         <Label>Sent — Sent</Label>
         <StickerBubble variant="sent" status="sent" stickerUrl={STICKERS[2]} time="4:56 pm" />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
         <Label>Received</Label>
         <StickerBubble variant="received" stickerUrl={STICKERS[0]} time="4:56 pm" />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
         <Label>Received (Sticker 2)</Label>
         <StickerBubble variant="received" stickerUrl={STICKERS[1]} time="4:56 pm" />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
         <Label>Received (Sticker 3)</Label>
         <StickerBubble variant="received" stickerUrl={STICKERS[2]} time="4:56 pm" />
       </div>
@@ -104,7 +104,7 @@ export const AllStickers: StoryObj = {
   name: "All Stickers (Sent)",
   parameters: { layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-4)", padding: "var(--space-4)" }}>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--cometchat-spacing-4)", padding: "var(--cometchat-spacing-4)" }}>
       {STICKERS.map((url, i) => (
         <StickerBubble key={i} variant="sent" status="read" stickerUrl={url} time="4:56 pm" />
       ))}
@@ -116,7 +116,7 @@ export const AllStickersReceived: StoryObj = {
   name: "All Stickers (Received)",
   parameters: { layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-4)", padding: "var(--space-4)" }}>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--cometchat-spacing-4)", padding: "var(--cometchat-spacing-4)" }}>
       {STICKERS.map((url, i) => (
         <StickerBubble key={i} variant="received" stickerUrl={url} time="4:56 pm" />
       ))}
@@ -131,7 +131,7 @@ export const AllStickersReceived: StoryObj = {
 export const Usage: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <UsageSection title="HTML Structure">
         <CodeCard
           language="HTML"
@@ -159,7 +159,7 @@ export const Usage: StoryObj = {
       </UsageSection>
 
       <UsageSection title="Variants">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <StateCard title="Sent — Read" description="Purple background bubble with sticker image centered. Green read receipt + timestamp at bottom-right." />
           <StateCard title="Sent — Delivered" description="Same with muted white double-check." />
           <StateCard title="Sent — Sent" description="Same with muted white single-check." />
@@ -168,19 +168,19 @@ export const Usage: StoryObj = {
       </UsageSection>
 
       <UsageSection title="Anatomy">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
-          <StateCard title="Bubble Background" description="Rounded container (var(--radius-xl)) with sent/received background color." />
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
+          <StateCard title="Bubble Background" description="Rounded container (var(--cometchat-radius-3)) with sent/received background color." />
           <StateCard title="Sticker Image" description="PNG with transparent background, rendered at 160×160 centered in the bubble." />
           <StateCard title="Timestamp + Receipt" description="Bottom-right aligned below the sticker. Same pattern as other bubbles." />
         </div>
       </UsageSection>
 
       <UsageSection title="Design Tokens">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
-          <StateCard title="Sent Background" description="var(--color-send-bubble-bg) — Primary purple" />
-          <StateCard title="Received Background" description="var(--color-received-bubble-bg) — Light gray" />
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
+          <StateCard title="Sent Background" description="var(--cometchat-send-bubble-background) — Primary purple" />
+          <StateCard title="Received Background" description="var(--cometchat-received-bubble-background) — Light gray" />
           <StateCard title="Sticker Size" description="160×160px in chat bubble context" />
-          <StateCard title="Border Radius" description="var(--radius-xl) — 12px uniform corners" />
+          <StateCard title="Border Radius" description="var(--cometchat-radius-3) — 12px uniform corners" />
           <StateCard title="Source" description="avatarRegistry['Sticker Footage'] from foundation/tokens/avatars.ts" />
         </div>
       </UsageSection>
@@ -212,13 +212,13 @@ function StickerBubble({
   return (
     <div
       style={{
-        borderRadius: "var(--radius-xl)",
-        background: isSent ? "var(--color-send-bubble-bg)" : "var(--color-received-bubble-bg)",
-        padding: "var(--space-3)",
+        borderRadius: "var(--cometchat-radius-3)",
+        background: isSent ? "var(--cometchat-send-bubble-background)" : "var(--cometchat-received-bubble-background)",
+        padding: "var(--cometchat-spacing-3)",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: "var(--space-2)",
+        gap: "var(--cometchat-spacing-2)",
         width: 220,
       }}
     >
@@ -235,11 +235,11 @@ function StickerBubble({
           display: "flex",
           alignItems: "center",
           justifyContent: "flex-end",
-          gap: "var(--space-1)",
+          gap: "var(--cometchat-spacing-1)",
           width: "100%",
         }}
       >
-        <span style={{ fontSize: "var(--font-size-1)", color: isSent ? "rgba(255,255,255,0.7)" : "var(--color-text-tertiary)" }}>{time}</span>
+        <span style={{ fontSize: "12px", color: isSent ? "rgba(255,255,255,0.7)" : "var(--cometchat-text-color-tertiary)" }}>{time}</span>
         {isSent && status && <ReceiptIcon status={status} />}
       </div>
     </div>
@@ -248,7 +248,7 @@ function StickerBubble({
 
 function ReceiptIcon({ status }: { status: "sent" | "delivered" | "read" }) {
   const isRead = status === "read";
-  const color = isRead ? "var(--color-message-seen)" : "rgba(255, 255, 255, 0.7)";
+  const color = isRead ? "var(--cometchat-message-seen-color)" : "rgba(255, 255, 255, 0.7)";
   if (status === "sent") {
     return (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -266,7 +266,7 @@ function ReceiptIcon({ status }: { status: "sent" | "delivered" | "read" }) {
 
 function Wrapper({ children, width = 280 }: { children: React.ReactNode; width?: number }) {
   return (
-    <div style={{ width, display: "flex", flexDirection: "column", gap: "var(--space-4)", padding: "var(--space-4)", background: "var(--color-bg-01)", borderRadius: "var(--radius-xl)", border: "1px solid var(--color-border-default)" }}>
+    <div style={{ width, display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-4)", padding: "var(--cometchat-spacing-4)", background: "var(--cometchat-background-color-01)", borderRadius: "var(--cometchat-radius-3)", border: "1px solid var(--cometchat-border-color-default)" }}>
       {children}
     </div>
   );
@@ -274,7 +274,7 @@ function Wrapper({ children, width = 280 }: { children: React.ReactNode; width?:
 
 function Label({ children }: { children: React.ReactNode }) {
   return (
-    <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+    <span style={{ fontSize: "10px", fontWeight: "600", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
       {children}
     </span>
   );
@@ -282,8 +282,8 @@ function Label({ children }: { children: React.ReactNode }) {
 
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div style={{ marginBottom: "var(--space-6)" }}>
-      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-text-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)", paddingBottom: "var(--space-2)", borderBottom: "1px solid var(--color-border-default)" }}>{title}</div>
+    <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>{title}</div>
       {children}
     </div>
   );
@@ -291,11 +291,11 @@ function UsageSection({ title, children }: { title: string; children: React.Reac
 
 function CodeCard({ language, code }: { language: string; code: string }) {
   return (
-    <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-02)" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-03)" }}>
-        <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-secondary)" }}>{language}</span>
+    <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", background: "var(--cometchat-background-color-02)" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-03)" }}>
+        <span style={{ fontSize: "10px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-secondary)" }}>{language}</span>
       </div>
-      <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <pre style={{ margin: 0, padding: "var(--cometchat-spacing-3-5)", fontFamily: "var(--cometchat-font-family)", fontSize: "12px", lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto" }}>
         <code>{code}</code>
       </pre>
     </div>
@@ -304,9 +304,9 @@ function CodeCard({ language, code }: { language: string; code: string }) {
 
 function StateCard({ title, description }: { title: string; description: string }) {
   return (
-    <div style={{ padding: "var(--space-3-5) var(--space-4)", border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", background: "var(--color-bg-01)" }}>
-      <strong style={{ fontSize: "var(--font-size-2)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-text-primary)", display: "block", marginBottom: "var(--space-1)" }}>{title}</strong>
-      <span style={{ fontSize: "var(--font-size-1)", color: "var(--color-text-tertiary)", lineHeight: "var(--line-height-caption-1)" }}>{description}</span>
+    <div style={{ padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
+      <strong style={{ fontSize: "14px", fontWeight: "600", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>{title}</strong>
+      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "18px" }}>{description}</span>
     </div>
   );
 }

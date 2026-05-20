@@ -42,7 +42,7 @@ export interface GroupItemProps {
 
 const statusIconColor: Record<StatusIcon, string> = {
   none: "transparent",
-  online: "var(--color-success-500)",
+  online: "var(--cometchat-success-color)",
   offline: "var(--color-neutral-400)",
 };
 

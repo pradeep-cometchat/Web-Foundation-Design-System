@@ -69,13 +69,13 @@ const IconSend = () => (
 
 /* ─── Styles ───────────────────────────────────────────────────────────────── */
 
-const composerBox: React.CSSProperties = { width: 800, display: "flex", flexDirection: "column", background: "var(--color-bg-01)", border: "1px solid var(--color-border-default)", borderRadius: 8 };
+const composerBox: React.CSSProperties = { width: 800, display: "flex", flexDirection: "column", background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: 8 };
 const inputBox: React.CSSProperties = { padding: 12, fontSize: 14, lineHeight: "20px", fontFamily: "'Inter', sans-serif" };
-const toolbarBox: React.CSSProperties = { display: "flex", alignItems: "center", gap: 12, padding: "6px 12px", borderTop: "1px solid var(--color-border-light)" };
+const toolbarBox: React.CSSProperties = { display: "flex", alignItems: "center", gap: 12, padding: "6px 12px", borderTop: "1px solid var(--cometchat-border-color-light)" };
 const actionsLeft: React.CSSProperties = { display: "flex", alignItems: "center", gap: 8, flex: 1 };
-const actionBtn: React.CSSProperties = { display: "flex", alignItems: "center", justifyContent: "center", width: 32, height: 32, padding: 6, borderRadius: 8, background: "transparent", border: "none", cursor: "pointer", color: "var(--color-icon-disabled)" };
-const actionBtnActive: React.CSSProperties = { ...actionBtn, background: "transparent", color: "var(--color-text-highlight)" };
-const sendDisabled: React.CSSProperties = { width: 36, height: 36, borderRadius: "50%", border: "2px solid rgba(255,255,255,0.12)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0px 1px 2px rgba(10,13,18,0.05)", background: "var(--color-bg-03)", color: "var(--color-icon-disabled)" };
+const actionBtn: React.CSSProperties = { display: "flex", alignItems: "center", justifyContent: "center", width: 32, height: 32, padding: 6, borderRadius: 8, background: "transparent", border: "none", cursor: "pointer", color: "var(--cometchat-icon-color-disabled)" };
+const actionBtnActive: React.CSSProperties = { ...actionBtn, background: "transparent", color: "var(--cometchat-text-color-highlight)" };
+const sendDisabled: React.CSSProperties = { width: 36, height: 36, borderRadius: "50%", border: "2px solid rgba(255,255,255,0.12)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0px 1px 2px rgba(10,13,18,0.05)", background: "var(--cometchat-background-color-03)", color: "var(--cometchat-icon-color-disabled)" };
 
 /* ─── Action Sheet Items (using base component icons) ──────────────────────── */
 
@@ -134,28 +134,28 @@ const stickerImages = [
 
 function StickerPicker() {
   return (
-    <div style={{ width: 340, background: "var(--color-bg-01)", borderRadius: 12, border: "1px solid var(--color-border-default)", boxShadow: "0 4px 16px rgba(0,0,0,0.08)", overflow: "hidden" }}>
+    <div style={{ width: 340, background: "var(--cometchat-background-color-01)", borderRadius: 12, border: "1px solid var(--cometchat-border-color-default)", boxShadow: "0 4px 16px rgba(0,0,0,0.08)", overflow: "hidden" }}>
       {/* Tabs */}
-      <div style={{ display: "flex", alignItems: "center", gap: 4, padding: "10px 12px", borderBottom: "1px solid var(--color-border-light)" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 4, padding: "10px 12px", borderBottom: "1px solid var(--cometchat-border-color-light)" }}>
         {stickerTabs.map((tab, i) => (
-          <div key={i} style={{ width: 32, height: 32, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, background: i === 0 ? "var(--color-bg-primary)" : "transparent", cursor: "pointer" }}>
+          <div key={i} style={{ width: 32, height: 32, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, background: i === 0 ? "var(--cometchat-extended-primary-color-50)" : "transparent", cursor: "pointer" }}>
             {tab}
           </div>
         ))}
       </div>
       {/* Search */}
       <div style={{ padding: "8px 12px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 14px", background: "var(--color-bg-03)", borderRadius: 20 }}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14Z" fill="currentColor" style={{ color: "var(--color-icon-tertiary)" }}/></svg>
-          <span style={{ fontSize: 14, color: "var(--color-text-placeholder)" }}>Search sticker</span>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 14px", background: "var(--cometchat-background-color-03)", borderRadius: 20 }}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14Z" fill="currentColor" style={{ color: "var(--cometchat-icon-color-tertiary)" }}/></svg>
+          <span style={{ fontSize: 14, color: "var(--cometchat-text-color-placeholder)" }}>Search sticker</span>
         </div>
       </div>
       {/* Section title */}
-      <div style={{ padding: "4px 12px 8px", fontSize: 14, fontWeight: 600, color: "var(--color-text-primary)" }}>Recent used</div>
+      <div style={{ padding: "4px 12px 8px", fontSize: 14, fontWeight: 600, color: "var(--cometchat-text-color-primary)" }}>Recent used</div>
       {/* Sticker grid - foundation stickers */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8, padding: "0 12px 16px" }}>
         {stickerImages.map((url, i) => (
-          <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 12, background: "var(--color-bg-03)", cursor: "pointer", height: 90, padding: 8 }}>
+          <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 12, background: "var(--cometchat-background-color-03)", cursor: "pointer", height: 90, padding: 8 }}>
             <img src={url} alt={`Sticker ${String(i + 1).padStart(2, "0")}`} style={{ width: 64, height: 64, objectFit: "contain" }} />
           </div>
         ))}
@@ -166,9 +166,9 @@ function StickerPicker() {
 
 /* ─── Format Toolbar (for formatting active state) ─────────────────────────── */
 
-const fmtBtn2: React.CSSProperties = { display: "flex", alignItems: "center", justifyContent: "center", width: 32, height: 32, padding: 6, borderRadius: 8, background: "transparent", border: "none", cursor: "pointer", color: "var(--color-text-secondary)", fontSize: 16 };
-const separator2: React.CSSProperties = { width: 1, height: 20, background: "var(--color-bg-04)", margin: "0 4px" };
-const formatToolbar2: React.CSSProperties = { display: "flex", alignItems: "center", gap: 8, padding: 8, background: "var(--color-bg-02)", borderBottom: "1px solid var(--color-border-light)", borderRadius: "8px 8px 0 0" };
+const fmtBtn2: React.CSSProperties = { display: "flex", alignItems: "center", justifyContent: "center", width: 32, height: 32, padding: 6, borderRadius: 8, background: "transparent", border: "none", cursor: "pointer", color: "var(--cometchat-text-color-secondary)", fontSize: 16 };
+const separator2: React.CSSProperties = { width: 1, height: 20, background: "var(--cometchat-background-color-04)", margin: "0 4px" };
+const formatToolbar2: React.CSSProperties = { display: "flex", alignItems: "center", gap: 8, padding: 8, background: "var(--cometchat-background-color-02)", borderBottom: "1px solid var(--cometchat-border-color-light)", borderRadius: "8px 8px 0 0" };
 
 function FormatToolbarRow() {
   return (
@@ -228,7 +228,7 @@ function ComposerWithAction({ active }: { active: ActionType }) {
         {/* Format toolbar when formatting is active */}
         {active === "formatting" && <FormatToolbarRow />}
         <div style={inputBox}>
-          <span style={{ color: "var(--color-text-placeholder)" }}>Type your message...</span>
+          <span style={{ color: "var(--cometchat-text-color-placeholder)" }}>Type your message...</span>
         </div>
         <div style={toolbarBox}>
           <div style={actionsLeft}>
@@ -263,7 +263,7 @@ function ComposerWithAction({ active }: { active: ActionType }) {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--color-text-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>{title}</div>
+      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>{title}</div>
       {children}
     </div>
   );
@@ -348,14 +348,14 @@ export const Playground: Story = {
 export const Usage: Story = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
-      <div style={{ marginBottom: "var(--space-6)" }}>
-        <div style={{ fontSize: "var(--font-size-1)", fontWeight: 600, color: "var(--color-text-secondary)", textTransform: "uppercase" as const, letterSpacing: "0.06em", marginBottom: "var(--space-2)", paddingBottom: "var(--space-2)", borderBottom: "1px solid var(--color-border-default)" }}>Action Types</div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "var(--space-3)" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
+      <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
+        <div style={{ fontSize: "12px", fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase" as const, letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>Action Types</div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           {(["sticker", "emoji", "formatting", "ai"] as const).map(a => (
-            <div key={a} style={{ padding: "var(--space-3)", border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", background: "var(--color-bg-01)" }}>
-              <strong style={{ fontSize: "var(--font-size-2)", color: "var(--color-text-primary)", display: "block", marginBottom: "var(--space-1)" }}>{a}</strong>
-              <span style={{ fontSize: "var(--font-size-1)", color: "var(--color-text-tertiary)" }}>Panel overlay for {a} action.</span>
+            <div key={a} style={{ padding: "var(--cometchat-spacing-3)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
+              <strong style={{ fontSize: "14px", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>{a}</strong>
+              <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)" }}>Panel overlay for {a} action.</span>
             </div>
           ))}
         </div>

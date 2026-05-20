@@ -16,7 +16,7 @@ const male = avatarRegistry["Male Avatar"];
 
 export const Default: StoryObj = {
   render: () => (
-    <div style={{ width: 420, height: 800, display: "flex", flexDirection: "column", background: "var(--color-bg-01)", border: "1px solid var(--color-border-default)", overflow: "hidden" }}>
+    <div style={{ width: 420, height: 800, display: "flex", flexDirection: "column", background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", overflow: "hidden" }}>
       <UserInfoHeader />
       <div style={{ flex: 1, overflowY: "auto", display: "flex", flexDirection: "column" }}>
         <UserInfoProfile />
@@ -33,7 +33,7 @@ export const Default: StoryObj = {
 export const WithImage: StoryObj = {
   name: "With Image",
   render: () => (
-    <div style={{ width: 420, height: 800, display: "flex", flexDirection: "column", background: "var(--color-bg-01)", border: "1px solid var(--color-border-default)", overflow: "hidden" }}>
+    <div style={{ width: 420, height: 800, display: "flex", flexDirection: "column", background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", overflow: "hidden" }}>
       <UserInfoHeader />
       <div style={{ flex: 1, overflowY: "auto", display: "flex", flexDirection: "column" }}>
         <UserInfoProfileWithImage />
@@ -50,9 +50,9 @@ export const WithImage: StoryObj = {
 export const AllStates: StoryObj = {
   parameters: { layout: "fullscreen" },
   render: () => (
-    <div style={{ display: "flex", gap: "var(--space-6)", padding: "var(--space-8)", overflowX: "auto" }}>
+    <div style={{ display: "flex", gap: "var(--cometchat-spacing-6)", padding: "var(--cometchat-spacing-8)", overflowX: "auto" }}>
       <StateLabel label="Text Avatar">
-        <div style={{ width: 420, height: 800, display: "flex", flexDirection: "column", background: "var(--color-bg-01)", border: "1px solid var(--color-border-default)", overflow: "hidden" }}>
+        <div style={{ width: 420, height: 800, display: "flex", flexDirection: "column", background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", overflow: "hidden" }}>
           <UserInfoHeader />
           <div style={{ flex: 1, overflowY: "auto", display: "flex", flexDirection: "column" }}>
             <UserInfoProfile />
@@ -62,7 +62,7 @@ export const AllStates: StoryObj = {
       </StateLabel>
 
       <StateLabel label="Image Avatar">
-        <div style={{ width: 420, height: 800, display: "flex", flexDirection: "column", background: "var(--color-bg-01)", border: "1px solid var(--color-border-default)", overflow: "hidden" }}>
+        <div style={{ width: 420, height: 800, display: "flex", flexDirection: "column", background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", overflow: "hidden" }}>
           <UserInfoHeader />
           <div style={{ flex: 1, overflowY: "auto", display: "flex", flexDirection: "column" }}>
             <UserInfoProfileWithImage />
@@ -81,7 +81,7 @@ export const AllStates: StoryObj = {
 export const Usage: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <UsageSection title="HTML Structure">
         <CodeCard
           language="HTML"
@@ -117,7 +117,7 @@ export const Usage: StoryObj = {
         />
       </UsageSection>
 
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <CodeCard
           language="CSS"
           code={`.user-info {
@@ -125,8 +125,8 @@ export const Usage: StoryObj = {
   flex-direction: column;
   width: 420px;
   height: 100%;
-  background: var(--color-bg-01);
-  border-left: 1px solid var(--color-border-light);
+  background: var(--cometchat-background-color-01);
+  border-left: 1px solid var(--cometchat-border-color-light);
 }
 
 .user-info__header {
@@ -135,21 +135,21 @@ export const Usage: StoryObj = {
   gap: 8px;
   height: 64px;
   padding: 8px 16px;
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--cometchat-border-color-light);
 }
 
 .user-info__close-icon {
   font-size: 24px;
-  color: var(--color-text-primary);
+  color: var(--cometchat-text-color-primary);
   cursor: pointer;
 }
 
 .user-info__header-title {
-  font-family: var(--font-family-heading);
+  font-family: var(--cometchat-font-family);
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
-  color: var(--color-text-primary);
+  color: var(--cometchat-text-color-primary);
 }
 
 .user-info__profile {
@@ -158,42 +158,42 @@ export const Usage: StoryObj = {
   align-items: center;
   gap: 12px;
   padding: 40px 20px 20px;
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--cometchat-border-color-light);
 }
 
 .user-info__avatar {
   width: 120px;
   height: 120px;
-  border-radius: var(--radius-full);
-  background: var(--color-extended-primary-400);
+  border-radius: var(--cometchat-radius-max);
+  background: var(--cometchat-extended-primary-color-400);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .user-info__avatar-text {
-  font-family: var(--font-family-heading);
+  font-family: var(--cometchat-font-family);
   font-size: 40px;
   font-weight: 600;
   color: white;
 }
 
 .user-info__name {
-  font-family: var(--font-family-heading);
+  font-family: var(--cometchat-font-family);
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
-  color: var(--color-text-primary);
+  color: var(--cometchat-text-color-primary);
 }
 
 .user-info__status {
   font-size: 12px;
   line-height: 18px;
-  color: var(--color-text-secondary);
+  color: var(--cometchat-text-color-secondary);
 }
 
 .user-info__action-list {
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--cometchat-border-color-light);
 }
 
 .user-info__action-item {
@@ -206,13 +206,13 @@ export const Usage: StoryObj = {
 }
 
 .user-info__action-item--danger {
-  color: var(--color-error-600);
+  color: var(--cometchat-error-color);
 }`}
         />
       </UsageSection>
 
       <UsageSection title="States">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <StateCard title="Default" description="Shows user avatar (text initials on purple background), name, online status, and action buttons (Block, Delete Chat)." />
         </div>
       </UsageSection>
@@ -227,8 +227,8 @@ export const Usage: StoryObj = {
 function UserInfoHeader() {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 8, height: 64, padding: "8px 16px", borderBottom: "1px solid var(--color-border-light, #f5f5f5)" }}>
-      <span className="icon-rounded" style={{ fontSize: 24, color: "var(--color-text-primary)", cursor: "pointer" }}>close</span>
-      <span style={{ flex: 1, fontFamily: "var(--font-family-heading)", fontSize: 20, fontWeight: 700, lineHeight: "30px", color: "var(--color-text-primary)" }}>User Info</span>
+      <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-text-color-primary)", cursor: "pointer" }}>close</span>
+      <span style={{ flex: 1, fontFamily: "var(--cometchat-font-family)", fontSize: 20, fontWeight: 700, lineHeight: "30px", color: "var(--cometchat-text-color-primary)" }}>User Info</span>
     </div>
   );
 }
@@ -238,10 +238,10 @@ function UserInfoProfile() {
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, padding: "40px 20px 20px", borderBottom: "1px solid var(--color-border-light, #f5f5f5)" }}>
       {/* Avatar with text initials */}
       <div style={{ width: 120, height: 120, borderRadius: "var(--radius-full, 9999px)", background: "var(--color-extended-primary-400, #7a70e4)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <span style={{ fontFamily: "var(--font-family-heading)", fontSize: 40, fontWeight: 600, color: "white" }}>SF</span>
+        <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: 40, fontWeight: 600, color: "white" }}>SF</span>
       </div>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0, textAlign: "center" }}>
-        <p style={{ margin: 0, fontFamily: "var(--font-family-heading)", fontSize: 20, fontWeight: 500, lineHeight: "30px", color: "var(--color-text-primary)" }}>George Alan</p>
+        <p style={{ margin: 0, fontFamily: "var(--cometchat-font-family)", fontSize: 20, fontWeight: 500, lineHeight: "30px", color: "var(--cometchat-text-color-primary)" }}>George Alan</p>
         <span style={{ fontSize: 12, lineHeight: "18px", color: "var(--color-text-secondary, #414651)" }}>Online</span>
       </div>
     </div>
@@ -273,7 +273,7 @@ function UserInfoProfileWithImage() {
         <img src={male[5].imageUrl} alt="George Alan" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0, textAlign: "center" }}>
-        <p style={{ margin: 0, fontFamily: "var(--font-family-heading)", fontSize: 20, fontWeight: 500, lineHeight: "30px", color: "var(--color-text-primary)" }}>George Alan</p>
+        <p style={{ margin: 0, fontFamily: "var(--cometchat-font-family)", fontSize: 20, fontWeight: 500, lineHeight: "30px", color: "var(--cometchat-text-color-primary)" }}>George Alan</p>
         <span style={{ fontSize: 12, lineHeight: "18px", color: "var(--color-text-secondary, #414651)" }}>Online</span>
       </div>
     </div>
@@ -282,8 +282,8 @@ function UserInfoProfileWithImage() {
 
 function StateLabel({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
-      <span style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-medium)", color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}>{label}</span>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
+      <span style={{ fontSize: "12px", fontWeight: "500", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}>{label}</span>
       {children}
     </div>
   );
@@ -291,8 +291,8 @@ function StateLabel({ label, children }: { label: string; children: React.ReactN
 
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div style={{ marginBottom: "var(--space-6)" }}>
-      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-text-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)", paddingBottom: "var(--space-2)", borderBottom: "1px solid var(--color-border-default)" }}>{title}</div>
+    <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>{title}</div>
       {children}
     </div>
   );
@@ -300,11 +300,11 @@ function UsageSection({ title, children }: { title: string; children: React.Reac
 
 function CodeCard({ language, code }: { language: string; code: string }) {
   return (
-    <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-02)" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-03)" }}>
-        <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-secondary)" }}>{language}</span>
+    <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", background: "var(--cometchat-background-color-02)" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-03)" }}>
+        <span style={{ fontSize: "10px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-secondary)" }}>{language}</span>
       </div>
-      <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <pre style={{ margin: 0, padding: "var(--cometchat-spacing-3-5)", fontFamily: "var(--cometchat-font-family)", fontSize: "12px", lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto" }}>
         <code>{code}</code>
       </pre>
     </div>
@@ -313,9 +313,9 @@ function CodeCard({ language, code }: { language: string; code: string }) {
 
 function StateCard({ title, description }: { title: string; description: string }) {
   return (
-    <div style={{ padding: "var(--space-3-5) var(--space-4)", border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", background: "var(--color-bg-01)" }}>
-      <strong style={{ fontSize: "var(--font-size-2)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-text-primary)", display: "block", marginBottom: "var(--space-1)" }}>{title}</strong>
-      <span style={{ fontSize: "var(--font-size-1)", color: "var(--color-text-tertiary)", lineHeight: "var(--line-height-caption-1)" }}>{description}</span>
+    <div style={{ padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
+      <strong style={{ fontSize: "14px", fontWeight: "600", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>{title}</strong>
+      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "18px" }}>{description}</span>
     </div>
   );
 }

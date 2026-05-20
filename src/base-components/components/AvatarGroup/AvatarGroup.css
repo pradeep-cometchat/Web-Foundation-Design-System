@@ -12,7 +12,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-full); /* circle */
+  border-radius: var(--cometchat-radius-max); /* circle */
   overflow: visible;
   flex-shrink: 0;
 }
@@ -21,7 +21,7 @@
 .avatar__img-wrap {
   width: 100%;
   height: 100%;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
   overflow: hidden;
 }
 
@@ -36,15 +36,15 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
 }
 
 /* Fallback (initials or icon) — has bg + border */
 .avatar__fallback-wrap {
   width: 100%;
   height: 100%;
-  border-radius: var(--radius-full);
-  background: var(--color-ep-300);
+  border-radius: var(--cometchat-radius-max);
+  background: var(--cometchat-extended-primary-color-300);
   border: none;
   display: flex;
   align-items: center;
@@ -52,21 +52,21 @@
 }
 
 .avatar__fallback {
-  font-family: var(--font-family-heading);
-  font-weight: var(--font-weight-semibold); /* 600 */
-  color: var(--color-static-white);
+  font-family: var(--cometchat-font-family);
+  font-weight: 600; /* 600 */
+  color: var(--cometchat-static-white);
   text-transform: uppercase;
 }
 
-.avatar--xs .avatar__fallback { font-size: var(--font-size-0); }
-.avatar--sm .avatar__fallback { font-size: var(--font-size-1); }
-.avatar--md .avatar__fallback { font-size: var(--font-size-3); }
-.avatar--lg .avatar__fallback { font-size: var(--font-size-4); }
-.avatar--xl .avatar__fallback { font-size: var(--font-size-5); }
-.avatar--2xl .avatar__fallback { font-size: var(--font-size-6); }
+.avatar--xs .avatar__fallback { font-size: 10px; }
+.avatar--sm .avatar__fallback { font-size: 12px; }
+.avatar--md .avatar__fallback { font-size: 16px; }
+.avatar--lg .avatar__fallback { font-size: 18px; }
+.avatar--xl .avatar__fallback { font-size: 20px; }
+.avatar--2xl .avatar__fallback { font-size: 24px; }
 
 .avatar__icon {
-  color: var(--color-icon-tertiary);
+  color: var(--cometchat-icon-color-tertiary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,12 +78,12 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  border-radius: var(--radius-full);
-  border: 1.5px solid var(--color-bg-01);
+  border-radius: var(--cometchat-radius-max);
+  border: 1.5px solid var(--cometchat-background-color-01);
 }
 
-.avatar__status--online { background: var(--color-success-500); /* #17b26a */ }
-.avatar__status--offline { background: var(--color-icon-quaternary); }
+.avatar__status--online { background: var(--cometchat-success-color); /* #17b26a */ }
+.avatar__status--offline { background: var(--cometchat-icon-color-tertiary); }
 
 .avatar--xs .avatar__status { width: 6px; height: 6px; }
 .avatar--sm .avatar__status { width: 8px; height: 8px; }
@@ -124,7 +124,7 @@
 }
 
 .avatar-group .avatar {
-  border: 2px solid var(--color-bg-01);
+  border: 2px solid var(--cometchat-background-color-01);
   margin-left: -8px;
 }
 
@@ -140,17 +140,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-full);
-  background: var(--color-bg-02);
-  border: 2px solid var(--color-bg-01);
-  font-family: var(--font-family-heading);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
+  border-radius: var(--cometchat-radius-max);
+  background: var(--cometchat-background-color-02);
+  border: 2px solid var(--cometchat-background-color-01);
+  font-family: var(--cometchat-font-family);
+  font-weight: 500;
+  color: var(--cometchat-text-color-secondary);
 }
 
-.avatar-group--xs .avatar-group__counter { width: 24px; height: 24px; font-size: var(--font-size-0); margin-left: -6px; }
-.avatar-group--sm .avatar-group__counter { width: 32px; height: 32px; font-size: var(--font-size-1); margin-left: -8px; }
-.avatar-group--md .avatar-group__counter { width: 40px; height: 40px; font-size: var(--font-size-2); margin-left: -10px; }
+.avatar-group--xs .avatar-group__counter { width: 24px; height: 24px; font-size: 10px; margin-left: -6px; }
+.avatar-group--sm .avatar-group__counter { width: 32px; height: 32px; font-size: 12px; margin-left: -8px; }
+.avatar-group--md .avatar-group__counter { width: 40px; height: 40px; font-size: 14px; margin-left: -10px; }
 
 /* ─── ADD BUTTON ───────────────────────────────────────────────────────────── */
 
@@ -158,24 +158,24 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-full);
-  background: var(--color-bg-01);
-  border: 1.5px dashed var(--color-border-dark);
+  border-radius: var(--cometchat-radius-max);
+  background: var(--cometchat-background-color-01);
+  border: 1.5px dashed var(--cometchat-border-color-dark);
   cursor: pointer;
-  color: var(--color-icon-tertiary);
+  color: var(--cometchat-icon-color-tertiary);
   transition: border-color 120ms ease, color 120ms ease;
-  margin-left: var(--space-1);
+  margin-left: var(--cometchat-spacing-1);
   padding: 0;
   outline: none;
 }
 
 .avatar-group__add:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+  border-color: var(--cometchat-primary-color);
+  color: var(--cometchat-primary-color);
 }
 
 .avatar-group__add:focus-visible {
-  box-shadow: var(--focus-ring-xs);
+  box-shadow: var(--cometchat-focus-ring);
 }
 
 .avatar-group--xs .avatar-group__add { width: 24px; height: 24px; }
@@ -187,8 +187,8 @@
 .avatar-label-group {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-3); /* 12px */
-  font-family: var(--font-family-heading);
+  gap: var(--cometchat-spacing-3); /* 12px */
+  font-family: var(--cometchat-font-family);
 }
 
 .avatar-label-group__text {
@@ -198,21 +198,21 @@
 }
 
 .avatar-label-group__name {
-  font-weight: var(--font-weight-semibold); /* 600 */
-  color: var(--color-text-primary);
+  font-weight: 600; /* 600 */
+  color: var(--cometchat-text-color-primary);
 }
 
-.avatar-label-group--sm .avatar-label-group__name { font-size: var(--font-size-2); line-height: var(--line-height-body); } /* 14px/20px */
-.avatar-label-group--md .avatar-label-group__name { font-size: var(--font-size-2); line-height: var(--line-height-body); } /* 14px/20px */
-.avatar-label-group--lg .avatar-label-group__name { font-size: var(--font-size-3); line-height: var(--line-height-h4); } /* 16px/24px */
-.avatar-label-group--xl .avatar-label-group__name { font-size: var(--font-size-4); line-height: var(--line-height-h3); } /* 18px/28px */
+.avatar-label-group--sm .avatar-label-group__name { font-size: 14px; line-height: 20px; } /* 14px/20px */
+.avatar-label-group--md .avatar-label-group__name { font-size: 14px; line-height: 20px; } /* 14px/20px */
+.avatar-label-group--lg .avatar-label-group__name { font-size: 16px; line-height: 24px; } /* 16px/24px */
+.avatar-label-group--xl .avatar-label-group__name { font-size: 18px; line-height: 28px; } /* 18px/28px */
 
 .avatar-label-group__supporting {
-  font-weight: var(--font-weight-regular); /* 400 */
-  color: var(--color-text-secondary);
+  font-weight: 400; /* 400 */
+  color: var(--cometchat-text-color-secondary);
 }
 
-.avatar-label-group--sm .avatar-label-group__supporting { font-size: var(--font-size-1); line-height: var(--line-height-caption-1); } /* 12px/18px */
-.avatar-label-group--md .avatar-label-group__supporting { font-size: var(--font-size-2); line-height: var(--line-height-body); } /* 14px/20px */
-.avatar-label-group--lg .avatar-label-group__supporting { font-size: var(--font-size-3); line-height: var(--line-height-h4); } /* 16px/24px */
-.avatar-label-group--xl .avatar-label-group__supporting { font-size: var(--font-size-3); line-height: var(--line-height-h4); } /* 16px/24px */
+.avatar-label-group--sm .avatar-label-group__supporting { font-size: 12px; line-height: 18px; } /* 12px/18px */
+.avatar-label-group--md .avatar-label-group__supporting { font-size: 14px; line-height: 20px; } /* 14px/20px */
+.avatar-label-group--lg .avatar-label-group__supporting { font-size: 16px; line-height: 24px; } /* 16px/24px */
+.avatar-label-group--xl .avatar-label-group__supporting { font-size: 16px; line-height: 24px; } /* 16px/24px */

@@ -2,10 +2,10 @@
 /* A popup showing who reacted, with emoji tabs and a list of reactors */
 
 .reaction-list {
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-2xl);
-  box-shadow: var(--shadow-lg);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-4);
+  box-shadow: var(--cometchat-shadow-lg);
   overflow: clip;
   display: flex;
   flex-direction: column;
@@ -19,8 +19,8 @@
   align-items: center;
   padding-top: 8px;
   width: 100%;
-  background: var(--color-bg-01);
-  border-bottom: 1px solid var(--color-border-default);
+  background: var(--cometchat-background-color-01);
+  border-bottom: 1px solid var(--cometchat-border-color-default);
 }
 
 /* Tab item base */
@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: center;
   height: 40px;
-  padding: var(--space-2) var(--space-4);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-4);
   border: none;
   background: none;
   cursor: pointer;
@@ -38,18 +38,18 @@
   border-top-right-radius: 4px;
   overflow: clip;
   font-family: var(--font-family-body, "Inter", sans-serif);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
   text-align: center;
-  color: var(--color-text-tertiary);
+  color: var(--cometchat-text-color-tertiary);
   white-space: nowrap;
   transition: color 120ms ease;
   border-bottom: 2px solid transparent;
 }
 
 .reaction-list__tab:hover {
-  color: var(--color-text-secondary);
+  color: var(--cometchat-text-color-secondary);
 }
 
 .reaction-list__tab:focus-visible {
@@ -73,17 +73,17 @@
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  background: var(--color-bg-01);
+  background: var(--cometchat-background-color-01);
 }
 
 /* ─── List item: px-16 py-8, gap-8, flex row ─── */
 .reaction-list__item {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
+  gap: var(--cometchat-spacing-2);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-4);
   width: 100%;
-  background: var(--color-bg-01);
+  background: var(--cometchat-background-color-01);
   border: none;
   cursor: pointer;
   transition: background 120ms ease;
@@ -92,12 +92,12 @@
 }
 
 .reaction-list__item:hover {
-  background: var(--color-bg-02);
+  background: var(--cometchat-background-color-02);
 }
 
 .reaction-list__item:focus-visible {
   outline: none;
-  box-shadow: var(--focus-ring-xs);
+  box-shadow: var(--cometchat-focus-ring);
   position: relative;
   z-index: 1;
 }
@@ -106,7 +106,7 @@
 .reaction-list__avatar {
   width: 32px;
   height: 32px;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -121,7 +121,7 @@
 .reaction-list__text {
   display: flex;
   flex-direction: column;
-  gap: var(--space-0-5);
+  gap: var(--cometchat-spacing);
   flex: 1;
   min-width: 0;
   justify-content: center;
@@ -133,10 +133,10 @@
 /* Name: Body/Medium — 14px, weight 500, line-height 20px, text-primary */
 .reaction-list__name {
   font-family: var(--font-family-body, "Inter", sans-serif);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-body);
-  color: var(--color-text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--cometchat-text-color-primary);
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -144,18 +144,18 @@
 /* Subtitle: Caption 1/Regular — 12px, weight 400, line-height 18px, text-secondary */
 .reaction-list__subtitle {
   font-family: var(--font-family-body, "Inter", sans-serif);
-  font-size: var(--font-size-1);
-  font-weight: var(--font-weight-regular);
+  font-size: 12px;
+  font-weight: 400;
   line-height: 14px;
-  color: var(--color-text-secondary);
+  color: var(--cometchat-text-color-secondary);
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 /* Emoji: 20px, line-height 30px, 24px wide */
 .reaction-list__emoji {
-  font-size: var(--font-size-5);
-  line-height: var(--line-height-h2);
+  font-size: 20px;
+  line-height: 30px;
   width: 24px;
   text-align: center;
   flex-shrink: 0;

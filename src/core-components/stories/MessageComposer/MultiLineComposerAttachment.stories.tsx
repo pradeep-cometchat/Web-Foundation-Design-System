@@ -96,8 +96,8 @@ const composerBox: React.CSSProperties = {
   width: 800,
   display: "flex",
   flexDirection: "column",
-  background: "var(--color-bg-01)",
-  border: "1px solid var(--color-border-default)",
+  background: "var(--cometchat-background-color-01)",
+  border: "1px solid var(--cometchat-border-color-default)",
   borderRadius: 8,
 };
 
@@ -106,7 +106,7 @@ const inputBox: React.CSSProperties = {
   fontSize: 14,
   lineHeight: "20px",
   fontFamily: "'Inter', sans-serif",
-  color: "var(--color-text-placeholder)",
+  color: "var(--cometchat-text-color-placeholder)",
 };
 
 const attachmentRow: React.CSSProperties = {
@@ -124,7 +124,7 @@ const toolbarBox: React.CSSProperties = {
   alignItems: "center",
   gap: 12,
   padding: "6px 12px",
-  borderTop: "1px solid var(--color-border-light)",
+  borderTop: "1px solid var(--cometchat-border-color-light)",
 };
 
 const actionsLeft: React.CSSProperties = {
@@ -155,9 +155,9 @@ const sendBase: React.CSSProperties = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  boxShadow: "var(--shadow-xs)",
-  background: "var(--color-bg-solid)",
-  color: "var(--color-static-white)",
+  boxShadow: "var(--cometchat-shadow-xs)",
+  background: "var(--cometchat-background-color-solid)",
+  color: "var(--cometchat-static-white)",
 };
 
 /* ─── Attachment Badge Styles ──────────────────────────────────────────────── */
@@ -173,7 +173,7 @@ const badgeBase: React.CSSProperties = {
   alignItems: "center",
   justifyContent: "center",
   cursor: "pointer",
-  border: "2px solid var(--color-bg-01)",
+  border: "2px solid var(--cometchat-background-color-01)",
 };
 
 const badgeLoading: React.CSSProperties = {
@@ -188,12 +188,12 @@ const badgeClose: React.CSSProperties = {
 
 const badgeCloseHover: React.CSSProperties = {
   ...badgeBase,
-  background: "var(--color-text-secondary)",
+  background: "var(--cometchat-text-color-secondary)",
 };
 
 const badgeError: React.CSSProperties = {
   ...badgeBase,
-  background: "var(--color-bg-error-solid)",
+  background: "var(--cometchat-error-color)",
 };
 
 /* ─── Attachment Type Styles ───────────────────────────────────────────────── */
@@ -234,8 +234,8 @@ const documentCard: React.CSSProperties = {
   width: 200,
   height: 72,
   borderRadius: 8,
-  border: "1px solid var(--color-border-default)",
-  background: "var(--color-bg-02)",
+  border: "1px solid var(--cometchat-border-color-default)",
+  background: "var(--cometchat-background-color-02)",
   display: "flex",
   alignItems: "center",
   gap: 10,
@@ -248,8 +248,8 @@ const audioCard: React.CSSProperties = {
   width: 200,
   height: 72,
   borderRadius: 8,
-  border: "1px solid var(--color-border-default)",
-  background: "var(--color-bg-02)",
+  border: "1px solid var(--cometchat-border-color-default)",
+  background: "var(--cometchat-background-color-02)",
   display: "flex",
   alignItems: "center",
   gap: 10,
@@ -261,7 +261,7 @@ const audioPlayBtn: React.CSSProperties = {
   width: 32,
   height: 32,
   borderRadius: "50%",
-  background: "var(--color-bg-solid)",
+  background: "var(--cometchat-background-color-solid)",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -279,13 +279,13 @@ const waveformContainer: React.CSSProperties = {
 const waveformBar: React.CSSProperties = {
   width: 3,
   borderRadius: 2,
-  background: "var(--color-icon-disabled)",
+  background: "var(--cometchat-icon-color-disabled)",
 };
 
 const durationText: React.CSSProperties = {
   fontSize: 11,
   fontWeight: 500,
-  color: "var(--color-text-secondary)",
+  color: "var(--cometchat-text-color-secondary)",
   flexShrink: 0,
 };
 
@@ -328,7 +328,7 @@ function Waveform({ playing }: { playing?: boolean }) {
           style={{
             ...waveformBar,
             height: h,
-            background: playing && i < 8 ? "var(--color-bg-solid)" : "var(--color-icon-disabled)",
+            background: playing && i < 8 ? "var(--cometchat-background-color-solid)" : "var(--cometchat-icon-color-disabled)",
           }}
         />
       ))}
@@ -344,7 +344,7 @@ const sampleImage = "https://images.unsplash.com/photo-1523170335258-f5ed11844a4
 function ImageAttachmentPreview({ badge = "none" as BadgeState }) {
   return (
     <div style={imageThumb}>
-      <div style={{ width: 72, height: 72, borderRadius: 12, overflow: "hidden", border: "1px solid var(--color-border-default)" }}>
+      <div style={{ width: 72, height: 72, borderRadius: 12, overflow: "hidden", border: "1px solid var(--cometchat-border-color-default)" }}>
         <img src={sampleImage} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <AttachmentBadge state={badge} />
@@ -355,7 +355,7 @@ function ImageAttachmentPreview({ badge = "none" as BadgeState }) {
 function VideoAttachmentPreview({ badge = "none" as BadgeState }) {
   return (
     <div style={videoThumb}>
-      <div style={{ width: 72, height: 72, borderRadius: 12, overflow: "hidden", border: "1px solid var(--color-border-default)" }}>
+      <div style={{ width: 72, height: 72, borderRadius: 12, overflow: "hidden", border: "1px solid var(--cometchat-border-color-default)" }}>
         <img src={sampleImage} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <div style={videoPlayOverlay}><IconPlay /></div>
@@ -369,8 +369,8 @@ function DocumentAttachmentPreview({ badge = "none" as BadgeState }) {
     <div style={documentCard}>
       <IconDocument />
       <div style={{ display: "flex", flexDirection: "column", gap: 2, overflow: "hidden" }}>
-        <span style={{ fontSize: 12, fontWeight: 500, color: "var(--color-text-primary)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>Document.pdf</span>
-        <span style={{ fontSize: 11, color: "var(--color-text-secondary)" }}>PDF</span>
+        <span style={{ fontSize: 12, fontWeight: 500, color: "var(--cometchat-text-color-primary)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>Document.pdf</span>
+        <span style={{ fontSize: 11, color: "var(--cometchat-text-color-secondary)" }}>PDF</span>
       </div>
       <AttachmentBadge state={badge} />
     </div>
@@ -437,7 +437,7 @@ function ComposerWithAttachments({ children }: { children: React.ReactNode }) {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--color-text-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>
+      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>
         {title}
       </div>
       {children}
@@ -657,14 +657,14 @@ export const Usage: Story = {
 .attachment--video {
   width: 72px;
   height: 72px;
-  background: var(--color-bg-04);
+  background: var(--cometchat-background-color-04);
 }
 .attachment--document,
 .attachment--audio {
   width: 200px;
   height: 72px;
-  border: 1px solid var(--color-border-default);
-  background: var(--color-bg-02);
+  border: 1px solid var(--cometchat-border-color-default);
+  background: var(--cometchat-background-color-02);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -681,8 +681,8 @@ export const Usage: Story = {
   align-items: center;
   justify-content: center;
 }
-.attachment__badge--close { background: var(--color-bg-01-solid); color: var(--color-static-white); }
-.attachment__badge--error { background: var(--color-bg-error-solid); color: var(--color-static-white); }
+.attachment__badge--close { background: var(--color-bg-01-solid); color: var(--cometchat-static-white); }
+.attachment__badge--error { background: var(--cometchat-error-color); color: var(--cometchat-static-white); }
 .attachment__badge--loading { background: var(--color-bg-01-solid); }
 .attachment__play-overlay {
   position: absolute;
@@ -699,7 +699,7 @@ export const Usage: Story = {
 .attachment__play-btn {
   width: 32px; height: 32px;
   border-radius: 50%;
-  background: var(--color-bg-solid);
+  background: var(--cometchat-background-color-solid);
   color: white;
   display: flex;
   align-items: center;
@@ -713,7 +713,7 @@ export const Usage: Story = {
 }
 .attachment__duration {
   font-size: 11px;
-  color: var(--color-text-secondary);
+  color: var(--cometchat-text-color-secondary);
 }`} />
       </Section>
     </div>
@@ -723,11 +723,11 @@ export const Usage: Story = {
 /* ─── Docs Helper ──────────────────────────────────────────────────────────── */
 
 const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
-  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: 12, overflow: "hidden", marginBottom: 16 }}>
-    <div style={{ padding: "8px 12px", borderBottom: "1px solid #e9eaeb", background: "var(--color-bg-02)" }}>
-      <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-secondary)" }}>{language}</span>
+  <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: 12, overflow: "hidden", marginBottom: 16 }}>
+    <div style={{ padding: "8px 12px", borderBottom: "1px solid #e9eaeb", background: "var(--cometchat-background-color-02)" }}>
+      <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-secondary)" }}>{language}</span>
     </div>
-    <pre style={{ margin: 0, padding: 14, fontSize: 12, lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto", background: "white" }}>
+    <pre style={{ margin: 0, padding: 14, fontSize: 12, lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto", background: "white" }}>
       <code>{code}</code>
     </pre>
   </div>

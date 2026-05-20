@@ -139,16 +139,16 @@ export const Usage: StoryObj = {
   </div>
 </div>`} />
       </UsageSection>
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <UsageCodeCard language="CSS" code={`.conversation-summary {
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-2);
+  box-shadow: 0px 12px 16px -4px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-  padding: var(--space-3) var(--space-4);
+  gap: var(--cometchat-spacing-2);
+  padding: var(--cometchat-spacing-3) var(--cometchat-spacing-4);
 }
 
 .conversation-summary__header {
@@ -158,9 +158,9 @@ export const Usage: StoryObj = {
 }
 
 .conversation-summary__title {
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cometchat-text-color-primary);
 }
 
 .conversation-summary__close-btn {
@@ -169,26 +169,26 @@ export const Usage: StoryObj = {
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--color-text-primary);
+  color: var(--cometchat-text-color-primary);
 }
 
 .conversation-summary__text {
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body);
-  color: var(--color-text-primary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.8px;
+  color: var(--cometchat-text-color-primary);
 }
 
 .conversation-summary__skeleton {
   height: 14px;
-  border-radius: var(--radius-xs);
-  background: var(--color-bg-03);
+  border-radius: var(--cometchat-radius-1);
+  background: var(--cometchat-background-color-03);
   animation: conversation-summary-pulse 1.5s ease-in-out infinite;
 }
 
 .conversation-summary__error {
-  font-size: var(--font-size-2);
-  color: var(--color-error);
+  font-size: 14px;
+  color: var(--cometchat-error-color);
 }`} />
       </UsageSection>
     </div>

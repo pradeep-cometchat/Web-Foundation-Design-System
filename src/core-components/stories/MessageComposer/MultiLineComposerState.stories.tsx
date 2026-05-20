@@ -67,8 +67,8 @@ const composerBox: React.CSSProperties = {
   width: 800,
   display: "flex",
   flexDirection: "column",
-  background: "var(--color-bg-01)",
-  border: "1px solid var(--color-border-default)",
+  background: "var(--cometchat-background-color-01)",
+  border: "1px solid var(--cometchat-border-color-default)",
   borderRadius: 8,
 };
 
@@ -84,7 +84,7 @@ const toolbarBox: React.CSSProperties = {
   alignItems: "center",
   gap: 12,
   padding: "6px 12px",
-  borderTop: "1px solid var(--color-border-light)",
+  borderTop: "1px solid var(--cometchat-border-color-light)",
 };
 
 const actionsLeft: React.CSSProperties = {
@@ -127,17 +127,17 @@ function MultiLineComposer({ state, text }: { state: "placeholder" | "focus" | "
     <div style={composerBox}>
       <div style={inputBox}>
         {state === "typing" && text ? (
-          <span style={{ color: "var(--color-text-primary)", display: "flex", alignItems: "center", gap: 0 }}>
+          <span style={{ color: "var(--cometchat-text-color-primary)", display: "flex", alignItems: "center", gap: 0 }}>
             {text}
-            <span style={{ display: "inline-block", width: 1.5, height: 18, background: "var(--color-text-primary)", marginLeft: 1 }} />
+            <span style={{ display: "inline-block", width: 1.5, height: 18, background: "var(--cometchat-text-color-primary)", marginLeft: 1 }} />
           </span>
         ) : state === "focus" ? (
-          <span style={{ color: "var(--color-text-placeholder-subtle)", display: "flex", alignItems: "center", gap: 0 }}>
-            <span style={{ display: "inline-block", width: 1.5, height: 18, background: "var(--color-text-primary)", marginRight: 2 }} />
+          <span style={{ color: "var(--cometchat-text-color-placeholder)", display: "flex", alignItems: "center", gap: 0 }}>
+            <span style={{ display: "inline-block", width: 1.5, height: 18, background: "var(--cometchat-text-color-primary)", marginRight: 2 }} />
             Type your message...
           </span>
         ) : (
-          <span style={{ color: "var(--color-text-placeholder)" }}>Type your message...</span>
+          <span style={{ color: "var(--cometchat-text-color-placeholder)" }}>Type your message...</span>
         )}
       </div>
       <div style={toolbarBox}>
@@ -149,7 +149,7 @@ function MultiLineComposer({ state, text }: { state: "placeholder" | "focus" | "
           <button style={actionButton} aria-label="Formatting"><IconFormatting /></button>
           <button style={{ ...actionButton, padding: 4 }} aria-label="AI features"><IconAI /></button>
         </div>
-        <div style={{ ...sendBase, background: isActive ? "var(--color-bg-solid)" : "var(--color-bg-03)", color: isActive ? "var(--color-static-white)" : "var(--color-icon-disabled)" }}>
+        <div style={{ ...sendBase, background: isActive ? "var(--cometchat-background-color-solid)" : "var(--cometchat-background-color-03)", color: isActive ? "var(--cometchat-static-white)" : "var(--cometchat-icon-color-disabled)" }}>
           <IconSend />
         </div>
       </div>
@@ -162,7 +162,7 @@ function MultiLineComposer({ state, text }: { state: "placeholder" | "focus" | "
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--color-text-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>
+      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>
         {title}
       </div>
       {children}
@@ -236,26 +236,26 @@ export const Usage: Story = {
   display: flex;
   flex-direction: column;
   background: white;
-  border: 1px solid var(--color-border-default);
+  border: 1px solid var(--cometchat-border-color-default);
   border-radius: 8px;
 }
 .composer__input {
   padding: 12px;
   font-size: 14px;
   line-height: 20px;
-  color: var(--color-text-primary);
+  color: var(--cometchat-text-color-primary);
   outline: none;
 }
 .composer__input:empty::before {
   content: attr(data-placeholder);
-  color: var(--color-text-placeholder);
+  color: var(--cometchat-text-color-tertiary);
 }
 .composer__toolbar {
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 6px 12px;
-  border-top: 1px solid var(--color-border-light);
+  border-top: 1px solid var(--cometchat-border-color-light);
 }
 .composer__actions {
   display: flex;
@@ -284,11 +284,11 @@ export const Usage: Story = {
   box-shadow: 0 1px 2px rgba(10,13,18,0.05);
 }
 .composer__send[disabled] {
-  background: var(--color-bg-03);
-  color: var(--color-icon-disabled);
+  background: var(--cometchat-background-color-03);
+  color: var(--cometchat-icon-color-tertiary);
 }
 .composer__send:not([disabled]) {
-  background: var(--color-bg-solid);
+  background: var(--cometchat-background-color-solid);
   color: white;
 }`} />
       </Section>
@@ -299,11 +299,11 @@ export const Usage: Story = {
 /* ─── Docs Helper ──────────────────────────────────────────────────────────── */
 
 const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
-  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: 12, overflow: "hidden", marginBottom: 16 }}>
-    <div style={{ padding: "8px 12px", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
-      <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-secondary)" }}>{language}</span>
+  <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: 12, overflow: "hidden", marginBottom: 16 }}>
+    <div style={{ padding: "8px 12px", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-02)" }}>
+      <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-secondary)" }}>{language}</span>
     </div>
-    <pre style={{ margin: 0, padding: 14, fontSize: 12, lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto", background: "var(--color-bg-01)" }}>
+    <pre style={{ margin: 0, padding: 14, fontSize: 12, lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto", background: "var(--cometchat-background-color-01)" }}>
       <code>{code}</code>
     </pre>
   </div>

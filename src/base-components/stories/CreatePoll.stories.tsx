@@ -95,13 +95,13 @@ export const Usage: StoryObj = {
   </div>
 </div>`} />
       </UsageSection>
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <UsageCodeCard language="CSS" code={`.create-poll {
   width: 420px;
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-3xl);
-  box-shadow: var(--shadow-lg);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-5);
+  box-shadow: 0px 12px 16px -4px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
 }
@@ -111,46 +111,46 @@ export const Usage: StoryObj = {
   align-items: center;
   justify-content: space-between;
   height: 64px;
-  padding: var(--space-2) var(--space-4);
-  border-bottom: 1px solid var(--color-border-light);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-4);
+  border-bottom: 1px solid var(--cometchat-border-color-light);
 }
 
 .create-poll__title {
-  font-size: var(--font-size-5);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cometchat-text-color-primary);
 }
 
 .create-poll__question-input {
   width: 100%;
-  padding: var(--space-3) var(--space-4);
-  border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-2);
-  color: var(--color-text-primary);
+  padding: var(--cometchat-spacing-3) var(--cometchat-spacing-4);
+  border: 1px solid var(--cometchat-border-color-default);
+  border-radius: var(--cometchat-radius-2);
+  font-size: 14px;
+  color: var(--cometchat-text-color-primary);
 }
 
 .create-poll__option-field {
   flex: 1;
   display: flex;
   align-items: center;
-  padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-md);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-3);
+  border: 1px solid var(--cometchat-border-color-default);
+  border-radius: var(--cometchat-radius-2);
 }
 
 .create-poll__add-option {
-  color: var(--color-ep-600);
-  font-weight: var(--font-weight-medium);
+  color: var(--cometchat-primary-color);
+  font-weight: 500;
 }
 
 .create-poll__btn--cancel {
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-dark);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-dark);
 }
 
 .create-poll__btn--active {
-  background: var(--color-ep-600);
+  background: var(--cometchat-primary-color);
   color: var(--color-white);
 }`} />
       </UsageSection>

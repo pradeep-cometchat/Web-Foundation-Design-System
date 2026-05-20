@@ -3,10 +3,10 @@
 
 .flag-message-dialog {
   width: 400px;
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-3xl);
-  box-shadow: var(--shadow-lg);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-5);
+  box-shadow: var(--cometchat-shadow-lg);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -14,14 +14,14 @@
 
 /* ─── Header ─── */
 .flag-message-dialog__header {
-  padding: var(--space-4);
-  border-bottom: 1px solid var(--color-border-light);
+  padding: var(--cometchat-spacing-4);
+  border-bottom: 1px solid var(--cometchat-border-color-light);
 }
 
 .flag-message-dialog__header-content {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--cometchat-spacing-2);
 }
 
 .flag-message-dialog__header-top {
@@ -31,11 +31,11 @@
 }
 
 .flag-message-dialog__title {
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-5);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-h2);
-  color: var(--color-text-primary);
+  font-family: var(--cometchat-font-family);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  color: var(--cometchat-text-color-primary);
 }
 
 .flag-message-dialog__close {
@@ -47,13 +47,13 @@
   border: none;
   background: transparent;
   cursor: pointer;
-  color: var(--color-text-primary);
+  color: var(--cometchat-text-color-primary);
   padding: 0;
-  border-radius: var(--radius-xs);
+  border-radius: var(--cometchat-radius-1);
 }
 
 .flag-message-dialog__close:hover {
-  background: var(--color-bg-02);
+  background: var(--cometchat-background-color-02);
 }
 
 .flag-message-dialog__close svg {
@@ -63,98 +63,98 @@
 
 .flag-message-dialog__description {
   margin: 0;
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-1);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-caption-1);
-  color: var(--color-text-secondary);
+  font-family: var(--cometchat-font-family);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--cometchat-text-color-secondary);
 }
 
 /* ─── Body ─── */
 .flag-message-dialog__body {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
-  padding-bottom: var(--space-3);
+  gap: var(--cometchat-spacing-6);
+  padding-bottom: var(--cometchat-spacing-3);
 }
 
 /* Badges */
 .flag-message-dialog__badges {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
-  padding: var(--space-3) var(--space-5) 0;
+  gap: var(--cometchat-spacing-2);
+  padding: var(--cometchat-spacing-3) var(--cometchat-spacing-5) 0;
 }
 
 .flag-message-dialog__badge {
   display: inline-flex;
   align-items: center;
-  padding: var(--space-1) var(--space-3);
-  border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-full);
-  background: var(--color-bg-01);
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-body);
-  color: var(--color-text-primary);
+  padding: var(--cometchat-spacing-1) var(--cometchat-spacing-3);
+  border: 1px solid var(--cometchat-border-color-default);
+  border-radius: var(--cometchat-radius-max);
+  background: var(--cometchat-background-color-01);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--cometchat-text-color-primary);
   cursor: pointer;
   transition: background 120ms ease, border-color 120ms ease;
   white-space: nowrap;
 }
 
 .flag-message-dialog__badge:hover {
-  background: var(--color-bg-02);
-  border-color: var(--color-border-dark);
+  background: var(--cometchat-background-color-02);
+  border-color: var(--cometchat-border-color-dark);
 }
 
 .flag-message-dialog__badge--selected {
-  background: var(--color-ep-600);
-  border-color: var(--color-ep-600);
-  color: var(--color-static-white);
+  background: var(--cometchat-extended-primary-color-600);
+  border-color: var(--cometchat-extended-primary-color-600);
+  color: var(--cometchat-static-white);
 }
 
 .flag-message-dialog__badge--selected:hover {
-  background: var(--color-ep-700);
-  border-color: var(--color-ep-700);
+  background: var(--cometchat-extended-primary-color-700);
+  border-color: var(--cometchat-extended-primary-color-700);
 }
 
 /* Text field */
 .flag-message-dialog__field {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
-  padding: 0 var(--space-5);
+  gap: var(--cometchat-spacing-1);
+  padding: 0 var(--cometchat-spacing-5);
 }
 
 .flag-message-dialog__label {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  line-height: var(--line-height-body);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .flag-message-dialog__label-text {
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-primary);
+  font-weight: 500;
+  color: var(--cometchat-text-color-primary);
 }
 
 .flag-message-dialog__label-optional {
-  font-weight: var(--font-weight-regular);
-  color: var(--color-text-secondary);
+  font-weight: 400;
+  color: var(--cometchat-text-color-secondary);
 }
 
 .flag-message-dialog__textarea {
   width: 100%;
   height: 88px;
-  padding: var(--space-2);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-md);
-  background: var(--color-bg-02);
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body);
-  color: var(--color-text-primary);
+  padding: var(--cometchat-spacing-2);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-2);
+  background: var(--cometchat-background-color-02);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--cometchat-text-color-primary);
   resize: none;
   outline: none;
   transition: border-color 120ms ease;
@@ -162,65 +162,65 @@
 }
 
 .flag-message-dialog__textarea::placeholder {
-  color: var(--color-text-secondary);
+  color: var(--cometchat-text-color-secondary);
 }
 
 .flag-message-dialog__textarea:focus {
-  border-color: var(--color-ep-300);
+  border-color: var(--cometchat-extended-primary-color-300);
 }
 
 /* ─── Buttons ─── */
 .flag-message-dialog__buttons {
   display: flex;
-  gap: var(--space-2);
-  padding: var(--space-5);
+  gap: var(--cometchat-spacing-2);
+  padding: var(--cometchat-spacing-5);
 }
 
 .flag-message-dialog__btn {
   flex: 1;
   height: 40px;
-  border-radius: var(--radius-md);
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-body);
+  border-radius: var(--cometchat-radius-2);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
   cursor: pointer;
   transition: background 120ms ease;
   outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-2) var(--space-5);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-5);
 }
 
 .flag-message-dialog__btn:focus-visible {
-  box-shadow: var(--focus-ring-xs);
+  box-shadow: var(--cometchat-focus-ring);
 }
 
 .flag-message-dialog__btn--cancel {
-  background: var(--color-bg-01);
-  color: var(--color-text-primary);
-  border: 1px solid var(--color-border-dark);
+  background: var(--cometchat-background-color-01);
+  color: var(--cometchat-text-color-primary);
+  border: 1px solid var(--cometchat-border-color-dark);
 }
 
 .flag-message-dialog__btn--cancel:hover {
-  background: var(--color-bg-02);
+  background: var(--cometchat-background-color-02);
 }
 
 /* Report button — disabled state */
 .flag-message-dialog__btn--report {
-  background: var(--color-bg-04);
-  color: var(--color-static-white);
+  background: var(--cometchat-background-color-04);
+  color: var(--cometchat-static-white);
   border: none;
   cursor: not-allowed;
 }
 
 /* Report button — active/enabled state */
 .flag-message-dialog__btn--report-active {
-  background: var(--color-error);
+  background: var(--cometchat-error-color);
   cursor: pointer;
 }
 
 .flag-message-dialog__btn--report-active:hover {
-  background: var(--color-error-700);
+  background: var(--cometchat-error-color);
 }

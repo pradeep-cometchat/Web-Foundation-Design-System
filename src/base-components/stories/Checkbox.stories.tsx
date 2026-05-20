@@ -223,14 +223,14 @@ export const Usage: Story = {
         />
       </Section>
 
-      <Section title="CSS (Foundation Variables)">
+      <Section title="CSS (CometChat Tokens)">
         <CodeCard
           language="CSS"
           code={`.checkbox {
   display: inline-flex;
   align-items: flex-start;
-  gap: var(--space-3);
-  font-family: var(--font-family-heading);
+  gap: var(--cometchat-spacing-3);
+  font-family: var(--cometchat-font-family);
   cursor: pointer;
 }
 
@@ -250,12 +250,12 @@ export const Usage: Story = {
   transition: background 120ms ease, border-color 120ms ease;
 }
 
-.checkbox__box--sm { width: 16px; height: 16px; border-radius: var(--radius-xs); }
-.checkbox__box--md { width: 20px; height: 20px; border-radius: var(--radius-sm); }
-.checkbox__box--radio { border-radius: var(--radius-full); }
+.checkbox__box--sm { width: 16px; height: 16px; border-radius: var(--cometchat-radius-1); }
+.checkbox__box--md { width: 20px; height: 20px; border-radius: 6px; }
+.checkbox__box--radio { border-radius: var(--cometchat-radius-max); }
 
 .checkbox__box:hover:not(:disabled) {
-  border-color: var(--color-primary);
+  border-color: var(--cometchat-primary-color);
 }
 
 .checkbox__box:focus-visible {
@@ -263,8 +263,8 @@ export const Usage: Story = {
 }
 
 .checkbox__box--checked {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
+  background: var(--cometchat-primary-color);
+  border-color: var(--cometchat-primary-color);
 }
 
 .checkbox__box--checked:hover:not(:disabled) {
@@ -273,17 +273,17 @@ export const Usage: Story = {
 }
 
 .checkbox__label {
-  font-size: var(--font-size-3);
-  font-weight: var(--font-weight-medium);
+  font-size: 16px;
+  font-weight: 500;
   color: var(--color-neutral-lm-700);
-  line-height: var(--line-height-h4);
+  line-height: 19.2px;
 }
 
 .checkbox__description {
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-regular);
+  font-size: 14px;
+  font-weight: 400;
   color: var(--color-neutral-lm-600);
-  line-height: var(--line-height-body);
+  line-height: 16.8px;
 }`}
         />
       </Section>

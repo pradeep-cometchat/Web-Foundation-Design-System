@@ -330,35 +330,35 @@ export const Usage: Story = {
   </div>
 </div>`} />
       </UsageSection>
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <UsageCodeCard language="CSS" code={`.list-item {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-2) var(--space-4);
-  background: var(--color-bg-01);
-  border-radius: var(--radius-md);
+  gap: var(--cometchat-spacing-3);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-4);
+  background: var(--cometchat-background-color-01);
+  border-radius: var(--cometchat-radius-2);
   cursor: pointer;
   min-height: var(--space-14);
   transition: background 0.15s ease;
 }
 
 .list-item:hover {
-  background: var(--color-bg-02);
+  background: var(--cometchat-background-color-02);
 }
 
 .list-item__avatar {
   position: relative;
-  width: var(--space-10);
-  height: var(--space-10);
-  border-radius: var(--radius-full);
+  width: var(--cometchat-spacing-10);
+  height: var(--cometchat-spacing-10);
+  border-radius: var(--cometchat-radius-max);
   overflow: visible;
 }
 
 .list-item__avatar img {
   width: 100%;
   height: 100%;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
   object-fit: cover;
 }
 
@@ -367,21 +367,21 @@ export const Usage: Story = {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-0-5);
+  gap: var(--cometchat-spacing);
 }
 
 .list-item__title {
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cometchat-text-color-primary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .list-item__subtitle {
-  font-size: var(--font-size-1);
-  color: var(--color-text-secondary);
+  font-size: 12px;
+  color: var(--cometchat-text-color-secondary);
 }`} />
       </UsageSection>
     </div>

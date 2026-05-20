@@ -107,7 +107,7 @@ export const Usage: Story = {
   </div>
 </div>`} />
       </UsageSection>
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <UsageCodeCard language="CSS" code={`.confirmation-dialog__overlay {
   position: fixed;
   inset: 0;
@@ -120,22 +120,22 @@ export const Usage: Story = {
 
 .confirmation-dialog {
   width: 400px;
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-2xl);
-  box-shadow: var(--shadow-lg);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-4);
+  box-shadow: 0px 12px 16px -4px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-6);
+  gap: var(--cometchat-spacing-3);
+  padding: var(--cometchat-spacing-6);
 }
 
 .confirmation-dialog__icon-wrap {
   width: 80px;
   height: 80px;
-  border-radius: var(--radius-full);
-  background: var(--color-bg-02);
+  border-radius: var(--cometchat-radius-max);
+  background: var(--cometchat-background-color-02);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,43 +144,43 @@ export const Usage: Story = {
 .confirmation-dialog__icon {
   width: 48px;
   height: 48px;
-  color: var(--color-error);
+  color: var(--cometchat-error-color);
 }
 
 .confirmation-dialog__title {
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-5);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-h2);
-  color: var(--color-text-primary);
+  font-family: var(--cometchat-font-family);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--cometchat-text-color-primary);
 }
 
 .confirmation-dialog__description {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  color: var(--color-text-secondary);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  color: var(--cometchat-text-color-secondary);
 }
 
 .confirmation-dialog__actions {
   display: flex;
-  gap: var(--space-2);
+  gap: var(--cometchat-spacing-2);
   width: 100%;
-  padding: var(--space-3) 0 0;
+  padding: var(--cometchat-spacing-3) 0 0;
 }
 
 .confirmation-dialog__btn--cancel {
-  background: var(--color-bg-01);
-  color: var(--color-text-primary);
-  border: 1px solid var(--color-border-dark);
-  border-radius: var(--radius-md);
+  background: var(--cometchat-background-color-01);
+  color: var(--cometchat-text-color-primary);
+  border: 1px solid var(--cometchat-border-color-dark);
+  border-radius: var(--cometchat-radius-2);
   height: 40px;
 }
 
 .confirmation-dialog__btn--confirm {
-  background: var(--color-error);
-  color: var(--color-static-white);
+  background: var(--cometchat-error-color);
+  color: var(--cometchat-static-white);
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: var(--cometchat-radius-2);
   height: 40px;
 }`} />
       </UsageSection>

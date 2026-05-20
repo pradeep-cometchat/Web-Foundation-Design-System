@@ -189,25 +189,25 @@ export const Usage: StoryObj = {
         />
       </Section>
 
-      <Section title="CSS (Foundation Variables)">
+      <Section title="CSS (CometChat Tokens)">
         <CodeCard
           language="CSS"
           code={`.reaction {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--cometchat-spacing-1);
   height: 24px;
-  padding: var(--space-0-5) var(--space-2);
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-full);
+  padding: var(--cometchat-spacing) var(--cometchat-spacing-2);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-max);
   cursor: pointer;
   transition: background 100ms ease, border-color 100ms ease;
 }
 
 .reaction:hover {
-  background: var(--color-bg-02);
-  border-color: var(--color-border-default);
+  background: var(--cometchat-background-color-02);
+  border-color: var(--cometchat-border-color-default);
 }
 
 .reaction--active {
@@ -220,25 +220,25 @@ export const Usage: StoryObj = {
 }
 
 .reaction--add {
-  color: var(--color-icon-tertiary);
+  color: var(--cometchat-icon-color-tertiary);
   border-style: dashed;
 }
 
 .reaction__emoji {
-  font-size: var(--font-size-2);
-  line-height: var(--line-height-body);
+  font-size: 14px;
+  line-height: 16.8px;
 }
 
 .reaction__count {
-  font-size: var(--font-size-1);
-  font-weight: var(--font-weight-regular);
-  color: var(--color-text-primary);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--cometchat-text-color-primary);
 }
 
 .reaction-group {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-1);
+  gap: var(--cometchat-spacing-1);
 }`}
         />
       </Section>

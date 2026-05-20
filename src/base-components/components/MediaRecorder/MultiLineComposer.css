@@ -3,15 +3,15 @@
    ══════════════════════════════════════════════ */
 
 .ml-composer__popup {
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-2xl);
-  box-shadow: var(--shadow-lg);
-  padding: var(--space-5) var(--space-6) var(--space-6);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-4);
+  box-shadow: var(--cometchat-shadow-lg);
+  padding: var(--cometchat-spacing-5) var(--cometchat-spacing-6) var(--cometchat-spacing-6);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-4);
+  gap: var(--cometchat-spacing-4);
   width: 100%;
   max-width: 300px;
   overflow: hidden;
@@ -21,11 +21,11 @@
 
 /* Title */
 .ml-composer__popup-title {
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-3);
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-h4);
-  color: var(--color-text-primary);
+  font-family: var(--cometchat-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--cometchat-text-color-primary);
   text-align: center;
   width: 100%;
 }
@@ -41,13 +41,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-1) 0;
+  padding: var(--cometchat-spacing-1) 0;
 }
 
 .ml-composer__wave-outer {
   width: 110px;
   height: 110px;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
   background: transparent;
   display: flex;
   align-items: center;
@@ -71,7 +71,7 @@
 .ml-composer__wave-inner {
   width: 96px;
   height: 96px;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
   background: transparent;
   display: flex;
   align-items: center;
@@ -86,7 +86,7 @@
 .ml-composer__wave-center {
   width: 92px;
   height: 92px;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
   background: rgba(104, 82, 214, 0.25);
   display: flex;
   align-items: center;
@@ -95,13 +95,13 @@
 }
 
 .ml-composer__wave-center--active {
-  background: var(--color-ep-600);
+  background: var(--cometchat-extended-primary-color-600);
 }
 
 .ml-composer__wave-mic {
   width: 36px;
   height: 36px;
-  color: var(--color-static-white);
+  color: var(--cometchat-static-white);
 }
 
 /* ─────────────────────────────────────────────
@@ -109,16 +109,16 @@
    ───────────────────────────────────────────── */
 
 .ml-composer__duration {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-3);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-h4);
-  color: var(--color-text-primary);
+  font-family: var(--cometchat-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--cometchat-text-color-primary);
   letter-spacing: 0.02em;
 }
 
 .ml-composer__duration--muted {
-  color: var(--color-icon-tertiary);
+  color: var(--cometchat-icon-color-tertiary);
 }
 
 /* ─────────────────────────────────────────────
@@ -129,28 +129,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-3);
+  gap: var(--cometchat-spacing-3);
   width: 100%;
-  padding: var(--space-2) 0;
+  padding: var(--cometchat-spacing-2) 0;
 }
 
 .ml-composer__play-btn {
   width: 44px;
   height: 44px;
   flex-shrink: 0;
-  border-radius: var(--radius-full);
-  background: var(--color-ep-600);
+  border-radius: var(--cometchat-radius-max);
+  background: var(--cometchat-extended-primary-color-600);
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--color-static-white);
+  color: var(--cometchat-static-white);
   transition: background 120ms ease;
 }
 
 .ml-composer__play-btn:hover {
-  background: var(--color-ep-700);
+  background: var(--cometchat-extended-primary-color-700);
 }
 
 .ml-composer__play-btn svg {
@@ -161,7 +161,7 @@
 .ml-composer__waveform {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1-5);
+  gap: var(--cometchat-spacing-1-5);
 }
 
 .ml-composer__waveform-bars {
@@ -169,21 +169,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-0-5);
+  gap: var(--cometchat-spacing);
 }
 
 .ml-composer__waveform-bar {
   width: 2px;
   border-radius: 1px;
-  background: var(--color-icon-quaternary);
+  background: var(--cometchat-icon-color-tertiary);
   flex-shrink: 0;
 }
 
 .ml-composer__preview-duration {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-1);
-  font-weight: var(--font-weight-regular);
-  color: var(--color-text-secondary);
+  font-family: var(--cometchat-font-family);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--cometchat-text-color-secondary);
   text-align: left;
 }
 
@@ -195,7 +195,7 @@
 .ml-composer__actions {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--cometchat-spacing-3);
 }
 
 .ml-composer__action-btn {
@@ -203,7 +203,7 @@
   align-items: center;
   justify-content: center;
   border: none;
-  border-radius: var(--radius-lg);
+  border-radius: var(--cometchat-radius-2-5);
   cursor: pointer;
   transition: background 120ms ease, opacity 120ms ease;
   padding: 0;
@@ -212,9 +212,9 @@
 .ml-composer__action-btn--outline {
   width: 44px;
   height: 44px;
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-default);
-  color: var(--color-text-tertiary);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-default);
+  color: var(--cometchat-text-color-tertiary);
 }
 
 .ml-composer__action-btn--outline svg {
@@ -223,18 +223,18 @@
 }
 
 .ml-composer__action-btn--outline:hover {
-  background: var(--color-bg-02);
-  color: var(--color-text-secondary);
+  background: var(--cometchat-background-color-02);
+  color: var(--cometchat-text-color-secondary);
 }
 
 /* Send button — purple circle (shown in preview state) */
 .ml-composer__action-btn--send {
   width: 48px;
   height: 48px;
-  background: var(--color-ep-600);
+  background: var(--cometchat-extended-primary-color-600);
   border: none;
-  border-radius: var(--radius-full);
-  color: var(--color-static-white);
+  border-radius: var(--cometchat-radius-max);
+  color: var(--cometchat-static-white);
 }
 
 .ml-composer__action-btn--send svg {
@@ -243,15 +243,15 @@
 }
 
 .ml-composer__action-btn--send:hover {
-  background: var(--color-ep-700);
+  background: var(--cometchat-extended-primary-color-700);
 }
 
 .ml-composer__action-btn--destructive {
   width: 52px;
   height: 52px;
-  background: var(--color-error);
-  color: var(--color-static-white);
-  border-radius: var(--radius-xl);
+  background: var(--cometchat-error-color);
+  color: var(--cometchat-static-white);
+  border-radius: var(--cometchat-radius-3);
 }
 
 .ml-composer__action-btn--destructive svg {

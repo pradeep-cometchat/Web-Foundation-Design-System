@@ -90,7 +90,7 @@ function JoinGroupForm() {
       <div className="form-dialog__profile">
         <div className="form-dialog__avatar">
           <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-            <circle cx="40" cy="40" r="40" fill="var(--color-ep-300)" />
+            <circle cx="40" cy="40" r="40" fill="var(--cometchat-extended-primary-color-300)" />
             <path d="M40 40c5 0 9-4 9-9s-4-9-9-9-9 4-9 9 4 9 9 9zm0 4c-6 0-18 3-18 9v5h36v-5c0-6-12-9-18-9z" fill="white" />
           </svg>
         </div>
@@ -107,7 +107,7 @@ function JoinGroupForm() {
         <div className="form-dialog__input-wrap">
           <input type="password" className="form-dialog__input form-dialog__input--with-icon" placeholder="Enter password" />
           <button type="button" className="form-dialog__input-icon" aria-label="Toggle password visibility">
-            <span className="icon-outlined" style={{ fontSize: 20, fontFamily: "var(--icon-font-outlined)", color: "var(--color-icon-tertiary)" }}>
+            <span className="icon-outlined" style={{ fontSize: 20, fontFamily: "var(--cometchat-font-family)", color: "var(--cometchat-icon-color-tertiary)" }}>
               visibility_off
             </span>
           </button>

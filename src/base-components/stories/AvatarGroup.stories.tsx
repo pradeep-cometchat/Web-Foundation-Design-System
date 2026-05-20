@@ -372,13 +372,13 @@ export const Usage: Story = {
   </div>
 </div>`} />
       </Section>
-      <Section title="CSS (Foundation Variables)">
+      <Section title="CSS (CometChat Tokens)">
         <CodeCard language="CSS" code={`.avatar {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
   overflow: visible;
 }
 
@@ -393,13 +393,13 @@ export const Usage: Story = {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
 }
 
 .avatar__fallback-wrap {
   width: 100%;
   height: 100%;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
   background: var(--color-ep-300);
   display: flex;
   align-items: center;
@@ -407,8 +407,8 @@ export const Usage: Story = {
 }
 
 .avatar__fallback {
-  font-family: var(--font-family-heading);
-  font-weight: var(--font-weight-semibold);
+  font-family: var(--cometchat-font-family);
+  font-weight: 500;
   color: var(--color-white);
   text-transform: uppercase;
 }
@@ -417,7 +417,7 @@ export const Usage: Story = {
   position: absolute;
   bottom: 0;
   right: 0;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
   border: 1.5px solid var(--color-white);
 }
 
@@ -437,16 +437,16 @@ export const Usage: Story = {
 .avatar-label-group {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--cometchat-spacing-3);
 }
 
 .avatar-label-group__name {
-  font-weight: var(--font-weight-semibold);
+  font-weight: 500;
   color: var(--color-neutral-lm-900);
 }
 
 .avatar-label-group__supporting {
-  font-weight: var(--font-weight-regular);
+  font-weight: 400;
   color: var(--color-neutral-lm-600);
 }`} />
       </Section>

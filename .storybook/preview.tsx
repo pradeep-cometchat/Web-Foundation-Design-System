@@ -4,6 +4,7 @@ import { withThemeByDataAttribute } from "@storybook/addon-themes";
 import "../src/foundation/tokens/tokens.css";
 import "../src/foundation/tokens/responsive.css";
 import "../src/foundation/tokens/responsive-components.css";
+import "../src/cometchat-foundation/tokens/cometchat-tokens.css";
 import "./preview.css";
 import { FoundationDocsPage } from "./DocsPage";
 import { foundationTheme } from "./theme";
@@ -22,19 +23,17 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
-          "Foundation",
+          "CometChat Foundation",
           [
             "Introduction",
+            "Colors",
             "Typography",
             "Spacing",
             "Radius",
             "Icons",
             "Misc Icons",
             "Avatars",
-            "Tooltip",
             "Stickers",
-            "Colors",
-            ["Primitive", "Theme"],
             "Effects",
             ["Shadows", "Focus Rings", "Backdrop Blur"],
           ],
@@ -61,6 +60,7 @@ const preview: Preview = {
             "Smart Replies",
             "Thread View",
             "Toast",
+            "Tooltip",
             "Typing Indicator",
             "Dialog",
             [

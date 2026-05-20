@@ -4,10 +4,10 @@
 .emoji-keyboard {
   width: 300px;
   height: 348px;
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-3xl);
-  box-shadow: var(--shadow-lg);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-5);
+  box-shadow: var(--cometchat-shadow-lg);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -18,43 +18,43 @@
 .emoji-keyboard__header {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-  padding: var(--space-3);
+  gap: var(--cometchat-spacing-2);
+  padding: var(--cometchat-spacing-3);
   flex-shrink: 0;
 }
 
 .emoji-keyboard__category-label {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body);
-  color: var(--color-text-secondary);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--cometchat-text-color-secondary);
 }
 
 /* Search bar */
 .emoji-keyboard__search {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--cometchat-spacing-1);
   height: 28px;
-  padding: var(--space-1) var(--space-2);
-  background: var(--color-bg-03);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-full);
+  padding: var(--cometchat-spacing-1) var(--cometchat-spacing-2);
+  background: var(--cometchat-background-color-03);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-max);
 }
 
 .emoji-keyboard__search-icon {
   width: 16px;
   height: 16px;
-  color: var(--color-text-secondary);
+  color: var(--cometchat-text-color-secondary);
   flex-shrink: 0;
 }
 
 .emoji-keyboard__search-text {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-regular);
-  color: var(--color-text-secondary);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--cometchat-text-color-secondary);
 }
 
 /* ─── Emoji Grid ─── */
@@ -62,10 +62,10 @@
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 0 var(--space-3) var(--space-3);
+  padding: 0 var(--cometchat-spacing-3) var(--cometchat-spacing-3);
   display: grid;
   grid-template-columns: repeat(10, 24px);
-  gap: var(--space-2) var(--space-3);
+  gap: var(--cometchat-spacing-2) var(--cometchat-spacing-3);
   align-content: start;
 }
 
@@ -75,32 +75,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--font-size-5);
+  font-size: 20px;
   line-height: 1;
   border: none;
   background: transparent;
   cursor: pointer;
-  border-radius: var(--radius-xs);
+  border-radius: var(--cometchat-radius-1);
   padding: 0;
   transition: background 100ms ease;
 }
 
 .emoji-keyboard__emoji:hover {
-  background: var(--color-bg-03);
+  background: var(--cometchat-background-color-03);
 }
 
 .emoji-keyboard__emoji:active {
-  background: var(--color-bg-04);
+  background: var(--cometchat-background-color-04);
 }
 
 /* ─── Category Tabs ─── */
 .emoji-keyboard__tabs {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2);
-  border-top: 1px solid var(--color-border-default);
-  background: var(--color-bg-01);
+  gap: var(--cometchat-spacing-2);
+  padding: var(--cometchat-spacing-2);
+  border-top: 1px solid var(--cometchat-border-color-default);
+  background: var(--cometchat-background-color-01);
   flex-shrink: 0;
 }
 
@@ -112,25 +112,25 @@
   justify-content: center;
   border: none;
   background: transparent;
-  border-radius: var(--radius-md);
+  border-radius: var(--cometchat-radius-2);
   cursor: pointer;
   transition: background 100ms ease;
   padding: 0;
 }
 
 .emoji-keyboard__tab:hover {
-  background: var(--color-bg-02);
+  background: var(--cometchat-background-color-02);
 }
 
 .emoji-keyboard__tab--active {
-  background: var(--color-ep-100);
+  background: var(--cometchat-extended-primary-color-100);
 }
 
 .emoji-keyboard__tab--active:hover {
-  background: var(--color-ep-100);
+  background: var(--cometchat-extended-primary-color-100);
 }
 
 .emoji-keyboard__tab-icon {
-  font-size: var(--font-size-3);
+  font-size: 16px;
   line-height: 1;
 }

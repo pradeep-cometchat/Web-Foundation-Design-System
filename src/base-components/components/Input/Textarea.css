@@ -1,46 +1,46 @@
 .textarea-field {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1-5);
+  gap: var(--cometchat-spacing-1-5);
   width: 100%;
 }
 
 /* Label */
 .textarea-field__label-wrap {
   display: flex;
-  gap: var(--space-0-5);
+  gap: var(--cometchat-spacing);
   align-items: flex-start;
 }
 
 .textarea-field__label {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-body);
-  color: var(--color-text-secondary);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--cometchat-text-color-secondary);
 }
 
 .textarea-field__required {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-body);
-  color: var(--color-text-highlight);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--cometchat-text-color-highlight);
 }
 
 /* Textarea */
 .textarea-field__input {
   width: 100%;
-  padding: var(--space-3);
-  border: 1px solid var(--color-border-dark);
-  border-radius: var(--radius-md);
-  background: var(--color-bg-01);
-  box-shadow: var(--shadow-xs);
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-3);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-h4);
-  color: var(--color-text-primary);
+  padding: var(--cometchat-spacing-3);
+  border: 1px solid var(--cometchat-border-color-dark);
+  border-radius: var(--cometchat-radius-2);
+  background: var(--cometchat-background-color-01);
+  box-shadow: var(--cometchat-shadow-xs);
+  font-family: var(--cometchat-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--cometchat-text-color-primary);
   outline: none;
   resize: vertical;
   box-sizing: border-box;
@@ -48,21 +48,21 @@
 }
 
 .textarea-field__input::placeholder {
-  color: var(--color-text-tertiary);
+  color: var(--cometchat-text-color-tertiary);
 }
 
 .textarea-field__input:focus {
-  border-color: var(--color-ep-600);
-  box-shadow: var(--focus-ring-xs);
+  border-color: var(--cometchat-extended-primary-color-600);
+  box-shadow: var(--cometchat-focus-ring);
 }
 
 .textarea-field__input--error {
-  border-color: var(--color-error);
+  border-color: var(--cometchat-error-color);
 }
 
 .textarea-field__input--error:focus {
-  border-color: var(--color-error);
-  box-shadow: var(--focus-ring-error-xs);
+  border-color: var(--cometchat-error-color);
+  box-shadow: var(--cometchat-focus-ring-error);
 }
 
 .textarea-field__input--no-resize {
@@ -70,27 +70,27 @@
 }
 
 .textarea-field__input:disabled {
-  background: var(--color-bg-disabled);
-  border-color: var(--color-border-default);
-  color: var(--color-text-disabled);
+  background: var(--cometchat-background-color-disabled);
+  border-color: var(--cometchat-border-color-default);
+  color: var(--cometchat-text-color-disabled);
   cursor: not-allowed;
   resize: none;
 }
 
 /* Hint */
 .textarea-field__hint {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-1);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-caption-1);
-  color: var(--color-text-tertiary);
+  font-family: var(--cometchat-font-family);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--cometchat-text-color-tertiary);
 }
 
 .textarea-field__hint--error {
-  color: var(--color-error);
+  color: var(--cometchat-error-color);
 }
 
 /* Disabled state */
 .textarea-field--disabled .textarea-field__label {
-  color: var(--color-text-disabled);
+  color: var(--cometchat-text-color-disabled);
 }

@@ -4,13 +4,13 @@
 .conversation-starter {
   width: 100%;
   overflow: hidden;
-  border-radius: var(--radius-2xl);
+  border-radius: var(--cometchat-radius-4);
 }
 
 .conversation-starter__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
+  gap: var(--cometchat-spacing-2);
   align-items: center;
   align-content: center;
 }
@@ -20,16 +20,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-1);
-  padding: var(--space-1-5) var(--space-5);
-  background: var(--color-bg-02);
-  border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-full);
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body);
-  color: var(--color-text-primary);
+  gap: var(--cometchat-spacing-1);
+  padding: var(--cometchat-spacing-1-5) var(--cometchat-spacing-5);
+  background: var(--cometchat-background-color-02);
+  border: 1px solid var(--cometchat-border-color-default);
+  border-radius: var(--cometchat-radius-max);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--cometchat-text-color-primary);
   cursor: pointer;
   transition: background 120ms ease, border-color 120ms ease;
   white-space: nowrap;
@@ -39,15 +39,15 @@
 }
 
 .conversation-starter__tag:hover {
-  background: var(--color-bg-03);
-  border-color: var(--color-border-dark);
+  background: var(--cometchat-background-color-03);
+  border-color: var(--cometchat-border-color-dark);
 }
 
 .conversation-starter__tag:active {
-  background: var(--color-bg-04);
+  background: var(--cometchat-background-color-04);
 }
 
 .conversation-starter__tag:focus-visible {
   outline: none;
-  box-shadow: var(--focus-ring-xs);
+  box-shadow: var(--cometchat-focus-ring);
 }

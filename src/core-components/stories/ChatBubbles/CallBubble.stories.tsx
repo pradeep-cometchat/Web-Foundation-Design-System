@@ -155,7 +155,7 @@ export const AllStates: StoryObj = {
 export const Usage: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <UsageSection title="HTML Structure">
         <CodeCard
           language="HTML"
@@ -200,31 +200,31 @@ export const Usage: StoryObj = {
         />
       </UsageSection>
 
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <CodeCard
           language="CSS"
           code={`.call-bubble {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-xl);
+  gap: var(--cometchat-spacing-3);
+  padding: var(--cometchat-spacing-3) var(--cometchat-spacing-4);
+  border-radius: var(--cometchat-radius-3);
   min-width: 220px;
 }
 
 .call-bubble--outgoing {
-  background: var(--color-send-bubble-bg);
+  background: var(--cometchat-primary-color);
 }
 
 .call-bubble--incoming {
-  background: var(--color-received-bubble-bg);
+  background: var(--cometchat-neutral-color-300);
 }
 
 .call-bubble__icon-wrapper {
   width: 36px;
   height: 36px;
-  border-radius: var(--radius-full);
-  background: var(--color-static-white);
+  border-radius: var(--cometchat-radius-max);
+  background: var(--cometchat-static-white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -232,30 +232,30 @@ export const Usage: StoryObj = {
 }
 
 .call-bubble--outgoing .call-bubble__icon-wrapper svg {
-  color: var(--color-icon-highlight-primary);
+  color: var(--cometchat-icon-color-highlight);
 }
 
 .call-bubble--incoming .call-bubble__icon-wrapper svg {
-  color: var(--color-icon-highlight-primary);
+  color: var(--cometchat-icon-color-highlight);
 }
 
 .call-bubble__label {
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.8px;
 }
 
 .call-bubble--outgoing .call-bubble__label {
-  color: var(--color-static-white);
+  color: var(--cometchat-static-white);
 }
 
 .call-bubble--incoming .call-bubble__label {
-  color: var(--color-text-primary);
+  color: var(--cometchat-text-color-primary);
 }
 
 .call-bubble__timestamp {
-  font-size: var(--font-size-1);
-  line-height: var(--line-height-caption-1);
+  font-size: 12px;
+  line-height: 14.4px;
 }
 
 .call-bubble--outgoing .call-bubble__timestamp {
@@ -263,17 +263,17 @@ export const Usage: StoryObj = {
 }
 
 .call-bubble--incoming .call-bubble__timestamp {
-  color: var(--color-text-tertiary);
+  color: var(--cometchat-text-color-tertiary);
 }
 
 .call-bubble__callback-btn {
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cometchat-text-color-primary);
   background: none;
   border: none;
-  border-top: 1px solid var(--color-border-default);
-  padding: var(--space-2) var(--space-4);
+  border-top: 1px solid var(--cometchat-border-color-default);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-4);
   width: 100%;
   text-align: center;
   cursor: pointer;
@@ -282,7 +282,7 @@ export const Usage: StoryObj = {
       </UsageSection>
 
       <UsageSection title="Variants">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <StateCard title="Audio — Ended (outgoing)" description="Purple background. Phone icon in white circle. White text. Shown when an outgoing voice call ends normally." />
           <StateCard title="Audio — Cancelled (outgoing)" description="Purple background. Same as ended — caller hung up before answer." />
           <StateCard title="Audio — Missed (incoming)" description="Gray background. Phone icon in white circle. Dark text. Shown when an incoming call was not answered." />
@@ -296,7 +296,7 @@ export const Usage: StoryObj = {
       </UsageSection>
 
       <UsageSection title="Anatomy">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <StateCard title="Icon Circle" description="36×36 white circle containing the call type icon (phone or video camera) in purple." />
           <StateCard title="Label" description="'Voice call' or 'Video call' — semibold, primary text color (white on outgoing, dark on incoming)." />
           <StateCard title="Timestamp" description="Date and time (e.g. '19 May, 05:23 PM') — smaller, muted color." />
@@ -305,13 +305,13 @@ export const Usage: StoryObj = {
       </UsageSection>
 
       <UsageSection title="Design Tokens">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
-          <StateCard title="Outgoing Background" description="var(--color-send-bubble-bg) — Primary purple" />
-          <StateCard title="Incoming Background" description="var(--color-received-bubble-bg) — Light gray" />
-          <StateCard title="Icon Circle" description="var(--color-static-white) background, 36×36, full radius" />
-          <StateCard title="Icon Color" description="var(--color-icon-highlight-primary) — Purple on both variants" />
-          <StateCard title="Border Radius" description="var(--radius-xl) — 12px uniform on all corners" />
-          <StateCard title="Padding" description="var(--space-3) vertical, var(--space-4) horizontal" />
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
+          <StateCard title="Outgoing Background" description="var(--cometchat-send-bubble-background) — Primary purple" />
+          <StateCard title="Incoming Background" description="var(--cometchat-received-bubble-background) — Light gray" />
+          <StateCard title="Icon Circle" description="var(--cometchat-static-white) background, 36×36, full radius" />
+          <StateCard title="Icon Color" description="var(--cometchat-icon-color-highlight) — Purple on both variants" />
+          <StateCard title="Border Radius" description="var(--cometchat-radius-3) — 12px uniform on all corners" />
+          <StateCard title="Padding" description="var(--cometchat-spacing-3) vertical, var(--cometchat-spacing-4) horizontal" />
         </div>
       </UsageSection>
     </div>
@@ -342,9 +342,9 @@ function CallBubble({
       style={{
         display: "flex",
         flexDirection: "column",
-        borderRadius: "var(--radius-xl)",
+        borderRadius: "var(--cometchat-radius-3)",
         overflow: "hidden",
-        background: isOutgoing ? "var(--color-send-bubble-bg)" : "var(--color-received-bubble-bg)",
+        background: isOutgoing ? "var(--cometchat-send-bubble-background)" : "var(--cometchat-received-bubble-background)",
         minWidth: 220,
         alignSelf: isOutgoing ? "flex-end" : "flex-start",
       }}
@@ -354,8 +354,8 @@ function CallBubble({
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "var(--space-3)",
-          padding: "var(--space-3) var(--space-4)",
+          gap: "var(--cometchat-spacing-3)",
+          padding: "var(--cometchat-spacing-3) var(--cometchat-spacing-4)",
         }}
       >
         {/* Icon circle */}
@@ -363,8 +363,8 @@ function CallBubble({
           style={{
             width: 36,
             height: 36,
-            borderRadius: "var(--radius-full)",
-            background: "var(--color-static-white)",
+            borderRadius: "var(--cometchat-radius-max)",
+            background: "var(--cometchat-static-white)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -381,21 +381,21 @@ function CallBubble({
         <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <span
             style={{
-              fontSize: "var(--font-size-2)",
-              fontWeight: "var(--font-weight-semibold)",
-              fontFamily: "var(--font-family-body)",
-              lineHeight: "var(--line-height-body)",
-              color: isOutgoing ? "var(--color-static-white)" : "var(--color-text-primary)",
+              fontSize: "14px",
+              fontWeight: "600",
+              fontFamily: "var(--cometchat-font-family)",
+              lineHeight: "20px",
+              color: isOutgoing ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)",
             }}
           >
             {label}
           </span>
           <span
             style={{
-              fontSize: "var(--font-size-1)",
-              fontFamily: "var(--font-family-body)",
-              lineHeight: "var(--line-height-caption-1)",
-              color: isOutgoing ? "rgba(255, 255, 255, 0.7)" : "var(--color-text-tertiary)",
+              fontSize: "12px",
+              fontFamily: "var(--cometchat-font-family)",
+              lineHeight: "18px",
+              color: isOutgoing ? "rgba(255, 255, 255, 0.7)" : "var(--cometchat-text-color-tertiary)",
             }}
           >
             {timestamp}
@@ -410,21 +410,21 @@ function CallBubble({
             style={{
               height: 1,
               background: "rgba(0, 0, 0, 0.12)",
-              marginTop: "var(--space-2)",
+              marginTop: "var(--cometchat-spacing-2)",
             }}
           />
           <div
             style={{
-              padding: "var(--space-3) var(--space-4)",
+              padding: "var(--cometchat-spacing-3) var(--cometchat-spacing-4)",
               textAlign: "center",
             }}
           >
             <span
               style={{
-                fontSize: "var(--font-size-2)",
-                fontWeight: "var(--font-weight-semibold)",
-                fontFamily: "var(--font-family-body)",
-                color: "var(--color-text-primary)",
+                fontSize: "14px",
+                fontWeight: "600",
+                fontFamily: "var(--cometchat-font-family)",
+                color: "var(--cometchat-text-color-primary)",
                 cursor: "pointer",
               }}
             >
@@ -439,7 +439,7 @@ function CallBubble({
 
 function VoiceOutgoingIcon() {
   return (
-    <span className="icon-rounded" style={{ fontSize: 20, color: "var(--color-icon-highlight-primary)", "--icon-fill": 1 } as React.CSSProperties}>
+    <span className="icon-rounded" style={{ fontSize: 20, color: "var(--cometchat-icon-color-highlight)", "--icon-fill": 1 } as React.CSSProperties}>
       phone_callback
     </span>
   );
@@ -447,7 +447,7 @@ function VoiceOutgoingIcon() {
 
 function VoiceIncomingIcon() {
   return (
-    <span className="icon-rounded" style={{ fontSize: 20, color: "var(--color-icon-highlight-primary)", "--icon-fill": 1 } as React.CSSProperties}>
+    <span className="icon-rounded" style={{ fontSize: 20, color: "var(--cometchat-icon-color-highlight)", "--icon-fill": 1 } as React.CSSProperties}>
       phone_missed
     </span>
   );
@@ -455,7 +455,7 @@ function VoiceIncomingIcon() {
 
 function VideoOutgoingIcon() {
   return (
-    <span className="icon-rounded" style={{ fontSize: 20, color: "var(--color-icon-highlight-primary)", "--icon-fill": 1, "--icon-wght": 300 } as React.CSSProperties}>
+    <span className="icon-rounded" style={{ fontSize: 20, color: "var(--cometchat-icon-color-highlight)", "--icon-fill": 1, "--icon-wght": 300 } as React.CSSProperties}>
       missed_video_call
     </span>
   );
@@ -463,7 +463,7 @@ function VideoOutgoingIcon() {
 
 function VideoIncomingIcon() {
   return (
-    <span className="icon-rounded" style={{ fontSize: 20, color: "var(--color-icon-highlight-primary)", "--icon-fill": 1, "--icon-wght": 300 } as React.CSSProperties}>
+    <span className="icon-rounded" style={{ fontSize: 20, color: "var(--cometchat-icon-color-highlight)", "--icon-fill": 1, "--icon-wght": 300 } as React.CSSProperties}>
       missed_video_call
     </span>
   );
@@ -476,11 +476,11 @@ function Wrapper({ children, width = 400 }: { children: React.ReactNode; width?:
         width,
         display: "flex",
         flexDirection: "column",
-        gap: "var(--space-4)",
-        padding: "var(--space-4)",
-        background: "var(--color-bg-01)",
-        borderRadius: "var(--radius-xl)",
-        border: "1px solid var(--color-border-default)",
+        gap: "var(--cometchat-spacing-4)",
+        padding: "var(--cometchat-spacing-4)",
+        background: "var(--cometchat-background-color-01)",
+        borderRadius: "var(--cometchat-radius-3)",
+        border: "1px solid var(--cometchat-border-color-default)",
       }}
     >
       {children}
@@ -492,9 +492,9 @@ function Label({ children }: { children: React.ReactNode }) {
   return (
     <span
       style={{
-        fontSize: "var(--font-size-0)",
-        fontWeight: "var(--font-weight-semibold)",
-        color: "var(--color-text-tertiary)",
+        fontSize: "10px",
+        fontWeight: "600",
+        color: "var(--cometchat-text-color-tertiary)",
         textTransform: "uppercase",
         letterSpacing: "0.06em",
       }}
@@ -506,17 +506,17 @@ function Label({ children }: { children: React.ReactNode }) {
 
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div style={{ marginBottom: "var(--space-6)" }}>
+    <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
       <div
         style={{
-          fontSize: "var(--font-size-1)",
-          fontWeight: "var(--font-weight-semibold)",
-          color: "var(--color-text-secondary)",
+          fontSize: "12px",
+          fontWeight: "600",
+          color: "var(--cometchat-text-color-secondary)",
           textTransform: "uppercase",
           letterSpacing: "0.06em",
-          marginBottom: "var(--space-2)",
-          paddingBottom: "var(--space-2)",
-          borderBottom: "1px solid var(--color-border-default)",
+          marginBottom: "var(--cometchat-spacing-2)",
+          paddingBottom: "var(--cometchat-spacing-2)",
+          borderBottom: "1px solid var(--cometchat-border-color-default)",
         }}
       >
         {title}
@@ -530,10 +530,10 @@ function CodeCard({ language, code }: { language: string; code: string }) {
   return (
     <div
       style={{
-        border: "1px solid var(--color-border-default)",
-        borderRadius: "var(--radius-xl)",
+        border: "1px solid var(--cometchat-border-color-default)",
+        borderRadius: "var(--cometchat-radius-3)",
         overflow: "hidden",
-        background: "var(--color-bg-02)",
+        background: "var(--cometchat-background-color-02)",
       }}
     >
       <div
@@ -541,18 +541,18 @@ function CodeCard({ language, code }: { language: string; code: string }) {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          padding: "var(--space-2) var(--space-3)",
-          borderBottom: "1px solid var(--color-border-default)",
-          background: "var(--color-bg-03)",
+          padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)",
+          borderBottom: "1px solid var(--cometchat-border-color-default)",
+          background: "var(--cometchat-background-color-03)",
         }}
       >
         <span
           style={{
-            fontSize: "var(--font-size-0)",
-            fontWeight: "var(--font-weight-semibold)",
+            fontSize: "10px",
+            fontWeight: "600",
             letterSpacing: "0.06em",
             textTransform: "uppercase",
-            color: "var(--color-text-secondary)",
+            color: "var(--cometchat-text-color-secondary)",
           }}
         >
           {language}
@@ -561,11 +561,11 @@ function CodeCard({ language, code }: { language: string; code: string }) {
       <pre
         style={{
           margin: 0,
-          padding: "var(--space-3-5)",
-          fontFamily: "var(--font-family-body)",
-          fontSize: "var(--font-size-1)",
+          padding: "var(--cometchat-spacing-3-5)",
+          fontFamily: "var(--cometchat-font-family)",
+          fontSize: "12px",
           lineHeight: 1.6,
-          color: "var(--color-text-primary)",
+          color: "var(--cometchat-text-color-primary)",
           overflowX: "auto",
         }}
       >
@@ -579,28 +579,28 @@ function StateCard({ title, description }: { title: string; description: string 
   return (
     <div
       style={{
-        padding: "var(--space-3-5) var(--space-4)",
-        border: "1px solid var(--color-border-default)",
-        borderRadius: "var(--radius-xl)",
-        background: "var(--color-bg-01)",
+        padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)",
+        border: "1px solid var(--cometchat-border-color-default)",
+        borderRadius: "var(--cometchat-radius-3)",
+        background: "var(--cometchat-background-color-01)",
       }}
     >
       <strong
         style={{
-          fontSize: "var(--font-size-2)",
-          fontWeight: "var(--font-weight-semibold)",
-          color: "var(--color-text-primary)",
+          fontSize: "14px",
+          fontWeight: "600",
+          color: "var(--cometchat-text-color-primary)",
           display: "block",
-          marginBottom: "var(--space-1)",
+          marginBottom: "var(--cometchat-spacing-1)",
         }}
       >
         {title}
       </strong>
       <span
         style={{
-          fontSize: "var(--font-size-1)",
-          color: "var(--color-text-tertiary)",
-          lineHeight: "var(--line-height-caption-1)",
+          fontSize: "12px",
+          color: "var(--cometchat-text-color-tertiary)",
+          lineHeight: "18px",
         }}
       >
         {description}

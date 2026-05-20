@@ -27,7 +27,7 @@ import {
  * curated selection for quick reference.
  */
 const meta: Meta<typeof IconPlayground> = {
-  title: "Foundation/Icons",
+  title: "CometChat Foundation/Icons",
   component: IconPlayground,
   tags: ["autodocs"],
   parameters: { layout: "fullscreen", themes: { themeOverride: "Light" } },
@@ -100,20 +100,20 @@ function IconPlayground(props: PlaygroundProps) {
 </span>`;
 
   return (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <div
         style={{
           border: "1px solid var(--color-neutral-200)",
-          borderRadius: "var(--radius-2xl)",
+          borderRadius: "var(--cometchat-radius-4)",
           overflow: "hidden",
-          background: "var(--color-white)",
-          boxShadow: "var(--shadow-sm)",
+          background: "var(--cometchat-static-white)",
+          boxShadow: "var(--cometchat-shadow-sm)",
         }}
       >
         <div
           aria-label={`${props.name} preview`}
           style={{
-            padding: "var(--space-12)",
+            padding: "var(--cometchat-spacing-12)",
             background:
               "repeating-linear-gradient(45deg, var(--color-neutral-25) 0 8px, var(--color-neutral-50) 8px 16px)",
             display: "flex",
@@ -152,7 +152,7 @@ function IconPlayground(props: PlaygroundProps) {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-          gap: "var(--space-4)",
+          gap: "var(--cometchat-spacing-4)",
           marginTop: 20,
         }}
       >
@@ -177,21 +177,21 @@ const Stat: React.FC<{
   >
     <div
       style={{
-        fontSize: "var(--font-size-0)",
-        fontWeight: "var(--font-weight-semibold)",
+        fontSize: "10px",
+        fontWeight: "600",
         letterSpacing: "0.06em",
         textTransform: "uppercase",
         color: "var(--color-neutral-500)",
-        marginBottom: "var(--space-1)",
+        marginBottom: "var(--cometchat-spacing-1)",
       }}
     >
       {label}
     </div>
     <div
       style={{
-        fontFamily: mono ? "var(--font-family-body)" : "inherit",
-        fontSize: "var(--font-size-1)",
-        fontWeight: "var(--font-weight-semibold)",
+        fontFamily: mono ? "var(--cometchat-font-family)" : "inherit",
+        fontSize: "12px",
+        fontWeight: "600",
         color: "var(--color-neutral-900)",
         wordBreak: "break-all",
       }}
@@ -208,7 +208,7 @@ const CodeCard: React.FC<{ language: string; code: string }> = ({
   <div
     style={{
       border: "1px solid var(--color-neutral-200)",
-      borderRadius: "var(--radius-xl)",
+      borderRadius: "var(--cometchat-radius-3)",
       overflow: "hidden",
       background: "var(--color-neutral-25)",
     }}
@@ -225,8 +225,8 @@ const CodeCard: React.FC<{ language: string; code: string }> = ({
     >
       <span
         style={{
-          fontSize: "var(--font-size-0)",
-          fontWeight: "var(--font-weight-semibold)",
+          fontSize: "10px",
+          fontWeight: "600",
           letterSpacing: "0.06em",
           textTransform: "uppercase",
           color: "var(--color-neutral-600)",
@@ -239,9 +239,9 @@ const CodeCard: React.FC<{ language: string; code: string }> = ({
     <pre
       style={{
         margin: 0,
-        padding: "var(--space-3-5)",
-        fontFamily: "var(--font-family-body)",
-        fontSize: "var(--font-size-1)",
+        padding: "var(--cometchat-spacing-3-5)",
+        fontFamily: "var(--cometchat-font-family)",
+        fontSize: "12px",
         lineHeight: 1.6,
         color: "var(--color-neutral-800)",
         overflowX: "auto",
@@ -261,7 +261,7 @@ export const Playground: StoryObj<typeof IconPlayground> = {
     fill: 0,
     grade: 0,
     opticalSize: 48,
-    color: "var(--color-ep-700)",
+    color: "var(--cometchat-extended-primary-color-700)",
   },
   parameters: { docs: { disable: true } },
 };
@@ -327,7 +327,7 @@ function BrowseView() {
   const totalShown = results.reduce((n, g) => n + g.icons.length, 0);
 
   return (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Icon library"
         description="Browse a curated set of Material Symbols. Click any icon to copy its ligature name. The full catalog (~3,000 icons) is available at fonts.google.com/icons — any name from there will render correctly."
@@ -342,13 +342,13 @@ function BrowseView() {
         style={{
           display: "flex",
           flexWrap: "wrap",
-          gap: "var(--space-3)",
+          gap: "var(--cometchat-spacing-3)",
           marginBottom: 20,
-          padding: "var(--space-3-5)",
+          padding: "var(--cometchat-spacing-3-5)",
           border: "1px solid var(--color-neutral-200)",
-          borderRadius: "var(--radius-xl)",
-          background: "var(--color-white)",
-          boxShadow: "var(--shadow-xs)",
+          borderRadius: "var(--cometchat-radius-3)",
+          background: "var(--cometchat-static-white)",
+          boxShadow: "var(--cometchat-shadow-xs)",
           alignItems: "center",
         }}
       >
@@ -372,11 +372,11 @@ function BrowseView() {
             placeholder="Search icons"
             style={{
               width: "100%",
-              fontSize: "var(--font-size-1)",
+              fontSize: "12px",
               padding: "8px 12px 8px 32px",
-              borderRadius: "var(--radius-md)",
+              borderRadius: "var(--cometchat-radius-2)",
               border: "1px solid var(--color-neutral-200)",
-              background: "var(--color-white)",
+              background: "var(--cometchat-static-white)",
               outline: "none",
               fontFamily: "inherit",
               color: "var(--color-neutral-900)",
@@ -406,11 +406,11 @@ function BrowseView() {
           value={category}
           onChange={(e) => setCategory(e.target.value as IconCategory | "All")}
           style={{
-            fontSize: "var(--font-size-1)",
+            fontSize: "12px",
             padding: "8px 12px",
-            borderRadius: "var(--radius-md)",
+            borderRadius: "var(--cometchat-radius-2)",
             border: "1px solid var(--color-neutral-200)",
-            background: "var(--color-white)",
+            background: "var(--cometchat-static-white)",
             color: "var(--color-neutral-900)",
             fontFamily: "inherit",
             cursor: "pointer",
@@ -426,7 +426,7 @@ function BrowseView() {
 
         <span
           style={{
-            fontSize: "var(--font-size-1)",
+            fontSize: "12px",
             color: "var(--color-neutral-600)",
             marginLeft: "auto",
           }}
@@ -438,11 +438,11 @@ function BrowseView() {
       {results.length === 0 ? (
         <div
           style={{
-            padding: "var(--space-10)",
+            padding: "var(--cometchat-spacing-10)",
             textAlign: "center",
             color: "var(--color-neutral-500)",
             border: "1px solid var(--color-neutral-200)",
-            borderRadius: "var(--radius-xl)",
+            borderRadius: "var(--cometchat-radius-3)",
             background: "var(--color-neutral-25)",
           }}
         >
@@ -509,25 +509,25 @@ const IconTile: React.FC<{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: "var(--space-1-5)",
+        gap: "var(--cometchat-spacing-1-5)",
         padding: "14px 8px",
-        borderRadius: "var(--radius-lg)",
+        borderRadius: "var(--cometchat-radius-2-5)",
         border: `1px solid ${
           copied
             ? "var(--color-success-300)"
             : hovered
-            ? "var(--color-ep-300)"
+            ? "var(--cometchat-extended-primary-color-300)"
             : "var(--color-neutral-200)"
         }`,
         background: copied
           ? "var(--color-success-50)"
           : hovered
-          ? "var(--color-ep-25)"
-          : "var(--color-white)",
+          ? "var(--cometchat-extended-primary-color-50)"
+          : "var(--cometchat-static-white)",
         cursor: "pointer",
         fontFamily: "inherit",
         transition: "all 120ms ease",
-        boxShadow: hovered ? "var(--shadow-sm)" : "var(--shadow-xs)",
+        boxShadow: hovered ? "var(--cometchat-shadow-sm)" : "var(--cometchat-shadow-xs)",
       }}
     >
       <Icon
@@ -537,15 +537,15 @@ const IconTile: React.FC<{
         size={28}
         opticalSize={24}
         color={
-          copied ? "var(--color-success-700)" : "var(--color-neutral-800)"
+          copied ? "var(--cometchat-success-color)" : "var(--color-neutral-800)"
         }
       />
       <span
         style={{
-          fontSize: "var(--font-size-0)",
-          fontFamily: "var(--font-family-body)",
+          fontSize: "10px",
+          fontFamily: "var(--cometchat-font-family)",
           color: copied
-            ? "var(--color-success-700)"
+            ? "var(--cometchat-success-color)"
             : "var(--color-neutral-600)",
           maxWidth: "100%",
           overflow: "hidden",
@@ -574,7 +574,7 @@ function SegmentedControl<T extends string | number>({
       style={{
         display: "inline-flex",
         padding: 3,
-        borderRadius: "var(--radius-md)",
+        borderRadius: "var(--cometchat-radius-2)",
         background: "var(--color-neutral-100)",
         gap: 2,
       }}
@@ -590,17 +590,17 @@ function SegmentedControl<T extends string | number>({
             type="button"
             style={{
               padding: "5px 12px",
-              fontSize: "var(--font-size-1)",
-              fontWeight: "var(--font-weight-semibold)",
-              borderRadius: "var(--radius-sm)",
+              fontSize: "12px",
+              fontWeight: "600",
+              borderRadius: "var(--cometchat-radius-1-5)",
               border: "none",
-              background: active ? "var(--color-white)" : "transparent",
+              background: active ? "var(--cometchat-static-white)" : "transparent",
               color: active
                 ? "var(--color-neutral-900)"
                 : "var(--color-neutral-600)",
               cursor: "pointer",
               fontFamily: "inherit",
-              boxShadow: active ? "var(--shadow-xs)" : "none",
+              boxShadow: active ? "var(--cometchat-shadow-xs)" : "none",
               transition: "all 120ms ease",
             }}
           >
@@ -616,7 +616,7 @@ function SegmentedControl<T extends string | number>({
 export const Variants: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Style variants"
         description="Three sibling fonts share every ligature name — only the geometry differs. Pick one variant for your product and stick to it."
@@ -625,7 +625,7 @@ export const Variants: StoryObj = {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "var(--space-4)",
+          gap: "var(--cometchat-spacing-4)",
           marginBottom: 32,
         }}
       >
@@ -633,27 +633,27 @@ export const Variants: StoryObj = {
           <div
             key={v}
             style={{
-              padding: "var(--space-6)",
-              borderRadius: "var(--radius-xl)",
+              padding: "var(--cometchat-spacing-6)",
+              borderRadius: "var(--cometchat-radius-3)",
               border: "1px solid var(--color-neutral-200)",
-              background: "var(--color-white)",
-              boxShadow: "var(--shadow-xs)",
+              background: "var(--cometchat-static-white)",
+              boxShadow: "var(--cometchat-shadow-xs)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              gap: "var(--space-3-5)",
+              gap: "var(--cometchat-spacing-3-5)",
             }}
           >
             <Icon name="favorite" variant={v} size={72} opticalSize={48} />
             <strong
-              style={{ fontSize: "var(--font-size-2)", color: "var(--color-neutral-900)" }}
+              style={{ fontSize: "14px", color: "var(--color-neutral-900)" }}
             >
               {iconVariantLabel[v]}
             </strong>
             <span
               style={{
-                fontSize: "var(--font-size-0)",
-                fontFamily: "var(--font-family-body)",
+                fontSize: "10px",
+                fontFamily: "var(--cometchat-font-family)",
                 color: "var(--color-neutral-600)",
               }}
             >
@@ -670,9 +670,9 @@ export const Variants: StoryObj = {
         <div
           style={{
             border: "1px solid var(--color-neutral-200)",
-            borderRadius: "var(--radius-xl)",
+            borderRadius: "var(--cometchat-radius-3)",
             overflow: "hidden",
-            background: "var(--color-white)",
+            background: "var(--cometchat-static-white)",
           }}
         >
           <table
@@ -680,7 +680,7 @@ export const Variants: StoryObj = {
               width: "100%",
               borderCollapse: "separate",
               borderSpacing: 0,
-              fontSize: "var(--font-size-1)",
+              fontSize: "12px",
             }}
           >
             <thead>
@@ -716,17 +716,17 @@ export const Variants: StoryObj = {
                   style={{
                     background:
                       i % 2 === 0
-                        ? "var(--color-white)"
+                        ? "var(--cometchat-static-white)"
                         : "var(--color-neutral-25)",
                   }}
                 >
                   <td style={td}>
                     <code
                       style={{
-                        fontFamily: "var(--font-family-body)",
-                        fontSize: "var(--font-size-1)",
+                        fontFamily: "var(--cometchat-font-family)",
+                        fontSize: "12px",
                         padding: "3px 7px",
-                        borderRadius: "var(--radius-xs)",
+                        borderRadius: "var(--cometchat-radius-1)",
                         background: "var(--color-neutral-50)",
                         border: "1px solid var(--color-neutral-200)",
                       }}
@@ -758,7 +758,7 @@ export const Variants: StoryObj = {
 export const Axes: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Variable axes"
         description="Material Symbols ship as a single variable font with four live axes. Tune them with font-variation-settings or the Icon component props."
@@ -822,14 +822,14 @@ const AxisRow: React.FC<{
         key={v}
         style={{
           padding: "20px 10px 14px",
-          borderRadius: "var(--radius-lg)",
+          borderRadius: "var(--cometchat-radius-2-5)",
           border: "1px solid var(--color-neutral-200)",
-          background: "var(--color-white)",
+          background: "var(--cometchat-static-white)",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           gap: 10,
-          boxShadow: "var(--shadow-xs)",
+          boxShadow: "var(--cometchat-shadow-xs)",
         }}
       >
         <Icon
@@ -842,8 +842,8 @@ const AxisRow: React.FC<{
         />
         <span
           style={{
-            fontSize: "var(--font-size-0)",
-            fontFamily: "var(--font-family-body)",
+            fontSize: "10px",
+            fontFamily: "var(--cometchat-font-family)",
             color: "var(--color-neutral-600)",
           }}
         >
@@ -858,7 +858,7 @@ const AxisRow: React.FC<{
 export const Usage: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <PageHeader
         title="Using icons"
         description="Two ways to render an icon: the typed React component, or the CSS utility class."
@@ -902,7 +902,7 @@ export const Usage: StoryObj = {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "var(--space-4)",
+            gap: "var(--cometchat-spacing-4)",
           }}
         >
           <Callout kind="success" title="Meaningful icons">
@@ -930,8 +930,8 @@ export const Usage: StoryObj = {
 
 const th: React.CSSProperties = {
   padding: "11px 16px",
-  fontWeight: "var(--font-weight-semibold)",
-  fontSize: "var(--font-size-0)",
+  fontWeight: "600",
+  fontSize: "10px",
   letterSpacing: "0.06em",
   textTransform: "uppercase",
   color: "var(--color-neutral-600)",

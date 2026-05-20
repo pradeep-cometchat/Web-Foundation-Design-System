@@ -212,43 +212,43 @@ export const Usage: Story = {
   </div>
 </div>`} />
       </UsageSection>
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <UsageCodeCard language="CSS" code={`.input-field {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1-5);
+  gap: 6px;
   width: 100%;
 }
 
 .input-field__label {
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cometchat-text-color-secondary);
 }
 
 .input-field__required {
-  color: var(--color-text-highlight);
+  color: var(--cometchat-text-color-highlight);
 }
 
 .input-field__container {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--cometchat-spacing-2);
   height: 44px;
-  padding: 0 var(--space-3);
-  border: 1px solid var(--color-border-dark);
-  border-radius: var(--radius-md);
-  background: var(--color-bg-01);
-  box-shadow: var(--shadow-xs);
+  padding: 0 var(--cometchat-spacing-3);
+  border: 1px solid var(--cometchat-border-color-dark);
+  border-radius: var(--cometchat-radius-2);
+  background: var(--cometchat-background-color-01);
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.05);
 }
 
 .input-field__container:focus-within {
-  border-color: var(--color-ep-600);
+  border-color: var(--cometchat-primary-color);
   box-shadow: var(--focus-ring-xs);
 }
 
 .input-field__container--error {
-  border-color: var(--color-error);
+  border-color: var(--cometchat-error-color);
 }
 
 .input-field__input {
@@ -256,22 +256,22 @@ export const Usage: Story = {
   border: none;
   outline: none;
   background: transparent;
-  font-size: var(--font-size-3);
-  color: var(--color-text-primary);
+  font-size: 16px;
+  color: var(--cometchat-text-color-primary);
 }
 
 .input-field__hint {
-  font-size: var(--font-size-1);
-  color: var(--color-text-tertiary);
+  font-size: 12px;
+  color: var(--cometchat-text-color-tertiary);
 }
 
 .input-field__hint--error {
-  color: var(--color-error);
+  color: var(--cometchat-error-color);
 }
 
 .input-field--disabled .input-field__container {
   background: var(--color-bg-disabled);
-  border-color: var(--color-border-default);
+  border-color: var(--cometchat-border-color-default);
 }`} />
       </UsageSection>
     </div>

@@ -59,7 +59,7 @@ export const Loading: StoryObj = {
 export const AllStates: StoryObj = {
   name: "All States",
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-4)" }}>
       <ChatHeader />
       <ChatHeader status="Last seen today at 2:30 PM" />
       <ChatHeader showTyping />
@@ -75,7 +75,7 @@ export const AllStates: StoryObj = {
 export const Usage: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <UsageSection title="HTML Structure">
         <CodeCard
           language="HTML"
@@ -125,17 +125,17 @@ export const Usage: StoryObj = {
         />
       </UsageSection>
 
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <CodeCard
           language="CSS"
           code={`.chat-header {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--cometchat-spacing-2);
   height: 64px;
-  padding: var(--space-3) var(--space-4);
-  background: var(--color-bg-01);
-  border-bottom: 1px solid var(--color-border-default);
+  padding: var(--cometchat-spacing-3) var(--cometchat-spacing-4);
+  background: var(--cometchat-background-color-01);
+  border-bottom: 1px solid var(--cometchat-border-color-default);
 }
 
 .chat-header__back-btn {
@@ -144,46 +144,46 @@ export const Usage: StoryObj = {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-md);
-  color: var(--color-icon-primary);
+  border-radius: var(--cometchat-radius-2);
+  color: var(--cometchat-icon-color-primary);
 }
 
 .chat-header__info {
   flex: 1;
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--cometchat-spacing-3);
   min-width: 0;
 }
 
 .chat-header__avatar {
   width: 40px;
   height: 40px;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
   overflow: hidden;
   flex-shrink: 0;
 }
 
 .chat-header__name {
-  font-family: var(--font-family-heading);
+  font-family: var(--cometchat-font-family);
   font-size: 18px;
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-h3);
-  color: var(--color-text-primary);
+  font-weight: 500;
+  line-height: 21.6px;
+  color: var(--cometchat-text-color-primary);
 }
 
 .chat-header__status {
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-1);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-caption-1);
-  color: var(--color-text-quaternary);
+  font-family: var(--cometchat-font-family);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.4px;
+  color: var(--cometchat-text-color-tertiary);
 }
 
 .chat-header__actions {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--cometchat-spacing-2);
 }
 
 .chat-header__action-btn {
@@ -192,14 +192,14 @@ export const Usage: StoryObj = {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-md);
-  color: var(--color-icon-primary);
+  border-radius: var(--cometchat-radius-2);
+  color: var(--cometchat-icon-color-primary);
 }`}
         />
       </UsageSection>
 
       <UsageSection title="Variants">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <StateCard title="Default" description="Shows avatar, name, status (Online), and action buttons (video, call, more)." />
           <StateCard title="Last Seen" description="User is offline — shows last seen timestamp instead of Online." />
           <StateCard title="With Typing" description="Status text replaced with typing indicator (dots + 'Typing' in highlight color)." />
@@ -219,7 +219,7 @@ function ChatHeader({ showBack = true, showTyping = false, status = "Online" }: 
     <div className="chat-header">
       {showBack && (
         <button className="chat-header__back-btn">
-          <span className="icon-rounded" style={{ fontSize: 24, color: "var(--color-icon-primary)" }}>arrow_back</span>
+          <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>arrow_back</span>
         </button>
       )}
       <div className="chat-header__info">
@@ -239,13 +239,13 @@ function ChatHeader({ showBack = true, showTyping = false, status = "Online" }: 
       </div>
       <div className="chat-header__actions">
         <button className="chat-header__action-btn">
-          <span className="icon-rounded" style={{ fontSize: 24, color: "var(--color-icon-primary)" }}>videocam</span>
+          <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>videocam</span>
         </button>
         <button className="chat-header__action-btn">
-          <span className="icon-rounded" style={{ fontSize: 24, color: "var(--color-icon-primary)" }}>call</span>
+          <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>call</span>
         </button>
         <button className="chat-header__action-btn">
-          <span className="icon-rounded" style={{ fontSize: 24, color: "var(--color-icon-primary)" }}>more_vert</span>
+          <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>more_vert</span>
         </button>
       </div>
     </div>
@@ -272,8 +272,8 @@ function ChatHeaderSkeleton() {
 
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div style={{ marginBottom: "var(--space-6)" }}>
-      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-text-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)", paddingBottom: "var(--space-2)", borderBottom: "1px solid var(--color-border-default)" }}>{title}</div>
+    <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>{title}</div>
       {children}
     </div>
   );
@@ -281,11 +281,11 @@ function UsageSection({ title, children }: { title: string; children: React.Reac
 
 function CodeCard({ language, code }: { language: string; code: string }) {
   return (
-    <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-02)" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-03)" }}>
-        <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-secondary)" }}>{language}</span>
+    <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", background: "var(--cometchat-background-color-02)" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-03)" }}>
+        <span style={{ fontSize: "10px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-secondary)" }}>{language}</span>
       </div>
-      <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+      <pre style={{ margin: 0, padding: "var(--cometchat-spacing-3-5)", fontFamily: "var(--cometchat-font-family)", fontSize: "12px", lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto" }}>
         <code>{code}</code>
       </pre>
     </div>
@@ -294,9 +294,9 @@ function CodeCard({ language, code }: { language: string; code: string }) {
 
 function StateCard({ title, description }: { title: string; description: string }) {
   return (
-    <div style={{ padding: "var(--space-3-5) var(--space-4)", border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", background: "var(--color-bg-01)" }}>
-      <strong style={{ fontSize: "var(--font-size-2)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-text-primary)", display: "block", marginBottom: "var(--space-1)" }}>{title}</strong>
-      <span style={{ fontSize: "var(--font-size-1)", color: "var(--color-text-tertiary)", lineHeight: "var(--line-height-caption-1)" }}>{description}</span>
+    <div style={{ padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
+      <strong style={{ fontSize: "14px", fontWeight: "600", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>{title}</strong>
+      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "18px" }}>{description}</span>
     </div>
   );
 }

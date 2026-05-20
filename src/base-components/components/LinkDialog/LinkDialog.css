@@ -11,9 +11,9 @@
   position: relative;
   z-index: 1001;
   width: 400px;
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-xl);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-default);
+  border-radius: var(--cometchat-radius-3);
   box-shadow: var(--shadow-2xl);
   overflow: clip;
   display: flex;
@@ -24,10 +24,10 @@
 .link-dialog__header {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-4);
-  border-bottom: 1px solid var(--color-border-light);
-  background: var(--color-bg-01);
+  gap: var(--cometchat-spacing-3);
+  padding: var(--cometchat-spacing-4);
+  border-bottom: 1px solid var(--cometchat-border-color-light);
+  background: var(--cometchat-background-color-01);
 }
 
 .link-dialog__header-text {
@@ -42,117 +42,117 @@
   margin: 0;
   padding: 0;
   border: none;
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-5);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-body);
-  color: var(--color-text-primary);
+  font-family: var(--cometchat-font-family);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--cometchat-text-color-primary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .link-dialog__close-btn {
-  width: var(--space-6);
-  height: var(--space-6);
+  width: var(--cometchat-spacing-6);
+  height: var(--cometchat-spacing-6);
   display: flex;
   align-items: center;
   justify-content: center;
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--color-icon-primary);
+  color: var(--cometchat-icon-color-primary);
   padding: 0;
   flex-shrink: 0;
-  border-radius: var(--radius-xs);
+  border-radius: var(--cometchat-radius-1);
   transition: background 120ms ease;
 }
 
 .link-dialog__close-btn:hover {
-  background: var(--color-bg-02);
+  background: var(--cometchat-background-color-02);
 }
 
 .link-dialog__close-btn:focus-visible {
   outline: none;
-  box-shadow: var(--focus-ring-xs);
+  box-shadow: var(--cometchat-focus-ring);
 }
 
 /* ─── Body ─── */
 .link-dialog__body {
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: var(--cometchat-spacing-5);
   align-items: center;
-  padding-top: var(--space-4);
-  padding-bottom: var(--space-5);
+  padding-top: var(--cometchat-spacing-4);
+  padding-bottom: var(--cometchat-spacing-5);
 }
 
 .link-dialog__form {
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: var(--cometchat-spacing-5);
   width: 100%;
-  padding: 0 var(--space-4) var(--space-5);
+  padding: 0 var(--cometchat-spacing-4) var(--cometchat-spacing-5);
   box-sizing: border-box;
 }
 
 /* ─── Buttons ─── */
 .link-dialog__buttons {
   display: flex;
-  gap: var(--space-3);
+  gap: var(--cometchat-spacing-3);
   width: 100%;
-  padding: var(--space-3) var(--space-4) 0;
-  border-top: 1px solid var(--color-border-light);
+  padding: var(--cometchat-spacing-3) var(--cometchat-spacing-4) 0;
+  border-top: 1px solid var(--cometchat-border-color-light);
   box-sizing: border-box;
 }
 
 .link-dialog__btn {
   flex: 1;
-  height: var(--space-10);
-  border-radius: var(--radius-md);
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-2);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-body);
+  height: var(--cometchat-spacing-10);
+  border-radius: var(--cometchat-radius-2);
+  font-family: var(--cometchat-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
   cursor: pointer;
   transition: background 120ms ease, border-color 120ms ease;
   outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-2) var(--space-5);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-5);
   white-space: nowrap;
   overflow: clip;
 }
 
 .link-dialog__btn:focus-visible {
-  box-shadow: var(--focus-ring-xs);
+  box-shadow: var(--cometchat-focus-ring);
 }
 
 .link-dialog__btn--cancel {
-  background: var(--color-btn-secondary-bg);
-  color: var(--color-btn-secondary-text);
-  border: 1px solid var(--color-btn-secondary-border);
+  background: var(--cometchat-background-color-01);
+  color: var(--cometchat-text-color-primary);
+  border: 1px solid var(--cometchat-border-color-dark);
 }
 
 .link-dialog__btn--cancel:hover {
-  background: var(--color-btn-secondary-bg-hover);
+  background: var(--cometchat-background-color-01-hover);
 }
 
 .link-dialog__btn--cancel:active {
-  background: var(--color-bg-03);
+  background: var(--cometchat-background-color-03);
 }
 
 .link-dialog__btn--save {
-  background: var(--color-btn-primary-bg);
-  color: var(--color-btn-primary-text);
+  background: var(--cometchat-primary-button-background);
+  color: var(--cometchat-primary-button-text);
   border: none;
 }
 
 .link-dialog__btn--save:hover {
-  background: var(--color-btn-primary-bg-hover);
+  background: var(--cometchat-background-color-solid-hover);
 }
 
 .link-dialog__btn--save:active {
-  background: var(--color-ep-800);
+  background: var(--cometchat-extended-primary-color-800);
 }

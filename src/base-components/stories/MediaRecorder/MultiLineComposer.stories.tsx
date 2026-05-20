@@ -201,35 +201,35 @@ export const Usage: Story = {
   </div>
 </div>`} />
       </UsageSection>
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <UsageCodeCard language="CSS" code={`.ml-composer__popup {
-  background: var(--color-bg-01);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-2xl);
-  box-shadow: var(--shadow-lg);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-light);
+  border-radius: var(--cometchat-radius-4);
+  box-shadow: 0px 12px 16px -4px rgba(0,0,0,0.08);
   padding: 20px 24px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-4);
+  gap: var(--cometchat-spacing-4);
   max-width: 300px;
 }
 
 .ml-composer__popup-title {
-  font-size: var(--font-size-3);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--cometchat-text-color-primary);
 }
 
 .ml-composer__wave-center {
   width: 92px;
   height: 92px;
-  border-radius: var(--radius-full);
+  border-radius: var(--cometchat-radius-max);
   background: var(--color-ep-200);
 }
 
 .ml-composer__wave-center--active {
-  background: var(--color-ep-600);
+  background: var(--cometchat-primary-color);
 }
 
 .ml-composer__wave-outer--visible {
@@ -237,35 +237,35 @@ export const Usage: Story = {
 }
 
 .ml-composer__wave-inner--visible {
-  background: var(--color-ep-100);
+  background: var(--cometchat-extended-primary-color-100);
 }
 
 .ml-composer__duration {
-  font-size: var(--font-size-3);
-  color: var(--color-text-primary);
+  font-size: 16px;
+  color: var(--cometchat-text-color-primary);
 }
 
 .ml-composer__play-btn {
   width: 44px;
   height: 44px;
-  border-radius: var(--radius-full);
-  background: var(--color-ep-600);
+  border-radius: var(--cometchat-radius-max);
+  background: var(--cometchat-primary-color);
   color: var(--color-white);
 }
 
 .ml-composer__action-btn--destructive {
   width: 52px;
   height: 52px;
-  background: var(--color-error);
+  background: var(--cometchat-error-color);
   color: var(--color-white);
-  border-radius: var(--radius-xl);
+  border-radius: var(--cometchat-radius-3);
 }
 
 .ml-composer__action-btn--send {
   width: 48px;
   height: 48px;
-  background: var(--color-ep-600);
-  border-radius: var(--radius-full);
+  background: var(--cometchat-primary-color);
+  border-radius: var(--cometchat-radius-max);
   color: var(--color-white);
 }`} />
       </UsageSection>

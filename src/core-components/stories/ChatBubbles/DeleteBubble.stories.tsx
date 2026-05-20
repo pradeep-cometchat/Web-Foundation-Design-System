@@ -64,7 +64,7 @@ export const AllVariants: StoryObj = {
   name: "All Variants",
   parameters: { layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)", width: 400, padding: "var(--space-4)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-4)", width: 400, padding: "var(--cometchat-spacing-4)" }}>
       <Label>Sent — Read</Label>
       <DeleteBubble variant="sent" status="read" time="4:56 pm" />
       <Label>Sent — Delivered</Label>
@@ -84,7 +84,7 @@ export const AllVariants: StoryObj = {
 export const Usage: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <UsageSection title="HTML Structure">
         <CodeCard
           language="HTML"
@@ -117,13 +117,13 @@ export const Usage: StoryObj = {
         />
       </UsageSection>
 
-      <UsageSection title="CSS (Foundation Variables)">
+      <UsageSection title="CSS (CometChat Tokens)">
         <CodeCard
           language="CSS"
           code={`.delete-bubble__content {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--cometchat-spacing-2);
 }
 
 .delete-bubble__icon {
@@ -136,14 +136,14 @@ export const Usage: StoryObj = {
 }
 
 .chat-bubble-wrapper--received .delete-bubble__icon {
-  color: var(--color-text-tertiary);
+  color: var(--cometchat-text-color-tertiary);
 }
 
 .delete-bubble__text {
-  font-size: var(--font-size-2);
+  font-size: 14px;
   font-style: italic;
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body);
+  font-weight: 400;
+  line-height: 16.8px;
 }
 
 .chat-bubble-wrapper--sent .delete-bubble__text {
@@ -151,13 +151,13 @@ export const Usage: StoryObj = {
 }
 
 .chat-bubble-wrapper--received .delete-bubble__text {
-  color: var(--color-text-tertiary);
+  color: var(--cometchat-text-color-tertiary);
 }`}
         />
       </UsageSection>
 
       <UsageSection title="Variants">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <StateCard title="Sent — Read" description="Purple background. Block icon + italic 'This message was deleted' in muted white. Green read receipt." />
           <StateCard title="Sent — Delivered" description="Same as read with double check in muted white." />
           <StateCard title="Sent — Sent" description="Same with single check in muted white." />
@@ -166,7 +166,7 @@ export const Usage: StoryObj = {
       </UsageSection>
 
       <UsageSection title="Anatomy">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <StateCard title="Block Icon" description="Material icon 'block' (outlined, 20px). Muted white on sent, muted dark on received." />
           <StateCard title="Message Text" description="'This message was deleted' — italic, regular weight, muted color." />
           <StateCard title="Timestamp + Receipt" description="Bottom-right aligned. Time + read receipt (sent only)." />
@@ -174,12 +174,12 @@ export const Usage: StoryObj = {
       </UsageSection>
 
       <UsageSection title="Design Tokens">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
-          <StateCard title="Sent Background" description="var(--color-send-bubble-bg) — Primary purple" />
-          <StateCard title="Received Background" description="var(--color-received-bubble-bg) — Light gray" />
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
+          <StateCard title="Sent Background" description="var(--cometchat-send-bubble-background) — Primary purple" />
+          <StateCard title="Received Background" description="var(--cometchat-received-bubble-background) — Light gray" />
           <StateCard title="Sent Text/Icon" description="rgba(255, 255, 255, 0.7) — Muted white" />
-          <StateCard title="Received Text/Icon" description="var(--color-text-tertiary) — Muted dark" />
-          <StateCard title="Border Radius" description="var(--radius-xl) — 12px uniform on all corners" />
+          <StateCard title="Received Text/Icon" description="var(--cometchat-text-color-tertiary) — Muted dark" />
+          <StateCard title="Border Radius" description="var(--cometchat-radius-3) — 12px uniform on all corners" />
         </div>
       </UsageSection>
 
@@ -209,12 +209,12 @@ function DeleteBubble({
     <div className={`chat-bubble-wrapper chat-bubble-wrapper--${variant}`}>
       <div className="chat-bubble-body">
         {/* Content row */}
-        <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-2)" }}>
           <span
             className="icon-rounded"
             style={{
               fontSize: 20,
-              color: isSent ? "rgba(255, 255, 255, 0.7)" : "var(--color-text-tertiary)",
+              color: isSent ? "rgba(255, 255, 255, 0.7)" : "var(--cometchat-text-color-tertiary)",
               "--icon-fill": 0,
             } as React.CSSProperties}
           >
@@ -222,12 +222,12 @@ function DeleteBubble({
           </span>
           <span
             style={{
-              fontSize: "var(--font-size-2)",
+              fontSize: "14px",
               fontStyle: "italic",
-              fontWeight: "var(--font-weight-regular)",
-              fontFamily: "var(--font-family-body)",
-              lineHeight: "var(--line-height-body)",
-              color: isSent ? "rgba(255, 255, 255, 0.7)" : "var(--color-text-tertiary)",
+              fontWeight: "400",
+              fontFamily: "var(--cometchat-font-family)",
+              lineHeight: "20px",
+              color: isSent ? "rgba(255, 255, 255, 0.7)" : "var(--cometchat-text-color-tertiary)",
             }}
           >
             This message was deleted
@@ -240,8 +240,8 @@ function DeleteBubble({
             display: "flex",
             alignItems: "center",
             justifyContent: "flex-end",
-            gap: "var(--space-1)",
-            marginTop: "var(--space-1)",
+            gap: "var(--cometchat-spacing-1)",
+            marginTop: "var(--cometchat-spacing-1)",
           }}
         >
           <span className="chat-bubble-meta-time">{time}</span>
@@ -254,7 +254,7 @@ function DeleteBubble({
 
 function ReceiptIcon({ status }: { status: "sent" | "delivered" | "read" }) {
   const isRead = status === "read";
-  const color = isRead ? "var(--color-message-seen)" : "rgba(255, 255, 255, 0.7)";
+  const color = isRead ? "var(--cometchat-message-seen-color)" : "rgba(255, 255, 255, 0.7)";
 
   if (status === "sent") {
     return (
@@ -278,11 +278,11 @@ function Wrapper({ children, width = 400 }: { children: React.ReactNode; width?:
         width,
         display: "flex",
         flexDirection: "column",
-        gap: "var(--space-4)",
-        padding: "var(--space-4)",
-        background: "var(--color-bg-01)",
-        borderRadius: "var(--radius-xl)",
-        border: "1px solid var(--color-border-default)",
+        gap: "var(--cometchat-spacing-4)",
+        padding: "var(--cometchat-spacing-4)",
+        background: "var(--cometchat-background-color-01)",
+        borderRadius: "var(--cometchat-radius-3)",
+        border: "1px solid var(--cometchat-border-color-default)",
       }}
     >
       {children}
@@ -294,9 +294,9 @@ function Label({ children }: { children: React.ReactNode }) {
   return (
     <span
       style={{
-        fontSize: "var(--font-size-0)",
-        fontWeight: "var(--font-weight-semibold)",
-        color: "var(--color-text-tertiary)",
+        fontSize: "10px",
+        fontWeight: "600",
+        color: "var(--cometchat-text-color-tertiary)",
         textTransform: "uppercase",
         letterSpacing: "0.06em",
       }}
@@ -308,17 +308,17 @@ function Label({ children }: { children: React.ReactNode }) {
 
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div style={{ marginBottom: "var(--space-6)" }}>
+    <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
       <div
         style={{
-          fontSize: "var(--font-size-1)",
-          fontWeight: "var(--font-weight-semibold)",
-          color: "var(--color-text-secondary)",
+          fontSize: "12px",
+          fontWeight: "600",
+          color: "var(--cometchat-text-color-secondary)",
           textTransform: "uppercase",
           letterSpacing: "0.06em",
-          marginBottom: "var(--space-2)",
-          paddingBottom: "var(--space-2)",
-          borderBottom: "1px solid var(--color-border-default)",
+          marginBottom: "var(--cometchat-spacing-2)",
+          paddingBottom: "var(--cometchat-spacing-2)",
+          borderBottom: "1px solid var(--cometchat-border-color-default)",
         }}
       >
         {title}
@@ -332,10 +332,10 @@ function CodeCard({ language, code }: { language: string; code: string }) {
   return (
     <div
       style={{
-        border: "1px solid var(--color-border-default)",
-        borderRadius: "var(--radius-xl)",
+        border: "1px solid var(--cometchat-border-color-default)",
+        borderRadius: "var(--cometchat-radius-3)",
         overflow: "hidden",
-        background: "var(--color-bg-02)",
+        background: "var(--cometchat-background-color-02)",
       }}
     >
       <div
@@ -343,18 +343,18 @@ function CodeCard({ language, code }: { language: string; code: string }) {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          padding: "var(--space-2) var(--space-3)",
-          borderBottom: "1px solid var(--color-border-default)",
-          background: "var(--color-bg-03)",
+          padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)",
+          borderBottom: "1px solid var(--cometchat-border-color-default)",
+          background: "var(--cometchat-background-color-03)",
         }}
       >
         <span
           style={{
-            fontSize: "var(--font-size-0)",
-            fontWeight: "var(--font-weight-semibold)",
+            fontSize: "10px",
+            fontWeight: "600",
             letterSpacing: "0.06em",
             textTransform: "uppercase",
-            color: "var(--color-text-secondary)",
+            color: "var(--cometchat-text-color-secondary)",
           }}
         >
           {language}
@@ -363,11 +363,11 @@ function CodeCard({ language, code }: { language: string; code: string }) {
       <pre
         style={{
           margin: 0,
-          padding: "var(--space-3-5)",
-          fontFamily: "var(--font-family-body)",
-          fontSize: "var(--font-size-1)",
+          padding: "var(--cometchat-spacing-3-5)",
+          fontFamily: "var(--cometchat-font-family)",
+          fontSize: "12px",
           lineHeight: 1.6,
-          color: "var(--color-text-primary)",
+          color: "var(--cometchat-text-color-primary)",
           overflowX: "auto",
         }}
       >
@@ -381,28 +381,28 @@ function StateCard({ title, description }: { title: string; description: string 
   return (
     <div
       style={{
-        padding: "var(--space-3-5) var(--space-4)",
-        border: "1px solid var(--color-border-default)",
-        borderRadius: "var(--radius-xl)",
-        background: "var(--color-bg-01)",
+        padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)",
+        border: "1px solid var(--cometchat-border-color-default)",
+        borderRadius: "var(--cometchat-radius-3)",
+        background: "var(--cometchat-background-color-01)",
       }}
     >
       <strong
         style={{
-          fontSize: "var(--font-size-2)",
-          fontWeight: "var(--font-weight-semibold)",
-          color: "var(--color-text-primary)",
+          fontSize: "14px",
+          fontWeight: "600",
+          color: "var(--cometchat-text-color-primary)",
           display: "block",
-          marginBottom: "var(--space-1)",
+          marginBottom: "var(--cometchat-spacing-1)",
         }}
       >
         {title}
       </strong>
       <span
         style={{
-          fontSize: "var(--font-size-1)",
-          color: "var(--color-text-tertiary)",
-          lineHeight: "var(--line-height-caption-1)",
+          fontSize: "12px",
+          color: "var(--cometchat-text-color-tertiary)",
+          lineHeight: "18px",
         }}
       >
         {description}
