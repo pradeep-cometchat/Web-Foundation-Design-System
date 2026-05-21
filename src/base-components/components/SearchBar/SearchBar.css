@@ -29,8 +29,7 @@
 }
 
 .search-bar__input-wrapper:focus-within {
-  background: var(--cometchat-background-color-01);
-  border-color: var(--cometchat-border-color-default);
+  background: var(--cometchat-background-color-03);
 }
 
 /* Search icon: 24×24 */

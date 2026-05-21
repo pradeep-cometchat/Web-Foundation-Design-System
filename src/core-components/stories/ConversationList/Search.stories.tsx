@@ -32,16 +32,6 @@ export const SimpleDefault: StoryObj = {
   ),
 };
 
-export const SimpleFocus: StoryObj = {
-  name: "Simple — Focus",
-  parameters: { docs: { description: { story: "Search bar focused with cursor, ready for input." } } },
-  render: () => (
-    <Wrapper>
-      <SearchField state="focus" />
-    </Wrapper>
-  ),
-};
-
 export const SimpleTyping: StoryObj = {
   name: "Simple — Typing",
   parameters: { docs: { description: { story: "Search bar with partial text input and clear button." } } },
@@ -86,16 +76,6 @@ export const WithFiltersDefault: StoryObj = {
   ),
 };
 
-export const WithFiltersFocus: StoryObj = {
-  name: "With Filters — Focus",
-  parameters: { docs: { description: { story: "Search bar with filter chips, focused." } } },
-  render: () => (
-    <Wrapper>
-      <SearchField state="focus" showFilters />
-    </Wrapper>
-  ),
-};
-
 export const WithFiltersTyping: StoryObj = {
   name: "With Filters — Typing",
   parameters: { docs: { description: { story: "Search bar with filter chips and partial text." } } },
@@ -130,8 +110,6 @@ export const AllStates: StoryObj = {
         <SearchField state="placeholder" />
         <Label>Simple — Default</Label>
         <SearchField state="default" />
-        <Label>Simple — Focus</Label>
-        <SearchField state="focus" />
         <Label>Simple — Typing</Label>
         <SearchField state="typing" value="S" />
         <Label>Simple — Filled</Label>
@@ -142,8 +120,6 @@ export const AllStates: StoryObj = {
         <SearchField state="placeholder" showFilters />
         <Label>With Filters — Default</Label>
         <SearchField state="default" showFilters />
-        <Label>With Filters — Focus</Label>
-        <SearchField state="focus" showFilters />
         <Label>With Filters — Typing</Label>
         <SearchField state="typing" value="S" showFilters />
         <Label>With Filters — Filled</Label>
@@ -201,7 +177,6 @@ export const Usage: StoryObj = {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <StateCard title="Simple — Placeholder" description="Idle state with 'Search' placeholder text and search icon." />
           <StateCard title="Simple — Default" description="Unfocused state, visually same as placeholder." />
-          <StateCard title="Simple — Focus" description="Focused with cursor visible, placeholder text in lighter color." />
           <StateCard title="Simple — Typing" description="User is typing, clear (×) button appears on the right." />
           <StateCard title="Simple — Filled" description="Complete search term entered with clear button visible." />
           <StateCard title="With Filters — All States" description="Same search states but with filter chips below. 'All' chip is active (purple) by default." />
@@ -253,7 +228,7 @@ function SearchField({ state, value = "", showFilters }: { state: SearchState; v
     <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)", width: "100%" }}>
       {/* Search bar — using base component CSS classes */}
       <div className="search-bar">
-        <div className="search-bar__input-wrapper" style={isFocus ? { borderColor: "var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-01)" } : undefined}>
+        <div className="search-bar__input-wrapper">
           <span className="search-bar__icon">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
               <path d="M12.5 11H11.71L11.43 10.73C12.41 9.59 13 8.11 13 6.5C13 2.91 10.09 0 6.5 0C2.91 0 0 2.91 0 6.5C0 10.09 2.91 13 6.5 13C8.11 13 9.59 12.41 10.73 11.43L11 11.71V12.5L16 17.49L17.49 16L12.5 11ZM6.5 11C4.01 11 2 8.99 2 6.5C2 4.01 4.01 2 6.5 2C8.99 2 11 4.01 11 6.5C11 8.99 8.99 11 6.5 11Z" fill="currentColor"/>
