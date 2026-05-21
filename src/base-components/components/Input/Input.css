@@ -84,7 +84,7 @@
 /* Icons */
 .input-field__icon {
   font-size: 20px;
-  color: var(--cometchat-icon-color-tertiary);
+  color: var(--cometchat-icon-color-secondary);
   flex-shrink: 0;
 }
 

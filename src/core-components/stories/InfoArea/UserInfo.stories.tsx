@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { avatarRegistry } from "../../../foundation/tokens/avatars";
+import { avatarRegistry } from "../../../cometchat-foundation/tokens/avatars";
 
 const meta: Meta = {
   title: "Core Components/Info Area/User Info",
@@ -226,7 +226,7 @@ export const Usage: StoryObj = {
 
 function UserInfoHeader() {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 8, height: 64, padding: "8px 16px", borderBottom: "1px solid var(--color-border-light, #f5f5f5)" }}>
+    <div style={{ display: "flex", alignItems: "center", gap: 8, height: 64, padding: "8px 16px", borderBottom: "1px solid var(--cometchat-border-color-light)" }}>
       <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-text-color-primary)", cursor: "pointer" }}>close</span>
       <span style={{ flex: 1, fontFamily: "var(--cometchat-font-family)", fontSize: 20, fontWeight: 700, lineHeight: "30px", color: "var(--cometchat-text-color-primary)" }}>User Info</span>
     </div>
@@ -235,14 +235,14 @@ function UserInfoHeader() {
 
 function UserInfoProfile() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, padding: "40px 20px 20px", borderBottom: "1px solid var(--color-border-light, #f5f5f5)" }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, padding: "40px 20px 20px", borderBottom: "1px solid var(--cometchat-border-color-light)" }}>
       {/* Avatar with text initials */}
-      <div style={{ width: 120, height: 120, borderRadius: "var(--radius-full, 9999px)", background: "var(--color-extended-primary-400, #7a70e4)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ width: 120, height: 120, borderRadius: "var(--cometchat-radius-max)", background: "var(--cometchat-extended-primary-color-400)", display: "flex", alignItems: "center", justifyContent: "center" }}>
         <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: 40, fontWeight: 600, color: "white" }}>SF</span>
       </div>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0, textAlign: "center" }}>
         <p style={{ margin: 0, fontFamily: "var(--cometchat-font-family)", fontSize: 20, fontWeight: 500, lineHeight: "30px", color: "var(--cometchat-text-color-primary)" }}>George Alan</p>
-        <span style={{ fontSize: 12, lineHeight: "18px", color: "var(--color-text-secondary, #414651)" }}>Online</span>
+        <span style={{ fontSize: 12, lineHeight: "18px", color: "var(--cometchat-text-color-secondary)" }}>Online</span>
       </div>
     </div>
   );
@@ -250,16 +250,16 @@ function UserInfoProfile() {
 
 function UserInfoActions() {
   return (
-    <div style={{ borderBottom: "1px solid var(--color-border-light, #f5f5f5)" }}>
+    <div style={{ borderBottom: "1px solid var(--cometchat-border-color-light)" }}>
       {/* Block */}
       <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 20px", cursor: "pointer" }}>
-        <span className="icon-rounded" style={{ fontSize: 24, color: "var(--color-error-600, #d92d20)" }}>block</span>
-        <span style={{ fontSize: 16, color: "var(--color-error-600, #d92d20)" }}>Block</span>
+        <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-error-color)" }}>block</span>
+        <span style={{ fontSize: 16, color: "var(--cometchat-error-color)" }}>Block</span>
       </div>
       {/* Delete Chat */}
       <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 20px", cursor: "pointer" }}>
-        <span className="icon-rounded" style={{ fontSize: 24, color: "var(--color-error-600, #d92d20)" }}>delete</span>
-        <span style={{ fontSize: 16, color: "var(--color-error-600, #d92d20)" }}>Delete Chat</span>
+        <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-error-color)" }}>delete</span>
+        <span style={{ fontSize: 16, color: "var(--cometchat-error-color)" }}>Delete Chat</span>
       </div>
     </div>
   );
@@ -267,14 +267,14 @@ function UserInfoActions() {
 
 function UserInfoProfileWithImage() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, padding: "40px 20px 20px", borderBottom: "1px solid var(--color-border-light, #f5f5f5)" }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, padding: "40px 20px 20px", borderBottom: "1px solid var(--cometchat-border-color-light)" }}>
       {/* Avatar with image */}
-      <div style={{ width: 120, height: 120, borderRadius: "var(--radius-full, 9999px)", overflow: "hidden" }}>
+      <div style={{ width: 120, height: 120, borderRadius: "var(--cometchat-radius-max)", overflow: "hidden" }}>
         <img src={male[5].imageUrl} alt="George Alan" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0, textAlign: "center" }}>
         <p style={{ margin: 0, fontFamily: "var(--cometchat-font-family)", fontSize: 20, fontWeight: 500, lineHeight: "30px", color: "var(--cometchat-text-color-primary)" }}>George Alan</p>
-        <span style={{ fontSize: 12, lineHeight: "18px", color: "var(--color-text-secondary, #414651)" }}>Online</span>
+        <span style={{ fontSize: 12, lineHeight: "18px", color: "var(--cometchat-text-color-secondary)" }}>Online</span>
       </div>
     </div>
   );

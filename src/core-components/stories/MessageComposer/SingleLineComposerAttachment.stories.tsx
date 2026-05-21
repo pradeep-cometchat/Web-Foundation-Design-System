@@ -178,12 +178,12 @@ const badgeBase: React.CSSProperties = {
 
 const badgeLoading: React.CSSProperties = {
   ...badgeBase,
-  background: "var(--color-bg-02-solid)",
+  background: "var(--cometchat-neutral-color-700)",
 };
 
 const badgeClose: React.CSSProperties = {
   ...badgeBase,
-  background: "var(--color-bg-02-solid)",
+  background: "var(--cometchat-neutral-color-700)",
 };
 
 const badgeCloseHover: React.CSSProperties = {
@@ -681,9 +681,9 @@ export const Usage: Story = {
   align-items: center;
   justify-content: center;
 }
-.attachment__badge--close { background: var(--color-bg-01-solid); color: var(--cometchat-static-white); }
+.attachment__badge--close { background: var(--cometchat-neutral-color-900); color: var(--cometchat-static-white); }
 .attachment__badge--error { background: var(--cometchat-error-color); color: var(--cometchat-static-white); }
-.attachment__badge--loading { background: var(--color-bg-01-solid); }
+.attachment__badge--loading { background: var(--cometchat-neutral-color-900); }
 .attachment__play-overlay {
   position: absolute;
   top: 50%; left: 50%;

@@ -77,19 +77,19 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 const StarIcon = () => (
-  <span className="icon-outlined" data-icon="outlined" style={{ fontFamily: "Material Symbols Outlined", fontSize: "var(--font-size-5)", fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>
+  <span className="icon-outlined" data-icon="outlined" style={{ fontFamily: "Material Symbols Outlined", fontSize: "20px", fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>
     star
   </span>
 );
 
 const AddIcon = () => (
-  <span className="icon-outlined" data-icon="outlined" style={{ fontFamily: "Material Symbols Outlined", fontSize: "var(--font-size-5)", fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>
+  <span className="icon-outlined" data-icon="outlined" style={{ fontFamily: "Material Symbols Outlined", fontSize: "20px", fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>
     add
   </span>
 );
 
 const DeleteIcon = () => (
-  <span className="icon-outlined" data-icon="outlined" style={{ fontFamily: "Material Symbols Outlined", fontSize: "var(--font-size-5)", fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>
+  <span className="icon-outlined" data-icon="outlined" style={{ fontFamily: "Material Symbols Outlined", fontSize: "20px", fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>
     delete
   </span>
 );
@@ -98,9 +98,9 @@ const DeleteIcon = () => (
 export const Hierarchies: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <Section title="Standard">
-        <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-3)", flexWrap: "wrap", alignItems: "center" }}>
           <Button variant="primary">Primary</Button>
           <Button variant="secondary">Secondary</Button>
           <Button variant="tertiary">Tertiary</Button>
@@ -109,7 +109,7 @@ export const Hierarchies: Story = {
         </div>
       </Section>
       <Section title="Destructive">
-        <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-3)", flexWrap: "wrap", alignItems: "center" }}>
           <Button variant="destructive-primary">Primary</Button>
           <Button variant="destructive-secondary">Secondary</Button>
           <Button variant="destructive-tertiary">Tertiary</Button>
@@ -124,7 +124,7 @@ export const Hierarchies: Story = {
 export const Sizes: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "center" }}>
+    <div style={{ display: "flex", gap: "var(--cometchat-spacing-3)", alignItems: "center" }}>
       <Button size="sm">Small</Button>
       <Button size="md">Medium</Button>
       <Button size="lg">Large</Button>
@@ -137,23 +137,23 @@ export const Sizes: Story = {
 export const States: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <Section title="Primary states">
-        <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-3)", alignItems: "center" }}>
           <Button variant="primary">Default</Button>
           <Button variant="primary" disabled>Disabled</Button>
           <Button variant="primary" loading>Loading</Button>
         </div>
       </Section>
       <Section title="Secondary states">
-        <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-3)", alignItems: "center" }}>
           <Button variant="secondary">Default</Button>
           <Button variant="secondary" disabled>Disabled</Button>
           <Button variant="secondary" loading>Loading</Button>
         </div>
       </Section>
       <Section title="Destructive states">
-        <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-3)", alignItems: "center" }}>
           <Button variant="destructive-primary">Default</Button>
           <Button variant="destructive-primary" disabled>Disabled</Button>
           <Button variant="destructive-primary" loading>Loading</Button>
@@ -167,22 +167,22 @@ export const States: Story = {
 export const WithIcons: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <Section title="Icon left">
-        <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-3)", alignItems: "center" }}>
           <Button variant="primary" iconLeft={<StarIcon />}>Favorite</Button>
           <Button variant="secondary" iconLeft={<AddIcon />}>Add item</Button>
           <Button variant="destructive-primary" iconLeft={<DeleteIcon />}>Delete</Button>
         </div>
       </Section>
       <Section title="Icon right">
-        <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-3)", alignItems: "center" }}>
           <Button variant="primary" iconRight={<StarIcon />}>Favorite</Button>
           <Button variant="secondary" iconRight={<AddIcon />}>Add item</Button>
         </div>
       </Section>
       <Section title="Icon only">
-        <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-3)", alignItems: "center" }}>
           <Button variant="primary" size="sm" iconOnly><StarIcon /></Button>
           <Button variant="primary" size="md" iconOnly><StarIcon /></Button>
           <Button variant="primary" size="lg" iconOnly><StarIcon /></Button>
@@ -199,7 +199,7 @@ export const WithIcons: Story = {
 export const FullWidth: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
   render: () => (
-    <div style={{ width: 360, display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
+    <div style={{ width: 360, display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-3)" }}>
       <Button variant="primary" fullWidth>Sign in</Button>
       <Button variant="secondary" fullWidth>Create account</Button>
       <Button variant="tertiary" fullWidth>Skip for now</Button>
@@ -234,7 +234,7 @@ export const Matrix: Story = {
           <tbody>
             {variants.map((v) => (
               <tr key={v}>
-                <td style={tdStyle}><code style={{ fontSize: "var(--font-size-0)" }}>{v}</code></td>
+                <td style={tdStyle}><code style={{ fontSize: "10px" }}>{v}</code></td>
                 {sizes.map((s) => (
                   <td key={s} style={tdStyle}>
                     <Button variant={v} size={s}>Button</Button>
@@ -254,7 +254,7 @@ export const Matrix: Story = {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>
         {title}
       </div>
       {children}
@@ -263,9 +263,9 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 const thStyle: React.CSSProperties = {
-  fontSize: "var(--font-size-0)",
-  fontWeight: "var(--font-weight-semibold)",
-  color: "var(--color-neutral-600)",
+  fontSize: "10px",
+  fontWeight: "600",
+  color: "var(--cometchat-neutral-color-600)",
   textTransform: "uppercase",
   letterSpacing: "0.06em",
   textAlign: "left",
@@ -280,10 +280,10 @@ const tdStyle: React.CSSProperties = {
 const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
   <div
     style={{
-      border: "1px solid var(--color-neutral-200)",
-      borderRadius: "var(--radius-xl)",
+      border: "1px solid var(--cometchat-neutral-color-200)",
+      borderRadius: "var(--cometchat-radius-3)",
       overflow: "hidden",
-      background: "var(--color-neutral-25)",
+      background: "var(--cometchat-neutral-color-50)",
     }}
   >
     <div
@@ -291,18 +291,18 @@ const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "var(--space-2) var(--space-3)",
-        borderBottom: "1px solid var(--color-neutral-200)",
-        background: "var(--color-neutral-50)",
+        padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)",
+        borderBottom: "1px solid var(--cometchat-neutral-color-200)",
+        background: "var(--cometchat-neutral-color-50)",
       }}
     >
       <span
         style={{
-          fontSize: "var(--font-size-0)",
-          fontWeight: "var(--font-weight-semibold)",
+          fontSize: "10px",
+          fontWeight: "600",
           letterSpacing: "0.06em",
           textTransform: "uppercase",
-          color: "var(--color-neutral-600)",
+          color: "var(--cometchat-neutral-color-600)",
         }}
       >
         {language}
@@ -311,11 +311,11 @@ const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code
     <pre
       style={{
         margin: 0,
-        padding: "var(--space-3-5)",
-        fontFamily: "var(--font-family-body)",
-        fontSize: "var(--font-size-1)",
+        padding: "var(--cometchat-spacing-3-5)",
+        fontFamily: "var(--cometchat-font-family)",
+        fontSize: "12px",
         lineHeight: 1.6,
-        color: "var(--color-neutral-800)",
+        color: "var(--cometchat-neutral-color-800)",
         overflowX: "auto",
       }}
     >
@@ -327,36 +327,36 @@ const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code
 const ClassGroup: React.FC<{ title: string; items: string[] }> = ({ title, items }) => (
   <div
     style={{
-      padding: "var(--space-3-5) var(--space-4)",
-      border: "1px solid var(--color-neutral-200)",
-      borderRadius: "var(--radius-xl)",
-      background: "var(--color-white)",
+      padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)",
+      border: "1px solid var(--cometchat-neutral-color-200)",
+      borderRadius: "var(--cometchat-radius-3)",
+      background: "var(--cometchat-static-white)",
     }}
   >
     <div
       style={{
-        fontSize: "var(--font-size-0)",
-        fontWeight: "var(--font-weight-semibold)",
-        color: "var(--color-neutral-600)",
+        fontSize: "10px",
+        fontWeight: "600",
+        color: "var(--cometchat-neutral-color-600)",
         textTransform: "uppercase",
         letterSpacing: "0.06em",
-        marginBottom: "var(--space-2)",
+        marginBottom: "var(--cometchat-spacing-2)",
       }}
     >
       {title}
     </div>
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-1)" }}>
       {items.map((item) => (
         <code
           key={item}
           style={{
-            fontFamily: "var(--font-family-body)",
-            fontSize: "var(--font-size-1)",
-            color: "var(--color-neutral-800)",
-            background: "var(--color-neutral-50)",
-            padding: "var(--space-0-5) var(--space-2)",
-            borderRadius: "var(--radius-xs)",
-            border: "1px solid var(--color-neutral-200)",
+            fontFamily: "var(--cometchat-font-family)",
+            fontSize: "12px",
+            color: "var(--cometchat-neutral-color-800)",
+            background: "var(--cometchat-neutral-color-50)",
+            padding: "var(--cometchat-spacing) var(--cometchat-spacing-2)",
+            borderRadius: "var(--cometchat-radius-1)",
+            border: "1px solid var(--cometchat-neutral-color-200)",
             display: "inline-block",
             width: "fit-content",
           }}
@@ -386,7 +386,7 @@ export const Playground: Story = {
 export const Usage: Story = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <Section title="HTML">
         <CodeCard
           language="HTML"
@@ -454,7 +454,7 @@ export const Usage: Story = {
 }
 
 .btn:focus-visible {
-  box-shadow: var(--focus-ring-xs);
+  box-shadow: var(--cometchat-focus-ring);
 }
 
 /* Sizes */
@@ -464,22 +464,22 @@ export const Usage: Story = {
 .btn--xl { height: 48px; padding: var(--cometchat-spacing-3) 18px; font-size: 16px; line-height: 19.2px; }
 
 /* Primary */
-.btn--primary { background: var(--cometchat-primary-color); color: var(--color-white); box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.05); }
-.btn--primary:hover { background: var(--color-ep-700); }
-.btn--primary:disabled { background: var(--color-neutral-lm-100); color: var(--color-neutral-lm-400); border: 1px solid var(--color-neutral-lm-200); cursor: not-allowed; }
+.btn--primary { background: var(--cometchat-primary-color); color: var(--cometchat-static-white); box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.05); }
+.btn--primary:hover { background: var(--cometchat-extended-primary-color-900); }
+.btn--primary:disabled { background: var(--cometchat-neutral-color-100); color: var(--cometchat-neutral-color-400); border: 1px solid var(--cometchat-neutral-color-200); cursor: not-allowed; }
 
 /* Secondary */
-.btn--secondary { background: var(--color-white); color: var(--color-neutral-lm-700); border: 1px solid var(--color-neutral-lm-300); box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.05); }
-.btn--secondary:hover { background: var(--color-neutral-lm-50); color: var(--color-neutral-lm-800); }
+.btn--secondary { background: var(--cometchat-static-white); color: var(--cometchat-neutral-color-700); border: 1px solid var(--cometchat-neutral-color-300); box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.05); }
+.btn--secondary:hover { background: var(--cometchat-neutral-color-50); color: var(--cometchat-neutral-color-800); }
 
 /* Tertiary */
-.btn--tertiary { background: transparent; color: var(--color-neutral-lm-600); }
-.btn--tertiary:hover { background: var(--color-neutral-lm-50); color: var(--color-neutral-lm-700); }
+.btn--tertiary { background: transparent; color: var(--cometchat-neutral-color-600); }
+.btn--tertiary:hover { background: var(--cometchat-neutral-color-50); color: var(--cometchat-neutral-color-700); }
 
 /* Destructive Primary */
-.btn--destructive-primary { background: var(--cometchat-error-color); color: var(--color-white); box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.05); }
-.btn--destructive-primary:hover { background: var(--color-error-700); }
-.btn--destructive-primary:focus-visible { box-shadow: var(--focus-ring-error-xs); }
+.btn--destructive-primary { background: var(--cometchat-error-color); color: var(--cometchat-static-white); box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.05); }
+.btn--destructive-primary:hover { background: var(--cometchat-error-color); }
+.btn--destructive-primary:focus-visible { box-shadow: var(--cometchat-focus-ring-error); }
 
 /* Full width & Icon only */
 .btn--full { width: 100%; }
@@ -492,7 +492,7 @@ export const Usage: Story = {
       </Section>
 
       <Section title="Available Classes">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <ClassGroup title="Variants" items={[
             "btn--primary", "btn--secondary", "btn--tertiary",
             "btn--link-color", "btn--link-gray",

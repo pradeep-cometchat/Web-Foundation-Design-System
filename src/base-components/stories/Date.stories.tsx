@@ -98,7 +98,7 @@ export const Separator: StoryObj<typeof DateTimestamp> = {
 export const Patterns: StoryObj = {
   parameters: { layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-4)" }}>
       <Row label="Time">
         <DateTimestamp timestamp="4:56 pm" pattern="time" variant="sent" />
       </Row>
@@ -119,7 +119,7 @@ export const Patterns: StoryObj = {
 export const ReadReceipts: StoryObj = {
   parameters: { layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-4)" }}>
       <Row label="Sent (single tick)">
         <DateTimestamp timestamp="4:56 pm" variant="sent" showReadReceipt readStatus="sent" />
       </Row>
@@ -140,26 +140,26 @@ export const ReadReceipts: StoryObj = {
 export const InContext: StoryObj = {
   parameters: { layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)", maxWidth: "var(--space-90, 360px)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-3)", maxWidth: "var(--space-90, 360px)" }}>
       {/* Separator */}
       <div style={{ display: "flex", justifyContent: "center" }}>
         <DateTimestamp timestamp="Today" variant="separator" />
       </div>
 
       {/* Received bubble */}
-      <div style={{ alignSelf: "flex-start", background: "var(--color-received-bubble-bg)", borderRadius: "var(--radius-xl)", padding: "var(--space-2) var(--space-3)", maxWidth: "var(--space-70, 280px)" }}>
-        <div style={{ fontSize: "var(--font-size-2)", color: "var(--color-received-bubble-text)", marginBottom: "var(--space-1)" }}>Yes, it's available.</div>
+      <div style={{ alignSelf: "flex-start", background: "var(--cometchat-received-bubble-background)", borderRadius: "var(--cometchat-radius-3)", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", maxWidth: "var(--space-70, 280px)" }}>
+        <div style={{ fontSize: "14px", color: "var(--cometchat-received-bubble-text)", marginBottom: "var(--cometchat-spacing-1)" }}>Yes, it's available.</div>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <DateTimestamp timestamp="4:56 pm" variant="received" />
         </div>
       </div>
 
       {/* Sent bubble */}
-      <div style={{ alignSelf: "flex-end", background: "var(--color-send-bubble-bg)", borderRadius: "var(--radius-xl)", padding: "var(--space-2) var(--space-3)", maxWidth: "var(--space-70, 280px)" }}>
-        <div style={{ fontSize: "var(--font-size-2)", color: "var(--color-send-bubble-text)", marginBottom: "var(--space-1)" }}>I'll take it. Can you ship it?</div>
+      <div style={{ alignSelf: "flex-end", background: "var(--cometchat-send-bubble-background)", borderRadius: "var(--cometchat-radius-3)", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", maxWidth: "var(--space-70, 280px)" }}>
+        <div style={{ fontSize: "14px", color: "var(--cometchat-send-bubble-text)", marginBottom: "var(--cometchat-spacing-1)" }}>I'll take it. Can you ship it?</div>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <span className="date-timestamp date-timestamp--sent" style={{ color: "rgba(255,255,255,0.7)" }}>
-            <span className="date-timestamp__receipt date-timestamp__receipt--read" style={{ color: "var(--color-message-seen)" }}>
+            <span className="date-timestamp__receipt date-timestamp__receipt--read" style={{ color: "var(--cometchat-message-seen-color)" }}>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L5 11.5L11 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M5.5 8.5L8.5 11.5L14.5 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </span>
             <span className="date-timestamp__text">4:56 pm</span>
@@ -168,8 +168,8 @@ export const InContext: StoryObj = {
       </div>
 
       {/* Another received */}
-      <div style={{ alignSelf: "flex-start", background: "var(--color-received-bubble-bg)", borderRadius: "var(--radius-xl)", padding: "var(--space-2) var(--space-3)", maxWidth: "var(--space-70, 280px)" }}>
-        <div style={{ fontSize: "var(--font-size-2)", color: "var(--color-received-bubble-text)", marginBottom: "var(--space-1)" }}>Sure! Sending them over now.</div>
+      <div style={{ alignSelf: "flex-start", background: "var(--cometchat-received-bubble-background)", borderRadius: "var(--cometchat-radius-3)", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", maxWidth: "var(--space-70, 280px)" }}>
+        <div style={{ fontSize: "14px", color: "var(--cometchat-received-bubble-text)", marginBottom: "var(--cometchat-spacing-1)" }}>Sure! Sending them over now.</div>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <DateTimestamp timestamp="4:58 pm" variant="received" />
         </div>
@@ -182,7 +182,7 @@ export const InContext: StoryObj = {
 export const Usage: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <Section title="HTML">
         <UsageCodeCard language="HTML" code={`<!-- Sent message timestamp with read receipt -->
 <span class="date-timestamp date-timestamp--sent">
@@ -237,7 +237,7 @@ export const Usage: StoryObj = {
 }
 
 .date-timestamp__receipt--read {
-  color: var(--color-message-seen);
+  color: var(--cometchat-message-seen-color);
 }`} />
       </Section>
     </div>
@@ -260,8 +260,8 @@ export const Playground: StoryObj<typeof DateTimestamp> = {
 
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: "var(--space-4)" }}>
-      <span style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", width: 160, flexShrink: 0 }}>{label}</span>
+    <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-4)" }}>
+      <span style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", width: 160, flexShrink: 0 }}>{label}</span>
       {children}
     </div>
   );
@@ -271,11 +271,11 @@ function Row({ label, children }: { label: string; children: React.ReactNode }) 
 /* ─── Usage helpers ─── */
 
 const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
-  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
-      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+  <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", background: "var(--cometchat-background-color-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-02)" }}>
+      <span style={{ fontSize: "10px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-tertiary)" }}>{language}</span>
     </div>
-    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+    <pre style={{ margin: 0, padding: "var(--cometchat-spacing-3-5)", fontFamily: "var(--cometchat-font-family)", fontSize: "12px", lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto" }}>
       <code>{code}</code>
     </pre>
   </div>
@@ -284,7 +284,7 @@ const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language,
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
       {children}
     </div>
   );

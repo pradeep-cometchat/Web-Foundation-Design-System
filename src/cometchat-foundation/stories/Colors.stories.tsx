@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { PageHeader } from "../../foundation/components/PageHeader";
-import { Section } from "../../foundation/components/Section";
-import { TokenTable } from "../../foundation/components/TokenTable";
+import { PageHeader } from "../components/PageHeader";
+import { Section } from "../components/Section";
+import { TokenTable } from "../components/TokenTable";
 
 const meta: Meta = {
   title: "CometChat Foundation/Colors",
@@ -144,7 +144,7 @@ const messageSeen = [
 
 export const AllTokens: StoryObj = {
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1400, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1400, margin: "0 auto" }}>
       <PageHeader
         eyebrow="CometChat Foundation"
         title="Colors"
@@ -274,7 +274,7 @@ export const AllTokens: StoryObj = {
    ═══════════════════════════════════════════════════════════════════════════ */
 
 function ColorDot({ color }: { color: string }) {
-  return <div aria-hidden style={{ width: 32, height: 32, borderRadius: "var(--radius-sm)", background: color, border: "1px solid var(--color-border-default)", flexShrink: 0 }} />;
+  return <div aria-hidden style={{ width: 32, height: 32, borderRadius: "var(--cometchat-radius-1-5)", background: color, border: "1px solid var(--cometchat-border-color-default)", flexShrink: 0 }} />;
 }
 
 function NewChip() {
@@ -289,8 +289,8 @@ type TokenRow = { name: string; light: string; dark: string; cssVar: string; usa
 
 function ThemeTable({ rows }: { rows: TokenRow[] }) {
   return (
-    <div style={{ overflow: "auto", border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", background: "var(--color-bg-01)" }}>
-      <table style={{ width: "100%", borderCollapse: "separate", borderSpacing: 0, fontSize: "var(--font-size-1)", tableLayout: "fixed" }}>
+    <div style={{ overflow: "auto", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
+      <table style={{ width: "100%", borderCollapse: "separate", borderSpacing: 0, fontSize: "12px", tableLayout: "fixed" }}>
         <colgroup>
           <col style={{ width: "18%" }} />
           <col style={{ width: "18%" }} />
@@ -299,7 +299,7 @@ function ThemeTable({ rows }: { rows: TokenRow[] }) {
           <col style={{ width: "20%" }} />
         </colgroup>
         <thead>
-          <tr style={{ background: "var(--color-bg-02)" }}>
+          <tr style={{ background: "var(--cometchat-background-color-02)" }}>
             <th style={th}>Token</th>
             <th style={th}>Light</th>
             <th style={th}>Dark</th>
@@ -309,12 +309,12 @@ function ThemeTable({ rows }: { rows: TokenRow[] }) {
         </thead>
         <tbody>
           {rows.map((row, i) => (
-            <tr key={row.name} style={{ background: i % 2 === 0 ? "var(--color-bg-01)" : "var(--color-bg-02)" }}>
-              <td style={td}><span style={{ fontWeight: "var(--font-weight-medium)", color: "var(--color-text-primary)" }}>{row.name}</span></td>
+            <tr key={row.name} style={{ background: i % 2 === 0 ? "var(--cometchat-background-color-01)" : "var(--cometchat-background-color-02)" }}>
+              <td style={td}><span style={{ fontWeight: "var(--font-weight-medium)", color: "var(--cometchat-text-color-primary)" }}>{row.name}</span></td>
               <td style={td}><ColorCell color={row.light} /></td>
               <td style={td}><ColorCell color={row.dark} /></td>
               <td style={td}><code style={code}>{row.cssVar}</code></td>
-              <td style={td}><span style={{ color: "var(--color-text-tertiary)" }}>{row.usage}</span></td>
+              <td style={td}><span style={{ color: "var(--cometchat-text-color-tertiary)" }}>{row.usage}</span></td>
             </tr>
           ))}
         </tbody>
@@ -326,13 +326,13 @@ function ThemeTable({ rows }: { rows: TokenRow[] }) {
 function ColorCell({ color }: { color: string }) {
   const isLight = ["#FFFFFF", "#FAFAFA", "#F5F5F5", "#F9F8FD", "#EDEAFA", "#E8E8E8", "#DCDCDC"].includes(color.toUpperCase());
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)" }}>
-      <div aria-hidden style={{ width: 28, height: 28, borderRadius: "var(--radius-sm)", background: color, border: isLight ? "1px solid var(--color-border-default)" : "none", flexShrink: 0 }} />
-      <span style={{ fontFamily: "var(--font-family-body)", color: "var(--color-text-secondary)", fontSize: "var(--font-size-1)" }}>{color}</span>
+    <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-2)" }}>
+      <div aria-hidden style={{ width: 28, height: 28, borderRadius: "var(--cometchat-radius-1-5)", background: color, border: isLight ? "1px solid var(--cometchat-border-color-default)" : "none", flexShrink: 0 }} />
+      <span style={{ fontFamily: "var(--cometchat-font-family)", color: "var(--cometchat-text-color-secondary)", fontSize: "12px" }}>{color}</span>
     </div>
   );
 }
 
-const th: React.CSSProperties = { padding: "var(--space-3) var(--space-4)", fontWeight: "var(--font-weight-semibold)", fontSize: "var(--font-size-0)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-secondary)", borderBottom: "1px solid var(--color-border-default)", textAlign: "left", whiteSpace: "nowrap" };
-const td: React.CSSProperties = { padding: "var(--space-3) var(--space-4)", verticalAlign: "middle", borderBottom: "1px solid var(--color-border-light)" };
-const code: React.CSSProperties = { fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", color: "var(--color-text-primary)", background: "var(--color-bg-03)", padding: "var(--space-0-5) var(--space-2)", borderRadius: "var(--radius-xs)", border: "1px solid var(--color-border-default)" };
+const th: React.CSSProperties = { padding: "var(--cometchat-spacing-3) var(--cometchat-spacing-4)", fontWeight: "600", fontSize: "10px", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-secondary)", borderBottom: "1px solid var(--cometchat-border-color-default)", textAlign: "left", whiteSpace: "nowrap" };
+const td: React.CSSProperties = { padding: "var(--cometchat-spacing-3) var(--cometchat-spacing-4)", verticalAlign: "middle", borderBottom: "1px solid var(--cometchat-border-color-light)" };
+const code: React.CSSProperties = { fontFamily: "var(--cometchat-font-family)", fontSize: "12px", color: "var(--cometchat-text-color-primary)", background: "var(--cometchat-background-color-03)", padding: "var(--cometchat-spacing) var(--cometchat-spacing-2)", borderRadius: "var(--cometchat-radius-1)", border: "1px solid var(--cometchat-border-color-default)" };

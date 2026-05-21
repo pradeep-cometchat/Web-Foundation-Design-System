@@ -47,7 +47,7 @@
 }
 
 .reaction--active .reaction__count {
-  color: var(--cometchat-static-white);
+  color: var(--cometchat-primary-color);
 }
 
 /* Add reaction button */

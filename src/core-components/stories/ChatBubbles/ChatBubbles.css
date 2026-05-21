@@ -492,7 +492,7 @@
 }
 
 .action-bubble-divider__label--thread {
-  color: var(--cometchat-text-color-quaternary);
+  color: var(--cometchat-text-color-secondary);
 }
 
 .action-bubble-call-badge {
@@ -508,7 +508,7 @@
 
 .action-bubble-call-badge__icon {
   font-size: 16px;
-  color: var(--cometchat-icon-color-tertiary);
+  color: var(--cometchat-icon-color-secondary);
 }
 
 .action-bubble-call-badge__label {
@@ -516,7 +516,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
-  color: var(--cometchat-text-color-quaternary);
+  color: var(--cometchat-text-color-secondary);
 }
 
 .action-bubble-call-badge--missed .action-bubble-call-badge__icon {
@@ -530,7 +530,7 @@
 .action-bubble-call-badge__svg-icon {
   width: 13px;
   height: 13px;
-  color: var(--cometchat-icon-color-tertiary);
+  color: var(--cometchat-icon-color-secondary);
   flex-shrink: 0;
 }
 
@@ -558,7 +558,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
-  color: var(--cometchat-text-color-quaternary);
+  color: var(--cometchat-text-color-secondary);
 }
 
 
@@ -653,7 +653,7 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
-  color: var(--cometchat-text-color-quaternary);
+  color: var(--cometchat-text-color-secondary);
 }
 
 .chat-header__typing {

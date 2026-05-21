@@ -91,7 +91,7 @@
 }
 
 .create-poll__question-input::placeholder {
-  color: var(--cometchat-icon-color-tertiary);
+  color: var(--cometchat-text-color-placeholder);
 }
 
 .create-poll__question-input:focus {
@@ -114,7 +114,7 @@
   justify-content: center;
   border: none;
   background: transparent;
-  color: var(--cometchat-icon-color-tertiary);
+  color: var(--cometchat-icon-color-secondary);
   cursor: grab;
   padding: 0;
   flex-shrink: 0;
@@ -132,7 +132,7 @@
   align-items: center;
   min-width: 0;
   padding: var(--cometchat-spacing-2) var(--cometchat-spacing-3);
-  border: 1px solid var(--cometchat-border-color-default);
+  border: 1px solid var(--cometchat-border-color-dark);
   border-radius: var(--cometchat-radius-2);
   background: var(--cometchat-background-color-01);
   gap: var(--cometchat-spacing-2);
@@ -157,7 +157,7 @@
 }
 
 .create-poll__option-input::placeholder {
-  color: var(--cometchat-icon-color-tertiary);
+  color: var(--cometchat-text-color-placeholder);
 }
 
 /* Emoji button inside option */
@@ -169,7 +169,7 @@
   justify-content: center;
   border: none;
   background: transparent;
-  color: var(--cometchat-icon-color-tertiary);
+  color: var(--cometchat-icon-color-secondary);
   cursor: pointer;
   padding: 0;
   flex-shrink: 0;
@@ -177,7 +177,7 @@
 }
 
 .create-poll__emoji-btn:hover {
-  color: var(--cometchat-text-color-secondary);
+  color: var(--cometchat-icon-color-secondary-hover);
 }
 
 .create-poll__emoji-btn svg {
@@ -194,7 +194,7 @@
   justify-content: center;
   border: none;
   background: transparent;
-  color: var(--cometchat-icon-color-tertiary);
+  color: var(--cometchat-icon-color-secondary);
   cursor: pointer;
   padding: 0;
   flex-shrink: 0;
@@ -202,7 +202,7 @@
 }
 
 .create-poll__remove:hover {
-  color: var(--cometchat-text-color-secondary);
+  color: var(--cometchat-icon-color-primary);
 }
 
 .create-poll__remove svg {
@@ -221,13 +221,13 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
-  color: var(--cometchat-extended-primary-color-600);
+  color: var(--cometchat-text-color-highlight);
   cursor: pointer;
   padding: var(--cometchat-spacing-1) 0;
 }
 
 .create-poll__add-option:hover {
-  color: var(--cometchat-extended-primary-color-700);
+  color: var(--cometchat-text-color-highlight-hover);
 }
 
 .create-poll__add-option svg {
@@ -306,18 +306,18 @@
 }
 
 .create-poll__btn--create {
-  background: var(--cometchat-background-color-04);
-  color: var(--cometchat-icon-color-tertiary);
+  background: var(--cometchat-background-color-disabled);
+  color: var(--cometchat-text-color-disabled);
   border: none;
   cursor: not-allowed;
 }
 
 .create-poll__btn--active {
-  background: var(--cometchat-extended-primary-color-600);
-  color: var(--cometchat-static-white);
+  background: var(--cometchat-primary-button-background);
+  color: var(--cometchat-primary-button-text);
   cursor: pointer;
 }
 
 .create-poll__btn--active:hover {
-  background: var(--cometchat-extended-primary-color-700);
+  background: var(--cometchat-background-color-solid-hover);
 }

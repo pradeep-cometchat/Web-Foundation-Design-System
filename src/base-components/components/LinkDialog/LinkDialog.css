@@ -14,7 +14,7 @@
   background: var(--cometchat-background-color-01);
   border: 1px solid var(--cometchat-border-color-default);
   border-radius: var(--cometchat-radius-3);
-  box-shadow: var(--shadow-2xl);
+  box-shadow: var(--cometchat-shadow-xl);
   overflow: clip;
   display: flex;
   flex-direction: column;

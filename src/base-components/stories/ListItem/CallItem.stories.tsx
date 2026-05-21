@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { CallItem, CallItemSkeleton } from "../../components/ListItem";
-import { avatarRegistry } from "../../../foundation/tokens/avatars";
+import { avatarRegistry } from "../../../cometchat-foundation/tokens/avatars";
 
 const female = avatarRegistry["Female Avatar"];
 const male = avatarRegistry["Male Avatar"];
@@ -17,8 +17,8 @@ const single = (Story: React.ComponentType) => (
   <div
     style={{
       width: 400,
-      background: "var(--color-bg-01)",
-      border: "1px solid var(--color-border-default)",
+      background: "var(--cometchat-background-color-01)",
+      border: "1px solid var(--cometchat-border-color-default)",
       
       overflow: "hidden",
     }}
@@ -249,12 +249,12 @@ export const SkeletonEnd: Story = {
    ═══════════════════════════════════════════════════════════════════════════ */
 
 const Wrap = ({ label, children }: { label: string; children: React.ReactNode }) => (
-  <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}>
+  <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
     <div
       style={{
-        fontSize: "var(--font-size-1)",
-        fontWeight: "var(--font-weight-medium)",
-        color: "var(--color-text-tertiary)",
+        fontSize: "12px",
+        fontWeight: "500",
+        color: "var(--cometchat-text-color-tertiary)",
         textTransform: "uppercase",
         letterSpacing: "0.04em",
       }}
@@ -263,8 +263,8 @@ const Wrap = ({ label, children }: { label: string; children: React.ReactNode })
     </div>
     <div
       style={{
-        background: "var(--color-bg-01)",
-        border: "1px solid var(--color-border-default)",
+        background: "var(--cometchat-background-color-01)",
+        border: "1px solid var(--cometchat-border-color-default)",
         
         overflow: "hidden",
       }}
@@ -277,13 +277,13 @@ const Wrap = ({ label, children }: { label: string; children: React.ReactNode })
 export const AllStates: Story = {
   parameters: { layout: "fullscreen" },
   render: () => (
-    <div style={{ display: "flex", justifyContent: "center", padding: "var(--space-8)" }}>
+    <div style={{ display: "flex", justifyContent: "center", padding: "var(--cometchat-spacing-8)" }}>
       <div
         style={{
           width: 400,
           display: "flex",
           flexDirection: "column",
-          gap: "var(--space-3)",
+          gap: "var(--cometchat-spacing-3)",
         }}
       >
         <Wrap label="Default">
@@ -380,7 +380,7 @@ export const AllStates: Story = {
 export const Usage: Story = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <UsageSection title="HTML">
         <UsageCodeCard language="HTML" code={`<!-- Call Item -->
 <div class="list-item">
@@ -429,7 +429,7 @@ export const Usage: Story = {
   background: var(--cometchat-background-color-01);
   border-radius: var(--cometchat-radius-2);
   cursor: pointer;
-  min-height: var(--space-14);
+  min-height: 56px;
   transition: background 0.15s ease;
 }
 
@@ -509,11 +509,11 @@ export const Playground: Story = {
 /* ─── Usage helpers ─── */
 
 const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
-  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
-      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+  <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", background: "var(--cometchat-background-color-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-02)" }}>
+      <span style={{ fontSize: "10px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-tertiary)" }}>{language}</span>
     </div>
-    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+    <pre style={{ margin: 0, padding: "var(--cometchat-spacing-3-5)", fontFamily: "var(--cometchat-font-family)", fontSize: "12px", lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto" }}>
       <code>{code}</code>
     </pre>
   </div>
@@ -522,7 +522,7 @@ const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language,
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
       {children}
     </div>
   );

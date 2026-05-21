@@ -31,14 +31,14 @@
   gap: var(--cometchat-spacing-2);
 }
 
-/* Title: Body/Medium — 14px, weight 500, line-height 20px, text-primary #181d27 */
+/* Title: Body/Medium — 14px, weight 500, line-height 20px, text-primary */
 .conversation-summary__title {
   margin: 0;
-  font-family: var(--font-family-body, "Inter", sans-serif);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  color: var(--cometchat-text-color-primary);
+  font-family: var(--cometchat-font-family) !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 16.8px !important;
+  color: var(--cometchat-text-color-primary) !important;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -88,13 +88,15 @@
   width: 100%;
 }
 
-/* Text: Body/Regular — 14px, weight 400, line-height 20px, text-primary #181d27 */
-.conversation-summary__text {
+/* Text: Body/Regular — uses cometchat-font-body-regular token */
+p.conversation-summary__text,
+.sb-foundation-root p.conversation-summary__text,
+.conversation-summary .conversation-summary__text {
   margin: 0;
-  font-family: var(--font-family-body, "Inter", sans-serif);
+  font-family: var(--cometchat-font-family) !important;
   font-size: 14px !important;
-  font-weight: 400;
-  line-height: 20px !important;
+  font-weight: 400 !important;
+  line-height: 16.8px !important;
   color: var(--cometchat-text-color-primary) !important;
   flex: 1;
   min-width: 0;
@@ -137,11 +139,13 @@
 }
 
 /* ─── Error state ─── */
-.conversation-summary__error {
+p.conversation-summary__error,
+.sb-foundation-root p.conversation-summary__error,
+.conversation-summary .conversation-summary__error {
   margin: 0;
-  font-family: var(--font-family-body, "Inter", sans-serif);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  color: var(--color-error, #d92d20);
+  font-family: var(--cometchat-font-family) !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 16.8px !important;
+  color: var(--cometchat-text-color-primary) !important;
 }

@@ -19,9 +19,9 @@ const palette: Record<
     icon: "ⓘ",
   },
   tip: {
-    bg: "var(--color-ep-50)",
+    bg: "var(--cometchat-extended-primary-color-50)",
     border: "var(--color-ep-200)",
-    accent: "var(--color-ep-700)",
+    accent: "var(--cometchat-extended-primary-color-900)",
     icon: "✦",
   },
   warning: {
@@ -48,13 +48,13 @@ export const Callout: React.FC<CalloutProps> = ({
     <aside
       style={{
         display: "flex",
-        gap: "var(--space-3)",
-        padding: "var(--space-3-5) var(--space-4)",
-        borderRadius: "var(--radius-lg)",
+        gap: "var(--cometchat-spacing-3)",
+        padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)",
+        borderRadius: "var(--cometchat-radius-2-5)",
         background: p.bg,
         border: `1px solid ${p.border}`,
-        color: "var(--color-text-primary)",
-        fontSize: "var(--font-size-1)",
+        color: "var(--cometchat-text-color-primary)",
+        fontSize: "12px",
         lineHeight: 1.6,
       }}
     >
@@ -67,16 +67,16 @@ export const Callout: React.FC<CalloutProps> = ({
           display: "inline-flex",
           alignItems: "center",
           justifyContent: "center",
-          fontSize: "var(--font-size-1)",
-          fontWeight: "var(--font-weight-bold)",
+          fontSize: "12px",
+          fontWeight: "700",
           color: p.accent,
         }}
       >
         {p.icon}
       </span>
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-0-5)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing)" }}>
         {title && (
-          <strong style={{ color: p.accent, fontSize: "var(--font-size-1)" }}>{title}</strong>
+          <strong style={{ color: p.accent, fontSize: "12px" }}>{title}</strong>
         )}
         <div>{children}</div>
       </div>

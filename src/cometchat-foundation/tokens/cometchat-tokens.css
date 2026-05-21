@@ -192,12 +192,12 @@
 
   /* ─── Text Colors ─── */
   --cometchat-text-color-primary: var(--cometchat-neutral-color-900);
-  --cometchat-text-color-secondary: var(--cometchat-neutral-color-600);
-  --cometchat-text-color-secondary-hover: var(--cometchat-neutral-color-700);
-  --cometchat-text-color-tertiary: var(--cometchat-neutral-color-500);
-  --cometchat-text-color-tertiary-hover: var(--cometchat-neutral-color-600);
+  --cometchat-text-color-secondary: var(--cometchat-neutral-color-700);
+  --cometchat-text-color-secondary-hover: var(--cometchat-neutral-color-800);
+  --cometchat-text-color-tertiary: var(--cometchat-neutral-color-600);
+  --cometchat-text-color-tertiary-hover: var(--cometchat-neutral-color-700);
   --cometchat-text-color-quaternary: var(--cometchat-neutral-color-500);
-  --cometchat-text-color-disabled: var(--cometchat-neutral-color-400);
+  --cometchat-text-color-disabled: var(--cometchat-neutral-color-500);
   --cometchat-text-color-placeholder: var(--cometchat-neutral-color-500);
   --cometchat-text-color-white: var(--cometchat-neutral-color-50);
   --cometchat-text-color-highlight: var(--cometchat-primary-color);
@@ -208,11 +208,11 @@
 
   /* ─── Icon Colors ─── */
   --cometchat-icon-color-primary: var(--cometchat-neutral-color-900);
-  --cometchat-icon-color-secondary: var(--cometchat-neutral-color-500);
-  --cometchat-icon-color-secondary-hover: var(--cometchat-neutral-color-600);
-  --cometchat-icon-color-tertiary: var(--cometchat-neutral-color-400);
-  --cometchat-icon-color-tertiary-hover: var(--cometchat-neutral-color-500);
-  --cometchat-icon-color-disabled: var(--cometchat-neutral-color-400);
+  --cometchat-icon-color-secondary: var(--cometchat-neutral-color-600);
+  --cometchat-icon-color-secondary-hover: var(--cometchat-neutral-color-700);
+  --cometchat-icon-color-tertiary: var(--cometchat-neutral-color-500);
+  --cometchat-icon-color-tertiary-hover: var(--cometchat-neutral-color-600);
+  --cometchat-icon-color-disabled: var(--cometchat-neutral-color-500);
   --cometchat-icon-color-white: var(--cometchat-neutral-color-50);
   --cometchat-icon-color-highlight: var(--cometchat-primary-color);
   --cometchat-icon-color-error: var(--cometchat-error-color);

@@ -37,11 +37,11 @@ export const Swatch: React.FC<SwatchProps> = ({
       style={{
         display: "flex",
         flexDirection: "column",
-        borderRadius: "var(--radius-xl)",
+        borderRadius: "var(--cometchat-radius-3)",
         overflow: "hidden",
-        border: "1px solid var(--color-neutral-200)",
+        border: "1px solid var(--cometchat-neutral-color-200)",
         background: "var(--color-white)",
-        boxShadow: hovered ? "var(--shadow-md)" : "var(--shadow-xs)",
+        boxShadow: hovered ? "var(--cometchat-shadow-md)" : "var(--cometchat-shadow-xs)",
         transform: hovered ? "translateY(-2px)" : "translateY(0)",
         transition: "all 160ms ease",
       }}
@@ -61,11 +61,11 @@ export const Swatch: React.FC<SwatchProps> = ({
               position: "absolute",
               top: 10,
               right: 10,
-              fontSize: "var(--font-size-0)",
-              fontWeight: "var(--font-weight-bold)",
+              fontSize: "10px",
+              fontWeight: "700",
               letterSpacing: "0.04em",
               padding: "3px 7px",
-              borderRadius: "var(--radius-full)",
+              borderRadius: "var(--cometchat-radius-max)",
               background: "var(--color-white)",
               color:
                 bestRating === "AAA" || bestRating === "AA"
@@ -73,7 +73,7 @@ export const Swatch: React.FC<SwatchProps> = ({
                   : bestRating === "AA Large"
                   ? "var(--color-warning-700)"
                   : "var(--color-error-700)",
-              boxShadow: "var(--shadow-xs)",
+              boxShadow: "var(--cometchat-shadow-xs)",
             }}
           >
             {bestRating}
@@ -82,18 +82,18 @@ export const Swatch: React.FC<SwatchProps> = ({
       </div>
       <div
         style={{
-          padding: "var(--space-3) var(--space-3-5) var(--space-3-5)",
+          padding: "var(--cometchat-spacing-3) var(--cometchat-spacing-3-5) var(--cometchat-spacing-3-5)",
           display: "flex",
           flexDirection: "column",
-          gap: "var(--space-2)",
+          gap: "var(--cometchat-spacing-2)",
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-0-5)" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing)" }}>
           <strong
             style={{
-              fontSize: "var(--font-size-1)",
-              fontWeight: "var(--font-weight-semibold)",
-              color: "var(--color-neutral-900)",
+              fontSize: "12px",
+              fontWeight: "600",
+              color: "var(--cometchat-neutral-color-900)",
               letterSpacing: "-0.005em",
             }}
           >
@@ -101,7 +101,7 @@ export const Swatch: React.FC<SwatchProps> = ({
           </strong>
           <span
             style={{
-              fontSize: "var(--font-size-1)",
+              fontSize: "12px",
               fontFamily:
                 "var(--font-family-body)",
               color: "var(--color-neutral-500)",
@@ -112,11 +112,11 @@ export const Swatch: React.FC<SwatchProps> = ({
           </span>
         </div>
         {description && (
-          <div style={{ fontSize: "var(--font-size-0)", color: "var(--color-neutral-600)" }}>
+          <div style={{ fontSize: "10px", color: "var(--cometchat-neutral-color-600)" }}>
             {description}
           </div>
         )}
-        <div style={{ display: "flex", gap: "var(--space-1-5)", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-1-5)", flexWrap: "wrap" }}>
           <CopyButton value={value} label="HEX" variant="solid" />
           <CopyButton value={cssVar} label="CSS" variant="solid" />
         </div>

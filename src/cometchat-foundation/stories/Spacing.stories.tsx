@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { PageHeader } from "../../foundation/components/PageHeader";
-import { Section } from "../../foundation/components/Section";
-import { TokenTable } from "../../foundation/components/TokenTable";
+import { PageHeader } from "../components/PageHeader";
+import { Section } from "../components/Section";
+import { TokenTable } from "../components/TokenTable";
 
 const meta: Meta = {
   title: "CometChat Foundation/Spacing",
@@ -72,7 +72,7 @@ function NewChip() {
 
 export const AllTokens: StoryObj = {
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1400, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1400, margin: "0 auto" }}>
       <PageHeader
         eyebrow="CometChat Foundation"
         title="Spacing"

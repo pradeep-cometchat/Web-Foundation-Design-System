@@ -21,27 +21,27 @@ export const Section: React.FC<SectionProps> = ({
 }) => {
   const Heading = (level === 2 ? "h2" : "h3") as keyof JSX.IntrinsicElements;
   return (
-    <section style={{ marginBottom: "var(--space-10)" }}>
+    <section style={{ marginBottom: "var(--cometchat-spacing-10)" }}>
       <div
         style={{
           display: "flex",
           alignItems: "flex-end",
           justifyContent: "space-between",
-          gap: "var(--space-4)",
-          marginBottom: description ? "var(--space-2)" : "var(--space-5)",
-          paddingBottom: "var(--space-3)",
-          borderBottom: "1px solid var(--color-neutral-200)",
+          gap: "var(--cometchat-spacing-4)",
+          marginBottom: description ? "var(--cometchat-spacing-2)" : "var(--cometchat-spacing-5)",
+          paddingBottom: "var(--cometchat-spacing-3)",
+          borderBottom: "1px solid var(--cometchat-neutral-color-200)",
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-1)" }}>
           {eyebrow && (
             <span
               style={{
-                fontSize: "var(--font-size-0)",
-                fontWeight: "var(--font-weight-semibold)",
+                fontSize: "10px",
+                fontWeight: "600",
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
-                color: "var(--color-ep-700)",
+                color: "var(--cometchat-extended-primary-color-900)",
               }}
             >
               {eyebrow}
@@ -50,10 +50,10 @@ export const Section: React.FC<SectionProps> = ({
           <Heading
             style={{
               margin: 0,
-              fontSize: level === 2 ? "var(--font-size-5)" : "var(--font-size-3)",
-              fontWeight: "var(--font-weight-semibold)",
+              fontSize: level === 2 ? "20px" : "16px",
+              fontWeight: "600",
               letterSpacing: "-0.01em",
-              color: "var(--color-neutral-900)",
+              color: "var(--cometchat-neutral-color-900)",
             }}
           >
             {title}
@@ -64,10 +64,10 @@ export const Section: React.FC<SectionProps> = ({
       {description && (
         <p
           style={{
-            margin: "0 0 var(--space-5)",
-            color: "var(--color-neutral-600)",
+            margin: "0 0 var(--cometchat-spacing-5)",
+            color: "var(--cometchat-neutral-color-600)",
             maxWidth: 760,
-            fontSize: "var(--font-size-2)",
+            fontSize: "14px",
             lineHeight: 1.6,
           }}
         >

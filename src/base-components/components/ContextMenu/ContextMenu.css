@@ -78,13 +78,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--cometchat-icon-color-tertiary);
+  color: var(--cometchat-icon-color-secondary);
   flex-shrink: 0;
-}
-
-.context-menu__item-icon svg {
-  width: 20px;
-  height: 20px;
 }
 
 .context-menu__item--destructive .context-menu__item-icon {

@@ -6,7 +6,7 @@
   align-items: center;
   gap: var(--cometchat-spacing-2);
   width: 100%;
-  background: var(--cometchat-background-color-04);
+  background: var(--cometchat-background-color-03);
   border-radius: var(--cometchat-radius-1);
   overflow: hidden;
   position: relative;
@@ -21,15 +21,15 @@
 }
 
 .message-preview__border--reply {
-  background: var(--cometchat-extended-primary-color-600);
+  background: var(--cometchat-primary-color);
 }
 
 .message-preview__border--edit {
-  background: var(--cometchat-extended-primary-color-600);
+  background: var(--cometchat-primary-color);
 }
 
 .message-preview__border--deleted {
-  background: var(--cometchat-extended-primary-color-600);
+  background: var(--cometchat-primary-color);
 }
 
 /* Content area */
@@ -54,15 +54,15 @@
 }
 
 .message-preview__sender--reply {
-  color: var(--cometchat-extended-primary-color-600);
+  color: var(--cometchat-primary-color);
 }
 
 .message-preview__sender--edit {
-  color: var(--cometchat-extended-primary-color-600);
+  color: var(--cometchat-primary-color);
 }
 
 .message-preview__sender--deleted {
-  color: var(--cometchat-extended-primary-color-600);
+  color: var(--cometchat-primary-color);
 }
 
 /* Message text — 12px, regular, secondary color */
@@ -78,7 +78,7 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 20px;
-  color: var(--cometchat-text-color-tertiary);
+  color: var(--cometchat-text-color-secondary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -115,13 +115,13 @@
   border: none;
   background: transparent;
   cursor: pointer;
-  color: var(--cometchat-text-color-tertiary);
+  color: var(--cometchat-icon-color-secondary);
   padding: 0;
   border-radius: var(--cometchat-radius-1);
 }
 
 .message-preview__close:hover {
-  color: var(--cometchat-text-color-secondary);
+  color: var(--cometchat-icon-color-primary);
   background: var(--cometchat-background-color-04);
 }
 

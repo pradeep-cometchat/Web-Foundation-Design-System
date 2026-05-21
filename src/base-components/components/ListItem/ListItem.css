@@ -9,7 +9,7 @@
   transition: background 0.15s ease;
   font-family: var(--cometchat-font-family);
   user-select: none;
-  min-height: var(--space-14, 56px);
+  min-height: 56px;
   outline: none;
 }
 
@@ -62,8 +62,8 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  width: var(--space-2-5, 10px);
-  height: var(--space-2-5, 10px);
+  width: 10px;
+  height: 10px;
   border-radius: var(--cometchat-radius-max);
   border: 2px solid var(--cometchat-background-color-01);
 }
@@ -141,8 +141,8 @@
   color: var(--cometchat-static-white);
   font-size: 10px;
   font-weight: 600;
-  min-width: var(--space-4-5, 18px);
-  height: var(--space-4-5, 18px);
+  min-width: 18px;
+  height: 18px;
   padding: 0 var(--cometchat-spacing-1);
   border-radius: var(--cometchat-radius-max);
   display: flex;

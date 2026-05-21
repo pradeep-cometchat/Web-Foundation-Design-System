@@ -76,27 +76,27 @@ export const GroupWithAdd: StoryObj = {
 export const AllStates: StoryObj = {
   parameters: { layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-4)" }}>
       <div>
-        <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>Default</div>
-        <div style={{ display: "flex", gap: "var(--space-1)" }}>
+        <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>Default</div>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-1)" }}>
           <Reaction emoji="😍" />
           <Reaction emoji="👍" count={2} />
           <Reaction emoji="❤️" count={5} />
         </div>
       </div>
       <div>
-        <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>Active (user reacted)</div>
-        <div style={{ display: "flex", gap: "var(--space-1)" }}>
+        <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>Active (user reacted)</div>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-1)" }}>
           <Reaction emoji="😍" active />
           <Reaction emoji="👍" count={3} active />
           <Reaction emoji="❤️" count={5} active />
         </div>
       </div>
       <div>
-        <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>In context (below a message)</div>
-        <div style={{ maxWidth: "var(--space-80, 300px)" }}>
-          <div style={{ background: "var(--color-neutral-200)", borderRadius: "var(--radius-xl)", padding: "var(--space-3)", fontSize: "var(--font-size-2)", color: "var(--color-neutral-900)" }}>
+        <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>In context (below a message)</div>
+        <div style={{ maxWidth: "300px" }}>
+          <div style={{ background: "var(--cometchat-neutral-color-200)", borderRadius: "var(--cometchat-radius-3)", padding: "var(--cometchat-spacing-3)", fontSize: "14px", color: "var(--cometchat-neutral-color-900)" }}>
             Sure! Sending them over now.
           </div>
           <div style={{ paddingLeft: 4, marginTop: -8 }}>
@@ -119,29 +119,29 @@ export const AllStates: StoryObj = {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
       {children}
     </div>
   );
 }
 
 const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
-  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
-      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+  <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", background: "var(--cometchat-background-color-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-02)" }}>
+      <span style={{ fontSize: "10px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-tertiary)" }}>{language}</span>
     </div>
-    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+    <pre style={{ margin: 0, padding: "var(--cometchat-spacing-3-5)", fontFamily: "var(--cometchat-font-family)", fontSize: "12px", lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto" }}>
       <code>{code}</code>
     </pre>
   </div>
 );
 
 const ClassGroup: React.FC<{ title: string; items: string[] }> = ({ title, items }) => (
-  <div style={{ padding: "var(--space-3-5) var(--space-4)", border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", background: "var(--color-bg-01)" }}>
-    <div style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
+  <div style={{ padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
+    <div style={{ fontSize: "10px", fontWeight: "600", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-1)" }}>
       {items.map((item) => (
-        <code key={item} style={{ fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", color: "var(--color-text-primary)", background: "var(--color-bg-02)", padding: "var(--space-0-5) var(--space-2)", borderRadius: "var(--radius-xs)", border: "1px solid var(--color-border-default)", display: "inline-block", width: "fit-content" }}>.{item}</code>
+        <code key={item} style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "12px", color: "var(--cometchat-text-color-primary)", background: "var(--cometchat-background-color-02)", padding: "var(--cometchat-spacing) var(--cometchat-spacing-2)", borderRadius: "var(--cometchat-radius-1)", border: "1px solid var(--cometchat-border-color-default)", display: "inline-block", width: "fit-content" }}>.{item}</code>
       ))}
     </div>
   </div>
@@ -151,7 +151,7 @@ const ClassGroup: React.FC<{ title: string; items: string[] }> = ({ title, items
 export const Usage: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <Section title="HTML">
         <CodeCard
           language="HTML"
@@ -211,12 +211,12 @@ export const Usage: StoryObj = {
 }
 
 .reaction--active {
-  background: var(--color-ep-50);
-  border-color: var(--color-ep-200);
+  background: var(--cometchat-extended-primary-color-50);
+  border-color: var(--cometchat-extended-primary-color-200);
 }
 
 .reaction--active .reaction__count {
-  color: var(--color-ep-700);
+  color: var(--cometchat-extended-primary-color-900);
 }
 
 .reaction--add {
@@ -244,7 +244,7 @@ export const Usage: StoryObj = {
       </Section>
 
       <Section title="Available Classes">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <ClassGroup title="Modifiers" items={["reaction--active", "reaction--add"]} />
           <ClassGroup title="Child Elements" items={["reaction__emoji", "reaction__count"]} />
           <ClassGroup title="Group" items={["reaction-group"]} />

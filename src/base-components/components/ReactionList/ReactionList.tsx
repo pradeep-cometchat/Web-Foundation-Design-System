@@ -121,11 +121,11 @@ function AvatarPlaceholder({ name }: { name: string }) {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "var(--color-neutral-200, #e9eaeb)",
-        fontFamily: "var(--font-family-body, Inter, sans-serif)",
+        background: "var(--cometchat-neutral-color-300)",
+        fontFamily: "var(--cometchat-font-family)",
         fontSize: "12px",
         fontWeight: "600",
-        color: "var(--color-neutral-600, #535862)",
+        color: "var(--cometchat-neutral-color-600)",
       }}
     >
       {initials}

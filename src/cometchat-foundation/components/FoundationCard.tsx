@@ -34,14 +34,14 @@ export const FoundationCard: React.FC<FoundationCardProps> = ({
         }
       }}
       style={{
-        padding: "var(--space-4)",
-        borderRadius: "var(--radius-xl)",
-        border: "1px solid var(--color-neutral-200)",
+        padding: "var(--cometchat-spacing-4)",
+        borderRadius: "var(--cometchat-radius-3)",
+        border: "1px solid var(--cometchat-neutral-color-200)",
         background: "var(--color-white)",
-        boxShadow: "var(--shadow-xs)",
+        boxShadow: "var(--cometchat-shadow-xs)",
         display: "flex",
         flexDirection: "column",
-        gap: "var(--space-3)",
+        gap: "var(--cometchat-spacing-3)",
         cursor: "pointer",
         transition: "all 160ms ease",
         color: "inherit",

@@ -25,10 +25,10 @@ function IntroductionPage() {
           position: "relative",
           overflow: "hidden",
           padding: "48px 40px",
-          borderRadius: "var(--radius-3xl)",
+          borderRadius: "var(--cometchat-radius-5)",
           background:
-            "radial-gradient(120% 120% at 100% 0%, var(--color-info-100, #d1e0ff) 0%, var(--color-info-50, #eff4ff) 35%, var(--color-white, #fff) 75%)",
-          border: "1px solid var(--color-info-100, #d1e0ff)",
+            "radial-gradient(120% 120% at 100% 0%, var(--cometchat-background-color-info) 0%, var(--cometchat-background-color-info) 35%, var(--cometchat-static-white) 75%)",
+          border: "1px solid var(--cometchat-background-color-info)",
           marginBottom: 40,
         }}
       >
@@ -42,7 +42,7 @@ function IntroductionPage() {
             height: 320,
             borderRadius: "50%",
             background:
-              "radial-gradient(circle, var(--color-info-200, #b2ccff) 0%, transparent 70%)",
+              "radial-gradient(circle, var(--cometchat-background-color-info) 0%, transparent 70%)",
             opacity: 0.7,
           }}
         />
@@ -51,17 +51,17 @@ function IntroductionPage() {
             style={{
               display: "inline-flex",
               alignItems: "center",
-              gap: "var(--space-2)",
-              fontSize: "var(--font-size-0)",
-              fontWeight: "var(--font-weight-semibold)",
+              gap: "var(--cometchat-spacing-2)",
+              fontSize: "10px",
+              fontWeight: "600",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
-              color: "var(--color-ep-700, #5925dc)",
-              background: "var(--color-white, #fff)",
+              color: "var(--cometchat-extended-primary-color-900)",
+              background: "var(--cometchat-static-white)",
               padding: "6px 12px",
-              borderRadius: "var(--radius-full)",
-              border: "1px solid var(--color-ep-200, #d9d6fe)",
-              boxShadow: "var(--shadow-xs)",
+              borderRadius: "var(--cometchat-radius-max)",
+              border: "1px solid var(--cometchat-extended-primary-color-200)",
+              boxShadow: "var(--cometchat-shadow-xs)",
               marginBottom: 16,
             }}
           >
@@ -70,7 +70,7 @@ function IntroductionPage() {
                 width: 6,
                 height: 6,
                 borderRadius: "50%",
-                background: "var(--color-info-500, #2970ff)",
+                background: "var(--cometchat-info-color)",
               }}
             />
             Base Components · v0.1
@@ -78,11 +78,11 @@ function IntroductionPage() {
           <h1
             style={{
               margin: 0,
-              fontSize: "var(--font-size-7)",
+              fontSize: "32px",
               lineHeight: 1.08,
-              fontWeight: "var(--font-weight-bold)",
+              fontWeight: "700",
               letterSpacing: "-0.025em",
-              color: "var(--color-neutral-900, #181d27)",
+              color: "var(--cometchat-neutral-color-900)",
             }}
           >
             Base Components
@@ -90,9 +90,9 @@ function IntroductionPage() {
           <p
             style={{
               margin: "16px 0 0",
-              fontSize: "var(--font-size-3)",
+              fontSize: "16px",
               lineHeight: 1.55,
-              color: "var(--color-neutral-700, #414651)",
+              color: "var(--cometchat-neutral-color-700)",
             }}
           >
             Reusable, atomic UI components built on top of the foundation tokens.
@@ -100,7 +100,7 @@ function IntroductionPage() {
             inputs, labels, tags, and more. Each component consumes foundation
             tokens directly and exposes a clean, composable API.
           </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-2)", marginTop: 24 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--cometchat-spacing-2)", marginTop: 24 }}>
             <HeroChip label="components" value="28" />
             <HeroChip label="variants" value="80+" />
             <HeroChip label="tokens" value="Foundation" />
@@ -112,7 +112,7 @@ function IntroductionPage() {
 
       {/* WHAT'S INSIDE */}
       <SectionHeading>What's inside</SectionHeading>
-      <p style={{ color: "var(--color-neutral-600, #535862)", marginTop: 0, maxWidth: 720, fontSize: "var(--font-size-2)", lineHeight: 1.6 }}>
+      <p style={{ color: "var(--cometchat-neutral-color-600)", marginTop: 0, maxWidth: 720, fontSize: "14px", lineHeight: 1.6 }}>
         28 base components form the atomic layer. Each is documented with interactive controls, accessibility notes, and usage guidelines.
       </p>
 
@@ -120,7 +120,7 @@ function IntroductionPage() {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-          gap: "var(--space-3-5)",
+          gap: "var(--cometchat-spacing-3-5)",
           margin: "20px 0 40px",
         }}
       >
@@ -155,7 +155,7 @@ function IntroductionPage() {
 
       {/* PRINCIPLES */}
       <SectionHeading>Design principles</SectionHeading>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "var(--space-3-5)", margin: "20px 0 40px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "var(--cometchat-spacing-3-5)", margin: "20px 0 40px" }}>
         <PrincipleCard title="Token-first" body="Every color, spacing, and radius value comes from foundation tokens. No magic numbers." />
         <PrincipleCard title="Composable" body="Components are small and focused. Combine them to build complex patterns without tight coupling." />
         <PrincipleCard title="Accessible" body="Keyboard navigation, ARIA attributes, and focus management are built in from the start." />
@@ -165,7 +165,7 @@ function IntroductionPage() {
 
       {/* USAGE */}
       <SectionHeading>Usage</SectionHeading>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "var(--space-4)", margin: "20px 0 40px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "var(--cometchat-spacing-4)", margin: "20px 0 40px" }}>
         <div style={panelStyle}>
           <div style={panelLabel}>Import & use</div>
           <pre style={codePre}><code>{`import { Button } from "@base-components/Button";
@@ -214,18 +214,18 @@ function HeroChip({ label, value }: { label: string; value: string }) {
       style={{
         display: "inline-flex",
         alignItems: "center",
-        gap: "var(--space-1-5)",
-        fontSize: "var(--font-size-1)",
-        fontWeight: "var(--font-weight-medium)",
-        color: "var(--color-neutral-700, #414651)",
-        background: "var(--color-white, #fff)",
-        border: "1px solid var(--color-neutral-200, #e9eaeb)",
-        borderRadius: "var(--radius-full)",
+        gap: "var(--cometchat-spacing-1-5)",
+        fontSize: "12px",
+        fontWeight: "500",
+        color: "var(--cometchat-neutral-color-700)",
+        background: "var(--cometchat-static-white)",
+        border: "1px solid var(--cometchat-neutral-color-300)",
+        borderRadius: "var(--cometchat-radius-max)",
         padding: "5px 12px",
       }}
     >
-      <span style={{ color: "var(--color-neutral-500, #717680)", fontSize: "var(--font-size-0)" }}>{label}</span>
-      <span style={{ fontWeight: "var(--font-weight-semibold)" }}>{value}</span>
+      <span style={{ color: "var(--cometchat-neutral-color-500)", fontSize: "10px" }}>{label}</span>
+      <span style={{ fontWeight: "600" }}>{value}</span>
     </span>
   );
 }
@@ -251,29 +251,29 @@ function ComponentCard({ name, description }: { name: string; description: strin
       style={{
         display: "block",
         padding: "20px",
-        borderRadius: "var(--radius-xl)",
-        border: "1px solid var(--color-neutral-200, #e9eaeb)",
-        background: "var(--color-white, #fff)",
+        borderRadius: "var(--cometchat-radius-3)",
+        border: "1px solid var(--cometchat-neutral-color-300)",
+        background: "var(--cometchat-static-white)",
         transition: "box-shadow 0.15s, border-color 0.15s, transform 0.15s",
         cursor: "pointer",
         textDecoration: "none",
         color: "inherit",
       }}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.borderColor = "var(--color-ep-200, #d9d6fe)";
-        (e.currentTarget as HTMLElement).style.boxShadow = "var(--shadow-md)";
+        (e.currentTarget as HTMLElement).style.borderColor = "var(--cometchat-extended-primary-color-200)";
+        (e.currentTarget as HTMLElement).style.boxShadow = "var(--cometchat-shadow-md)";
         (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
       }}
       onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.borderColor = "var(--color-neutral-200, #e9eaeb)";
+        (e.currentTarget as HTMLElement).style.borderColor = "var(--cometchat-neutral-color-300)";
         (e.currentTarget as HTMLElement).style.boxShadow = "none";
         (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
       }}
     >
-      <div style={{ fontSize: "var(--font-size-2)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-900, #181d27)", marginBottom: 6 }}>
+      <div style={{ fontSize: "14px", fontWeight: "600", color: "var(--cometchat-neutral-color-900)", marginBottom: 6 }}>
         {name}
       </div>
-      <div style={{ fontSize: "var(--font-size-1)", color: "var(--color-neutral-600, #535862)", lineHeight: 1.5 }}>
+      <div style={{ fontSize: "12px", color: "var(--cometchat-neutral-color-600)", lineHeight: 1.5 }}>
         {description}
       </div>
     </a>
@@ -285,15 +285,15 @@ function PrincipleCard({ title, body }: { title: string; body: string }) {
     <div
       style={{
         padding: "20px",
-        borderRadius: "var(--radius-xl)",
-        border: "1px solid var(--color-neutral-200, #e9eaeb)",
-        background: "var(--color-neutral-25, #fdfdfd)",
+        borderRadius: "var(--cometchat-radius-3)",
+        border: "1px solid var(--cometchat-neutral-color-300)",
+        background: "var(--cometchat-neutral-color-50)",
       }}
     >
-      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-900, #181d27)", marginBottom: 6 }}>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-900)", marginBottom: 6 }}>
         {title}
       </div>
-      <div style={{ fontSize: "var(--font-size-1)", color: "var(--color-neutral-600, #535862)", lineHeight: 1.5 }}>
+      <div style={{ fontSize: "12px", color: "var(--cometchat-neutral-color-600)", lineHeight: 1.5 }}>
         {body}
       </div>
     </div>
@@ -304,11 +304,11 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
     <h2
       style={{
-        fontSize: "var(--font-size-5)",
-        fontWeight: "var(--font-weight-semibold)",
+        fontSize: "20px",
+        fontWeight: "600",
         letterSpacing: "-0.01em",
-        color: "var(--color-neutral-900, #181d27)",
-        borderBottom: "1px solid var(--color-neutral-200, #e9eaeb)",
+        color: "var(--cometchat-neutral-color-900)",
+        borderBottom: "1px solid var(--cometchat-neutral-color-300)",
         paddingBottom: 10,
         margin: "32px 0 8px",
       }}
@@ -320,28 +320,28 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
 
 const panelStyle: React.CSSProperties = {
   padding: "24px",
-  borderRadius: "var(--radius-xl)",
-  border: "1px solid var(--color-neutral-200, #e9eaeb)",
-  background: "var(--color-neutral-25, #fdfdfd)",
+  borderRadius: "var(--cometchat-radius-3)",
+  border: "1px solid var(--cometchat-neutral-color-300)",
+  background: "var(--cometchat-neutral-color-50)",
 };
 
 const panelLabel: React.CSSProperties = {
-  fontSize: "var(--font-size-0)",
-  fontWeight: "var(--font-weight-semibold)",
+  fontSize: "10px",
+  fontWeight: "600",
   letterSpacing: "0.06em",
   textTransform: "uppercase",
-  color: "var(--color-neutral-500, #717680)",
-  marginBottom: "var(--space-3)",
+  color: "var(--cometchat-neutral-color-500)",
+  marginBottom: "var(--cometchat-spacing-3)",
 };
 
 const codePre: React.CSSProperties = {
   margin: 0,
   padding: "16px",
-  borderRadius: "var(--radius-md)",
-  background: "var(--color-neutral-900, #181d27)",
-  color: "var(--color-neutral-100, #f5f5f5)",
-  fontSize: "var(--font-size-1)",
+  borderRadius: "var(--cometchat-radius-2)",
+  background: "var(--cometchat-neutral-color-900)",
+  color: "var(--cometchat-neutral-color-100)",
+  fontSize: "12px",
   lineHeight: 1.6,
   overflow: "auto",
-  fontFamily: "var(--font-family-body)",
+  fontFamily: "var(--cometchat-font-family)",
 };

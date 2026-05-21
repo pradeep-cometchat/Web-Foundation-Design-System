@@ -103,19 +103,19 @@ export const AllStates: Story = {
   render: () => (
     <div
       style={{
-        padding: "var(--space-6)",
+        padding: "var(--cometchat-spacing-6)",
       }}
     >
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "var(--space-4)", alignItems: "stretch" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "var(--cometchat-spacing-4)", alignItems: "stretch" }}>
       {(["idle", "recording", "paused", "preview"] as const).map((state) => (
         <div
           key={state}
-          style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)" }}
+          style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}
         >
           <span
             style={{
-              fontSize: "var(--font-size-0)",
-              fontWeight: "var(--font-weight-semibold)",
+              fontSize: "10px",
+              fontWeight: "600",
               textTransform: "uppercase",
               letterSpacing: "0.08em",
               color: "#717680",
@@ -143,7 +143,7 @@ export const AllStates: Story = {
 export const Usage: Story = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <UsageSection title="HTML">
         <UsageCodeCard language="HTML" code={`<!-- Voice Note Popup — Idle state -->
 <div class="ml-composer__popup">
@@ -225,7 +225,7 @@ export const Usage: Story = {
   width: 92px;
   height: 92px;
   border-radius: var(--cometchat-radius-max);
-  background: var(--color-ep-200);
+  background: var(--cometchat-extended-primary-color-200);
 }
 
 .ml-composer__wave-center--active {
@@ -233,7 +233,7 @@ export const Usage: Story = {
 }
 
 .ml-composer__wave-outer--visible {
-  background: var(--color-ep-50);
+  background: var(--cometchat-extended-primary-color-50);
 }
 
 .ml-composer__wave-inner--visible {
@@ -250,14 +250,14 @@ export const Usage: Story = {
   height: 44px;
   border-radius: var(--cometchat-radius-max);
   background: var(--cometchat-primary-color);
-  color: var(--color-white);
+  color: var(--cometchat-static-white);
 }
 
 .ml-composer__action-btn--destructive {
   width: 52px;
   height: 52px;
   background: var(--cometchat-error-color);
-  color: var(--color-white);
+  color: var(--cometchat-static-white);
   border-radius: var(--cometchat-radius-3);
 }
 
@@ -266,7 +266,7 @@ export const Usage: Story = {
   height: 48px;
   background: var(--cometchat-primary-color);
   border-radius: var(--cometchat-radius-max);
-  color: var(--color-white);
+  color: var(--cometchat-static-white);
 }`} />
       </UsageSection>
     </div>
@@ -286,11 +286,11 @@ export const Playground: Story = {
 /* ─── Usage helpers ─── */
 
 const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
-  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
-      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+  <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", background: "var(--cometchat-background-color-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-02)" }}>
+      <span style={{ fontSize: "10px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-tertiary)" }}>{language}</span>
     </div>
-    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+    <pre style={{ margin: 0, padding: "var(--cometchat-spacing-3-5)", fontFamily: "var(--cometchat-font-family)", fontSize: "12px", lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto" }}>
       <code>{code}</code>
     </pre>
   </div>
@@ -299,7 +299,7 @@ const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language,
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
       {children}
     </div>
   );

@@ -41,7 +41,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
   return (
     <section
       aria-label={title ?? "Token table"}
-      style={{ display: "flex", flexDirection: "column", gap: "var(--space-3-5)" }}
+      style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-3-5)" }}
     >
       {(title || searchable) && (
         <div
@@ -49,7 +49,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            gap: "var(--space-3)",
+            gap: "var(--cometchat-spacing-3)",
             flexWrap: "wrap",
           }}
         >
@@ -57,9 +57,9 @@ export const TokenTable: React.FC<TokenTableProps> = ({
             <h3
               style={{
                 margin: 0,
-                fontSize: "var(--font-size-2)",
-                fontWeight: "var(--font-weight-semibold)",
-                color: "var(--color-text-primary)",
+                fontSize: "14px",
+                fontWeight: "600",
+                color: "var(--cometchat-text-color-primary)",
               }}
             >
               {title}
@@ -75,7 +75,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                   top: "50%",
                   transform: "translateY(-50%)",
                   color: "var(--color-neutral-400)",
-                  fontSize: "var(--font-size-2)",
+                  fontSize: "14px",
                   lineHeight: 1,
                 }}
               >
@@ -88,22 +88,22 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                 placeholder="Search tokens"
                 style={{
                   width: "100%",
-                  fontSize: "var(--font-size-1)",
+                  fontSize: "12px",
                   padding: "8px 12px 8px 32px",
-                  borderRadius: "var(--radius-md)",
-                  border: "1px solid var(--color-border-default)",
-                  background: "var(--color-bg-01)",
+                  borderRadius: "var(--cometchat-radius-2)",
+                  border: "1px solid var(--cometchat-border-color-default)",
+                  background: "var(--cometchat-background-color-01)",
                   outline: "none",
                   fontFamily: "inherit",
-                  color: "var(--color-text-primary)",
-                  boxShadow: "var(--shadow-xs)",
+                  color: "var(--cometchat-text-color-primary)",
+                  boxShadow: "var(--cometchat-shadow-xs)",
                 }}
                 onFocus={(e) =>
                   (e.currentTarget.style.borderColor = "var(--color-ep-400)")
                 }
                 onBlur={(e) =>
                   (e.currentTarget.style.borderColor =
-                    "var(--color-neutral-200)")
+                    "var(--cometchat-neutral-color-200)")
                 }
               />
             </div>
@@ -113,10 +113,10 @@ export const TokenTable: React.FC<TokenTableProps> = ({
       <div
         style={{
           overflow: "auto",
-          border: "1px solid var(--color-border-default)",
-          borderRadius: "var(--radius-xl)",
-          background: "var(--color-bg-01)",
-          boxShadow: "var(--shadow-xs)",
+          border: "1px solid var(--cometchat-border-color-default)",
+          borderRadius: "var(--cometchat-radius-3)",
+          background: "var(--cometchat-background-color-01)",
+          boxShadow: "var(--cometchat-shadow-xs)",
         }}
       >
         <table
@@ -124,12 +124,12 @@ export const TokenTable: React.FC<TokenTableProps> = ({
             width: "100%",
             borderCollapse: "separate",
             borderSpacing: 0,
-            fontSize: "var(--font-size-1)",
-            color: "var(--color-text-primary)",
+            fontSize: "12px",
+            color: "var(--cometchat-text-color-primary)",
           }}
         >
           <thead>
-            <tr style={{ background: "var(--color-bg-02)", textAlign: "left" }}>
+            <tr style={{ background: "var(--cometchat-background-color-02)", textAlign: "left" }}>
               <th style={th}>{previewHeader}</th>
               <th style={th}>Token</th>
               <th style={th}>{valueHeader}</th>
@@ -148,8 +148,8 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                     hovered === row.name
                       ? "var(--color-ep-25)"
                       : i % 2 === 0
-                      ? "var(--color-bg-01)"
-                      : "var(--color-bg-02)",
+                      ? "var(--cometchat-background-color-01)"
+                      : "var(--cometchat-background-color-02)",
                   transition: "background 120ms ease",
                 }}
               >
@@ -159,8 +159,8 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                   {row.description && (
                     <div
                       style={{
-                        fontSize: "var(--font-size-0)",
-                        color: "var(--color-neutral-600)",
+                        fontSize: "10px",
+                        color: "var(--cometchat-neutral-color-600)",
                         marginTop: 3,
                       }}
                     >
@@ -203,27 +203,27 @@ export const TokenTable: React.FC<TokenTableProps> = ({
 
 const th: React.CSSProperties = {
   padding: "11px 16px",
-  fontWeight: "var(--font-weight-semibold)",
-  fontSize: "var(--font-size-0)",
+  fontWeight: "600",
+  fontSize: "10px",
   letterSpacing: "0.06em",
   textTransform: "uppercase",
-  color: "var(--color-text-tertiary)",
-  borderBottom: "1px solid var(--color-border-default)",
+  color: "var(--cometchat-text-color-tertiary)",
+  borderBottom: "1px solid var(--cometchat-border-color-default)",
   whiteSpace: "nowrap",
 };
 
 const td: React.CSSProperties = {
   padding: "12px 16px",
   verticalAlign: "middle",
-  borderBottom: "1px solid var(--color-border-light)",
+  borderBottom: "1px solid var(--cometchat-border-color-light)",
 };
 
 const codeStyle: React.CSSProperties = {
   fontFamily: "var(--font-family-body)",
-  fontSize: "var(--font-size-1)",
-  color: "var(--color-text-primary)",
-  background: "var(--color-bg-02)",
+  fontSize: "12px",
+  color: "var(--cometchat-text-color-primary)",
+  background: "var(--cometchat-background-color-02)",
   padding: "2px 6px",
-  borderRadius: "var(--radius-xs)",
-  border: "1px solid var(--color-border-default)",
+  borderRadius: "var(--cometchat-radius-1)",
+  border: "1px solid var(--cometchat-border-color-default)",
 };

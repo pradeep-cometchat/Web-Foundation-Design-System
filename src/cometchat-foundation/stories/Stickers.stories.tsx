@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { avatarRegistry } from "../tokens/avatars";
-import "../../foundation/tokens/tokens.css";
+import "../tokens/cometchat-tokens.css";
 
 /**
  * Stickers are illustrated character expressions used in chat messages.

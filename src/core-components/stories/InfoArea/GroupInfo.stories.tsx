@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { avatarRegistry } from "../../../foundation/tokens/avatars";
+import { avatarRegistry } from "../../../cometchat-foundation/tokens/avatars";
 import { SearchBar } from "../../../base-components/components/SearchBar";
 
 const meta: Meta = {
@@ -264,7 +264,7 @@ export const Usage: StoryObj = {
 
 function GroupInfoHeader() {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 8, height: 64, padding: "8px 16px", borderBottom: "1px solid var(--color-border-light, #f5f5f5)" }}>
+    <div style={{ display: "flex", alignItems: "center", gap: 8, height: 64, padding: "8px 16px", borderBottom: "1px solid var(--cometchat-border-color-light)" }}>
       <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-text-color-primary)", cursor: "pointer" }}>close</span>
       <span style={{ flex: 1, fontFamily: "var(--cometchat-font-family)", fontSize: 20, fontWeight: 700, lineHeight: "30px", color: "var(--cometchat-text-color-primary)" }}>Group Info</span>
     </div>
@@ -274,12 +274,12 @@ function GroupInfoHeader() {
 function GroupInfoProfile() {
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, padding: "40px 20px 20px" }}>
-      <div style={{ width: 120, height: 120, borderRadius: "var(--radius-full, 9999px)", overflow: "hidden" }}>
+      <div style={{ width: 120, height: 120, borderRadius: "var(--cometchat-radius-max)", overflow: "hidden" }}>
         <img src={group[7].imageUrl} alt="Innovative Online Shopping" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0, width: 244, textAlign: "center" }}>
         <p style={{ margin: 0, fontFamily: "var(--cometchat-font-family)", fontSize: 20, fontWeight: 500, lineHeight: "30px", color: "var(--cometchat-text-color-primary)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", width: "100%" }}>Innovative Online Shop...</p>
-        <span style={{ fontSize: 12, lineHeight: "18px", color: "var(--color-text-secondary, #414651)" }}>44 Members</span>
+        <span style={{ fontSize: 12, lineHeight: "18px", color: "var(--cometchat-text-color-secondary)" }}>44 Members</span>
       </div>
     </div>
   );
@@ -287,21 +287,21 @@ function GroupInfoProfile() {
 
 function GroupInfoActions() {
   return (
-    <div style={{ borderTop: "1px solid var(--color-border-light, #f5f5f5)", borderBottom: "1px solid var(--color-border-light, #f5f5f5)" }}>
+    <div style={{ borderTop: "1px solid var(--cometchat-border-color-light)", borderBottom: "1px solid var(--cometchat-border-color-light)" }}>
       {/* Add Members */}
       <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 20px", cursor: "pointer" }}>
-        <span className="icon-rounded" style={{ fontSize: 24, color: "var(--color-extended-primary-600, #6852d6)" }}>group_add</span>
-        <span style={{ fontSize: 16, color: "var(--color-extended-primary-600, #6852d6)" }}>Add Members</span>
+        <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-primary-color)" }}>group_add</span>
+        <span style={{ fontSize: 16, color: "var(--cometchat-primary-color)" }}>Add Members</span>
       </div>
       {/* Leave */}
       <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 20px", cursor: "pointer" }}>
-        <span className="icon-rounded" style={{ fontSize: 24, color: "var(--color-error-600, #d92d20)" }}>logout</span>
-        <span style={{ fontSize: 16, color: "var(--color-error-600, #d92d20)" }}>Leave</span>
+        <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-error-color)" }}>logout</span>
+        <span style={{ fontSize: 16, color: "var(--cometchat-error-color)" }}>Leave</span>
       </div>
       {/* Delete and Exit */}
       <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 20px", cursor: "pointer" }}>
-        <span className="icon-rounded" style={{ fontSize: 24, color: "var(--color-error-600, #d92d20)" }}>delete</span>
-        <span style={{ fontSize: 16, color: "var(--color-error-600, #d92d20)" }}>Delete and Exit</span>
+        <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-error-color)" }}>delete</span>
+        <span style={{ fontSize: 16, color: "var(--cometchat-error-color)" }}>Delete and Exit</span>
       </div>
     </div>
   );
@@ -312,11 +312,11 @@ function GroupInfoMembersTabs() {
     <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
       {/* Tabs — compact height */}
       <div style={{ padding: "16px 16px 0" }}>
-        <div style={{ display: "flex", background: "var(--color-bg-03, #f5f5f5)", border: "1px solid var(--color-border-light, #f5f5f5)", borderRadius: "var(--radius-full, 9999px)", overflow: "hidden" }}>
-          <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", height: 32, padding: "6px 16px", borderRadius: "var(--radius-full, 9999px)", background: "var(--color-bg-01, white)", border: "1px solid var(--color-border-light, #f5f5f5)", fontFamily: "var(--cometchat-font-family)", fontSize: 14, fontWeight: 500, lineHeight: "20px", color: "var(--color-extended-primary-600, #6852d6)", cursor: "pointer" }}>
+        <div style={{ display: "flex", background: "var(--cometchat-background-color-03)", border: "1px solid var(--cometchat-border-color-light)", borderRadius: "var(--cometchat-radius-max)", overflow: "hidden" }}>
+          <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", height: 32, padding: "6px 16px", borderRadius: "var(--cometchat-radius-max)", background: "var(--color-bg-01, white)", border: "1px solid var(--cometchat-border-color-light)", fontFamily: "var(--cometchat-font-family)", fontSize: 14, fontWeight: 500, lineHeight: "20px", color: "var(--cometchat-primary-color)", cursor: "pointer" }}>
             View Members
           </div>
-          <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", height: 32, padding: "6px 16px", borderRadius: "var(--radius-full, 9999px)", fontFamily: "var(--cometchat-font-family)", fontSize: 14, fontWeight: 500, lineHeight: "20px", color: "var(--color-text-quaternary, #717680)", cursor: "pointer" }}>
+          <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", height: 32, padding: "6px 16px", borderRadius: "var(--cometchat-radius-max)", fontFamily: "var(--cometchat-font-family)", fontSize: 14, fontWeight: 500, lineHeight: "20px", color: "var(--color-text-quaternary, #717680)", cursor: "pointer" }}>
             Banned Members
           </div>
         </div>
@@ -341,7 +341,7 @@ function GroupInfoMembersTabs() {
 
       {/* View all link */}
       <div style={{ padding: "20px 20px", cursor: "pointer" }}>
-        <span style={{ fontSize: 16, color: "var(--color-extended-primary-600, #6852d6)" }}>View all (6 more)</span>
+        <span style={{ fontSize: 16, color: "var(--cometchat-primary-color)" }}>View all (6 more)</span>
       </div>
     </div>
   );
@@ -350,29 +350,29 @@ function GroupInfoMembersTabs() {
 function MemberItem({ name, avatar, role }: { name: string; avatar: string; role?: "owner" | "admin" | "moderator" }) {
   const badgeStyles: Record<string, React.CSSProperties> = {
     owner: {
-      background: "var(--color-extended-primary-600, #6852d6)",
+      background: "var(--cometchat-primary-color)",
       color: "white",
       padding: "4px 12px",
-      borderRadius: "var(--radius-full, 9999px)",
+      borderRadius: "var(--cometchat-radius-max)",
       fontSize: 12,
       lineHeight: "18px",
       fontWeight: 400,
     },
     admin: {
-      background: "var(--color-extended-primary-100, #ebe9fe)",
-      border: "1px solid var(--color-extended-primary-400, #7a70e4)",
-      color: "var(--color-extended-primary-600, #6852d6)",
+      background: "var(--cometchat-extended-primary-color-100)",
+      border: "1px solid var(--cometchat-extended-primary-color-400)",
+      color: "var(--cometchat-primary-color)",
       padding: "4px 12px",
-      borderRadius: "var(--radius-full, 9999px)",
+      borderRadius: "var(--cometchat-radius-max)",
       fontSize: 12,
       lineHeight: "18px",
       fontWeight: 400,
     },
     moderator: {
-      background: "var(--color-extended-primary-100, #ebe9fe)",
-      color: "var(--color-extended-primary-600, #6852d6)",
+      background: "var(--cometchat-extended-primary-color-100)",
+      color: "var(--cometchat-primary-color)",
       padding: "4px 12px",
-      borderRadius: "var(--radius-full, 9999px)",
+      borderRadius: "var(--cometchat-radius-max)",
       fontSize: 12,
       lineHeight: "18px",
       fontWeight: 400,
@@ -381,7 +381,7 @@ function MemberItem({ name, avatar, role }: { name: string; avatar: string; role
 
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "8px 16px" }}>
-      <div style={{ width: 40, height: 40, borderRadius: "var(--radius-full, 9999px)", overflow: "hidden", flexShrink: 0 }}>
+      <div style={{ width: 40, height: 40, borderRadius: "var(--cometchat-radius-max)", overflow: "hidden", flexShrink: 0 }}>
         <img src={avatar} alt={name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "space-between", minWidth: 0 }}>

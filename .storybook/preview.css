@@ -110,9 +110,10 @@ samp,
 /* Don't override component text colors inside story previews */
 .sbdocs .sb-foundation-root p,
 .sbdocs .sb-foundation-root li {
-  color: unset !important;
-  font-size: unset !important;
-  line-height: unset !important;
+  color: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
 }
 
 /* Inline code chips in MDX. */

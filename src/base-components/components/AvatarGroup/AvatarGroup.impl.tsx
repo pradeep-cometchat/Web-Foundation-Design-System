@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import type { AvatarProps, AvatarGroupProps, AvatarLabelGroupProps, AvatarSize } from "./AvatarGroup.types";
-import { avatarRegistry } from "../../../foundation/tokens/avatars";
+import { avatarRegistry } from "../../../cometchat-foundation/tokens/avatars";
 import "./AvatarGroup.css";
 
 /**

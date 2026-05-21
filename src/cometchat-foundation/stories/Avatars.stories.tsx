@@ -136,16 +136,16 @@ function AllAvatars() {
               fontSize: "12px",
               padding: "8px 12px 8px 32px",
               borderRadius: "var(--cometchat-radius-2)",
-              border: "1px solid var(--color-neutral-200)",
+              border: "1px solid var(--cometchat-neutral-color-200)",
               background: "var(--cometchat-static-white)",
               outline: "none",
               fontFamily: "inherit",
-              color: "var(--color-neutral-900)",
+              color: "var(--cometchat-neutral-color-900)",
               boxShadow: "var(--cometchat-shadow-xs)",
             }}
           />
         </div>
-        <div style={{ fontSize: "12px", color: "var(--color-neutral-600)", marginTop: "var(--cometchat-spacing-2)" }}>
+        <div style={{ fontSize: "12px", color: "var(--cometchat-neutral-color-600)", marginTop: "var(--cometchat-spacing-2)" }}>
           {totalShown} asset{totalShown === 1 ? "" : "s"}
         </div>
       </div>
@@ -207,7 +207,7 @@ function AvatarTile({
         gap: "var(--cometchat-spacing-2)",
         padding: "var(--cometchat-spacing-3)",
         borderRadius: "var(--cometchat-radius-3)",
-        border: `1px solid ${copied ? "var(--color-success-300)" : "var(--color-neutral-200)"}`,
+        border: `1px solid ${copied ? "var(--color-success-300)" : "var(--cometchat-neutral-color-200)"}`,
         background: copied ? "var(--color-success-50)" : "var(--cometchat-static-white)",
         cursor: "pointer",
         fontFamily: "inherit",
@@ -240,7 +240,7 @@ function AvatarTile({
         style={{
           fontSize: "10px",
           fontFamily: "var(--cometchat-font-family)",
-          color: copied ? "var(--cometchat-success-color)" : "var(--color-neutral-600)",
+          color: copied ? "var(--cometchat-success-color)" : "var(--cometchat-neutral-color-600)",
           maxWidth: "100%",
           overflow: "hidden",
           textOverflow: "ellipsis",

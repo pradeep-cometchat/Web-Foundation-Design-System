@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { PageHeader } from "../../foundation/components/PageHeader";
-import { Section } from "../../foundation/components/Section";
-import { TokenTable } from "../../foundation/components/TokenTable";
+import { PageHeader } from "../components/PageHeader";
+import { Section } from "../components/Section";
+import { TokenTable } from "../components/TokenTable";
 
 const meta: Meta = {
   title: "CometChat Foundation/Radius",
@@ -42,7 +42,7 @@ function NewChip() {
 
 export const AllTokens: StoryObj = {
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1400, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1400, margin: "0 auto" }}>
       <PageHeader
         eyebrow="CometChat Foundation"
         title="Border Radius"
@@ -81,12 +81,12 @@ export const AllTokens: StoryObj = {
       </Section>
 
       <Section title="Visual Comparison">
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-4)", padding: "var(--space-4)" }}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--cometchat-spacing-4)", padding: "var(--cometchat-spacing-4)" }}>
           {radiusTokens.map(t => (
-            <div key={t.name} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-2)" }}>
+            <div key={t.name} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-2)" }}>
               <div style={{ width: 64, height: 64, background: "var(--color-ep-100)", border: "2px solid var(--color-ep-500)", borderRadius: t.value >= 1000 ? "50%" : t.value }} />
-              <span style={{ fontSize: "var(--font-size-1)", color: "var(--color-text-secondary)", fontWeight: "var(--font-weight-medium)" }}>{t.value}px</span>
-              <code style={{ fontSize: "var(--font-size-0)", color: "var(--color-text-tertiary)" }}>{t.name}</code>
+              <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-secondary)", fontWeight: "var(--font-weight-medium)" }}>{t.value}px</span>
+              <code style={{ fontSize: "10px", color: "var(--cometchat-text-color-tertiary)" }}>{t.name}</code>
             </div>
           ))}
         </div>

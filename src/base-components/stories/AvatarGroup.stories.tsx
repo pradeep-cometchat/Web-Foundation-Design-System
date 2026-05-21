@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Avatar, AvatarLabelGroup } from "../components/AvatarGroup/AvatarGroup.impl";
 import type { AvatarSize } from "../components/AvatarGroup/AvatarGroup.types";
-import { avatarRegistry } from "../../foundation/tokens/avatars";
+import { avatarRegistry } from "../../cometchat-foundation/tokens/avatars";
 
 const maleAvatars = avatarRegistry["Male Avatar"];
 
@@ -37,13 +37,13 @@ export const OnlineIndicator: Story = {
   name: "Online Indicator",
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <Section title="Online (all sizes)">
-        <div style={{ display: "flex", gap: "var(--space-4)", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-4)", alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
-            <div key={sz} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-1-5)" }}>
+            <div key={sz} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-1-5)" }}>
               <OnlineDot size={sz} online={true} />
-              <span style={{ fontSize: "var(--font-size-0)", color: "var(--color-neutral-600)", fontFamily: "var(--font-family-body)" }}>{sz}</span>
+              <span style={{ fontSize: "10px", color: "var(--cometchat-neutral-color-600)", fontFamily: "var(--cometchat-font-family)" }}>{sz}</span>
             </div>
           ))}
         </div>
@@ -57,23 +57,23 @@ export const GroupIcons: Story = {
   name: "Group Icons",
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <Section title="Private (all sizes)">
-        <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-3)", alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
-            <div key={sz} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-1-5)" }}>
+            <div key={sz} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-1-5)" }}>
               <CompanyBadge size={sz} type="private" />
-              <span style={{ fontSize: "var(--font-size-0)", color: "var(--color-neutral-600)", fontFamily: "var(--font-family-body)" }}>{sz}</span>
+              <span style={{ fontSize: "10px", color: "var(--cometchat-neutral-color-600)", fontFamily: "var(--cometchat-font-family)" }}>{sz}</span>
             </div>
           ))}
         </div>
       </Section>
       <Section title="Protected (all sizes)">
-        <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-3)", alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
-            <div key={sz} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-1-5)" }}>
+            <div key={sz} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-1-5)" }}>
               <CompanyBadge size={sz} type="protected" />
-              <span style={{ fontSize: "var(--font-size-0)", color: "var(--color-neutral-600)", fontFamily: "var(--font-family-body)" }}>{sz}</span>
+              <span style={{ fontSize: "10px", color: "var(--cometchat-neutral-color-600)", fontFamily: "var(--cometchat-font-family)" }}>{sz}</span>
             </div>
           ))}
         </div>
@@ -87,7 +87,7 @@ export const AvatarVariants: Story = {
   name: "Avatar Variants",
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <Section title="With Image">
         <Avatar src={maleAvatars[0].imageUrl} size="lg" />
       </Section>
@@ -111,51 +111,51 @@ export const AvatarVariants: Story = {
 export const Sizes: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-8)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-8)" }}>
       <Section title="With image — no status icon">
-        <div style={{ display: "flex", gap: "var(--space-4)", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-4)", alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
             <Avatar key={sz} src={maleAvatars[0].imageUrl} size={sz} />
           ))}
         </div>
       </Section>
       <Section title="With image — online indicator">
-        <div style={{ display: "flex", gap: "var(--space-4)", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-4)", alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
             <Avatar key={sz} src={maleAvatars[0].imageUrl} size={sz} statusIcon="online" />
           ))}
         </div>
       </Section>
       <Section title="Text (initials) — no status">
-        <div style={{ display: "flex", gap: "var(--space-4)", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-4)", alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
             <Avatar key={sz} size={sz} fallback="OR" />
           ))}
         </div>
       </Section>
       <Section title="Text (initials) — online indicator">
-        <div style={{ display: "flex", gap: "var(--space-4)", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-4)", alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
             <Avatar key={sz} size={sz} fallback="OR" statusIcon="online" />
           ))}
         </div>
       </Section>
       <Section title="Broken image URL (fallback to initials)">
-        <div style={{ display: "flex", gap: "var(--space-4)", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-4)", alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
             <Avatar key={sz} size={sz} src="https://broken-url.invalid/avatar.png" fallback="EU" name="Example User" />
           ))}
         </div>
       </Section>
       <Section title="Empty name — no status">
-        <div style={{ display: "flex", gap: "var(--space-4)", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-4)", alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
             <Avatar key={sz} size={sz} />
           ))}
         </div>
       </Section>
       <Section title="Empty name — online indicator">
-        <div style={{ display: "flex", gap: "var(--space-4)", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-4)", alignItems: "center" }}>
           {(["xs", "sm", "md", "lg", "xl", "2xl"] as AvatarSize[]).map((sz) => (
             <Avatar key={sz} size={sz} statusIcon="online" />
           ))}
@@ -170,7 +170,7 @@ export const LabelGroup: Story = {
   name: "Avatar Label Group",
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "var(--space-6)" }}>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "var(--cometchat-spacing-6)" }}>
       <Section title="Small — no status">
         <AvatarLabelGroup src={maleAvatars[0].imageUrl} size="sm" name="Olivia Rhye" supportingText="olivia@untitledui.com" />
       </Section>
@@ -206,7 +206,7 @@ export const GroupLabelGroup: Story = {
   render: () => {
     const groupAvatars = avatarRegistry["Group Avatar"];
     return (
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
         <Section title="Small — Public">
           <GroupAvatarLabel src={groupAvatars[5].imageUrl} size="sm" name="Epic Game" supportingText="248 Members" groupType="public" />
         </Section>
@@ -251,11 +251,11 @@ export const GroupLabelGroup: Story = {
 /* ─── Helpers ──────────────────────────────────────────────────────────────── */
 
 const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
-  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
-      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+  <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", background: "var(--cometchat-background-color-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-02)" }}>
+      <span style={{ fontSize: "10px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-tertiary)" }}>{language}</span>
     </div>
-    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+    <pre style={{ margin: 0, padding: "var(--cometchat-spacing-3-5)", fontFamily: "var(--cometchat-font-family)", fontSize: "12px", lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto" }}>
       <code>{code}</code>
     </pre>
   </div>
@@ -264,7 +264,7 @@ const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
       {children}
     </div>
   );
@@ -277,7 +277,7 @@ const indicatorSizeMap: Record<string, number> = { xs: 6, sm: 8, md: 10, lg: 12,
 function OnlineDot({ size, online }: { size: AvatarSize; online: boolean }) {
   const px = indicatorSizeMap[size] ?? 10;
   return (
-    <div style={{ width: px, height: px, borderRadius: "50%", background: online ? "var(--color-success-500)" : "var(--color-neutral-lm-300)", border: "1.5px solid var(--color-white)", boxSizing: "content-box" }} />
+    <div style={{ width: px, height: px, borderRadius: "50%", background: online ? "var(--cometchat-success-color)" : "var(--cometchat-neutral-color-300)", border: "1.5px solid var(--cometchat-static-white)", boxSizing: "content-box" }} />
   );
 }
 
@@ -332,7 +332,7 @@ function CompanyBadge({ size, type }: { size: AvatarSize; type: "company" | "pri
 export const Usage: Story = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <Section title="HTML">
         <CodeCard language="HTML" code={`<!-- Single Avatar with image -->
 <div class="avatar avatar--lg">
@@ -400,7 +400,7 @@ export const Usage: Story = {
   width: 100%;
   height: 100%;
   border-radius: var(--cometchat-radius-max);
-  background: var(--color-ep-300);
+  background: var(--cometchat-extended-primary-color-300);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -409,7 +409,7 @@ export const Usage: Story = {
 .avatar__fallback {
   font-family: var(--cometchat-font-family);
   font-weight: 500;
-  color: var(--color-white);
+  color: var(--cometchat-static-white);
   text-transform: uppercase;
 }
 
@@ -418,11 +418,11 @@ export const Usage: Story = {
   bottom: 0;
   right: 0;
   border-radius: var(--cometchat-radius-max);
-  border: 1.5px solid var(--color-white);
+  border: 1.5px solid var(--cometchat-static-white);
 }
 
-.avatar__status--online { background: var(--color-success-500); }
-.avatar__status--offline { background: var(--color-neutral-lm-400); }
+.avatar__status--online { background: var(--cometchat-success-color); }
+.avatar__status--offline { background: var(--cometchat-neutral-color-400); }
 
 .avatar-group {
   display: inline-flex;
@@ -430,7 +430,7 @@ export const Usage: Story = {
 }
 
 .avatar-group .avatar {
-  border: 2px solid var(--color-white);
+  border: 2px solid var(--cometchat-static-white);
   margin-left: -8px;
 }
 
@@ -442,12 +442,12 @@ export const Usage: Story = {
 
 .avatar-label-group__name {
   font-weight: 500;
-  color: var(--color-neutral-lm-900);
+  color: var(--cometchat-neutral-color-900);
 }
 
 .avatar-label-group__supporting {
   font-weight: 400;
-  color: var(--color-neutral-lm-600);
+  color: var(--cometchat-neutral-color-600);
 }`} />
       </Section>
     </div>
@@ -472,12 +472,12 @@ function GroupAvatarLabel({ src, size, name, supportingText, groupType }: { src:
   const showBadge = groupType !== "public";
 
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: "var(--space-3)" }}>
+    <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-3)" }}>
       <div style={{ position: "relative", width: avatarPx, height: avatarPx, flexShrink: 0 }}>
         <img
           src={src}
           alt={name}
-          style={{ width: "100%", height: "100%", borderRadius: "var(--radius-full)", objectFit: "cover", display: "block" }}
+          style={{ width: "100%", height: "100%", borderRadius: "var(--cometchat-radius-max)", objectFit: "cover", display: "block" }}
         />
         {showBadge && (
           <span style={{ position: "absolute", right: -2, bottom: -2, width: badgePx, height: badgePx, display: "flex" }}>
@@ -496,8 +496,8 @@ function GroupAvatarLabel({ src, size, name, supportingText, groupType }: { src:
         )}
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <span style={{ fontFamily: "var(--font-family-heading)", fontWeight: "var(--font-weight-medium)", fontSize: size === "sm" ? "var(--font-size-2)" : size === "md" ? "var(--font-size-2)" : size === "lg" ? "var(--font-size-3)" : "var(--font-size-4)", lineHeight: size === "lg" ? "var(--line-height-h4)" : "var(--line-height-body)", color: "var(--color-text-primary)" }}>{name}</span>
-        <span style={{ fontFamily: "var(--font-family-body)", fontWeight: "var(--font-weight-regular)", fontSize: size === "sm" ? "var(--font-size-1)" : "var(--font-size-2)", lineHeight: "var(--line-height-body)", color: "var(--color-text-secondary)" }}>{supportingText}</span>
+        <span style={{ fontFamily: "var(--cometchat-font-family)", fontWeight: "500", fontSize: size === "sm" ? "14px" : size === "md" ? "14px" : size === "lg" ? "16px" : "18px", lineHeight: size === "lg" ? "19.2px" : "16.8px", color: "var(--cometchat-text-color-primary)" }}>{name}</span>
+        <span style={{ fontFamily: "var(--cometchat-font-family)", fontWeight: "400", fontSize: size === "sm" ? "12px" : "14px", lineHeight: "16.8px", color: "var(--cometchat-text-color-secondary)" }}>{supportingText}</span>
       </div>
     </div>
   );

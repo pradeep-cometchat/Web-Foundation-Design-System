@@ -28,7 +28,6 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  overflow: hidden;
 }
 
 .change-scope__icon-inner {
@@ -41,8 +40,8 @@
 }
 
 .change-scope__icon-inner svg {
-  width: 60%;
-  height: 60%;
+  width: 75%;
+  height: 75%;
 }
 
 /* ─── Text ─── */

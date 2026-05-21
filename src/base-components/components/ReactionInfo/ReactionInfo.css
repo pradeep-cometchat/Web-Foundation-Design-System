@@ -19,7 +19,7 @@
   align-items: flex-start;
   padding: var(--cometchat-spacing-2);
   background: var(--cometchat-static-black);
-  border-radius: var(--radius-xs, 4px);
+  border-radius: var(--cometchat-radius-1);
 }
 
 /* ─── Emoji + Text container: gap-4, centered, text-center ─── */
@@ -44,7 +44,7 @@
   flex-direction: column;
   align-items: center;
   gap: 0;
-  font-family: var(--font-family-body, "Inter", sans-serif);
+  font-family: var(--cometchat-font-family);
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;

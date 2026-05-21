@@ -5,12 +5,12 @@
 .media-recorder {
   display: flex;
   align-items: center;
-  gap: var(--space-3, 12px);
+  gap: var(--cometchat-spacing-3);
   padding: var(--cometchat-spacing-1-5) var(--cometchat-spacing-3);
   width: 100%;
   background: var(--cometchat-background-color-01);
   border: 1px solid var(--cometchat-border-color-default);
-  border-radius: var(--radius-md, 8px);
+  border-radius: var(--cometchat-radius-2);
   box-sizing: border-box;
 }
 
@@ -18,7 +18,7 @@
 .media-recorder__left {
   display: flex;
   align-items: center;
-  gap: var(--space-2, 8px);
+  gap: var(--cometchat-spacing-2);
   flex: 1;
   min-width: 0;
 }
@@ -34,12 +34,12 @@
   cursor: pointer;
   color: var(--cometchat-icon-color-tertiary);
   padding: var(--cometchat-spacing-1-5);
-  border-radius: var(--radius-md, 8px);
+  border-radius: var(--cometchat-radius-2);
   flex-shrink: 0;
 }
 
 .media-recorder__placeholder {
-  font-family: var(--font-family-body, "Inter", sans-serif);
+  font-family: var(--cometchat-font-family);
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
@@ -70,7 +70,7 @@
 .media-recorder__recording {
   display: flex;
   align-items: center;
-  gap: var(--space-2, 8px);
+  gap: var(--cometchat-spacing-2);
   flex-shrink: 0;
 }
 
@@ -88,7 +88,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: var(--color-error, #d92d20);
+  background: var(--cometchat-error-color);
   animation: media-recorder-pulse 1.5s ease-in-out infinite;
 }
 
@@ -106,14 +106,14 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--color-ep-500, #6852d6);
+  color: var(--cometchat-primary-color);
   padding: 0;
   flex-shrink: 0;
 }
 
 /* Duration: Body/Regular — 14px, 400, text-secondary */
 .media-recorder__duration {
-  font-family: var(--font-family-body, "Inter", sans-serif);
+  font-family: var(--cometchat-font-family);
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
@@ -136,7 +136,7 @@
 .media-recorder__wave-bar {
   width: 2px;
   border-radius: var(--cometchat-radius-max);
-  background: var(--color-ep-500, #6852d6);
+  background: var(--cometchat-primary-color);
   flex-shrink: 0;
 }
 
@@ -149,7 +149,7 @@
   justify-content: center;
   background: var(--cometchat-background-color-01);
   border: 1px solid var(--cometchat-border-color-dark);
-  border-radius: var(--radius-md, 8px);
+  border-radius: var(--cometchat-radius-2);
   box-shadow: var(--cometchat-shadow-xs);
   cursor: pointer;
   color: var(--cometchat-text-color-secondary);
@@ -186,6 +186,6 @@
 }
 
 .media-recorder__send-btn--active {
-  background: var(--color-ep-500, #6852d6);
+  background: var(--cometchat-primary-color);
   color: var(--cometchat-static-white);
 }

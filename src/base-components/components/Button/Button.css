@@ -49,7 +49,7 @@
 
 .btn--md {
   height: 40px;
-  padding: 10px var(--space-3-5, 14px); /* 10px 14px */
+  padding: 10px var(--cometchat-spacing-3-5); /* 10px 14px */
   font-size: 14px; /* 14px */
   line-height: 20px; /* 20px */
   gap: var(--cometchat-spacing-1); /* 4px */

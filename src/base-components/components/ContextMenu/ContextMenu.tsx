@@ -45,11 +45,7 @@ export function ContextMenuTrigger({
       aria-label={ariaLabel}
       aria-haspopup="menu"
     >
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="8" cy="3.5" r="1.5" fill="currentColor"/>
-        <circle cx="8" cy="8" r="1.5" fill="currentColor"/>
-        <circle cx="8" cy="12.5" r="1.5" fill="currentColor"/>
-      </svg>
+      <span className="icon-rounded" style={{ fontSize: 20, fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20" }}>more_vert</span>
     </button>
   );
 }

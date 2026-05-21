@@ -35,15 +35,15 @@ export const CopyButton: React.FC<CopyButtonProps> = ({
   const base: React.CSSProperties = {
     fontFamily:
       "var(--font-family-body)",
-    fontSize: "var(--font-size-1)",
-    fontWeight: "var(--font-weight-medium)",
+    fontSize: "12px",
+    fontWeight: "500",
     padding: variant === "ghost" ? "2px 6px" : "5px 10px",
-    borderRadius: "var(--radius-sm)",
+    borderRadius: "var(--cometchat-radius-1-5)",
     cursor: "pointer",
     transition: "all 120ms ease",
     display: "inline-flex",
     alignItems: "center",
-    gap: "var(--space-1-5)",
+    gap: "var(--cometchat-spacing-1-5)",
     lineHeight: 1.2,
     whiteSpace: "nowrap",
   };
@@ -59,7 +59,7 @@ export const CopyButton: React.FC<CopyButtonProps> = ({
             : "transparent",
           color: copied
             ? "var(--color-success-700)"
-            : "var(--color-neutral-700)",
+            : "var(--cometchat-neutral-color-700)",
           border: "1px solid transparent",
         }
       : {
@@ -71,13 +71,13 @@ export const CopyButton: React.FC<CopyButtonProps> = ({
             : "var(--color-white)",
           color: copied
             ? "var(--color-success-700)"
-            : "var(--color-neutral-800)",
+            : "var(--cometchat-neutral-color-800)",
           border: `1px solid ${
             copied
               ? "var(--color-success-200)"
-              : "var(--color-neutral-200)"
+              : "var(--cometchat-neutral-color-200)"
           }`,
-          boxShadow: "var(--shadow-xs)",
+          boxShadow: "var(--cometchat-shadow-xs)",
         };
 
   return (

@@ -51,7 +51,7 @@ const directionIcon: Record<CallDirection, string> = {
 const statusIconColor: Record<StatusIcon, string> = {
   none: "transparent",
   online: "var(--cometchat-success-color)",
-  offline: "var(--color-neutral-400)",
+  offline: "var(--cometchat-neutral-color-400)",
 };
 
 /* -------------------------------------------------------------------------- */

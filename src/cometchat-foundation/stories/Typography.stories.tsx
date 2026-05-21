@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { PageHeader } from "../../foundation/components/PageHeader";
-import { Section } from "../../foundation/components/Section";
-import { TokenTable } from "../../foundation/components/TokenTable";
+import { PageHeader } from "../components/PageHeader";
+import { Section } from "../components/Section";
+import { TokenTable } from "../components/TokenTable";
 
 /* Load Roboto from Google Fonts for accurate previews */
 const robotoLink = document.querySelector('link[href*="Roboto"]');
@@ -83,7 +83,7 @@ function NewChip() {
 
 export const AllTokens: StoryObj = {
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1400, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1400, margin: "0 auto" }}>
       <PageHeader
         eyebrow="CometChat Foundation"
         title="Typography"
@@ -116,7 +116,7 @@ export const AllTokens: StoryObj = {
               cssVar: `var(${t.cssVar})`,
               preview: (
                 <span style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                  <span style={{ fontFamily: "'Roboto', sans-serif", fontSize: size, lineHeight, fontWeight: weight, color: "var(--color-text-primary)" }}>
+                  <span style={{ fontFamily: "'Roboto', sans-serif", fontSize: size, lineHeight, fontWeight: weight, color: "var(--cometchat-text-color-primary)" }}>
                     Aa
                   </span>
                   {isNew && <NewChip />}

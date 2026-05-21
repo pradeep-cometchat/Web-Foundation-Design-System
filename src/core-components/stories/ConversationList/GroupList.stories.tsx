@@ -3,7 +3,7 @@ import { Header } from "../../../base-components/components/Header";
 import { Button } from "../../../base-components/components/Button";
 import { SearchBar } from "../../../base-components/components/SearchBar";
 import { GroupItem, GroupItemSkeleton } from "../../../base-components/components/ListItem";
-import { avatarRegistry } from "../../../foundation/tokens/avatars";
+import { avatarRegistry } from "../../../cometchat-foundation/tokens/avatars";
 
 const meta: Meta = {
   title: "Core Components/Conversation List/Group List",

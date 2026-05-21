@@ -37,7 +37,7 @@
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   overflow: clip;
-  font-family: var(--font-family-body, "Inter", sans-serif);
+  font-family: var(--cometchat-font-family);
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
@@ -59,12 +59,12 @@
 
 /* Active tab: primary color border-bottom + text */
 .reaction-list__tab--active {
-  color: var(--color-ep-500, #6852d6);
-  border-bottom-color: var(--color-ep-500, #6852d6);
+  color: var(--cometchat-primary-color);
+  border-bottom-color: var(--cometchat-primary-color);
 }
 
 .reaction-list__tab--active:hover {
-  color: var(--color-ep-500, #6852d6);
+  color: var(--cometchat-primary-color);
 }
 
 /* ─── List container ─── */
@@ -74,6 +74,14 @@
   align-items: flex-start;
   width: 100%;
   background: var(--cometchat-background-color-01);
+  max-height: 320px;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.reaction-list__body::-webkit-scrollbar {
+  display: none;
 }
 
 /* ─── List item: px-16 py-8, gap-8, flex row ─── */
@@ -132,7 +140,7 @@
 
 /* Name: Body/Medium — 14px, weight 500, line-height 20px, text-primary */
 .reaction-list__name {
-  font-family: var(--font-family-body, "Inter", sans-serif);
+  font-family: var(--cometchat-font-family);
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
@@ -143,7 +151,7 @@
 
 /* Subtitle: Caption 1/Regular — 12px, weight 400, line-height 18px, text-secondary */
 .reaction-list__subtitle {
-  font-family: var(--font-family-body, "Inter", sans-serif);
+  font-family: var(--cometchat-font-family);
   font-size: 12px;
   font-weight: 400;
   line-height: 14px;

@@ -71,7 +71,7 @@ export const Playing: Story = {
 export const States: StoryObj = {
   parameters: { layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-10)", display: "flex", flexDirection: "column", gap: "var(--space-8)", maxWidth: 900, margin: "0 auto" }}>
+    <div style={{ padding: "var(--cometchat-spacing-10)", display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-8)", maxWidth: 900, margin: "0 auto" }}>
       <div>
         <div style={stateLabelStyle}>Recording</div>
         <MediaRecorder state="recording" duration="00:32" />
@@ -99,10 +99,10 @@ export const Playground: Story = {
 };
 
 const stateLabelStyle: React.CSSProperties = {
-  fontSize: "var(--font-size-0)",
-  fontWeight: "var(--font-weight-semibold)",
+  fontSize: "10px",
+  fontWeight: "600",
   textTransform: "uppercase",
   letterSpacing: "0.06em",
-  color: "var(--color-neutral-500, #535862)",
-  marginBottom: "var(--space-2)",
+  color: "var(--cometchat-neutral-color-500)",
+  marginBottom: "var(--cometchat-spacing-2)",
 };

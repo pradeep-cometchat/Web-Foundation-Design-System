@@ -38,23 +38,23 @@ export const CheckboxStates: Story = {
   name: "States",
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-5)" }}>
       <Section title="Unchecked">
-        <div style={{ display: "flex", gap: "var(--space-6)" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-6)" }}>
           <Checkbox size="sm" />
           <Checkbox size="md" />
           <Checkbox size="md" disabled />
         </div>
       </Section>
       <Section title="Checked">
-        <div style={{ display: "flex", gap: "var(--space-6)" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-6)" }}>
           <Checkbox size="sm" checked />
           <Checkbox size="md" checked />
           <Checkbox size="md" checked disabled />
         </div>
       </Section>
       <Section title="Indeterminate">
-        <div style={{ display: "flex", gap: "var(--space-6)" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-6)" }}>
           <Checkbox size="sm" indeterminate />
           <Checkbox size="md" indeterminate />
           <Checkbox size="md" indeterminate disabled />
@@ -68,9 +68,9 @@ export const CheckboxStates: Story = {
 export const Sizes: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-5)" }}>
       <Section title="Small (16px)">
-        <div style={{ display: "flex", gap: "var(--space-6)" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-6)" }}>
           <Checkbox size="sm" />
           <Checkbox size="sm" checked />
           <Checkbox size="sm" indeterminate />
@@ -79,7 +79,7 @@ export const Sizes: Story = {
         </div>
       </Section>
       <Section title="Medium (20px)">
-        <div style={{ display: "flex", gap: "var(--space-6)" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-6)" }}>
           <Checkbox size="md" />
           <Checkbox size="md" checked />
           <Checkbox size="md" indeterminate />
@@ -95,7 +95,7 @@ export const Sizes: Story = {
 export const WithText: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)", maxWidth: 400 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-4)", maxWidth: 400 }}>
       <ControlledCheckbox label="Remember me" description="Save my login details for next time." />
       <ControlledCheckbox checked label="Email notifications" description="Get notified when someone sends you a message." />
       <Checkbox checked disabled label="Auto-save" description="This setting is managed by your admin." />
@@ -107,9 +107,9 @@ export const WithText: Story = {
 export const Examples: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)", maxWidth: 400 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-4)", maxWidth: 400 }}>
       <Section title="Settings list">
-        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-4)" }}>
           <ControlledCheckbox checked label="Push notifications" description="Receive alerts on your device." />
           <ControlledCheckbox label="Marketing emails" description="Tips, product updates, and inspiration." />
           <ControlledCheckbox checked label="Security alerts" description="Get notified about suspicious activity." />
@@ -130,29 +130,29 @@ function ControlledCheckbox(props: React.ComponentProps<typeof Checkbox>) {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
       {children}
     </div>
   );
 }
 
 const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
-  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
-      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+  <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", background: "var(--cometchat-background-color-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-02)" }}>
+      <span style={{ fontSize: "10px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-tertiary)" }}>{language}</span>
     </div>
-    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+    <pre style={{ margin: 0, padding: "var(--cometchat-spacing-3-5)", fontFamily: "var(--cometchat-font-family)", fontSize: "12px", lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto" }}>
       <code>{code}</code>
     </pre>
   </div>
 );
 
 const ClassGroup: React.FC<{ title: string; items: string[] }> = ({ title, items }) => (
-  <div style={{ padding: "var(--space-3-5) var(--space-4)", border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", background: "var(--color-bg-01)" }}>
-    <div style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-1)" }}>
+  <div style={{ padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
+    <div style={{ fontSize: "10px", fontWeight: "600", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-1)" }}>
       {items.map((item) => (
-        <code key={item} style={{ fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", color: "var(--color-text-primary)", background: "var(--color-bg-02)", padding: "var(--space-0-5) var(--space-2)", borderRadius: "var(--radius-xs)", border: "1px solid var(--color-border-default)", display: "inline-block", width: "fit-content" }}>.{item}</code>
+        <code key={item} style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "12px", color: "var(--cometchat-text-color-primary)", background: "var(--cometchat-background-color-02)", padding: "var(--cometchat-spacing) var(--cometchat-spacing-2)", borderRadius: "var(--cometchat-radius-1)", border: "1px solid var(--cometchat-border-color-default)", display: "inline-block", width: "fit-content" }}>.{item}</code>
       ))}
     </div>
   </div>
@@ -162,7 +162,7 @@ const ClassGroup: React.FC<{ title: string; items: string[] }> = ({ title, items
 export const Usage: Story = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <Section title="HTML">
         <CodeCard
           language="HTML"
@@ -245,7 +245,7 @@ export const Usage: Story = {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1.5px solid var(--color-neutral-lm-300);
+  border: 1.5px solid var(--cometchat-neutral-color-300);
   background: transparent;
   transition: background 120ms ease, border-color 120ms ease;
 }
@@ -259,7 +259,7 @@ export const Usage: Story = {
 }
 
 .checkbox__box:focus-visible {
-  box-shadow: var(--focus-ring-xs);
+  box-shadow: var(--cometchat-focus-ring);
 }
 
 .checkbox__box--checked {
@@ -268,28 +268,28 @@ export const Usage: Story = {
 }
 
 .checkbox__box--checked:hover:not(:disabled) {
-  background: var(--color-ep-700);
-  border-color: var(--color-ep-700);
+  background: var(--cometchat-extended-primary-color-900);
+  border-color: var(--cometchat-extended-primary-color-900);
 }
 
 .checkbox__label {
   font-size: 16px;
   font-weight: 500;
-  color: var(--color-neutral-lm-700);
+  color: var(--cometchat-neutral-color-700);
   line-height: 19.2px;
 }
 
 .checkbox__description {
   font-size: 14px;
   font-weight: 400;
-  color: var(--color-neutral-lm-600);
+  color: var(--cometchat-neutral-color-600);
   line-height: 16.8px;
 }`}
         />
       </Section>
 
       <Section title="Available Classes">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--space-3)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <ClassGroup title="Sizes" items={["checkbox__box--sm", "checkbox__box--md"]} />
           <ClassGroup title="States" items={["checkbox__box--checked", "checkbox--disabled"]} />
           <ClassGroup title="Variants" items={["checkbox__box--radio"]} />

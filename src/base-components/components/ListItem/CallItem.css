@@ -129,11 +129,11 @@
 }
 
 .call-item__direction--declined {
-  color: var(--color-error-500);
+  color: var(--cometchat-error-color);
 }
 
 .call-item__direction--missed {
-  color: var(--color-error-500);
+  color: var(--cometchat-error-color);
 }
 
 .call-item__datetime {
@@ -201,7 +201,7 @@
 }
 
 .call-item__skeleton-bar--title {
-  width: var(--space-30, 120px);
+  width: 120px;
   height: var(--cometchat-spacing-5);
 }
 

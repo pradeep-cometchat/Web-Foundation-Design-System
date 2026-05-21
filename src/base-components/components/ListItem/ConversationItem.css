@@ -155,7 +155,7 @@
 }
 
 .conversation-item__status--error {
-  color: var(--color-error-500);
+  color: var(--cometchat-error-color);
 }
 
 /* Sender label */

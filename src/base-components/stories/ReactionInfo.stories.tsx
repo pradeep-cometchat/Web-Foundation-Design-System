@@ -91,24 +91,24 @@ export const WithoutArrow: Story = {
 export const States: StoryObj = {
   parameters: { layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", gap: "var(--space-6)", flexWrap: "wrap", justifyContent: "center", alignItems: "flex-start", padding: "var(--space-10)" }}>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-2)" }}>
+    <div style={{ display: "flex", gap: "var(--cometchat-spacing-6)", flexWrap: "wrap", justifyContent: "center", alignItems: "flex-start", padding: "var(--cometchat-spacing-10)" }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-2)" }}>
         <div style={stateLabelStyle}>Single</div>
         <ReactionInfo emoji="👍" names={["George Alan"]} />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-2)" }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-2)" }}>
         <div style={stateLabelStyle}>Two names</div>
         <ReactionInfo emoji="❤️" names={["George Alan", "Pourav Raj"]} />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-2)" }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-2)" }}>
         <div style={stateLabelStyle}>Overflow (+5)</div>
         <ReactionInfo emoji="😍" names={["George Alan", "Pourav Raj", "Alice", "Bob", "Charlie", "Dave", "Eve"]} />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-2)" }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-2)" }}>
         <div style={stateLabelStyle}>Different emoji</div>
         <ReactionInfo emoji="🔥" names={["Alice", "Bob", "Charlie"]} maxVisible={3} />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-2)" }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-2)" }}>
         <div style={stateLabelStyle}>No arrow</div>
         <ReactionInfo emoji="😂" names={["George Alan", "Pourav Raj"]} showArrow={false} />
       </div>
@@ -120,7 +120,7 @@ export const States: StoryObj = {
 export const Usage: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <UsageSection title="HTML">
         <UsageCodeCard language="HTML" code={`<!-- Reaction Info Tooltip -->
 <div class="reaction-info">
@@ -149,7 +149,7 @@ export const Usage: StoryObj = {
   display: flex;
   flex-direction: column;
   padding: var(--cometchat-spacing-2);
-  background: var(--color-neutral-lm-950);
+  background: var(--cometchat-neutral-color-900);
   border-radius: var(--cometchat-radius-1);
 }
 
@@ -168,7 +168,7 @@ export const Usage: StoryObj = {
 
 .reaction-info__names {
   font-size: 12px;
-  color: var(--color-white);
+  color: var(--cometchat-static-white);
 }
 
 .reaction-info__label {
@@ -181,7 +181,7 @@ export const Usage: StoryObj = {
   height: 0;
   border-style: solid;
   border-width: 6px 6px 0 6px;
-  border-color: var(--color-neutral-lm-950) transparent transparent transparent;
+  border-color: var(--cometchat-neutral-color-900) transparent transparent transparent;
   align-self: center;
 }`} />
       </UsageSection>
@@ -202,21 +202,21 @@ export const Playground: Story = {
 };
 
 const stateLabelStyle: React.CSSProperties = {
-  fontSize: "var(--font-size-0)",
-  fontWeight: "var(--font-weight-semibold)",
+  fontSize: "10px",
+  fontWeight: "600",
   textTransform: "uppercase",
   letterSpacing: "0.06em",
-  color: "var(--color-neutral-500, #535862)",
+  color: "var(--cometchat-neutral-color-500)",
 };
 
 /* ─── Usage helpers ─── */
 
 const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
-  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
-      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+  <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", background: "var(--cometchat-background-color-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-02)" }}>
+      <span style={{ fontSize: "10px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-tertiary)" }}>{language}</span>
     </div>
-    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+    <pre style={{ margin: 0, padding: "var(--cometchat-spacing-3-5)", fontFamily: "var(--cometchat-font-family)", fontSize: "12px", lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto" }}>
       <code>{code}</code>
     </pre>
   </div>
@@ -225,7 +225,7 @@ const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language,
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
       {children}
     </div>
   );

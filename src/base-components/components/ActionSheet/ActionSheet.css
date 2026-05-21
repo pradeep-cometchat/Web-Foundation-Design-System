@@ -58,7 +58,7 @@
 }
 
 .action-sheet__item--destructive {
-  color: var(--color-error-500);
+  color: var(--cometchat-error-color);
 }
 
 .action-sheet__item--destructive:hover {
@@ -75,7 +75,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--cometchat-extended-primary-color-600);
+  color: var(--cometchat-primary-color);
   flex-shrink: 0;
 }
 
@@ -85,7 +85,7 @@
 }
 
 .action-sheet__item--destructive .action-sheet__item-icon {
-  color: var(--color-error-500);
+  color: var(--cometchat-error-color);
 }
 
 .action-sheet__item-label {

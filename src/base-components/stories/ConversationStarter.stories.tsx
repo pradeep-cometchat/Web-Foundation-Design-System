@@ -92,41 +92,41 @@ export const InContext: StoryObj = {
   parameters: { layout: "padded" },
   render: () => (
     <div style={{ maxWidth: 600, margin: "0 auto" }}>
-      <div style={{ marginBottom: "var(--space-2)" }}>
+      <div style={{ marginBottom: "var(--cometchat-spacing-2)" }}>
         <ConversationStarter suggestions={defaultSuggestions} />
       </div>
       {/* Message Composer */}
       <div style={{
-        border: "1px solid var(--color-border-default)",
-        borderRadius: "var(--radius-md)",
-        background: "var(--color-bg-01)",
+        border: "1px solid var(--cometchat-border-color-default)",
+        borderRadius: "var(--cometchat-radius-2)",
+        background: "var(--cometchat-background-color-01)",
         overflow: "hidden",
       }}>
         {/* Input area */}
-        <div style={{ padding: "var(--space-3)", fontSize: "var(--font-size-2)", color: "var(--color-text-tertiary)", fontFamily: "var(--font-family-body)", lineHeight: "var(--line-height-body)" }}>
+        <div style={{ padding: "var(--cometchat-spacing-3)", fontSize: "14px", color: "var(--cometchat-text-color-tertiary)", fontFamily: "var(--cometchat-font-family)", lineHeight: "16.8px" }}>
           Type your message...
         </div>
         {/* Divider */}
-        <div style={{ borderTop: "1px solid var(--color-border-light)" }} />
+        <div style={{ borderTop: "1px solid var(--cometchat-border-color-light)" }} />
         {/* Actions bar */}
-        <div style={{ padding: "var(--space-1-5) var(--space-3)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div style={{ display: "flex", gap: "var(--space-2)", alignItems: "center" }}>
-            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--color-icon-quaternary)", padding: "var(--space-1-5)" }}>add_circle</span>
-            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--color-icon-quaternary)", padding: "var(--space-1-5)" }}>mic</span>
-            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--color-icon-quaternary)", padding: "var(--space-1-5)" }}>mood</span>
-            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--color-icon-quaternary)", padding: "var(--space-1-5)" }}>sticky_note_2</span>
-            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--color-icon-quaternary)", padding: "var(--space-1-5)" }}>match_case</span>
-            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--color-icon-quaternary)", padding: "var(--space-1-5)" }}>auto_awesome</span>
+        <div style={{ padding: "var(--cometchat-spacing-1-5) var(--cometchat-spacing-3)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div style={{ display: "flex", gap: "var(--cometchat-spacing-2)", alignItems: "center" }}>
+            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--cometchat-icon-color-tertiary)", padding: "var(--cometchat-spacing-1-5)" }}>add_circle</span>
+            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--cometchat-icon-color-tertiary)", padding: "var(--cometchat-spacing-1-5)" }}>mic</span>
+            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--cometchat-icon-color-tertiary)", padding: "var(--cometchat-spacing-1-5)" }}>mood</span>
+            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--cometchat-icon-color-tertiary)", padding: "var(--cometchat-spacing-1-5)" }}>sticky_note_2</span>
+            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--cometchat-icon-color-tertiary)", padding: "var(--cometchat-spacing-1-5)" }}>match_case</span>
+            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--cometchat-icon-color-tertiary)", padding: "var(--cometchat-spacing-1-5)" }}>auto_awesome</span>
           </div>
           <div style={{
             width: 36, height: 36,
-            borderRadius: "var(--radius-full)",
-            background: "var(--color-bg-disabled)",
+            borderRadius: "var(--cometchat-radius-max)",
+            background: "var(--cometchat-background-color-disabled)",
             border: "2px solid rgba(255,255,255,0.12)",
             display: "flex", alignItems: "center", justifyContent: "center",
-            boxShadow: "var(--shadow-xs)",
+            boxShadow: "var(--cometchat-shadow-xs)",
           }}>
-            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--color-icon-quaternary)" }}>send</span>
+            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--cometchat-icon-color-tertiary)" }}>send</span>
           </div>
         </div>
       </div>
@@ -138,7 +138,7 @@ export const InContext: StoryObj = {
 export const Usage: StoryObj = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <UsageSection title="HTML">
         <UsageCodeCard language="HTML" code={`<!-- Conversation Starter -->
 <div class="conversation-starter">
@@ -194,7 +194,7 @@ export const Usage: StoryObj = {
 
 .conversation-starter__tag:focus-visible {
   outline: none;
-  box-shadow: var(--focus-ring-xs);
+  box-shadow: var(--cometchat-focus-ring);
 }`} />
       </UsageSection>
     </div>
@@ -214,11 +214,11 @@ export const Playground: StoryObj<typeof ConversationStarter> = {
 /* ─── Usage helpers ─── */
 
 const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
-  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
-      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+  <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", background: "var(--cometchat-background-color-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-02)" }}>
+      <span style={{ fontSize: "10px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-tertiary)" }}>{language}</span>
     </div>
-    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+    <pre style={{ margin: 0, padding: "var(--cometchat-spacing-3-5)", fontFamily: "var(--cometchat-font-family)", fontSize: "12px", lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto" }}>
       <code>{code}</code>
     </pre>
   </div>
@@ -227,7 +227,7 @@ const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language,
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
       {children}
     </div>
   );

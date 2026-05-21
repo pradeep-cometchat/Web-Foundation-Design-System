@@ -37,16 +37,16 @@ export const RadioStates: Story = {
   name: "States",
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-5)" }}>
       <Section title="Unchecked">
-        <div style={{ display: "flex", gap: "var(--space-6)" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-6)" }}>
           <RadioButton size="sm" />
           <RadioButton size="md" />
           <RadioButton size="md" disabled />
         </div>
       </Section>
       <Section title="Checked">
-        <div style={{ display: "flex", gap: "var(--space-6)" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-6)" }}>
           <RadioButton size="sm" checked />
           <RadioButton size="md" checked />
           <RadioButton size="md" checked disabled />
@@ -60,9 +60,9 @@ export const RadioStates: Story = {
 export const Sizes: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-5)" }}>
       <Section title="Small (16px)">
-        <div style={{ display: "flex", gap: "var(--space-6)" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-6)" }}>
           <RadioButton size="sm" />
           <RadioButton size="sm" checked />
           <RadioButton size="sm" disabled />
@@ -70,7 +70,7 @@ export const Sizes: Story = {
         </div>
       </Section>
       <Section title="Medium (20px)">
-        <div style={{ display: "flex", gap: "var(--space-6)" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-6)" }}>
           <RadioButton size="md" />
           <RadioButton size="md" checked />
           <RadioButton size="md" disabled />
@@ -85,7 +85,7 @@ export const Sizes: Story = {
 export const WithText: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)", maxWidth: 400 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-4)", maxWidth: 400 }}>
       <RadioGroup />
     </div>
   ),
@@ -96,7 +96,7 @@ export const RadioGroupExample: Story = {
   name: "Radio Group",
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)", maxWidth: 400 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)", maxWidth: 400 }}>
       <Section title="Notification preference">
         <NotificationGroup />
       </Section>
@@ -111,7 +111,7 @@ export const RadioGroupExample: Story = {
 export const Usage: Story = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <Section title="HTML">
         <CodeCard language="HTML" code={`<!-- Radio Button (uses Checkbox markup with type="radio") -->
 <label class="checkbox checkbox--md">
@@ -155,7 +155,7 @@ export const Usage: Story = {
   border-radius: var(--cometchat-radius-max);
   width: 20px;
   height: 20px;
-  border: 1.5px solid var(--color-neutral-lm-300);
+  border: 1.5px solid var(--cometchat-neutral-color-300);
   background: var(--cometchat-background-color-01);
   display: flex;
   align-items: center;
@@ -163,19 +163,19 @@ export const Usage: Story = {
 }
 
 .checkbox__control--radio.checkbox__control--checked {
-  border-color: var(--color-ep-700);
-  background: var(--color-ep-700);
+  border-color: var(--cometchat-extended-primary-color-900);
+  background: var(--cometchat-extended-primary-color-900);
 }
 
 .checkbox__dot {
   width: 8px;
   height: 8px;
   border-radius: var(--cometchat-radius-max);
-  background: var(--color-white);
+  background: var(--cometchat-static-white);
 }
 
 .checkbox__control--radio:focus-visible {
-  box-shadow: var(--focus-ring-xs);
+  box-shadow: var(--cometchat-focus-ring);
 }
 
 .checkbox__label {
@@ -211,7 +211,7 @@ export const Playground: Story = {
 function RadioGroup() {
   const [selected, setSelected] = useState("a");
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-3)" }}>
       <RadioButton checked={selected === "a"} onChange={() => setSelected("a")} label="Option A" description="First option description." />
       <RadioButton checked={selected === "b"} onChange={() => setSelected("b")} label="Option B" description="Second option description." />
       <RadioButton checked={selected === "c"} onChange={() => setSelected("c")} label="Option C" description="Third option description." />
@@ -222,7 +222,7 @@ function RadioGroup() {
 function NotificationGroup() {
   const [selected, setSelected] = useState("all");
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-3)" }}>
       <RadioButton checked={selected === "all"} onChange={() => setSelected("all")} label="All notifications" description="Get notified for every message." />
       <RadioButton checked={selected === "mentions"} onChange={() => setSelected("mentions")} label="Mentions only" description="Only when someone mentions you." />
       <RadioButton checked={selected === "none"} onChange={() => setSelected("none")} label="None" description="Mute all notifications." />
@@ -233,7 +233,7 @@ function NotificationGroup() {
 function PlanGroup() {
   const [selected, setSelected] = useState("pro");
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-3)" }}>
       <RadioButton checked={selected === "free"} onChange={() => setSelected("free")} label="Free" description="Basic features for individuals." />
       <RadioButton checked={selected === "pro"} onChange={() => setSelected("pro")} label="Pro" description="Advanced features for teams." />
       <RadioButton checked={selected === "enterprise"} onChange={() => setSelected("enterprise")} label="Enterprise" description="Custom solutions for large organizations." />
@@ -244,18 +244,18 @@ function PlanGroup() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
       {children}
     </div>
   );
 }
 
 const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
-  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
-      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+  <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", background: "var(--cometchat-background-color-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-02)" }}>
+      <span style={{ fontSize: "10px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-tertiary)" }}>{language}</span>
     </div>
-    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+    <pre style={{ margin: 0, padding: "var(--cometchat-spacing-3-5)", fontFamily: "var(--cometchat-font-family)", fontSize: "12px", lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto" }}>
       <code>{code}</code>
     </pre>
   </div>

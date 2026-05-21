@@ -134,7 +134,7 @@
 }
 
 .user-item__status--error {
-  color: var(--color-error-500);
+  color: var(--cometchat-error-color);
 }
 
 .user-item__type {
@@ -212,7 +212,7 @@
 }
 
 .user-item__skeleton-bar {
-  width: var(--space-30, 120px);
+  width: 120px;
   height: var(--cometchat-spacing-5);
   border-radius: var(--cometchat-radius-1);
 }

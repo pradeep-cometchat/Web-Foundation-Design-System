@@ -89,23 +89,23 @@ export const Uploading: Story = {
 export const AllVariants: StoryObj = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <Section title="Single">
-        <div style={{ display: "flex", gap: "var(--space-10)", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-10)", flexWrap: "wrap" }}>
           <TypingIndicator activity="typing" context="single" />
           <TypingIndicator activity="recording" context="single" />
           <TypingIndicator activity="uploading" context="single" />
         </div>
       </Section>
       <Section title="Group (with name)">
-        <div style={{ display: "flex", gap: "var(--space-10)", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-10)", flexWrap: "wrap" }}>
           <TypingIndicator activity="typing" context="group" userName="John" />
           <TypingIndicator activity="recording" context="group" userName="John" />
           <TypingIndicator activity="uploading" context="group" userName="John" />
         </div>
       </Section>
       <Section title="Multiple">
-        <div style={{ display: "flex", gap: "var(--space-10)", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "var(--cometchat-spacing-10)", flexWrap: "wrap" }}>
           <TypingIndicator activity="typing" context="multiple" count={2} />
           <TypingIndicator activity="recording" context="multiple" count={2} />
           <TypingIndicator activity="uploading" context="multiple" count={2} />
@@ -119,20 +119,20 @@ export const AllVariants: StoryObj = {
 export const States: StoryObj = {
   parameters: { layout: "padded" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
-      <div style={{ display: "flex", gap: "var(--space-8)", alignItems: "center" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-4)" }}>
+      <div style={{ display: "flex", gap: "var(--cometchat-spacing-8)", alignItems: "center" }}>
         <div style={stateLabelStyle}>Typing</div>
         <TypingIndicator activity="typing" context="single" />
         <TypingIndicator activity="typing" context="group" userName="John" />
         <TypingIndicator activity="typing" context="multiple" count={2} />
       </div>
-      <div style={{ display: "flex", gap: "var(--space-8)", alignItems: "center" }}>
+      <div style={{ display: "flex", gap: "var(--cometchat-spacing-8)", alignItems: "center" }}>
         <div style={stateLabelStyle}>Recording</div>
         <TypingIndicator activity="recording" context="single" />
         <TypingIndicator activity="recording" context="group" userName="John" />
         <TypingIndicator activity="recording" context="multiple" count={2} />
       </div>
-      <div style={{ display: "flex", gap: "var(--space-8)", alignItems: "center" }}>
+      <div style={{ display: "flex", gap: "var(--cometchat-spacing-8)", alignItems: "center" }}>
         <div style={stateLabelStyle}>Uploading</div>
         <TypingIndicator activity="uploading" context="single" />
         <TypingIndicator activity="uploading" context="group" userName="John" />
@@ -146,7 +146,7 @@ export const States: StoryObj = {
 export const Usage: Story = {
   parameters: { controls: { disable: true }, layout: "fullscreen" },
   render: () => (
-    <div style={{ padding: "var(--space-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-6)" }}>
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <Section title="HTML">
         <UsageCodeCard language="HTML" code={`<!-- Single user typing -->
 <div class="typing-indicator">
@@ -234,27 +234,27 @@ export const Playground: Story = {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "var(--font-size-1)", fontWeight: "var(--font-weight-semibold)", color: "var(--color-neutral-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--space-2)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
       {children}
     </div>
   );
 }
 
 const stateLabelStyle: React.CSSProperties = {
-  fontSize: "var(--font-size-0)",
-  fontWeight: "var(--font-weight-semibold)",
+  fontSize: "10px",
+  fontWeight: "600",
   textTransform: "uppercase",
   letterSpacing: "0.06em",
-  color: "var(--color-neutral-500, #535862)",
+  color: "var(--cometchat-neutral-color-500)",
   width: 80,
 };
 
 const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language, code }) => (
-  <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "var(--color-bg-01)" }}>
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--space-2) var(--space-3)", borderBottom: "1px solid var(--color-border-default)", background: "var(--color-bg-02)" }}>
-      <span style={{ fontSize: "var(--font-size-0)", fontWeight: "var(--font-weight-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{language}</span>
+  <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", background: "var(--cometchat-background-color-01)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-02)" }}>
+      <span style={{ fontSize: "10px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-tertiary)" }}>{language}</span>
     </div>
-    <pre style={{ margin: 0, padding: "var(--space-3-5)", fontFamily: "var(--font-family-body)", fontSize: "var(--font-size-1)", lineHeight: 1.6, color: "var(--color-text-primary)", overflowX: "auto" }}>
+    <pre style={{ margin: 0, padding: "var(--cometchat-spacing-3-5)", fontFamily: "var(--cometchat-font-family)", fontSize: "12px", lineHeight: 1.6, color: "var(--cometchat-text-color-primary)", overflowX: "auto" }}>
       <code>{code}</code>
     </pre>
   </div>
