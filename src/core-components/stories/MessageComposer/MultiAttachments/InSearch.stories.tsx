@@ -190,15 +190,15 @@ function DocStack({ type = "pdf" }: { type?: FileType }) {
     top,
     left: inset,
     right: inset,
-    height: 32,
+    height: 30,
     borderRadius: 5,
     background: bg,
     border: "1px solid var(--cometchat-border-color-default)",
   });
   return (
-    <div style={{ position: "relative", width: 40, height: 50, flexShrink: 0 }}>
-      <div style={backCard(17, 2, "var(--cometchat-background-color-03)")} />
-      <div style={backCard(11, 4, "var(--cometchat-background-color-02)")} />
+    <div style={{ position: "relative", width: 40, height: 44, flexShrink: 0 }}>
+      <div style={backCard(12, 2, "var(--cometchat-background-color-03)")} />
+      <div style={backCard(8, 4, "var(--cometchat-background-color-02)")} />
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
         <FileTypeIcon type={type} size={36} />
       </div>
