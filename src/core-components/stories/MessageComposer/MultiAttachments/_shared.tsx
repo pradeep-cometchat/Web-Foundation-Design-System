@@ -177,7 +177,7 @@ export function AudioCard({
   return (
     <div style={{ display: "flex", alignItems: "center", gap: compact ? 10 : 12, width, minWidth: 0 }}>
       <PlayButton size={compact ? 40 : 44} onDark={onDark} />
-      <div style={{ display: "flex", flexDirection: "column", gap: compact ? 4 : 6, flex: 1, minWidth: 0 }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: compact ? 9 : 6, flex: 1, minWidth: 0 }}>
         <span style={{ fontSize: compact ? 12 : 14, fontWeight: compact ? 500 : 600, color: titleColor, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontFamily: font, lineHeight: compact ? "16px" : "20px" }}>{title}</span>
         <AudioSeekBar progress={progress} onDark={onDark} />
         <span style={{ fontSize: compact ? 11 : 12, color: timeColor, fontFamily: font, lineHeight: "14px" }}>{current}/{total}</span>
@@ -593,14 +593,14 @@ export function SearchHeader({ value = "review", active = "All" }: { value?: str
             <button
               key={f}
               style={{
-                height: 28,
-                padding: "0 10px",
-                borderRadius: "var(--cometchat-radius-1-5)",
-                border: on ? "1px solid var(--cometchat-primary-color)" : "1px solid var(--cometchat-border-color-dark)",
+                height: 34,
+                padding: "0 16px",
+                borderRadius: "var(--cometchat-radius-max)",
+                border: on ? "1px solid var(--cometchat-primary-color)" : "1px solid var(--cometchat-border-color-default)",
                 background: on ? "var(--cometchat-primary-color)" : "var(--cometchat-background-color-01)",
                 color: on ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)",
                 fontFamily: "var(--cometchat-font-family, Inter, sans-serif)",
-                fontSize: 12,
+                fontSize: 14,
                 fontWeight: 500,
                 cursor: "pointer",
                 whiteSpace: "nowrap",
