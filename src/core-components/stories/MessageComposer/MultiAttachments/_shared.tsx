@@ -157,7 +157,7 @@ export function AudioCard({
   title = "Hello by Adele.mp3",
   current = "00:00",
   total = "00:00",
-  progress = 4,
+  progress = 0,
   onDark = false,
   width = 240,
 }: {
