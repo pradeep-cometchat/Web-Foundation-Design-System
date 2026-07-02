@@ -143,13 +143,24 @@ function FileTile({ type, size = 54, loading = false }: { type: FileType; size?:
   );
 }
 
-/* ─── Audio button (dark circle; progress ring wraps it only while loading) ── */
+/* ─── Audio button: purple by default; dark with a dimmed play while loading ── */
 
 function AudioButton({ size = 60, loading = false }: { size?: number; loading?: boolean }) {
   const inset = loading ? 5 : 0;
   return (
     <div style={{ position: "relative", width: size, height: size, flexShrink: 0 }}>
-      <div style={{ position: "absolute", inset, borderRadius: "50%", background: "var(--cometchat-primary-color)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div
+        style={{
+          position: "absolute",
+          inset,
+          borderRadius: "50%",
+          background: loading ? "var(--cometchat-neutral-color-900)" : "var(--cometchat-primary-color)",
+          color: loading ? "rgba(255,255,255,0.28)" : "var(--cometchat-static-white)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <IconPlay size={Math.round(size * 0.3)} />
       </div>
       {loading && (
