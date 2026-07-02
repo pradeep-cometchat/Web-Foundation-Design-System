@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { SAMPLE_IMAGES, FileTypeIcon } from "./_shared";
+import { SAMPLE_IMAGES, FileTypeIcon, type DocKind } from "./_shared";
 
 /**
  * **Multi Attachments — In Search.** The global chat search, filtered by
@@ -22,7 +22,7 @@ export default meta;
 type Story = StoryObj;
 
 const FILTERS = ["All", "Unread", "Groups", "Photos", "Videos", "Audio", "Documents", "Gifs", "Links"];
-type FileType = "pdf" | "doc" | "xls";
+type FileType = DocKind;
 
 /* ─── Icons ────────────────────────────────────────────────────────────────── */
 
@@ -67,17 +67,20 @@ interface PreviewProps {
 
 function Preview({ sent, sender, kind, count = 1, caption }: PreviewProps) {
   const base = typeLabel(kind, count);
-  // Documents have no thumbnail to carry the count, so append it after the caption
-  // with a middle dot — "the signed copy · 6 Files". (Media show it on the thumbnail.)
-  const label = caption ? (kind === "file" && count > 1 ? `${caption} · ${base}` : caption) : base;
   const who = sent ? "You" : sender;
+  // Documents append the count after the caption ("caption · 6 Files"). A long
+  // caption truncates, but the "· N Files" suffix stays pinned and visible.
+  const showCount = !!caption && kind === "file" && count > 1;
+  const mainText = caption ?? base;
+  const clamp: React.CSSProperties = { overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", minWidth: 0 };
   return (
-    <span style={{ display: "inline-flex", alignItems: "center", gap: 5, minWidth: 0, fontSize: 13, color: "var(--cometchat-text-color-secondary)", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>
+    <span style={{ display: "flex", alignItems: "center", gap: 5, minWidth: 0, fontSize: 13, color: "var(--cometchat-text-color-secondary)", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>
       {who && <span style={{ flexShrink: 0 }}>{who}:</span>}
       {kind !== "text" && (
         <span className="icon-rounded" style={{ fontSize: 16, color: "var(--cometchat-icon-color-secondary)", "--icon-fill": 0, flexShrink: 0 } as React.CSSProperties}>{TYPE_ICON[kind]}</span>
       )}
-      <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{label}</span>
+      <span style={clamp}>{mainText}</span>
+      {showCount && <span style={{ flexShrink: 0 }}> · {base}</span>}
     </span>
   );
 }
@@ -275,6 +278,7 @@ export const Documents: Story = {
         <DocRow title="Group 1" count={6} sender="Pradeep" caption="the signed copy" type="doc" time="4:30 PM" />
         <DocRow title="George Alan" count={12} sent type="xls" time="4:30 PM" />
         <DocRow title="George Alan" count={3} sent caption="final drafts" type="pdf" time="4:30 PM" />
+        <DocRow title="Design Team" count={9} sent caption="here are all the assets and the final export from yesterday's review session" type="ppt" time="4:30 PM" />
       </ChatSearchPanel>
     </div>
   ),

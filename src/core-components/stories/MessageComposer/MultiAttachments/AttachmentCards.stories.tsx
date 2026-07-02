@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { SAMPLE_IMAGES, Section, Item, Row, SpinKeyframes, FileTypeIcon } from "./_shared";
+import { SAMPLE_IMAGES, Section, Item, Row, SpinKeyframes, FileTypeIcon, type DocKind } from "./_shared";
 
 /**
  * **Attachment Cards.** The standalone attachment-card primitives — Document,
@@ -23,13 +23,20 @@ type Story = StoryObj;
 
 type CardState = "default" | "hover" | "loading" | "error";
 type Platform = "desktop" | "mobile";
-type FileType = "pdf" | "doc" | "xls";
+type FileType = DocKind;
 
 /* ─── Icons ────────────────────────────────────────────────────────────────── */
 
 const IconPlay = ({ size = 16 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 12 12" fill="none" style={{ marginLeft: size * 0.08 }}>
     <path d="M3 1.5v9l7.5-4.5L3 1.5Z" fill="currentColor" />
+  </svg>
+);
+
+const IconPause = ({ size = 16 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 12 12" fill="none">
+    <rect x="2.5" y="1.5" width="2.5" height="9" rx="1" fill="currentColor" />
+    <rect x="7" y="1.5" width="2.5" height="9" rx="1" fill="currentColor" />
   </svg>
 );
 const IconClose = () => (
@@ -107,11 +114,7 @@ function ProgressRing({ size = 40, stroke = 4, progress = 62 }: { size?: number;
 
 /* ─── File tile (dark app-style icon; ring overlay while loading) ──────────── */
 
-const FILE_META: Record<FileType, { icon: string; color: string; label: string }> = {
-  pdf: { icon: "picture_as_pdf", color: "var(--cometchat-error-color)", label: "PDF" },
-  doc: { icon: "description", color: "var(--cometchat-info-color)", label: "DOC" },
-  xls: { icon: "table_chart", color: "var(--cometchat-success-color)", label: "XLS" },
-};
+const FILE_LABEL: Record<FileType, string> = { pdf: "PDF", doc: "DOC", xls: "XLS", ppt: "PPT", zip: "ZIP", txt: "TXT", file: "FILE" };
 
 function FileTile({ type, size = 54, loading = false }: { type: FileType; size?: number; loading?: boolean }) {
   // App-tile: white by default; on loading it darkens and the icon dims behind
@@ -145,7 +148,7 @@ function FileTile({ type, size = 54, loading = false }: { type: FileType; size?:
 
 /* ─── Audio button: purple by default; dark with a dimmed play while loading ── */
 
-function AudioButton({ size = 60, loading = false }: { size?: number; loading?: boolean }) {
+function AudioButton({ size = 60, loading = false, playing = false }: { size?: number; loading?: boolean; playing?: boolean }) {
   return (
     <div style={{ position: "relative", width: size, height: size, flexShrink: 0 }}>
       {/* Full-size circle (same size loading or not) */}
@@ -161,7 +164,7 @@ function AudioButton({ size = 60, loading = false }: { size?: number; loading?: 
           justifyContent: "center",
         }}
       >
-        <IconPlay size={Math.round(size * 0.3)} />
+        {playing ? <IconPause size={Math.round(size * 0.3)} /> : <IconPlay size={Math.round(size * 0.3)} />}
       </div>
       {loading && (
         <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -228,7 +231,7 @@ function DocumentCard({ state = "default", platform = "desktop", type = "pdf", n
       <FileTile type={type} loading={state === "loading"} />
       <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 6 }}>
         <span style={titleStyle}>{name}</span>
-        <span style={subStyle(state)}>{subtitle(state, FILE_META[type].label)}</span>
+        <span style={subStyle(state)}>{subtitle(state, FILE_LABEL[type])}</span>
       </div>
       <CornerBadge kind={cornerFor(state, platform)} />
     </div>
@@ -237,19 +240,19 @@ function DocumentCard({ state = "default", platform = "desktop", type = "pdf", n
 
 /* ─── Audio card ───────────────────────────────────────────────────────────── */
 
-function AudioCard({ state = "default", platform = "desktop", name = "Watch by Billie.mp3" }: { state?: CardState; platform?: Platform; name?: string }) {
+function AudioCard({ state = "default", platform = "desktop", name = "Watch by Billie.mp3", playing = false }: { state?: CardState; platform?: Platform; name?: string; playing?: boolean }) {
   const mobile = platform === "mobile";
   return (
     <div style={cardShell(state, mobile)}>
-      <AudioButton loading={state === "loading"} />
+      <AudioButton loading={state === "loading"} playing={playing} />
       <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 6 }}>
         <span style={titleStyle}>{name}</span>
         {state === "error" ? (
           <span style={subStyle(state)}>Upload failed · Retry</span>
         ) : (
           <>
-            <SeekBar />
-            <span style={{ fontSize: 12, color: "var(--cometchat-text-color-tertiary)" }}>00:00/00:00</span>
+            <SeekBar progress={playing ? 38 : 0} />
+            <span style={{ fontSize: 12, color: "var(--cometchat-text-color-tertiary)" }}>{playing ? "00:12" : "00:00"}/00:32</span>
           </>
         )}
       </div>
@@ -354,7 +357,18 @@ export const Video: Story = {
 
 export const Audio: Story = {
   parameters: { controls: { disable: true } },
-  render: () => <TypePage render={(s, p) => <AudioCard state={s} platform={p} name="Watch by Billie.mp3" />} />,
+  render: () => (
+    <>
+      <TypePage render={(s, p) => <AudioCard state={s} platform={p} name="Watch by Billie.mp3" />} />
+      <div style={{ padding: "0 24px 24px" }}>
+        <Section title="Playing (pause + progress)">
+          <div style={{ maxWidth: 300 }}>
+            <AudioCard name="Watch by Billie.mp3" playing />
+          </div>
+        </Section>
+      </div>
+    </>
+  ),
 };
 
 /** Every card type in its default state, desktop and mobile. */
@@ -387,7 +401,7 @@ export const Overview: Story = {
   ),
 };
 
-/** Documents come in PDF, DOC and XLS variants. */
+/** Documents come in several file-type variants. */
 export const FileTypes: Story = {
   name: "Document Types",
   parameters: { controls: { disable: true } },
@@ -396,6 +410,10 @@ export const FileTypes: Story = {
       <DocumentCard type="pdf" name="Invoice 45821.pdf" />
       <DocumentCard type="doc" name="Proposal draft.docx" />
       <DocumentCard type="xls" name="Q3 Budget.xlsx" />
+      <DocumentCard type="ppt" name="Kickoff deck.pptx" />
+      <DocumentCard type="zip" name="Assets.zip" />
+      <DocumentCard type="txt" name="Notes.txt" />
+      <DocumentCard type="file" name="data.bin" />
     </div>
   ),
 };

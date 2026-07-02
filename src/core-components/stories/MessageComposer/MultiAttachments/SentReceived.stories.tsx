@@ -138,6 +138,52 @@ export const DeliveryStates: Story = {
   ),
 };
 
+/** Read receipts on a sent attachment: sent (✓), delivered (✓✓), read (✓✓ blue). */
+export const ReceiptStates: Story = {
+  name: "Receipt States",
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <ChatCanvas>
+      <Label>Sent</Label>
+      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" }]} status="sent" /></MessageStack>
+      <Label>Delivered</Label>
+      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" }]} status="delivered" /></MessageStack>
+      <Label>Read</Label>
+      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" }]} status="read" /></MessageStack>
+    </ChatCanvas>
+  ),
+};
+
+/** Downloading — a received attachment being fetched (progress ring). */
+export const Downloading: Story = {
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <ChatCanvas>
+      <SpinKeyframes />
+      <Label>Received · downloading</Label>
+      <MessageStack variant="received"><MultiAttachmentBubble variant="received" images={4} state="downloading" /></MessageStack>
+      <MessageStack variant="received"><MultiAttachmentBubble variant="received" state="downloading" files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" }]} /></MessageStack>
+      <MessageStack variant="received"><MultiAttachmentBubble variant="received" state="downloading" files={[{ kind: "audio", name: "Audio.mp3", meta: "00:32" }]} /></MessageStack>
+    </ChatCanvas>
+  ),
+};
+
+/** Forwarded and edited markers. */
+export const ForwardedEdited: Story = {
+  name: "Forwarded & Edited",
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <ChatCanvas>
+      <SpinKeyframes />
+      <Label>Forwarded</Label>
+      <MessageStack variant="received"><MultiAttachmentBubble variant="received" forwarded images={2} /></MessageStack>
+      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" forwarded files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" }]} /></MessageStack>
+      <Label>Edited</Label>
+      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" edited images={1} caption="updated the caption ✍️" /></MessageStack>
+    </ChatCanvas>
+  ),
+};
+
 /** Every state together. */
 export const AllStates: Story = {
   name: "All States",

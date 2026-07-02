@@ -67,20 +67,25 @@ export const SpinKeyframes = () => (
 
 /* ─── File type badge (borrowed styling from File Bubble) ───────────────────── */
 
-export type FileKind = "pdf" | "doc" | "xls" | "audio";
+export type DocKind = "pdf" | "doc" | "xls" | "ppt" | "zip" | "txt" | "file";
+export type FileKind = DocKind | "audio";
 
-export function FileTypeIcon({ type, size = 32 }: { type: Exclude<FileKind, "audio">; size?: number }) {
-  const colors: Record<string, { bg: string; fold: string; text: string }> = {
+export function FileTypeIcon({ type, size = 32 }: { type: DocKind; size?: number }) {
+  const colors: Record<DocKind, { bg: string; fold: string; text: string }> = {
     pdf: { bg: "var(--cometchat-error-color)", fold: "var(--color-error-800)", text: "PDF" },
     doc: { bg: "var(--cometchat-info-color)", fold: "var(--color-info-800)", text: "DOC" },
     xls: { bg: "var(--cometchat-success-color)", fold: "var(--color-success-800)", text: "XLS" },
+    ppt: { bg: "var(--cometchat-warning-color)", fold: "var(--color-warning-700)", text: "PPT" },
+    zip: { bg: "var(--cometchat-neutral-color-600)", fold: "var(--cometchat-neutral-color-800)", text: "ZIP" },
+    txt: { bg: "var(--cometchat-neutral-color-400)", fold: "var(--cometchat-neutral-color-600)", text: "TXT" },
+    file: { bg: "var(--cometchat-neutral-color-500)", fold: "var(--cometchat-neutral-color-700)", text: "FILE" },
   };
   const c = colors[type];
   return (
     <svg width={(size * 64) / 80} height={size} viewBox="0 0 64 80" fill="none">
       <path d="M4 8C4 3.58 7.58 0 12 0H44L60 16V72C60 76.42 56.42 80 52 80H12C7.58 80 4 76.42 4 72V8Z" fill={c.bg} />
       <path d="M44 0L60 16H48C45.79 16 44 14.21 44 12V0Z" fill={c.fold} opacity="0.6" />
-      <text x="32" y="52" textAnchor="middle" fontSize="15" fontWeight="700" fill="white">
+      <text x="32" y="52" textAnchor="middle" fontSize={c.text.length > 3 ? 12 : 15} fontWeight="700" fill="white">
         {c.text}
       </text>
     </svg>
@@ -162,6 +167,7 @@ export function AudioCard({
   width = 240,
   compact = false,
   download = false,
+  downloading = false,
 }: {
   title?: string;
   current?: string;
@@ -173,6 +179,8 @@ export function AudioCard({
   compact?: boolean;
   /** Show a download affordance (a sent/received audio message can be saved). */
   download?: boolean;
+  /** Download in progress — the download icon becomes a progress ring. */
+  downloading?: boolean;
 }) {
   const titleColor = onDark ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)";
   const timeColor = onDark ? "rgba(255,255,255,0.7)" : "var(--cometchat-text-color-tertiary)";
@@ -185,11 +193,14 @@ export function AudioCard({
         <AudioSeekBar progress={progress} onDark={onDark} />
         <span style={{ fontSize: compact ? 11 : 12, color: timeColor, fontFamily: font, lineHeight: "14px" }}>{current}/{total}</span>
       </div>
-      {download && (
-        <span className="icon-rounded" style={{ fontSize: 20, color: onDark ? "var(--cometchat-static-white)" : "var(--cometchat-icon-color-highlight)", "--icon-fill": 0, flexShrink: 0, alignSelf: "center" } as React.CSSProperties}>
-          download
-        </span>
-      )}
+      {download &&
+        (downloading ? (
+          <DownloadRing size={24} color={onDark ? "var(--cometchat-static-white)" : "var(--cometchat-icon-color-highlight)"} track={onDark ? "rgba(255,255,255,0.3)" : "var(--cometchat-neutral-color-300)"} />
+        ) : (
+          <span className="icon-rounded" style={{ fontSize: 20, color: onDark ? "var(--cometchat-static-white)" : "var(--cometchat-icon-color-highlight)", "--icon-fill": 0, flexShrink: 0, alignSelf: "center" } as React.CSSProperties}>
+            download
+          </span>
+        ))}
     </div>
   );
 }
@@ -419,13 +430,35 @@ export interface MultiAttachmentBubbleProps {
   quoted?: QuotedReply;
   time?: string;
   status?: "sent" | "delivered" | "read";
-  state?: "default" | "uploading" | "failed";
+  state?: "default" | "uploading" | "failed" | "downloading";
   /** Hide the time/receipt row — used for all but the last bubble in a stack. */
   showMeta?: boolean;
+  /** "Forwarded" label above the attachment. */
+  forwarded?: boolean;
+  /** "Edited" marker next to the time. */
+  edited?: boolean;
 }
 
 const BUBBLE_W = 240;
 const GRID_GAP = 2;
+
+/** Determinate download-progress ring with a download arrow — the received-side
+ *  "downloading" affordance. */
+function DownloadRing({ size = 24, progress = 60, color = "var(--cometchat-static-white)", track = "rgba(255,255,255,0.3)" }: { size?: number; progress?: number; color?: string; track?: string }) {
+  const sw = size > 30 ? 3 : 2;
+  const r = (size - sw) / 2;
+  const c = 2 * Math.PI * r;
+  const off = c * (1 - progress / 100);
+  return (
+    <div style={{ position: "relative", width: size, height: size, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <svg width={size} height={size} style={{ position: "absolute", inset: 0, transform: "rotate(-90deg)" }}>
+        <circle cx={size / 2} cy={size / 2} r={r} stroke={track} strokeWidth={sw} fill="none" />
+        <circle cx={size / 2} cy={size / 2} r={r} stroke={color} strokeWidth={sw} fill="none" strokeDasharray={c} strokeDashoffset={off} strokeLinecap="round" />
+      </svg>
+      <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.5), color, "--icon-fill": 0 } as React.CSSProperties}>download</span>
+    </div>
+  );
+}
 
 export function MultiAttachmentBubble({
   variant = "sent",
@@ -439,6 +472,8 @@ export function MultiAttachmentBubble({
   status = "read",
   state = "default",
   showMeta = true,
+  forwarded = false,
+  edited = false,
 }: MultiAttachmentBubbleProps) {
   const isSent = variant === "sent";
   const primary = isSent ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)";
@@ -508,14 +543,18 @@ export function MultiAttachmentBubble({
         </div>
       );
 
-    if (state === "uploading" || state === "failed") {
+    if (state === "uploading" || state === "failed" || state === "downloading") {
       return (
         <div style={{ position: "relative", width: BUBBLE_W }}>
           <div style={{ filter: "blur(3px)", borderRadius: "var(--cometchat-radius-2)", overflow: "hidden" }}>{inner}</div>
           <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div style={{ width: 40, height: 40, borderRadius: "50%", background: "rgba(0,0,0,0.55)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              {state === "uploading" ? <IconSpinner size={18} /> : <IconError />}
-            </div>
+            {state === "downloading" ? (
+              <DownloadRing size={44} progress={60} />
+            ) : (
+              <div style={{ width: 40, height: 40, borderRadius: "50%", background: "rgba(0,0,0,0.55)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                {state === "uploading" ? <IconSpinner size={18} /> : <IconError />}
+              </div>
+            )}
           </div>
         </div>
       );
@@ -526,11 +565,15 @@ export function MultiAttachmentBubble({
   // A touch more vertical breathing room, shared by every bubble attachment card.
   const cardPad = "var(--cometchat-spacing-3) var(--cometchat-spacing-2-5)";
 
+  const downloading = state === "downloading";
+  const trailColor = isSent ? "var(--cometchat-static-white)" : "var(--cometchat-icon-color-highlight)";
+  const trailTrack = isSent ? "rgba(255,255,255,0.3)" : "var(--cometchat-neutral-color-300)";
+
   function fileCard(f: BubbleFile, key: number) {
     if (f.kind === "audio") {
       return (
         <div key={key} style={{ width: BUBBLE_W, boxSizing: "border-box", padding: cardPad, borderRadius: "var(--cometchat-radius-2)", background: cardBg }}>
-          <AudioCard title={f.name} total={f.meta} onDark={isSent} width="100%" download />
+          <AudioCard title={f.name} total={f.meta} onDark={isSent} width="100%" download downloading={downloading} />
         </div>
       );
     }
@@ -541,11 +584,15 @@ export function MultiAttachmentBubble({
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 1, flex: 1, minWidth: 0 }}>
           <span style={{ fontSize: 14, fontWeight: 600, color: primary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{f.name}</span>
-          <span style={{ fontSize: 12, color: secondary }}>{f.meta}</span>
+          <span style={{ fontSize: 12, color: secondary }}>{downloading ? "Downloading…" : f.meta}</span>
         </div>
-        <span className="icon-rounded" style={{ fontSize: 20, color: isSent ? "var(--cometchat-static-white)" : "var(--cometchat-icon-color-highlight)", "--icon-fill": 0, flexShrink: 0 } as React.CSSProperties}>
-          download
-        </span>
+        {downloading ? (
+          <DownloadRing size={24} color={trailColor} track={trailTrack} />
+        ) : (
+          <span className="icon-rounded" style={{ fontSize: 20, color: trailColor, "--icon-fill": 0, flexShrink: 0 } as React.CSSProperties}>
+            download
+          </span>
+        )}
       </div>
     );
   }
@@ -575,6 +622,12 @@ export function MultiAttachmentBubble({
 
   return (
     <div style={wrapper}>
+      {forwarded && (
+        <div style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "0 var(--cometchat-spacing-1)", fontSize: 12, fontStyle: "italic", color: secondary }}>
+          <span className="icon-rounded" style={{ fontSize: 15, transform: "scaleX(-1)", "--icon-fill": 0 } as React.CSSProperties}>reply</span>
+          Forwarded
+        </div>
+      )}
       {replyPreview()}
       {shownTiles > 0 && grid()}
       {files.map(fileCard)}
@@ -585,8 +638,10 @@ export function MultiAttachmentBubble({
         <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "var(--cometchat-spacing-1)", padding: "0 var(--cometchat-spacing-1)" }}>
           {state === "failed" && <span style={{ fontSize: 12, color: isSent ? "rgba(255,255,255,0.85)" : "var(--cometchat-error-color)", marginRight: "auto" }}>Not delivered · Tap to retry</span>}
           {state === "uploading" && <span style={{ fontSize: 12, color: secondary, marginRight: "auto" }}>Uploading…</span>}
+          {state === "downloading" && <span style={{ fontSize: 12, color: secondary, marginRight: "auto" }}>Downloading…</span>}
+          {edited && <span style={{ fontSize: 12, color: secondary }}>Edited</span>}
           <span style={{ fontSize: 12, color: secondary }}>{time}</span>
-          {isSent && state === "default" && <ReceiptIcon status={status} />}
+          {isSent && (state === "default" || state === "downloading") && <ReceiptIcon status={status} />}
         </div>
       )}
     </div>
