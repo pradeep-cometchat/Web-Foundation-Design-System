@@ -307,7 +307,9 @@ export function DocumentPreview({
 }) {
   return (
     <div style={{ ...previewCard, width: 200 }}>
-      <FileTypeIcon type={type} size={40} />
+      <div style={{ width: 40, height: 40, borderRadius: "var(--cometchat-radius-1-5)", background: "var(--cometchat-static-white)", border: "1px solid var(--cometchat-border-color-light)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+        <FileTypeIcon type={type} size={26} />
+      </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 2, overflow: "hidden" }}>
         <span style={{ fontSize: 12, fontWeight: 500, color: "var(--cometchat-text-color-primary)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{name}</span>
         <span style={{ fontSize: 11, color: "var(--cometchat-text-color-secondary)" }}>{meta}</span>
