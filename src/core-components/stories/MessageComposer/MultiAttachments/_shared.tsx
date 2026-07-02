@@ -130,15 +130,16 @@ export function PlayButton({ size = 44, onDark = false }: { size?: number; onDar
 }
 
 /** Seek slider with a draggable knob. `progress` is 0–100. */
-export function AudioSeekBar({ progress = 4, onDark = false }: { progress?: number; onDark?: boolean }) {
+export function AudioSeekBar({ progress = 0, onDark = false }: { progress?: number; onDark?: boolean }) {
   return (
     <div style={{ position: "relative", height: 6, borderRadius: 3, width: "100%", background: onDark ? "rgba(255,255,255,0.35)" : "var(--cometchat-neutral-color-300)" }}>
       <div
         style={{
           position: "absolute",
           top: "50%",
-          left: `${progress}%`,
-          transform: "translate(-30%, -50%)",
+          // Inset the knob by its own width so it sits flush at 0% and never overflows at 100%.
+          left: `calc(${progress}% - ${(progress / 100) * 16}px)`,
+          transform: "translateY(-50%)",
           width: 16,
           height: 16,
           borderRadius: "50%",

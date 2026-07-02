@@ -138,10 +138,10 @@ function AudioButton({ size = 60, progress = 68 }: { size?: number; progress?: n
   );
 }
 
-function SeekBar({ progress = 4 }: { progress?: number }) {
+function SeekBar({ progress = 0 }: { progress?: number }) {
   return (
     <div style={{ position: "relative", height: 6, borderRadius: 3, width: "100%", background: "var(--cometchat-neutral-color-300)" }}>
-      <div style={{ position: "absolute", top: "50%", left: `${progress}%`, transform: "translate(-30%, -50%)", width: 16, height: 16, borderRadius: "50%", background: "var(--cometchat-static-white)", border: "1px solid var(--cometchat-border-color-default)", boxShadow: "var(--cometchat-shadow-xs)" }} />
+      <div style={{ position: "absolute", top: "50%", left: `calc(${progress}% - ${(progress / 100) * 16}px)`, transform: "translateY(-50%)", width: 16, height: 16, borderRadius: "50%", background: "var(--cometchat-static-white)", border: "1px solid var(--cometchat-border-color-default)", boxShadow: "var(--cometchat-shadow-xs)" }} />
     </div>
   );
 }
