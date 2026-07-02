@@ -161,6 +161,7 @@ export function AudioCard({
   onDark = false,
   width = 240,
   compact = false,
+  download = false,
 }: {
   title?: string;
   current?: string;
@@ -170,6 +171,8 @@ export function AudioCard({
   width?: number | string;
   /** Composer-strip sizing — smaller play button + a font that matches the document card. */
   compact?: boolean;
+  /** Show a download affordance (a sent/received audio message can be saved). */
+  download?: boolean;
 }) {
   const titleColor = onDark ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)";
   const timeColor = onDark ? "rgba(255,255,255,0.7)" : "var(--cometchat-text-color-tertiary)";
@@ -182,6 +185,11 @@ export function AudioCard({
         <AudioSeekBar progress={progress} onDark={onDark} />
         <span style={{ fontSize: compact ? 11 : 12, color: timeColor, fontFamily: font, lineHeight: "14px" }}>{current}/{total}</span>
       </div>
+      {download && (
+        <span className="icon-rounded" style={{ fontSize: 20, color: onDark ? "var(--cometchat-static-white)" : "var(--cometchat-icon-color-highlight)", "--icon-fill": 0, flexShrink: 0, alignSelf: "center" } as React.CSSProperties}>
+          download
+        </span>
+      )}
     </div>
   );
 }
@@ -515,16 +523,19 @@ export function MultiAttachmentBubble({
     return inner;
   }
 
+  // A touch more vertical breathing room, shared by every bubble attachment card.
+  const cardPad = "var(--cometchat-spacing-3) var(--cometchat-spacing-2-5)";
+
   function fileCard(f: BubbleFile, key: number) {
     if (f.kind === "audio") {
       return (
-        <div key={key} style={{ width: BUBBLE_W, boxSizing: "border-box", padding: "var(--cometchat-spacing-2-5)", borderRadius: "var(--cometchat-radius-2)", background: cardBg }}>
-          <AudioCard title={f.name} total={f.meta} onDark={isSent} width="100%" />
+        <div key={key} style={{ width: BUBBLE_W, boxSizing: "border-box", padding: cardPad, borderRadius: "var(--cometchat-radius-2)", background: cardBg }}>
+          <AudioCard title={f.name} total={f.meta} onDark={isSent} width="100%" download />
         </div>
       );
     }
     return (
-      <div key={key} style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-2)", width: BUBBLE_W, boxSizing: "border-box", padding: "var(--cometchat-spacing-2)", borderRadius: "var(--cometchat-radius-2)", background: cardBg }}>
+      <div key={key} style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-2)", width: BUBBLE_W, boxSizing: "border-box", padding: cardPad, borderRadius: "var(--cometchat-radius-2)", background: cardBg }}>
         <div style={{ width: 32, height: 32, borderRadius: "var(--cometchat-radius-1-5)", background: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
           <FileTypeIcon type={f.kind} size={22} />
         </div>
