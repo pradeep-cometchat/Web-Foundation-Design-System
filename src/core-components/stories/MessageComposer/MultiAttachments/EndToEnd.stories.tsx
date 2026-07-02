@@ -4,6 +4,7 @@ import "../../../../shell/Shell.css";
 import "../../ChatBubbles/ChatBubbles.css";
 import { Header } from "../../../../base-components/components/Header";
 import { ConversationItem } from "../../../../base-components/components/ListItem";
+import { ActionSheet, CameraIcon, PhotoIcon, VideocamIcon, PlayCircleIcon, DescriptionIcon, PollIcon, CollaborativeWhiteboardIcon, CollaborativeDocumentIcon } from "../../../../base-components/components/ActionSheet";
 import {
   MultiAttachmentBubble,
   MessageStack,
@@ -166,6 +167,7 @@ function EndToEndChat() {
   const [pending, setPending] = useState<Pending[]>([]);
   const [text, setText] = useState("");
   const [dragging, setDragging] = useState(false);
+  const [sheetOpen, setSheetOpen] = useState(false);
   const uid = useRef(100);
   const fileInput = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
@@ -186,6 +188,32 @@ function EndToEndChat() {
 
   const addFiles = (files: FileList | File[]) => setPending((p) => [...p, ...Array.from(files).map(classify)]);
   const removePending = (id: number) => setPending((p) => p.filter((x) => x.id !== id));
+
+  // Action-sheet items add a representative attachment (Photos opens the picker).
+  function addSample(kind: PendKind, docType?: DocKind) {
+    const id = uid.current++;
+    const item: Pending =
+      kind === "image"
+        ? { id, kind, name: "Photo.jpg", meta: "", src: SAMPLE_IMAGES[id % SAMPLE_IMAGES.length] }
+        : kind === "video"
+          ? { id, kind, name: "Clip.mp4", meta: "12 MB", src: SAMPLE_IMAGES[1] }
+          : kind === "audio"
+            ? { id, kind, name: "Audio.mp3", meta: "00:30" }
+            : { id, kind: "doc", docType: docType ?? "pdf", name: "Document.pdf", meta: "PDF · 2.4 MB" };
+    setPending((p) => [...p, item]);
+    setSheetOpen(false);
+  }
+
+  const sheetItems = [
+    { icon: <CameraIcon />, label: "Camera", onClick: () => addSample("image") },
+    { icon: <PhotoIcon />, label: "Attach Image", onClick: () => { setSheetOpen(false); fileInput.current?.click(); } },
+    { icon: <VideocamIcon />, label: "Attach Video", onClick: () => addSample("video") },
+    { icon: <PlayCircleIcon />, label: "Attach Audio", onClick: () => addSample("audio") },
+    { icon: <DescriptionIcon />, label: "Attach Document", onClick: () => { setSheetOpen(false); fileInput.current?.click(); } },
+    { icon: <PollIcon />, label: "Poll", onClick: () => setSheetOpen(false) },
+    { icon: <CollaborativeWhiteboardIcon />, label: "Collaborative Whiteboard", onClick: () => setSheetOpen(false) },
+    { icon: <CollaborativeDocumentIcon />, label: "Collaborative Document", onClick: () => setSheetOpen(false) },
+  ];
 
   function buildGroups(items: Pending[]): Group[] {
     const imgs = items.filter((p) => p.kind === "image");
@@ -280,7 +308,14 @@ function EndToEndChat() {
       </div>
 
       {/* Composer (DS Single Line Composer) */}
-      <div style={{ padding: "var(--cometchat-spacing-3) var(--cometchat-spacing-4)", background: "var(--cometchat-background-color-01)", borderTop: "1px solid var(--cometchat-border-color-light)" }}>
+      <div style={{ position: "relative", padding: "var(--cometchat-spacing-3) var(--cometchat-spacing-4)", background: "var(--cometchat-background-color-01)", borderTop: "1px solid var(--cometchat-border-color-light)" }}>
+        {sheetOpen && (
+          <div style={{ position: "absolute", bottom: "calc(100% - 8px)", left: 16, zIndex: 1000 }}>
+            {/* Lift the sheet above its own (transparent) backdrop so item clicks land. */}
+            <style>{`.action-sheet{position:relative;z-index:1000;}`}</style>
+            <ActionSheet items={sheetItems} onClose={() => setSheetOpen(false)} width={288} />
+          </div>
+        )}
         {pending.length > 0 && (
           <div style={{ display: "flex", gap: 8, marginBottom: 10, overflowX: "auto" }}>
             {pending.map((p) => (
@@ -295,7 +330,7 @@ function EndToEndChat() {
         )}
         <div style={composerRow}>
           <input ref={fileInput} type="file" multiple style={{ display: "none" }} onChange={(e) => e.target.files && addFiles(e.target.files)} />
-          <button style={actionButton} aria-label="Attach file" onClick={() => fileInput.current?.click()}><IconAddCircle /></button>
+          <button style={actionButton} aria-label="Attach file" onClick={() => setSheetOpen((o) => !o)}><IconAddCircle /></button>
           <input
             value={text}
             onChange={(e) => setText(e.target.value)}
