@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { SAMPLE_IMAGES, Section, Item, Row, SpinKeyframes } from "./_shared";
+import { SAMPLE_IMAGES, Section, Item, Row, SpinKeyframes, FileTypeIcon } from "./_shared";
 
 /**
  * **Attachment Cards.** The standalone attachment-card primitives — Document,
@@ -114,15 +114,12 @@ const FILE_META: Record<FileType, { icon: string; color: string; label: string }
 };
 
 function FileTile({ type, size = 52, loading = false }: { type: FileType; size?: number; loading?: boolean }) {
-  const m = FILE_META[type];
   return (
-    <div style={{ position: "relative", width: size, height: size, borderRadius: 13, flexShrink: 0, background: "var(--cometchat-neutral-color-900)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <span className="icon-rounded" style={{ fontSize: Math.round(size * (loading ? 0.42 : 0.52)), color: m.color, "--icon-fill": 1 } as React.CSSProperties}>
-        {m.icon}
-      </span>
+    <div style={{ position: "relative", width: size, height: size, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <FileTypeIcon type={type} size={size} />
       {loading && (
         <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <ProgressRing size={size - 8} stroke={3.5} />
+          <ProgressRing size={size - 12} stroke={3.5} />
         </div>
       )}
     </div>
@@ -135,7 +132,7 @@ function AudioButton({ size = 60, loading = false }: { size?: number; loading?: 
   const inset = loading ? 5 : 0;
   return (
     <div style={{ position: "relative", width: size, height: size, flexShrink: 0 }}>
-      <div style={{ position: "absolute", inset, borderRadius: "50%", background: "var(--cometchat-neutral-color-900)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ position: "absolute", inset, borderRadius: "50%", background: "var(--cometchat-primary-color)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
         <IconPlay size={Math.round(size * 0.3)} />
       </div>
       {loading && (
