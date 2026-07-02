@@ -6,8 +6,8 @@ import { SAMPLE_IMAGES, FileTypeIcon } from "./_shared";
  * attachment type. Each filter renders its results differently:
  *
  * - **Photos / Videos** — a media thumbnail with a "+N" count on the right.
- * - **Documents** — the first document's icon with a stack behind it, plus time
- *   and an unread count.
+ * - **Documents** — the first document's icon with a stack behind it, plus time.
+ *   With a caption the count is appended after it — "the signed copy · 6 Files".
  * - **Audio** — a play button on the left, plus time.
  *
  * The **All** filter is intentionally not shown here — it falls back to the
@@ -66,7 +66,10 @@ interface PreviewProps {
 }
 
 function Preview({ sent, sender, kind, count = 1, caption }: PreviewProps) {
-  const label = caption ?? typeLabel(kind, count);
+  const base = typeLabel(kind, count);
+  // Documents have no thumbnail to carry the count, so append it after the caption
+  // with a middle dot — "the signed copy · 6 Files". (Media show it on the thumbnail.)
+  const label = caption ? (kind === "file" && count > 1 ? `${caption} · ${base}` : caption) : base;
   const who = sent ? "You" : sender;
   return (
     <span style={{ display: "inline-flex", alignItems: "center", gap: 5, minWidth: 0, fontSize: 13, color: "var(--cometchat-text-color-secondary)", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>
@@ -203,22 +206,15 @@ function DocStack({ type = "pdf" }: { type?: FileType }) {
   );
 }
 
-function MetaRight({ time, unread }: { time: string; unread?: number }) {
+function DocRow({ title, count = 12, caption, sent, sender, type = "pdf", time }: { title: string; count?: number; caption?: string; sent?: boolean; sender?: string; type?: FileType; time: string }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 8, flexShrink: 0 }}>
-      <span style={{ fontSize: 12, color: "var(--cometchat-text-color-tertiary)" }}>{time}</span>
-      {unread ? (
-        <span style={{ minWidth: 20, height: 20, padding: "0 6px", borderRadius: 10, background: "var(--cometchat-neutral-color-400)", color: "var(--cometchat-static-white)", fontSize: 11, fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "center" }}>{unread}</span>
-      ) : (
-        <span style={{ height: 20 }} />
-      )}
-    </div>
+    <Row
+      left={<DocStack type={type} />}
+      title={title}
+      subtitle={<Preview sent={sent} sender={sender} kind="file" count={count} caption={caption} />}
+      right={<span style={{ fontSize: 12, color: "var(--cometchat-text-color-tertiary)", flexShrink: 0 }}>{time}</span>}
+    />
   );
-}
-
-function DocRow({ title, count = 12, caption, sent, sender, type = "pdf", time, unread }: { title: string; count?: number; caption?: string; sent?: boolean; sender?: string; type?: FileType; time: string; unread?: number }) {
-  // The unread chip can't sit next to a caption — suppress it when a caption is shown.
-  return <Row left={<DocStack type={type} />} title={title} subtitle={<Preview sent={sent} sender={sender} kind="file" count={count} caption={caption} />} right={<MetaRight time={time} unread={caption ? undefined : unread} />} />;
 }
 
 /* ─── Audio (play button + time) ───────────────────────────────────────────── */
@@ -274,9 +270,9 @@ export const Documents: Story = {
   render: () => (
     <div style={{ padding: 24 }}>
       <ChatSearchPanel active="Documents">
-        <DocRow title="Group 1" count={12} sent type="pdf" time="4:30 PM" unread={8} />
-        <DocRow title="Group 1" count={1} sender="Pradeep" caption="the signed copy" type="doc" time="4:30 PM" />
-        <DocRow title="George Alan" count={12} sent type="xls" time="4:30 PM" unread={8} />
+        <DocRow title="Group 1" count={12} sent type="pdf" time="4:30 PM" />
+        <DocRow title="Group 1" count={6} sender="Pradeep" caption="the signed copy" type="doc" time="4:30 PM" />
+        <DocRow title="George Alan" count={12} sent type="xls" time="4:30 PM" />
         <DocRow title="George Alan" count={3} sent caption="final drafts" type="pdf" time="4:30 PM" />
       </ChatSearchPanel>
     </div>
@@ -316,8 +312,8 @@ export const Overview: Story = {
         <MediaRow title="George Alan" kind="video" count={1} sent caption="watch till the end" srcOffset={2} />
       </ChatSearchPanel>
       <ChatSearchPanel active="Documents">
-        <DocRow title="Group 1" count={12} sent type="pdf" time="4:30 PM" unread={8} />
-        <DocRow title="Group 1" count={1} sender="Pradeep" caption="the signed copy" type="doc" time="4:30 PM" />
+        <DocRow title="Group 1" count={12} sent type="pdf" time="4:30 PM" />
+        <DocRow title="Group 1" count={6} sender="Pradeep" caption="the signed copy" type="doc" time="4:30 PM" />
         <DocRow title="George Alan" count={12} sent type="xls" time="4:30 PM" />
       </ChatSearchPanel>
       <ChatSearchPanel active="Audio">
