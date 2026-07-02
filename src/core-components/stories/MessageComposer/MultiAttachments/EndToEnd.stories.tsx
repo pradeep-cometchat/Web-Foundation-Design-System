@@ -317,7 +317,7 @@ function EndToEndChat() {
           </div>
         )}
         {pending.length > 0 && (
-          <div style={{ display: "flex", gap: 8, marginBottom: 10, overflowX: "auto" }}>
+          <div style={{ display: "flex", gap: 8, padding: "10px 12px 2px", marginBottom: 2, overflowX: "auto", overflowY: "visible" }}>
             {pending.map((p) => (
               <div key={p.id} style={{ position: "relative", flexShrink: 0 }}>
                 {p.kind === "image" ? <ImagePreview badge="none" src={p.src} /> : p.kind === "video" ? <VideoPreview badge="none" src={p.src} /> : p.kind === "audio" ? <AudioPreview badge="none" title={p.name} /> : <DocumentPreview badge="none" name={p.name} type={p.docType} meta={p.meta} />}

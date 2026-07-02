@@ -362,7 +362,7 @@ export function ComposerShell({ children, note }: { children: React.ReactNode; n
       <div style={{ padding: 12, fontSize: 14, lineHeight: "20px", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)", color: note ? "var(--cometchat-text-color-primary)" : "var(--cometchat-text-color-placeholder)" }}>
         {note ?? "Type your message..."}
       </div>
-      <div className="ma-scroll" style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 12px", overflowX: "auto", scrollbarWidth: "none" }}>
+      <div className="ma-scroll" style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 14px", overflowX: "auto", scrollbarWidth: "none" }}>
         {children}
       </div>
       <ComposerToolbar />
