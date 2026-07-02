@@ -165,7 +165,7 @@ function AudioButton({ size = 60, loading = false }: { size?: number; loading?: 
       </div>
       {loading && (
         <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <ProgressRing size={size - 10} stroke={4} />
+          <ProgressRing size={Math.round(size * 0.62)} stroke={3.5} />
         </div>
       )}
     </div>
