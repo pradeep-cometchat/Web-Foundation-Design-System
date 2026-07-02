@@ -157,7 +157,7 @@ function Row({ left, title, subtitle, right }: { left?: React.ReactNode; title: 
 
 function MediaThumb({ kind, count, src }: { kind: "image" | "video"; count: number; src: string }) {
   return (
-    <div style={{ position: "relative", width: 58, height: 44, borderRadius: 8, overflow: "hidden", flexShrink: 0, border: "1px solid var(--cometchat-border-color-default)" }}>
+    <div style={{ position: "relative", width: 76, height: 54, borderRadius: 8, overflow: "hidden", flexShrink: 0, border: "1px solid var(--cometchat-border-color-default)" }}>
       <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", filter: kind === "video" ? "brightness(0.8)" : undefined }} />
       {kind === "video" && (
         <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 22, height: 22, borderRadius: "50%", background: "rgba(0,0,0,0.5)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
