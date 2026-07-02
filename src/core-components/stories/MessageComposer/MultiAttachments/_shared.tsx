@@ -366,11 +366,34 @@ export interface BubbleFile {
 }
 
 /** A quoted message shown as a reply preview at the top of a bubble. */
+export type QuotedMediaKind = "image" | "video" | "file" | "audio";
+
 export interface QuotedReply {
   name: string;
-  text: string;
+  /** Snippet for a plain-text message being replied to. */
+  text?: string;
+  /** Summary for an attachment message being replied to — e.g. "6 Images · hello". */
+  media?: { kind: QuotedMediaKind; count: number; caption?: string };
   /** Index into SAMPLE_IMAGES to show a media thumbnail on the reply preview. */
   thumb?: number;
+}
+
+const QUOTED_ICON: Record<QuotedMediaKind, string> = {
+  image: "image",
+  video: "videocam",
+  file: "description",
+  audio: "graphic_eq",
+};
+
+function quotedTypeLabel(kind: QuotedMediaKind, count: number): string {
+  const labels: Record<QuotedMediaKind, [string, string]> = {
+    image: ["Image", "Images"],
+    video: ["Video", "Videos"],
+    file: ["File", "Files"],
+    audio: ["Audio", "Audio"],
+  };
+  const [singular, plural] = labels[kind];
+  return count === 1 ? singular : plural;
 }
 
 export interface MultiAttachmentBubbleProps {
@@ -518,12 +541,19 @@ export function MultiAttachmentBubble({
 
   function replyPreview() {
     if (!quoted) return null;
+    const m = quoted.media;
+    const summaryText = m ? `${m.count} ${quotedTypeLabel(m.kind, m.count)}${m.caption ? ` · ${m.caption}` : ""}` : quoted.text;
     return (
-      <div style={{ display: "flex", gap: "var(--cometchat-spacing-2)", alignItems: "stretch", padding: "6px 8px", borderRadius: "var(--cometchat-radius-1-5)", background: isSent ? "rgba(255,255,255,0.16)" : "var(--cometchat-background-color-02)", overflow: "hidden" }}>
+      <div style={{ display: "flex", gap: "var(--cometchat-spacing-2)", alignItems: "stretch", padding: "8px 10px", borderRadius: "var(--cometchat-radius-1-5)", background: isSent ? "rgba(255,255,255,0.16)" : "var(--cometchat-background-color-02)", overflow: "hidden" }}>
         <div style={{ width: 3, borderRadius: 2, background: accent, flexShrink: 0 }} />
-        <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 1 }}>
-          <span style={{ fontSize: 12, fontWeight: 600, color: accent, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{quoted.name}</span>
-          <span style={{ fontSize: 12, color: secondary, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{quoted.text}</span>
+        <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 2 }}>
+          <span style={{ fontSize: 13, fontWeight: 600, color: accent, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>Reply to {quoted.name}</span>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 5, fontSize: 13, color: secondary, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+            {m && (
+              <span className="icon-rounded" style={{ fontSize: 16, color: secondary, "--icon-fill": 0, flexShrink: 0 } as React.CSSProperties}>{QUOTED_ICON[m.kind]}</span>
+            )}
+            {summaryText}
+          </span>
         </div>
         {quoted.thumb !== undefined && (
           <img src={SAMPLE_IMAGES[quoted.thumb % SAMPLE_IMAGES.length]} alt="" style={{ width: 34, height: 34, borderRadius: 6, objectFit: "cover", flexShrink: 0 }} />
