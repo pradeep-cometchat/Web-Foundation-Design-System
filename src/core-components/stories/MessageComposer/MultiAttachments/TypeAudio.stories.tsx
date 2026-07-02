@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import {
   AudioPreview,
   MultiAttachmentBubble,
+  MessageStack,
   ChatCanvas,
   SearchHeader,
   AudioResult,
@@ -62,7 +63,8 @@ export const InComposer: Story = {
   ),
 };
 
-/** Delivered — audio card, sent and received; with other attachments and alone. */
+/** Delivered — an audio message is always its own bubble. When sent alongside a
+ *  document, each format is a separate bubble stacked one below another. */
 export const InMessage: Story = {
   name: "In Message",
   parameters: { controls: { disable: true } },
@@ -73,16 +75,15 @@ export const InMessage: Story = {
         {(["sent", "received"] as const).map((v) => (
           <ChatCanvas key={v} width={320}>
             <Item label={`${v} · single`}>
-              <MultiAttachmentBubble variant={v} files={[{ kind: "audio", name: "Audio.mp3", meta: "00:32" }]} />
+              <MessageStack variant={v}>
+                <MultiAttachmentBubble variant={v} files={[{ kind: "audio", name: "Audio.mp3", meta: "00:32" }]} />
+              </MessageStack>
             </Item>
-            <Item label={`${v} · with files`}>
-              <MultiAttachmentBubble
-                variant={v}
-                files={[
-                  { kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" },
-                  { kind: "audio", name: "Audio.mp3", meta: "00:32" },
-                ]}
-              />
+            <Item label={`${v} · with a document (separate bubbles)`}>
+              <MessageStack variant={v}>
+                <MultiAttachmentBubble variant={v} files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" }]} showMeta={false} />
+                <MultiAttachmentBubble variant={v} files={[{ kind: "audio", name: "Audio.mp3", meta: "00:32" }]} />
+              </MessageStack>
             </Item>
           </ChatCanvas>
         ))}

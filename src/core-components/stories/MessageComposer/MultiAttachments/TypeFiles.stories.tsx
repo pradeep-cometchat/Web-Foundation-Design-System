@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import {
   DocumentPreview,
   MultiAttachmentBubble,
+  MessageStack,
   ChatCanvas,
   SearchHeader,
   DocumentResult,
@@ -65,23 +66,22 @@ export const InMessage: Story = {
         {(["sent", "received"] as const).map((v) => (
           <ChatCanvas key={v} width={320}>
             <Item label={`${v} · single`}>
-              <MultiAttachmentBubble variant={v} files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "12 Jun · 2.4 MB" }]} />
+              <MessageStack variant={v}>
+                <MultiAttachmentBubble variant={v} files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "12 Jun · 2.4 MB" }]} />
+              </MessageStack>
             </Item>
-            <Item label={`${v} · multiple`}>
-              <MultiAttachmentBubble
-                variant={v}
-                files={[
-                  { kind: "pdf", name: "Contract.pdf", meta: "12 Jun · 1.2 MB" },
-                  { kind: "doc", name: "Notes.docx", meta: "12 Jun · 340 KB" },
-                  { kind: "xls", name: "Budget.xlsx", meta: "12 Jun · 812 KB" },
-                ]}
-              />
+            <Item label={`${v} · multiple (separate bubbles)`}>
+              <MessageStack variant={v}>
+                <MultiAttachmentBubble variant={v} files={[{ kind: "pdf", name: "Contract.pdf", meta: "12 Jun · 1.2 MB" }]} showMeta={false} />
+                <MultiAttachmentBubble variant={v} files={[{ kind: "doc", name: "Notes.docx", meta: "12 Jun · 340 KB" }]} showMeta={false} />
+                <MultiAttachmentBubble variant={v} files={[{ kind: "xls", name: "Budget.xlsx", meta: "12 Jun · 812 KB" }]} />
+              </MessageStack>
             </Item>
           </ChatCanvas>
         ))}
         <ChatCanvas width={320}>
-          <Item label="uploading"><MultiAttachmentBubble variant="sent" images={2} state="uploading" files={[{ kind: "pdf", name: "Deck.pdf", meta: "6.1 MB" }]} /></Item>
-          <Item label="failed"><MultiAttachmentBubble variant="sent" images={1} state="failed" files={[{ kind: "pdf", name: "Deck.pdf", meta: "6.1 MB" }]} /></Item>
+          <Item label="uploading"><MessageStack variant="sent"><MultiAttachmentBubble variant="sent" state="uploading" files={[{ kind: "pdf", name: "Deck.pdf", meta: "6.1 MB" }]} /></MessageStack></Item>
+          <Item label="failed"><MessageStack variant="sent"><MultiAttachmentBubble variant="sent" state="failed" files={[{ kind: "pdf", name: "Deck.pdf", meta: "6.1 MB" }]} /></MessageStack></Item>
         </ChatCanvas>
       </Row>
     </div>
