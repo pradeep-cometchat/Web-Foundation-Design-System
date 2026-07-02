@@ -187,8 +187,8 @@ export function AudioCard({
   const font = "var(--cometchat-font-family, Inter, sans-serif)";
   return (
     <div style={{ display: "flex", alignItems: "center", gap: compact ? 10 : 12, width, minWidth: 0 }}>
-      <PlayButton size={compact ? 40 : 44} onDark={onDark} />
-      <div style={{ display: "flex", flexDirection: "column", gap: compact ? 9 : 6, flex: 1, minWidth: 0 }}>
+      <PlayButton size={40} onDark={onDark} />
+      <div style={{ display: "flex", flexDirection: "column", gap: compact ? 9 : 8, flex: 1, minWidth: 0 }}>
         <span style={{ fontSize: compact ? 12 : 14, fontWeight: compact ? 500 : 600, color: titleColor, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontFamily: font, lineHeight: compact ? "16px" : "20px" }}>{title}</span>
         <AudioSeekBar progress={progress} onDark={onDark} />
         <span style={{ fontSize: compact ? 11 : 12, color: timeColor, fontFamily: font, lineHeight: "14px" }}>{current}/{total}</span>
@@ -562,27 +562,40 @@ export function MultiAttachmentBubble({
     return inner;
   }
 
-  // A touch more vertical breathing room, shared by every bubble attachment card.
-  const cardPad = "var(--cometchat-spacing-3) var(--cometchat-spacing-2-5)";
-
   const downloading = state === "downloading";
   const trailColor = isSent ? "var(--cometchat-static-white)" : "var(--cometchat-icon-color-highlight)";
   const trailTrack = isSent ? "rgba(255,255,255,0.3)" : "var(--cometchat-neutral-color-300)";
 
+  // Every bubble attachment card is the same fixed height with the same 40px
+  // icon, so a document card and an audio card line up consistently.
+  const CARD_H = 72;
+  const ICON = 40;
+  const cardBase: React.CSSProperties = {
+    display: "flex",
+    alignItems: "center",
+    gap: "var(--cometchat-spacing-2-5)",
+    width: BUBBLE_W,
+    height: CARD_H,
+    boxSizing: "border-box",
+    padding: "0 var(--cometchat-spacing-2-5)",
+    borderRadius: "var(--cometchat-radius-2)",
+    background: cardBg,
+  };
+
   function fileCard(f: BubbleFile, key: number) {
     if (f.kind === "audio") {
       return (
-        <div key={key} style={{ width: BUBBLE_W, boxSizing: "border-box", padding: cardPad, borderRadius: "var(--cometchat-radius-2)", background: cardBg }}>
+        <div key={key} style={cardBase}>
           <AudioCard title={f.name} total={f.meta} onDark={isSent} width="100%" download downloading={downloading} />
         </div>
       );
     }
     return (
-      <div key={key} style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-2)", width: BUBBLE_W, boxSizing: "border-box", padding: cardPad, borderRadius: "var(--cometchat-radius-2)", background: cardBg }}>
-        <div style={{ width: 32, height: 32, borderRadius: "var(--cometchat-radius-1-5)", background: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-          <FileTypeIcon type={f.kind} size={22} />
+      <div key={key} style={cardBase}>
+        <div style={{ width: ICON, height: ICON, borderRadius: "var(--cometchat-radius-1-5)", background: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+          <FileTypeIcon type={f.kind} size={26} />
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 1, flex: 1, minWidth: 0 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 4, flex: 1, minWidth: 0 }}>
           <span style={{ fontSize: 14, fontWeight: 600, color: primary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{f.name}</span>
           <span style={{ fontSize: 12, color: secondary }}>{downloading ? "Downloading…" : f.meta}</span>
         </div>
