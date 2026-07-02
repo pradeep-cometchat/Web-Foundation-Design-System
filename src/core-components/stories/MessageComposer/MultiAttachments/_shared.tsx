@@ -365,6 +365,14 @@ export interface BubbleFile {
   meta: string;
 }
 
+/** A quoted message shown as a reply preview at the top of a bubble. */
+export interface QuotedReply {
+  name: string;
+  text: string;
+  /** Index into SAMPLE_IMAGES to show a media thumbnail on the reply preview. */
+  thumb?: number;
+}
+
 export interface MultiAttachmentBubbleProps {
   variant?: "sent" | "received";
   /** Image / video tiles rendered as a grid at the top of the bubble. */
@@ -376,9 +384,13 @@ export interface MultiAttachmentBubbleProps {
   /** File / audio cards stacked under the grid. */
   files?: BubbleFile[];
   caption?: string;
+  /** Reply preview shown above the attachment. */
+  quoted?: QuotedReply;
   time?: string;
   status?: "sent" | "delivered" | "read";
   state?: "default" | "uploading" | "failed";
+  /** Hide the time/receipt row — used for all but the last bubble in a stack. */
+  showMeta?: boolean;
 }
 
 const BUBBLE_W = 240;
@@ -391,14 +403,17 @@ export function MultiAttachmentBubble({
   totalImages,
   files = [],
   caption,
+  quoted,
   time = "4:56 pm",
   status = "read",
   state = "default",
+  showMeta = true,
 }: MultiAttachmentBubbleProps) {
   const isSent = variant === "sent";
   const primary = isSent ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)";
   const secondary = isSent ? "rgba(255,255,255,0.7)" : "var(--cometchat-text-color-tertiary)";
   const cardBg = isSent ? "rgba(255,255,255,0.14)" : "var(--cometchat-background-color-02)";
+  const accent = isSent ? "var(--cometchat-static-white)" : "var(--cometchat-primary-color)";
 
   const shownTiles = Math.min(images, 4);
   const total = totalImages ?? images;
@@ -501,19 +516,48 @@ export function MultiAttachmentBubble({
     );
   }
 
+  function replyPreview() {
+    if (!quoted) return null;
+    return (
+      <div style={{ display: "flex", gap: "var(--cometchat-spacing-2)", alignItems: "stretch", padding: "6px 8px", borderRadius: "var(--cometchat-radius-1-5)", background: isSent ? "rgba(255,255,255,0.16)" : "var(--cometchat-background-color-02)", overflow: "hidden" }}>
+        <div style={{ width: 3, borderRadius: 2, background: accent, flexShrink: 0 }} />
+        <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 1 }}>
+          <span style={{ fontSize: 12, fontWeight: 600, color: accent, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{quoted.name}</span>
+          <span style={{ fontSize: 12, color: secondary, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{quoted.text}</span>
+        </div>
+        {quoted.thumb !== undefined && (
+          <img src={SAMPLE_IMAGES[quoted.thumb % SAMPLE_IMAGES.length]} alt="" style={{ width: 34, height: 34, borderRadius: 6, objectFit: "cover", flexShrink: 0 }} />
+        )}
+      </div>
+    );
+  }
+
   return (
     <div style={wrapper}>
+      {replyPreview()}
       {shownTiles > 0 && grid()}
       {files.map(fileCard)}
       {caption && (
         <div style={{ padding: "0 var(--cometchat-spacing-1)", fontSize: 14, lineHeight: "20px", color: primary, fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>{caption}</div>
       )}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "var(--cometchat-spacing-1)", padding: "0 var(--cometchat-spacing-1)" }}>
-        {state === "failed" && <span style={{ fontSize: 12, color: isSent ? "rgba(255,255,255,0.85)" : "var(--cometchat-error-color)", marginRight: "auto" }}>Not delivered · Tap to retry</span>}
-        {state === "uploading" && <span style={{ fontSize: 12, color: secondary, marginRight: "auto" }}>Uploading…</span>}
-        <span style={{ fontSize: 12, color: secondary }}>{time}</span>
-        {isSent && state === "default" && <ReceiptIcon status={status} />}
-      </div>
+      {showMeta && (
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "var(--cometchat-spacing-1)", padding: "0 var(--cometchat-spacing-1)" }}>
+          {state === "failed" && <span style={{ fontSize: 12, color: isSent ? "rgba(255,255,255,0.85)" : "var(--cometchat-error-color)", marginRight: "auto" }}>Not delivered · Tap to retry</span>}
+          {state === "uploading" && <span style={{ fontSize: 12, color: secondary, marginRight: "auto" }}>Uploading…</span>}
+          <span style={{ fontSize: 12, color: secondary }}>{time}</span>
+          {isSent && state === "default" && <ReceiptIcon status={status} />}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/** A vertical stack of consecutive bubbles from one sender (mixed formats become
+ *  separate bubbles, one below another). Aligns to the sender's side. */
+export function MessageStack({ variant, children }: { variant: "sent" | "received"; children: React.ReactNode }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 3, alignItems: variant === "sent" ? "flex-end" : "flex-start" }}>
+      {children}
     </div>
   );
 }

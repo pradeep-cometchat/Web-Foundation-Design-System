@@ -1,11 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { MultiAttachmentBubble, ChatCanvas, BubbleRow, SpinKeyframes, Label } from "./_shared";
+import { MultiAttachmentBubble, MessageStack, ChatCanvas, SpinKeyframes, Label } from "./_shared";
 
 /**
- * **Multi Attachments — Sent & Received.** How a delivered message carrying
- * multiple attachments renders in the conversation. Images and video collapse
- * into a grid; documents and audio stack as cards beneath. Sent bubbles are
- * right-aligned with a delivery receipt; received bubbles are left-aligned.
+ * **Multi Attachments — Sent & Received.** How attachments render in the
+ * conversation once sent.
+ *
+ * Attachments of **different formats are not combined into one bubble** — each
+ * format becomes its own message bubble, stacked one below another (only images
+ * and videos share a grid, since they are one visual-media format). A caption or
+ * a quoted reply attaches to a single bubble.
  */
 const meta: Meta = {
   title: "Core Components/Message Composer/Multi Attachments/Sent & Received",
@@ -15,91 +18,96 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-/** Images + documents together, sent. */
-export const Sent: Story = {
+/** A mixed send: a media grid, a document and an audio clip — three separate
+ *  bubbles, one below another, from the same sender. */
+function MixedStack({ variant }: { variant: "sent" | "received" }) {
+  return (
+    <MessageStack variant={variant}>
+      <MultiAttachmentBubble variant={variant} images={3} videoAt={[1]} showMeta={false} />
+      <MultiAttachmentBubble variant={variant} files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "12 Jun · 2.4 MB" }]} showMeta={false} />
+      <MultiAttachmentBubble variant={variant} files={[{ kind: "audio", name: "Audio.mp3", meta: "00:32" }]} />
+    </MessageStack>
+  );
+}
+
+export const MixedBatch: Story = {
+  name: "Mixed Batch",
   parameters: { controls: { disable: true } },
   render: () => (
     <ChatCanvas>
       <SpinKeyframes />
-      <BubbleRow variant="sent">
-        <MultiAttachmentBubble
-          variant="sent"
-          images={3}
-          videoAt={[1]}
-          files={[
-            { kind: "pdf", name: "Q3-Report.pdf", meta: "12 Jun · 2.4 MB" },
-            { kind: "audio", name: "Audio.mp3", meta: "00:32" },
-          ]}
-          caption="Everything from the review 👆"
-        />
-      </BubbleRow>
+      <MixedStack variant="received" />
+      <MixedStack variant="sent" />
     </ChatCanvas>
   ),
 };
 
-/** Images + documents together, received. */
-export const Received: Story = {
+/** A single image with a caption in the same bubble. */
+export const WithCaption: Story = {
+  name: "With Caption",
   parameters: { controls: { disable: true } },
   render: () => (
     <ChatCanvas>
-      <SpinKeyframes />
-      <BubbleRow variant="received">
-        <MultiAttachmentBubble
-          variant="received"
-          images={3}
-          videoAt={[1]}
-          files={[
-            { kind: "pdf", name: "Q3-Report.pdf", meta: "12 Jun · 2.4 MB" },
-            { kind: "audio", name: "Audio.mp3", meta: "00:32" },
-          ]}
-          caption="Everything from the review 👆"
-        />
-      </BubbleRow>
+      <MessageStack variant="received">
+        <MultiAttachmentBubble variant="received" images={1} caption="Everything from the review 👆" />
+      </MessageStack>
+      <MessageStack variant="sent">
+        <MultiAttachmentBubble variant="sent" images={1} caption="Everything from the review 👆" />
+      </MessageStack>
     </ChatCanvas>
   ),
 };
 
-/** A 2×2 image grid with a "+N" overflow badge. */
+/** Attachments sent as a reply — a quoted preview sits above the attachment. */
+export const Quoted: Story = {
+  name: "Quoted (Reply)",
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <ChatCanvas>
+      <MessageStack variant="received">
+        <MultiAttachmentBubble variant="received" quoted={{ name: "You", text: "Can you send the report?" }} files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "12 Jun · 2.4 MB" }]} />
+      </MessageStack>
+      <MessageStack variant="sent">
+        <MultiAttachmentBubble variant="sent" quoted={{ name: "Priya Nair", text: "Photo", thumb: 2 }} images={1} caption="This one?" />
+      </MessageStack>
+    </ChatCanvas>
+  ),
+};
+
+/** A single image, sent and received. */
+export const SingleImage: Story = {
+  name: "Single Image",
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <ChatCanvas>
+      <MessageStack variant="received"><MultiAttachmentBubble variant="received" images={1} /></MessageStack>
+      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" images={1} /></MessageStack>
+    </ChatCanvas>
+  ),
+};
+
+/** Multiple images collapse into a grid within one bubble ("+N" past four). */
 export const ImageGrid: Story = {
   name: "Image Grid (4+)",
   parameters: { controls: { disable: true } },
   render: () => (
     <ChatCanvas>
-      <BubbleRow variant="sent">
-        <MultiAttachmentBubble variant="sent" images={4} totalImages={7} />
-      </BubbleRow>
-      <BubbleRow variant="received">
-        <MultiAttachmentBubble variant="received" images={4} totalImages={7} />
-      </BubbleRow>
+      <MessageStack variant="received"><MultiAttachmentBubble variant="received" images={4} totalImages={7} /></MessageStack>
+      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" images={4} totalImages={7} /></MessageStack>
     </ChatCanvas>
   ),
 };
 
-/** Documents only — several file cards stacked in one message. */
-export const DocumentsOnly: Story = {
+/** Several documents — each is its own bubble, stacked one below another. */
+export const Documents: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
     <ChatCanvas>
-      <BubbleRow variant="sent">
-        <MultiAttachmentBubble
-          variant="sent"
-          files={[
-            { kind: "pdf", name: "Contract.pdf", meta: "12 Jun · 1.2 MB" },
-            { kind: "doc", name: "Notes.docx", meta: "12 Jun · 340 KB" },
-            { kind: "xls", name: "Budget.xlsx", meta: "12 Jun · 812 KB" },
-          ]}
-        />
-      </BubbleRow>
-      <BubbleRow variant="received">
-        <MultiAttachmentBubble
-          variant="received"
-          files={[
-            { kind: "pdf", name: "Contract.pdf", meta: "12 Jun · 1.2 MB" },
-            { kind: "doc", name: "Notes.docx", meta: "12 Jun · 340 KB" },
-            { kind: "xls", name: "Budget.xlsx", meta: "12 Jun · 812 KB" },
-          ]}
-        />
-      </BubbleRow>
+      <MessageStack variant="sent">
+        <MultiAttachmentBubble variant="sent" files={[{ kind: "pdf", name: "Contract.pdf", meta: "12 Jun · 1.2 MB" }]} showMeta={false} />
+        <MultiAttachmentBubble variant="sent" files={[{ kind: "doc", name: "Notes.docx", meta: "12 Jun · 340 KB" }]} showMeta={false} />
+        <MultiAttachmentBubble variant="sent" files={[{ kind: "xls", name: "Budget.xlsx", meta: "12 Jun · 812 KB" }]} />
+      </MessageStack>
     </ChatCanvas>
   ),
 };
@@ -112,32 +120,37 @@ export const DeliveryStates: Story = {
     <ChatCanvas>
       <SpinKeyframes />
       <Label>Uploading</Label>
-      <BubbleRow variant="sent">
-        <MultiAttachmentBubble variant="sent" images={4} state="uploading" files={[{ kind: "pdf", name: "Deck.pdf", meta: "6.1 MB" }]} />
-      </BubbleRow>
+      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" images={4} state="uploading" /></MessageStack>
       <Label>Failed</Label>
-      <BubbleRow variant="sent">
-        <MultiAttachmentBubble variant="sent" images={2} state="failed" />
-      </BubbleRow>
+      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" images={2} state="failed" /></MessageStack>
     </ChatCanvas>
   ),
 };
 
-/** A full exchange: every composition, both directions. */
+/** Every state together, both directions. */
 export const AllStates: Story = {
   name: "All States",
   parameters: { layout: "padded", controls: { disable: true } },
   render: () => (
     <div style={{ display: "flex", flexWrap: "wrap", gap: 24, padding: 24, alignItems: "flex-start" }}>
       <SpinKeyframes />
-      {(["sent", "received"] as const).map((v) => (
-        <div key={v} style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          <Label>{v}</Label>
-          <MultiAttachmentBubble variant={v} images={3} videoAt={[1]} files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "12 Jun · 2.4 MB" }]} caption="Review pack 👆" />
-          <MultiAttachmentBubble variant={v} images={4} totalImages={9} />
-          <MultiAttachmentBubble variant={v} files={[{ kind: "pdf", name: "Contract.pdf", meta: "1.2 MB" }, { kind: "doc", name: "Notes.docx", meta: "340 KB" }, { kind: "audio", name: "Audio.mp3", meta: "00:32" }]} />
-        </div>
-      ))}
+      <ChatCanvas>
+        <Label>Mixed batch</Label>
+        <MixedStack variant="sent" />
+      </ChatCanvas>
+      <ChatCanvas>
+        <Label>With caption</Label>
+        <MessageStack variant="received"><MultiAttachmentBubble variant="received" images={1} caption="Review pack 👆" /></MessageStack>
+        <Label>Quoted reply</Label>
+        <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" quoted={{ name: "Priya Nair", text: "Can you send the report?" }} files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" }]} /></MessageStack>
+      </ChatCanvas>
+      <ChatCanvas>
+        <Label>Documents (stacked)</Label>
+        <MessageStack variant="sent">
+          <MultiAttachmentBubble variant="sent" files={[{ kind: "pdf", name: "Contract.pdf", meta: "1.2 MB" }]} showMeta={false} />
+          <MultiAttachmentBubble variant="sent" files={[{ kind: "xls", name: "Budget.xlsx", meta: "812 KB" }]} />
+        </MessageStack>
+      </ChatCanvas>
     </div>
   ),
 };
