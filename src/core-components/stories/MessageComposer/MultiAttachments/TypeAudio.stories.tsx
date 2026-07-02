@@ -73,14 +73,14 @@ export const InMessage: Story = {
         {(["sent", "received"] as const).map((v) => (
           <ChatCanvas key={v} width={320}>
             <Item label={`${v} · single`}>
-              <MultiAttachmentBubble variant={v} files={[{ kind: "audio", name: "Audio.mp3", meta: "0:32" }]} />
+              <MultiAttachmentBubble variant={v} files={[{ kind: "audio", name: "Audio.mp3", meta: "00:32" }]} />
             </Item>
             <Item label={`${v} · with files`}>
               <MultiAttachmentBubble
                 variant={v}
                 files={[
                   { kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" },
-                  { kind: "audio", name: "Audio.mp3", meta: "0:32" },
+                  { kind: "audio", name: "Audio.mp3", meta: "00:32" },
                 ]}
               />
             </Item>
@@ -102,8 +102,8 @@ export const InSearch: Story = {
           <SearchHeader value="review" active="Audio" />
           <Divider />
           <ResultsLabel>Audio</ResultsLabel>
-          <AudioResult title="Audio.mp3" meta="0:32" from="You" />
-          <AudioResult title="Recording.m4a" meta="1:14" from="Priya" />
+          <AudioResult title="Audio.mp3" meta="00:32" from="You" />
+          <AudioResult title="Recording.m4a" meta="01:14" from="Priya" />
         </Panel>
       </Section>
     </div>

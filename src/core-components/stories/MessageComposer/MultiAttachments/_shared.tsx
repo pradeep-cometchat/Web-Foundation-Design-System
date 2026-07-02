@@ -106,17 +106,77 @@ export function ReceiptIcon({ status = "read" }: { status?: "sent" | "delivered"
   );
 }
 
-/* ─── Waveform (audio) ─────────────────────────────────────────────────────── */
+/* ─── Audio player card ────────────────────────────────────────────────────── */
 
-// Organic, centred waveform — quiet at the edges, peaking just past the middle.
-const WAVE = [6, 9, 7, 12, 10, 16, 12, 20, 26, 18, 28, 22, 26, 20, 24, 16, 22, 14, 18, 11, 14, 8, 10, 6];
-
-export function Waveform({ tint }: { tint: string }) {
+/** Round play button. `onDark` inverts it for use on a coloured (sent) bubble. */
+export function PlayButton({ size = 44, onDark = false }: { size?: number; onDark?: boolean }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 2, flex: 1, height: 30 }}>
-      {WAVE.map((h, i) => (
-        <div key={i} style={{ width: 3, height: h, borderRadius: 3, background: tint, flexShrink: 0 }} />
-      ))}
+    <div
+      style={{
+        width: size,
+        height: size,
+        borderRadius: "50%",
+        flexShrink: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: onDark ? "var(--cometchat-static-white)" : "var(--cometchat-primary-color)",
+        color: onDark ? "var(--cometchat-primary-color)" : "var(--cometchat-static-white)",
+      }}
+    >
+      <IconPlay size={Math.round(size * 0.32)} />
+    </div>
+  );
+}
+
+/** Seek slider with a draggable knob. `progress` is 0–100. */
+export function AudioSeekBar({ progress = 4, onDark = false }: { progress?: number; onDark?: boolean }) {
+  return (
+    <div style={{ position: "relative", height: 6, borderRadius: 3, width: "100%", background: onDark ? "rgba(255,255,255,0.35)" : "var(--cometchat-neutral-color-300)" }}>
+      <div
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: `${progress}%`,
+          transform: "translate(-30%, -50%)",
+          width: 16,
+          height: 16,
+          borderRadius: "50%",
+          background: "var(--cometchat-static-white)",
+          border: `1px solid ${onDark ? "rgba(0,0,0,0.06)" : "var(--cometchat-border-color-default)"}`,
+          boxShadow: "var(--cometchat-shadow-xs)",
+        }}
+      />
+    </div>
+  );
+}
+
+/** Media-player card: play button + title + seek bar + elapsed/total time. */
+export function AudioCard({
+  title = "Hello by Adele.mp3",
+  current = "00:00",
+  total = "00:00",
+  progress = 4,
+  onDark = false,
+  width = 240,
+}: {
+  title?: string;
+  current?: string;
+  total?: string;
+  progress?: number;
+  onDark?: boolean;
+  width?: number | string;
+}) {
+  const titleColor = onDark ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)";
+  const timeColor = onDark ? "rgba(255,255,255,0.7)" : "var(--cometchat-text-color-tertiary)";
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 12, width, minWidth: 0 }}>
+      <PlayButton size={44} onDark={onDark} />
+      <div style={{ display: "flex", flexDirection: "column", gap: 6, flex: 1, minWidth: 0 }}>
+        <span style={{ fontSize: 14, fontWeight: 600, color: titleColor, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>{title}</span>
+        <AudioSeekBar progress={progress} onDark={onDark} />
+        <span style={{ fontSize: 12, color: timeColor, fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>{current}/{total}</span>
+      </div>
     </div>
   );
 }
@@ -233,14 +293,10 @@ export function DocumentPreview({
   );
 }
 
-export function AudioPreview({ badge = "none", duration = "0:32" }: { badge?: BadgeState; duration?: string }) {
+export function AudioPreview({ badge = "none", title = "Hello by Adele.mp3", total = "00:32" }: { badge?: BadgeState; title?: string; total?: string }) {
   return (
-    <div style={{ ...previewCard, width: 200 }}>
-      <div style={{ width: 32, height: 32, borderRadius: "50%", background: "var(--cometchat-background-color-solid)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-        <IconPlay />
-      </div>
-      <Waveform tint="var(--cometchat-icon-color-disabled)" />
-      <span style={{ fontSize: 11, fontWeight: 500, color: "var(--cometchat-text-color-secondary)", flexShrink: 0 }}>{duration}</span>
+    <div style={{ position: "relative", flexShrink: 0, width: 280, boxSizing: "border-box", padding: 14, borderRadius: 8, border: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-02)" }}>
+      <AudioCard title={title} total={total} width="100%" />
       <Badge state={badge} />
     </div>
   );
@@ -417,33 +473,25 @@ export function MultiAttachmentBubble({
   }
 
   function fileCard(f: BubbleFile, key: number) {
+    if (f.kind === "audio") {
+      return (
+        <div key={key} style={{ width: BUBBLE_W, boxSizing: "border-box", padding: "var(--cometchat-spacing-2-5)", borderRadius: "var(--cometchat-radius-2)", background: cardBg }}>
+          <AudioCard title={f.name} total={f.meta} onDark={isSent} width="100%" />
+        </div>
+      );
+    }
     return (
       <div key={key} style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-2)", width: BUBBLE_W, boxSizing: "border-box", padding: "var(--cometchat-spacing-2)", borderRadius: "var(--cometchat-radius-2)", background: cardBg }}>
-        {f.kind === "audio" ? (
-          <div style={{ width: 32, height: 32, borderRadius: "50%", background: isSent ? "rgba(255,255,255,0.9)" : "var(--cometchat-background-color-solid)", color: isSent ? "var(--cometchat-primary-color)" : "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-            <IconPlay />
-          </div>
-        ) : (
-          <div style={{ width: 32, height: 32, borderRadius: "var(--cometchat-radius-1-5)", background: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-            <FileTypeIcon type={f.kind} size={22} />
-          </div>
-        )}
-        {f.kind === "audio" ? (
-          <>
-            <Waveform tint={isSent ? "rgba(255,255,255,0.55)" : "var(--cometchat-icon-color-disabled)"} />
-            <span style={{ fontSize: 12, fontWeight: 500, color: secondary, flexShrink: 0 }}>{f.meta}</span>
-          </>
-        ) : (
-          <div style={{ display: "flex", flexDirection: "column", gap: 1, flex: 1, minWidth: 0 }}>
-            <span style={{ fontSize: 14, fontWeight: 600, color: primary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{f.name}</span>
-            <span style={{ fontSize: 12, color: secondary }}>{f.meta}</span>
-          </div>
-        )}
-        {f.kind !== "audio" && (
-          <span className="icon-rounded" style={{ fontSize: 20, color: isSent ? "var(--cometchat-static-white)" : "var(--cometchat-icon-color-highlight)", "--icon-fill": 0, flexShrink: 0 } as React.CSSProperties}>
-            download
-          </span>
-        )}
+        <div style={{ width: 32, height: 32, borderRadius: "var(--cometchat-radius-1-5)", background: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+          <FileTypeIcon type={f.kind} size={22} />
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 1, flex: 1, minWidth: 0 }}>
+          <span style={{ fontSize: 14, fontWeight: 600, color: primary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{f.name}</span>
+          <span style={{ fontSize: 12, color: secondary }}>{f.meta}</span>
+        </div>
+        <span className="icon-rounded" style={{ fontSize: 20, color: isSent ? "var(--cometchat-static-white)" : "var(--cometchat-icon-color-highlight)", "--icon-fill": 0, flexShrink: 0 } as React.CSSProperties}>
+          download
+        </span>
       </div>
     );
   }
@@ -639,12 +687,10 @@ export function DocumentResult({ name, meta, type, from }: { name: string; meta:
 export function AudioResult({ title, meta, from }: { title: string; meta: string; from: string }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-3)", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-1)" }}>
-      <div style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--cometchat-background-color-solid)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-        <IconPlay />
-      </div>
-      <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 4 }}>
-        <span style={{ fontSize: 14, fontWeight: 600, color: "var(--cometchat-text-color-primary)" }}>{title}</span>
-        <Waveform tint="var(--cometchat-icon-color-disabled)" />
+      <PlayButton size={40} />
+      <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 6 }}>
+        <span style={{ fontSize: 14, fontWeight: 600, color: "var(--cometchat-text-color-primary)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{title}</span>
+        <AudioSeekBar />
       </div>
       <span style={{ fontSize: 12, color: "var(--cometchat-text-color-tertiary)", flexShrink: 0 }}>{meta} · {from}</span>
     </div>
