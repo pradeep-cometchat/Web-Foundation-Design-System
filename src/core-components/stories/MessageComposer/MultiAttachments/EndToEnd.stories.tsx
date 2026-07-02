@@ -1,5 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect, useRef, useState } from "react";
+import "../../../../shell/Shell.css";
+import "../../ChatBubbles/ChatBubbles.css";
+import { Header } from "../../../../base-components/components/Header";
+import { ConversationItem } from "../../../../base-components/components/ListItem";
+import { avatarRegistry } from "../../../../cometchat-foundation/tokens/avatars";
 import {
   MultiAttachmentBubble,
   MessageStack,
@@ -12,32 +17,28 @@ import {
 } from "./_shared";
 
 /**
- * **Multi Attachments — End to End.** A working chat surface that ties every
- * piece together: **drag files anywhere** (or use the **＋**) to queue them in
- * the composer, then **Send** to watch them post as message bubbles and go
- * through *uploading → read*. Different formats post as **separate bubbles**;
- * a typed message becomes the caption. The thread is pre-seeded with the range
- * of states (image grid, document, audio, caption, quoted reply, receipts).
+ * **Multi Attachments — End to End.** The full chat app (conversation list +
+ * chat area, built from the shell/core components) with a working multi-
+ * attachment flow: **drag files onto the chat** (or use ＋) to queue previews,
+ * then **Send** to post them as separate-format bubbles running *uploading →
+ * read*. The thread is pre-seeded with the range of states.
  */
 const meta: Meta = {
   title: "Core Components/Message Composer/Multi Attachments/End to End",
   tags: ["autodocs"],
-  parameters: { layout: "centered" },
+  parameters: { layout: "fullscreen" },
 };
 export default meta;
 type Story = StoryObj;
+
+const male = avatarRegistry["Male Avatar"];
+const female = avatarRegistry["Female Avatar"];
 
 /* ─── Icons ────────────────────────────────────────────────────────────────── */
 
 const IconSend = () => (
   <svg width="18" height="16" viewBox="0 0 15.78 13.6" fill="none">
     <path d="M1.267 13.52c-.302.121-.589.095-.86-.077-.271-.172-.407-.422-.407-.751V8.47L6.923 6.797 0 5.124V.903C0 .574.136.324.407.152.678-.02.965-.046 1.267.075L15.223 5.96c.372.166.558.447.558.84 0 .393-.186.673-.558.836L1.267 13.52Z" fill="currentColor" />
-  </svg>
-);
-const IconPlus = () => (
-  <svg width="22" height="22" viewBox="0 0 20 20" fill="none">
-    <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.4" />
-    <path d="M10 6.5v7M6.5 10h7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
   </svg>
 );
 const IconClose = () => (
@@ -75,7 +76,6 @@ interface Msg {
 }
 
 const formatSize = (b: number) => (b < 1024 ? `${b} B` : b < 1048576 ? `${Math.round(b / 1024)} KB` : `${(b / 1048576).toFixed(1)} MB`);
-
 const DOC_EXT: Record<string, DocKind> = { pdf: "pdf", doc: "doc", docx: "doc", xls: "xls", xlsx: "xls", csv: "xls", ppt: "ppt", pptx: "ppt", zip: "zip", rar: "zip", txt: "txt" };
 
 const SEED: Msg[] = [
@@ -86,9 +86,31 @@ const SEED: Msg[] = [
   { id: 5, variant: "sent", quoted: { name: "George Alan", media: { kind: "image", count: 6, caption: "the set" } }, groups: [{ t: "media", count: 2, total: 2, video: false }], caption: "love these 🙌", time: "4:55 pm", status: "read" },
 ];
 
-/* ─── Chat shell ───────────────────────────────────────────────────────────── */
+/* ─── Sidebar helpers ──────────────────────────────────────────────────────── */
 
-function EndToEndChat() {
+function TabItem({ icon, label, active }: { icon: string; label: string; active?: boolean }) {
+  return (
+    <div className="shell__tab-item">
+      <span className={`icon-rounded shell__tab-icon ${active ? "shell__tab-icon--active" : ""}`}>{icon}</span>
+      <span className={`shell__tab-label ${active ? "shell__tab-label--active" : ""}`}>{label}</span>
+    </div>
+  );
+}
+
+const CONVOS = [
+  { a: { name: "George Alan", imageUrl: male[0].imageUrl }, last: "love these 🙌", time: "4:55 pm", active: true },
+  { a: female[0], last: "🖼 4 Photos", time: "3:20 pm" },
+  { a: male[1], last: "📄 Contract.pdf", time: "2:14 pm" },
+  { a: female[1], last: "🎤 Audio", time: "1:02 pm" },
+  { a: male[2], last: "🎬 2 Videos", time: "Yesterday" },
+  { a: female[2], last: "You: sounds good!", time: "Yesterday" },
+  { a: male[3], last: "📎 3 Files", time: "Mon" },
+  { a: female[3], last: "Thanks a lot 🙏", time: "Mon" },
+];
+
+/* ─── Chat main (interactive) ──────────────────────────────────────────────── */
+
+function ChatMain() {
   const [messages, setMessages] = useState<Msg[]>(SEED);
   const [pending, setPending] = useState<Pending[]>([]);
   const [text, setText] = useState("");
@@ -135,7 +157,7 @@ function EndToEndChat() {
     setPending([]);
     setText("");
     window.setTimeout(() => {
-      setMessages((ms) => ms.map((m) => (m.id === id ? { ...m, state: "default", status: "read", time: "now" } : m)));
+      setMessages((ms) => ms.map((m) => (m.id === id ? { ...m, state: "default", status: "read" } : m)));
     }, 1700);
   }
 
@@ -154,8 +176,7 @@ function EndToEndChat() {
               quoted: i === 0 ? m.quoted : undefined,
               caption: last ? m.caption : undefined,
             };
-            if (g.t === "media")
-              return <MultiAttachmentBubble key={i} {...common} images={g.count} totalImages={g.total} videoAt={g.video ? Array.from({ length: g.count }, (_, k) => k) : []} />;
+            if (g.t === "media") return <MultiAttachmentBubble key={i} {...common} images={g.count} totalImages={g.total} videoAt={g.video ? Array.from({ length: g.count }, (_, k) => k) : []} />;
             if (g.t === "file") return <MultiAttachmentBubble key={i} {...common} files={[{ kind: g.kind, name: g.name, meta: g.meta }]} />;
             return <MultiAttachmentBubble key={i} {...common} files={[{ kind: "audio", name: g.name, meta: g.meta }]} />;
           });
@@ -170,6 +191,7 @@ function EndToEndChat() {
 
   return (
     <div
+      style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0, position: "relative" }}
       onDragOver={(e) => {
         e.preventDefault();
         if (!dragging) setDragging(true);
@@ -182,26 +204,34 @@ function EndToEndChat() {
         setDragging(false);
         if (e.dataTransfer.files.length) addFiles(e.dataTransfer.files);
       }}
-      style={{ position: "relative", width: 440, height: 660, display: "flex", flexDirection: "column", background: "var(--cometchat-background-color-01)", borderRadius: "var(--cometchat-radius-4)", border: "1px solid var(--cometchat-border-color-default)", overflow: "hidden", boxShadow: "var(--cometchat-shadow-sm)", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}
     >
-      {/* Header */}
-      <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", borderBottom: "1px solid var(--cometchat-border-color-light)", flexShrink: 0 }}>
-        <div style={{ width: 40, height: 40, borderRadius: "50%", background: "hsl(250 60% 92%)", color: "hsl(250 45% 40%)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 600, fontSize: 15 }}>G</div>
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontSize: 15, fontWeight: 600, color: "var(--cometchat-text-color-primary)" }}>George Alan</div>
-          <div style={{ fontSize: 12, color: "var(--cometchat-success-color)" }}>online</div>
+      {/* Chat header */}
+      <div className="chat-header">
+        <div className="chat-header__info">
+          <div className="chat-header__avatar">
+            <img src={male[0].imageUrl} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%" }} />
+          </div>
+          <div className="chat-header__text">
+            <span className="chat-header__name">George Alan</span>
+            <span className="chat-header__status">Online</span>
+          </div>
+        </div>
+        <div className="chat-header__actions">
+          <button className="chat-header__action-btn"><span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>videocam</span></button>
+          <button className="chat-header__action-btn"><span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>call</span></button>
+          <button className="chat-header__action-btn"><span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>more_vert</span></button>
         </div>
       </div>
 
-      {/* Message list */}
-      <div ref={listRef} style={{ flex: 1, overflowY: "auto", padding: "16px", display: "flex", flexDirection: "column", gap: 8, background: "var(--cometchat-background-color-02)" }}>
+      {/* Messages */}
+      <div ref={listRef} style={{ flex: 1, overflowY: "auto", padding: "var(--cometchat-spacing-4) var(--cometchat-spacing-6)", display: "flex", flexDirection: "column", gap: 8, background: "var(--cometchat-background-color-02)" }}>
         {messages.map(renderMsg)}
       </div>
 
       {/* Composer */}
-      <div style={{ borderTop: "1px solid var(--cometchat-border-color-light)", background: "var(--cometchat-background-color-01)", flexShrink: 0 }}>
+      <div style={{ borderTop: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-01)" }}>
         {pending.length > 0 && (
-          <div style={{ display: "flex", gap: 8, padding: "10px 12px 2px", overflowX: "auto" }}>
+          <div style={{ display: "flex", gap: 8, padding: "12px 16px 2px", overflowX: "auto" }}>
             {pending.map((p) => (
               <div key={p.id} style={{ position: "relative", flexShrink: 0 }}>
                 {p.kind === "image" ? (
@@ -224,10 +254,10 @@ function EndToEndChat() {
             ))}
           </div>
         )}
-        <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 12px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px" }}>
           <input ref={fileInput} type="file" multiple style={{ display: "none" }} onChange={(e) => e.target.files && addFiles(e.target.files)} />
-          <button onClick={() => fileInput.current?.click()} style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 36, height: 36, borderRadius: 8, border: "none", background: "transparent", color: "var(--cometchat-icon-color-secondary)", cursor: "pointer", flexShrink: 0 }} aria-label="Attach files">
-            <IconPlus />
+          <button onClick={() => fileInput.current?.click()} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", flexShrink: 0 }} aria-label="Attach files">
+            <span className="icon-rounded" style={{ fontSize: 26, color: "var(--cometchat-icon-color-secondary)", "--icon-fill": 0 } as React.CSSProperties}>add_circle</span>
           </button>
           <input
             value={text}
@@ -241,7 +271,7 @@ function EndToEndChat() {
           <button
             onClick={send}
             disabled={!canSend}
-            style={{ width: 40, height: 40, borderRadius: "50%", border: "none", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", cursor: canSend ? "pointer" : "default", background: canSend ? "var(--cometchat-primary-color)" : "var(--cometchat-neutral-color-300)", color: "var(--cometchat-static-white)", transition: "background 0.15s" }}
+            style={{ width: 40, height: 40, borderRadius: "50%", border: "none", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", cursor: canSend ? "pointer" : "default", background: canSend ? "var(--cometchat-primary-color)" : "var(--cometchat-neutral-color-300)", color: "var(--cometchat-static-white)" }}
             aria-label="Send"
           >
             <IconSend />
@@ -251,16 +281,42 @@ function EndToEndChat() {
 
       {/* Drag overlay */}
       {dragging && (
-        <div style={{ position: "absolute", inset: 8, borderRadius: "var(--cometchat-radius-3)", border: "2px dashed var(--cometchat-primary-color)", background: "color-mix(in srgb, var(--cometchat-primary-color) 12%, transparent)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 10, pointerEvents: "none", zIndex: 5 }}>
-          <span className="icon-rounded" style={{ fontSize: 40, color: "var(--cometchat-primary-color)", "--icon-fill": 0 } as React.CSSProperties}>upload_file</span>
-          <span style={{ fontSize: 15, fontWeight: 600, color: "var(--cometchat-primary-color)" }}>Drop files to attach</span>
+        <div style={{ position: "absolute", inset: 12, borderRadius: "var(--cometchat-radius-3)", border: "2px dashed var(--cometchat-primary-color)", background: "color-mix(in srgb, var(--cometchat-primary-color) 10%, transparent)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12, pointerEvents: "none", zIndex: 5 }}>
+          <span className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-primary-color)", "--icon-fill": 0 } as React.CSSProperties}>upload_file</span>
+          <span style={{ fontSize: 17, fontWeight: 600, color: "var(--cometchat-primary-color)" }}>Drop files to attach</span>
         </div>
       )}
     </div>
   );
 }
 
-export const Chat: Story = {
+/* ─── Full screen ──────────────────────────────────────────────────────────── */
+
+function ChatScreen() {
+  return (
+    <div className="shell" style={{ height: 620, fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>
+      <div className="shell__sidebar">
+        <Header title="Chats" actions={[{ icon: "more_vert", onClick: () => {}, ariaLabel: "More" }]} />
+        <div style={{ flex: 1, overflow: "auto" }}>
+          {CONVOS.map((c, i) => (
+            <div key={i} style={c.active ? { background: "var(--cometchat-background-color-03)" } : undefined}>
+              <ConversationItem title={c.a.name} avatarUrl={c.a.imageUrl} textContent={c.last} timestamp={c.time} avatarVariant="image" />
+            </div>
+          ))}
+        </div>
+        <div className="shell__tab-bar">
+          <TabItem icon="chat" label="Chats" active />
+          <TabItem icon="call" label="Calls" />
+          <TabItem icon="group" label="Groups" />
+          <TabItem icon="person" label="Users" />
+        </div>
+      </div>
+      <ChatMain />
+    </div>
+  );
+}
+
+export const Screen: Story = {
   parameters: { controls: { disable: true } },
-  render: () => <EndToEndChat />,
+  render: () => <ChatScreen />,
 };
