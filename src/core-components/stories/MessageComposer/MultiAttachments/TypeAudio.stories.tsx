@@ -79,6 +79,11 @@ export const InMessage: Story = {
                 <MultiAttachmentBubble variant={v} files={[{ kind: "audio", name: "Audio.mp3", meta: "00:32" }]} />
               </MessageStack>
             </Item>
+            <Item label={`${v} · playing`}>
+              <MessageStack variant={v}>
+                <MultiAttachmentBubble variant={v} files={[{ kind: "audio", name: "Audio.mp3", meta: "00:32", playing: true }]} />
+              </MessageStack>
+            </Item>
             <Item label={`${v} · with a document (separate bubbles)`}>
               <MessageStack variant={v}>
                 <MultiAttachmentBubble variant={v} files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" }]} showMeta={false} />

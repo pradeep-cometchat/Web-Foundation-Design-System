@@ -28,6 +28,13 @@ export const IconPlay = ({ size = 12 }: { size?: number }) => (
   </svg>
 );
 
+export const IconPause = ({ size = 12 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 12 12" fill="none">
+    <rect x="2.5" y="1.5" width="2.5" height="9" rx="1" fill="currentColor" />
+    <rect x="7" y="1.5" width="2.5" height="9" rx="1" fill="currentColor" />
+  </svg>
+);
+
 export const IconClose = () => (
   <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
     <path d="M1 1l6 6M7 1L1 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -113,8 +120,8 @@ export function ReceiptIcon({ status = "read" }: { status?: "sent" | "delivered"
 
 /* ─── Audio player card ────────────────────────────────────────────────────── */
 
-/** Round play button. `onDark` inverts it for use on a coloured (sent) bubble. */
-export function PlayButton({ size = 44, onDark = false }: { size?: number; onDark?: boolean }) {
+/** Round play/pause button. `onDark` inverts it for use on a coloured (sent) bubble. */
+export function PlayButton({ size = 44, onDark = false, playing = false }: { size?: number; onDark?: boolean; playing?: boolean }) {
   return (
     <div
       style={{
@@ -129,7 +136,7 @@ export function PlayButton({ size = 44, onDark = false }: { size?: number; onDar
         color: onDark ? "var(--cometchat-primary-color)" : "var(--cometchat-static-white)",
       }}
     >
-      <IconPlay size={Math.round(size * 0.32)} />
+      {playing ? <IconPause size={Math.round(size * 0.32)} /> : <IconPlay size={Math.round(size * 0.32)} />}
     </div>
   );
 }
@@ -168,6 +175,7 @@ export function AudioCard({
   compact = false,
   download = false,
   downloading = false,
+  playing = false,
 }: {
   title?: string;
   current?: string;
@@ -181,17 +189,21 @@ export function AudioCard({
   download?: boolean;
   /** Download in progress — the download icon becomes a progress ring. */
   downloading?: boolean;
+  /** Playback in progress — pause button, seek knob partway, elapsed time. */
+  playing?: boolean;
 }) {
   const titleColor = onDark ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)";
   const timeColor = onDark ? "rgba(255,255,255,0.7)" : "var(--cometchat-text-color-tertiary)";
   const font = "var(--cometchat-font-family, Inter, sans-serif)";
+  const seek = playing && progress === 0 ? 38 : progress;
+  const elapsed = playing && current === "00:00" ? "00:12" : current;
   return (
     <div style={{ display: "flex", alignItems: "center", gap: compact ? 10 : 12, width, minWidth: 0 }}>
-      <PlayButton size={40} onDark={onDark} />
+      <PlayButton size={40} onDark={onDark} playing={playing} />
       <div style={{ display: "flex", flexDirection: "column", gap: compact ? 9 : 8, flex: 1, minWidth: 0 }}>
         <span style={{ fontSize: compact ? 12 : 14, fontWeight: compact ? 500 : 600, color: titleColor, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontFamily: font, lineHeight: compact ? "16px" : "20px" }}>{title}</span>
-        <AudioSeekBar progress={progress} onDark={onDark} />
-        <span style={{ fontSize: compact ? 11 : 12, color: timeColor, fontFamily: font, lineHeight: "14px" }}>{current}/{total}</span>
+        <AudioSeekBar progress={seek} onDark={onDark} />
+        <span style={{ fontSize: compact ? 11 : 12, color: timeColor, fontFamily: font, lineHeight: "14px" }}>{elapsed}/{total}</span>
       </div>
       {download &&
         (downloading ? (
@@ -384,6 +396,8 @@ export interface BubbleFile {
   kind: FileKind;
   name: string;
   meta: string;
+  /** Audio only — playback in progress (pause button + elapsed progress). */
+  playing?: boolean;
 }
 
 /** A quoted message shown as a reply preview at the top of a bubble. */
@@ -588,7 +602,7 @@ export function MultiAttachmentBubble({
     if (f.kind === "audio") {
       return (
         <div key={key} style={cardBase}>
-          <AudioCard title={f.name} total={f.meta} onDark={isSent} width="100%" download downloading={downloading} />
+          <AudioCard title={f.name} total={f.meta} onDark={isSent} width="100%" download downloading={downloading} playing={f.playing} />
         </div>
       );
     }
