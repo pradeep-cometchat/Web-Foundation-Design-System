@@ -28,7 +28,7 @@ export const Sent: Story = {
           videoAt={[1]}
           files={[
             { kind: "pdf", name: "Q3-Report.pdf", meta: "12 Jun · 2.4 MB" },
-            { kind: "audio", name: "Voice note", meta: "0:32" },
+            { kind: "audio", name: "Audio.mp3", meta: "0:32" },
           ]}
           caption="Everything from the review 👆"
         />
@@ -50,7 +50,7 @@ export const Received: Story = {
           videoAt={[1]}
           files={[
             { kind: "pdf", name: "Q3-Report.pdf", meta: "12 Jun · 2.4 MB" },
-            { kind: "audio", name: "Voice note", meta: "0:32" },
+            { kind: "audio", name: "Audio.mp3", meta: "0:32" },
           ]}
           caption="Everything from the review 👆"
         />
@@ -135,7 +135,7 @@ export const AllStates: Story = {
           <Label>{v}</Label>
           <MultiAttachmentBubble variant={v} images={3} videoAt={[1]} files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "12 Jun · 2.4 MB" }]} caption="Review pack 👆" />
           <MultiAttachmentBubble variant={v} images={4} totalImages={9} />
-          <MultiAttachmentBubble variant={v} files={[{ kind: "pdf", name: "Contract.pdf", meta: "1.2 MB" }, { kind: "doc", name: "Notes.docx", meta: "340 KB" }, { kind: "audio", name: "Voice note", meta: "0:32" }]} />
+          <MultiAttachmentBubble variant={v} files={[{ kind: "pdf", name: "Contract.pdf", meta: "1.2 MB" }, { kind: "doc", name: "Notes.docx", meta: "340 KB" }, { kind: "audio", name: "Audio.mp3", meta: "0:32" }]} />
         </div>
       ))}
     </div>

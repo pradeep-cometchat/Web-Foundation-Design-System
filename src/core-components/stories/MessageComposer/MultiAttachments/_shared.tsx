@@ -7,8 +7,9 @@
  * the sent/received chat bubble, and search results.
  *
  * Not a `.stories` file, so it is not picked up as its own sidebar entry —
- * it only supplies components to the three sibling story pages.
+ * it only supplies components to the sibling story pages.
  */
+import "../../../../base-components/components/SearchBar/SearchBar.css";
 
 /* ─── Sample media ─────────────────────────────────────────────────────────── */
 
@@ -491,4 +492,176 @@ export function Section({ title, children }: { title: string; children: React.Re
       {children}
     </div>
   );
+}
+
+/** A labelled specimen — a state name above the thing it names. */
+export function Item({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 8, alignItems: "flex-start" }}>
+      <Label>{label}</Label>
+      {children}
+    </div>
+  );
+}
+
+export function Row({ children, gap = 16 }: { children: React.ReactNode; gap?: number }) {
+  return <div style={{ display: "flex", flexWrap: "wrap", gap, alignItems: "flex-start" }}>{children}</div>;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SEARCH  —  how attachments surface in search results
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+const SEARCH_FILTERS = ["All", "Photos", "Videos", "Audio", "Documents"];
+
+export function SearchHeader({ value = "review", active = "All" }: { value?: string; active?: string }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)", width: "100%" }}>
+      <div className="search-bar">
+        <div className="search-bar__input-wrapper">
+          <span className="search-bar__icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M12.5 11H11.71L11.43 10.73C12.41 9.59 13 8.11 13 6.5C13 2.91 10.09 0 6.5 0C2.91 0 0 2.91 0 6.5C0 10.09 2.91 13 6.5 13C8.11 13 9.59 12.41 10.73 11.43L11 11.71V12.5L16 17.49L17.49 16L12.5 11ZM6.5 11C4.01 11 2 8.99 2 6.5C2 4.01 4.01 2 6.5 2C8.99 2 11 4.01 11 6.5C11 8.99 8.99 11 6.5 11Z" fill="currentColor" />
+            </svg>
+          </span>
+          <input className="search-bar__input" type="text" value={value} readOnly />
+          <button type="button" className="search-bar__clear" aria-label="Clear search">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M1 11L6 6M6 6L11 1M6 6L1 1M6 6L11 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--cometchat-spacing-1-5)" }}>
+        {SEARCH_FILTERS.map((f) => {
+          const on = f === active;
+          return (
+            <button
+              key={f}
+              style={{
+                height: 28,
+                padding: "0 10px",
+                borderRadius: "var(--cometchat-radius-1-5)",
+                border: on ? "1px solid var(--cometchat-primary-color)" : "1px solid var(--cometchat-border-color-dark)",
+                background: on ? "var(--cometchat-primary-color)" : "var(--cometchat-background-color-01)",
+                color: on ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)",
+                fontFamily: "var(--cometchat-font-family, Inter, sans-serif)",
+                fontSize: 12,
+                fontWeight: 500,
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {f}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+export function Avatar({ label, hue = 250 }: { label: string; hue?: number }) {
+  return (
+    <div style={{ width: 40, height: 40, borderRadius: "50%", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", background: `hsl(${hue} 60% 92%)`, color: `hsl(${hue} 45% 40%)`, fontSize: 14, fontWeight: 600 }}>
+      {label}
+    </div>
+  );
+}
+
+/** A conversation search result whose matched message carries several attachments. */
+export function ConversationResult({ name, time, count, hue, thumbs }: { name: string; time: string; count: number; hue?: number; thumbs?: number[] }) {
+  const idx = thumbs ?? [0, 1, 2];
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-3)", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-1)" }}>
+      <Avatar label={name[0]} hue={hue} />
+      <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 2 }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
+          <span style={{ fontSize: 14, fontWeight: 600, color: "var(--cometchat-text-color-primary)" }}>{name}</span>
+          <span style={{ fontSize: 12, color: "var(--cometchat-text-color-tertiary)", flexShrink: 0 }}>{time}</span>
+        </div>
+        <span style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13, color: "var(--cometchat-text-color-secondary)" }}>
+          <span style={{ color: "var(--cometchat-icon-color-secondary)", display: "inline-flex" }}>
+            <IconClip size={15} />
+          </span>
+          {count} {count === 1 ? "attachment" : "attachments"}
+        </span>
+      </div>
+      <div style={{ display: "flex", gap: 3, flexShrink: 0 }}>
+        {idx.map((n, i) => (
+          <div key={i} style={{ position: "relative", width: 34, height: 34, borderRadius: 6, overflow: "hidden", border: "1px solid var(--cometchat-border-color-default)" }}>
+            <img src={SAMPLE_IMAGES[n % SAMPLE_IMAGES.length]} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            {i === idx.length - 1 && count > idx.length && (
+              <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.5)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 600 }}>+{count - idx.length}</div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/** Media-grid result tile (Photos / Videos filter). */
+export function MediaTile({ src, video, duration }: { src: string; video?: boolean; duration?: string }) {
+  return (
+    <div style={{ position: "relative", aspectRatio: "1 / 1", borderRadius: "var(--cometchat-radius-2)", overflow: "hidden", border: "1px solid var(--cometchat-border-color-default)" }}>
+      <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+      {video && (
+        <>
+          <div style={{ position: "absolute", top: 6, right: 6, width: 22, height: 22, borderRadius: "50%", background: "rgba(0,0,0,0.5)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <IconPlay size={10} />
+          </div>
+          {duration && <div style={{ position: "absolute", bottom: 6, left: 6, padding: "1px 6px", borderRadius: 4, background: "rgba(0,0,0,0.6)", color: "#fff", fontSize: 10, fontWeight: 500 }}>{duration}</div>}
+        </>
+      )}
+    </div>
+  );
+}
+
+/** Document-list result row (Documents filter). */
+export function DocumentResult({ name, meta, type, from }: { name: string; meta: string; type: Exclude<FileKind, "audio">; from: string }) {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-3)", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-1)" }}>
+      <div style={{ width: 40, height: 40, borderRadius: "var(--cometchat-radius-1-5)", background: "var(--cometchat-background-color-02)", border: "1px solid var(--cometchat-border-color-default)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+        <FileTypeIcon type={type} size={26} />
+      </div>
+      <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 2 }}>
+        <span style={{ fontSize: 14, fontWeight: 600, color: "var(--cometchat-text-color-primary)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{name}</span>
+        <span style={{ fontSize: 12, color: "var(--cometchat-text-color-tertiary)" }}>{meta} · shared by {from}</span>
+      </div>
+      <span className="icon-rounded" style={{ fontSize: 20, color: "var(--cometchat-icon-color-highlight)", "--icon-fill": 0, flexShrink: 0 } as React.CSSProperties}>download</span>
+    </div>
+  );
+}
+
+/** Audio-list result row (Audio filter). */
+export function AudioResult({ title, meta, from }: { title: string; meta: string; from: string }) {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-3)", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-1)" }}>
+      <div style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--cometchat-background-color-solid)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+        <IconPlay />
+      </div>
+      <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 4 }}>
+        <span style={{ fontSize: 14, fontWeight: 600, color: "var(--cometchat-text-color-primary)" }}>{title}</span>
+        <Waveform tint="var(--cometchat-icon-color-disabled)" />
+      </div>
+      <span style={{ fontSize: 12, color: "var(--cometchat-text-color-tertiary)", flexShrink: 0 }}>{meta} · {from}</span>
+    </div>
+  );
+}
+
+export function Panel({ children, width = 380 }: { children: React.ReactNode; width?: number }) {
+  return (
+    <div style={{ width, display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-4)", padding: "var(--cometchat-spacing-4)", background: "var(--cometchat-background-color-01)", borderRadius: "var(--cometchat-radius-3)", border: "1px solid var(--cometchat-border-color-default)" }}>
+      {children}
+    </div>
+  );
+}
+
+export function Divider() {
+  return <div style={{ height: 1, background: "var(--cometchat-border-color-light)" }} />;
+}
+
+export function ResultsLabel({ children }: { children: React.ReactNode }) {
+  return <div style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--cometchat-text-color-tertiary)" }}>{children}</div>;
 }
