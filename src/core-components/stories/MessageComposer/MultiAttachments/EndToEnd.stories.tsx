@@ -4,7 +4,6 @@ import "../../../../shell/Shell.css";
 import "../../ChatBubbles/ChatBubbles.css";
 import { Header } from "../../../../base-components/components/Header";
 import { ConversationItem } from "../../../../base-components/components/ListItem";
-import { avatarRegistry } from "../../../../cometchat-foundation/tokens/avatars";
 import {
   MultiAttachmentBubble,
   MessageStack,
@@ -31,8 +30,7 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-const male = avatarRegistry["Male Avatar"];
-const female = avatarRegistry["Female Avatar"];
+const AV = (n: number) => `https://i.pravatar.cc/120?img=${n}`;
 
 /* ─── Icons ────────────────────────────────────────────────────────────────── */
 
@@ -98,14 +96,14 @@ function TabItem({ icon, label, active }: { icon: string; label: string; active?
 }
 
 const CONVOS = [
-  { a: { name: "George Alan", imageUrl: male[0].imageUrl }, last: "love these 🙌", time: "4:55 pm", active: true },
-  { a: female[0], last: "🖼 4 Photos", time: "3:20 pm" },
-  { a: male[1], last: "📄 Contract.pdf", time: "2:14 pm" },
-  { a: female[1], last: "🎤 Audio", time: "1:02 pm" },
-  { a: male[2], last: "🎬 2 Videos", time: "Yesterday" },
-  { a: female[2], last: "You: sounds good!", time: "Yesterday" },
-  { a: male[3], last: "📎 3 Files", time: "Mon" },
-  { a: female[3], last: "Thanks a lot 🙏", time: "Mon" },
+  { name: "George Alan", img: AV(12), last: "love these 🙌", time: "4:55 pm", active: true },
+  { name: "Camilla Juliette", img: AV(5), last: "🖼 4 Photos", time: "3:20 pm" },
+  { name: "Brian Michael", img: AV(13), last: "📄 Contract.pdf", time: "2:14 pm" },
+  { name: "Emma Rose", img: AV(9), last: "🎤 Audio", time: "1:02 pm" },
+  { name: "Chris Nolan", img: AV(14), last: "🎬 2 Videos", time: "Yesterday" },
+  { name: "Gabriella Elise", img: AV(16), last: "You: sounds good!", time: "Yesterday" },
+  { name: "Daniel Brooks", img: AV(15), last: "📎 3 Files", time: "Mon" },
+  { name: "Isabella Fleur", img: AV(20), last: "Thanks a lot 🙏", time: "Mon" },
 ];
 
 /* ─── Chat main (interactive) ──────────────────────────────────────────────── */
@@ -209,7 +207,7 @@ function ChatMain() {
       <div className="chat-header">
         <div className="chat-header__info">
           <div className="chat-header__avatar">
-            <img src={male[0].imageUrl} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%" }} />
+            <img src={CONVOS[0].img} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%" }} />
           </div>
           <div className="chat-header__text">
             <span className="chat-header__name">George Alan</span>
@@ -254,20 +252,26 @@ function ChatMain() {
             ))}
           </div>
         )}
-        <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "12px 16px" }}>
           <input ref={fileInput} type="file" multiple style={{ display: "none" }} onChange={(e) => e.target.files && addFiles(e.target.files)} />
-          <button onClick={() => fileInput.current?.click()} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", flexShrink: 0 }} aria-label="Attach files">
+          <button onClick={() => fileInput.current?.click()} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", flexShrink: 0, padding: 0 }} aria-label="Attach files">
             <span className="icon-rounded" style={{ fontSize: 26, color: "var(--cometchat-icon-color-secondary)", "--icon-fill": 0 } as React.CSSProperties}>add_circle</span>
           </button>
-          <input
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") send();
-            }}
-            placeholder="Type a message…"
-            style={{ flex: 1, minWidth: 0, height: 40, border: "none", outline: "none", background: "transparent", fontSize: 14, color: "var(--cometchat-text-color-primary)", fontFamily: "inherit" }}
-          />
+          <div style={{ flex: 1, minWidth: 0, display: "flex", alignItems: "center", gap: 8, height: 42, padding: "0 8px 0 16px", background: "var(--cometchat-background-color-03)", borderRadius: "var(--cometchat-radius-max)" }}>
+            <input
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") send();
+              }}
+              placeholder="Type a message…"
+              style={{ flex: 1, minWidth: 0, border: "none", outline: "none", background: "transparent", fontSize: 14, color: "var(--cometchat-text-color-primary)", fontFamily: "inherit" }}
+            />
+            <span className="icon-rounded" style={{ fontSize: 22, color: "var(--cometchat-icon-color-secondary)", "--icon-fill": 0, flexShrink: 0 } as React.CSSProperties}>mood</span>
+          </div>
+          <button style={{ background: "none", border: "none", cursor: "pointer", display: "flex", flexShrink: 0, padding: 0 }} aria-label="Voice message">
+            <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-secondary)", "--icon-fill": 0 } as React.CSSProperties}>mic</span>
+          </button>
           <button
             onClick={send}
             disabled={!canSend}
@@ -294,13 +298,13 @@ function ChatMain() {
 
 function ChatScreen() {
   return (
-    <div className="shell" style={{ height: 620, fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>
+    <div className="shell" style={{ height: "100vh", borderRadius: 0, border: "none", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>
       <div className="shell__sidebar">
         <Header title="Chats" actions={[{ icon: "more_vert", onClick: () => {}, ariaLabel: "More" }]} />
         <div style={{ flex: 1, overflow: "auto" }}>
           {CONVOS.map((c, i) => (
             <div key={i} style={c.active ? { background: "var(--cometchat-background-color-03)" } : undefined}>
-              <ConversationItem title={c.a.name} avatarUrl={c.a.imageUrl} textContent={c.last} timestamp={c.time} avatarVariant="image" />
+              <ConversationItem title={c.name} avatarUrl={c.img} textContent={c.last} timestamp={c.time} avatarVariant="image" />
             </div>
           ))}
         </div>
