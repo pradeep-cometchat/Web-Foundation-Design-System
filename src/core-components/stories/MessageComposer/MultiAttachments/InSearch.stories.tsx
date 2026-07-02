@@ -75,9 +75,11 @@ interface PreviewProps {
 
 function Preview({ sent, sender, kind, count = 1, caption }: PreviewProps) {
   const label = caption ?? typeLabel(kind, count);
+  const who = sent ? "You" : sender;
   return (
     <span style={{ display: "inline-flex", alignItems: "center", gap: 5, minWidth: 0, fontSize: 13, color: "var(--cometchat-text-color-secondary)", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>
-      {sent ? <Receipt /> : <span style={{ flexShrink: 0 }}>{sender}:</span>}
+      {sent && <Receipt />}
+      {who && <span style={{ flexShrink: 0 }}>{who}:</span>}
       {kind !== "text" && (
         <span className="icon-rounded" style={{ fontSize: 16, color: "var(--cometchat-icon-color-secondary)", "--icon-fill": 0, flexShrink: 0 } as React.CSSProperties}>{TYPE_ICON[kind]}</span>
       )}
@@ -188,22 +190,23 @@ function MediaRow({ title, kind, count = 4, caption, sent, sender, srcOffset = 0
 /* ─── Documents (first doc icon + stack behind) ────────────────────────────── */
 
 function DocStack({ type = "pdf" }: { type?: FileType }) {
-  const backCard = (dx: number, dy: number, bg: string): React.CSSProperties => ({
+  // Cards sit BEHIND the front document and peek out BELOW it (a downward stack).
+  const backCard = (top: number, inset: number, bg: string): React.CSSProperties => ({
     position: "absolute",
-    top: 6 + dy,
-    left: 9 + dx,
-    width: 26,
-    height: 34,
+    top,
+    left: inset,
+    right: inset,
+    height: 32,
     borderRadius: 5,
     background: bg,
     border: "1px solid var(--cometchat-border-color-default)",
   });
   return (
-    <div style={{ position: "relative", width: 48, height: 46, flexShrink: 0 }}>
-      <div style={backCard(7, 4, "var(--cometchat-background-color-03)")} />
-      <div style={backCard(4, 2, "var(--cometchat-background-color-02)")} />
-      <div style={{ position: "absolute", top: 3, left: 4 }}>
-        <FileTypeIcon type={type} size={38} />
+    <div style={{ position: "relative", width: 40, height: 50, flexShrink: 0 }}>
+      <div style={backCard(17, 2, "var(--cometchat-background-color-03)")} />
+      <div style={backCard(11, 4, "var(--cometchat-background-color-02)")} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
+        <FileTypeIcon type={type} size={36} />
       </div>
     </div>
   );
@@ -223,7 +226,8 @@ function MetaRight({ time, unread }: { time: string; unread?: number }) {
 }
 
 function DocRow({ title, count = 12, caption, sent, sender, type = "pdf", time, unread }: { title: string; count?: number; caption?: string; sent?: boolean; sender?: string; type?: FileType; time: string; unread?: number }) {
-  return <Row left={<DocStack type={type} />} title={title} subtitle={<Preview sent={sent} sender={sender} kind="file" count={count} caption={caption} />} right={<MetaRight time={time} unread={unread} />} />;
+  // The unread chip can't sit next to a caption — suppress it when a caption is shown.
+  return <Row left={<DocStack type={type} />} title={title} subtitle={<Preview sent={sent} sender={sender} kind="file" count={count} caption={caption} />} right={<MetaRight time={time} unread={caption ? undefined : unread} />} />;
 }
 
 /* ─── Audio (play button + time) ───────────────────────────────────────────── */
@@ -279,10 +283,10 @@ export const Documents: Story = {
   render: () => (
     <div style={{ padding: 24 }}>
       <ChatSearchPanel active="Documents">
-        <DocRow title="Group 1" count={12} sent type="pdf" time="4:30 PM" />
-        <DocRow title="Group 1" count={1} sender="Pradeep" caption="the signed copy" type="doc" time="4:30 PM" unread={8} />
-        <DocRow title="George Alan" count={12} sent type="xls" time="4:30 PM" />
-        <DocRow title="George Alan" count={3} sent caption="final drafts" type="pdf" time="4:30 PM" unread={8} />
+        <DocRow title="Group 1" count={12} sent type="pdf" time="4:30 PM" unread={8} />
+        <DocRow title="Group 1" count={1} sender="Pradeep" caption="the signed copy" type="doc" time="4:30 PM" />
+        <DocRow title="George Alan" count={12} sent type="xls" time="4:30 PM" unread={8} />
+        <DocRow title="George Alan" count={3} sent caption="final drafts" type="pdf" time="4:30 PM" />
       </ChatSearchPanel>
     </div>
   ),
@@ -321,8 +325,8 @@ export const Overview: Story = {
         <MediaRow title="George Alan" kind="video" count={1} sent caption="watch till the end" srcOffset={2} />
       </ChatSearchPanel>
       <ChatSearchPanel active="Documents">
-        <DocRow title="Group 1" count={12} sent type="pdf" time="4:30 PM" />
-        <DocRow title="Group 1" count={1} sender="Pradeep" caption="the signed copy" type="doc" time="4:30 PM" unread={8} />
+        <DocRow title="Group 1" count={12} sent type="pdf" time="4:30 PM" unread={8} />
+        <DocRow title="Group 1" count={1} sender="Pradeep" caption="the signed copy" type="doc" time="4:30 PM" />
         <DocRow title="George Alan" count={12} sent type="xls" time="4:30 PM" />
       </ChatSearchPanel>
       <ChatSearchPanel active="Audio">
