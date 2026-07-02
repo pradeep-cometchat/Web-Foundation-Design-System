@@ -32,15 +32,7 @@ const IconPlay = ({ size = 16 }: { size?: number }) => (
   </svg>
 );
 
-/** Read receipt (double check) shown before your own messages in the preview. */
-const Receipt = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
-    <path d="M2 8.5L5 11.5L11 4.5" stroke="var(--cometchat-message-seen-color)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M5.5 8.5L8.5 11.5L14.5 4.5" stroke="var(--cometchat-message-seen-color)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
-/* ─── Message preview (receipt/sender · icon · caption-or-label) ────────────── */
+/* ─── Message preview (sender · icon · caption-or-label) ───────────────────── */
 
 type PreviewKind = "image" | "video" | "file" | "audio" | "text";
 
@@ -78,7 +70,6 @@ function Preview({ sent, sender, kind, count = 1, caption }: PreviewProps) {
   const who = sent ? "You" : sender;
   return (
     <span style={{ display: "inline-flex", alignItems: "center", gap: 5, minWidth: 0, fontSize: 13, color: "var(--cometchat-text-color-secondary)", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>
-      {sent && <Receipt />}
       {who && <span style={{ flexShrink: 0 }}>{who}:</span>}
       {kind !== "text" && (
         <span className="icon-rounded" style={{ fontSize: 16, color: "var(--cometchat-icon-color-secondary)", "--icon-fill": 0, flexShrink: 0 } as React.CSSProperties}>{TYPE_ICON[kind]}</span>
