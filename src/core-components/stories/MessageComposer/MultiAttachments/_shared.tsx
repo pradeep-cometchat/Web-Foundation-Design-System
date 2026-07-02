@@ -108,13 +108,14 @@ export function ReceiptIcon({ status = "read" }: { status?: "sent" | "delivered"
 
 /* ─── Waveform (audio) ─────────────────────────────────────────────────────── */
 
-const WAVE = [8, 14, 10, 18, 12, 16, 8, 20, 14, 10, 16, 12, 18, 8, 14, 10];
+// Organic, centred waveform — quiet at the edges, peaking just past the middle.
+const WAVE = [6, 9, 7, 12, 10, 16, 12, 20, 26, 18, 28, 22, 26, 20, 24, 16, 22, 14, 18, 11, 14, 8, 10, 6];
 
 export function Waveform({ tint }: { tint: string }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 2, flex: 1, height: 22 }}>
+    <div style={{ display: "flex", alignItems: "center", gap: 2, flex: 1, height: 30 }}>
       {WAVE.map((h, i) => (
-        <div key={i} style={{ width: 3, height: h, borderRadius: 2, background: tint, flexShrink: 0 }} />
+        <div key={i} style={{ width: 3, height: h, borderRadius: 3, background: tint, flexShrink: 0 }} />
       ))}
     </div>
   );
