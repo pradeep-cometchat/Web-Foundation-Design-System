@@ -160,6 +160,7 @@ export function AudioCard({
   progress = 0,
   onDark = false,
   width = 240,
+  compact = false,
 }: {
   title?: string;
   current?: string;
@@ -167,16 +168,19 @@ export function AudioCard({
   progress?: number;
   onDark?: boolean;
   width?: number | string;
+  /** Composer-strip sizing — smaller play button + a font that matches the document card. */
+  compact?: boolean;
 }) {
   const titleColor = onDark ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)";
   const timeColor = onDark ? "rgba(255,255,255,0.7)" : "var(--cometchat-text-color-tertiary)";
+  const font = "var(--cometchat-font-family, Inter, sans-serif)";
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 12, width, minWidth: 0 }}>
-      <PlayButton size={44} onDark={onDark} />
-      <div style={{ display: "flex", flexDirection: "column", gap: 6, flex: 1, minWidth: 0 }}>
-        <span style={{ fontSize: 14, fontWeight: 600, color: titleColor, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>{title}</span>
+    <div style={{ display: "flex", alignItems: "center", gap: compact ? 10 : 12, width, minWidth: 0 }}>
+      <PlayButton size={compact ? 40 : 44} onDark={onDark} />
+      <div style={{ display: "flex", flexDirection: "column", gap: compact ? 4 : 6, flex: 1, minWidth: 0 }}>
+        <span style={{ fontSize: compact ? 12 : 14, fontWeight: compact ? 500 : 600, color: titleColor, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontFamily: font, lineHeight: compact ? "16px" : "20px" }}>{title}</span>
         <AudioSeekBar progress={progress} onDark={onDark} />
-        <span style={{ fontSize: 12, color: timeColor, fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>{current}/{total}</span>
+        <span style={{ fontSize: compact ? 11 : 12, color: timeColor, fontFamily: font, lineHeight: "14px" }}>{current}/{total}</span>
       </div>
     </div>
   );
@@ -296,8 +300,8 @@ export function DocumentPreview({
 
 export function AudioPreview({ badge = "none", title = "Hello by Adele.mp3", total = "00:32" }: { badge?: BadgeState; title?: string; total?: string }) {
   return (
-    <div style={{ position: "relative", flexShrink: 0, width: 280, boxSizing: "border-box", padding: 14, borderRadius: 8, border: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-02)" }}>
-      <AudioCard title={title} total={total} width="100%" />
+    <div style={{ ...previewCard, width: 260 }}>
+      <AudioCard title={title} total={total} width="100%" compact />
       <Badge state={badge} />
     </div>
   );
