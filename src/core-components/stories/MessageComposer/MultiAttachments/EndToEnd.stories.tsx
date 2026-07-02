@@ -316,7 +316,7 @@ function ChatScreen() {
   );
 }
 
-export const Screen: Story = {
+export const Chat: Story = {
   parameters: { controls: { disable: true } },
   render: () => <ChatScreen />,
 };
