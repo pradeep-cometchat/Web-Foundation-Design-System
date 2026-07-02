@@ -54,7 +54,9 @@ const IconSpinner = ({ size = 12 }: { size?: number }) => (
 type CornerKind = "none" | "remove" | "loading" | "error";
 
 function cornerFor(state: CardState, platform: Platform): CornerKind {
-  if (state === "loading") return "loading";
+  // Loading is shown as a ring on the icon/button, so the corner stays empty —
+  // that's what keeps it from ever colliding with the error mark.
+  if (state === "loading") return "none";
   if (state === "error") return "error";
   if (state === "hover") return "remove";
   // default
@@ -89,17 +91,21 @@ function CornerBadge({ kind }: { kind: CornerKind }) {
   );
 }
 
-/* ─── Inline progress bar (loading) ────────────────────────────────────────── */
+/* ─── Progress ring (determinate upload progress, drawn on the icon/button) ── */
 
-function ProgressBar({ pct = 62, onDark = false }: { pct?: number; onDark?: boolean }) {
+function ProgressRing({ size = 40, stroke = 4, progress = 62 }: { size?: number; stroke?: number; progress?: number }) {
+  const r = (size - stroke) / 2;
+  const c = 2 * Math.PI * r;
+  const off = c * (1 - progress / 100);
   return (
-    <div style={{ height: 4, borderRadius: 2, width: "100%", background: onDark ? "rgba(255,255,255,0.25)" : "var(--cometchat-neutral-color-300)" }}>
-      <div style={{ height: "100%", width: `${pct}%`, borderRadius: 2, background: onDark ? "var(--cometchat-static-white)" : "var(--cometchat-primary-color)" }} />
-    </div>
+    <svg width={size} height={size} style={{ transform: "rotate(-90deg)" }}>
+      <circle cx={size / 2} cy={size / 2} r={r} stroke="rgba(255,255,255,0.3)" strokeWidth={stroke} fill="none" />
+      <circle cx={size / 2} cy={size / 2} r={r} stroke="var(--cometchat-static-white)" strokeWidth={stroke} fill="none" strokeDasharray={c} strokeDashoffset={off} strokeLinecap="round" />
+    </svg>
   );
 }
 
-/* ─── File tile (dark app-style icon) ──────────────────────────────────────── */
+/* ─── File tile (dark app-style icon; ring overlay while loading) ──────────── */
 
 const FILE_META: Record<FileType, { icon: string; color: string; label: string }> = {
   pdf: { icon: "picture_as_pdf", color: "var(--cometchat-error-color)", label: "PDF" },
@@ -107,33 +113,36 @@ const FILE_META: Record<FileType, { icon: string; color: string; label: string }
   xls: { icon: "table_chart", color: "var(--cometchat-success-color)", label: "XLS" },
 };
 
-function FileTile({ type, size = 52 }: { type: FileType; size?: number }) {
+function FileTile({ type, size = 52, loading = false }: { type: FileType; size?: number; loading?: boolean }) {
   const m = FILE_META[type];
   return (
-    <div style={{ width: size, height: size, borderRadius: 13, flexShrink: 0, background: "var(--cometchat-neutral-color-900)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.52), color: m.color, "--icon-fill": 1 } as React.CSSProperties}>
+    <div style={{ position: "relative", width: size, height: size, borderRadius: 13, flexShrink: 0, background: "var(--cometchat-neutral-color-900)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <span className="icon-rounded" style={{ fontSize: Math.round(size * (loading ? 0.42 : 0.52)), color: m.color, "--icon-fill": 1 } as React.CSSProperties}>
         {m.icon}
       </span>
+      {loading && (
+        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <ProgressRing size={size - 8} stroke={3.5} />
+        </div>
+      )}
     </div>
   );
 }
 
-/* ─── Audio button (dark navy circle + progress ring) ──────────────────────── */
+/* ─── Audio button (dark circle; progress ring wraps it only while loading) ── */
 
-function AudioButton({ size = 60, progress = 68 }: { size?: number; progress?: number }) {
-  const sw = 3;
-  const r = (size - sw) / 2;
-  const c = 2 * Math.PI * r;
-  const off = c * (1 - progress / 100);
+function AudioButton({ size = 60, loading = false }: { size?: number; loading?: boolean }) {
+  const inset = loading ? 5 : 0;
   return (
     <div style={{ position: "relative", width: size, height: size, flexShrink: 0 }}>
-      <svg width={size} height={size} style={{ position: "absolute", inset: 0, transform: "rotate(-90deg)" }}>
-        <circle cx={size / 2} cy={size / 2} r={r} stroke="rgba(255,255,255,0.2)" strokeWidth={sw} fill="none" />
-        <circle cx={size / 2} cy={size / 2} r={r} stroke="var(--cometchat-static-white)" strokeWidth={sw} fill="none" strokeDasharray={c} strokeDashoffset={off} strokeLinecap="round" />
-      </svg>
-      <div style={{ position: "absolute", inset: sw + 1, borderRadius: "50%", background: "var(--cometchat-neutral-color-900)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ position: "absolute", inset, borderRadius: "50%", background: "var(--cometchat-neutral-color-900)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
         <IconPlay size={Math.round(size * 0.3)} />
       </div>
+      {loading && (
+        <div style={{ position: "absolute", inset: 0 }}>
+          <ProgressRing size={size} stroke={4} />
+        </div>
+      )}
     </div>
   );
 }
@@ -174,8 +183,8 @@ const titleStyle: React.CSSProperties = {
 };
 
 function subtitle(state: CardState, done: string) {
-  if (state === "loading") return "Uploading… 62%";
   if (state === "error") return "Upload failed · Retry";
+  // Loading keeps the normal subtitle — the ring on the icon signals progress.
   return done;
 }
 
@@ -191,10 +200,10 @@ function DocumentCard({ state = "default", platform = "desktop", type = "pdf", n
   const mobile = platform === "mobile";
   return (
     <div style={cardShell(state, mobile)}>
-      <FileTile type={type} />
+      <FileTile type={type} loading={state === "loading"} />
       <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 6 }}>
         <span style={titleStyle}>{name}</span>
-        {state === "loading" ? <ProgressBar /> : <span style={subStyle(state)}>{subtitle(state, FILE_META[type].label)}</span>}
+        <span style={subStyle(state)}>{subtitle(state, FILE_META[type].label)}</span>
       </div>
       <CornerBadge kind={cornerFor(state, platform)} />
     </div>
@@ -207,12 +216,10 @@ function AudioCard({ state = "default", platform = "desktop", name = "Watch by B
   const mobile = platform === "mobile";
   return (
     <div style={cardShell(state, mobile)}>
-      <AudioButton />
+      <AudioButton loading={state === "loading"} />
       <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 6 }}>
         <span style={titleStyle}>{name}</span>
-        {state === "loading" ? (
-          <ProgressBar />
-        ) : state === "error" ? (
+        {state === "error" ? (
           <span style={subStyle(state)}>Upload failed · Retry</span>
         ) : (
           <>
@@ -246,8 +253,8 @@ function MediaTile({ kind, state = "default", platform = "desktop", src = SAMPLE
         </>
       )}
       {state === "loading" && (
-        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: "#fff" }}>
-          <IconSpinner size={22} />
+        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <ProgressRing size={36} stroke={4} />
         </div>
       )}
       {state === "error" && (
@@ -291,14 +298,12 @@ function TypePage({ render }: { render: (state: CardState, platform: Platform) =
           ))}
         </Row>
       </Section>
-      <Section title="Mobile">
+      <Section title="Mobile — Loading">
         <MobileFrame>
-          {(["default", "loading", "error"] as CardState[]).map((s) => (
-            <div key={s} style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-              <span style={{ fontSize: 10, fontWeight: 600, color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em" }}>{s}{s === "loading" ? " · no ✕" : ""}</span>
-              {render(s, "mobile")}
-            </div>
-          ))}
+          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+            <span style={{ fontSize: 10, fontWeight: 600, color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em" }}>Loading</span>
+            {render("loading", "mobile")}
+          </div>
         </MobileFrame>
       </Section>
     </div>
