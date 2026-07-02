@@ -298,12 +298,14 @@ function TypePage({ render }: { render: (state: CardState, platform: Platform) =
           ))}
         </Row>
       </Section>
-      <Section title="Mobile — Loading">
+      <Section title="Mobile">
         <MobileFrame>
-          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-            <span style={{ fontSize: 10, fontWeight: 600, color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em" }}>Loading</span>
-            {render("loading", "mobile")}
-          </div>
+          {(["default", "loading", "error"] as CardState[]).map((s) => (
+            <div key={s} style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+              <span style={{ fontSize: 10, fontWeight: 600, color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em" }}>{s}</span>
+              {render(s, "mobile")}
+            </div>
+          ))}
         </MobileFrame>
       </Section>
     </div>
