@@ -141,10 +141,14 @@ export function PlayButton({ size = 44, onDark = false, playing = false }: { siz
   );
 }
 
-/** Seek slider with a draggable knob. `progress` is 0–100. */
+/** Seek slider with a draggable knob and a filled track up to it. `progress` is 0–100. */
 export function AudioSeekBar({ progress = 0, onDark = false }: { progress?: number; onDark?: boolean }) {
   return (
     <div style={{ position: "relative", height: 6, borderRadius: 3, width: "100%", background: onDark ? "rgba(255,255,255,0.35)" : "var(--cometchat-neutral-color-300)" }}>
+      {/* Elapsed fill — solid white on a sent bubble, purple on received */}
+      {progress > 0 && (
+        <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: `${progress}%`, borderRadius: 3, background: onDark ? "var(--cometchat-static-white)" : "var(--cometchat-primary-color)" }} />
+      )}
       <div
         style={{
           position: "absolute",
