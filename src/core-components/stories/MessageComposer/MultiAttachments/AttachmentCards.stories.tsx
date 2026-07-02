@@ -113,13 +113,30 @@ const FILE_META: Record<FileType, { icon: string; color: string; label: string }
   xls: { icon: "table_chart", color: "var(--cometchat-success-color)", label: "XLS" },
 };
 
-function FileTile({ type, size = 52, loading = false }: { type: FileType; size?: number; loading?: boolean }) {
+function FileTile({ type, size = 54, loading = false }: { type: FileType; size?: number; loading?: boolean }) {
+  // App-tile: white by default; on loading it darkens and the icon dims behind
+  // a white progress ring (the loading treatment we kept).
   return (
-    <div style={{ position: "relative", width: size, height: size, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <FileTypeIcon type={type} size={size} />
+    <div
+      style={{
+        position: "relative",
+        width: size,
+        height: size,
+        borderRadius: Math.round(size * 0.26),
+        flexShrink: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: loading ? "var(--cometchat-neutral-color-900)" : "var(--cometchat-static-white)",
+        boxShadow: loading ? "none" : "0 1px 3px rgba(16,24,40,0.12)",
+      }}
+    >
+      <div style={{ display: "flex", filter: loading ? "brightness(0.45)" : "none" }}>
+        <FileTypeIcon type={type} size={Math.round(size * 0.64)} />
+      </div>
       {loading && (
         <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <ProgressRing size={size - 12} stroke={3.5} />
+          <ProgressRing size={Math.round(size * 0.62)} stroke={3.5} />
         </div>
       )}
     </div>
