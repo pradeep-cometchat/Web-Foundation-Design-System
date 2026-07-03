@@ -192,6 +192,14 @@
   white-space: nowrap;
 }
 
+/* Separator between message-type label and caption */
+.conversation-item__separator {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--cometchat-text-color-secondary);
+  flex-shrink: 0;
+}
+
 /* Text content */
 .conversation-item__text {
   flex: 1 0 0;

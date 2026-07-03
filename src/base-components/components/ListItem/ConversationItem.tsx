@@ -207,6 +207,7 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
   const showType = !showTyping && messageType !== "none";
   const showTypeLabel = showType && messageTypeLabel;
   const showText = !showTyping && !!textContent;
+  const showSeparator = showType && showText;
 
   return (
     <div className={classes} onClick={onClick} role="button" tabIndex={0}>
@@ -267,6 +268,12 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
                     {messageTypeLabelText[messageType]}
                   </span>
                 )}
+              </span>
+            )}
+
+            {showSeparator && (
+              <span className="conversation-item__separator" aria-hidden="true">
+                ·
               </span>
             )}
 
