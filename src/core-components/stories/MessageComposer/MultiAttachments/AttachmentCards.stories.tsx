@@ -143,7 +143,7 @@ function FileTile({ type, size = 54, loading = false, error = false }: { type: F
           {loading ? (
             <ProgressRing size={Math.round(size * 0.62)} stroke={3.5} />
           ) : (
-            <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.42), "--icon-fill": 1 } as React.CSSProperties}>error</span>
+            <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.42), color: "var(--cometchat-error-color)", "--icon-fill": 1 } as React.CSSProperties}>error</span>
           )}
         </div>
       )}
@@ -176,7 +176,7 @@ function AudioButton({ size = 60, loading = false, error = false, playing = fals
           {loading ? (
             <ProgressRing size={Math.round(size * 0.62)} stroke={3.5} />
           ) : (
-            <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.42), "--icon-fill": 1 } as React.CSSProperties}>error</span>
+            <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.42), color: "var(--cometchat-error-color)", "--icon-fill": 1 } as React.CSSProperties}>error</span>
           )}
         </div>
       )}
@@ -297,7 +297,7 @@ function MediaTile({ kind, state = "default", platform = "desktop", src = SAMPLE
           </div>
         )}
         {state === "error" && (
-          <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-1)", alignItems: "center", justifyContent: "center", color: "var(--cometchat-static-white)" }}>
+          <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-1)", alignItems: "center", justifyContent: "center", color: "var(--cometchat-error-color)" }}>
             <span className="icon-rounded" style={{ fontSize: 22, "--icon-fill": 1 } as React.CSSProperties}>error</span>
             <span style={{ fontSize: 10, fontWeight: 600 }}>Retry</span>
           </div>
