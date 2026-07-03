@@ -10,6 +10,7 @@
  * it only supplies components to the sibling story pages.
  */
 import { SearchBar } from "../../../../base-components/components/SearchBar";
+import { MessagePreview } from "../../../../base-components/components/MessagePreview";
 
 /* ─── Sample media ─────────────────────────────────────────────────────────── */
 
@@ -417,13 +418,6 @@ export interface QuotedReply {
   thumb?: number;
 }
 
-const QUOTED_ICON: Record<QuotedMediaKind, string> = {
-  image: "image",
-  video: "videocam",
-  file: "description",
-  audio: "graphic_eq",
-};
-
 function quotedTypeLabel(kind: QuotedMediaKind, count: number): string {
   const labels: Record<QuotedMediaKind, [string, string]> = {
     image: ["Image", "Images"],
@@ -498,7 +492,6 @@ export function MultiAttachmentBubble({
   const isSent = variant === "sent";
   const primary = isSent ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)";
   const secondary = isSent ? "color-mix(in srgb, var(--cometchat-static-white) 70%, transparent)" : "var(--cometchat-text-color-tertiary)";
-  const accent = isSent ? "var(--cometchat-static-white)" : "var(--cometchat-primary-color)";
 
   const shownTiles = Math.min(images, 4);
   const total = totalImages ?? images;
@@ -636,24 +629,9 @@ export function MultiAttachmentBubble({
   function replyPreview() {
     if (!quoted) return null;
     const m = quoted.media;
-    const summaryText = m ? `${m.count} ${quotedTypeLabel(m.kind, m.count)}${m.caption ? ` · ${m.caption}` : ""}` : quoted.text;
-    return (
-      <div style={{ display: "flex", gap: "var(--cometchat-spacing-2)", alignItems: "stretch", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-2-5)", borderRadius: "var(--cometchat-radius-1-5)", background: isSent ? "color-mix(in srgb, var(--cometchat-static-white) 16%, transparent)" : "var(--cometchat-background-color-02)", overflow: "hidden" }}>
-        <div style={{ width: 3, borderRadius: "var(--cometchat-radius)", background: accent, flexShrink: 0 }} />
-        <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 2 }}>
-          <span style={{ fontSize: 13, fontWeight: 600, color: accent, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>Reply to {quoted.name}</span>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: 5, fontSize: 13, color: secondary, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-            {m && (
-              <span className="icon-rounded" style={{ fontSize: 16, color: secondary, "--icon-fill": 0, flexShrink: 0 } as React.CSSProperties}>{QUOTED_ICON[m.kind]}</span>
-            )}
-            {summaryText}
-          </span>
-        </div>
-        {quoted.thumb !== undefined && (
-          <img src={SAMPLE_IMAGES[quoted.thumb % SAMPLE_IMAGES.length]} alt="" style={{ width: 34, height: 34, borderRadius: "var(--cometchat-radius-1-5)", objectFit: "cover", flexShrink: 0 }} />
-        )}
-      </div>
-    );
+    const summaryText = m ? `${m.count} ${quotedTypeLabel(m.kind, m.count)}${m.caption ? ` · ${m.caption}` : ""}` : (quoted.text ?? "");
+    // The DS Quoted Message component — same light card on sent and received.
+    return <MessagePreview mode="reply" senderName={quoted.name} messageText={summaryText} />;
   }
 
   return (
