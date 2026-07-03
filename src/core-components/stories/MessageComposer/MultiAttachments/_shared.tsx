@@ -586,18 +586,16 @@ export function MultiAttachmentBubble({
   const trailColor = isSent ? "var(--cometchat-static-white)" : "var(--cometchat-icon-color-highlight)";
   const trailTrack = isSent ? "rgba(255,255,255,0.3)" : "var(--cometchat-neutral-color-300)";
 
-  // Every bubble attachment card is the same fixed height with the same 40px
-  // icon, so a document card and an audio card line up consistently.
-  const CARD_H = 72;
+  // Both cards lead with a 40px icon/button and a uniform 12px inset (8px
+  // bubble padding + 4px card padding on every side).
   const ICON = 40;
   const cardBase: React.CSSProperties = {
     display: "flex",
     alignItems: "center",
     gap: "var(--cometchat-spacing-2-5)",
     width: BUBBLE_W,
-    height: CARD_H,
     boxSizing: "border-box",
-    padding: "0 var(--cometchat-spacing-1)",
+    padding: "var(--cometchat-spacing-1)",
   };
 
   function fileCard(f: BubbleFile, key: number) {
