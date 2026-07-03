@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { MultiAttachmentBubble, MessageStack, ChatCanvas, SpinKeyframes, Label } from "./_shared";
+import { UsageDoc, MultiAttachmentBubble, MessageStack, ChatCanvas, SpinKeyframes, Label } from "./_shared";
 
 /**
  * **Multi Attachments — Sent & Received.** How attachments render in the
@@ -189,7 +189,7 @@ export const AllStates: Story = {
   name: "All States",
   parameters: { layout: "padded", controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 24, padding: 24, alignItems: "flex-start" }}>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--cometchat-spacing-6)", padding: "var(--cometchat-spacing-6)", alignItems: "flex-start" }}>
       <SpinKeyframes />
       <ChatCanvas>
         <Label>Multiple formats (separate)</Label>
@@ -204,5 +204,74 @@ export const AllStates: Story = {
         <MessageStack variant="received"><MultiAttachmentBubble variant="received" quoted={{ name: "George Alan", media: { kind: "video", count: 6 } }} caption="On it 👍" /></MessageStack>
       </ChatCanvas>
     </div>
+  ),
+};
+
+/** Usage — HTML structure + token CSS. */
+export const Usage: Story = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <UsageDoc
+      composed={[
+        { name: "MessageStack", desc: "Vertical stack of one sender's bubbles — mixed formats become separate bubbles, aligned to the sender's side." },
+        { name: "MultiAttachmentBubble", desc: "One bubble per format: media grid, file card or audio card + caption, quoted reply, time and receipt." },
+        { name: "DownloadRing", desc: "Determinate progress ring shown while a received attachment downloads." },
+      ]}
+      html={`<!-- Multiple formats — each format is its OWN bubble, stacked -->
+<div class="ma-stack ma-stack--sent">
+  <div class="ma-bubble ma-bubble--sent"><!-- image grid --></div>
+  <div class="ma-bubble ma-bubble--sent"><!-- video grid --></div>
+  <div class="ma-bubble ma-bubble--sent"><!-- document card --></div>
+  <div class="ma-bubble ma-bubble--sent">
+    <!-- audio card -->
+    <div class="ma-bubble__meta">4:56 pm <span class="ma-receipt">done_all</span></div>
+  </div>
+</div>
+
+<!-- Quoted reply to a multi-attachment message -->
+<div class="ma-bubble ma-bubble--sent">
+  <div class="ma-quote">
+    <div class="ma-quote__bar"></div>
+    <div>
+      <p class="ma-quote__name">Reply to George Alan</p>
+      <p class="ma-quote__summary"><span class="icon-rounded">image</span> 6 Images · hello</p>
+    </div>
+  </div>
+  <p class="ma-bubble__caption">These look great! 🙌</p>
+  <div class="ma-bubble__meta">4:56 pm <span class="ma-receipt">done_all</span></div>
+</div>`}
+      css={`.ma-stack { display: flex; flex-direction: column; gap: 3px; }
+.ma-stack--sent { align-items: flex-end; }
+.ma-stack--received { align-items: flex-start; }
+
+.ma-bubble {
+  width: fit-content;
+  padding: var(--cometchat-spacing-2);
+  border-radius: var(--cometchat-radius-3);
+  display: flex; flex-direction: column; gap: var(--cometchat-spacing-1);
+}
+.ma-bubble--sent { background: var(--cometchat-send-bubble-background); }
+.ma-bubble--received { background: var(--cometchat-received-bubble-background); }
+
+.ma-quote {
+  display: flex; gap: var(--cometchat-spacing-2);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-2-5);
+  border-radius: var(--cometchat-radius-1-5);
+  background: color-mix(in srgb, var(--cometchat-static-white) 16%, transparent);
+}
+.ma-quote__bar { width: 3px; border-radius: var(--cometchat-radius); background: var(--cometchat-static-white); }
+.ma-quote__name { font: var(--cometchat-font-caption1-semibold); color: var(--cometchat-static-white); }
+.ma-quote__summary {
+  font: var(--cometchat-font-caption1-regular);
+  color: color-mix(in srgb, var(--cometchat-static-white) 70%, transparent);
+}
+
+.ma-bubble__caption { font: var(--cometchat-font-body-regular); color: var(--cometchat-static-white); }
+.ma-bubble__meta {
+  align-self: flex-end;
+  font: var(--cometchat-font-caption1-regular);
+  color: color-mix(in srgb, var(--cometchat-static-white) 70%, transparent);
+}`}
+    />
   ),
 };

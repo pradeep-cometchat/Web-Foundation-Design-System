@@ -7,6 +7,7 @@ import { SearchBar } from "../../../../base-components/components/SearchBar";
 import { ConversationItem } from "../../../../base-components/components/ListItem";
 import { ActionSheet, CameraIcon, PhotoIcon, VideocamIcon, PlayCircleIcon, DescriptionIcon, PollIcon, CollaborativeWhiteboardIcon, CollaborativeDocumentIcon } from "../../../../base-components/components/ActionSheet";
 import {
+  UsageDoc,
   MultiAttachmentBubble,
   MessageStack,
   ImagePreview,
@@ -118,11 +119,11 @@ const IconClose = () => (
 const composerRow: React.CSSProperties = {
   display: "flex",
   alignItems: "center",
-  gap: 8,
+  gap: "var(--cometchat-spacing-2)",
   background: "var(--cometchat-background-color-01)",
   border: "1px solid var(--cometchat-border-color-default)",
-  borderRadius: 8,
-  padding: "8px 12px",
+  borderRadius: "var(--cometchat-radius-2)",
+  padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)",
 };
 const actionButton: React.CSSProperties = {
   display: "flex",
@@ -130,8 +131,8 @@ const actionButton: React.CSSProperties = {
   justifyContent: "center",
   width: 32,
   height: 32,
-  padding: 6,
-  borderRadius: 8,
+  padding: "var(--cometchat-spacing-1-5)",
+  borderRadius: "var(--cometchat-radius-2)",
   background: "transparent",
   border: "none",
   cursor: "pointer",
@@ -381,7 +382,7 @@ function EndToEndChat({ messages, setMessages }: { messages: Msg[]; setMessages:
         .e2e-row:hover .e2e-reply { opacity: 1; }
         .e2e-reply:hover { background: var(--cometchat-background-color-03); }
       `}</style>
-      <div ref={listRef} style={{ flex: 1, overflowY: "auto", padding: "var(--cometchat-spacing-4) var(--cometchat-spacing-6)", display: "flex", flexDirection: "column", gap: 8, background: "var(--cometchat-background-color-02)" }}>
+      <div ref={listRef} style={{ flex: 1, overflowY: "auto", padding: "var(--cometchat-spacing-4) var(--cometchat-spacing-6)", display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)", background: "var(--cometchat-background-color-02)" }}>
         {messages.map(renderMsg)}
       </div>
 
@@ -395,7 +396,7 @@ function EndToEndChat({ messages, setMessages }: { messages: Msg[]; setMessages:
           </div>
         )}
         {pending.length > 0 && (
-          <div style={{ display: "flex", gap: 8, padding: "10px 12px 2px", marginBottom: 2, overflowX: "auto", overflowY: "visible" }}>
+          <div style={{ display: "flex", gap: "var(--cometchat-spacing-2)", padding: "var(--cometchat-spacing-2-5) var(--cometchat-spacing-3) var(--cometchat-spacing)", marginBottom: 2, overflowX: "auto", overflowY: "visible" }}>
             {pending.map((p) => (
               <div key={p.id} style={{ position: "relative", flexShrink: 0 }}>
                 {(() => {
@@ -412,7 +413,7 @@ function EndToEndChat({ messages, setMessages }: { messages: Msg[]; setMessages:
           </div>
         )}
         {replyTo && (
-          <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 10px 8px 12px", margin: "4px 0 6px", borderRadius: 8, background: "var(--cometchat-background-color-02)", borderLeft: "3px solid var(--cometchat-primary-color)" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-2-5)", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-2-5) var(--cometchat-spacing-2) var(--cometchat-spacing-3)", margin: "4px 0 6px", borderRadius: "var(--cometchat-radius-2)", background: "var(--cometchat-background-color-02)", borderLeft: "3px solid var(--cometchat-primary-color)" }}>
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ fontSize: 13, fontWeight: 600, color: "var(--cometchat-primary-color)" }}>Reply to {quoteFrom(replyTo).name}</div>
               <div style={{ fontSize: 13, color: "var(--cometchat-text-color-secondary)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
@@ -452,7 +453,7 @@ function EndToEndChat({ messages, setMessages }: { messages: Msg[]; setMessages:
 
       {/* Drag overlay */}
       {dragging && (
-        <div style={{ position: "absolute", inset: 0, borderRadius: 0, border: "2px dashed color-mix(in srgb, var(--cometchat-static-white) 45%, transparent)", background: "color-mix(in srgb, var(--cometchat-neutral-color-800) 92%, transparent)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 10, pointerEvents: "none", zIndex: 5 }}>
+        <div style={{ position: "absolute", inset: 0, borderRadius: 0, border: "2px dashed color-mix(in srgb, var(--cometchat-static-white) 45%, transparent)", background: "color-mix(in srgb, var(--cometchat-neutral-color-800) 92%, transparent)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "var(--cometchat-spacing-2-5)", pointerEvents: "none", zIndex: 5 }}>
           <span className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-static-white)", "--icon-fill": 0 } as React.CSSProperties}>upload_file</span>
           <span style={{ fontSize: 17, fontWeight: 600, color: "var(--cometchat-static-white)" }}>Drop files to attach</span>
           <span style={{ fontSize: 13, color: "color-mix(in srgb, var(--cometchat-static-white) 75%, transparent)" }}>
@@ -511,4 +512,91 @@ function ChatScreen() {
 export const Chat: Story = {
   parameters: { controls: { disable: true } },
   render: () => <ChatScreen />,
+};
+
+/** Usage — HTML structure + token CSS. */
+export const Usage: Story = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <UsageDoc
+      composed={[
+        { name: "Header + SearchBar + ConversationItem", desc: "Base Components composing the Chat List sidebar; the active row mirrors the latest sent message." },
+        { name: "ActionSheet", desc: "Base Component opened by the composer ＋ — camera, image, video, audio, document, poll…" },
+        { name: "Single Line Composer", desc: "DS composer row with the attachment preview strip and reply-preview strip above it." },
+        { name: "MultiAttachmentBubble / MessageStack", desc: "Delivered messages — separate bubble per format, uploading → read lifecycle." },
+      ]}
+      html={`<!-- Full chat screen -->
+<div class="shell">
+  <aside class="shell__sidebar">
+    <!-- Header + SearchBar + ConversationItem list (Base Components) -->
+  </aside>
+
+  <main class="chat">
+    <header class="chat-header"><!-- avatar · name · actions --></header>
+
+    <div class="chat__messages">
+      <!-- MessageStack / MultiAttachmentBubble per message -->
+    </div>
+
+    <footer class="chat__composer">
+      <!-- reply preview (when replying) -->
+      <div class="chat__reply">Reply to George Alan · 6 Images</div>
+      <!-- attachment preview strip (queued files) -->
+      <div class="chat__strip"><!-- previews with loading → ✕ badges --></div>
+      <!-- Single Line Composer -->
+      <div class="composer-row">
+        <button aria-label="Attach">add_circle</button>
+        <input placeholder="Enter your message here" />
+        <button aria-label="Send">send</button>
+      </div>
+    </footer>
+
+    <!-- Drag overlay (while dragging files over the chat) -->
+    <div class="chat__dropzone">
+      <span class="icon-rounded">upload_file</span>
+      Drop files to attach — to George Alan
+    </div>
+  </main>
+</div>`}
+      css={`.chat { position: relative; display: flex; flex-direction: column; }
+.chat__messages {
+  flex: 1; overflow-y: auto;
+  padding: var(--cometchat-spacing-4) var(--cometchat-spacing-6);
+  background: var(--cometchat-background-color-02);
+}
+
+.chat__reply {
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-3);
+  border-left: 3px solid var(--cometchat-primary-color);
+  border-radius: var(--cometchat-radius-2);
+  background: var(--cometchat-background-color-02);
+  font: var(--cometchat-font-caption1-regular);
+  color: var(--cometchat-text-color-secondary);
+}
+
+.chat__strip {
+  display: flex; gap: var(--cometchat-spacing-2);
+  padding: var(--cometchat-spacing-2-5) var(--cometchat-spacing-3) var(--cometchat-spacing);
+  overflow-x: auto;
+}
+
+.composer-row {
+  display: flex; align-items: center; gap: var(--cometchat-spacing-2);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-3);
+  border: 1px solid var(--cometchat-border-color-default);
+  border-radius: var(--cometchat-radius-2);
+  background: var(--cometchat-background-color-01);
+}
+
+/* Dark full-bleed drop overlay, white icon + text, destination chat name */
+.chat__dropzone {
+  position: absolute; inset: 0; z-index: 5;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: color-mix(in srgb, var(--cometchat-neutral-color-800) 92%, transparent);
+  border: 2px dashed color-mix(in srgb, var(--cometchat-static-white) 45%, transparent);
+  color: var(--cometchat-static-white);
+  pointer-events: none;
+}`}
+    />
+  ),
 };

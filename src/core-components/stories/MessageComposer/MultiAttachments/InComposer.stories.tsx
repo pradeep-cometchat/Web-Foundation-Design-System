@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import {
+  UsageDoc,
   ComposerShell,
   ImagePreview,
   VideoPreview,
@@ -27,7 +28,7 @@ type Story = StoryObj;
 export const MixedBatch: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ padding: 24 }}>
+    <div style={{ padding: "var(--cometchat-spacing-6)" }}>
       <SpinKeyframes />
       <ComposerShell>
         <ImagePreview badge="hover" />
@@ -44,7 +45,7 @@ export const MixedBatch: Story = {
 export const Uploading: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ padding: 24 }}>
+    <div style={{ padding: "var(--cometchat-spacing-6)" }}>
       <SpinKeyframes />
       <ComposerShell>
         <ImagePreview badge="loading" />
@@ -60,7 +61,7 @@ export const Uploading: Story = {
 export const WithError: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ padding: 24 }}>
+    <div style={{ padding: "var(--cometchat-spacing-6)" }}>
       <SpinKeyframes />
       <ComposerShell>
         <ImagePreview badge="none" />
@@ -75,7 +76,7 @@ export const WithError: Story = {
 export const Overflow: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ padding: 24 }}>
+    <div style={{ padding: "var(--cometchat-spacing-6)" }}>
       <SpinKeyframes />
       <ComposerShell>
         <ImagePreview badge="hover" src={SAMPLE_IMAGES[0]} />
@@ -95,7 +96,7 @@ export const AllStates: Story = {
   name: "All States",
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 40, padding: 24 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-10)", padding: "var(--cometchat-spacing-6)" }}>
       <SpinKeyframes />
       <Section title="Mixed batch">
         <ComposerShell>
@@ -121,5 +122,70 @@ export const AllStates: Story = {
         </ComposerShell>
       </Section>
     </div>
+  ),
+};
+
+/** Usage — HTML structure + token CSS. */
+export const Usage: Story = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <UsageDoc
+      composed={[
+        { name: "ComposerShell", desc: "Message composer with the horizontal, scrollable attachment preview strip." },
+        { name: "ImagePreview / VideoPreview", desc: "72px media thumbnails; video carries a play overlay." },
+        { name: "DocumentPreview / AudioPreview", desc: "File and audio chips at the same 72px height." },
+        { name: "Badge", desc: "Single-slot corner control — ✕ remove, spinner while uploading, error mark on failure." },
+      ]}
+      html={`<!-- Composer with attachment strip -->
+<div class="ma-composer">
+  <input class="ma-composer__input" placeholder="Type your message..." />
+
+  <div class="ma-composer__strip">
+    <div class="ma-image-preview">
+      <img src="photo.jpg" alt="" />
+      <button class="ma-badge ma-badge--remove" aria-label="Remove">✕</button>
+    </div>
+    <div class="ma-doc-preview"><!-- file chip --></div>
+    <div class="ma-audio-preview"><!-- audio chip --></div>
+  </div>
+
+  <div class="ma-composer__toolbar">
+    <button class="ma-composer__attach" aria-label="Attach">add_circle</button>
+    <button class="ma-composer__send" aria-label="Send">send</button>
+  </div>
+</div>`}
+      css={`.ma-composer {
+  display: flex; flex-direction: column;
+  border: 1px solid var(--cometchat-border-color-default);
+  border-radius: var(--cometchat-radius-2);
+  background: var(--cometchat-background-color-01);
+}
+.ma-composer__input {
+  padding: var(--cometchat-spacing-3);
+  font: var(--cometchat-font-body-regular);
+  color: var(--cometchat-text-color-primary);
+}
+.ma-composer__input::placeholder { color: var(--cometchat-text-color-placeholder); }
+
+/* The strip scrolls horizontally; top padding keeps corner badges unclipped */
+.ma-composer__strip {
+  display: flex; gap: var(--cometchat-spacing-2);
+  padding: var(--cometchat-spacing-2-5) var(--cometchat-spacing-3-5);
+  overflow-x: auto; scrollbar-width: none;
+}
+
+.ma-composer__toolbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--cometchat-spacing-1-5) var(--cometchat-spacing-3);
+  border-top: 1px solid var(--cometchat-border-color-light);
+}
+.ma-composer__send {
+  width: 36px; height: 36px;
+  border-radius: var(--cometchat-radius-max);
+  background: var(--cometchat-background-color-solid);
+  color: var(--cometchat-static-white);
+  box-shadow: var(--cometchat-shadow-xs);
+}`}
+    />
   ),
 };

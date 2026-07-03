@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { SAMPLE_IMAGES, FileTypeIcon, type DocKind } from "./_shared";
+import { SearchBar } from "../../../../base-components/components/SearchBar";
+import { UsageDoc, SAMPLE_IMAGES, FileTypeIcon, type DocKind } from "./_shared";
 
 /**
  * **Multi Attachments — In Search.** The global chat search, filtered by
@@ -87,17 +88,6 @@ function Preview({ sent, sender, kind, count = 1, caption }: PreviewProps) {
 
 /* ─── Search header ────────────────────────────────────────────────────────── */
 
-function SearchBar() {
-  return (
-    <div style={{ display: "flex", alignItems: "center", gap: 10, height: 44, padding: "0 16px", borderRadius: "var(--cometchat-radius-max)", background: "var(--cometchat-background-color-02)", border: "1px solid var(--cometchat-border-color-default)" }}>
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style={{ color: "var(--cometchat-icon-color-secondary)", flexShrink: 0 }}>
-        <path d="M12.5 11H11.71L11.43 10.73C12.41 9.59 13 8.11 13 6.5C13 2.91 10.09 0 6.5 0C2.91 0 0 2.91 0 6.5C0 10.09 2.91 13 6.5 13C8.11 13 9.59 12.41 10.73 11.43L11 11.71V12.5L16 17.49L17.49 16L12.5 11ZM6.5 11C4.01 11 2 8.99 2 6.5C2 4.01 4.01 2 6.5 2C8.99 2 11 4.01 11 6.5C11 8.99 8.99 11 6.5 11Z" fill="currentColor" />
-      </svg>
-      <span style={{ fontSize: 15, color: "var(--cometchat-text-color-placeholder)", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>Search</span>
-    </div>
-  );
-}
-
 function FilterPills({ active }: { active: string }) {
   return (
     <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
@@ -110,7 +100,7 @@ function FilterPills({ active }: { active: string }) {
               display: "inline-flex",
               alignItems: "center",
               height: 32,
-              padding: "0 12px",
+              padding: "0 var(--cometchat-spacing-3)",
               borderRadius: "var(--cometchat-radius-max)",
               border: on ? "1px solid var(--cometchat-primary-color)" : "1px solid var(--cometchat-border-color-default)",
               background: on ? "var(--cometchat-primary-color)" : "var(--cometchat-background-color-01)",
@@ -131,9 +121,9 @@ function FilterPills({ active }: { active: string }) {
 
 function ChatSearchPanel({ active, children }: { active: string; children: React.ReactNode }) {
   return (
-    <div style={{ width: 400, display: "flex", flexDirection: "column", gap: 12, padding: 16, background: "var(--cometchat-background-color-01)", borderRadius: "var(--cometchat-radius-3)", border: "1px solid var(--cometchat-border-color-default)" }}>
+    <div style={{ width: 400, display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-3)", padding: "var(--cometchat-spacing-4)", background: "var(--cometchat-background-color-01)", borderRadius: "var(--cometchat-radius-3)", border: "1px solid var(--cometchat-border-color-default)" }}>
       <span style={{ fontSize: 13, color: "var(--cometchat-text-color-secondary)", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>Chats</span>
-      <SearchBar />
+      <SearchBar placeholder="Search" />
       <FilterPills active={active} />
       <span style={{ fontSize: 13, fontWeight: 500, color: "var(--cometchat-text-color-secondary)", marginTop: 4 }}>March 2026</span>
       <div style={{ display: "flex", flexDirection: "column" }}>{children}</div>
@@ -145,7 +135,7 @@ function ChatSearchPanel({ active, children }: { active: string; children: React
 
 function Row({ left, title, subtitle, right }: { left?: React.ReactNode; title: string; subtitle: React.ReactNode; right?: React.ReactNode }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "10px 2px" }}>
+    <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-3)", padding: "var(--cometchat-spacing-2-5) 2px" }}>
       {left}
       <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 3 }}>
         <span style={{ fontSize: 15, fontWeight: 600, color: "var(--cometchat-text-color-primary)", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{title}</span>
@@ -160,7 +150,7 @@ function Row({ left, title, subtitle, right }: { left?: React.ReactNode; title: 
 
 function MediaThumb({ kind, count, src }: { kind: "image" | "video"; count: number; src: string }) {
   return (
-    <div style={{ position: "relative", width: 76, height: 54, borderRadius: 8, overflow: "hidden", flexShrink: 0, border: "1px solid var(--cometchat-border-color-default)" }}>
+    <div style={{ position: "relative", width: 76, height: 54, borderRadius: "var(--cometchat-radius-2)", overflow: "hidden", flexShrink: 0, border: "1px solid var(--cometchat-border-color-default)" }}>
       <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", filter: kind === "video" ? "brightness(0.8)" : undefined }} />
       {kind === "video" && (
         <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 22, height: 22, borderRadius: "50%", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 50%, transparent)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -168,7 +158,7 @@ function MediaThumb({ kind, count, src }: { kind: "image" | "video"; count: numb
         </div>
       )}
       {count > 0 && (
-        <div style={{ position: "absolute", right: 4, bottom: 4, padding: "0 6px", height: 16, borderRadius: 8, background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 60%, transparent)", color: "var(--cometchat-static-white)", fontSize: 11, fontWeight: 600, display: "flex", alignItems: "center" }}>+{count}</div>
+        <div style={{ position: "absolute", right: 4, bottom: 4, padding: "0 var(--cometchat-spacing-1-5)", height: 16, borderRadius: "var(--cometchat-radius-2)", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 60%, transparent)", color: "var(--cometchat-static-white)", fontSize: 11, fontWeight: 600, display: "flex", alignItems: "center" }}>+{count}</div>
       )}
     </div>
   );
@@ -240,7 +230,7 @@ function AudioRow({ title, caption, sent, sender, time }: { title: string; capti
 export const Photos: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ padding: 24 }}>
+    <div style={{ padding: "var(--cometchat-spacing-6)" }}>
       <ChatSearchPanel active="Photos">
         <MediaRow title="Group 1" kind="image" count={4} sent srcOffset={0} />
         <MediaRow title="Group 1" kind="image" count={4} sent caption="hello" srcOffset={1} />
@@ -256,7 +246,7 @@ export const Photos: Story = {
 export const Videos: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ padding: 24 }}>
+    <div style={{ padding: "var(--cometchat-spacing-6)" }}>
       <ChatSearchPanel active="Videos">
         <MediaRow title="Group 1" kind="video" count={4} sent srcOffset={1} />
         <MediaRow title="Group 1" kind="video" count={4} sent caption="the highlights 🎬" srcOffset={2} />
@@ -272,7 +262,7 @@ export const Videos: Story = {
 export const Documents: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ padding: 24 }}>
+    <div style={{ padding: "var(--cometchat-spacing-6)" }}>
       <ChatSearchPanel active="Documents">
         <DocRow title="Group 1" count={12} sent type="pdf" time="4:30 PM" />
         <DocRow title="Group 1" count={6} sender="Pradeep" caption="the signed copy" type="doc" time="4:30 PM" />
@@ -287,7 +277,7 @@ export const Documents: Story = {
 export const Audio: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ padding: 24 }}>
+    <div style={{ padding: "var(--cometchat-spacing-6)" }}>
       <ChatSearchPanel active="Audio">
         <AudioRow title="Group 1" sent time="4:30 PM" />
         <AudioRow title="Group 1" sender="Pradeep" time="4:30 PM" />
@@ -305,7 +295,7 @@ export const Audio: Story = {
 export const Overview: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 20, padding: 24, alignItems: "flex-start" }}>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--cometchat-spacing-5)", padding: "var(--cometchat-spacing-6)", alignItems: "flex-start" }}>
       <ChatSearchPanel active="Photos">
         <MediaRow title="Group 1" kind="image" count={4} sent srcOffset={0} />
         <MediaRow title="Group 2" kind="image" count={4} sender="Pradeep" caption="on the way!" srcOffset={2} />
@@ -327,5 +317,80 @@ export const Overview: Story = {
         <AudioRow title="Group 1" sender="Pradeep" caption="voice note 🎙" time="4:30 PM" />
       </ChatSearchPanel>
     </div>
+  ),
+};
+
+/** Usage — HTML structure + token CSS. */
+export const Usage: Story = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <UsageDoc
+      composed={[
+        { name: "SearchBar", desc: "Design-system search input at the top of the panel." },
+        { name: "Filter chips", desc: "All / Photos / Videos / Audio / Documents — active chip fills with primary." },
+        { name: "MediaRow / DocRow / AudioRow", desc: "Filter-specific result rows: right media thumb, fanned doc stack + count, play button + time." },
+      ]}
+      html={`<!-- Search panel with attachment filters -->
+<div class="ma-search">
+  <!-- SearchBar (Base Component) -->
+  <div class="search-bar"><!-- … --></div>
+
+  <div class="ma-search__chips">
+    <button class="ma-chip ma-chip--active">Photos</button>
+    <button class="ma-chip">Videos</button>
+    <button class="ma-chip">Audio</button>
+    <button class="ma-chip">Documents</button>
+  </div>
+
+  <!-- Photos/Videos result — text left, media thumb right (no read receipt) -->
+  <div class="ma-result">
+    <div class="ma-result__body">
+      <p class="ma-result__title">George Alan</p>
+      <p class="ma-result__preview"><span class="icon-rounded">image</span> 4 Photos · the set</p>
+    </div>
+    <div class="ma-result__thumb"><img src="1.jpg" alt="" /><span>+3</span></div>
+  </div>
+
+  <!-- Documents result — fanned stack icon; count folds into the caption -->
+  <div class="ma-result">
+    <div class="ma-doc-stack"><!-- first doc icon + fanned copies behind --></div>
+    <div class="ma-result__body">
+      <p class="ma-result__title">Group 1</p>
+      <p class="ma-result__preview">the signed copy · 6 Files</p>
+    </div>
+  </div>
+</div>`}
+      css={`.ma-search__chips { display: flex; flex-wrap: wrap; gap: var(--cometchat-spacing-1-5); }
+.ma-chip {
+  height: 34px; padding: 0 var(--cometchat-spacing-4);
+  border-radius: var(--cometchat-radius-max);
+  border: 1px solid var(--cometchat-border-color-default);
+  background: var(--cometchat-background-color-01);
+  color: var(--cometchat-text-color-primary);
+  font: var(--cometchat-font-body-medium);
+}
+.ma-chip--active {
+  background: var(--cometchat-primary-color);
+  border-color: var(--cometchat-primary-color);
+  color: var(--cometchat-static-white);
+}
+
+.ma-result {
+  display: flex; align-items: center; gap: var(--cometchat-spacing-3);
+  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-1);
+}
+.ma-result__title { font: var(--cometchat-font-body-semibold); color: var(--cometchat-text-color-primary); }
+.ma-result__preview { font: var(--cometchat-font-caption1-regular); color: var(--cometchat-text-color-secondary); }
+.ma-result__thumb {
+  width: 76px; height: 54px;
+  border-radius: var(--cometchat-radius-2); overflow: hidden;
+  border: 1px solid var(--cometchat-border-color-default);
+}
+.ma-result__thumb span {
+  background: color-mix(in srgb, var(--cometchat-neutral-color-900) 60%, transparent);
+  color: var(--cometchat-static-white);
+  font: var(--cometchat-font-caption2-semibold);
+}`}
+    />
   ),
 };

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { SAMPLE_IMAGES, Section, Item, Row, SpinKeyframes, FileTypeIcon, type DocKind } from "./_shared";
+import { UsageDoc, SAMPLE_IMAGES, Section, Item, Row, SpinKeyframes, FileTypeIcon, type DocKind } from "./_shared";
 
 /**
  * **Attachment Cards.** The standalone attachment-card primitives — Document,
@@ -202,9 +202,9 @@ function cardShell(state: CardState, mobile: boolean): React.CSSProperties {
     boxSizing: "border-box",
     display: "flex",
     alignItems: "center",
-    gap: 14,
-    padding: 14,
-    borderRadius: 16,
+    gap: "var(--cometchat-spacing-3-5)",
+    padding: "var(--cometchat-spacing-3-5)",
+    borderRadius: "var(--cometchat-radius-4)",
     background: "var(--cometchat-background-color-01)",
     border: `1px solid ${state === "error" ? "var(--cometchat-error-color)" : "var(--cometchat-border-color-default)"}`,
   };
@@ -288,7 +288,7 @@ function MediaTile({ kind, state = "default", platform = "desktop", src = SAMPLE
             <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 32, height: 32, borderRadius: "50%", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 45%, transparent)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <IconPlay size={13} />
             </div>
-            <div style={{ position: "absolute", bottom: 6, left: 6, padding: "1px 6px", borderRadius: 4, background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 60%, transparent)", color: "var(--cometchat-static-white)", fontSize: 10, fontWeight: 500 }}>0:12</div>
+            <div style={{ position: "absolute", bottom: 6, left: 6, padding: "1px var(--cometchat-spacing-1-5)", borderRadius: "var(--cometchat-radius-1)", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 60%, transparent)", color: "var(--cometchat-static-white)", fontSize: 10, fontWeight: 500 }}>0:12</div>
           </>
         )}
         {state === "loading" && (
@@ -297,7 +297,7 @@ function MediaTile({ kind, state = "default", platform = "desktop", src = SAMPLE
           </div>
         )}
         {state === "error" && (
-          <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", gap: 4, alignItems: "center", justifyContent: "center", color: "var(--cometchat-static-white)" }}>
+          <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-1)", alignItems: "center", justifyContent: "center", color: "var(--cometchat-static-white)" }}>
             <span className="icon-rounded" style={{ fontSize: 22, "--icon-fill": 1 } as React.CSSProperties}>error</span>
             <span style={{ fontSize: 10, fontWeight: 600 }}>Retry</span>
           </div>
@@ -312,13 +312,13 @@ function MediaTile({ kind, state = "default", platform = "desktop", src = SAMPLE
 
 function MobileFrame({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{ width: 360, borderRadius: 28, border: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-02)", padding: 12, boxShadow: "var(--cometchat-shadow-xs)" }}>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "2px 12px 10px" }}>
+    <div style={{ width: 360, borderRadius: 28, border: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-02)", padding: "var(--cometchat-spacing-3)", boxShadow: "var(--cometchat-shadow-xs)" }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "var(--cometchat-spacing) var(--cometchat-spacing-3) var(--cometchat-spacing-2-5)" }}>
         <span style={{ fontSize: 12, fontWeight: 600, color: "var(--cometchat-text-color-secondary)" }}>9:41</span>
         <div style={{ width: 60, height: 5, borderRadius: 3, background: "var(--cometchat-neutral-color-300)" }} />
         <span style={{ fontSize: 12, color: "var(--cometchat-text-color-tertiary)" }}>▮▮▮</span>
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 16, padding: "4px 12px 12px" }}>{children}</div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-4)", padding: "var(--cometchat-spacing-1) var(--cometchat-spacing-3) var(--cometchat-spacing-3)" }}>{children}</div>
     </div>
   );
 }
@@ -329,7 +329,7 @@ const STATES: CardState[] = ["default", "hover", "loading", "error"];
 
 function TypePage({ render }: { render: (state: CardState, platform: Platform) => React.ReactNode }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 40, padding: 24 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-10)", padding: "var(--cometchat-spacing-6)" }}>
       <SpinKeyframes />
       <Section title="Desktop">
         <Row gap={20}>
@@ -372,7 +372,7 @@ export const Audio: Story = {
   render: () => (
     <>
       <TypePage render={(s, p) => <AudioCard state={s} platform={p} name="Watch by Billie.mp3" />} />
-      <div style={{ padding: "0 24px 24px" }}>
+      <div style={{ padding: "0 var(--cometchat-spacing-6) var(--cometchat-spacing-6)" }}>
         <Section title="Playing (pause + progress)">
           <div style={{ maxWidth: 300 }}>
             <AudioCard name="Watch by Billie.mp3" playing />
@@ -387,10 +387,10 @@ export const Audio: Story = {
 export const Overview: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 40, padding: 24, alignItems: "flex-start" }}>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--cometchat-spacing-10)", padding: "var(--cometchat-spacing-6)", alignItems: "flex-start" }}>
       <SpinKeyframes />
       <Section title="Desktop">
-        <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-3-5)" }}>
           <DocumentCard type="pdf" name="Invoice 45821.pdf" />
           <AudioCard name="Watch by Billie.mp3" />
           <Row gap={12}>
@@ -418,7 +418,7 @@ export const FileTypes: Story = {
   name: "Document Types",
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 14, padding: 24, maxWidth: 320 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-3-5)", padding: "var(--cometchat-spacing-6)", maxWidth: 320 }}>
       <DocumentCard type="pdf" name="Invoice 45821.pdf" />
       <DocumentCard type="doc" name="Proposal draft.docx" />
       <DocumentCard type="xls" name="Q3 Budget.xlsx" />
@@ -427,5 +427,80 @@ export const FileTypes: Story = {
       <DocumentCard type="txt" name="Notes.txt" />
       <DocumentCard type="file" name="data.bin" />
     </div>
+  ),
+};
+
+/** Usage — HTML structure + token CSS. */
+export const Usage: Story = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <UsageDoc
+      composed={[
+        { name: "DocumentCard / AudioCard", desc: "300px cards — icon tile or play button + name + subtitle; red border + error treatment on failure." },
+        { name: "MediaTile (image / video)", desc: "120px square tile; loading ring or error overlay in the centre." },
+        { name: "CornerBadge", desc: "Single-slot corner: ✕ remove (hover / mobile), never colliding with loading or error." },
+        { name: "FileTile / AudioButton", desc: "Icon carriers — translucent dark overlay hosts the progress ring (loading) or error mark (mobile error)." },
+      ]}
+      html={`<!-- Document card (desktop) -->
+<div class="ma-card">
+  <div class="ma-file-tile"><span class="ma-file-icon ma-file-icon--pdf"></span></div>
+  <div class="ma-card__body">
+    <p class="ma-card__name">Invoice 45821.pdf</p>
+    <p class="ma-card__sub">PDF</p>
+  </div>
+  <button class="ma-badge ma-badge--remove" aria-label="Remove">✕</button>
+</div>
+
+<!-- Error (mobile): corner keeps ✕, error moves onto the icon overlay -->
+<div class="ma-card ma-card--error">
+  <div class="ma-file-tile">
+    <span class="ma-file-icon ma-file-icon--pdf"></span>
+    <div class="ma-tile-overlay"><span class="icon-rounded">error</span></div>
+  </div>
+  <div class="ma-card__body">
+    <p class="ma-card__name">Invoice 45821.pdf</p>
+    <p class="ma-card__sub ma-card__sub--error">Upload failed · Retry</p>
+  </div>
+  <button class="ma-badge ma-badge--remove" aria-label="Remove">✕</button>
+</div>`}
+      css={`.ma-card {
+  position: relative;
+  display: flex; align-items: center; gap: var(--cometchat-spacing-3-5);
+  width: 300px; padding: var(--cometchat-spacing-3-5);
+  border-radius: var(--cometchat-radius-4);
+  background: var(--cometchat-background-color-01);
+  border: 1px solid var(--cometchat-border-color-default);
+}
+.ma-card--error { border-color: var(--cometchat-error-color); }
+
+.ma-file-tile {
+  position: relative; width: 54px; height: 54px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--cometchat-radius-3-5, 14px);
+  background: var(--cometchat-static-white);
+  box-shadow: 0 1px 3px color-mix(in srgb, var(--cometchat-neutral-color-900) 12%, transparent);
+}
+/* Loading/error overlay on the icon — same translucent treatment */
+.ma-tile-overlay {
+  position: absolute; inset: 0; border-radius: inherit;
+  display: flex; align-items: center; justify-content: center;
+  background: color-mix(in srgb, var(--cometchat-neutral-color-900) 62%, transparent);
+  color: var(--cometchat-static-white);
+}
+
+.ma-card__name { font: var(--cometchat-font-body-semibold); color: var(--cometchat-text-color-primary); }
+.ma-card__sub { font: var(--cometchat-font-caption1-regular); color: var(--cometchat-text-color-tertiary); }
+.ma-card__sub--error { color: var(--cometchat-error-color); }
+
+.ma-badge {
+  position: absolute; top: -8px; right: -8px;
+  width: 22px; height: 22px;
+  border-radius: var(--cometchat-radius-max);
+  border: 2px solid var(--cometchat-background-color-01);
+  background: var(--cometchat-neutral-color-700);
+  color: var(--cometchat-static-white);
+  box-shadow: var(--cometchat-shadow-xs);
+}`}
+    />
   ),
 };

@@ -260,20 +260,20 @@ export function Badge({ state }: { state: BadgeState }) {
 const previewCard: React.CSSProperties = {
   position: "relative",
   height: 72,
-  borderRadius: 8,
+  borderRadius: "var(--cometchat-radius-2)",
   border: "1px solid var(--cometchat-border-color-default)",
   background: "var(--cometchat-background-color-02)",
   display: "flex",
   alignItems: "center",
-  gap: 10,
-  padding: "0 12px",
+  gap: "var(--cometchat-spacing-2-5)",
+  padding: "0 var(--cometchat-spacing-3)",
   flexShrink: 0,
 };
 
 export function ImagePreview({ badge = "none", src = SAMPLE_IMAGES[0] }: { badge?: BadgeState; src?: string }) {
   return (
     <div style={{ position: "relative", width: 72, height: 72, flexShrink: 0 }}>
-      <div style={{ width: 72, height: 72, borderRadius: 12, overflow: "hidden", border: "1px solid var(--cometchat-border-color-default)" }}>
+      <div style={{ width: 72, height: 72, borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", border: "1px solid var(--cometchat-border-color-default)" }}>
         <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <Badge state={badge} />
@@ -284,7 +284,7 @@ export function ImagePreview({ badge = "none", src = SAMPLE_IMAGES[0] }: { badge
 export function VideoPreview({ badge = "none", src = SAMPLE_IMAGES[1] }: { badge?: BadgeState; src?: string }) {
   return (
     <div style={{ position: "relative", width: 72, height: 72, flexShrink: 0 }}>
-      <div style={{ width: 72, height: 72, borderRadius: 12, overflow: "hidden", border: "1px solid var(--cometchat-border-color-default)" }}>
+      <div style={{ width: 72, height: 72, borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", border: "1px solid var(--cometchat-border-color-default)" }}>
         <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <div
@@ -326,7 +326,7 @@ export function DocumentPreview({
       <div style={{ width: 40, height: 40, borderRadius: "var(--cometchat-radius-1-5)", background: "var(--cometchat-static-white)", border: "1px solid var(--cometchat-border-color-light)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
         <FileTypeIcon type={type} size={26} />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 2, overflow: "hidden" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing)", overflow: "hidden" }}>
         <span style={{ fontSize: 12, fontWeight: 500, color: "var(--cometchat-text-color-primary)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{name}</span>
         <span style={{ fontSize: 11, color: "var(--cometchat-text-color-secondary)" }}>{meta}</span>
       </div>
@@ -351,7 +351,7 @@ const composerBox: React.CSSProperties = {
   flexDirection: "column",
   background: "var(--cometchat-background-color-01)",
   border: "1px solid var(--cometchat-border-color-default)",
-  borderRadius: 8,
+  borderRadius: "var(--cometchat-radius-2)",
 };
 
 /** Composer shell with the horizontal, scrollable attachment preview strip. */
@@ -362,7 +362,7 @@ export function ComposerShell({ children, note }: { children: React.ReactNode; n
       <div style={{ padding: 12, fontSize: 14, lineHeight: "20px", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)", color: note ? "var(--cometchat-text-color-primary)" : "var(--cometchat-text-color-placeholder)" }}>
         {note ?? "Type your message..."}
       </div>
-      <div className="ma-scroll" style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 14px", overflowX: "auto", scrollbarWidth: "none" }}>
+      <div className="ma-scroll" style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-2)", padding: "var(--cometchat-spacing-2-5) var(--cometchat-spacing-3-5)", overflowX: "auto", scrollbarWidth: "none" }}>
         {children}
       </div>
       <ComposerToolbar />
@@ -371,7 +371,7 @@ export function ComposerShell({ children, note }: { children: React.ReactNode; n
 }
 
 function ComposerToolbar() {
-  const btn: React.CSSProperties = { width: 32, height: 32, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", color: "var(--cometchat-icon-color-secondary)" };
+  const btn: React.CSSProperties = { width: 32, height: 32, borderRadius: "var(--cometchat-radius-2)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--cometchat-icon-color-secondary)" };
   const dot = (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
       <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.3" />
@@ -379,8 +379,8 @@ function ComposerToolbar() {
     </svg>
   );
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "6px 12px", borderTop: "1px solid var(--cometchat-border-color-light)" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 8, flex: 1 }}>
+    <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-3)", padding: "var(--cometchat-spacing-1-5) var(--cometchat-spacing-3)", borderTop: "1px solid var(--cometchat-border-color-light)" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-2)", flex: 1 }}>
         <span style={btn}>{dot}</span>
       </div>
       <div style={{ width: 36, height: 36, borderRadius: "50%", background: "var(--cometchat-background-color-solid)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "var(--cometchat-shadow-xs)" }}>
@@ -611,7 +611,7 @@ export function MultiAttachmentBubble({
         <div style={{ width: ICON, height: ICON, borderRadius: "var(--cometchat-radius-1-5)", background: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
           <FileTypeIcon type={f.kind} size={26} />
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 4, flex: 1, minWidth: 0 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-1)", flex: 1, minWidth: 0 }}>
           <span style={{ fontSize: 14, fontWeight: 600, color: primary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{f.name}</span>
           <span style={{ fontSize: 12, color: secondary }}>{downloading ? "Downloading…" : f.meta}</span>
         </div>
@@ -631,8 +631,8 @@ export function MultiAttachmentBubble({
     const m = quoted.media;
     const summaryText = m ? `${m.count} ${quotedTypeLabel(m.kind, m.count)}${m.caption ? ` · ${m.caption}` : ""}` : quoted.text;
     return (
-      <div style={{ display: "flex", gap: "var(--cometchat-spacing-2)", alignItems: "stretch", padding: "8px 10px", borderRadius: "var(--cometchat-radius-1-5)", background: isSent ? "color-mix(in srgb, var(--cometchat-static-white) 16%, transparent)" : "var(--cometchat-background-color-02)", overflow: "hidden" }}>
-        <div style={{ width: 3, borderRadius: 2, background: accent, flexShrink: 0 }} />
+      <div style={{ display: "flex", gap: "var(--cometchat-spacing-2)", alignItems: "stretch", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-2-5)", borderRadius: "var(--cometchat-radius-1-5)", background: isSent ? "color-mix(in srgb, var(--cometchat-static-white) 16%, transparent)" : "var(--cometchat-background-color-02)", overflow: "hidden" }}>
+        <div style={{ width: 3, borderRadius: "var(--cometchat-radius)", background: accent, flexShrink: 0 }} />
         <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 2 }}>
           <span style={{ fontSize: 13, fontWeight: 600, color: accent, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>Reply to {quoted.name}</span>
           <span style={{ display: "inline-flex", alignItems: "center", gap: 5, fontSize: 13, color: secondary, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
@@ -643,7 +643,7 @@ export function MultiAttachmentBubble({
           </span>
         </div>
         {quoted.thumb !== undefined && (
-          <img src={SAMPLE_IMAGES[quoted.thumb % SAMPLE_IMAGES.length]} alt="" style={{ width: 34, height: 34, borderRadius: 6, objectFit: "cover", flexShrink: 0 }} />
+          <img src={SAMPLE_IMAGES[quoted.thumb % SAMPLE_IMAGES.length]} alt="" style={{ width: 34, height: 34, borderRadius: "var(--cometchat-radius-1-5)", objectFit: "cover", flexShrink: 0 }} />
         )}
       </div>
     );
@@ -652,7 +652,7 @@ export function MultiAttachmentBubble({
   return (
     <div style={wrapper}>
       {forwarded && (
-        <div style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "0 var(--cometchat-spacing-1)", fontSize: 12, fontStyle: "italic", color: secondary }}>
+        <div style={{ display: "inline-flex", alignItems: "center", gap: "var(--cometchat-spacing-1)", padding: "0 var(--cometchat-spacing-1)", fontSize: 12, fontStyle: "italic", color: secondary }}>
           <span className="icon-rounded" style={{ fontSize: 15, transform: "scaleX(-1)", "--icon-fill": 0 } as React.CSSProperties}>reply</span>
           Forwarded
         </div>
@@ -718,7 +718,7 @@ export function Label({ children }: { children: React.ReactNode }) {
 
 export function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-3)" }}>
       <div style={{ fontSize: 12, fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em" }}>{title}</div>
       {children}
     </div>
@@ -728,7 +728,7 @@ export function Section({ title, children }: { title: string; children: React.Re
 /** A labelled specimen — a state name above the thing it names. */
 export function Item({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 8, alignItems: "flex-start" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)", alignItems: "flex-start" }}>
       <Label>{label}</Label>
       {children}
     </div>
@@ -757,7 +757,7 @@ export function SearchHeader({ value = "review", active = "All" }: { value?: str
               key={f}
               style={{
                 height: 34,
-                padding: "0 16px",
+                padding: "0 var(--cometchat-spacing-4)",
                 borderRadius: "var(--cometchat-radius-max)",
                 border: on ? "1px solid var(--cometchat-primary-color)" : "1px solid var(--cometchat-border-color-default)",
                 background: on ? "var(--cometchat-primary-color)" : "var(--cometchat-background-color-01)",
@@ -778,7 +778,8 @@ export function SearchHeader({ value = "review", active = "All" }: { value?: str
   );
 }
 
-export function Avatar({ label, hue = 250 }: { label: string; hue?: number }) {
+// `hue` is accepted for call-site compatibility; the tint now comes from tokens.
+export function Avatar({ label }: { label: string; hue?: number }) {
   return (
     <div style={{ width: 40, height: 40, borderRadius: "var(--cometchat-radius-max)", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", background: "var(--cometchat-extended-primary-color-100)", color: "var(--cometchat-primary-color)", font: "var(--cometchat-font-body-semibold)" }}>
       {label}
@@ -793,11 +794,11 @@ export function ConversationResult({ name, time, count, hue, thumbs }: { name: s
     <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-3)", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-1)" }}>
       <Avatar label={name[0]} hue={hue} />
       <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 2 }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "var(--cometchat-spacing-2)" }}>
           <span style={{ fontSize: 14, fontWeight: 600, color: "var(--cometchat-text-color-primary)" }}>{name}</span>
           <span style={{ fontSize: 12, color: "var(--cometchat-text-color-tertiary)", flexShrink: 0 }}>{time}</span>
         </div>
-        <span style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13, color: "var(--cometchat-text-color-secondary)" }}>
+        <span style={{ display: "inline-flex", alignItems: "center", gap: "var(--cometchat-spacing-1-5)", fontSize: 13, color: "var(--cometchat-text-color-secondary)" }}>
           <span style={{ color: "var(--cometchat-icon-color-secondary)", display: "inline-flex" }}>
             <IconClip size={15} />
           </span>
@@ -806,7 +807,7 @@ export function ConversationResult({ name, time, count, hue, thumbs }: { name: s
       </div>
       <div style={{ display: "flex", gap: 3, flexShrink: 0 }}>
         {idx.map((n, i) => (
-          <div key={i} style={{ position: "relative", width: 34, height: 34, borderRadius: 6, overflow: "hidden", border: "1px solid var(--cometchat-border-color-default)" }}>
+          <div key={i} style={{ position: "relative", width: 34, height: 34, borderRadius: "var(--cometchat-radius-1-5)", overflow: "hidden", border: "1px solid var(--cometchat-border-color-default)" }}>
             <img src={SAMPLE_IMAGES[n % SAMPLE_IMAGES.length]} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             {i === idx.length - 1 && count > idx.length && (
               <div style={{ position: "absolute", inset: 0, background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 50%, transparent)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 600 }}>+{count - idx.length}</div>
@@ -828,7 +829,7 @@ export function MediaTile({ src, video, duration }: { src: string; video?: boole
           <div style={{ position: "absolute", top: 6, right: 6, width: 22, height: 22, borderRadius: "50%", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 50%, transparent)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <IconPlay size={10} />
           </div>
-          {duration && <div style={{ position: "absolute", bottom: 6, left: 6, padding: "1px 6px", borderRadius: 4, background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 60%, transparent)", color: "var(--cometchat-static-white)", fontSize: 10, fontWeight: 500 }}>{duration}</div>}
+          {duration && <div style={{ position: "absolute", bottom: 6, left: 6, padding: "1px var(--cometchat-spacing-1-5)", borderRadius: "var(--cometchat-radius-1)", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 60%, transparent)", color: "var(--cometchat-static-white)", fontSize: 10, fontWeight: 500 }}>{duration}</div>}
         </>
       )}
     </div>
@@ -856,7 +857,7 @@ export function AudioResult({ title, meta, from }: { title: string; meta: string
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-3)", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-1)" }}>
       <PlayButton size={40} />
-      <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 6 }}>
+      <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-1-5)" }}>
         <span style={{ fontSize: 14, fontWeight: 600, color: "var(--cometchat-text-color-primary)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{title}</span>
         <AudioSeekBar />
       </div>

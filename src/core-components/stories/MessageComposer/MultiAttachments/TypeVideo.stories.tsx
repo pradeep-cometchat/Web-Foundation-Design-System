@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import {
+  UsageDoc,
   VideoPreview,
   MultiAttachmentBubble,
   ChatCanvas,
@@ -34,7 +35,7 @@ export const InComposer: Story = {
   name: "In Composer",
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ padding: 24 }}>
+    <div style={{ padding: "var(--cometchat-spacing-6)" }}>
       <SpinKeyframes />
       <Section title="In Composer">
         <Row gap={24}>
@@ -54,7 +55,7 @@ export const InMessage: Story = {
   name: "In Message",
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ padding: 24 }}>
+    <div style={{ padding: "var(--cometchat-spacing-6)" }}>
       <SpinKeyframes />
       <Row gap={24}>
         {(["sent", "received"] as const).map((v) => (
@@ -79,7 +80,7 @@ export const InSearch: Story = {
   name: "In Search",
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ padding: 24 }}>
+    <div style={{ padding: "var(--cometchat-spacing-6)" }}>
       <Row gap={24}>
         <Section title="Media grid">
           <Panel>
@@ -102,5 +103,55 @@ export const InSearch: Story = {
         </Section>
       </Row>
     </div>
+  ),
+};
+
+/** Usage — HTML structure + token CSS. */
+export const Usage: Story = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <UsageDoc
+      composed={[
+        { name: "VideoPreview", desc: "Composer thumbnail with a centered play overlay and the single-slot corner badge." },
+        { name: "MultiAttachmentBubble", desc: "Delivered video grid — every tile carries a play overlay; “+N” for overflow." },
+        { name: "SearchBar", desc: "Design-system search input used by the Videos filter." },
+        { name: "MediaTile", desc: "Search video tile with play overlay + duration badge." },
+      ]}
+      html={`<!-- Composer preview -->
+<div class="ma-video-preview">
+  <img class="ma-video-preview__img" src="clip.jpg" alt="" />
+  <span class="ma-play">play_arrow</span>
+  <button class="ma-badge ma-badge--remove" aria-label="Remove">✕</button>
+</div>
+
+<!-- In search — Videos filter tile -->
+<div class="ma-tile">
+  <img src="clip.jpg" alt="" />
+  <span class="ma-tile__play">play_arrow</span>
+  <span class="ma-tile__duration">0:12</span>
+</div>`}
+      css={`.ma-video-preview { position: relative; width: 72px; height: 72px; }
+.ma-video-preview__img {
+  width: 100%; height: 100%; object-fit: cover;
+  border-radius: var(--cometchat-radius-3);
+  border: 1px solid var(--cometchat-border-color-default);
+}
+.ma-play {
+  position: absolute; inset: 0; margin: auto;
+  width: 30px; height: 30px; border-radius: var(--cometchat-radius-max);
+  background: color-mix(in srgb, var(--cometchat-neutral-color-900) 45%, transparent);
+  color: var(--cometchat-static-white);
+}
+
+.ma-tile { position: relative; aspect-ratio: 1 / 1; border-radius: var(--cometchat-radius-2); overflow: hidden; }
+.ma-tile__duration {
+  position: absolute; left: 6px; bottom: 6px;
+  padding: 1px var(--cometchat-spacing-1-5);
+  border-radius: var(--cometchat-radius-1);
+  font: var(--cometchat-font-caption2-medium);
+  background: color-mix(in srgb, var(--cometchat-neutral-color-900) 60%, transparent);
+  color: var(--cometchat-static-white);
+}`}
+    />
   ),
 };

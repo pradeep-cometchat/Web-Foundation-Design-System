@@ -35,7 +35,7 @@ export const InComposer: Story = {
   name: "In Composer",
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ padding: 24 }}>
+    <div style={{ padding: "var(--cometchat-spacing-6)" }}>
       <SpinKeyframes />
       <Section title="In Composer">
         <Row gap={24}>
@@ -55,7 +55,7 @@ export const InMessage: Story = {
   name: "In Message",
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ padding: 24 }}>
+    <div style={{ padding: "var(--cometchat-spacing-6)" }}>
       <SpinKeyframes />
       <Row gap={24}>
         {(["sent", "received"] as const).map((v) => (
@@ -81,7 +81,7 @@ export const InSearch: Story = {
   name: "In Search",
   parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ padding: 24 }}>
+    <div style={{ padding: "var(--cometchat-spacing-6)" }}>
       <Row gap={24}>
         <Section title="Media grid">
           <Panel>
