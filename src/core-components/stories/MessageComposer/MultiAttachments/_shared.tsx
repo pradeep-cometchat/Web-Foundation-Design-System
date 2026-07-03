@@ -187,6 +187,7 @@ export function AudioCard({
   download = false,
   downloading = false,
   playing = false,
+  showSeek = true,
 }: {
   title?: string;
   current?: string;
@@ -202,6 +203,8 @@ export function AudioCard({
   downloading?: boolean;
   /** Playback in progress — pause button, seek knob partway, elapsed time. */
   playing?: boolean;
+  /** Hide the seek bar (composer preview shows only the duration). */
+  showSeek?: boolean;
 }) {
   const titleColor = onDark ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)";
   const timeColor = onDark ? "color-mix(in srgb, var(--cometchat-static-white) 70%, transparent)" : "var(--cometchat-text-color-tertiary)";
@@ -211,9 +214,9 @@ export function AudioCard({
   return (
     <div style={{ display: "flex", alignItems: "center", gap: compact ? 10 : 12, width, minWidth: 0 }}>
       <PlayButton size={40} onDark={onDark} playing={playing} />
-      <div style={{ display: "flex", flexDirection: "column", gap: compact ? 9 : 8, flex: 1, minWidth: 0 }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: showSeek ? (compact ? 9 : 8) : "var(--cometchat-spacing)", flex: 1, minWidth: 0 }}>
         <span style={{ fontSize: compact ? 12 : 14, fontWeight: compact ? 500 : 600, color: titleColor, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontFamily: font, lineHeight: compact ? "16px" : "20px" }}>{title}</span>
-        <AudioSeekBar progress={seek} onDark={onDark} />
+        {showSeek && <AudioSeekBar progress={seek} onDark={onDark} />}
         <span style={{ fontSize: compact ? 11 : 12, color: timeColor, fontFamily: font, lineHeight: "14px" }}>{elapsed}/{total}</span>
       </div>
       {download &&
@@ -264,21 +267,22 @@ export function Badge({ state }: { state: BadgeState }) {
 
 const previewCard: React.CSSProperties = {
   position: "relative",
-  height: 72,
   borderRadius: "var(--cometchat-radius-2)",
   border: "1px solid var(--cometchat-border-color-default)",
   background: "var(--cometchat-background-color-02)",
   display: "flex",
   alignItems: "center",
   gap: "var(--cometchat-spacing-2-5)",
-  padding: "0 var(--cometchat-spacing-3)",
+  // 10px inset on every side.
+  padding: "var(--cometchat-spacing-2-5)",
+  boxSizing: "border-box",
   flexShrink: 0,
 };
 
 export function ImagePreview({ badge = "none", src = SAMPLE_IMAGES[0] }: { badge?: BadgeState; src?: string }) {
   return (
-    <div style={{ position: "relative", width: 72, height: 72, flexShrink: 0 }}>
-      <div style={{ width: 72, height: 72, borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", border: "1px solid var(--cometchat-border-color-default)" }}>
+    <div style={{ position: "relative", width: 60, height: 60, flexShrink: 0 }}>
+      <div style={{ width: 60, height: 60, borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", border: "1px solid var(--cometchat-border-color-default)" }}>
         <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <Badge state={badge} />
@@ -288,8 +292,8 @@ export function ImagePreview({ badge = "none", src = SAMPLE_IMAGES[0] }: { badge
 
 export function VideoPreview({ badge = "none", src = SAMPLE_IMAGES[1] }: { badge?: BadgeState; src?: string }) {
   return (
-    <div style={{ position: "relative", width: 72, height: 72, flexShrink: 0 }}>
-      <div style={{ width: 72, height: 72, borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", border: "1px solid var(--cometchat-border-color-default)" }}>
+    <div style={{ position: "relative", width: 60, height: 60, flexShrink: 0 }}>
+      <div style={{ width: 60, height: 60, borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", border: "1px solid var(--cometchat-border-color-default)" }}>
         <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <div
@@ -298,8 +302,8 @@ export function VideoPreview({ badge = "none", src = SAMPLE_IMAGES[1] }: { badge
           top: "50%",
           left: "50%",
           transform: "translate(-50%,-50%)",
-          width: 36,
-          height: 36,
+          width: 32,
+          height: 32,
           borderRadius: "50%",
           background: "color-mix(in srgb, var(--cometchat-static-black) 45%, transparent)",
           display: "flex",
@@ -343,7 +347,7 @@ export function DocumentPreview({
 export function AudioPreview({ badge = "none", title = "Hello by Adele.mp3", total = "00:32" }: { badge?: BadgeState; title?: string; total?: string }) {
   return (
     <div style={{ ...previewCard, width: 260 }}>
-      <AudioCard title={title} total={total} width="100%" compact />
+      <AudioCard title={title} total={total} width="100%" compact showSeek={false} />
       <Badge state={badge} />
     </div>
   );
