@@ -217,8 +217,10 @@ export const DeliveryStates: Story = {
       <SpinKeyframes />
       <Label>Uploading</Label>
       <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" images={4} state="uploading" /></MessageStack>
-      <Label>Failed</Label>
+      <Label>Failed (error)</Label>
       <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" images={2} state="failed" /></MessageStack>
+      <Label>Retry</Label>
+      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" images={2} state="retry" /></MessageStack>
     </ChatCanvas>
   ),
 };

@@ -43,6 +43,7 @@ export const InComposer: Story = {
           <Item label="Hover"><DocumentPreview badge="hover" name="Deck.pdf" type="pdf" meta="PDF · 6.1 MB" /></Item>
           <Item label="Remove"><DocumentPreview badge="remove" name="Deck.pdf" type="pdf" meta="PDF · 6.1 MB" /></Item>
           <Item label="Error"><DocumentPreview badge="error" name="Deck.pdf" type="pdf" meta="PDF · 6.1 MB" /></Item>
+          <Item label="Retry"><DocumentPreview badge="retry" name="Deck.pdf" type="pdf" meta="PDF · 6.1 MB" /></Item>
         </Row>
       </Section>
       <Section title="File types">

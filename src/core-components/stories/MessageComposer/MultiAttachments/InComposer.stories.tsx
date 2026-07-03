@@ -68,7 +68,7 @@ export const WithError: Story = {
     <div style={{ padding: "var(--cometchat-spacing-6)" }}>
       <SpinKeyframes />
       <ComposerShell>
-        <ImagePreview badge="none" />
+        <ImagePreview badge="retry" />
         <VideoPreview badge="error" />
         <DocumentPreview badge="none" name="Notes.docx" type="doc" meta="DOC · 340 KB" />
       </ComposerShell>
@@ -162,9 +162,9 @@ export const AllStates: Story = {
           <AudioPreview badge="loading" />
         </ComposerShell>
       </Section>
-      <Section title="Error">
+      <Section title="Error & Retry">
         <ComposerShell>
-          <ImagePreview badge="none" />
+          <ImagePreview badge="retry" />
           <VideoPreview badge="error" />
           <DocumentPreview badge="none" name="Notes.docx" type="doc" meta="DOC · 340 KB" />
         </ComposerShell>

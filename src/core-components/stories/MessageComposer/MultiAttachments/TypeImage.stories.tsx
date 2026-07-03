@@ -44,6 +44,7 @@ export const InComposer: Story = {
           <Item label="Hover"><ImagePreview badge="hover" /></Item>
           <Item label="Remove"><ImagePreview badge="remove" /></Item>
           <Item label="Error"><ImagePreview badge="error" /></Item>
+          <Item label="Retry"><ImagePreview badge="retry" /></Item>
         </Row>
       </Section>
     </div>

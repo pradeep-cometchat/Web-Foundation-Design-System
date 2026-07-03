@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { UsageDoc, SAMPLE_IMAGES, Section, Item, Row, SpinKeyframes, FileTypeIcon, type DocKind } from "./_shared";
+import { UsageDoc, IconRetry, SAMPLE_IMAGES, Section, Item, Row, SpinKeyframes, FileTypeIcon, type DocKind } from "./_shared";
 
 /**
  * **Attachment Cards.** The standalone attachment-card primitives — Document,
@@ -21,7 +21,7 @@ type Story = StoryObj;
 
 /* ─── Types ────────────────────────────────────────────────────────────────── */
 
-type CardState = "default" | "hover" | "loading" | "error";
+type CardState = "default" | "hover" | "loading" | "error" | "retry";
 type Platform = "desktop" | "mobile";
 type FileType = DocKind;
 
@@ -58,15 +58,15 @@ const IconSpinner = ({ size = 12 }: { size?: number }) => (
 
 /* ─── Corner badge (the single-slot control) ───────────────────────────────── */
 
-type CornerKind = "none" | "remove" | "loading" | "error";
+type CornerKind = "none" | "remove" | "loading" | "error" | "retry";
 
 function cornerFor(state: CardState, platform: Platform): CornerKind {
   // Loading is shown as a ring on the icon/button, so the corner stays empty —
   // that's what keeps it from ever colliding with the error mark.
   if (state === "loading") return "none";
-  // On mobile the error lives on the icon overlay, so the corner keeps the ✕
-  // (dismiss); on desktop the corner carries the error mark.
-  if (state === "error") return platform === "mobile" ? "remove" : "error";
+  // On mobile the error/retry lives on the icon overlay, so the corner keeps
+  // the ✕ (dismiss); on desktop the corner carries the mark.
+  if (state === "error" || state === "retry") return platform === "mobile" ? "remove" : state;
   if (state === "hover") return "remove";
   // default
   return platform === "mobile" ? "remove" : "none";
@@ -75,7 +75,7 @@ function cornerFor(state: CardState, platform: Platform): CornerKind {
 function CornerBadge({ kind }: { kind: CornerKind }) {
   if (kind === "none") return null;
   const bg =
-    kind === "error" ? "var(--cometchat-error-color)" : kind === "remove" ? "color-mix(in srgb, var(--cometchat-static-black) 70%, var(--cometchat-static-white))" : "color-mix(in srgb, var(--cometchat-static-black) 70%, var(--cometchat-static-white))";
+    kind === "error" || kind === "retry" ? "var(--cometchat-error-color)" : "color-mix(in srgb, var(--cometchat-static-black) 70%, var(--cometchat-static-white))";
   return (
     <div
       style={{
@@ -95,7 +95,7 @@ function CornerBadge({ kind }: { kind: CornerKind }) {
         zIndex: 2,
       }}
     >
-      {kind === "remove" ? <IconClose /> : kind === "loading" ? <IconSpinner size={11} /> : <IconError />}
+      {kind === "remove" ? <IconClose /> : kind === "loading" ? <IconSpinner size={11} /> : kind === "retry" ? <IconRetry /> : <IconError />}
     </div>
   );
 }
@@ -118,9 +118,9 @@ function ProgressRing({ size = 40, stroke = 4, progress = 62 }: { size?: number;
 
 const FILE_LABEL: Record<FileType, string> = { pdf: "PDF", doc: "DOC", xls: "XLS", ppt: "PPT", zip: "ZIP", txt: "TXT", file: "FILE" };
 
-function FileTile({ type, size = 54, loading = false, error = false }: { type: FileType; size?: number; loading?: boolean; error?: boolean }) {
-  // App-tile: white by default; loading/error draw a translucent dark overlay
-  // on the icon — a progress ring while uploading, an error mark on failure.
+function FileTile({ type, size = 54, loading = false, error = false, retry = false }: { type: FileType; size?: number; loading?: boolean; error?: boolean; retry?: boolean }) {
+  // App-tile: white by default; loading/error/retry draw a translucent dark
+  // overlay on the icon — ring while uploading, error mark or retry arrow after.
   const radius = Math.round(size * 0.26);
   return (
     <div
@@ -138,12 +138,12 @@ function FileTile({ type, size = 54, loading = false, error = false }: { type: F
       }}
     >
       <FileTypeIcon type={type} size={Math.round(size * 0.64)} />
-      {(loading || error) && (
+      {(loading || error || retry) && (
         <div style={{ position: "absolute", inset: 0, borderRadius: radius, display: "flex", alignItems: "center", justifyContent: "center", background: "color-mix(in srgb, var(--cometchat-static-black) 62%, transparent)", color: "var(--cometchat-static-white)" }}>
           {loading ? (
             <ProgressRing size={Math.round(size * 0.62)} stroke={3.5} />
           ) : (
-            <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.42), color: "var(--cometchat-error-color)", "--icon-fill": 1 } as React.CSSProperties}>error</span>
+            <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.42), color: "var(--cometchat-error-color)", "--icon-fill": 1 } as React.CSSProperties}>{retry ? "refresh" : "error"}</span>
           )}
         </div>
       )}
@@ -153,7 +153,7 @@ function FileTile({ type, size = 54, loading = false, error = false }: { type: F
 
 /* ─── Audio button: purple by default; dark with a dimmed play while loading ── */
 
-function AudioButton({ size = 60, loading = false, error = false, playing = false }: { size?: number; loading?: boolean; error?: boolean; playing?: boolean }) {
+function AudioButton({ size = 60, loading = false, error = false, retry = false, playing = false }: { size?: number; loading?: boolean; error?: boolean; retry?: boolean; playing?: boolean }) {
   return (
     <div style={{ position: "relative", width: size, height: size, flexShrink: 0 }}>
       {/* Full-size circle (same size loading or not) */}
@@ -171,12 +171,12 @@ function AudioButton({ size = 60, loading = false, error = false, playing = fals
       >
         {playing ? <IconPause size={Math.round(size * 0.3)} /> : <IconPlay size={Math.round(size * 0.3)} />}
       </div>
-      {(loading || error) && (
+      {(loading || error || retry) && (
         <div style={{ position: "absolute", inset: 0, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", background: "color-mix(in srgb, var(--cometchat-static-black) 62%, transparent)", color: "var(--cometchat-static-white)" }}>
           {loading ? (
             <ProgressRing size={Math.round(size * 0.62)} stroke={3.5} />
           ) : (
-            <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.42), color: "var(--cometchat-error-color)", "--icon-fill": 1 } as React.CSSProperties}>error</span>
+            <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.42), color: "var(--cometchat-error-color)", "--icon-fill": 1 } as React.CSSProperties}>{retry ? "refresh" : "error"}</span>
           )}
         </div>
       )}
@@ -206,7 +206,7 @@ function cardShell(state: CardState, mobile: boolean): React.CSSProperties {
     padding: "var(--cometchat-spacing-3-5)",
     borderRadius: "var(--cometchat-radius-4)",
     background: "var(--cometchat-background-color-01)",
-    border: `1px solid ${state === "error" ? "var(--cometchat-error-color)" : "var(--cometchat-border-color-default)"}`,
+    border: `1px solid ${state === "error" || state === "retry" ? "var(--cometchat-error-color)" : "var(--cometchat-border-color-default)"}`,
   };
 }
 
@@ -221,14 +221,15 @@ const titleStyle: React.CSSProperties = {
 };
 
 function subtitle(state: CardState, done: string) {
-  if (state === "error") return "Upload failed · Retry";
+  if (state === "error") return "Upload failed";
+  if (state === "retry") return "Tap to retry";
   // Loading keeps the normal subtitle — the ring on the icon signals progress.
   return done;
 }
 
 const subStyle = (state: CardState): React.CSSProperties => ({
   fontSize: 12,
-  color: state === "error" ? "var(--cometchat-error-color)" : "var(--cometchat-text-color-tertiary)",
+  color: state === "error" || state === "retry" ? "var(--cometchat-error-color)" : "var(--cometchat-text-color-tertiary)",
   fontFamily: "var(--cometchat-font-family, Inter, sans-serif)",
 });
 
@@ -238,7 +239,7 @@ function DocumentCard({ state = "default", platform = "desktop", type = "pdf", n
   const mobile = platform === "mobile";
   return (
     <div style={cardShell(state, mobile)}>
-      <FileTile type={type} loading={state === "loading"} error={state === "error" && mobile} />
+      <FileTile type={type} loading={state === "loading"} error={state === "error" && mobile} retry={state === "retry" && mobile} />
       <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 6 }}>
         <span style={titleStyle}>{name}</span>
         <span style={subStyle(state)}>{subtitle(state, FILE_LABEL[type])}</span>
@@ -254,11 +255,11 @@ function AudioCard({ state = "default", platform = "desktop", name = "Watch by B
   const mobile = platform === "mobile";
   return (
     <div style={cardShell(state, mobile)}>
-      <AudioButton loading={state === "loading"} error={state === "error" && mobile} playing={playing} />
+      <AudioButton loading={state === "loading"} error={state === "error" && mobile} retry={state === "retry" && mobile} playing={playing} />
       <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 6 }}>
         <span style={titleStyle}>{name}</span>
-        {state === "error" ? (
-          <span style={subStyle(state)}>Upload failed · Retry</span>
+        {state === "error" || state === "retry" ? (
+          <span style={subStyle(state)}>{subtitle(state, "")}</span>
         ) : (
           <>
             <SeekBar progress={playing ? 38 : 0} />
@@ -276,12 +277,12 @@ function AudioCard({ state = "default", platform = "desktop", name = "Watch by B
 function MediaTile({ kind, state = "default", platform = "desktop", src = SAMPLE_IMAGES[0] }: { kind: "image" | "video"; state?: CardState; platform?: Platform; src?: string }) {
   const mobile = platform === "mobile";
   const size = mobile ? 104 : 120;
-  const dim = state === "loading" || state === "error";
+  const dim = state === "loading" || state === "error" || state === "retry";
   // Tiles show loading/error in the centre, so the corner only carries the remove ✕.
   const corner: CornerKind = state === "hover" ? "remove" : state === "default" && mobile ? "remove" : "none";
   return (
     <div style={{ position: "relative", width: size, height: size, flexShrink: 0 }}>
-      <div style={{ position: "relative", width: size, height: size, borderRadius: 14, overflow: "hidden", border: `1px solid ${state === "error" ? "var(--cometchat-error-color)" : "var(--cometchat-border-color-default)"}` }}>
+      <div style={{ position: "relative", width: size, height: size, borderRadius: 14, overflow: "hidden", border: `1px solid ${state === "error" || state === "retry" ? "var(--cometchat-error-color)" : "var(--cometchat-border-color-default)"}` }}>
         <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", filter: dim ? "blur(2px) brightness(0.7)" : undefined }} />
         {kind === "video" && !dim && (
           <>
@@ -325,7 +326,7 @@ function MobileFrame({ children }: { children: React.ReactNode }) {
 
 /* ─── Per-type stories ─────────────────────────────────────────────────────── */
 
-const STATES: CardState[] = ["default", "hover", "loading", "error"];
+const STATES: CardState[] = ["default", "hover", "loading", "error", "retry"];
 
 function TypePage({ render }: { render: (state: CardState, platform: Platform) => React.ReactNode }) {
   return (
@@ -340,7 +341,7 @@ function TypePage({ render }: { render: (state: CardState, platform: Platform) =
       </Section>
       <Section title="Mobile">
         <MobileFrame>
-          {(["default", "loading", "error"] as CardState[]).map((s) => (
+          {(["default", "loading", "error", "retry"] as CardState[]).map((s) => (
             <div key={s} style={{ display: "flex", flexDirection: "column", gap: 6 }}>
               <span style={{ fontSize: 10, fontWeight: 600, color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em" }}>{s}</span>
               {render(s, "mobile")}

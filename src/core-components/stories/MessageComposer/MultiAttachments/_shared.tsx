@@ -49,6 +49,13 @@ export const IconError = () => (
   </svg>
 );
 
+export const IconRetry = ({ size = 11 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 12 12" fill="none">
+    <path d="M9.5 6a3.5 3.5 0 1 1-1.02-2.47" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M9.8 1.4v2.2H7.6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 export const IconSpinner = ({ size = 12 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 10 10" fill="none" style={{ animation: "ma-spin 1s linear infinite" }}>
     <circle cx="5" cy="5" r="4" stroke="currentColor" strokeWidth="1.5" strokeDasharray="12 8" strokeLinecap="round" />
@@ -226,7 +233,7 @@ export function AudioCard({
    COMPOSER PREVIEW  —  attachments queued in the composer before sending
    ═══════════════════════════════════════════════════════════════════════════ */
 
-export type BadgeState = "none" | "hover" | "remove" | "loading" | "error";
+export type BadgeState = "none" | "hover" | "remove" | "loading" | "error" | "retry";
 
 const badgeBase: React.CSSProperties = {
   position: "absolute",
@@ -246,14 +253,12 @@ const badgeBase: React.CSSProperties = {
 export function Badge({ state }: { state: BadgeState }) {
   if (state === "none") return null;
   const bg =
-    state === "error"
+    state === "error" || state === "retry"
       ? "var(--cometchat-error-color)"
-      : state === "remove"
-        ? "color-mix(in srgb, var(--cometchat-static-black) 70%, var(--cometchat-static-white))"
-        : "color-mix(in srgb, var(--cometchat-static-black) 70%, var(--cometchat-static-white))";
+      : "color-mix(in srgb, var(--cometchat-static-black) 70%, var(--cometchat-static-white))";
   return (
     <div style={{ ...badgeBase, background: bg }}>
-      {state === "loading" ? <IconSpinner size={10} /> : state === "error" ? <IconError /> : <IconClose />}
+      {state === "loading" ? <IconSpinner size={10} /> : state === "error" ? <IconError /> : state === "retry" ? <IconRetry /> : <IconClose />}
     </div>
   );
 }
@@ -453,7 +458,7 @@ export interface MultiAttachmentBubbleProps {
   quoted?: QuotedReply;
   time?: string;
   status?: "sent" | "delivered" | "read";
-  state?: "default" | "uploading" | "failed" | "downloading";
+  state?: "default" | "uploading" | "failed" | "retry" | "downloading";
   /** Hide the time/receipt row — used for all but the last bubble in a stack. */
   showMeta?: boolean;
   /** "Forwarded" label above the attachment. */
@@ -714,6 +719,15 @@ export function MultiAttachmentBubble({
               <span style={{ fontSize: 11, fontWeight: 700, lineHeight: 1, color: "var(--cometchat-static-white)" }}>!</span>
             </span>
           )}
+          {state === "retry" && (
+            <span
+              role="button"
+              aria-label="Retry"
+              style={{ width: 16, height: 16, borderRadius: "50%", background: "var(--cometchat-error-color)", color: "var(--cometchat-static-white)", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0, cursor: "pointer" }}
+            >
+              <IconRetry size={10} />
+            </span>
+          )}
         </div>
       )}
     </div>
@@ -921,7 +935,7 @@ export function ResultsLabel({ children }: { children: React.ReactNode }) {
  *  label, plus the destination chat name. Position it inside a relative parent. */
 export function DropOverlay({ chatName }: { chatName?: string }) {
   return (
-    <div style={{ position: "absolute", inset: 0, border: "2px dashed color-mix(in srgb, var(--cometchat-static-white) 45%, transparent)", background: "color-mix(in srgb, color-mix(in srgb, var(--cometchat-static-black) 80%, var(--cometchat-static-white)) 92%, transparent)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "var(--cometchat-spacing-2-5)", pointerEvents: "none", zIndex: 5 }}>
+    <div style={{ position: "absolute", inset: 0, background: "color-mix(in srgb, color-mix(in srgb, var(--cometchat-static-black) 80%, var(--cometchat-static-white)) 92%, transparent)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "var(--cometchat-spacing-2-5)", pointerEvents: "none", zIndex: 5 }}>
       <span className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-static-white)", "--icon-fill": 0 } as React.CSSProperties}>upload_file</span>
       <span style={{ fontSize: 17, fontWeight: 600, color: "var(--cometchat-static-white)", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>Drop files to attach</span>
       {chatName && (
