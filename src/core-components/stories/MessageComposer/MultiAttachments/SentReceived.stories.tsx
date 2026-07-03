@@ -78,6 +78,44 @@ const AUDIO_SET = [
   { kind: "audio", name: "Recording.m4a", meta: "01:14" },
 ] as const;
 
+/** 3+ documents or audio clips collapse to three cards with a "Show N more"
+ *  control that expands the bubble (click it in the canvas). Media grids keep
+ *  the "+N" overlay instead. */
+export const ExpandableFiles: Story = {
+  name: "3+ Files (Show More)",
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <ChatCanvas>
+      <Label>Documents — collapsed, click "Show more"</Label>
+      <MessageStack variant="received">
+        <MultiAttachmentBubble
+          variant="received"
+          files={[
+            { kind: "pdf", name: "Design_specs.pdf", meta: "2.4 MB · PDF" },
+            { kind: "xls", name: "Component_list.xlsx", meta: "340 KB · XLSX" },
+            { kind: "doc", name: "Notes.docx", meta: "120 KB · DOCX" },
+            { kind: "ppt", name: "Kickoff_deck.pptx", meta: "5.1 MB · PPTX" },
+            { kind: "zip", name: "Assets.zip", meta: "18 MB · ZIP" },
+          ]}
+        />
+      </MessageStack>
+      <Label>Audio</Label>
+      <MessageStack variant="sent">
+        <MultiAttachmentBubble
+          variant="sent"
+          files={[
+            { kind: "audio", name: "Audio.mp3", meta: "00:32" },
+            { kind: "audio", name: "Recording.m4a", meta: "01:14" },
+            { kind: "audio", name: "Voice-note.mp3", meta: "00:18" },
+            { kind: "audio", name: "Interview.mp3", meta: "12:03" },
+            { kind: "audio", name: "Demo-take.mp3", meta: "02:47" },
+          ]}
+        />
+      </MessageStack>
+    </ChatCanvas>
+  ),
+};
+
 /** Several documents — ONE bubble; each document is a washed card inside it.
  *  With a caption it sits under the cards; a reply quote sits above them. */
 export const Documents: Story = {

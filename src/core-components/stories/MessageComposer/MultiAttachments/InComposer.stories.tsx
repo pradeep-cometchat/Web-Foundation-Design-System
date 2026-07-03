@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { MessagePreview } from "../../../../base-components/components/MessagePreview";
 import {
   UsageDoc,
   ComposerShell,
@@ -67,6 +68,23 @@ export const WithError: Story = {
         <ImagePreview badge="none" />
         <VideoPreview badge="error" />
         <DocumentPreview badge="none" name="Notes.docx" type="doc" meta="DOC · 340 KB" />
+      </ComposerShell>
+    </div>
+  ),
+};
+
+/** Replying — the quoted message (DS MessagePreview) sits above the input
+ *  while attachments are queued. */
+export const WithReply: Story = {
+  name: "With Reply",
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <div style={{ padding: "var(--cometchat-spacing-6)" }}>
+      <SpinKeyframes />
+      <ComposerShell reply={<MessagePreview mode="reply" senderName="George Alan" messageText="Awesome! Can I see a couple of pictures?" onClose={() => {}} />}>
+        <ImagePreview badge="hover" />
+        <ImagePreview badge="hover" src={SAMPLE_IMAGES[1]} />
+        <VideoPreview badge="hover" src={SAMPLE_IMAGES[2]} />
       </ComposerShell>
     </div>
   ),

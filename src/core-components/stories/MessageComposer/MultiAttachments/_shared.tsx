@@ -9,8 +9,8 @@
  * Not a `.stories` file, so it is not picked up as its own sidebar entry —
  * it only supplies components to the sibling story pages.
  */
+import { useState } from "react";
 import { SearchBar } from "../../../../base-components/components/SearchBar";
-import { MessagePreview } from "../../../../base-components/components/MessagePreview";
 
 /* ─── Sample media ─────────────────────────────────────────────────────────── */
 
@@ -145,7 +145,7 @@ export function PlayButton({ size = 44, onDark = false, playing = false }: { siz
 /** Seek slider with a draggable knob and a filled track up to it. `progress` is 0–100. */
 export function AudioSeekBar({ progress = 0, onDark = false }: { progress?: number; onDark?: boolean }) {
   return (
-    <div style={{ position: "relative", height: 6, borderRadius: 3, width: "100%", background: onDark ? "color-mix(in srgb, var(--cometchat-static-white) 35%, transparent)" : "var(--cometchat-neutral-color-300)" }}>
+    <div style={{ position: "relative", height: 6, borderRadius: 3, width: "100%", background: onDark ? "color-mix(in srgb, var(--cometchat-static-white) 35%, transparent)" : "color-mix(in srgb, var(--cometchat-text-color-primary) 14%, transparent)" }}>
       {/* Elapsed fill — solid white on a sent bubble, purple on received */}
       {progress > 0 && (
         <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: `${progress}%`, borderRadius: 3, background: onDark ? "var(--cometchat-static-white)" : "var(--cometchat-primary-color)" }} />
@@ -355,11 +355,13 @@ const composerBox: React.CSSProperties = {
   borderRadius: "var(--cometchat-radius-2)",
 };
 
-/** Composer shell with the horizontal, scrollable attachment preview strip. */
-export function ComposerShell({ children, note }: { children: React.ReactNode; note?: string }) {
+/** Composer shell with the horizontal, scrollable attachment preview strip.
+ *  `reply` renders a quoted-message preview (DS MessagePreview) above the input. */
+export function ComposerShell({ children, note, reply }: { children: React.ReactNode; note?: string; reply?: React.ReactNode }) {
   return (
     <div style={composerBox}>
       <SpinKeyframes />
+      {reply && <div style={{ padding: "var(--cometchat-spacing-3) var(--cometchat-spacing-3) 0" }}>{reply}</div>}
       <div style={{ padding: 12, fontSize: 14, lineHeight: "20px", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)", color: note ? "var(--cometchat-text-color-primary)" : "var(--cometchat-text-color-placeholder)" }}>
         {note ?? "Type your message..."}
       </div>
@@ -417,6 +419,13 @@ export interface QuotedReply {
   /** Index into SAMPLE_IMAGES to show a media thumbnail on the reply preview. */
   thumb?: number;
 }
+
+const QUOTED_ICON: Record<QuotedMediaKind, string> = {
+  image: "image",
+  video: "videocam",
+  file: "description",
+  audio: "graphic_eq",
+};
 
 function quotedTypeLabel(kind: QuotedMediaKind, count: number): string {
   const labels: Record<QuotedMediaKind, [string, string]> = {
@@ -489,6 +498,7 @@ export function MultiAttachmentBubble({
   forwarded = false,
   edited = false,
 }: MultiAttachmentBubbleProps) {
+  const [expanded, setExpanded] = useState(false);
   const isSent = variant === "sent";
   const primary = isSent ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)";
   const secondary = isSent ? "color-mix(in srgb, var(--cometchat-static-white) 70%, transparent)" : "var(--cometchat-text-color-tertiary)";
@@ -594,7 +604,9 @@ export function MultiAttachmentBubble({
     padding: multi ? "var(--cometchat-spacing-2-5)" : "var(--cometchat-spacing-1)",
     ...(multi && {
       borderRadius: "var(--cometchat-radius-2)",
-      background: isSent ? "color-mix(in srgb, var(--cometchat-static-white) 16%, transparent)" : "var(--cometchat-background-color-01)",
+      // Translucent wash on both sides — lightens the sent bubble, gently
+      // darkens the received one (and flips correctly in dark mode).
+      background: isSent ? "color-mix(in srgb, var(--cometchat-static-white) 16%, transparent)" : "color-mix(in srgb, var(--cometchat-text-color-primary) 6%, transparent)",
     }),
   };
 
@@ -630,8 +642,22 @@ export function MultiAttachmentBubble({
     if (!quoted) return null;
     const m = quoted.media;
     const summaryText = m ? `${m.count} ${quotedTypeLabel(m.kind, m.count)}${m.caption ? ` · ${m.caption}` : ""}` : (quoted.text ?? "");
-    // The DS Quoted Message component — same light card on sent and received.
-    return <MessagePreview mode="reply" senderName={quoted.name} messageText={summaryText} />;
+    const accent = isSent ? "var(--cometchat-static-white)" : "var(--cometchat-primary-color)";
+    return (
+      <div style={{ display: "flex", gap: "var(--cometchat-spacing-2)", alignItems: "stretch", borderRadius: "var(--cometchat-radius-2)", background: isSent ? "color-mix(in srgb, var(--cometchat-static-white) 16%, transparent)" : "color-mix(in srgb, var(--cometchat-text-color-primary) 8%, transparent)", overflow: "hidden" }}>
+        {/* Accent bar sits flush against the card's left edge, full height. */}
+        <div style={{ width: 4, background: accent, flexShrink: 0 }} />
+        <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing)", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-2-5) var(--cometchat-spacing-2) 0" }}>
+          <span style={{ fontSize: 13, fontWeight: 600, color: accent, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>Reply to {quoted.name}</span>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: "var(--cometchat-spacing-1)", fontSize: 13, color: isSent ? "color-mix(in srgb, var(--cometchat-static-white) 85%, transparent)" : "var(--cometchat-text-color-primary)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+            {m && (
+              <span className="icon-rounded" style={{ fontSize: 16, "--icon-fill": 1, flexShrink: 0 } as React.CSSProperties}>{QUOTED_ICON[m.kind]}</span>
+            )}
+            {summaryText}
+          </span>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -644,7 +670,31 @@ export function MultiAttachmentBubble({
       )}
       {replyPreview()}
       {shownTiles > 0 && grid()}
-      {files.map(fileCard)}
+      {(files.length > 3 && !expanded ? files.slice(0, 3) : files).map(fileCard)}
+      {files.length > 3 && (
+        <button
+          onClick={() => setExpanded((e) => !e)}
+          style={{
+            width: BUBBLE_W,
+            border: "none",
+            cursor: "pointer",
+            padding: "var(--cometchat-spacing-2)",
+            borderRadius: "var(--cometchat-radius-2)",
+            background: isSent ? "color-mix(in srgb, var(--cometchat-static-white) 16%, transparent)" : "color-mix(in srgb, var(--cometchat-text-color-primary) 6%, transparent)",
+            color: isSent ? "var(--cometchat-static-white)" : "var(--cometchat-primary-color)",
+            fontSize: 13,
+            fontWeight: 600,
+            fontFamily: "var(--cometchat-font-family, Inter, sans-serif)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "var(--cometchat-spacing-1)",
+          }}
+        >
+          <span className="icon-rounded" style={{ fontSize: 18, "--icon-fill": 0 } as React.CSSProperties}>{expanded ? "expand_less" : "expand_more"}</span>
+          {expanded ? "Show less" : `Show ${files.length - 3} more`}
+        </button>
+      )}
       {caption && (
         <div style={{ padding: "0 var(--cometchat-spacing-1)", fontSize: 14, lineHeight: "20px", color: primary, fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>{caption}</div>
       )}
