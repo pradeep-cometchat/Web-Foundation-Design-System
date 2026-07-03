@@ -938,9 +938,9 @@ function DropStack() {
     <div style={{ position: "relative", width: 230, height: 160 }}>
       {/* Docs — small note card peeking out behind */}
       <div style={{ ...base, transform: "translate(-50%,-50%) translate(56px,-36px) rotate(14deg)", width: 50, height: 60, borderRadius: "var(--cometchat-radius-2-5)", background: "var(--cometchat-static-white)", boxShadow: "var(--cometchat-shadow-md)", display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-1-5)", padding: "var(--cometchat-spacing-3) var(--cometchat-spacing-2)" }}>
-        <div style={{ height: 5, borderRadius: "var(--cometchat-radius)", background: "var(--cometchat-neutral-color-300)", width: "85%" }} />
-        <div style={{ height: 5, borderRadius: "var(--cometchat-radius)", background: "var(--cometchat-neutral-color-300)", width: "60%" }} />
-        <div style={{ height: 5, borderRadius: "var(--cometchat-radius)", background: "var(--cometchat-neutral-color-300)", width: "75%" }} />
+        <div style={{ height: 5, borderRadius: "var(--cometchat-radius)", background: "color-mix(in srgb, var(--cometchat-primary-color) 28%, var(--cometchat-static-white))", width: "85%" }} />
+        <div style={{ height: 5, borderRadius: "var(--cometchat-radius)", background: "color-mix(in srgb, var(--cometchat-primary-color) 28%, var(--cometchat-static-white))", width: "60%" }} />
+        <div style={{ height: 5, borderRadius: "var(--cometchat-radius)", background: "color-mix(in srgb, var(--cometchat-primary-color) 28%, var(--cometchat-static-white))", width: "75%" }} />
       </div>
       {/* Videos — primary card with a play button */}
       <div style={{ ...base, transform: "translate(-50%,-50%) translate(-42px,-8px) rotate(-8deg)", width: 108, height: 80, borderRadius: "var(--cometchat-radius-4)", background: "var(--cometchat-primary-color)", border: "4px solid var(--cometchat-static-white)", boxShadow: "var(--cometchat-shadow-lg)", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -951,9 +951,9 @@ function DropStack() {
       {/* Images — photo illustration card in front */}
       <div style={{ ...base, transform: "translate(-50%,-50%) translate(38px,18px) rotate(7deg)", width: 112, height: 84, borderRadius: "var(--cometchat-radius-4)", border: "4px solid var(--cometchat-static-white)", boxSizing: "border-box", overflow: "hidden", background: "var(--cometchat-static-white)", boxShadow: "var(--cometchat-shadow-lg)" }}>
         <svg width="100%" height="100%" viewBox="0 0 96 68" preserveAspectRatio="none" style={{ display: "block" }}>
-          <rect x="0" y="0" width="96" height="68" fill="color-mix(in srgb, var(--cometchat-info-color) 18%, var(--cometchat-static-white))" />
+          <rect x="0" y="0" width="96" height="68" fill="color-mix(in srgb, var(--cometchat-primary-color) 14%, var(--cometchat-static-white))" />
           <circle cx="70" cy="20" r="9" fill="var(--cometchat-warning-color)" />
-          <path d="M0 58 L28 30 L48 50 L62 40 L96 64 L96 68 L0 68 Z" fill="var(--cometchat-success-color)" opacity="0.9" />
+          <path d="M0 58 L28 30 L48 50 L62 40 L96 64 L96 68 L0 68 Z" fill="var(--cometchat-primary-color)" opacity="0.9" />
         </svg>
       </div>
     </div>

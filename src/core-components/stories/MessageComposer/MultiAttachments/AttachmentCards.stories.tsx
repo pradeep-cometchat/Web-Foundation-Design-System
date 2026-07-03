@@ -143,7 +143,9 @@ function FileTile({ type, size = 54, loading = false, error = false, retry = fal
           {loading ? (
             <ProgressRing size={Math.round(size * 0.62)} stroke={3.5} />
           ) : (
-            <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.38), color: "var(--cometchat-error-color)", fontVariationSettings: '"FILL" 1' } as React.CSSProperties}>{retry ? "refresh" : "error"}</span>
+            <div style={{ width: Math.round(size * 0.44), height: Math.round(size * 0.44), borderRadius: "50%", background: "var(--cometchat-error-color)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.28), lineHeight: 1, fontVariationSettings: '"FILL" 1' } as React.CSSProperties}>{retry ? "refresh" : "error"}</span>
+            </div>
           )}
         </div>
       )}
@@ -176,7 +178,9 @@ function AudioButton({ size = 60, loading = false, error = false, retry = false,
           {loading ? (
             <ProgressRing size={Math.round(size * 0.62)} stroke={3.5} />
           ) : (
-            <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.38), color: "var(--cometchat-error-color)", fontVariationSettings: '"FILL" 1' } as React.CSSProperties}>{retry ? "refresh" : "error"}</span>
+            <div style={{ width: Math.round(size * 0.44), height: Math.round(size * 0.44), borderRadius: "50%", background: "var(--cometchat-error-color)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.28), lineHeight: 1, fontVariationSettings: '"FILL" 1' } as React.CSSProperties}>{retry ? "refresh" : "error"}</span>
+            </div>
           )}
         </div>
       )}
@@ -299,8 +303,10 @@ function MediaTile({ kind, state = "default", platform = "desktop", src = SAMPLE
           </div>
         )}
         {failed && (
-          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: "var(--cometchat-error-color)" }}>
-            <span className="icon-rounded" style={{ fontSize: 24, fontVariationSettings: '"FILL" 1' } as React.CSSProperties}>{state === "retry" ? "refresh" : "error"}</span>
+          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ width: 32, height: 32, borderRadius: "50%", background: "var(--cometchat-error-color)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <span className="icon-rounded" style={{ fontSize: 18, lineHeight: 1, fontVariationSettings: '"FILL" 1' } as React.CSSProperties}>{state === "retry" ? "refresh" : "error"}</span>
+            </div>
           </div>
         )}
       </div>
