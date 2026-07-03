@@ -498,7 +498,6 @@ export function MultiAttachmentBubble({
   const isSent = variant === "sent";
   const primary = isSent ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)";
   const secondary = isSent ? "rgba(255,255,255,0.7)" : "var(--cometchat-text-color-tertiary)";
-  const cardBg = isSent ? "rgba(255,255,255,0.14)" : "var(--cometchat-background-color-02)";
   const accent = isSent ? "var(--cometchat-static-white)" : "var(--cometchat-primary-color)";
 
   const shownTiles = Math.min(images, 4);
@@ -598,9 +597,7 @@ export function MultiAttachmentBubble({
     width: BUBBLE_W,
     height: CARD_H,
     boxSizing: "border-box",
-    padding: "0 var(--cometchat-spacing-2-5)",
-    borderRadius: "var(--cometchat-radius-2)",
-    background: cardBg,
+    padding: "0 var(--cometchat-spacing-1)",
   };
 
   function fileCard(f: BubbleFile, key: number) {
