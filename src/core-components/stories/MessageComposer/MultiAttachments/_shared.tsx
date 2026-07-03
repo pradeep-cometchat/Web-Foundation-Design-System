@@ -506,6 +506,7 @@ export function MultiAttachmentBubble({
   const overflow = total - shownTiles;
 
   const wrapper: React.CSSProperties = {
+    position: "relative",
     width: "fit-content",
     maxWidth: BUBBLE_W + 16,
     borderRadius: "var(--cometchat-radius-3)",
@@ -563,7 +564,7 @@ export function MultiAttachmentBubble({
         </div>
       );
 
-    if (state === "uploading" || state === "failed" || state === "downloading") {
+    if (state === "uploading" || state === "downloading") {
       return (
         <div style={{ position: "relative", width: BUBBLE_W }}>
           <div style={{ filter: "blur(3px)", borderRadius: "var(--cometchat-radius-2)", overflow: "hidden" }}>{inner}</div>
@@ -572,7 +573,7 @@ export function MultiAttachmentBubble({
               <DownloadRing size={44} progress={60} />
             ) : (
               <div style={{ width: 40, height: 40, borderRadius: "50%", background: "rgba(0,0,0,0.55)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                {state === "uploading" ? <IconSpinner size={18} /> : <IconError />}
+                <IconSpinner size={18} />
               </div>
             )}
           </div>
@@ -669,12 +670,20 @@ export function MultiAttachmentBubble({
       )}
       {showMeta && (
         <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "var(--cometchat-spacing-1)", padding: "0 var(--cometchat-spacing-1)" }}>
-          {state === "failed" && <span style={{ fontSize: 12, color: isSent ? "rgba(255,255,255,0.85)" : "var(--cometchat-error-color)", marginRight: "auto" }}>Not delivered · Tap to retry</span>}
           {state === "uploading" && <span style={{ fontSize: 12, color: secondary, marginRight: "auto" }}>Uploading…</span>}
           {state === "downloading" && <span style={{ fontSize: 12, color: secondary, marginRight: "auto" }}>Downloading…</span>}
           {edited && <span style={{ fontSize: 12, color: secondary }}>Edited</span>}
           <span style={{ fontSize: 12, color: secondary }}>{time}</span>
           {isSent && (state === "default" || state === "downloading") && <ReceiptIcon status={status} />}
+          {state === "failed" && (
+            <span
+              role="img"
+              aria-label="Not delivered"
+              style={{ width: 16, height: 16, borderRadius: "50%", background: "var(--cometchat-error-color)", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}
+            >
+              <span style={{ fontSize: 11, fontWeight: 700, lineHeight: 1, color: "var(--cometchat-static-white)" }}>!</span>
+            </span>
+          )}
         </div>
       )}
     </div>
