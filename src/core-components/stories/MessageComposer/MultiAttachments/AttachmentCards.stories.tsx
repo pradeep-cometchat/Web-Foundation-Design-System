@@ -120,7 +120,7 @@ const FILE_LABEL: Record<FileType, string> = { pdf: "PDF", doc: "DOC", xls: "XLS
 
 function FileTile({ type, size = 54, loading = false, error = false, retry = false }: { type: FileType; size?: number; loading?: boolean; error?: boolean; retry?: boolean }) {
   // App-tile: white by default; loading/error/retry draw a translucent dark
-  // overlay on the icon — ring while uploading, error mark or retry arrow after.
+  // overlay on the icon — ring while uploading, red error / retry mark after.
   const radius = Math.round(size * 0.26);
   return (
     <div
@@ -143,7 +143,7 @@ function FileTile({ type, size = 54, loading = false, error = false, retry = fal
           {loading ? (
             <ProgressRing size={Math.round(size * 0.62)} stroke={3.5} />
           ) : (
-            <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.42), color: "var(--cometchat-error-color)", "--icon-fill": 1 } as React.CSSProperties}>{retry ? "refresh" : "error"}</span>
+            <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.38), color: "var(--cometchat-error-color)", fontVariationSettings: '"FILL" 1' } as React.CSSProperties}>{retry ? "refresh" : "error"}</span>
           )}
         </div>
       )}
@@ -176,7 +176,7 @@ function AudioButton({ size = 60, loading = false, error = false, retry = false,
           {loading ? (
             <ProgressRing size={Math.round(size * 0.62)} stroke={3.5} />
           ) : (
-            <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.42), color: "var(--cometchat-error-color)", "--icon-fill": 1 } as React.CSSProperties}>{retry ? "refresh" : "error"}</span>
+            <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.38), color: "var(--cometchat-error-color)", fontVariationSettings: '"FILL" 1' } as React.CSSProperties}>{retry ? "refresh" : "error"}</span>
           )}
         </div>
       )}
@@ -277,12 +277,13 @@ function AudioCard({ state = "default", platform = "desktop", name = "Watch by B
 function MediaTile({ kind, state = "default", platform = "desktop", src = SAMPLE_IMAGES[0] }: { kind: "image" | "video"; state?: CardState; platform?: Platform; src?: string }) {
   const mobile = platform === "mobile";
   const size = mobile ? 104 : 120;
-  const dim = state === "loading" || state === "error" || state === "retry";
-  // Tiles show loading/error in the centre, so the corner only carries the remove ✕.
+  const failed = state === "error" || state === "retry";
+  const dim = state === "loading" || failed;
+  // Tiles show loading/error/retry in the centre, so the corner only carries the ✕.
   const corner: CornerKind = state === "hover" ? "remove" : state === "default" && mobile ? "remove" : "none";
   return (
     <div style={{ position: "relative", width: size, height: size, flexShrink: 0 }}>
-      <div style={{ position: "relative", width: size, height: size, borderRadius: 14, overflow: "hidden", border: `1px solid ${state === "error" || state === "retry" ? "var(--cometchat-error-color)" : "var(--cometchat-border-color-default)"}` }}>
+      <div style={{ position: "relative", width: size, height: size, borderRadius: 14, overflow: "hidden", border: `1px solid ${failed ? "var(--cometchat-error-color)" : "var(--cometchat-border-color-default)"}` }}>
         <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", filter: dim ? "blur(2px) brightness(0.7)" : undefined }} />
         {kind === "video" && !dim && (
           <>
@@ -297,10 +298,9 @@ function MediaTile({ kind, state = "default", platform = "desktop", src = SAMPLE
             <ProgressRing size={36} stroke={4} />
           </div>
         )}
-        {state === "error" && (
-          <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-1)", alignItems: "center", justifyContent: "center", color: "var(--cometchat-error-color)" }}>
-            <span className="icon-rounded" style={{ fontSize: 22, "--icon-fill": 1 } as React.CSSProperties}>error</span>
-            <span style={{ fontSize: 10, fontWeight: 600 }}>Retry</span>
+        {failed && (
+          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: "var(--cometchat-error-color)" }}>
+            <span className="icon-rounded" style={{ fontSize: 24, fontVariationSettings: '"FILL" 1' } as React.CSSProperties}>{state === "retry" ? "refresh" : "error"}</span>
           </div>
         )}
       </div>

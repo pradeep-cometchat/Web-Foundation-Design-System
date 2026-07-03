@@ -949,9 +949,9 @@ function DropStack() {
         </div>
       </div>
       {/* Images — photo illustration card in front */}
-      <div style={{ ...base, transform: "translate(-50%,-50%) translate(38px,18px) rotate(7deg)", width: 112, height: 84, borderRadius: "var(--cometchat-radius-4)", background: "var(--cometchat-static-white)", boxShadow: "var(--cometchat-shadow-lg)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <svg width="96" height="68" viewBox="0 0 96 68">
-          <rect x="0" y="0" width="96" height="68" rx="10" fill="color-mix(in srgb, var(--cometchat-info-color) 18%, var(--cometchat-static-white))" />
+      <div style={{ ...base, transform: "translate(-50%,-50%) translate(38px,18px) rotate(7deg)", width: 112, height: 84, borderRadius: "var(--cometchat-radius-4)", border: "4px solid var(--cometchat-static-white)", boxSizing: "border-box", overflow: "hidden", background: "var(--cometchat-static-white)", boxShadow: "var(--cometchat-shadow-lg)" }}>
+        <svg width="100%" height="100%" viewBox="0 0 96 68" preserveAspectRatio="none" style={{ display: "block" }}>
+          <rect x="0" y="0" width="96" height="68" fill="color-mix(in srgb, var(--cometchat-info-color) 18%, var(--cometchat-static-white))" />
           <circle cx="70" cy="20" r="9" fill="var(--cometchat-warning-color)" />
           <path d="M0 58 L28 30 L48 50 L62 40 L96 64 L96 68 L0 68 Z" fill="var(--cometchat-success-color)" opacity="0.9" />
         </svg>
