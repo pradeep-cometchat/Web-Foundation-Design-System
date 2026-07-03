@@ -9,7 +9,7 @@
  * Not a `.stories` file, so it is not picked up as its own sidebar entry —
  * it only supplies components to the sibling story pages.
  */
-import "../../../../base-components/components/SearchBar/SearchBar.css";
+import { SearchBar } from "../../../../base-components/components/SearchBar";
 
 /* ─── Sample media ─────────────────────────────────────────────────────────── */
 
@@ -748,21 +748,7 @@ const SEARCH_FILTERS = ["All", "Photos", "Videos", "Audio", "Documents"];
 export function SearchHeader({ value = "review", active = "All" }: { value?: string; active?: string }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)", width: "100%" }}>
-      <div className="search-bar">
-        <div className="search-bar__input-wrapper">
-          <span className="search-bar__icon">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M12.5 11H11.71L11.43 10.73C12.41 9.59 13 8.11 13 6.5C13 2.91 10.09 0 6.5 0C2.91 0 0 2.91 0 6.5C0 10.09 2.91 13 6.5 13C8.11 13 9.59 12.41 10.73 11.43L11 11.71V12.5L16 17.49L17.49 16L12.5 11ZM6.5 11C4.01 11 2 8.99 2 6.5C2 4.01 4.01 2 6.5 2C8.99 2 11 4.01 11 6.5C11 8.99 8.99 11 6.5 11Z" fill="currentColor" />
-            </svg>
-          </span>
-          <input className="search-bar__input" type="text" value={value} readOnly />
-          <button type="button" className="search-bar__clear" aria-label="Clear search">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M1 11L6 6M6 6L11 1M6 6L1 1M6 6L11 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-        </div>
-      </div>
+      <SearchBar value={value} placeholder="Search chats or messages" />
       <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--cometchat-spacing-1-5)" }}>
         {SEARCH_FILTERS.map((f) => {
           const on = f === active;
