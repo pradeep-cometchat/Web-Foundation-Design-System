@@ -70,13 +70,39 @@ export const VideoGrid: Story = {
 
 /** Several documents — each is its own bubble, stacked one below another. */
 export const Documents: Story = {
+  name: "Multiple Documents",
   parameters: { controls: { disable: true } },
   render: () => (
     <ChatCanvas>
+      <MessageStack variant="received">
+        <MultiAttachmentBubble variant="received" files={[{ kind: "pdf", name: "Contract.pdf", meta: "12 Jun · 1.2 MB" }]} showMeta={false} />
+        <MultiAttachmentBubble variant="received" files={[{ kind: "doc", name: "Notes.docx", meta: "12 Jun · 340 KB" }]} showMeta={false} />
+        <MultiAttachmentBubble variant="received" files={[{ kind: "xls", name: "Budget.xlsx", meta: "12 Jun · 812 KB" }]} />
+      </MessageStack>
       <MessageStack variant="sent">
         <MultiAttachmentBubble variant="sent" files={[{ kind: "pdf", name: "Contract.pdf", meta: "12 Jun · 1.2 MB" }]} showMeta={false} />
         <MultiAttachmentBubble variant="sent" files={[{ kind: "doc", name: "Notes.docx", meta: "12 Jun · 340 KB" }]} showMeta={false} />
         <MultiAttachmentBubble variant="sent" files={[{ kind: "xls", name: "Budget.xlsx", meta: "12 Jun · 812 KB" }]} />
+      </MessageStack>
+    </ChatCanvas>
+  ),
+};
+
+/** Several audio clips — like documents, each is its own bubble, stacked. */
+export const MultipleAudio: Story = {
+  name: "Multiple Audio",
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <ChatCanvas>
+      <MessageStack variant="received">
+        <MultiAttachmentBubble variant="received" files={[{ kind: "audio", name: "Audio.mp3", meta: "00:32" }]} showMeta={false} />
+        <MultiAttachmentBubble variant="received" files={[{ kind: "audio", name: "Recording.m4a", meta: "01:14" }]} showMeta={false} />
+        <MultiAttachmentBubble variant="received" files={[{ kind: "audio", name: "Voice-note.mp3", meta: "00:18" }]} />
+      </MessageStack>
+      <MessageStack variant="sent">
+        <MultiAttachmentBubble variant="sent" files={[{ kind: "audio", name: "Audio.mp3", meta: "00:32" }]} showMeta={false} />
+        <MultiAttachmentBubble variant="sent" files={[{ kind: "audio", name: "Recording.m4a", meta: "01:14" }]} showMeta={false} />
+        <MultiAttachmentBubble variant="sent" files={[{ kind: "audio", name: "Voice-note.mp3", meta: "00:18" }]} />
       </MessageStack>
     </ChatCanvas>
   ),
