@@ -47,10 +47,10 @@ export const Uploading: Story = {
     <div style={{ padding: 24 }}>
       <SpinKeyframes />
       <ComposerShell>
-        <ImagePreview badge="none" />
-        <ImagePreview badge="loading" src={SAMPLE_IMAGES[1]} />
+        <ImagePreview badge="loading" />
+        <VideoPreview badge="loading" src={SAMPLE_IMAGES[1]} />
         <DocumentPreview badge="loading" name="Deck.pdf" type="pdf" meta="PDF · 6.1 MB" />
-        <AudioPreview badge="none" />
+        <AudioPreview badge="loading" />
       </ComposerShell>
     </div>
   ),
@@ -107,9 +107,10 @@ export const AllStates: Story = {
       </Section>
       <Section title="Uploading">
         <ComposerShell>
-          <ImagePreview badge="none" />
-          <ImagePreview badge="loading" src={SAMPLE_IMAGES[1]} />
+          <ImagePreview badge="loading" />
+          <VideoPreview badge="loading" src={SAMPLE_IMAGES[1]} />
           <DocumentPreview badge="loading" name="Deck.pdf" type="pdf" meta="PDF · 6.1 MB" />
+          <AudioPreview badge="loading" />
         </ComposerShell>
       </Section>
       <Section title="Error">

@@ -119,26 +119,25 @@ const FILE_LABEL: Record<FileType, string> = { pdf: "PDF", doc: "DOC", xls: "XLS
 function FileTile({ type, size = 54, loading = false }: { type: FileType; size?: number; loading?: boolean }) {
   // App-tile: white by default; on loading it darkens and the icon dims behind
   // a white progress ring (the loading treatment we kept).
+  const radius = Math.round(size * 0.26);
   return (
     <div
       style={{
         position: "relative",
         width: size,
         height: size,
-        borderRadius: Math.round(size * 0.26),
+        borderRadius: radius,
         flexShrink: 0,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: loading ? "var(--cometchat-neutral-color-900)" : "var(--cometchat-static-white)",
-        boxShadow: loading ? "none" : "0 1px 3px rgba(16,24,40,0.12)",
+        background: "var(--cometchat-static-white)",
+        boxShadow: "0 1px 3px rgba(16,24,40,0.12)",
       }}
     >
-      <div style={{ display: "flex", filter: loading ? "brightness(0.45)" : "none" }}>
-        <FileTypeIcon type={type} size={Math.round(size * 0.64)} />
-      </div>
+      <FileTypeIcon type={type} size={Math.round(size * 0.64)} />
       {loading && (
-        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ position: "absolute", inset: 0, borderRadius: radius, display: "flex", alignItems: "center", justifyContent: "center", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 62%, transparent)" }}>
           <ProgressRing size={Math.round(size * 0.62)} stroke={3.5} />
         </div>
       )}
@@ -157,8 +156,8 @@ function AudioButton({ size = 60, loading = false, playing = false }: { size?: n
           position: "absolute",
           inset: 0,
           borderRadius: "50%",
-          background: loading ? "var(--cometchat-neutral-color-900)" : "var(--cometchat-primary-color)",
-          color: loading ? "rgba(255,255,255,0.28)" : "var(--cometchat-static-white)",
+          background: "var(--cometchat-primary-color)",
+          color: "var(--cometchat-static-white)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -167,7 +166,7 @@ function AudioButton({ size = 60, loading = false, playing = false }: { size?: n
         {playing ? <IconPause size={Math.round(size * 0.3)} /> : <IconPlay size={Math.round(size * 0.3)} />}
       </div>
       {loading && (
-        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ position: "absolute", inset: 0, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 62%, transparent)" }}>
           <ProgressRing size={Math.round(size * 0.62)} stroke={3.5} />
         </div>
       )}
@@ -178,6 +177,7 @@ function AudioButton({ size = 60, loading = false, playing = false }: { size?: n
 function SeekBar({ progress = 0 }: { progress?: number }) {
   return (
     <div style={{ position: "relative", height: 6, borderRadius: 3, width: "100%", background: "var(--cometchat-neutral-color-300)" }}>
+      {progress > 0 && <div style={{ position: "absolute", top: 0, left: 0, height: "100%", width: `${progress}%`, borderRadius: 3, background: "var(--cometchat-primary-color)" }} />}
       <div style={{ position: "absolute", top: "50%", left: `calc(${progress}% - ${(progress / 100) * 16}px)`, transform: "translateY(-50%)", width: 16, height: 16, borderRadius: "50%", background: "var(--cometchat-static-white)", border: "1px solid var(--cometchat-border-color-default)", boxShadow: "var(--cometchat-shadow-xs)" }} />
     </div>
   );
@@ -270,27 +270,29 @@ function MediaTile({ kind, state = "default", platform = "desktop", src = SAMPLE
   // Tiles show loading/error in the centre, so the corner only carries the remove ✕.
   const corner: CornerKind = state === "hover" ? "remove" : state === "default" && mobile ? "remove" : "none";
   return (
-    <div style={{ position: "relative", width: size, height: size, borderRadius: 14, overflow: "hidden", flexShrink: 0, border: `1px solid ${state === "error" ? "var(--cometchat-error-color)" : "var(--cometchat-border-color-default)"}` }}>
-      <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", filter: dim ? "blur(2px) brightness(0.7)" : undefined }} />
-      {kind === "video" && !dim && (
-        <>
-          <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 32, height: 32, borderRadius: "50%", background: "rgba(0,0,0,0.45)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <IconPlay size={13} />
+    <div style={{ position: "relative", width: size, height: size, flexShrink: 0 }}>
+      <div style={{ position: "relative", width: size, height: size, borderRadius: 14, overflow: "hidden", border: `1px solid ${state === "error" ? "var(--cometchat-error-color)" : "var(--cometchat-border-color-default)"}` }}>
+        <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", filter: dim ? "blur(2px) brightness(0.7)" : undefined }} />
+        {kind === "video" && !dim && (
+          <>
+            <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 32, height: 32, borderRadius: "50%", background: "rgba(0,0,0,0.45)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <IconPlay size={13} />
+            </div>
+            <div style={{ position: "absolute", bottom: 6, left: 6, padding: "1px 6px", borderRadius: 4, background: "rgba(0,0,0,0.6)", color: "#fff", fontSize: 10, fontWeight: 500 }}>0:12</div>
+          </>
+        )}
+        {state === "loading" && (
+          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <ProgressRing size={36} stroke={4} />
           </div>
-          <div style={{ position: "absolute", bottom: 6, left: 6, padding: "1px 6px", borderRadius: 4, background: "rgba(0,0,0,0.6)", color: "#fff", fontSize: 10, fontWeight: 500 }}>0:12</div>
-        </>
-      )}
-      {state === "loading" && (
-        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <ProgressRing size={36} stroke={4} />
-        </div>
-      )}
-      {state === "error" && (
-        <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", gap: 4, alignItems: "center", justifyContent: "center", color: "#fff" }}>
-          <span className="icon-rounded" style={{ fontSize: 22, "--icon-fill": 1 } as React.CSSProperties}>error</span>
-          <span style={{ fontSize: 10, fontWeight: 600 }}>Retry</span>
-        </div>
-      )}
+        )}
+        {state === "error" && (
+          <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", gap: 4, alignItems: "center", justifyContent: "center", color: "#fff" }}>
+            <span className="icon-rounded" style={{ fontSize: 22, "--icon-fill": 1 } as React.CSSProperties}>error</span>
+            <span style={{ fontSize: 10, fontWeight: 600 }}>Retry</span>
+          </div>
+        )}
+      </div>
       <CornerBadge kind={corner} />
     </div>
   );
