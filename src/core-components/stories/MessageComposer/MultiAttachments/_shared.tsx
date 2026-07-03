@@ -917,6 +917,22 @@ export function ResultsLabel({ children }: { children: React.ReactNode }) {
   return <div style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--cometchat-text-color-tertiary)" }}>{children}</div>;
 }
 
+/** Full-bleed drag-and-drop overlay — dark gray in both themes, white icon and
+ *  label, plus the destination chat name. Position it inside a relative parent. */
+export function DropOverlay({ chatName }: { chatName?: string }) {
+  return (
+    <div style={{ position: "absolute", inset: 0, border: "2px dashed color-mix(in srgb, var(--cometchat-static-white) 45%, transparent)", background: "color-mix(in srgb, color-mix(in srgb, var(--cometchat-static-black) 80%, var(--cometchat-static-white)) 92%, transparent)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "var(--cometchat-spacing-2-5)", pointerEvents: "none", zIndex: 5 }}>
+      <span className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-static-white)", "--icon-fill": 0 } as React.CSSProperties}>upload_file</span>
+      <span style={{ fontSize: 17, fontWeight: 600, color: "var(--cometchat-static-white)", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>Drop files to attach</span>
+      {chatName && (
+        <span style={{ fontSize: 13, color: "color-mix(in srgb, var(--cometchat-static-white) 75%, transparent)", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>
+          to <strong style={{ color: "var(--cometchat-static-white)", fontWeight: 600 }}>{chatName}</strong>
+        </span>
+      )}
+    </div>
+  );
+}
+
 /* ═══════════════════════════════════════════════════════════════════════════
    USAGE — shared HTML + CSS documentation block for every story page
    ═══════════════════════════════════════════════════════════════════════════ */

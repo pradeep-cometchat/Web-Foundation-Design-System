@@ -9,6 +9,7 @@ import { MessagePreview } from "../../../../base-components/components/MessagePr
 import { ActionSheet, CameraIcon, PhotoIcon, VideocamIcon, PlayCircleIcon, DescriptionIcon, PollIcon, CollaborativeWhiteboardIcon, CollaborativeDocumentIcon } from "../../../../base-components/components/ActionSheet";
 import {
   UsageDoc,
+  DropOverlay,
   MultiAttachmentBubble,
   MessageStack,
   ImagePreview,
@@ -446,15 +447,7 @@ function EndToEndChat({ messages, setMessages }: { messages: Msg[]; setMessages:
       </div>
 
       {/* Drag overlay */}
-      {dragging && (
-        <div style={{ position: "absolute", inset: 0, borderRadius: 0, border: "2px dashed color-mix(in srgb, var(--cometchat-static-white) 45%, transparent)", background: "color-mix(in srgb, color-mix(in srgb, var(--cometchat-static-black) 80%, var(--cometchat-static-white)) 92%, transparent)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "var(--cometchat-spacing-2-5)", pointerEvents: "none", zIndex: 5 }}>
-          <span className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-static-white)", "--icon-fill": 0 } as React.CSSProperties}>upload_file</span>
-          <span style={{ fontSize: 17, fontWeight: 600, color: "var(--cometchat-static-white)" }}>Drop files to attach</span>
-          <span style={{ fontSize: 13, color: "color-mix(in srgb, var(--cometchat-static-white) 75%, transparent)" }}>
-            to <strong style={{ color: "var(--cometchat-static-white)", fontWeight: 600 }}>{CHAT_NAME}</strong>
-          </span>
-        </div>
-      )}
+      {dragging && <DropOverlay chatName={CHAT_NAME} />}
     </div>
   );
 }

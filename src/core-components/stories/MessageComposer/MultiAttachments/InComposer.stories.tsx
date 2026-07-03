@@ -2,6 +2,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { MessagePreview } from "../../../../base-components/components/MessagePreview";
 import {
   UsageDoc,
+  DropOverlay,
+  MultiAttachmentBubble,
+  MessageStack,
   ComposerShell,
   ImagePreview,
   VideoPreview,
@@ -69,6 +72,33 @@ export const WithError: Story = {
         <VideoPreview badge="error" />
         <DocumentPreview badge="none" name="Notes.docx" type="doc" meta="DOC · 340 KB" />
       </ComposerShell>
+    </div>
+  ),
+};
+
+/** Dragging files over the chat — a dark full-bleed overlay with the upload
+ *  icon and the destination chat name covers the conversation. */
+export const DragAndDrop: Story = {
+  name: "Drag & Drop",
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <div style={{ padding: "var(--cometchat-spacing-6)" }}>
+      <div style={{ position: "relative", width: 720, maxWidth: "100%", borderRadius: "var(--cometchat-radius-3)", border: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-02)", overflow: "hidden", display: "flex", flexDirection: "column" }}>
+        <div style={{ flex: 1, padding: "var(--cometchat-spacing-4)", display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
+          <MessageStack variant="received">
+            <MultiAttachmentBubble variant="received" images={1} caption="and here's the hero shot 📸" />
+          </MessageStack>
+          <MessageStack variant="sent">
+            <MultiAttachmentBubble variant="sent" caption="love these 🙌" />
+          </MessageStack>
+        </div>
+        <div style={{ padding: "0 var(--cometchat-spacing-4) var(--cometchat-spacing-4)" }}>
+          <ComposerShell>
+            <ImagePreview badge="hover" />
+          </ComposerShell>
+        </div>
+        <DropOverlay chatName="George Alan" />
+      </div>
     </div>
   ),
 };
