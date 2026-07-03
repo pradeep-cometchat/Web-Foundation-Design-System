@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import {
+  UsageDoc,
   ImagePreview,
   MultiAttachmentBubble,
   ChatCanvas,
@@ -103,5 +104,67 @@ export const InSearch: Story = {
         </Section>
       </Row>
     </div>
+  ),
+};
+
+/** Usage — HTML structure + token CSS. */
+export const Usage: Story = {
+  parameters: { controls: { disable: true }, layout: "fullscreen" },
+  render: () => (
+    <UsageDoc
+      composed={[
+        { name: "ImagePreview", desc: "Composer thumbnail with the single-slot corner badge (remove / loading / error)." },
+        { name: "MultiAttachmentBubble", desc: "Delivered image grid (1–4 tiles + “+N” overflow) with time + read receipt." },
+        { name: "SearchBar", desc: "Design-system search input used by the Photos filter." },
+        { name: "MediaTile", desc: "Square media-grid result tile in search." },
+      ]}
+      html={`<!-- Composer preview -->
+<div class="ma-image-preview">
+  <img class="ma-image-preview__img" src="photo.jpg" alt="" />
+  <button class="ma-badge ma-badge--remove" aria-label="Remove">✕</button>
+</div>
+
+<!-- Delivered — image grid in a sent bubble -->
+<div class="ma-bubble ma-bubble--sent">
+  <div class="ma-grid ma-grid--2">
+    <img src="1.jpg" alt="" /><img src="2.jpg" alt="" />
+  </div>
+  <div class="ma-bubble__meta">4:56 pm <span class="ma-receipt">done_all</span></div>
+</div>
+
+<!-- In search — Photos filter media grid -->
+<div class="ma-search__grid">
+  <div class="ma-tile"><img src="1.jpg" alt="" /></div>
+  <!-- … -->
+</div>`}
+      css={`.ma-image-preview { position: relative; width: 72px; height: 72px; }
+.ma-image-preview__img {
+  width: 100%; height: 100%; object-fit: cover;
+  border-radius: var(--cometchat-radius-3);
+  border: 1px solid var(--cometchat-border-color-default);
+}
+.ma-badge {
+  position: absolute; top: -6px; right: -6px;
+  width: 22px; height: 22px;
+  border-radius: var(--cometchat-radius-max);
+  border: 2px solid var(--cometchat-background-color-01);
+  color: var(--cometchat-static-white);
+}
+.ma-badge--remove { background: var(--cometchat-neutral-color-700); }
+
+.ma-bubble--sent {
+  padding: var(--cometchat-spacing-2);
+  border-radius: var(--cometchat-radius-3);
+  background: var(--cometchat-send-bubble-background);
+}
+.ma-grid { display: grid; gap: 2px; border-radius: var(--cometchat-radius-2); overflow: hidden; }
+.ma-grid--2 { grid-template-columns: 1fr 1fr; }
+.ma-bubble__meta {
+  font: var(--cometchat-font-caption1-regular);
+  color: color-mix(in srgb, var(--cometchat-static-white) 70%, transparent);
+}
+
+.ma-tile { aspect-ratio: 1 / 1; border-radius: var(--cometchat-radius-2); overflow: hidden; }`}
+    />
   ),
 };

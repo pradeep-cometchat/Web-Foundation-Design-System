@@ -880,3 +880,53 @@ export function Divider() {
 export function ResultsLabel({ children }: { children: React.ReactNode }) {
   return <div style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--cometchat-text-color-tertiary)" }}>{children}</div>;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   USAGE — shared HTML + CSS documentation block for every story page
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
+      <div style={{ font: "var(--cometchat-font-caption1-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-secondary)", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>{title}</div>
+      {children}
+    </div>
+  );
+}
+
+function CodeCard({ language, code }: { language: string; code: string }) {
+  return (
+    <div style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", overflow: "hidden", background: "var(--cometchat-background-color-02)" }}>
+      <div style={{ display: "flex", alignItems: "center", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderBottom: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-background-color-03)" }}>
+        <span style={{ font: "var(--cometchat-font-caption2-semibold)", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-secondary)" }}>{language}</span>
+      </div>
+      <pre style={{ margin: 0, padding: "var(--cometchat-spacing-3-5)", font: "var(--cometchat-font-caption1-regular)", lineHeight: 1.7, color: "var(--cometchat-text-color-primary)", overflowX: "auto" }}>
+        <code>{code}</code>
+      </pre>
+    </div>
+  );
+}
+
+/** HTML + CSS-tokens + "Composed From" documentation, shared by every story's Usage page. */
+export function UsageDoc({ html, css, composed }: { html: string; css: string; composed: { name: string; desc: string }[] }) {
+  return (
+    <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto", fontFamily: "var(--cometchat-font-family)" }}>
+      <UsageSection title="HTML Structure">
+        <CodeCard language="HTML" code={html} />
+      </UsageSection>
+      <UsageSection title="CSS (CometChat Tokens)">
+        <CodeCard language="CSS" code={css} />
+      </UsageSection>
+      <UsageSection title="Composed From">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
+          {composed.map((c) => (
+            <div key={c.name} style={{ padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
+              <strong style={{ font: "var(--cometchat-font-body-semibold)", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>{c.name}</strong>
+              <span style={{ font: "var(--cometchat-font-caption1-regular)", color: "var(--cometchat-text-color-tertiary)" }}>{c.desc}</span>
+            </div>
+          ))}
+        </div>
+      </UsageSection>
+    </div>
+  );
+}
