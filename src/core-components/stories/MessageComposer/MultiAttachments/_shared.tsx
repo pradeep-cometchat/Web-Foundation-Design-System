@@ -49,11 +49,10 @@ export const IconError = () => (
   </svg>
 );
 
-export const IconRetry = ({ size = 11 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 12 12" fill="none">
-    <path d="M9.5 6a3.5 3.5 0 1 1-1.02-2.47" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    <path d="M9.8 1.4v2.2H7.6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
+export const IconRetry = ({ size = 13 }: { size?: number }) => (
+  <span className="icon-rounded" style={{ fontSize: size, lineHeight: 1, "--icon-fill": 0 } as React.CSSProperties}>
+    refresh
+  </span>
 );
 
 export const IconSpinner = ({ size = 12 }: { size?: number }) => (
@@ -931,18 +930,53 @@ export function ResultsLabel({ children }: { children: React.ReactNode }) {
   return <div style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--cometchat-text-color-tertiary)" }}>{children}</div>;
 }
 
-/** Full-bleed drag-and-drop overlay — dark gray in both themes, white icon and
- *  label, plus the destination chat name. Position it inside a relative parent. */
-export function DropOverlay({ chatName }: { chatName?: string }) {
+/** Playful card stack — a video card, a photo-illustration card and a small
+ *  document card, overlapped like a dropped handful of files. */
+function DropStack() {
+  const base: React.CSSProperties = { position: "absolute", left: "50%", top: "50%" };
   return (
-    <div style={{ position: "absolute", inset: 0, background: "color-mix(in srgb, color-mix(in srgb, var(--cometchat-static-black) 80%, var(--cometchat-static-white)) 92%, transparent)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "var(--cometchat-spacing-2-5)", pointerEvents: "none", zIndex: 5 }}>
-      <span className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-static-white)", "--icon-fill": 0 } as React.CSSProperties}>upload_file</span>
-      <span style={{ fontSize: 17, fontWeight: 600, color: "var(--cometchat-static-white)", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>Drop files to attach</span>
-      {chatName && (
-        <span style={{ fontSize: 13, color: "color-mix(in srgb, var(--cometchat-static-white) 75%, transparent)", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>
-          to <strong style={{ color: "var(--cometchat-static-white)", fontWeight: 600 }}>{chatName}</strong>
-        </span>
-      )}
+    <div style={{ position: "relative", width: 230, height: 160 }}>
+      {/* Docs — small note card peeking out behind */}
+      <div style={{ ...base, transform: "translate(-50%,-50%) translate(56px,-36px) rotate(14deg)", width: 50, height: 60, borderRadius: "var(--cometchat-radius-2-5)", background: "var(--cometchat-static-white)", boxShadow: "var(--cometchat-shadow-md)", display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-1-5)", padding: "var(--cometchat-spacing-3) var(--cometchat-spacing-2)" }}>
+        <div style={{ height: 5, borderRadius: "var(--cometchat-radius)", background: "var(--cometchat-neutral-color-300)", width: "85%" }} />
+        <div style={{ height: 5, borderRadius: "var(--cometchat-radius)", background: "var(--cometchat-neutral-color-300)", width: "60%" }} />
+        <div style={{ height: 5, borderRadius: "var(--cometchat-radius)", background: "var(--cometchat-neutral-color-300)", width: "75%" }} />
+      </div>
+      {/* Videos — primary card with a play button */}
+      <div style={{ ...base, transform: "translate(-50%,-50%) translate(-42px,-8px) rotate(-8deg)", width: 108, height: 80, borderRadius: "var(--cometchat-radius-4)", background: "var(--cometchat-primary-color)", border: "4px solid var(--cometchat-static-white)", boxShadow: "var(--cometchat-shadow-lg)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ width: 32, height: 32, borderRadius: "50%", background: "var(--cometchat-static-white)", color: "var(--cometchat-primary-color)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <IconPlay size={14} />
+        </div>
+      </div>
+      {/* Images — photo illustration card in front */}
+      <div style={{ ...base, transform: "translate(-50%,-50%) translate(38px,18px) rotate(7deg)", width: 112, height: 84, borderRadius: "var(--cometchat-radius-4)", background: "var(--cometchat-static-white)", boxShadow: "var(--cometchat-shadow-lg)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <svg width="96" height="68" viewBox="0 0 96 68">
+          <rect x="0" y="0" width="96" height="68" rx="10" fill="color-mix(in srgb, var(--cometchat-info-color) 18%, var(--cometchat-static-white))" />
+          <circle cx="70" cy="20" r="9" fill="var(--cometchat-warning-color)" />
+          <path d="M0 58 L28 30 L48 50 L62 40 L96 64 L96 68 L0 68 Z" fill="var(--cometchat-success-color)" opacity="0.9" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+/** Full-bleed drag-and-drop overlay — dark gray in both themes, a fanned file
+ *  stack, headline and helper copy. Position it inside a relative parent. */
+export function DropOverlay({ chatName }: { chatName?: string }) {
+  const font = "var(--cometchat-font-family, Inter, sans-serif)";
+  return (
+    <div style={{ position: "absolute", inset: 0, background: "color-mix(in srgb, color-mix(in srgb, var(--cometchat-static-black) 80%, var(--cometchat-static-white)) 92%, transparent)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "var(--cometchat-spacing-2)", pointerEvents: "none", zIndex: 5 }}>
+      <DropStack />
+      <span style={{ fontSize: 26, fontWeight: 700, color: "var(--cometchat-static-white)", fontFamily: font, marginTop: "var(--cometchat-spacing-2)" }}>Drop files here</span>
+      <span style={{ fontSize: 15, lineHeight: "22px", color: "color-mix(in srgb, var(--cometchat-static-white) 75%, transparent)", fontFamily: font, textAlign: "center", maxWidth: 380 }}>
+        {chatName ? (
+          <>
+            Photos, videos, documents and audio — they'll go straight to <strong style={{ color: "var(--cometchat-static-white)", fontWeight: 600 }}>{chatName}</strong>.
+          </>
+        ) : (
+          <>Photos, videos, documents and audio — added to your message, ready to send.</>
+        )}
+      </span>
     </div>
   );
 }
