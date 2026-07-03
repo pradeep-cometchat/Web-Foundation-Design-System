@@ -64,7 +64,9 @@ function cornerFor(state: CardState, platform: Platform): CornerKind {
   // Loading is shown as a ring on the icon/button, so the corner stays empty —
   // that's what keeps it from ever colliding with the error mark.
   if (state === "loading") return "none";
-  if (state === "error") return "error";
+  // On mobile the error lives on the icon overlay, so the corner keeps the ✕
+  // (dismiss); on desktop the corner carries the error mark.
+  if (state === "error") return platform === "mobile" ? "remove" : "error";
   if (state === "hover") return "remove";
   // default
   return platform === "mobile" ? "remove" : "none";
@@ -116,9 +118,9 @@ function ProgressRing({ size = 40, stroke = 4, progress = 62 }: { size?: number;
 
 const FILE_LABEL: Record<FileType, string> = { pdf: "PDF", doc: "DOC", xls: "XLS", ppt: "PPT", zip: "ZIP", txt: "TXT", file: "FILE" };
 
-function FileTile({ type, size = 54, loading = false }: { type: FileType; size?: number; loading?: boolean }) {
-  // App-tile: white by default; on loading it darkens and the icon dims behind
-  // a white progress ring (the loading treatment we kept).
+function FileTile({ type, size = 54, loading = false, error = false }: { type: FileType; size?: number; loading?: boolean; error?: boolean }) {
+  // App-tile: white by default; loading/error draw a translucent dark overlay
+  // on the icon — a progress ring while uploading, an error mark on failure.
   const radius = Math.round(size * 0.26);
   return (
     <div
@@ -136,9 +138,13 @@ function FileTile({ type, size = 54, loading = false }: { type: FileType; size?:
       }}
     >
       <FileTypeIcon type={type} size={Math.round(size * 0.64)} />
-      {loading && (
-        <div style={{ position: "absolute", inset: 0, borderRadius: radius, display: "flex", alignItems: "center", justifyContent: "center", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 62%, transparent)" }}>
-          <ProgressRing size={Math.round(size * 0.62)} stroke={3.5} />
+      {(loading || error) && (
+        <div style={{ position: "absolute", inset: 0, borderRadius: radius, display: "flex", alignItems: "center", justifyContent: "center", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 62%, transparent)", color: "var(--cometchat-static-white)" }}>
+          {loading ? (
+            <ProgressRing size={Math.round(size * 0.62)} stroke={3.5} />
+          ) : (
+            <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.42), "--icon-fill": 1 } as React.CSSProperties}>error</span>
+          )}
         </div>
       )}
     </div>
@@ -147,7 +153,7 @@ function FileTile({ type, size = 54, loading = false }: { type: FileType; size?:
 
 /* ─── Audio button: purple by default; dark with a dimmed play while loading ── */
 
-function AudioButton({ size = 60, loading = false, playing = false }: { size?: number; loading?: boolean; playing?: boolean }) {
+function AudioButton({ size = 60, loading = false, error = false, playing = false }: { size?: number; loading?: boolean; error?: boolean; playing?: boolean }) {
   return (
     <div style={{ position: "relative", width: size, height: size, flexShrink: 0 }}>
       {/* Full-size circle (same size loading or not) */}
@@ -165,9 +171,13 @@ function AudioButton({ size = 60, loading = false, playing = false }: { size?: n
       >
         {playing ? <IconPause size={Math.round(size * 0.3)} /> : <IconPlay size={Math.round(size * 0.3)} />}
       </div>
-      {loading && (
-        <div style={{ position: "absolute", inset: 0, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 62%, transparent)" }}>
-          <ProgressRing size={Math.round(size * 0.62)} stroke={3.5} />
+      {(loading || error) && (
+        <div style={{ position: "absolute", inset: 0, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 62%, transparent)", color: "var(--cometchat-static-white)" }}>
+          {loading ? (
+            <ProgressRing size={Math.round(size * 0.62)} stroke={3.5} />
+          ) : (
+            <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.42), "--icon-fill": 1 } as React.CSSProperties}>error</span>
+          )}
         </div>
       )}
     </div>
@@ -228,7 +238,7 @@ function DocumentCard({ state = "default", platform = "desktop", type = "pdf", n
   const mobile = platform === "mobile";
   return (
     <div style={cardShell(state, mobile)}>
-      <FileTile type={type} loading={state === "loading"} />
+      <FileTile type={type} loading={state === "loading"} error={state === "error" && mobile} />
       <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 6 }}>
         <span style={titleStyle}>{name}</span>
         <span style={subStyle(state)}>{subtitle(state, FILE_LABEL[type])}</span>
@@ -244,7 +254,7 @@ function AudioCard({ state = "default", platform = "desktop", name = "Watch by B
   const mobile = platform === "mobile";
   return (
     <div style={cardShell(state, mobile)}>
-      <AudioButton loading={state === "loading"} playing={playing} />
+      <AudioButton loading={state === "loading"} error={state === "error" && mobile} playing={playing} />
       <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 6 }}>
         <span style={titleStyle}>{name}</span>
         {state === "error" ? (
