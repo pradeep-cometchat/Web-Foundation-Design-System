@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import "../../../../shell/Shell.css";
 import "../../ChatBubbles/ChatBubbles.css";
 import { Header } from "../../../../base-components/components/Header";
+import { SearchBar } from "../../../../base-components/components/SearchBar";
 import { ConversationItem } from "../../../../base-components/components/ListItem";
 import { ActionSheet, CameraIcon, PhotoIcon, VideocamIcon, PlayCircleIcon, DescriptionIcon, PollIcon, CollaborativeWhiteboardIcon, CollaborativeDocumentIcon } from "../../../../base-components/components/ActionSheet";
 import {
@@ -32,16 +33,41 @@ type Story = StoryObj;
 
 const AV = (n: number) => `https://i.pravatar.cc/120?img=${n}`;
 const AVATAR = AV(12);
+const CHAT_NAME = "George Alan";
 
-const CONVOS = [
-  { name: "George Alan", img: AV(12), last: "love these 🙌", time: "4:55 pm", active: true },
-  { name: "Camilla Juliette", img: AV(5), last: "🖼 4 Photos", time: "3:20 pm" },
-  { name: "Brian Michael", img: AV(13), last: "📄 Contract.pdf", time: "2:14 pm" },
-  { name: "Emma Rose", img: AV(9), last: "🎤 Audio", time: "1:02 pm" },
-  { name: "Chris Nolan", img: AV(14), last: "🎬 2 Videos", time: "Yesterday" },
-  { name: "Gabriella Elise", img: AV(16), last: "You: sounds good!", time: "Yesterday" },
-  { name: "Daniel Brooks", img: AV(15), last: "📎 3 Files", time: "Mon" },
-  { name: "Isabella Fleur", img: AV(20), last: "Thanks a lot 🙏", time: "Mon" },
+type ChatRow = {
+  name: string;
+  img?: string;
+  avatarText?: string;
+  time: string;
+  text?: string;
+  sender?: string;
+  type?: "photo" | "video" | "file" | "audio";
+  status?: "read" | "error" | "sent";
+  online?: boolean;
+  active?: boolean;
+};
+
+// Derive the sidebar preview for the active chat from its latest message,
+// so anything sent in the panel is reflected in the Chat List row.
+function previewFor(m: Msg): Partial<ChatRow> {
+  const g = m.groups[0];
+  const type: ChatRow["type"] = g ? (g.t === "media" ? (g.video ? "video" : "photo") : g.t === "file" ? "file" : "audio") : undefined;
+  const status: ChatRow["status"] = m.variant === "sent" ? (m.state === "uploading" ? "sent" : "read") : undefined;
+  return { type, text: m.caption, status, time: m.time === "now" ? "Now" : m.time };
+}
+
+// Mirrors the Chat List / Default story, with working avatar images.
+const CONVOS: ChatRow[] = [
+  { name: "George Alan", img: AV(12), time: "6:45 PM", text: "Hey, let's catch up later!", status: "read", online: true, active: true },
+  { name: "Uber Cars", img: AV(52), time: "4:30 PM", sender: "John:", type: "photo", text: "Your ride has arrived. Driver is waiting outside." },
+  { name: "Safiya Fareena", img: AV(5), time: "2:10 PM", type: "video" },
+  { name: "Robert Allen", img: AV(13), time: "11:00 AM", status: "read", type: "photo", text: "Check this out from yesterday!", online: true },
+  { name: "Epic Game", img: AV(60), time: "Yesterday", sender: "John Paul:", type: "file", text: "join the match now" },
+  { name: "Scott Franklin", avatarText: "SF", time: "Monday", status: "error", type: "audio" },
+  { name: "Micheal Scott", img: AV(15), time: "Sunday", status: "read", text: "Emoji" },
+  { name: "Innovative Online Shopping", img: AV(16), time: "Friday", status: "read", sender: "Tessa:", text: "Order delivered" },
+  { name: "Micheal Scott", img: AV(15), time: "11/04/26", text: "Incoming voice call" },
 ];
 
 function TabItem({ icon, label, active }: { icon: string; label: string; active?: boolean }) {
@@ -131,6 +157,7 @@ interface Pending {
   meta: string;
   src?: string;
   docType?: DocKind;
+  loading?: boolean;
 }
 
 type Group =
@@ -162,8 +189,7 @@ const SEED: Msg[] = [
 
 /* ─── Chat ─────────────────────────────────────────────────────────────────── */
 
-function EndToEndChat() {
-  const [messages, setMessages] = useState<Msg[]>(SEED);
+function EndToEndChat({ messages, setMessages }: { messages: Msg[]; setMessages: React.Dispatch<React.SetStateAction<Msg[]>> }) {
   const [pending, setPending] = useState<Pending[]>([]);
   const [text, setText] = useState("");
   const [dragging, setDragging] = useState(false);
@@ -186,7 +212,15 @@ function EndToEndChat() {
     return { id, kind: "doc", docType, name: file.name, meta: `${docType.toUpperCase()} · ${formatSize(file.size)}` };
   }
 
-  const addFiles = (files: FileList | File[]) => setPending((p) => [...p, ...Array.from(files).map(classify)]);
+  // Queue items in a loading state, then flip each to ready (mimics an upload).
+  const queue = (items: Pending[]) => {
+    const loading = items.map((it) => ({ ...it, loading: true }));
+    setPending((p) => [...p, ...loading]);
+    loading.forEach((it) =>
+      window.setTimeout(() => setPending((p) => p.map((x) => (x.id === it.id ? { ...x, loading: false } : x))), 1200),
+    );
+  };
+  const addFiles = (files: FileList | File[]) => queue(Array.from(files).map(classify));
   const removePending = (id: number) => setPending((p) => p.filter((x) => x.id !== id));
 
   // Action-sheet items add a representative attachment (Photos opens the picker).
@@ -200,7 +234,7 @@ function EndToEndChat() {
           : kind === "audio"
             ? { id, kind, name: "Audio.mp3", meta: "00:30" }
             : { id, kind: "doc", docType: docType ?? "pdf", name: "Document.pdf", meta: "PDF · 2.4 MB" };
-    setPending((p) => [...p, item]);
+    queue([item]);
     setSheetOpen(false);
   }
 
@@ -320,10 +354,15 @@ function EndToEndChat() {
           <div style={{ display: "flex", gap: 8, padding: "10px 12px 2px", marginBottom: 2, overflowX: "auto", overflowY: "visible" }}>
             {pending.map((p) => (
               <div key={p.id} style={{ position: "relative", flexShrink: 0 }}>
-                {p.kind === "image" ? <ImagePreview badge="none" src={p.src} /> : p.kind === "video" ? <VideoPreview badge="none" src={p.src} /> : p.kind === "audio" ? <AudioPreview badge="none" title={p.name} /> : <DocumentPreview badge="none" name={p.name} type={p.docType} meta={p.meta} />}
-                <button onClick={() => removePending(p.id)} style={{ position: "absolute", top: -6, right: -6, width: 22, height: 22, borderRadius: "50%", border: "2px solid var(--cometchat-background-color-01)", background: "var(--cometchat-neutral-color-700)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", padding: 0 }} aria-label="Remove attachment">
-                  <IconClose />
-                </button>
+                {(() => {
+                  const badge = p.loading ? "loading" : "none";
+                  return p.kind === "image" ? <ImagePreview badge={badge} src={p.src} /> : p.kind === "video" ? <VideoPreview badge={badge} src={p.src} /> : p.kind === "audio" ? <AudioPreview badge={badge} title={p.name} /> : <DocumentPreview badge={badge} name={p.name} type={p.docType} meta={p.meta} />;
+                })()}
+                {!p.loading && (
+                  <button onClick={() => removePending(p.id)} style={{ position: "absolute", top: -6, right: -6, width: 22, height: 22, borderRadius: "50%", border: "2px solid var(--cometchat-background-color-01)", background: "var(--cometchat-neutral-color-700)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", padding: 0 }} aria-label="Remove attachment">
+                    <IconClose />
+                  </button>
+                )}
               </div>
             ))}
           </div>
@@ -356,9 +395,12 @@ function EndToEndChat() {
 
       {/* Drag overlay */}
       {dragging && (
-        <div style={{ position: "absolute", inset: 12, borderRadius: "var(--cometchat-radius-3)", border: "2px dashed var(--cometchat-primary-color)", background: "color-mix(in srgb, var(--cometchat-primary-color) 10%, transparent)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12, pointerEvents: "none", zIndex: 5 }}>
-          <span className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-primary-color)", "--icon-fill": 0 } as React.CSSProperties}>upload_file</span>
-          <span style={{ fontSize: 17, fontWeight: 600, color: "var(--cometchat-primary-color)" }}>Drop files to attach</span>
+        <div style={{ position: "absolute", inset: 0, borderRadius: 0, border: "2px dashed color-mix(in srgb, var(--cometchat-static-white) 45%, transparent)", background: "color-mix(in srgb, var(--cometchat-neutral-color-800) 92%, transparent)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 10, pointerEvents: "none", zIndex: 5 }}>
+          <span className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-static-white)", "--icon-fill": 0 } as React.CSSProperties}>upload_file</span>
+          <span style={{ fontSize: 17, fontWeight: 600, color: "var(--cometchat-static-white)" }}>Drop files to attach</span>
+          <span style={{ fontSize: 13, color: "color-mix(in srgb, var(--cometchat-static-white) 75%, transparent)" }}>
+            to <strong style={{ color: "var(--cometchat-static-white)", fontWeight: 600 }}>{CHAT_NAME}</strong>
+          </span>
         </div>
       )}
     </div>
@@ -366,16 +408,36 @@ function EndToEndChat() {
 }
 
 function ChatScreen() {
+  const [messages, setMessages] = useState<Msg[]>(SEED);
+  const last = messages[messages.length - 1];
   return (
     <div className="shell" style={{ height: "100vh", borderRadius: 0, border: "none", fontFamily: "var(--cometchat-font-family, Inter, sans-serif)" }}>
       <div className="shell__sidebar">
-        <Header title="Chats" actions={[{ icon: "more_vert", onClick: () => {}, ariaLabel: "More" }]} />
+        <Header title="Chats" actions={[]} showMore />
+        <div style={{ padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-4)" }}>
+          <SearchBar placeholder="Search chats or messages" />
+        </div>
         <div style={{ flex: 1, overflow: "auto" }}>
-          {CONVOS.map((c, i) => (
-            <div key={i} style={c.active ? { background: "var(--cometchat-background-color-03)" } : undefined}>
-              <ConversationItem title={c.name} avatarUrl={c.img} textContent={c.last} timestamp={c.time} avatarVariant="image" />
-            </div>
-          ))}
+          {CONVOS.map((base, i) => {
+            const c = base.active ? { ...base, ...previewFor(last) } : base;
+            return (
+              <div key={i} style={c.active ? { background: "var(--cometchat-background-color-03)" } : undefined}>
+                <ConversationItem
+                  title={c.name}
+                  timestamp={c.time}
+                  avatarVariant={c.avatarText ? "text" : "image"}
+                  avatarUrl={c.img}
+                  avatarText={c.avatarText}
+                  statusIcon={c.online ? "online" : "none"}
+                  messageStatus={c.status}
+                  senderLabel={c.sender}
+                  messageType={c.type}
+                  messageTypeLabel={c.type ? true : undefined}
+                  textContent={c.text}
+                />
+              </div>
+            );
+          })}
         </div>
         <div className="shell__tab-bar">
           <TabItem icon="chat" label="Chats" active />
@@ -384,7 +446,7 @@ function ChatScreen() {
           <TabItem icon="person" label="Users" />
         </div>
       </div>
-      <EndToEndChat />
+      <EndToEndChat messages={messages} setMessages={setMessages} />
     </div>
   );
 }
