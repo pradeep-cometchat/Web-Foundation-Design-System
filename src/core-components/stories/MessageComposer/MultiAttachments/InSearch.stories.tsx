@@ -153,12 +153,12 @@ function MediaThumb({ kind, count, src }: { kind: "image" | "video"; count: numb
     <div style={{ position: "relative", width: 76, height: 54, borderRadius: "var(--cometchat-radius-2)", overflow: "hidden", flexShrink: 0, border: "1px solid var(--cometchat-border-color-default)" }}>
       <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", filter: kind === "video" ? "brightness(0.8)" : undefined }} />
       {kind === "video" && (
-        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 22, height: 22, borderRadius: "50%", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 50%, transparent)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 22, height: 22, borderRadius: "50%", background: "color-mix(in srgb, var(--cometchat-static-black) 50%, transparent)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
           <IconPlay size={9} />
         </div>
       )}
       {count > 0 && (
-        <div style={{ position: "absolute", right: 4, bottom: 4, padding: "0 var(--cometchat-spacing-1-5)", height: 16, borderRadius: "var(--cometchat-radius-2)", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 60%, transparent)", color: "var(--cometchat-static-white)", fontSize: 11, fontWeight: 600, display: "flex", alignItems: "center" }}>+{count}</div>
+        <div style={{ position: "absolute", right: 4, bottom: 4, padding: "0 var(--cometchat-spacing-1-5)", height: 16, borderRadius: "var(--cometchat-radius-2)", background: "color-mix(in srgb, var(--cometchat-static-black) 60%, transparent)", color: "var(--cometchat-static-white)", fontSize: 11, fontWeight: 600, display: "flex", alignItems: "center" }}>+{count}</div>
       )}
     </div>
   );
@@ -193,7 +193,7 @@ function DocStack({ type = "pdf" }: { type?: FileType }) {
     <div style={{ position: "relative", width: 46, height: 46, flexShrink: 0 }}>
       <Sheet w={26} fill="var(--cometchat-background-color-03)" fold="var(--cometchat-border-color-default)" transform="rotate(-11deg) translateX(-3px)" />
       <Sheet w={26} fill="var(--cometchat-background-color-02)" fold="var(--cometchat-border-color-dark)" transform="rotate(9deg) translateX(3px)" />
-      <div style={{ position: "absolute", left: "50%", top: 2, transform: "translateX(-50%)", filter: "drop-shadow(0 1px 2px color-mix(in srgb, var(--cometchat-neutral-color-900) 12%, transparent))" }}>
+      <div style={{ position: "absolute", left: "50%", top: 2, transform: "translateX(-50%)", filter: "drop-shadow(0 1px 2px color-mix(in srgb, var(--cometchat-static-black) 12%, transparent))" }}>
         <FileTypeIcon type={type} size={34} />
       </div>
     </div>
@@ -387,7 +387,7 @@ export const Usage: Story = {
   border: 1px solid var(--cometchat-border-color-default);
 }
 .ma-result__thumb span {
-  background: color-mix(in srgb, var(--cometchat-neutral-color-900) 60%, transparent);
+  background: color-mix(in srgb, var(--cometchat-static-black) 60%, transparent);
   color: var(--cometchat-static-white);
   font: var(--cometchat-font-caption2-semibold);
 }`}

@@ -160,7 +160,7 @@ export function AudioSeekBar({ progress = 0, onDark = false }: { progress?: numb
           height: 16,
           borderRadius: "50%",
           background: "var(--cometchat-static-white)",
-          border: `1px solid ${onDark ? "color-mix(in srgb, var(--cometchat-neutral-color-900) 6%, transparent)" : "var(--cometchat-border-color-default)"}`,
+          border: `1px solid ${onDark ? "color-mix(in srgb, var(--cometchat-static-black) 6%, transparent)" : "var(--cometchat-border-color-default)"}`,
           boxShadow: "var(--cometchat-shadow-xs)",
         }}
       />
@@ -248,8 +248,8 @@ export function Badge({ state }: { state: BadgeState }) {
     state === "error"
       ? "var(--cometchat-error-color)"
       : state === "remove"
-        ? "var(--cometchat-text-color-secondary)"
-        : "var(--cometchat-neutral-color-700)";
+        ? "color-mix(in srgb, var(--cometchat-static-black) 70%, var(--cometchat-static-white))"
+        : "color-mix(in srgb, var(--cometchat-static-black) 70%, var(--cometchat-static-white))";
   return (
     <div style={{ ...badgeBase, background: bg }}>
       {state === "loading" ? <IconSpinner size={10} /> : state === "error" ? <IconError /> : <IconClose />}
@@ -296,7 +296,7 @@ export function VideoPreview({ badge = "none", src = SAMPLE_IMAGES[1] }: { badge
           width: 30,
           height: 30,
           borderRadius: "50%",
-          background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 45%, transparent)",
+          background: "color-mix(in srgb, var(--cometchat-static-black) 45%, transparent)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -521,13 +521,13 @@ export function MultiAttachmentBubble({
       <img src={SAMPLE_IMAGES[i % SAMPLE_IMAGES.length]} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
       {videoAt.includes(i) && (
         <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <div style={{ width: 30, height: 30, borderRadius: "50%", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 45%, transparent)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div style={{ width: 30, height: 30, borderRadius: "50%", background: "color-mix(in srgb, var(--cometchat-static-black) 45%, transparent)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <IconPlay />
           </div>
         </div>
       )}
       {i === shownTiles - 1 && overflow > 0 && (
-        <div style={{ position: "absolute", inset: 0, background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 50%, transparent)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ position: "absolute", inset: 0, background: "color-mix(in srgb, var(--cometchat-static-black) 50%, transparent)", display: "flex", alignItems: "center", justifyContent: "center" }}>
           <span style={{ color: "var(--cometchat-static-white)", fontSize: 18, fontWeight: 600 }}>+{overflow}</span>
         </div>
       )}
@@ -571,7 +571,7 @@ export function MultiAttachmentBubble({
             {state === "downloading" ? (
               <DownloadRing size={44} progress={60} />
             ) : (
-              <div style={{ width: 40, height: 40, borderRadius: "50%", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 55%, transparent)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div style={{ width: 40, height: 40, borderRadius: "50%", background: "color-mix(in srgb, var(--cometchat-static-black) 55%, transparent)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <IconSpinner size={18} />
               </div>
             )}
@@ -810,7 +810,7 @@ export function ConversationResult({ name, time, count, hue, thumbs }: { name: s
           <div key={i} style={{ position: "relative", width: 34, height: 34, borderRadius: "var(--cometchat-radius-1-5)", overflow: "hidden", border: "1px solid var(--cometchat-border-color-default)" }}>
             <img src={SAMPLE_IMAGES[n % SAMPLE_IMAGES.length]} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             {i === idx.length - 1 && count > idx.length && (
-              <div style={{ position: "absolute", inset: 0, background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 50%, transparent)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 600 }}>+{count - idx.length}</div>
+              <div style={{ position: "absolute", inset: 0, background: "color-mix(in srgb, var(--cometchat-static-black) 50%, transparent)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 600 }}>+{count - idx.length}</div>
             )}
           </div>
         ))}
@@ -826,10 +826,10 @@ export function MediaTile({ src, video, duration }: { src: string; video?: boole
       <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       {video && (
         <>
-          <div style={{ position: "absolute", top: 6, right: 6, width: 22, height: 22, borderRadius: "50%", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 50%, transparent)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div style={{ position: "absolute", top: 6, right: 6, width: 22, height: 22, borderRadius: "50%", background: "color-mix(in srgb, var(--cometchat-static-black) 50%, transparent)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <IconPlay size={10} />
           </div>
-          {duration && <div style={{ position: "absolute", bottom: 6, left: 6, padding: "1px var(--cometchat-spacing-1-5)", borderRadius: "var(--cometchat-radius-1)", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 60%, transparent)", color: "var(--cometchat-static-white)", fontSize: 10, fontWeight: 500 }}>{duration}</div>}
+          {duration && <div style={{ position: "absolute", bottom: 6, left: 6, padding: "1px var(--cometchat-spacing-1-5)", borderRadius: "var(--cometchat-radius-1)", background: "color-mix(in srgb, var(--cometchat-static-black) 60%, transparent)", color: "var(--cometchat-static-white)", fontSize: 10, fontWeight: 500 }}>{duration}</div>}
         </>
       )}
     </div>

@@ -150,7 +150,7 @@ export const Usage: Story = {
   border: 2px solid var(--cometchat-background-color-01);
   color: var(--cometchat-static-white);
 }
-.ma-badge--remove { background: var(--cometchat-neutral-color-700); }
+.ma-badge--remove { background: color-mix(in srgb, var(--cometchat-static-black) 70%, var(--cometchat-static-white)); }
 
 .ma-bubble--sent {
   padding: var(--cometchat-spacing-2);

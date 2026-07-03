@@ -145,7 +145,7 @@ const sendBase: React.CSSProperties = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  boxShadow: "0px 1px 2px color-mix(in srgb, var(--cometchat-neutral-color-900) 5%, transparent)",
+  boxShadow: "0px 1px 2px color-mix(in srgb, var(--cometchat-static-black) 5%, transparent)",
   flexShrink: 0,
 };
 
@@ -404,7 +404,7 @@ function EndToEndChat({ messages, setMessages }: { messages: Msg[]; setMessages:
                   return p.kind === "image" ? <ImagePreview badge={badge} src={p.src} /> : p.kind === "video" ? <VideoPreview badge={badge} src={p.src} /> : p.kind === "audio" ? <AudioPreview badge={badge} title={p.name} /> : <DocumentPreview badge={badge} name={p.name} type={p.docType} meta={p.meta} />;
                 })()}
                 {!p.loading && (
-                  <button onClick={() => removePending(p.id)} style={{ position: "absolute", top: -6, right: -6, width: 22, height: 22, borderRadius: "50%", border: "2px solid var(--cometchat-background-color-01)", background: "var(--cometchat-neutral-color-700)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", padding: 0 }} aria-label="Remove attachment">
+                  <button onClick={() => removePending(p.id)} style={{ position: "absolute", top: -6, right: -6, width: 22, height: 22, borderRadius: "50%", border: "2px solid var(--cometchat-background-color-01)", background: "color-mix(in srgb, var(--cometchat-static-black) 70%, var(--cometchat-static-white))", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", padding: 0 }} aria-label="Remove attachment">
                     <IconClose />
                   </button>
                 )}
@@ -453,7 +453,7 @@ function EndToEndChat({ messages, setMessages }: { messages: Msg[]; setMessages:
 
       {/* Drag overlay */}
       {dragging && (
-        <div style={{ position: "absolute", inset: 0, borderRadius: 0, border: "2px dashed color-mix(in srgb, var(--cometchat-static-white) 45%, transparent)", background: "color-mix(in srgb, var(--cometchat-neutral-color-800) 92%, transparent)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "var(--cometchat-spacing-2-5)", pointerEvents: "none", zIndex: 5 }}>
+        <div style={{ position: "absolute", inset: 0, borderRadius: 0, border: "2px dashed color-mix(in srgb, var(--cometchat-static-white) 45%, transparent)", background: "color-mix(in srgb, color-mix(in srgb, var(--cometchat-static-black) 80%, var(--cometchat-static-white)) 92%, transparent)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "var(--cometchat-spacing-2-5)", pointerEvents: "none", zIndex: 5 }}>
           <span className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-static-white)", "--icon-fill": 0 } as React.CSSProperties}>upload_file</span>
           <span style={{ fontSize: 17, fontWeight: 600, color: "var(--cometchat-static-white)" }}>Drop files to attach</span>
           <span style={{ fontSize: 13, color: "color-mix(in srgb, var(--cometchat-static-white) 75%, transparent)" }}>
@@ -592,7 +592,7 @@ export const Usage: Story = {
 .chat__dropzone {
   position: absolute; inset: 0; z-index: 5;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  background: color-mix(in srgb, var(--cometchat-neutral-color-800) 92%, transparent);
+  background: color-mix(in srgb, color-mix(in srgb, var(--cometchat-static-black) 80%, var(--cometchat-static-white)) 92%, transparent);
   border: 2px dashed color-mix(in srgb, var(--cometchat-static-white) 45%, transparent);
   color: var(--cometchat-static-white);
   pointer-events: none;

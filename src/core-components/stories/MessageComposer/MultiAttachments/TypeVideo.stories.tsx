@@ -139,7 +139,7 @@ export const Usage: Story = {
 .ma-play {
   position: absolute; inset: 0; margin: auto;
   width: 30px; height: 30px; border-radius: var(--cometchat-radius-max);
-  background: color-mix(in srgb, var(--cometchat-neutral-color-900) 45%, transparent);
+  background: color-mix(in srgb, var(--cometchat-static-black) 45%, transparent);
   color: var(--cometchat-static-white);
 }
 
@@ -149,7 +149,7 @@ export const Usage: Story = {
   padding: 1px var(--cometchat-spacing-1-5);
   border-radius: var(--cometchat-radius-1);
   font: var(--cometchat-font-caption2-medium);
-  background: color-mix(in srgb, var(--cometchat-neutral-color-900) 60%, transparent);
+  background: color-mix(in srgb, var(--cometchat-static-black) 60%, transparent);
   color: var(--cometchat-static-white);
 }`}
     />
