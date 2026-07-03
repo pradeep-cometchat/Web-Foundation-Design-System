@@ -163,12 +163,12 @@ function MediaThumb({ kind, count, src }: { kind: "image" | "video"; count: numb
     <div style={{ position: "relative", width: 76, height: 54, borderRadius: 8, overflow: "hidden", flexShrink: 0, border: "1px solid var(--cometchat-border-color-default)" }}>
       <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", filter: kind === "video" ? "brightness(0.8)" : undefined }} />
       {kind === "video" && (
-        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 22, height: 22, borderRadius: "50%", background: "rgba(0,0,0,0.5)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 22, height: 22, borderRadius: "50%", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 50%, transparent)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
           <IconPlay size={9} />
         </div>
       )}
       {count > 0 && (
-        <div style={{ position: "absolute", right: 4, bottom: 4, padding: "0 6px", height: 16, borderRadius: 8, background: "rgba(0,0,0,0.6)", color: "#fff", fontSize: 11, fontWeight: 600, display: "flex", alignItems: "center" }}>+{count}</div>
+        <div style={{ position: "absolute", right: 4, bottom: 4, padding: "0 6px", height: 16, borderRadius: 8, background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 60%, transparent)", color: "var(--cometchat-static-white)", fontSize: 11, fontWeight: 600, display: "flex", alignItems: "center" }}>+{count}</div>
       )}
     </div>
   );
@@ -203,7 +203,7 @@ function DocStack({ type = "pdf" }: { type?: FileType }) {
     <div style={{ position: "relative", width: 46, height: 46, flexShrink: 0 }}>
       <Sheet w={26} fill="var(--cometchat-background-color-03)" fold="var(--cometchat-border-color-default)" transform="rotate(-11deg) translateX(-3px)" />
       <Sheet w={26} fill="var(--cometchat-background-color-02)" fold="var(--cometchat-border-color-dark)" transform="rotate(9deg) translateX(3px)" />
-      <div style={{ position: "absolute", left: "50%", top: 2, transform: "translateX(-50%)", filter: "drop-shadow(0 1px 2px rgba(16,24,40,0.12))" }}>
+      <div style={{ position: "absolute", left: "50%", top: 2, transform: "translateX(-50%)", filter: "drop-shadow(0 1px 2px color-mix(in srgb, var(--cometchat-neutral-color-900) 12%, transparent))" }}>
         <FileTypeIcon type={type} size={34} />
       </div>
     </div>

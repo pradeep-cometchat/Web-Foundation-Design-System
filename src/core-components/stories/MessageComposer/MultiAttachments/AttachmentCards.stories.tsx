@@ -106,7 +106,7 @@ function ProgressRing({ size = 40, stroke = 4, progress = 62 }: { size?: number;
   const off = c * (1 - progress / 100);
   return (
     <svg width={size} height={size} style={{ transform: "rotate(-90deg)" }}>
-      <circle cx={size / 2} cy={size / 2} r={r} stroke="rgba(255,255,255,0.3)" strokeWidth={stroke} fill="none" />
+      <circle cx={size / 2} cy={size / 2} r={r} stroke="color-mix(in srgb, var(--cometchat-static-white) 30%, transparent)" strokeWidth={stroke} fill="none" />
       <circle cx={size / 2} cy={size / 2} r={r} stroke="var(--cometchat-static-white)" strokeWidth={stroke} fill="none" strokeDasharray={c} strokeDashoffset={off} strokeLinecap="round" />
     </svg>
   );
@@ -132,7 +132,7 @@ function FileTile({ type, size = 54, loading = false }: { type: FileType; size?:
         alignItems: "center",
         justifyContent: "center",
         background: "var(--cometchat-static-white)",
-        boxShadow: "0 1px 3px rgba(16,24,40,0.12)",
+        boxShadow: "0 1px 3px color-mix(in srgb, var(--cometchat-neutral-color-900) 12%, transparent)",
       }}
     >
       <FileTypeIcon type={type} size={Math.round(size * 0.64)} />
@@ -275,10 +275,10 @@ function MediaTile({ kind, state = "default", platform = "desktop", src = SAMPLE
         <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", filter: dim ? "blur(2px) brightness(0.7)" : undefined }} />
         {kind === "video" && !dim && (
           <>
-            <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 32, height: 32, borderRadius: "50%", background: "rgba(0,0,0,0.45)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 32, height: 32, borderRadius: "50%", background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 45%, transparent)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <IconPlay size={13} />
             </div>
-            <div style={{ position: "absolute", bottom: 6, left: 6, padding: "1px 6px", borderRadius: 4, background: "rgba(0,0,0,0.6)", color: "#fff", fontSize: 10, fontWeight: 500 }}>0:12</div>
+            <div style={{ position: "absolute", bottom: 6, left: 6, padding: "1px 6px", borderRadius: 4, background: "color-mix(in srgb, var(--cometchat-neutral-color-900) 60%, transparent)", color: "var(--cometchat-static-white)", fontSize: 10, fontWeight: 500 }}>0:12</div>
           </>
         )}
         {state === "loading" && (
@@ -287,7 +287,7 @@ function MediaTile({ kind, state = "default", platform = "desktop", src = SAMPLE
           </div>
         )}
         {state === "error" && (
-          <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", gap: 4, alignItems: "center", justifyContent: "center", color: "#fff" }}>
+          <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", gap: 4, alignItems: "center", justifyContent: "center", color: "var(--cometchat-static-white)" }}>
             <span className="icon-rounded" style={{ fontSize: 22, "--icon-fill": 1 } as React.CSSProperties}>error</span>
             <span style={{ fontSize: 10, fontWeight: 600 }}>Retry</span>
           </div>
