@@ -5,6 +5,7 @@ import "../../ChatBubbles/ChatBubbles.css";
 import { Header } from "../../../../base-components/components/Header";
 import { SearchBar } from "../../../../base-components/components/SearchBar";
 import { ConversationItem } from "../../../../base-components/components/ListItem";
+import { MessagePreview } from "../../../../base-components/components/MessagePreview";
 import { ActionSheet, CameraIcon, PhotoIcon, VideocamIcon, PlayCircleIcon, DescriptionIcon, PollIcon, CollaborativeWhiteboardIcon, CollaborativeDocumentIcon } from "../../../../base-components/components/ActionSheet";
 import {
   UsageDoc,
@@ -414,16 +415,8 @@ function EndToEndChat({ messages, setMessages }: { messages: Msg[]; setMessages:
           </div>
         )}
         {replyTo && (
-          <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-2-5)", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-2-5) var(--cometchat-spacing-2) var(--cometchat-spacing-3)", margin: "4px 0 6px", borderRadius: "var(--cometchat-radius-2)", background: "var(--cometchat-background-color-02)", borderLeft: "3px solid var(--cometchat-primary-color)" }}>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ fontSize: 13, fontWeight: 600, color: "var(--cometchat-primary-color)" }}>Reply to {quoteFrom(replyTo).name}</div>
-              <div style={{ fontSize: 13, color: "var(--cometchat-text-color-secondary)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-                {quoteSummary(quoteFrom(replyTo)) || "Message"}
-              </div>
-            </div>
-            <button onClick={() => setReplyTo(null)} style={{ flexShrink: 0, width: 26, height: 26, borderRadius: "50%", border: "none", background: "var(--cometchat-background-color-03)", color: "var(--cometchat-icon-color-secondary)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", padding: 0 }} aria-label="Cancel reply">
-              <IconClose />
-            </button>
+          <div style={{ margin: "var(--cometchat-spacing-1) 0 var(--cometchat-spacing-1-5)" }}>
+            <MessagePreview mode="reply" senderName={quoteFrom(replyTo).name} messageText={quoteSummary(quoteFrom(replyTo)) || "Message"} onClose={() => setReplyTo(null)} />
           </div>
         )}
         <div style={composerRow}>

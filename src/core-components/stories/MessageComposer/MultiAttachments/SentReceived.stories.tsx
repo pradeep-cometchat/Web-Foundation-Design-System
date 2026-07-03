@@ -68,29 +68,37 @@ export const VideoGrid: Story = {
   ),
 };
 
-/** Several documents — ONE bubble; each document is a washed card inside it. */
+const DOC_SET = [
+  { kind: "pdf", name: "Design_specs.pdf", meta: "2.4 MB · PDF" },
+  { kind: "xls", name: "Component_list.xlsx", meta: "340 KB · XLSX" },
+] as const;
+
+const AUDIO_SET = [
+  { kind: "audio", name: "Audio.mp3", meta: "00:32" },
+  { kind: "audio", name: "Recording.m4a", meta: "01:14" },
+] as const;
+
+/** Several documents — ONE bubble; each document is a washed card inside it.
+ *  With a caption it sits under the cards; a reply quote sits above them. */
 export const Documents: Story = {
   name: "Multiple Documents",
   parameters: { controls: { disable: true } },
   render: () => (
     <ChatCanvas>
+      <Label>Default</Label>
       <MessageStack variant="received">
-        <MultiAttachmentBubble
-          variant="received"
-          files={[
-            { kind: "pdf", name: "Design_specs.pdf", meta: "2.4 MB · PDF" },
-            { kind: "xls", name: "Component_list.xlsx", meta: "340 KB · XLSX" },
-          ]}
-        />
+        <MultiAttachmentBubble variant="received" files={[...DOC_SET]} />
       </MessageStack>
       <MessageStack variant="sent">
-        <MultiAttachmentBubble
-          variant="sent"
-          files={[
-            { kind: "pdf", name: "Design_specs.pdf", meta: "2.4 MB · PDF" },
-            { kind: "xls", name: "Component_list.xlsx", meta: "340 KB · XLSX" },
-          ]}
-        />
+        <MultiAttachmentBubble variant="sent" files={[...DOC_SET]} />
+      </MessageStack>
+      <Label>With caption</Label>
+      <MessageStack variant="sent">
+        <MultiAttachmentBubble variant="sent" files={[...DOC_SET]} caption="Specs + the component list 📎" />
+      </MessageStack>
+      <Label>Quoted (reply)</Label>
+      <MessageStack variant="received">
+        <MultiAttachmentBubble variant="received" quoted={{ name: "George Alan", text: "can you send the docs?" }} files={[...DOC_SET]} />
       </MessageStack>
     </ChatCanvas>
   ),
@@ -102,23 +110,20 @@ export const MultipleAudio: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
     <ChatCanvas>
+      <Label>Default</Label>
       <MessageStack variant="received">
-        <MultiAttachmentBubble
-          variant="received"
-          files={[
-            { kind: "audio", name: "Audio.mp3", meta: "00:32" },
-            { kind: "audio", name: "Recording.m4a", meta: "01:14" },
-          ]}
-        />
+        <MultiAttachmentBubble variant="received" files={[...AUDIO_SET]} />
       </MessageStack>
       <MessageStack variant="sent">
-        <MultiAttachmentBubble
-          variant="sent"
-          files={[
-            { kind: "audio", name: "Audio.mp3", meta: "00:32" },
-            { kind: "audio", name: "Recording.m4a", meta: "01:14" },
-          ]}
-        />
+        <MultiAttachmentBubble variant="sent" files={[...AUDIO_SET]} />
+      </MessageStack>
+      <Label>With caption</Label>
+      <MessageStack variant="sent">
+        <MultiAttachmentBubble variant="sent" files={[...AUDIO_SET]} caption="Both takes 🎧" />
+      </MessageStack>
+      <Label>Quoted (reply)</Label>
+      <MessageStack variant="received">
+        <MultiAttachmentBubble variant="received" quoted={{ name: "George Alan", media: { kind: "audio", count: 2 } }} files={[...AUDIO_SET]} />
       </MessageStack>
     </ChatCanvas>
   ),
