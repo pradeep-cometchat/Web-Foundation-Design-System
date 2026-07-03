@@ -587,15 +587,22 @@ export function MultiAttachmentBubble({
   const trailTrack = isSent ? "color-mix(in srgb, var(--cometchat-static-white) 30%, transparent)" : "var(--cometchat-neutral-color-300)";
 
   // Both cards lead with a 40px icon/button and a uniform 12px inset (8px
-  // bubble padding + 4px card padding on every side).
+  // bubble padding + 4px card padding on every side). Several same-format
+  // files share ONE bubble — each card then gets a wash so they read as
+  // separate items inside it.
   const ICON = 40;
+  const multi = files.length > 1;
   const cardBase: React.CSSProperties = {
     display: "flex",
     alignItems: "center",
     gap: "var(--cometchat-spacing-2-5)",
     width: BUBBLE_W,
     boxSizing: "border-box",
-    padding: "var(--cometchat-spacing-1)",
+    padding: multi ? "var(--cometchat-spacing-2-5)" : "var(--cometchat-spacing-1)",
+    ...(multi && {
+      borderRadius: "var(--cometchat-radius-2)",
+      background: isSent ? "color-mix(in srgb, var(--cometchat-static-white) 16%, transparent)" : "var(--cometchat-background-color-01)",
+    }),
   };
 
   function fileCard(f: BubbleFile, key: number) {

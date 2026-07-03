@@ -54,7 +54,7 @@ type ChatRow = {
 // so anything sent in the panel is reflected in the Chat List row.
 function previewFor(m: Msg): Partial<ChatRow> {
   const g = m.groups[0];
-  const type: ChatRow["type"] = g ? (g.t === "media" ? (g.video ? "video" : "photo") : g.t === "file" ? "file" : "audio") : undefined;
+  const type: ChatRow["type"] = g ? (g.t === "media" ? (g.video ? "video" : "photo") : g.t === "files" ? "file" : "audio") : undefined;
   const status: ChatRow["status"] = m.variant === "sent" ? (m.state === "uploading" ? "sent" : "read") : undefined;
   return { type, text: m.caption, status, time: m.time === "now" ? "Now" : m.time };
 }
@@ -164,8 +164,8 @@ interface Pending {
 
 type Group =
   | { t: "media"; count: number; total: number; video: boolean }
-  | { t: "file"; kind: DocKind; name: string; meta: string }
-  | { t: "audio"; name: string; meta: string };
+  | { t: "files"; files: { kind: DocKind; name: string; meta: string }[] }
+  | { t: "audio"; files: { name: string; meta: string }[] };
 
 interface Msg {
   id: number;
@@ -183,8 +183,8 @@ const DOC_EXT: Record<string, DocKind> = { pdf: "pdf", doc: "doc", docx: "doc", 
 
 const SEED: Msg[] = [
   { id: 1, variant: "received", groups: [{ t: "media", count: 4, total: 6, video: false }], time: "4:52 pm" },
-  { id: 2, variant: "received", groups: [{ t: "file", kind: "pdf", name: "Q3-Report.pdf", meta: "12 Jun · 2.4 MB" }], time: "4:52 pm" },
-  { id: 3, variant: "sent", groups: [{ t: "audio", name: "Voice-reply.mp3", meta: "00:18" }], time: "4:53 pm", status: "read" },
+  { id: 2, variant: "received", groups: [{ t: "files", files: [{ kind: "pdf", name: "Q3-Report.pdf", meta: "12 Jun · 2.4 MB" }] }], time: "4:52 pm" },
+  { id: 3, variant: "sent", groups: [{ t: "audio", files: [{ name: "Voice-reply.mp3", meta: "00:18" }] }], time: "4:53 pm", status: "read" },
   { id: 4, variant: "received", groups: [{ t: "media", count: 1, total: 1, video: false }], caption: "and here's the hero shot 📸", time: "4:54 pm" },
   { id: 5, variant: "sent", quoted: { name: "George Alan", media: { kind: "image", count: 6, caption: "the set" } }, groups: [{ t: "media", count: 2, total: 2, video: false }], caption: "love these 🙌", time: "4:55 pm", status: "read" },
 ];
@@ -194,8 +194,8 @@ function quoteFrom(m: Msg): QuotedReply {
   const name = m.variant === "sent" ? "You" : CHAT_NAME;
   const g = m.groups[0];
   if (g) {
-    const kind = g.t === "media" ? (g.video ? "video" : "image") : g.t === "file" ? "file" : "audio";
-    const count = g.t === "media" ? g.total : 1;
+    const kind = g.t === "media" ? (g.video ? "video" : "image") : g.t === "files" ? "file" : "audio";
+    const count = g.t === "media" ? g.total : g.files.length;
     return { name, media: { kind, count, caption: m.caption } };
   }
   return { name, text: m.caption };
@@ -284,8 +284,9 @@ function EndToEndChat({ messages, setMessages }: { messages: Msg[]; setMessages:
     const g: Group[] = [];
     if (imgs.length) g.push({ t: "media", count: Math.min(imgs.length, 4), total: imgs.length, video: false });
     if (vids.length) g.push({ t: "media", count: Math.min(vids.length, 4), total: vids.length, video: true });
-    docs.forEach((d) => g.push({ t: "file", kind: d.docType ?? "file", name: d.name, meta: d.meta }));
-    auds.forEach((a) => g.push({ t: "audio", name: a.name, meta: a.meta || "00:30" }));
+    // Same-format files share one bubble — a card per file inside it.
+    if (docs.length) g.push({ t: "files", files: docs.map((d) => ({ kind: d.docType ?? "file", name: d.name, meta: d.meta })) });
+    if (auds.length) g.push({ t: "audio", files: auds.map((a) => ({ name: a.name, meta: a.meta || "00:30" })) });
     return g;
   }
 
@@ -319,8 +320,8 @@ function EndToEndChat({ messages, setMessages }: { messages: Msg[]; setMessages:
               caption: last ? m.caption : undefined,
             };
             if (g.t === "media") return <MultiAttachmentBubble key={i} {...common} images={g.count} totalImages={g.total} videoAt={g.video ? Array.from({ length: g.count }, (_, k) => k) : []} />;
-            if (g.t === "file") return <MultiAttachmentBubble key={i} {...common} files={[{ kind: g.kind, name: g.name, meta: g.meta }]} />;
-            return <MultiAttachmentBubble key={i} {...common} files={[{ kind: "audio", name: g.name, meta: g.meta }]} />;
+            if (g.t === "files") return <MultiAttachmentBubble key={i} {...common} files={g.files} />;
+            return <MultiAttachmentBubble key={i} {...common} files={g.files.map((a) => ({ kind: "audio" as const, name: a.name, meta: a.meta }))} />;
           });
     return (
       <div key={m.id} className={`e2e-row e2e-row--${m.variant}`}>

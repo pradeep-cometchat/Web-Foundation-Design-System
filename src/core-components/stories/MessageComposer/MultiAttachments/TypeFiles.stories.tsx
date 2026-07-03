@@ -71,11 +71,16 @@ export const InMessage: Story = {
                 <MultiAttachmentBubble variant={v} files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "12 Jun · 2.4 MB" }]} />
               </MessageStack>
             </Item>
-            <Item label={`${v} · multiple (separate bubbles)`}>
+            <Item label={`${v} · multiple (one bubble)`}>
               <MessageStack variant={v}>
-                <MultiAttachmentBubble variant={v} files={[{ kind: "pdf", name: "Contract.pdf", meta: "12 Jun · 1.2 MB" }]} showMeta={false} />
-                <MultiAttachmentBubble variant={v} files={[{ kind: "doc", name: "Notes.docx", meta: "12 Jun · 340 KB" }]} showMeta={false} />
-                <MultiAttachmentBubble variant={v} files={[{ kind: "xls", name: "Budget.xlsx", meta: "12 Jun · 812 KB" }]} />
+                <MultiAttachmentBubble
+                  variant={v}
+                  files={[
+                    { kind: "pdf", name: "Contract.pdf", meta: "1.2 MB · PDF" },
+                    { kind: "doc", name: "Notes.docx", meta: "340 KB · DOCX" },
+                    { kind: "xls", name: "Budget.xlsx", meta: "812 KB · XLSX" },
+                  ]}
+                />
               </MessageStack>
             </Item>
           </ChatCanvas>
