@@ -42,8 +42,8 @@ export const IconClose = () => (
   </svg>
 );
 
-export const IconError = () => (
-  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+export const IconError = ({ size = 12 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 12 12" fill="none">
     <rect x="5" y="2" width="2" height="5.5" rx="1" fill="currentColor" />
     <circle cx="6" cy="9.5" r="1" fill="currentColor" />
   </svg>

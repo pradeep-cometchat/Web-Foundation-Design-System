@@ -44,8 +44,8 @@ const IconClose = () => (
     <path d="M1.5 1.5l7 7M8.5 1.5l-7 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
   </svg>
 );
-const IconError = () => (
-  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+const IconError = ({ size = 12 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 12 12" fill="none">
     <rect x="5" y="2.5" width="2" height="5" rx="1" fill="currentColor" />
     <circle cx="6" cy="9" r="1" fill="currentColor" />
   </svg>
@@ -143,8 +143,8 @@ function FileTile({ type, size = 54, loading = false, error = false, retry = fal
           {loading ? (
             <ProgressRing size={Math.round(size * 0.62)} stroke={3.5} />
           ) : (
-            <div style={{ width: Math.round(size * 0.44), height: Math.round(size * 0.44), borderRadius: "50%", background: "var(--cometchat-error-color)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.28), lineHeight: 1, fontVariationSettings: '"FILL" 1' } as React.CSSProperties}>{retry ? "refresh" : "error"}</span>
+            <div style={{ width: Math.round(size * 0.38), height: Math.round(size * 0.38), borderRadius: "50%", background: "var(--cometchat-error-color)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              {retry ? <IconRetry size={Math.round(size * 0.24)} /> : <IconError size={Math.round(size * 0.24)} />}
             </div>
           )}
         </div>
@@ -178,8 +178,8 @@ function AudioButton({ size = 60, loading = false, error = false, retry = false,
           {loading ? (
             <ProgressRing size={Math.round(size * 0.62)} stroke={3.5} />
           ) : (
-            <div style={{ width: Math.round(size * 0.44), height: Math.round(size * 0.44), borderRadius: "50%", background: "var(--cometchat-error-color)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span className="icon-rounded" style={{ fontSize: Math.round(size * 0.28), lineHeight: 1, fontVariationSettings: '"FILL" 1' } as React.CSSProperties}>{retry ? "refresh" : "error"}</span>
+            <div style={{ width: Math.round(size * 0.38), height: Math.round(size * 0.38), borderRadius: "50%", background: "var(--cometchat-error-color)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              {retry ? <IconRetry size={Math.round(size * 0.24)} /> : <IconError size={Math.round(size * 0.24)} />}
             </div>
           )}
         </div>
@@ -304,8 +304,8 @@ function MediaTile({ kind, state = "default", platform = "desktop", src = SAMPLE
         )}
         {failed && (
           <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div style={{ width: 32, height: 32, borderRadius: "50%", background: "var(--cometchat-error-color)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span className="icon-rounded" style={{ fontSize: 18, lineHeight: 1, fontVariationSettings: '"FILL" 1' } as React.CSSProperties}>{state === "retry" ? "refresh" : "error"}</span>
+            <div style={{ width: 28, height: 28, borderRadius: "50%", background: "var(--cometchat-error-color)", color: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              {state === "retry" ? <IconRetry size={15} /> : <IconError size={15} />}
             </div>
           </div>
         )}
