@@ -15,6 +15,7 @@ import {
   AudioPreview,
   SAMPLE_IMAGES,
   type DocKind,
+  type QuotedReply,
 } from "./_shared";
 
 /**
@@ -170,7 +171,7 @@ interface Msg {
   variant: "sent" | "received";
   groups: Group[];
   caption?: string;
-  quoted?: { name: string; media: { kind: "image" | "video" | "file" | "audio"; count: number; caption?: string } };
+  quoted?: QuotedReply;
   time: string;
   status?: "sent" | "delivered" | "read";
   state?: "default" | "uploading";
@@ -187,6 +188,30 @@ const SEED: Msg[] = [
   { id: 5, variant: "sent", quoted: { name: "George Alan", media: { kind: "image", count: 6, caption: "the set" } }, groups: [{ t: "media", count: 2, total: 2, video: false }], caption: "love these 🙌", time: "4:55 pm", status: "read" },
 ];
 
+// Build a quoted-reply summary from the message being replied to.
+function quoteFrom(m: Msg): QuotedReply {
+  const name = m.variant === "sent" ? "You" : CHAT_NAME;
+  const g = m.groups[0];
+  if (g) {
+    const kind = g.t === "media" ? (g.video ? "video" : "image") : g.t === "file" ? "file" : "audio";
+    const count = g.t === "media" ? g.total : 1;
+    return { name, media: { kind, count, caption: m.caption } };
+  }
+  return { name, text: m.caption };
+}
+
+function quoteSummary(q: QuotedReply): string {
+  if (!q.media) return q.text ?? "";
+  const labels: Record<"image" | "video" | "file" | "audio", [string, string]> = {
+    image: ["Image", "Images"],
+    video: ["Video", "Videos"],
+    file: ["File", "Files"],
+    audio: ["Audio", "Audio"],
+  };
+  const [s, p] = labels[q.media.kind];
+  return `${q.media.count} ${q.media.count === 1 ? s : p}${q.media.caption ? ` · ${q.media.caption}` : ""}`;
+}
+
 /* ─── Chat ─────────────────────────────────────────────────────────────────── */
 
 function EndToEndChat({ messages, setMessages }: { messages: Msg[]; setMessages: React.Dispatch<React.SetStateAction<Msg[]>> }) {
@@ -194,6 +219,7 @@ function EndToEndChat({ messages, setMessages }: { messages: Msg[]; setMessages:
   const [text, setText] = useState("");
   const [dragging, setDragging] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
+  const [replyTo, setReplyTo] = useState<Msg | null>(null);
   const uid = useRef(100);
   const fileInput = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
@@ -266,9 +292,11 @@ function EndToEndChat({ messages, setMessages }: { messages: Msg[]; setMessages:
     const groups = buildGroups(pending);
     if (!groups.length && !text.trim()) return;
     const id = uid.current++;
-    setMessages((ms) => [...ms, { id, variant: "sent", groups, caption: text.trim() || undefined, time: "now", status: "sent", state: "uploading" }]);
+    const quoted = replyTo ? quoteFrom(replyTo) : undefined;
+    setMessages((ms) => [...ms, { id, variant: "sent", groups, caption: text.trim() || undefined, quoted, time: "now", status: "sent", state: "uploading" }]);
     setPending([]);
     setText("");
+    setReplyTo(null);
     window.setTimeout(() => {
       setMessages((ms) => ms.map((m) => (m.id === id ? { ...m, state: "default", status: "read" } : m)));
     }, 1700);
@@ -277,7 +305,7 @@ function EndToEndChat({ messages, setMessages }: { messages: Msg[]; setMessages:
   function renderMsg(m: Msg) {
     const bubbles: React.ReactNode[] =
       m.groups.length === 0
-        ? [<MultiAttachmentBubble key="t" variant={m.variant} caption={m.caption} time={m.time} status={m.status} />]
+        ? [<MultiAttachmentBubble key="t" variant={m.variant} quoted={m.quoted} caption={m.caption} time={m.time} status={m.status} />]
         : m.groups.map((g, i) => {
             const last = i === m.groups.length - 1;
             const common = {
@@ -294,9 +322,12 @@ function EndToEndChat({ messages, setMessages }: { messages: Msg[]; setMessages:
             return <MultiAttachmentBubble key={i} {...common} files={[{ kind: "audio", name: g.name, meta: g.meta }]} />;
           });
     return (
-      <MessageStack key={m.id} variant={m.variant}>
-        {bubbles}
-      </MessageStack>
+      <div key={m.id} className={`e2e-row e2e-row--${m.variant}`}>
+        <MessageStack variant={m.variant}>{bubbles}</MessageStack>
+        <button className="e2e-reply" onClick={() => setReplyTo(m)} aria-label="Reply">
+          <span className="icon-rounded" style={{ fontSize: 18, "--icon-fill": 0 } as React.CSSProperties}>reply</span>
+        </button>
+      </div>
     );
   }
 
@@ -337,6 +368,19 @@ function EndToEndChat({ messages, setMessages }: { messages: Msg[]; setMessages:
       </div>
 
       {/* Messages */}
+      <style>{`
+        .e2e-row { display: flex; align-items: center; gap: 6px; }
+        .e2e-row--received { justify-content: flex-start; }
+        .e2e-row--sent { flex-direction: row-reverse; justify-content: flex-start; }
+        .e2e-reply {
+          opacity: 0; flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+          border: none; background: transparent; color: var(--cometchat-icon-color-secondary);
+          cursor: pointer; display: flex; align-items: center; justify-content: center;
+          transition: opacity .12s ease, background .12s ease;
+        }
+        .e2e-row:hover .e2e-reply { opacity: 1; }
+        .e2e-reply:hover { background: var(--cometchat-background-color-03); }
+      `}</style>
       <div ref={listRef} style={{ flex: 1, overflowY: "auto", padding: "var(--cometchat-spacing-4) var(--cometchat-spacing-6)", display: "flex", flexDirection: "column", gap: 8, background: "var(--cometchat-background-color-02)" }}>
         {messages.map(renderMsg)}
       </div>
@@ -365,6 +409,19 @@ function EndToEndChat({ messages, setMessages }: { messages: Msg[]; setMessages:
                 )}
               </div>
             ))}
+          </div>
+        )}
+        {replyTo && (
+          <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 10px 8px 12px", margin: "4px 0 6px", borderRadius: 8, background: "var(--cometchat-background-color-02)", borderLeft: "3px solid var(--cometchat-primary-color)" }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ fontSize: 13, fontWeight: 600, color: "var(--cometchat-primary-color)" }}>Reply to {quoteFrom(replyTo).name}</div>
+              <div style={{ fontSize: 13, color: "var(--cometchat-text-color-secondary)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                {quoteSummary(quoteFrom(replyTo)) || "Message"}
+              </div>
+            </div>
+            <button onClick={() => setReplyTo(null)} style={{ flexShrink: 0, width: 26, height: 26, borderRadius: "50%", border: "none", background: "var(--cometchat-background-color-03)", color: "var(--cometchat-icon-color-secondary)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", padding: 0 }} aria-label="Cancel reply">
+              <IconClose />
+            </button>
           </div>
         )}
         <div style={composerRow}>
