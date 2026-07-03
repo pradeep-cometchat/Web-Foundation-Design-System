@@ -962,20 +962,14 @@ function DropStack() {
 
 /** Full-bleed drag-and-drop overlay — dark gray in both themes, a fanned file
  *  stack, headline and helper copy. Position it inside a relative parent. */
-export function DropOverlay({ chatName }: { chatName?: string }) {
+export function DropOverlay(_props: { chatName?: string } = {}) {
   const font = "var(--cometchat-font-family, Inter, sans-serif)";
   return (
     <div style={{ position: "absolute", inset: 0, background: "color-mix(in srgb, color-mix(in srgb, var(--cometchat-static-black) 80%, var(--cometchat-static-white)) 92%, transparent)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "var(--cometchat-spacing-2)", pointerEvents: "none", zIndex: 5 }}>
       <DropStack />
       <span style={{ fontSize: 26, fontWeight: 700, color: "var(--cometchat-static-white)", fontFamily: font, marginTop: "var(--cometchat-spacing-2)" }}>Drop files here</span>
       <span style={{ fontSize: 15, lineHeight: "22px", color: "color-mix(in srgb, var(--cometchat-static-white) 75%, transparent)", fontFamily: font, textAlign: "center", maxWidth: 380 }}>
-        {chatName ? (
-          <>
-            Photos, videos, documents and audio — they'll go straight to <strong style={{ color: "var(--cometchat-static-white)", fontWeight: 600 }}>{chatName}</strong>.
-          </>
-        ) : (
-          <>Photos, videos, documents and audio — added to your message, ready to send.</>
-        )}
+        Add photos, videos, documents or audio to your message.
       </span>
     </div>
   );
