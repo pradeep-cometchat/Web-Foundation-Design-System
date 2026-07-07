@@ -265,12 +265,15 @@ export const Documents: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
     <div style={{ padding: "var(--cometchat-spacing-6)" }}>
+      {/* One row per file-type icon we support: PDF, DOC, XLS, PPT, ZIP, TXT, generic. */}
       <ChatSearchPanel active="Documents">
         <DocRow title="Group 1" count={12} sent type="pdf" time="4:30 PM" />
         <DocRow title="Group 1" count={6} sender="Pradeep" caption="the signed copy" type="doc" time="4:30 PM" />
         <DocRow title="George Alan" count={12} sent type="xls" time="4:30 PM" />
-        <DocRow title="George Alan" count={3} sent caption="final drafts" type="pdf" time="4:30 PM" />
         <DocRow title="Design Team" count={9} sent caption="here are all the assets and the final export from yesterday's review session" type="ppt" time="4:30 PM" />
+        <DocRow title="Marketing" count={4} sender="Priya" caption="campaign bundle" type="zip" time="4:30 PM" />
+        <DocRow title="George Alan" count={2} sent caption="release notes" type="txt" time="4:30 PM" />
+        <DocRow title="Raj Dubey" count={1} sent type="file" time="4:30 PM" />
       </ChatSearchPanel>
     </div>
   ),
