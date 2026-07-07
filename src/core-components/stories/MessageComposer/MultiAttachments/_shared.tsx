@@ -11,6 +11,13 @@
  */
 import { useState } from "react";
 import { SearchBar } from "../../../../base-components/components/SearchBar";
+import pdfIcon from "./file-icons/pdf.svg";
+import docIcon from "./file-icons/doc.svg";
+import xlsIcon from "./file-icons/xls.svg";
+import pptIcon from "./file-icons/ppt.svg";
+import zipIcon from "./file-icons/zip.svg";
+import txtIcon from "./file-icons/txt.svg";
+import fileIcon from "./file-icons/file.svg";
 
 /* ─── Sample media ─────────────────────────────────────────────────────────── */
 
@@ -84,26 +91,21 @@ export const SpinKeyframes = () => (
 export type DocKind = "pdf" | "doc" | "xls" | "ppt" | "zip" | "txt" | "file";
 export type FileKind = DocKind | "audio";
 
+// File-type icons imported from Figma (Design System — File Type set). Each is a
+// square colour file-card (white rounded backing + coloured file + fold), so
+// render it directly — no extra white tile is needed around it.
+const FILE_ICONS: Record<DocKind, string> = {
+  pdf: pdfIcon,
+  doc: docIcon,
+  xls: xlsIcon,
+  ppt: pptIcon,
+  zip: zipIcon,
+  txt: txtIcon,
+  file: fileIcon,
+};
+
 export function FileTypeIcon({ type, size = 32 }: { type: DocKind; size?: number }) {
-  const colors: Record<DocKind, { bg: string; fold: string; text: string }> = {
-    pdf: { bg: "var(--cometchat-error-color)", fold: "var(--color-error-800)", text: "PDF" },
-    doc: { bg: "var(--cometchat-info-color)", fold: "var(--color-info-800)", text: "DOC" },
-    xls: { bg: "var(--cometchat-success-color)", fold: "var(--color-success-800)", text: "XLS" },
-    ppt: { bg: "var(--cometchat-warning-color)", fold: "var(--color-warning-700)", text: "PPT" },
-    zip: { bg: "var(--cometchat-neutral-color-600)", fold: "var(--cometchat-neutral-color-800)", text: "ZIP" },
-    txt: { bg: "var(--cometchat-neutral-color-400)", fold: "var(--cometchat-neutral-color-600)", text: "TXT" },
-    file: { bg: "var(--cometchat-neutral-color-500)", fold: "var(--cometchat-neutral-color-700)", text: "FILE" },
-  };
-  const c = colors[type];
-  return (
-    <svg width={(size * 64) / 80} height={size} viewBox="0 0 64 80" fill="none">
-      <path d="M4 8C4 3.58 7.58 0 12 0H44L60 16V72C60 76.42 56.42 80 52 80H12C7.58 80 4 76.42 4 72V8Z" fill={c.bg} />
-      <path d="M44 0L60 16H48C45.79 16 44 14.21 44 12V0Z" fill={c.fold} opacity="0.6" />
-      <text x="32" y="52" textAnchor="middle" fontSize={c.text.length > 3 ? 12 : 15} fontWeight="700" fill="white">
-        {c.text}
-      </text>
-    </svg>
-  );
+  return <img src={FILE_ICONS[type]} width={size} height={size} alt="" style={{ display: "block", flexShrink: 0 }} />;
 }
 
 /* ─── Receipt (sent-status) icon ───────────────────────────────────────────── */
@@ -332,9 +334,7 @@ export function DocumentPreview({
 }) {
   return (
     <div style={{ ...previewCard, width: 200 }}>
-      <div style={{ width: 40, height: 40, borderRadius: "var(--cometchat-radius-1-5)", background: "var(--cometchat-static-white)", border: "1px solid var(--cometchat-border-color-light)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-        <FileTypeIcon type={type} size={26} />
-      </div>
+      <FileTypeIcon type={type} size={40} />
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing)", overflow: "hidden" }}>
         <span style={{ fontSize: 12, fontWeight: 500, color: "var(--cometchat-text-color-primary)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{name}</span>
         <span style={{ fontSize: 11, color: "var(--cometchat-text-color-secondary)" }}>{meta}</span>
@@ -628,9 +628,7 @@ export function MultiAttachmentBubble({
     }
     return (
       <div key={key} style={cardBase}>
-        <div style={{ width: ICON, height: ICON, borderRadius: "var(--cometchat-radius-1-5)", background: "var(--cometchat-static-white)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-          <FileTypeIcon type={f.kind} size={26} />
-        </div>
+        <FileTypeIcon type={f.kind} size={ICON} />
         <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-1)", flex: 1, minWidth: 0 }}>
           <span style={{ fontSize: 14, fontWeight: 600, color: primary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{f.name}</span>
           <span style={{ fontSize: 12, color: secondary }}>{downloading ? "Downloading…" : f.meta}</span>
@@ -892,9 +890,7 @@ export function MediaTile({ src, video, duration }: { src: string; video?: boole
 export function DocumentResult({ name, meta, type, from }: { name: string; meta: string; type: Exclude<FileKind, "audio">; from: string }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-3)", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-1)" }}>
-      <div style={{ width: 40, height: 40, borderRadius: "var(--cometchat-radius-1-5)", background: "var(--cometchat-background-color-02)", border: "1px solid var(--cometchat-border-color-default)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-        <FileTypeIcon type={type} size={26} />
-      </div>
+      <FileTypeIcon type={type} size={40} />
       <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 2 }}>
         <span style={{ fontSize: 14, fontWeight: 600, color: "var(--cometchat-text-color-primary)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{name}</span>
         <span style={{ fontSize: 12, color: "var(--cometchat-text-color-tertiary)" }}>{meta} · shared by {from}</span>

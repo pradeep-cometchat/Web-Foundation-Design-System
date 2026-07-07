@@ -133,11 +133,9 @@ function FileTile({ type, size = 54, loading = false, error = false, retry = fal
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "var(--cometchat-static-white)",
-        boxShadow: "0 1px 3px color-mix(in srgb, var(--cometchat-static-black) 12%, transparent)",
       }}
     >
-      <FileTypeIcon type={type} size={Math.round(size * 0.64)} />
+      <FileTypeIcon type={type} size={size} />
       {(loading || error || retry) && (
         <div style={{ position: "absolute", inset: 0, borderRadius: radius, display: "flex", alignItems: "center", justifyContent: "center", background: "color-mix(in srgb, var(--cometchat-static-black) 62%, transparent)", color: "var(--cometchat-static-white)" }}>
           {loading ? (

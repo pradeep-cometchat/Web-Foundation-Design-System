@@ -178,13 +178,12 @@ function MediaRow({ title, kind, count = 4, caption, sent, sender, srcOffset = 0
 
 /* ─── Documents (first doc icon + stack behind) ────────────────────────────── */
 
-/** A single document silhouette (rounded page with a folded top-right corner). */
-function Sheet({ w, fill, fold, transform }: { w: number; fill: string; fold: string; transform: string }) {
+/** A plain rounded-page silhouette used as a stacked card behind the icon. */
+function Sheet({ w, fill, transform }: { w: number; fill: string; transform: string }) {
   const h = Math.round((w * 80) / 64);
   return (
     <svg width={w} height={h} viewBox="0 0 64 80" style={{ position: "absolute", left: "50%", top: 5, marginLeft: -w / 2, transform, transformOrigin: "50% 100%" }}>
-      <path d="M4 8C4 3.58 7.58 0 12 0H44L60 16V72C60 76.42 56.42 80 52 80H12C7.58 80 4 76.42 4 72V8Z" fill={fill} stroke="var(--cometchat-border-color-default)" strokeWidth="1" />
-      <path d="M44 0L60 16H48C45.79 16 44 14.21 44 12V0Z" fill={fold} />
+      <path d="M4 8C4 3.58 7.58 0 12 0H52C56.42 0 60 3.58 60 8V72C60 76.42 56.42 80 52 80H12C7.58 80 4 76.42 4 72V8Z" fill={fill} stroke="var(--cometchat-border-color-default)" strokeWidth="1" />
     </svg>
   );
 }
@@ -193,10 +192,10 @@ function DocStack({ type = "pdf" }: { type?: FileType }) {
   // Two lighter sheets fanned behind the front document — reads as a stack.
   return (
     <div style={{ position: "relative", width: 46, height: 46, flexShrink: 0 }}>
-      <Sheet w={26} fill="var(--cometchat-background-color-03)" fold="var(--cometchat-border-color-default)" transform="rotate(-11deg) translateX(-3px)" />
-      <Sheet w={26} fill="var(--cometchat-background-color-02)" fold="var(--cometchat-border-color-dark)" transform="rotate(9deg) translateX(3px)" />
-      <div style={{ position: "absolute", left: "50%", top: 2, transform: "translateX(-50%)", filter: "drop-shadow(0 1px 2px color-mix(in srgb, var(--cometchat-static-black) 12%, transparent))" }}>
-        <FileTypeIcon type={type} size={34} />
+      <Sheet w={26} fill="var(--cometchat-background-color-03)" transform="rotate(-11deg) translateX(-3px)" />
+      <Sheet w={26} fill="var(--cometchat-background-color-02)" transform="rotate(9deg) translateX(3px)" />
+      <div style={{ position: "absolute", left: "50%", top: 3, transform: "translateX(-50%)" }}>
+        <FileTypeIcon type={type} size={40} />
       </div>
     </div>
   );
