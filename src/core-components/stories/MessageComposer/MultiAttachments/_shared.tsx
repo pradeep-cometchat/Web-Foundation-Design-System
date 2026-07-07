@@ -2424,53 +2424,20 @@ const cSend: React.CSSProperties = {
   flexShrink: 0,
 };
 
-/** Empty Single Line Composer (placeholder state), DS markup. */
-export function SingleLineComposer() {
-  return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "var(--cometchat-spacing-2)",
-        background: "var(--cometchat-background-color-01)",
-        border: "1px solid var(--cometchat-border-color-default)",
-        borderRadius: "var(--cometchat-radius-2)",
-        padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)",
-      }}
-    >
-      <button style={cActionBtn} aria-label="Attach file">
-        <CIconAdd />
-      </button>
-      <div
-        style={{
-          flex: 1,
-          minWidth: 0,
-          fontSize: 14,
-          lineHeight: "20px",
-          color: "var(--cometchat-text-color-placeholder)",
-          fontFamily: "var(--cometchat-font-family, Inter, sans-serif)",
-        }}
-      >
-        Enter your message here
-      </div>
-      <button style={cActionBtn} aria-label="Emoji">
-        <CIconMood />
-      </button>
-      <button style={cActionBtn} aria-label="Sticker">
-        <CIconSticker />
-      </button>
-      <button style={cActionBtn} aria-label="Voice record">
-        <CIconMic />
-      </button>
-      <div style={cSend}>
-        <CIconSend />
-      </div>
-    </div>
-  );
-}
+// Attachment preview strip inside a composer — horizontal, scrollable; the top
+// padding keeps the corner remove/upload badges from clipping.
+const cStrip: React.CSSProperties = {
+  display: "flex",
+  gap: "var(--cometchat-spacing-2)",
+  padding:
+    "var(--cometchat-spacing-2-5) var(--cometchat-spacing-3) var(--cometchat-spacing)",
+  overflowX: "auto",
+};
 
-/** Empty Multi Line Composer (placeholder state), DS markup. */
-export function MultiLineComposer() {
+/** Empty Single Line Composer (placeholder state), DS markup. */
+export function SingleLineComposer({
+  attachments,
+}: { attachments?: React.ReactNode } = {}) {
   return (
     <div
       style={{
@@ -2481,6 +2448,62 @@ export function MultiLineComposer() {
         borderRadius: "var(--cometchat-radius-2)",
       }}
     >
+      {attachments && <div style={cStrip}>{attachments}</div>}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "var(--cometchat-spacing-2)",
+          padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)",
+        }}
+      >
+        <button style={cActionBtn} aria-label="Attach file">
+          <CIconAdd />
+        </button>
+        <div
+          style={{
+            flex: 1,
+            minWidth: 0,
+            fontSize: 14,
+            lineHeight: "20px",
+            color: "var(--cometchat-text-color-placeholder)",
+            fontFamily: "var(--cometchat-font-family, Inter, sans-serif)",
+          }}
+        >
+          Enter your message here
+        </div>
+        <button style={cActionBtn} aria-label="Emoji">
+          <CIconMood />
+        </button>
+        <button style={cActionBtn} aria-label="Sticker">
+          <CIconSticker />
+        </button>
+        <button style={cActionBtn} aria-label="Voice record">
+          <CIconMic />
+        </button>
+        <div style={cSend}>
+          <CIconSend />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Empty Multi Line Composer (placeholder state), DS markup. */
+export function MultiLineComposer({
+  attachments,
+}: { attachments?: React.ReactNode } = {}) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        background: "var(--cometchat-background-color-01)",
+        border: "1px solid var(--cometchat-border-color-default)",
+        borderRadius: "var(--cometchat-radius-2)",
+      }}
+    >
+      {attachments && <div style={cStrip}>{attachments}</div>}
       <div
         style={{
           padding: "var(--cometchat-spacing-3)",

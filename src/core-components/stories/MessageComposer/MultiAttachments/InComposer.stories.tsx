@@ -165,6 +165,69 @@ export const DragAndDropComposer: Story = {
   ),
 };
 
+/** Same compact overlay, but the composer already has attachments queued —
+ *  dropping more files adds to the existing batch. */
+export const DragAndDropComposerWithFiles: Story = {
+  name: "Drag & Drop (Composer · With Files)",
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "var(--cometchat-spacing-8)",
+        padding: "var(--cometchat-spacing-6)",
+        maxWidth: 760,
+      }}
+    >
+      <Section title="Single Line Composer">
+        <div
+          style={{
+            position: "relative",
+            borderRadius: "var(--cometchat-radius-3)",
+            overflow: "hidden",
+          }}
+        >
+          <SingleLineComposer
+            attachments={
+              <>
+                <ImagePreview badge="hover" />
+                <DocumentPreview
+                  badge="hover"
+                  name="Q3-Report.pdf"
+                  type="pdf"
+                  meta="PDF · 2.4 MB"
+                />
+              </>
+            }
+          />
+          <DropOverlay compact />
+        </div>
+      </Section>
+      <Section title="Multi Line Composer">
+        <div
+          style={{
+            position: "relative",
+            borderRadius: "var(--cometchat-radius-3)",
+            overflow: "hidden",
+          }}
+        >
+          <MultiLineComposer
+            attachments={
+              <>
+                <ImagePreview badge="hover" />
+                <VideoPreview badge="hover" src={SAMPLE_IMAGES[1]} />
+                <AudioPreview badge="hover" />
+              </>
+            }
+          />
+          <DropOverlay compact />
+        </div>
+      </Section>
+    </div>
+  ),
+};
+
 /** Dragging files over the chat — a dark full-bleed overlay with the upload
  *  icon and the destination chat name covers the conversation. */
 export const DragAndDrop: Story = {
