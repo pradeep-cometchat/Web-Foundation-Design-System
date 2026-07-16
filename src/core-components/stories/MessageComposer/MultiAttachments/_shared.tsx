@@ -924,7 +924,15 @@ export function MultiAttachmentBubble({
   };
 
   const img = (i: number, style?: React.CSSProperties) => (
-    <div key={i} style={{ position: "relative", overflow: "hidden", ...style }}>
+    <div
+      key={i}
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        borderRadius: "var(--cometchat-radius-2)",
+        ...style,
+      }}
+    >
       <img
         src={SAMPLE_IMAGES[i % SAMPLE_IMAGES.length]}
         alt=""
@@ -2358,15 +2366,131 @@ const CIconSticker = () => (
     />
   </svg>
 );
-const CIconFormatting = () => (
+export const CIconFormatting = ({ active }: { active?: boolean } = {}) => (
   <svg width="20" height="20" viewBox="0 0 14.1 9.375" fill="none">
     <path
       d="M2.1 6.833l-.667 1.854a.83.83 0 0 1-.27.354.74.74 0 0 1-.418.126c-.264 0-.469-.108-.614-.324-.146-.215-.17-.44-.073-.677L2.933.5a.83.83 0 0 1 .282-.365A.74.74 0 0 1 3.642 0h.583c.153 0 .299.045.438.135a.83.83 0 0 1 .291.365l2.875 7.688c.097.236.07.458-.083.666-.153.209-.354.313-.604.313a.74.74 0 0 1-.417-.135.83.83 0 0 1-.271-.365l-.646-1.834H2.1Zm.48-1.333h2.728L3.975 1.708h-.084L2.58 5.5Zm8.228 3.875c-.708 0-1.27-.191-1.687-.573-.417-.382-.625-.885-.625-1.51 0-.611.24-1.115.72-1.51.479-.396 1.093-.594 1.843-.594.32 0 .632.028.938.084.305.055.569.132.791.229v-.25c0-.403-.142-.73-.427-.98-.285-.25-.663-.374-1.135-.374a1.7 1.7 0 0 0-.615.094 1.5 1.5 0 0 0-.552.28c-.181.14-.351.188-.51.147a.56.56 0 0 1-.386-.23.47.47 0 0 1-.146-.395c0-.153.076-.285.229-.396.278-.222.59-.385.938-.49.347-.104.701-.156 1.063-.156.958 0 1.673.226 2.146.677.471.451.708 1.128.708 2.031v3.063a.63.63 0 0 1-.168.458.58.58 0 0 1-.469.187.58.58 0 0 1-.458-.197.63.63 0 0 1-.188-.49v-.104h-.083a1.8 1.8 0 0 1-.792.729c-.333.167-.701.25-1.104.25Zm.25-1.125c.486 0 .9-.167 1.24-.5.34-.333.51-.722.51-1.167a2.2 2.2 0 0 0-.698-.26 3.3 3.3 0 0 0-.802-.094c-.444 0-.791.097-1.041.292-.25.194-.375.451-.375.77 0 .278.111.507.333.688.222.18.5.271.833.271Z"
-      fill={cIcon}
+      fill={active ? "var(--cometchat-text-color-highlight)" : cIcon}
     />
   </svg>
 );
-const CIconAI = () => (
+
+/* ─── Formatting toolbar (DS Multi Line Composer · Formatting) ─────────────── */
+
+const fmtBtn: React.CSSProperties = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  width: 32,
+  height: 32,
+  padding: "var(--cometchat-spacing-1-5)",
+  borderRadius: "var(--cometchat-radius-2)",
+  background: "transparent",
+  border: "none",
+  cursor: "pointer",
+  color: "var(--cometchat-text-color-tertiary)",
+  fontSize: 16,
+};
+const fmtSep: React.CSSProperties = {
+  width: 1,
+  height: 20,
+  background: "var(--cometchat-border-color-default)",
+  margin: "0 var(--cometchat-spacing-1)",
+};
+
+/** The rich-text formatting row that sits above the input when Aa is on. */
+export function FormatToolbar() {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "var(--cometchat-spacing-2)",
+        padding: "var(--cometchat-spacing-2)",
+        background: "var(--cometchat-background-color-02)",
+        borderBottom: "1px solid var(--cometchat-border-color-light)",
+      }}
+    >
+      <button style={fmtBtn} aria-label="Bold">
+        <span style={{ fontWeight: 700 }}>B</span>
+      </button>
+      <button style={fmtBtn} aria-label="Italic">
+        <span style={{ fontStyle: "italic" }}>I</span>
+      </button>
+      <button style={fmtBtn} aria-label="Underline">
+        <span style={{ textDecoration: "underline" }}>U</span>
+      </button>
+      <button style={fmtBtn} aria-label="Strikethrough">
+        <span style={{ textDecoration: "line-through" }}>S</span>
+      </button>
+      <div style={fmtSep} />
+      <button style={fmtBtn} aria-label="Link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0 0 10h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1ZM8 13h8v-2H8v2Zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 0-10Z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <button style={fmtBtn} aria-label="Ordered List">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M2 17h2v.5H3v1h1v.5H2v1h3v-4H2v1Zm1-9h1V4H2v1h1v3Zm-1 3h1.8L2 13.1v.9h3v-1H3.2L5 10.9V10H2v1Zm5-6v2h14V5H7Zm0 14h14v-2H7v2Zm0-6h14v-2H7v2Z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <button style={fmtBtn} aria-label="Bullet List">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M4 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5Zm0-6c-.83 0-1.5.67-1.5 1.5S3.17 7.5 4 7.5 5.5 6.83 5.5 6 4.83 4.5 4 4.5Zm0 12c-.83 0-1.5.68-1.5 1.5s.68 1.5 1.5 1.5 1.5-.68 1.5-1.5-.67-1.5-1.5-1.5ZM7 19h14v-2H7v2Zm0-6h14v-2H7v2Zm0-8v2h14V5H7Z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <div style={fmtSep} />
+      <button style={fmtBtn} aria-label="Block Quote">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M6 17h3l2-4V7H5v6h3l-2 4Zm8 0h3l2-4V7h-6v6h3l-2 4Z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <button style={fmtBtn} aria-label="Code">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4Zm5.2 0 4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4Z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <button style={fmtBtn} aria-label="Code Block">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+          <rect
+            x="2"
+            y="2"
+            width="16"
+            height="16"
+            rx="2.5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            fill="none"
+          />
+          <path
+            d="M8 7.5 5.5 10 8 12.5M12 7.5l2.5 2.5-2.5 2.5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            fill="none"
+          />
+        </svg>
+      </button>
+    </div>
+  );
+}
+export const CIconAI = () => (
   <svg
     width="22"
     height="22"

@@ -20,6 +20,9 @@ import {
 import {
   UsageDoc,
   DropOverlay,
+  CIconFormatting,
+  CIconAI,
+  FormatToolbar,
   MultiAttachmentBubble,
   MessageStack,
   ImagePreview,
@@ -169,6 +172,7 @@ function TabItem({
     <div className="shell__tab-item">
       <span
         className={`icon-rounded shell__tab-icon ${active ? "shell__tab-icon--active" : ""}`}
+        style={active ? { fontVariationSettings: '"FILL" 1' } : undefined}
       >
         {icon}
       </span>
@@ -376,6 +380,132 @@ const SEED: Msg[] = [
   },
 ];
 
+// Every multi-attachment message shape: multi-image, multi-video, multi-file,
+// multi-audio, a mixed message (one bubble per format), a quoted reply and an
+// in-flight upload.
+const SEED_ALL: Msg[] = [
+  {
+    id: 1,
+    variant: "received",
+    groups: [{ t: "media", count: 4, total: 6, video: false }],
+    time: "4:48 pm",
+  },
+  {
+    id: 2,
+    variant: "sent",
+    groups: [{ t: "media", count: 4, total: 4, video: true }],
+    caption: "the highlights 🎬",
+    time: "4:49 pm",
+    status: "read",
+  },
+  {
+    id: 3,
+    variant: "received",
+    groups: [
+      {
+        t: "files",
+        files: [
+          { kind: "pdf", name: "Q3-Report.pdf", meta: "12 Jun · 2.4 MB" },
+          { kind: "xls", name: "Budget.xlsx", meta: "12 Jun · 812 KB" },
+          { kind: "doc", name: "Notes.docx", meta: "12 Jun · 340 KB" },
+        ],
+      },
+    ],
+    time: "4:50 pm",
+  },
+  {
+    id: 4,
+    variant: "sent",
+    groups: [
+      {
+        t: "audio",
+        files: [
+          { name: "Voice-reply.mp3", meta: "00:18" },
+          { name: "Follow-up.mp3", meta: "00:42" },
+        ],
+      },
+    ],
+    time: "4:51 pm",
+    status: "read",
+  },
+  {
+    id: 5,
+    variant: "received",
+    groups: [
+      { t: "media", count: 2, total: 2, video: false },
+      {
+        t: "files",
+        files: [{ kind: "ppt", name: "Deck.pptx", meta: "12 Jun · 6.1 MB" }],
+      },
+      { t: "audio", files: [{ name: "Walkthrough.mp3", meta: "01:12" }] },
+    ],
+    caption: "everything from the shoot 📦",
+    time: "4:52 pm",
+  },
+  {
+    id: 6,
+    variant: "sent",
+    quoted: {
+      name: "George Alan",
+      media: { kind: "image", count: 6, caption: "the set" },
+    },
+    groups: [{ t: "media", count: 2, total: 2, video: false }],
+    caption: "love these 🙌",
+    time: "4:55 pm",
+    status: "read",
+  },
+  {
+    id: 7,
+    variant: "sent",
+    groups: [{ t: "media", count: 3, total: 3, video: false }],
+    caption: "one more batch",
+    time: "now",
+    status: "sent",
+    state: "uploading",
+  },
+];
+
+// A full mixed tray — every attachment format queued at once (ids sit below the
+// uid counter's start so they can't collide with anything added later).
+const SEED_PENDING: Pending[] = [
+  {
+    id: 90,
+    kind: "image",
+    name: "Photo-1.jpg",
+    meta: "",
+    src: SAMPLE_IMAGES[0],
+  },
+  {
+    id: 91,
+    kind: "image",
+    name: "Photo-2.jpg",
+    meta: "",
+    src: SAMPLE_IMAGES[3],
+  },
+  {
+    id: 92,
+    kind: "video",
+    name: "Clip.mp4",
+    meta: "12 MB",
+    src: SAMPLE_IMAGES[1],
+  },
+  {
+    id: 93,
+    kind: "doc",
+    docType: "pdf",
+    name: "Q3-Report.pdf",
+    meta: "PDF · 2.4 MB",
+  },
+  {
+    id: 94,
+    kind: "doc",
+    docType: "xls",
+    name: "Budget.xlsx",
+    meta: "XLS · 812 KB",
+  },
+  { id: 95, kind: "audio", name: "Voice-note.mp3", meta: "00:30" },
+];
+
 // Build a quoted-reply summary from the message being replied to.
 function quoteFrom(m: Msg): QuotedReply {
   const name = m.variant === "sent" ? "You" : CHAT_NAME;
@@ -414,12 +544,17 @@ function EndToEndChat({
   messages,
   setMessages,
   dropTarget = "panel",
+  initialPending,
+  multiLine = false,
 }: {
   messages: Msg[];
   setMessages: React.Dispatch<React.SetStateAction<Msg[]>>;
   dropTarget?: "panel" | "composer";
+  initialPending?: Pending[];
+  multiLine?: boolean;
 }) {
-  const [pending, setPending] = useState<Pending[]>([]);
+  const [pending, setPending] = useState<Pending[]>(initialPending ?? []);
+  const [formatting, setFormatting] = useState(multiLine);
   const [text, setText] = useState("");
   const [dragging, setDragging] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
@@ -697,6 +832,71 @@ function EndToEndChat({
 
   const canSend = pending.length > 0 || text.trim().length > 0;
 
+  // Queued previews. Multi-line nests this inside the composer box (below the
+  // formatting bar), so it needs the box's own side padding; single-line keeps
+  // it above the box, flush with the composer's edges.
+  const attachmentStrip =
+    pending.length === 0 ? null : (
+      <div
+        style={{
+          display: "flex",
+          gap: "var(--cometchat-spacing-2)",
+          padding: multiLine
+            ? "var(--cometchat-spacing-2-5) var(--cometchat-spacing-3) var(--cometchat-spacing-1)"
+            : "var(--cometchat-spacing-2) 0",
+          overflowX: "auto",
+          overflowY: "visible",
+        }}
+      >
+        {pending.map((p) => (
+          <div key={p.id} style={{ position: "relative", flexShrink: 0 }}>
+            {(() => {
+              const badge = p.loading ? "loading" : "none";
+              return p.kind === "image" ? (
+                <ImagePreview badge={badge} src={p.src} />
+              ) : p.kind === "video" ? (
+                <VideoPreview badge={badge} src={p.src} />
+              ) : p.kind === "audio" ? (
+                <AudioPreview badge={badge} title={p.name} />
+              ) : (
+                <DocumentPreview
+                  badge={badge}
+                  name={p.name}
+                  type={p.docType}
+                  meta={p.meta}
+                />
+              );
+            })()}
+            {!p.loading && (
+              <button
+                onClick={() => removePending(p.id)}
+                style={{
+                  position: "absolute",
+                  top: -6,
+                  right: -6,
+                  width: 22,
+                  height: 22,
+                  borderRadius: "50%",
+                  border: "2px solid var(--cometchat-background-color-01)",
+                  background:
+                    "color-mix(in srgb, var(--cometchat-static-black) 70%, var(--cometchat-static-white))",
+                  color: "var(--cometchat-static-white)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                  padding: 0,
+                }}
+                aria-label="Remove attachment"
+              >
+                <IconClose />
+              </button>
+            )}
+          </div>
+        ))}
+      </div>
+    );
+
   // Drop is either the whole chat panel or scoped to just the composer footer.
   const onComposer = dropTarget === "composer";
   const dragHandlers = {
@@ -818,8 +1018,9 @@ function EndToEndChat({
         style={{
           position: "relative",
           padding: "var(--cometchat-spacing-3) var(--cometchat-spacing-4)",
-          background: "var(--cometchat-background-color-01)",
-          borderTop: "1px solid var(--cometchat-border-color-light)",
+          // Same surface as the message list — the composer sits on the thread's
+          // background rather than a white band of its own.
+          background: "var(--cometchat-background-color-02)",
         }}
         {...(onComposer ? dragHandlers : {})}
       >
@@ -841,66 +1042,7 @@ function EndToEndChat({
             />
           </div>
         )}
-        {pending.length > 0 && (
-          <div
-            style={{
-              display: "flex",
-              gap: "var(--cometchat-spacing-2)",
-              padding:
-                "var(--cometchat-spacing-2-5) var(--cometchat-spacing-3) var(--cometchat-spacing)",
-              marginBottom: 2,
-              overflowX: "auto",
-              overflowY: "visible",
-            }}
-          >
-            {pending.map((p) => (
-              <div key={p.id} style={{ position: "relative", flexShrink: 0 }}>
-                {(() => {
-                  const badge = p.loading ? "loading" : "none";
-                  return p.kind === "image" ? (
-                    <ImagePreview badge={badge} src={p.src} />
-                  ) : p.kind === "video" ? (
-                    <VideoPreview badge={badge} src={p.src} />
-                  ) : p.kind === "audio" ? (
-                    <AudioPreview badge={badge} title={p.name} />
-                  ) : (
-                    <DocumentPreview
-                      badge={badge}
-                      name={p.name}
-                      type={p.docType}
-                      meta={p.meta}
-                    />
-                  );
-                })()}
-                {!p.loading && (
-                  <button
-                    onClick={() => removePending(p.id)}
-                    style={{
-                      position: "absolute",
-                      top: -6,
-                      right: -6,
-                      width: 22,
-                      height: 22,
-                      borderRadius: "50%",
-                      border: "2px solid var(--cometchat-background-color-01)",
-                      background:
-                        "color-mix(in srgb, var(--cometchat-static-black) 70%, var(--cometchat-static-white))",
-                      color: "var(--cometchat-static-white)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      cursor: "pointer",
-                      padding: 0,
-                    }}
-                    aria-label="Remove attachment"
-                  >
-                    <IconClose />
-                  </button>
-                )}
-              </div>
-            ))}
-          </div>
-        )}
+        {!multiLine && attachmentStrip}
         {replyTo && (
           <div
             style={{
@@ -917,7 +1059,19 @@ function EndToEndChat({
           </div>
         )}
         <div
-          style={{ ...composerRow, position: "relative", overflow: "hidden" }}
+          style={
+            multiLine
+              ? {
+                  display: "flex",
+                  flexDirection: "column",
+                  background: "var(--cometchat-background-color-01)",
+                  border: "1px solid var(--cometchat-border-color-default)",
+                  borderRadius: "var(--cometchat-radius-2)",
+                  position: "relative",
+                  overflow: "hidden",
+                }
+              : { ...composerRow, position: "relative", overflow: "hidden" }
+          }
         >
           {/* Composer-scoped drag overlay — covers just the composer box */}
           {dragging && onComposer && <DropOverlay compact />}
@@ -928,58 +1082,154 @@ function EndToEndChat({
             style={{ display: "none" }}
             onChange={(e) => e.target.files && addFiles(e.target.files)}
           />
-          <button
-            style={actionButton}
-            aria-label="Attach file"
-            onClick={() => setSheetOpen((o) => !o)}
-          >
-            <IconAddCircle />
-          </button>
-          <input
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") send();
-            }}
-            placeholder="Enter your message here"
-            style={{
-              flex: 1,
-              minWidth: 0,
-              border: "none",
-              outline: "none",
-              background: "transparent",
-              fontSize: 14,
-              lineHeight: "20px",
-              color: "var(--cometchat-text-color-primary)",
-              fontFamily: "inherit",
-            }}
-          />
-          <button style={actionButton} aria-label="Emoji">
-            <IconMood />
-          </button>
-          <button style={actionButton} aria-label="Sticker">
-            <IconSticker />
-          </button>
-          <button style={actionButton} aria-label="Voice record">
-            <IconMic />
-          </button>
-          <div
-            onClick={send}
-            role="button"
-            aria-label="Send"
-            style={{
-              ...sendBase,
-              cursor: canSend ? "pointer" : "default",
-              background: canSend
-                ? "var(--cometchat-background-color-solid)"
-                : "var(--cometchat-background-color-03)",
-              color: canSend
-                ? "var(--cometchat-static-white)"
-                : "var(--cometchat-icon-color-disabled)",
-            }}
-          >
-            <IconSend />
-          </div>
+          {multiLine ? (
+            <>
+              {formatting && <FormatToolbar />}
+              {attachmentStrip}
+              <input
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") send();
+                }}
+                placeholder="Type your message..."
+                style={{
+                  border: "none",
+                  outline: "none",
+                  background: "transparent",
+                  padding: "var(--cometchat-spacing-3)",
+                  fontSize: 14,
+                  lineHeight: "20px",
+                  color: "var(--cometchat-text-color-primary)",
+                  fontFamily: "inherit",
+                }}
+              />
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "var(--cometchat-spacing-3)",
+                  padding:
+                    "var(--cometchat-spacing-1-5) var(--cometchat-spacing-3)",
+                  borderTop: "1px solid var(--cometchat-border-color-light)",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "var(--cometchat-spacing-2)",
+                    flex: 1,
+                  }}
+                >
+                  <button
+                    style={actionButton}
+                    aria-label="Attach file"
+                    onClick={() => setSheetOpen((o) => !o)}
+                  >
+                    <IconAddCircle />
+                  </button>
+                  <button style={actionButton} aria-label="Voice record">
+                    <IconMic />
+                  </button>
+                  <button style={actionButton} aria-label="Emoji">
+                    <IconMood />
+                  </button>
+                  <button style={actionButton} aria-label="Sticker">
+                    <IconSticker />
+                  </button>
+                  <button
+                    style={actionButton}
+                    aria-label="Formatting"
+                    onClick={() => setFormatting((f) => !f)}
+                  >
+                    <CIconFormatting active={formatting} />
+                  </button>
+                  <button
+                    style={{
+                      ...actionButton,
+                      padding: "var(--cometchat-spacing-1)",
+                    }}
+                    aria-label="AI features"
+                  >
+                    <CIconAI />
+                  </button>
+                </div>
+                <div
+                  onClick={send}
+                  role="button"
+                  aria-label="Send"
+                  style={{
+                    ...sendBase,
+                    cursor: canSend ? "pointer" : "default",
+                    background: canSend
+                      ? "var(--cometchat-background-color-solid)"
+                      : "var(--cometchat-background-color-03)",
+                    color: canSend
+                      ? "var(--cometchat-static-white)"
+                      : "var(--cometchat-icon-color-disabled)",
+                  }}
+                >
+                  <IconSend />
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <button
+                style={actionButton}
+                aria-label="Attach file"
+                onClick={() => setSheetOpen((o) => !o)}
+              >
+                <IconAddCircle />
+              </button>
+              <input
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") send();
+                }}
+                placeholder="Enter your message here"
+                style={{
+                  flex: 1,
+                  minWidth: 0,
+                  border: "none",
+                  outline: "none",
+                  background: "transparent",
+                  fontSize: 14,
+                  lineHeight: "20px",
+                  color: "var(--cometchat-text-color-primary)",
+                  fontFamily: "inherit",
+                }}
+              />
+              <button style={actionButton} aria-label="Emoji">
+                <IconMood />
+              </button>
+              <button style={actionButton} aria-label="Sticker">
+                <IconSticker />
+              </button>
+              <button style={actionButton} aria-label="Voice record">
+                <IconMic />
+              </button>
+              <div
+                onClick={send}
+                role="button"
+                aria-label="Send"
+                style={{
+                  ...sendBase,
+                  cursor: canSend ? "pointer" : "default",
+                  background: canSend
+                    ? "var(--cometchat-background-color-solid)"
+                    : "var(--cometchat-background-color-03)",
+                  color: canSend
+                    ? "var(--cometchat-static-white)"
+                    : "var(--cometchat-icon-color-disabled)",
+                }}
+              >
+                <IconSend />
+              </div>
+            </>
+          )}
         </div>
       </div>
 
@@ -991,10 +1241,16 @@ function EndToEndChat({
 
 function ChatScreen({
   dropTarget = "panel",
+  initialPending,
+  multiLine = false,
+  seed = SEED,
 }: {
   dropTarget?: "panel" | "composer";
+  initialPending?: Pending[];
+  multiLine?: boolean;
+  seed?: Msg[];
 }) {
-  const [messages, setMessages] = useState<Msg[]>(SEED);
+  const [messages, setMessages] = useState<Msg[]>(seed);
   const last = messages[messages.length - 1];
   return (
     <div
@@ -1055,6 +1311,8 @@ function ChatScreen({
         messages={messages}
         setMessages={setMessages}
         dropTarget={dropTarget}
+        initialPending={initialPending}
+        multiLine={multiLine}
       />
     </div>
   );
@@ -1063,6 +1321,17 @@ function ChatScreen({
 export const Chat: Story = {
   parameters: { controls: { disable: true } },
   render: () => <ChatScreen />,
+};
+
+/** The composer tray loaded with every attachment format at once — photos,
+ *  video, documents and audio queued together above a thread of multi-attachment
+ *  messages. Press Send to post them as separate-format bubbles. */
+export const ChatAttachmentsQueued: Story = {
+  name: "Chat (Attachments Queued)",
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <ChatScreen initialPending={SEED_PENDING} multiLine seed={SEED_ALL} />
+  ),
 };
 
 /** Same chat, but dragging files shows a compact drop overlay on the composer
