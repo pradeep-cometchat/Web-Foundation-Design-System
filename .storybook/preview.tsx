@@ -1,6 +1,7 @@
 import React from "react";
 import type { Preview } from "@storybook/react";
 import { withThemeByDataAttribute } from "@storybook/addon-themes";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import "../src/cometchat-foundation/tokens/cometchat-tokens.css";
 import "./preview.css";
 import { FoundationDocsPage } from "./DocsPage";
@@ -90,46 +91,24 @@ const preview: Preview = {
               ],
             ],
             "Input",
-            [
-              "Input",
-              "Textarea",
-            ],
+            ["Input", "Textarea"],
             "List Item",
-            [
-              "Conversation Item",
-              "Call Item",
-              "User Item",
-              "Group Item",
-            ],
+            ["Conversation Item", "Call Item", "User Item", "Group Item"],
             "Media Recorder",
           ],
           "Core Components",
           [
             "Introduction",
             "Conversation List",
-            [
-              "Users List",
-            ],
+            ["Users List"],
             "Chat Area",
             "Chat Bubbles",
             "Message Composer",
             [
               "Multi Line Composer",
-              [
-                "State",
-                "Formatting",
-                "Attachment",
-                "Panel",
-                "Action",
-              ],
+              ["State", "Formatting", "Attachment", "Panel", "Action"],
               "Single Line Composer",
-              [
-                "State",
-                "Formatting",
-                "Attachment",
-                "Panel",
-                "Action",
-              ],
+              ["State", "Formatting", "Attachment", "Panel", "Action"],
               "Multi Attachments",
               [
                 "Attachment Cards",
@@ -148,6 +127,16 @@ const preview: Preview = {
       },
     },
     backgrounds: { disable: true },
+    viewport: {
+      viewports: {
+        mobile360: {
+          name: "Mobile (360 × 800)",
+          styles: { width: "360px", height: "800px" },
+          type: "mobile",
+        },
+        ...INITIAL_VIEWPORTS,
+      },
+    },
     a11y: {
       element: "#storybook-root",
       config: {},
