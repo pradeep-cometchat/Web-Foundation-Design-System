@@ -2390,12 +2390,14 @@ const fmtBtn: React.CSSProperties = {
   cursor: "pointer",
   color: "var(--cometchat-text-color-tertiary)",
   fontSize: 16,
+  flexShrink: 0,
 };
 const fmtSep: React.CSSProperties = {
   width: 1,
   height: 20,
   background: "var(--cometchat-border-color-default)",
   margin: "0 var(--cometchat-spacing-1)",
+  flexShrink: 0,
 };
 
 /** The rich-text formatting row that sits above the input when Aa is on. */
@@ -2409,6 +2411,8 @@ export function FormatToolbar() {
         padding: "var(--cometchat-spacing-2)",
         background: "var(--cometchat-background-color-02)",
         borderBottom: "1px solid var(--cometchat-border-color-light)",
+        // Narrow phones can't fit every control — scroll rather than clip.
+        overflowX: "auto",
       }}
     >
       <button style={fmtBtn} aria-label="Bold">

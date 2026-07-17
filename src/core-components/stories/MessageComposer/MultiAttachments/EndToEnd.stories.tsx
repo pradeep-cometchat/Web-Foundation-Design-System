@@ -159,6 +159,33 @@ const CONVOS: ChatRow[] = [
   },
 ];
 
+/** Tracks the Storybook viewport (the addon resizes this iframe's window), so
+ *  the shell can drop to a single-pane phone layout. Inline styles can't be
+ *  overridden by a CSS media query, hence matchMedia rather than plain CSS. */
+function useIsMobile(breakpoint = 768) {
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia(`(max-width: ${breakpoint}px)`);
+    const sync = () => setMobile(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, [breakpoint]);
+  return mobile;
+}
+
+const IconBack = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path
+      d="M15 19l-7-7 7-7"
+      stroke="var(--cometchat-icon-color-primary)"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 function TabItem({
   icon,
   label,
@@ -555,6 +582,8 @@ function EndToEndChat({
 }) {
   const [pending, setPending] = useState<Pending[]>(initialPending ?? []);
   const [formatting, setFormatting] = useState(multiLine);
+  const isMobile = useIsMobile();
+  const isNarrow = useIsMobile(380);
   const [text, setText] = useState("");
   const [dragging, setDragging] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
@@ -929,6 +958,11 @@ function EndToEndChat({
     >
       {/* Chat header */}
       <div className="chat-header">
+        {isMobile && (
+          <button className="chat-header__back-btn" aria-label="Back to chats">
+            <IconBack />
+          </button>
+        )}
         <div className="chat-header__info">
           <div className="chat-header__avatar">
             <img
@@ -948,28 +982,34 @@ function EndToEndChat({
           </div>
         </div>
         <div className="chat-header__actions">
-          <button className="chat-header__action-btn">
-            <span
-              className="icon-rounded"
-              style={{
-                fontSize: 24,
-                color: "var(--cometchat-icon-color-primary)",
-              }}
-            >
-              videocam
-            </span>
-          </button>
-          <button className="chat-header__action-btn">
-            <span
-              className="icon-rounded"
-              style={{
-                fontSize: 24,
-                color: "var(--cometchat-icon-color-primary)",
-              }}
-            >
-              call
-            </span>
-          </button>
+          {/* Narrow phones: call actions fold into the overflow menu so the
+              chat name keeps its room. */}
+          {!isNarrow && (
+            <>
+              <button className="chat-header__action-btn">
+                <span
+                  className="icon-rounded"
+                  style={{
+                    fontSize: 24,
+                    color: "var(--cometchat-icon-color-primary)",
+                  }}
+                >
+                  videocam
+                </span>
+              </button>
+              <button className="chat-header__action-btn">
+                <span
+                  className="icon-rounded"
+                  style={{
+                    fontSize: 24,
+                    color: "var(--cometchat-icon-color-primary)",
+                  }}
+                >
+                  call
+                </span>
+              </button>
+            </>
+          )}
           <button className="chat-header__action-btn">
             <span
               className="icon-rounded"
@@ -1003,7 +1043,9 @@ function EndToEndChat({
         style={{
           flex: 1,
           overflowY: "auto",
-          padding: "var(--cometchat-spacing-4) var(--cometchat-spacing-6)",
+          padding: isMobile
+            ? "var(--cometchat-spacing-3)"
+            : "var(--cometchat-spacing-4) var(--cometchat-spacing-6)",
           display: "flex",
           flexDirection: "column",
           gap: "var(--cometchat-spacing-2)",
@@ -1017,7 +1059,9 @@ function EndToEndChat({
       <div
         style={{
           position: "relative",
-          padding: "var(--cometchat-spacing-3) var(--cometchat-spacing-4)",
+          padding: isMobile
+            ? "var(--cometchat-spacing-2) var(--cometchat-spacing-3)"
+            : "var(--cometchat-spacing-3) var(--cometchat-spacing-4)",
           // Same surface as the message list — the composer sits on the thread's
           // background rather than a white band of its own.
           background: "var(--cometchat-background-color-02)",
@@ -1252,6 +1296,8 @@ function ChatScreen({
 }) {
   const [messages, setMessages] = useState<Msg[]>(seed);
   const last = messages[messages.length - 1];
+  // Phone viewports show one pane at a time — the chat, with a back affordance.
+  const isMobile = useIsMobile();
   return (
     <div
       className="shell"
@@ -1262,51 +1308,53 @@ function ChatScreen({
         fontFamily: "var(--cometchat-font-family, Inter, sans-serif)",
       }}
     >
-      <div className="shell__sidebar">
-        <Header title="Chats" actions={[]} showMore />
-        <div
-          style={{
-            padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-4)",
-          }}
-        >
-          <SearchBar placeholder="Search chats or messages" />
+      {!isMobile && (
+        <div className="shell__sidebar">
+          <Header title="Chats" actions={[]} showMore />
+          <div
+            style={{
+              padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-4)",
+            }}
+          >
+            <SearchBar placeholder="Search chats or messages" />
+          </div>
+          <div style={{ flex: 1, overflow: "auto" }}>
+            {CONVOS.map((base, i) => {
+              const c = base.active ? { ...base, ...previewFor(last) } : base;
+              return (
+                <div
+                  key={i}
+                  style={
+                    c.active
+                      ? { background: "var(--cometchat-background-color-03)" }
+                      : undefined
+                  }
+                >
+                  <ConversationItem
+                    title={c.name}
+                    timestamp={c.time}
+                    avatarVariant={c.avatarText ? "text" : "image"}
+                    avatarUrl={c.img}
+                    avatarText={c.avatarText}
+                    statusIcon={c.online ? "online" : "none"}
+                    messageStatus={c.status}
+                    senderLabel={c.sender}
+                    messageType={c.type}
+                    messageTypeLabel={c.type ? true : undefined}
+                    textContent={c.text}
+                  />
+                </div>
+              );
+            })}
+          </div>
+          <div className="shell__tab-bar">
+            <TabItem icon="chat" label="Chats" active />
+            <TabItem icon="call" label="Calls" />
+            <TabItem icon="group" label="Groups" />
+            <TabItem icon="person" label="Users" />
+          </div>
         </div>
-        <div style={{ flex: 1, overflow: "auto" }}>
-          {CONVOS.map((base, i) => {
-            const c = base.active ? { ...base, ...previewFor(last) } : base;
-            return (
-              <div
-                key={i}
-                style={
-                  c.active
-                    ? { background: "var(--cometchat-background-color-03)" }
-                    : undefined
-                }
-              >
-                <ConversationItem
-                  title={c.name}
-                  timestamp={c.time}
-                  avatarVariant={c.avatarText ? "text" : "image"}
-                  avatarUrl={c.img}
-                  avatarText={c.avatarText}
-                  statusIcon={c.online ? "online" : "none"}
-                  messageStatus={c.status}
-                  senderLabel={c.sender}
-                  messageType={c.type}
-                  messageTypeLabel={c.type ? true : undefined}
-                  textContent={c.text}
-                />
-              </div>
-            );
-          })}
-        </div>
-        <div className="shell__tab-bar">
-          <TabItem icon="chat" label="Chats" active />
-          <TabItem icon="call" label="Calls" />
-          <TabItem icon="group" label="Groups" />
-          <TabItem icon="person" label="Users" />
-        </div>
-      </div>
+      )}
       <EndToEndChat
         messages={messages}
         setMessages={setMessages}
