@@ -806,6 +806,13 @@ export interface MultiAttachmentBubbleProps {
   forwarded?: boolean;
   /** "Edited" marker next to the time. */
   edited?: boolean;
+  /** Unsupported/undecodable attachment — image & video tiles fall back to a
+   *  generic "?" file placeholder, and file/audio cards show the "?" icon with
+   *  a download control instead of a preview. */
+  unsupported?: boolean;
+  /** Click handler for an unsupported image/video tile — opens the preview
+   *  dialog. Makes the "?" placeholder interactive. */
+  onUnsupportedClick?: () => void;
 }
 
 const BUBBLE_W = 240;
@@ -895,6 +902,8 @@ export function MultiAttachmentBubble({
   showMeta = true,
   forwarded = false,
   edited = false,
+  unsupported = false,
+  onUnsupportedClick,
 }: MultiAttachmentBubbleProps) {
   const [expanded, setExpanded] = useState(false);
   const isSent = variant === "sent";
@@ -923,78 +932,99 @@ export function MultiAttachmentBubble({
     gap: "var(--cometchat-spacing-1)",
   };
 
-  const img = (i: number, style?: React.CSSProperties) => (
-    <div
-      key={i}
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        borderRadius: "var(--cometchat-radius-2)",
-        ...style,
-      }}
-    >
-      <img
-        src={SAMPLE_IMAGES[i % SAMPLE_IMAGES.length]}
-        alt=""
+  const img = (i: number, style?: React.CSSProperties) =>
+    unsupported ? (
+      <div
+        key={i}
+        onClick={onUnsupportedClick}
         style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          display: "block",
+          position: "relative",
+          borderRadius: "var(--cometchat-radius-2)",
+          background: isSent
+            ? "var(--cometchat-background-color-02)"
+            : "var(--cometchat-background-color-01)",
+          boxSizing: "border-box",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          cursor: onUnsupportedClick ? "pointer" : undefined,
+          ...style,
         }}
-      />
-      {videoAt.includes(i) && (
-        <div
+      >
+        <FileTypeIcon type="file" size={40} />
+      </div>
+    ) : (
+      <div
+        key={i}
+        style={{
+          position: "relative",
+          overflow: "hidden",
+          borderRadius: "var(--cometchat-radius-2)",
+          ...style,
+        }}
+      >
+        <img
+          src={SAMPLE_IMAGES[i % SAMPLE_IMAGES.length]}
+          alt=""
           style={{
-            position: "absolute",
-            inset: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            display: "block",
           }}
-        >
+        />
+        {videoAt.includes(i) && (
           <div
             style={{
-              width: 40,
-              height: 40,
-              borderRadius: "50%",
-              background:
-                "color-mix(in srgb, var(--cometchat-static-black) 45%, transparent)",
-              color: "var(--cometchat-static-white)",
+              position: "absolute",
+              inset: 0,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <IconPlay size={16} />
+            <div
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: "50%",
+                background:
+                  "color-mix(in srgb, var(--cometchat-static-black) 45%, transparent)",
+                color: "var(--cometchat-static-white)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <IconPlay size={16} />
+            </div>
           </div>
-        </div>
-      )}
-      {i === shownTiles - 1 && overflow > 0 && (
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "color-mix(in srgb, var(--cometchat-static-black) 50%, transparent)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <span
+        )}
+        {i === shownTiles - 1 && overflow > 0 && (
+          <div
             style={{
-              color: "var(--cometchat-static-white)",
-              fontSize: 18,
-              fontWeight: 600,
+              position: "absolute",
+              inset: 0,
+              background:
+                "color-mix(in srgb, var(--cometchat-static-black) 50%, transparent)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            +{overflow}
-          </span>
-        </div>
-      )}
-    </div>
-  );
+            <span
+              style={{
+                color: "var(--cometchat-static-white)",
+                fontSize: 18,
+                fontWeight: 600,
+              }}
+            >
+              +{overflow}
+            </span>
+          </div>
+        )}
+      </div>
+    );
 
   function grid() {
     const base: React.CSSProperties = {
@@ -1142,7 +1172,7 @@ export function MultiAttachmentBubble({
   };
 
   function fileCard(f: BubbleFile, key: number) {
-    if (f.kind === "audio") {
+    if (f.kind === "audio" && !unsupported) {
       return (
         <div key={key} style={cardBase}>
           <AudioCard
@@ -1159,7 +1189,10 @@ export function MultiAttachmentBubble({
     }
     return (
       <div key={key} style={cardBase}>
-        <FileTypeIcon type={f.kind} size={ICON} />
+        <FileTypeIcon
+          type={unsupported ? "file" : (f.kind as DocKind)}
+          size={ICON}
+        />
         <div
           style={{
             display: "flex",
@@ -2318,6 +2351,155 @@ export function DropOverlay({
           Add photos, videos, documents or audio to your message.
         </span>
       )}
+    </div>
+  );
+}
+
+/** Modal shown when an unsupported image/video thumbnail is clicked — the file
+ *  can't be previewed, only downloaded. DS dialog styling, tokens only. */
+export function UnsupportedFileDialog({
+  open = true,
+  onClose,
+  onDownload,
+}: { open?: boolean; onClose?: () => void; onDownload?: () => void } = {}) {
+  if (!open) return null;
+  const font = "var(--cometchat-font-family, Inter, sans-serif)";
+  return (
+    <div
+      onClick={onClose}
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 1000,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background:
+          "color-mix(in srgb, var(--cometchat-static-black) 50%, transparent)",
+        fontFamily: font,
+      }}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Unsupported file"
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          position: "relative",
+          width: 400,
+          maxWidth: "90vw",
+          boxSizing: "border-box",
+          background: "var(--cometchat-background-color-01)",
+          border: "1px solid var(--cometchat-border-color-light)",
+          borderRadius: "var(--cometchat-radius-4)",
+          boxShadow: "var(--cometchat-shadow-lg)",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "var(--cometchat-spacing-3)",
+          padding: "var(--cometchat-spacing-6)",
+        }}
+      >
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          style={{
+            position: "absolute",
+            top: "var(--cometchat-spacing-4)",
+            right: "var(--cometchat-spacing-4)",
+            width: 28,
+            height: 28,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            border: "none",
+            background: "transparent",
+            borderRadius: "var(--cometchat-radius-2)",
+            cursor: "pointer",
+            color: "var(--cometchat-icon-color-secondary)",
+          }}
+        >
+          <span
+            className="icon-rounded"
+            style={{ fontSize: 22, "--icon-fill": 0 } as React.CSSProperties}
+          >
+            close
+          </span>
+        </button>
+
+        <div
+          style={{
+            width: 64,
+            height: 64,
+            borderRadius: "var(--cometchat-radius-max)",
+            background: "var(--cometchat-background-color-02)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexShrink: 0,
+          }}
+        >
+          <FileTypeIcon type="file" size={36} />
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "var(--cometchat-spacing-2)",
+            textAlign: "center",
+          }}
+        >
+          <span
+            style={{
+              fontSize: 20,
+              fontWeight: 500,
+              lineHeight: "30px",
+              color: "var(--cometchat-text-color-primary)",
+            }}
+          >
+            Unsupported file
+          </span>
+          <span
+            style={{
+              fontSize: 14,
+              lineHeight: "20px",
+              color: "var(--cometchat-text-color-secondary)",
+            }}
+          >
+            This file can’t be previewed here. Download it to view its contents.
+          </span>
+        </div>
+
+        <button
+          onClick={onDownload}
+          style={{
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "var(--cometchat-spacing-2)",
+            padding: "var(--cometchat-spacing-2-5)",
+            border: "none",
+            borderRadius: "var(--cometchat-radius-2)",
+            background: "var(--cometchat-primary-color)",
+            color: "var(--cometchat-static-white)",
+            fontFamily: font,
+            fontSize: 14,
+            fontWeight: 500,
+            cursor: "pointer",
+          }}
+        >
+          <span
+            className="icon-rounded"
+            style={{ fontSize: 20, "--icon-fill": 0 } as React.CSSProperties}
+          >
+            download
+          </span>
+          Download
+        </button>
+      </div>
     </div>
   );
 }

@@ -1059,9 +1059,11 @@ function EndToEndChat({
       <div
         style={{
           position: "relative",
+          // Side padding matches the message list's, so the composer's edges
+          // line up with the message bubbles above it.
           padding: isMobile
             ? "var(--cometchat-spacing-2) var(--cometchat-spacing-3)"
-            : "var(--cometchat-spacing-3) var(--cometchat-spacing-4)",
+            : "var(--cometchat-spacing-3) var(--cometchat-spacing-6)",
           // Same surface as the message list — the composer sits on the thread's
           // background rather than a white band of its own.
           background: "var(--cometchat-background-color-02)",

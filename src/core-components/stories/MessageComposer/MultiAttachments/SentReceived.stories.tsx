@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { UsageDoc, MultiAttachmentBubble, MessageStack, ChatCanvas, SpinKeyframes, Label } from "./_shared";
+import { useState } from "react";
+import { UsageDoc, MultiAttachmentBubble, MessageStack, ChatCanvas, SpinKeyframes, Label, UnsupportedFileDialog } from "./_shared";
 
 /**
  * **Multi Attachments — Sent & Received.** How attachments render in the
@@ -253,6 +254,53 @@ export const Downloading: Story = {
       <MessageStack variant="received"><MultiAttachmentBubble variant="received" state="downloading" files={[{ kind: "audio", name: "Audio.mp3", meta: "00:32" }]} /></MessageStack>
     </ChatCanvas>
   ),
+};
+
+/** Unsupported / undecodable attachments — image & video thumbnails fall back
+ *  to the generic "?" file placeholder; documents and audio show the "?" icon
+ *  with a download control. */
+export const Unsupported: Story = {
+  name: "Unsupported File",
+  parameters: { controls: { disable: true } },
+  render: function Render() {
+    const [dialogOpen, setDialogOpen] = useState(false);
+    const openDialog = () => setDialogOpen(true);
+    return (
+      <ChatCanvas>
+        <Label>Single (click a thumbnail)</Label>
+        <MessageStack variant="received">
+          <MultiAttachmentBubble variant="received" images={1} unsupported onUnsupportedClick={openDialog} />
+        </MessageStack>
+        <MessageStack variant="sent">
+          <MultiAttachmentBubble variant="sent" images={1} unsupported onUnsupportedClick={openDialog} />
+        </MessageStack>
+        <Label>Grid</Label>
+        <MessageStack variant="received">
+          <MultiAttachmentBubble variant="received" images={4} unsupported showMeta={false} onUnsupportedClick={openDialog} />
+          <MultiAttachmentBubble variant="received" images={3} unsupported onUnsupportedClick={openDialog} />
+        </MessageStack>
+        <MessageStack variant="sent">
+          <MultiAttachmentBubble variant="sent" images={4} unsupported onUnsupportedClick={openDialog} />
+        </MessageStack>
+        <Label>Files & audio</Label>
+        <MessageStack variant="received">
+          <MultiAttachmentBubble
+            variant="received"
+            unsupported
+            files={[
+              { kind: "file", name: "data.bin", meta: "FILE" },
+              { kind: "ppt", name: "slides.key", meta: "FILE" },
+              { kind: "audio", name: "clip.opus", meta: "FILE" },
+            ]}
+          />
+        </MessageStack>
+        <MessageStack variant="sent">
+          <MultiAttachmentBubble variant="sent" unsupported files={[{ kind: "file", name: "archive.rar", meta: "FILE" }]} />
+        </MessageStack>
+        <UnsupportedFileDialog open={dialogOpen} onClose={() => setDialogOpen(false)} onDownload={() => setDialogOpen(false)} />
+      </ChatCanvas>
+    );
+  },
 };
 
 /** Forwarded and edited markers. */
