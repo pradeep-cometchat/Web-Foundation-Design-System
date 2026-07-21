@@ -1,6 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { UsageDoc, MultiAttachmentBubble, MessageStack, ChatCanvas, SpinKeyframes, Label, UnsupportedFileDialog } from "./_shared";
+import {
+  UsageDoc,
+  MultiAttachmentBubble,
+  MessageStack,
+  ChatCanvas,
+  SpinKeyframes,
+  Label,
+  UnsupportedFileDialog,
+} from "./_shared";
 
 /**
  * **Multi Attachments — Sent & Received.** How attachments render in the
@@ -26,9 +34,23 @@ function SeparateStack({ variant }: { variant: "sent" | "received" }) {
   return (
     <MessageStack variant={variant}>
       <MultiAttachmentBubble variant={variant} images={3} showMeta={false} />
-      <MultiAttachmentBubble variant={variant} images={2} videoAt={[0, 1]} showMeta={false} />
-      <MultiAttachmentBubble variant={variant} files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "12 Jun · 2.4 MB" }]} showMeta={false} />
-      <MultiAttachmentBubble variant={variant} files={[{ kind: "audio", name: "Audio.mp3", meta: "00:32" }]} />
+      <MultiAttachmentBubble
+        variant={variant}
+        images={2}
+        videoAt={[0, 1]}
+        showMeta={false}
+      />
+      <MultiAttachmentBubble
+        variant={variant}
+        files={[
+          { kind: "pdf", name: "Q3-Report.pdf", meta: "12 Jun · 2.4 MB" },
+        ]}
+        showMeta={false}
+      />
+      <MultiAttachmentBubble
+        variant={variant}
+        files={[{ kind: "audio", name: "Audio.mp3", meta: "00:32" }]}
+      />
     </MessageStack>
   );
 }
@@ -51,8 +73,12 @@ export const ImageGrid: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
     <ChatCanvas>
-      <MessageStack variant="received"><MultiAttachmentBubble variant="received" images={4} totalImages={7} /></MessageStack>
-      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" images={4} totalImages={7} /></MessageStack>
+      <MessageStack variant="received">
+        <MultiAttachmentBubble variant="received" images={4} totalImages={7} />
+      </MessageStack>
+      <MessageStack variant="sent">
+        <MultiAttachmentBubble variant="sent" images={4} totalImages={7} />
+      </MessageStack>
     </ChatCanvas>
   ),
 };
@@ -63,8 +89,22 @@ export const VideoGrid: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
     <ChatCanvas>
-      <MessageStack variant="received"><MultiAttachmentBubble variant="received" images={4} videoAt={[0, 1, 2, 3]} totalImages={6} /></MessageStack>
-      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" images={4} videoAt={[0, 1, 2, 3]} totalImages={6} /></MessageStack>
+      <MessageStack variant="received">
+        <MultiAttachmentBubble
+          variant="received"
+          images={4}
+          videoAt={[0, 1, 2, 3]}
+          totalImages={6}
+        />
+      </MessageStack>
+      <MessageStack variant="sent">
+        <MultiAttachmentBubble
+          variant="sent"
+          images={4}
+          videoAt={[0, 1, 2, 3]}
+          totalImages={6}
+        />
+      </MessageStack>
     </ChatCanvas>
   ),
 };
@@ -133,11 +173,19 @@ export const Documents: Story = {
       </MessageStack>
       <Label>With caption</Label>
       <MessageStack variant="sent">
-        <MultiAttachmentBubble variant="sent" files={[...DOC_SET]} caption="Specs + the component list 📎" />
+        <MultiAttachmentBubble
+          variant="sent"
+          files={[...DOC_SET]}
+          caption="Specs + the component list 📎"
+        />
       </MessageStack>
       <Label>Quoted (reply)</Label>
       <MessageStack variant="received">
-        <MultiAttachmentBubble variant="received" quoted={{ name: "George Alan", text: "can you send the docs?" }} files={[...DOC_SET]} />
+        <MultiAttachmentBubble
+          variant="received"
+          quoted={{ name: "George Alan", text: "can you send the docs?" }}
+          files={[...DOC_SET]}
+        />
       </MessageStack>
     </ChatCanvas>
   ),
@@ -158,11 +206,19 @@ export const MultipleAudio: Story = {
       </MessageStack>
       <Label>With caption</Label>
       <MessageStack variant="sent">
-        <MultiAttachmentBubble variant="sent" files={[...AUDIO_SET]} caption="Both takes 🎧" />
+        <MultiAttachmentBubble
+          variant="sent"
+          files={[...AUDIO_SET]}
+          caption="Both takes 🎧"
+        />
       </MessageStack>
       <Label>Quoted (reply)</Label>
       <MessageStack variant="received">
-        <MultiAttachmentBubble variant="received" quoted={{ name: "George Alan", media: { kind: "audio", count: 2 } }} files={[...AUDIO_SET]} />
+        <MultiAttachmentBubble
+          variant="received"
+          quoted={{ name: "George Alan", media: { kind: "audio", count: 2 } }}
+          files={[...AUDIO_SET]}
+        />
       </MessageStack>
     </ChatCanvas>
   ),
@@ -177,12 +233,27 @@ export const WithCaption: Story = {
     <ChatCanvas>
       <SpinKeyframes />
       <MessageStack variant="received">
-        <MultiAttachmentBubble variant="received" images={4} totalImages={5} caption="Everything from the review 👆" />
+        <MultiAttachmentBubble
+          variant="received"
+          images={4}
+          totalImages={5}
+          caption="Everything from the review 👆"
+        />
       </MessageStack>
       <MessageStack variant="sent">
         <MultiAttachmentBubble variant="sent" images={3} showMeta={false} />
-        <MultiAttachmentBubble variant="sent" files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "12 Jun · 2.4 MB" }]} showMeta={false} />
-        <MultiAttachmentBubble variant="sent" files={[{ kind: "audio", name: "Audio.mp3", meta: "00:32" }]} caption="Everything from the review 👆" />
+        <MultiAttachmentBubble
+          variant="sent"
+          files={[
+            { kind: "pdf", name: "Q3-Report.pdf", meta: "12 Jun · 2.4 MB" },
+          ]}
+          showMeta={false}
+        />
+        <MultiAttachmentBubble
+          variant="sent"
+          files={[{ kind: "audio", name: "Audio.mp3", meta: "00:32" }]}
+          caption="Everything from the review 👆"
+        />
       </MessageStack>
     </ChatCanvas>
   ),
@@ -197,13 +268,28 @@ export const Quoted: Story = {
     <ChatCanvas>
       <SpinKeyframes />
       <MessageStack variant="received">
-        <MultiAttachmentBubble variant="received" quoted={{ name: "George Alan", media: { kind: "image", count: 6, caption: "hello" } }} caption="These look great! 🙌" />
+        <MultiAttachmentBubble
+          variant="received"
+          quoted={{
+            name: "George Alan",
+            media: { kind: "image", count: 6, caption: "hello" },
+          }}
+          caption="These look great! 🙌"
+        />
       </MessageStack>
       <MessageStack variant="sent">
-        <MultiAttachmentBubble variant="sent" quoted={{ name: "George Alan", media: { kind: "video", count: 6 } }} caption="On it 👍" />
+        <MultiAttachmentBubble
+          variant="sent"
+          quoted={{ name: "George Alan", media: { kind: "video", count: 6 } }}
+          caption="On it 👍"
+        />
       </MessageStack>
       <MessageStack variant="received">
-        <MultiAttachmentBubble variant="received" quoted={{ name: "Priya Nair", media: { kind: "file", count: 3 } }} files={[{ kind: "pdf", name: "Signed.pdf", meta: "12 Jun · 1.1 MB" }]} />
+        <MultiAttachmentBubble
+          variant="received"
+          quoted={{ name: "Priya Nair", media: { kind: "file", count: 3 } }}
+          files={[{ kind: "pdf", name: "Signed.pdf", meta: "12 Jun · 1.1 MB" }]}
+        />
       </MessageStack>
     </ChatCanvas>
   ),
@@ -217,11 +303,17 @@ export const DeliveryStates: Story = {
     <ChatCanvas>
       <SpinKeyframes />
       <Label>Uploading</Label>
-      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" images={4} state="uploading" /></MessageStack>
+      <MessageStack variant="sent">
+        <MultiAttachmentBubble variant="sent" images={4} state="uploading" />
+      </MessageStack>
       <Label>Failed (error)</Label>
-      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" images={2} state="failed" /></MessageStack>
+      <MessageStack variant="sent">
+        <MultiAttachmentBubble variant="sent" images={2} state="failed" />
+      </MessageStack>
       <Label>Retry</Label>
-      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" images={2} state="retry" /></MessageStack>
+      <MessageStack variant="sent">
+        <MultiAttachmentBubble variant="sent" images={2} state="retry" />
+      </MessageStack>
     </ChatCanvas>
   ),
 };
@@ -233,11 +325,29 @@ export const ReceiptStates: Story = {
   render: () => (
     <ChatCanvas>
       <Label>Sent</Label>
-      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" }]} status="sent" /></MessageStack>
+      <MessageStack variant="sent">
+        <MultiAttachmentBubble
+          variant="sent"
+          files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" }]}
+          status="sent"
+        />
+      </MessageStack>
       <Label>Delivered</Label>
-      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" }]} status="delivered" /></MessageStack>
+      <MessageStack variant="sent">
+        <MultiAttachmentBubble
+          variant="sent"
+          files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" }]}
+          status="delivered"
+        />
+      </MessageStack>
       <Label>Read</Label>
-      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" }]} status="read" /></MessageStack>
+      <MessageStack variant="sent">
+        <MultiAttachmentBubble
+          variant="sent"
+          files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" }]}
+          status="read"
+        />
+      </MessageStack>
     </ChatCanvas>
   ),
 };
@@ -249,9 +359,27 @@ export const Downloading: Story = {
     <ChatCanvas>
       <SpinKeyframes />
       <Label>Received · downloading</Label>
-      <MessageStack variant="received"><MultiAttachmentBubble variant="received" images={4} state="downloading" /></MessageStack>
-      <MessageStack variant="received"><MultiAttachmentBubble variant="received" state="downloading" files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" }]} /></MessageStack>
-      <MessageStack variant="received"><MultiAttachmentBubble variant="received" state="downloading" files={[{ kind: "audio", name: "Audio.mp3", meta: "00:32" }]} /></MessageStack>
+      <MessageStack variant="received">
+        <MultiAttachmentBubble
+          variant="received"
+          images={4}
+          state="downloading"
+        />
+      </MessageStack>
+      <MessageStack variant="received">
+        <MultiAttachmentBubble
+          variant="received"
+          state="downloading"
+          files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" }]}
+        />
+      </MessageStack>
+      <MessageStack variant="received">
+        <MultiAttachmentBubble
+          variant="received"
+          state="downloading"
+          files={[{ kind: "audio", name: "Audio.mp3", meta: "00:32" }]}
+        />
+      </MessageStack>
     </ChatCanvas>
   ),
 };
@@ -269,18 +397,44 @@ export const Unsupported: Story = {
       <ChatCanvas>
         <Label>Single (click a thumbnail)</Label>
         <MessageStack variant="received">
-          <MultiAttachmentBubble variant="received" images={1} unsupported onUnsupportedClick={openDialog} />
+          <MultiAttachmentBubble
+            variant="received"
+            images={1}
+            unsupported
+            onUnsupportedClick={openDialog}
+          />
         </MessageStack>
         <MessageStack variant="sent">
-          <MultiAttachmentBubble variant="sent" images={1} unsupported onUnsupportedClick={openDialog} />
+          <MultiAttachmentBubble
+            variant="sent"
+            images={1}
+            unsupported
+            onUnsupportedClick={openDialog}
+          />
         </MessageStack>
         <Label>Grid</Label>
         <MessageStack variant="received">
-          <MultiAttachmentBubble variant="received" images={4} unsupported showMeta={false} onUnsupportedClick={openDialog} />
-          <MultiAttachmentBubble variant="received" images={3} unsupported onUnsupportedClick={openDialog} />
+          <MultiAttachmentBubble
+            variant="received"
+            images={4}
+            unsupported
+            showMeta={false}
+            onUnsupportedClick={openDialog}
+          />
+          <MultiAttachmentBubble
+            variant="received"
+            images={3}
+            unsupported
+            onUnsupportedClick={openDialog}
+          />
         </MessageStack>
         <MessageStack variant="sent">
-          <MultiAttachmentBubble variant="sent" images={4} unsupported onUnsupportedClick={openDialog} />
+          <MultiAttachmentBubble
+            variant="sent"
+            images={4}
+            unsupported
+            onUnsupportedClick={openDialog}
+          />
         </MessageStack>
         <Label>Files & audio</Label>
         <MessageStack variant="received">
@@ -295,9 +449,16 @@ export const Unsupported: Story = {
           />
         </MessageStack>
         <MessageStack variant="sent">
-          <MultiAttachmentBubble variant="sent" unsupported files={[{ kind: "file", name: "archive.rar", meta: "FILE" }]} />
+          <MultiAttachmentBubble
+            variant="sent"
+            unsupported
+            files={[{ kind: "file", name: "archive.rar", meta: "FILE" }]}
+          />
         </MessageStack>
-        <UnsupportedFileDialog open={dialogOpen} onClose={() => setDialogOpen(false)} onDownload={() => setDialogOpen(false)} />
+        <UnsupportedFileDialog
+          open={dialogOpen}
+          onClose={() => setDialogOpen(false)}
+        />
       </ChatCanvas>
     );
   },
@@ -311,10 +472,25 @@ export const ForwardedEdited: Story = {
     <ChatCanvas>
       <SpinKeyframes />
       <Label>Forwarded</Label>
-      <MessageStack variant="received"><MultiAttachmentBubble variant="received" forwarded images={2} /></MessageStack>
-      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" forwarded files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" }]} /></MessageStack>
+      <MessageStack variant="received">
+        <MultiAttachmentBubble variant="received" forwarded images={2} />
+      </MessageStack>
+      <MessageStack variant="sent">
+        <MultiAttachmentBubble
+          variant="sent"
+          forwarded
+          files={[{ kind: "pdf", name: "Q3-Report.pdf", meta: "2.4 MB" }]}
+        />
+      </MessageStack>
       <Label>Edited</Label>
-      <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" edited images={1} caption="updated the caption ✍️" /></MessageStack>
+      <MessageStack variant="sent">
+        <MultiAttachmentBubble
+          variant="sent"
+          edited
+          images={1}
+          caption="updated the caption ✍️"
+        />
+      </MessageStack>
     </ChatCanvas>
   ),
 };
@@ -324,7 +500,15 @@ export const AllStates: Story = {
   name: "All States",
   parameters: { layout: "padded", controls: { disable: true } },
   render: () => (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--cometchat-spacing-6)", padding: "var(--cometchat-spacing-6)", alignItems: "flex-start" }}>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "var(--cometchat-spacing-6)",
+        padding: "var(--cometchat-spacing-6)",
+        alignItems: "flex-start",
+      }}
+    >
       <SpinKeyframes />
       <ChatCanvas>
         <Label>Multiple formats (separate)</Label>
@@ -332,11 +516,33 @@ export const AllStates: Story = {
       </ChatCanvas>
       <ChatCanvas>
         <Label>With caption</Label>
-        <MessageStack variant="received"><MultiAttachmentBubble variant="received" images={4} totalImages={5} caption="Review pack 👆" /></MessageStack>
+        <MessageStack variant="received">
+          <MultiAttachmentBubble
+            variant="received"
+            images={4}
+            totalImages={5}
+            caption="Review pack 👆"
+          />
+        </MessageStack>
         <Label>Quoted — reply to 6 images</Label>
-        <MessageStack variant="sent"><MultiAttachmentBubble variant="sent" quoted={{ name: "George Alan", media: { kind: "image", count: 6, caption: "hello" } }} caption="These look great! 🙌" /></MessageStack>
+        <MessageStack variant="sent">
+          <MultiAttachmentBubble
+            variant="sent"
+            quoted={{
+              name: "George Alan",
+              media: { kind: "image", count: 6, caption: "hello" },
+            }}
+            caption="These look great! 🙌"
+          />
+        </MessageStack>
         <Label>Quoted — reply to 6 videos</Label>
-        <MessageStack variant="received"><MultiAttachmentBubble variant="received" quoted={{ name: "George Alan", media: { kind: "video", count: 6 } }} caption="On it 👍" /></MessageStack>
+        <MessageStack variant="received">
+          <MultiAttachmentBubble
+            variant="received"
+            quoted={{ name: "George Alan", media: { kind: "video", count: 6 } }}
+            caption="On it 👍"
+          />
+        </MessageStack>
       </ChatCanvas>
     </div>
   ),
@@ -348,9 +554,18 @@ export const Usage: Story = {
   render: () => (
     <UsageDoc
       composed={[
-        { name: "MessageStack", desc: "Vertical stack of one sender's bubbles — mixed formats become separate bubbles, aligned to the sender's side." },
-        { name: "MultiAttachmentBubble", desc: "One bubble per format: media grid, file card or audio card + caption, quoted reply, time and receipt." },
-        { name: "DownloadRing", desc: "Determinate progress ring shown while a received attachment downloads." },
+        {
+          name: "MessageStack",
+          desc: "Vertical stack of one sender's bubbles — mixed formats become separate bubbles, aligned to the sender's side.",
+        },
+        {
+          name: "MultiAttachmentBubble",
+          desc: "One bubble per format: media grid, file card or audio card + caption, quoted reply, time and receipt.",
+        },
+        {
+          name: "DownloadRing",
+          desc: "Determinate progress ring shown while a received attachment downloads.",
+        },
       ]}
       html={`<!-- Multiple formats — each format is its OWN bubble, stacked -->
 <div class="ma-stack ma-stack--sent">
@@ -375,38 +590,77 @@ export const Usage: Story = {
   <p class="ma-bubble__caption">These look great! 🙌</p>
   <div class="ma-bubble__meta">4:56 pm <span class="ma-receipt">done_all</span></div>
 </div>`}
-      css={`.ma-stack { display: flex; flex-direction: column; gap: 3px; }
-.ma-stack--sent { align-items: flex-end; }
-.ma-stack--received { align-items: flex-start; }
+      css={`
+        .ma-stack {
+          display: flex;
+          flex-direction: column;
+          gap: 3px;
+        }
+        .ma-stack--sent {
+          align-items: flex-end;
+        }
+        .ma-stack--received {
+          align-items: flex-start;
+        }
 
-.ma-bubble {
-  width: fit-content;
-  padding: var(--cometchat-spacing-2);
-  border-radius: var(--cometchat-radius-3);
-  display: flex; flex-direction: column; gap: var(--cometchat-spacing-1);
-}
-.ma-bubble--sent { background: var(--cometchat-send-bubble-background); }
-.ma-bubble--received { background: var(--cometchat-received-bubble-background); }
+        .ma-bubble {
+          width: fit-content;
+          padding: var(--cometchat-spacing-2);
+          border-radius: var(--cometchat-radius-3);
+          display: flex;
+          flex-direction: column;
+          gap: var(--cometchat-spacing-1);
+        }
+        .ma-bubble--sent {
+          background: var(--cometchat-send-bubble-background);
+        }
+        .ma-bubble--received {
+          background: var(--cometchat-received-bubble-background);
+        }
 
-.ma-quote {
-  display: flex; gap: var(--cometchat-spacing-2);
-  padding: var(--cometchat-spacing-2) var(--cometchat-spacing-2-5);
-  border-radius: var(--cometchat-radius-1-5);
-  background: color-mix(in srgb, var(--cometchat-static-white) 16%, transparent);
-}
-.ma-quote__bar { width: 3px; border-radius: var(--cometchat-radius); background: var(--cometchat-static-white); }
-.ma-quote__name { font: var(--cometchat-font-caption1-semibold); color: var(--cometchat-static-white); }
-.ma-quote__summary {
-  font: var(--cometchat-font-caption1-regular);
-  color: color-mix(in srgb, var(--cometchat-static-white) 70%, transparent);
-}
+        .ma-quote {
+          display: flex;
+          gap: var(--cometchat-spacing-2);
+          padding: var(--cometchat-spacing-2) var(--cometchat-spacing-2-5);
+          border-radius: var(--cometchat-radius-1-5);
+          background: color-mix(
+            in srgb,
+            var(--cometchat-static-white) 16%,
+            transparent
+          );
+        }
+        .ma-quote__bar {
+          width: 3px;
+          border-radius: var(--cometchat-radius);
+          background: var(--cometchat-static-white);
+        }
+        .ma-quote__name {
+          font: var(--cometchat-font-caption1-semibold);
+          color: var(--cometchat-static-white);
+        }
+        .ma-quote__summary {
+          font: var(--cometchat-font-caption1-regular);
+          color: color-mix(
+            in srgb,
+            var(--cometchat-static-white) 70%,
+            transparent
+          );
+        }
 
-.ma-bubble__caption { font: var(--cometchat-font-body-regular); color: var(--cometchat-static-white); }
-.ma-bubble__meta {
-  align-self: flex-end;
-  font: var(--cometchat-font-caption1-regular);
-  color: color-mix(in srgb, var(--cometchat-static-white) 70%, transparent);
-}`}
+        .ma-bubble__caption {
+          font: var(--cometchat-font-body-regular);
+          color: var(--cometchat-static-white);
+        }
+        .ma-bubble__meta {
+          align-self: flex-end;
+          font: var(--cometchat-font-caption1-regular);
+          color: color-mix(
+            in srgb,
+            var(--cometchat-static-white) 70%,
+            transparent
+          );
+        }
+      `}
     />
   ),
 };

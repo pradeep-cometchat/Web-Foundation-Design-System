@@ -18,6 +18,7 @@ import pptIcon from "./file-icons/ppt.svg";
 import zipIcon from "./file-icons/zip.svg";
 import txtIcon from "./file-icons/txt.svg";
 import fileIcon from "./file-icons/file.svg";
+import unsupportedIcon from "./file-icons/unsupported.svg";
 
 /* ─── Sample media ─────────────────────────────────────────────────────────── */
 
@@ -112,7 +113,8 @@ export const SpinKeyframes = () => (
 
 /* ─── File type badge (borrowed styling from File Bubble) ───────────────────── */
 
-export type DocKind = "pdf" | "doc" | "xls" | "ppt" | "zip" | "txt" | "file";
+export type DocKind =
+  "pdf" | "doc" | "xls" | "ppt" | "zip" | "txt" | "file" | "unsupported";
 export type FileKind = DocKind | "audio";
 
 // File-type icons imported from Figma (Design System — File Type set). Each is a
@@ -126,6 +128,7 @@ const FILE_ICONS: Record<DocKind, string> = {
   zip: zipIcon,
   txt: txtIcon,
   file: fileIcon,
+  unsupported: unsupportedIcon,
 };
 
 export function FileTypeIcon({
@@ -951,7 +954,7 @@ export function MultiAttachmentBubble({
           ...style,
         }}
       >
-        <FileTypeIcon type="file" size={40} />
+        <FileTypeIcon type="unsupported" size={40} />
       </div>
     ) : (
       <div
@@ -1190,7 +1193,7 @@ export function MultiAttachmentBubble({
     return (
       <div key={key} style={cardBase}>
         <FileTypeIcon
-          type={unsupported ? "file" : (f.kind as DocKind)}
+          type={unsupported ? "unsupported" : (f.kind as DocKind)}
           size={ICON}
         />
         <div
@@ -2360,8 +2363,7 @@ export function DropOverlay({
 export function UnsupportedFileDialog({
   open = true,
   onClose,
-  onDownload,
-}: { open?: boolean; onClose?: () => void; onDownload?: () => void } = {}) {
+}: { open?: boolean; onClose?: () => void } = {}) {
   if (!open) return null;
   const font = "var(--cometchat-font-family, Inter, sans-serif)";
   return (
@@ -2439,7 +2441,7 @@ export function UnsupportedFileDialog({
             flexShrink: 0,
           }}
         >
-          <FileTypeIcon type="file" size={36} />
+          <FileTypeIcon type="unsupported" size={36} />
         </div>
 
         <div
@@ -2453,9 +2455,9 @@ export function UnsupportedFileDialog({
         >
           <span
             style={{
-              fontSize: 20,
+              fontSize: 16,
               fontWeight: 500,
-              lineHeight: "30px",
+              lineHeight: "22px",
               color: "var(--cometchat-text-color-primary)",
             }}
           >
@@ -2471,34 +2473,6 @@ export function UnsupportedFileDialog({
             This file can’t be previewed here. Download it to view its contents.
           </span>
         </div>
-
-        <button
-          onClick={onDownload}
-          style={{
-            width: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "var(--cometchat-spacing-2)",
-            padding: "var(--cometchat-spacing-2-5)",
-            border: "none",
-            borderRadius: "var(--cometchat-radius-2)",
-            background: "var(--cometchat-primary-color)",
-            color: "var(--cometchat-static-white)",
-            fontFamily: font,
-            fontSize: 14,
-            fontWeight: 500,
-            cursor: "pointer",
-          }}
-        >
-          <span
-            className="icon-rounded"
-            style={{ fontSize: 20, "--icon-fill": 0 } as React.CSSProperties}
-          >
-            download
-          </span>
-          Download
-        </button>
       </div>
     </div>
   );
