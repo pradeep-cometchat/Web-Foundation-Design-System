@@ -2470,7 +2470,7 @@ export function UnsupportedFileDialog({
               color: "var(--cometchat-text-color-secondary)",
             }}
           >
-            This file can’t be previewed here. Download it to view its contents.
+            This file type isn’t supported for preview.
           </span>
         </div>
       </div>
