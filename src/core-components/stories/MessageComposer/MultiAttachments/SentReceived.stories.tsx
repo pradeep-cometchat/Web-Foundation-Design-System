@@ -442,9 +442,9 @@ export const Unsupported: Story = {
             variant="received"
             unsupported
             files={[
-              { kind: "file", name: "data.bin", meta: "FILE" },
-              { kind: "ppt", name: "slides.key", meta: "FILE" },
-              { kind: "audio", name: "clip.opus", meta: "FILE" },
+              { kind: "file", name: "data.bin", meta: "" },
+              { kind: "ppt", name: "slides.key", meta: "" },
+              { kind: "audio", name: "clip.opus", meta: "" },
             ]}
           />
         </MessageStack>
@@ -452,7 +452,7 @@ export const Unsupported: Story = {
           <MultiAttachmentBubble
             variant="sent"
             unsupported
-            files={[{ kind: "file", name: "archive.rar", meta: "FILE" }]}
+            files={[{ kind: "file", name: "archive.rar", meta: "" }]}
           />
         </MessageStack>
         <UnsupportedFileDialog

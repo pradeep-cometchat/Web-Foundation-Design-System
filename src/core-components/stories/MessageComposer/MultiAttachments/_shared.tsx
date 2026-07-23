@@ -1217,9 +1217,11 @@ export function MultiAttachmentBubble({
           >
             {f.name}
           </span>
-          <span style={{ fontSize: 12, color: secondary }}>
-            {downloading ? "Downloading…" : f.meta}
-          </span>
+          {(downloading || f.meta) && (
+            <span style={{ fontSize: 12, color: secondary }}>
+              {downloading ? "Downloading…" : f.meta}
+            </span>
+          )}
         </div>
         {downloading ? (
           <DownloadRing size={24} color={trailColor} track={trailTrack} />
@@ -2363,7 +2365,12 @@ export function DropOverlay({
 export function UnsupportedFileDialog({
   open = true,
   onClose,
-}: { open?: boolean; onClose?: () => void } = {}) {
+  onDownload,
+}: {
+  open?: boolean;
+  onClose?: () => void;
+  onDownload?: () => void;
+} = {}) {
   if (!open) return null;
   const font = "var(--cometchat-font-family, Inter, sans-serif)";
   return (
@@ -2384,7 +2391,7 @@ export function UnsupportedFileDialog({
       <div
         role="dialog"
         aria-modal="true"
-        aria-label="Unsupported file"
+        aria-label="No preview available"
         onClick={(e) => e.stopPropagation()}
         style={{
           position: "relative",
@@ -2461,7 +2468,7 @@ export function UnsupportedFileDialog({
               color: "var(--cometchat-text-color-primary)",
             }}
           >
-            Unsupported file
+            No preview available
           </span>
           <span
             style={{
@@ -2473,6 +2480,34 @@ export function UnsupportedFileDialog({
             This file type isn’t supported for preview.
           </span>
         </div>
+
+        <button
+          onClick={onDownload}
+          style={{
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "var(--cometchat-spacing-2)",
+            padding: "var(--cometchat-spacing-2-5)",
+            border: "none",
+            borderRadius: "var(--cometchat-radius-2)",
+            background: "var(--cometchat-primary-color)",
+            color: "var(--cometchat-static-white)",
+            fontFamily: font,
+            fontSize: 14,
+            fontWeight: 500,
+            cursor: "pointer",
+          }}
+        >
+          <span
+            className="icon-rounded"
+            style={{ fontSize: 20, "--icon-fill": 0 } as React.CSSProperties}
+          >
+            download
+          </span>
+          Download
+        </button>
       </div>
     </div>
   );
