@@ -710,20 +710,28 @@ export function PinScreen({
                   {convoMenu && <MIcon glyph="keyboard_arrow_down" size={16} />}
                 </div>
               )}
+              {/* Menu hangs off the row's dropdown chevron: right edges align,
+                  top edge sits just under the row. */}
+              {c.active && convoMenu && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "100%",
+                    right: "var(--cometchat-spacing-4)",
+                    zIndex: 20,
+                  }}
+                >
+                  <ContextMenu
+                    width={215}
+                    items={
+                      convoMenu === "pin" ? CONVO_MENU_PIN : CONVO_MENU_UNPIN
+                    }
+                  />
+                </div>
+              )}
             </div>
           ))}
         </div>
-        {/* Conversation context menu, anchored under the active row */}
-        {convoMenu && (
-          <div
-            style={{ position: "absolute", left: 148, top: 132, zIndex: 20 }}
-          >
-            <ContextMenu
-              width={190}
-              items={convoMenu === "pin" ? CONVO_MENU_PIN : CONVO_MENU_UNPIN}
-            />
-          </div>
-        )}
       </div>
 
       {/* Chat area */}
