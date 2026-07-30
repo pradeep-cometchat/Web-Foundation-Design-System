@@ -1,5 +1,6 @@
 import "../../../shell/Shell.css";
 import "../ChatBubbles/ChatBubbles.css";
+import "./MainActions.css";
 import { Header } from "../../../base-components/components/Header";
 import { SearchBar } from "../../../base-components/components/SearchBar";
 import { ConversationItem } from "../../../base-components/components/ListItem";
@@ -108,6 +109,7 @@ export function TextBubble({
       }}
     >
       <div
+        className="ma-bubble"
         style={{
           maxWidth: 320,
           borderRadius: "var(--cometchat-radius-3)",
@@ -340,6 +342,7 @@ export function PinDialog({
         </div>
         <div style={{ display: "flex", gap: "var(--cometchat-spacing-2)" }}>
           <button
+            className="ma-btn ma-btn--secondary"
             style={{
               ...btn,
               border: "1px solid var(--cometchat-border-color-default)",
@@ -350,6 +353,7 @@ export function PinDialog({
             Cancel
           </button>
           <button
+            className="ma-btn ma-btn--primary"
             style={{
               ...btn,
               border: "none",
@@ -413,14 +417,9 @@ export function PinnedPanel({
           {title}
         </span>
         <button
+          className="ma-icon-btn"
           aria-label="Close"
-          style={{
-            border: "none",
-            background: "transparent",
-            cursor: "pointer",
-            color: "var(--cometchat-icon-color-primary)",
-            display: "flex",
-          }}
+          style={{ color: "var(--cometchat-icon-color-primary)" }}
         >
           <MIcon glyph="close" size={22} />
         </button>
@@ -657,7 +656,7 @@ export function PinScreen({
   const font = "var(--cometchat-font-family, Inter, sans-serif)";
   return (
     <div
-      className="shell"
+      className="shell ma-screen"
       style={{ position: "relative", fontFamily: font, overflow: "hidden" }}
     >
       {/* Sidebar */}
@@ -893,6 +892,7 @@ export function PinScreen({
                 padding: "var(--cometchat-spacing-3)",
                 fontSize: 14,
                 color: "var(--cometchat-text-color-placeholder)",
+                cursor: "text",
               }}
             >
               Type your message...
@@ -912,16 +912,25 @@ export function PinScreen({
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  gap: "var(--cometchat-spacing-3)",
+                  gap: "var(--cometchat-spacing-1)",
                   flex: 1,
                 }}
               >
-                <MIcon glyph="add_circle" size={20} />
-                <MIcon glyph="mic" size={20} />
-                <MIcon glyph="mood" size={20} />
-                <MIcon glyph="note" size={20} />
-                <span style={{ fontSize: 15, fontWeight: 600 }}>Aa</span>
-                <MIcon glyph="magic_button" size={18} />
+                {["add_circle", "mic", "mood", "note"].map((g) => (
+                  <button key={g} className="ma-icon-btn" aria-label={g}>
+                    <MIcon glyph={g} size={20} />
+                  </button>
+                ))}
+                <button className="ma-icon-btn" aria-label="Formatting">
+                  <span
+                    style={{ fontSize: 15, fontWeight: 600, lineHeight: 1 }}
+                  >
+                    Aa
+                  </span>
+                </button>
+                <button className="ma-icon-btn" aria-label="AI features">
+                  <MIcon glyph="magic_button" size={18} />
+                </button>
               </div>
               <div
                 style={{

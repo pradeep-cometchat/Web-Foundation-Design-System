@@ -1,0 +1,79 @@
+/* Main Actions screens — chrome should behave like the real app: no text
+   caret over UI, and a pointer + hover on anything interactive. */
+
+.ma-screen {
+  cursor: default;
+}
+
+/* Interactive elements set their own cursor; children inherit it. */
+.ma-screen .conversation-item,
+.ma-screen .chat-header__action-btn,
+.ma-screen .context-menu__item,
+.ma-screen .ma-icon-btn,
+.ma-screen .ma-btn {
+  cursor: pointer;
+}
+
+/* Icon button — composer toolbar, panel close, header overflow. */
+.ma-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: var(--cometchat-spacing-1-5);
+  border-radius: var(--cometchat-radius-2);
+  background: transparent;
+  color: var(--cometchat-icon-color-tertiary);
+  transition: background-color 0.12s ease;
+}
+
+.ma-icon-btn:hover {
+  background: var(--cometchat-background-color-03);
+}
+
+.ma-icon-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--cometchat-focus-ring);
+}
+
+/* The DS header buttons only carry a cursor — give them the same hover. */
+.ma-screen .chat-header__action-btn {
+  border-radius: var(--cometchat-radius-2);
+  transition: background-color 0.12s ease;
+}
+
+.ma-screen .chat-header__action-btn:hover {
+  background: var(--cometchat-background-color-03);
+}
+
+/* Dialog buttons. */
+.ma-btn {
+  transition:
+    background-color 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.ma-btn--secondary:hover {
+  background: var(--cometchat-background-color-02);
+}
+
+.ma-btn--primary:hover {
+  background: var(--cometchat-extended-primary-color-700);
+}
+
+/* Message bubbles are selectable, so keep the text caret there only. */
+.ma-bubble {
+  cursor: text;
+}
+
+/* The shared hover (bg-02, #FAFAFA on #FFFFFF) is a ~2% shift and reads as no
+   hover at all. Step these screens to bg-03 so the affordance is visible. */
+.ma-screen .context-menu__item:hover,
+.ma-screen .conversation-item:hover {
+  background: var(--cometchat-background-color-03);
+}
+
+.ma-screen .context-menu__item:active,
+.ma-screen .conversation-item:active {
+  background: var(--cometchat-background-color-04);
+}
