@@ -62,12 +62,12 @@ samp,
 
 /* Widen the docs reading column and give stories room to breathe. */
 .sbdocs.sbdocs-wrapper {
-  padding: 40px 48px 80px !important;
+  padding: 40px 32px 80px !important;
   background: var(--color-neutral-25, #fdfdfd);
 }
 
 .sbdocs-content {
-  max-width: 960px !important;
+  max-width: 1600px !important;
 }
 
 /* Soften the default rule between MDX sections. */
