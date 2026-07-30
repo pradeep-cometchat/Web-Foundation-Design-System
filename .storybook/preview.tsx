@@ -119,6 +119,8 @@ const preview: Preview = {
                 "Types",
               ],
             ],
+            "Main Actions",
+            ["Pin", "Save", "Thread Notifications"],
           ],
           "CometChat Foundation",
           "Shell",
