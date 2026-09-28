@@ -37,7 +37,7 @@ export const ConventionCard: React.FC<{
       padding: "var(--cometchat-spacing-4) var(--cometchat-spacing-4)",
       borderRadius: "var(--cometchat-radius-3)",
       border: "1px solid var(--cometchat-neutral-color-200)",
-      background: "var(--color-white)",
+      background: "var(--cometchat-static-white)",
       boxShadow: "var(--cometchat-shadow-xs)",
     }}
   >
@@ -74,14 +74,14 @@ export const HeroChip: React.FC<{ label: string; value: string }> = ({
       gap: "var(--cometchat-spacing-2)",
       padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3-5)",
       borderRadius: "var(--cometchat-radius-max)",
-      background: "var(--color-white)",
+      background: "var(--cometchat-static-white)",
       border: "1px solid var(--cometchat-neutral-color-200)",
       fontSize: "12px",
       color: "var(--cometchat-neutral-color-700)",
     }}
   >
     <strong style={{ color: "var(--cometchat-neutral-color-900)" }}>{value}</strong>
-    <span style={{ color: "var(--color-neutral-500)" }}>{label}</span>
+    <span style={{ color: "var(--cometchat-neutral-color-500)" }}>{label}</span>
   </span>
 );
 
@@ -92,8 +92,8 @@ export const cardPreview: React.CSSProperties = {
   height: 90,
   borderRadius: "var(--cometchat-radius-2-5)",
   background:
-    "linear-gradient(180deg, var(--color-neutral-25) 0%, var(--color-white) 100%)",
-  border: "1px solid var(--color-neutral-100)",
+    "linear-gradient(180deg, var(--cometchat-background-color-01) 0%, var(--cometchat-static-white) 100%)",
+  border: "1px solid var(--cometchat-neutral-color-200)",
   padding: "var(--cometchat-spacing-3)",
   overflow: "hidden",
 };
@@ -108,7 +108,7 @@ export const cardLinkStyle: React.CSSProperties = {
   padding: "var(--cometchat-spacing-4)",
   borderRadius: "var(--cometchat-radius-3)",
   border: "1px solid var(--cometchat-neutral-color-200)",
-  background: "var(--color-white)",
+  background: "var(--cometchat-static-white)",
   boxShadow: "var(--cometchat-shadow-xs)",
   display: "flex",
   flexDirection: "column",
@@ -123,7 +123,7 @@ export const panelStyle: React.CSSProperties = {
   padding: "var(--cometchat-spacing-5)",
   borderRadius: "var(--cometchat-radius-3)",
   border: "1px solid var(--cometchat-neutral-color-200)",
-  background: "var(--color-white)",
+  background: "var(--cometchat-static-white)",
   boxShadow: "var(--cometchat-shadow-xs)",
   display: "flex",
   flexDirection: "column",
@@ -149,7 +149,7 @@ export const codePre: React.CSSProperties = {
   margin: 0,
   padding: "var(--cometchat-spacing-3-5)",
   borderRadius: "var(--cometchat-radius-2-5)",
-  background: "var(--color-neutral-50)",
+  background: "var(--cometchat-neutral-color-100)",
   border: "1px solid var(--cometchat-neutral-color-200)",
   fontFamily:
     "var(--font-family-body)",

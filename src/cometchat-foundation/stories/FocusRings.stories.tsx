@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { T, useLanguage } from "../localization";
 import { PageHeader } from "../components/PageHeader";
 import { Section } from "../components/Section";
 import { Callout } from "../components/Callout";
@@ -82,7 +83,7 @@ function FocusPlayground({ variant, label }: PlaygroundProps) {
               fontFamily: "inherit",
             }}
           >
-            {label}
+            <T>{label}</T>
           </button>
         </div>
         <div
@@ -104,9 +105,7 @@ function FocusPlayground({ variant, label }: PlaygroundProps) {
 
       <div style={{ marginTop: 20 }}>
         <Callout kind="tip" title="Try tabbing through the canvas">
-          The preview above has the focus ring permanently applied for
-          reference. In real usage, use <code>:focus-visible</code> so the ring
-          only appears for keyboard users.
+          <FocusVisibleCopy />
         </Callout>
       </div>
     </div>
@@ -136,7 +135,7 @@ const Stat: React.FC<{
         marginBottom: "var(--cometchat-spacing-1)",
       }}
     >
-      {label}
+      <T>{label}</T>
     </div>
     <div
       style={{
@@ -217,23 +216,74 @@ export const Accessibility: StoryObj = {
           }}
         >
           <Callout kind="success" title="Do">
-            Use <code>:focus-visible</code> so the ring appears for keyboard
-            users but not on mouse clicks.
+            <DoFocusVisibleCopy />
           </Callout>
           <Callout kind="success" title="Do">
-            Use the <strong>error</strong> variant only on destructive controls
-            so color carries meaning consistently.
+            <DoErrorVariantCopy />
           </Callout>
           <Callout kind="warning" title="Don't">
-            Don't remove focus rings with <code>outline: none</code> unless you
-            provide an equivalent visible indicator.
+            <DontRemoveCopy />
           </Callout>
           <Callout kind="warning" title="Don't">
-            Don't rely on the ring alone in forced-colors mode. Add a border
-            state change as a backup.
+            <T>
+              Don't rely on the ring alone in forced-colors mode. Add a border
+              state change as a backup.
+            </T>
           </Callout>
         </div>
       </Section>
     </div>
   ),
 };
+
+/* Callout bodies mixing prose with code chips — Arabic word order differs, so
+   each needs a real alternative rather than a key lookup on a fragment. */
+function FocusVisibleCopy() {
+  const fv = <code>:focus-visible</code>;
+  return useLanguage() === "ar" ? (
+    <>
+      تُطبَّق حلقة التركيز في المعاينة أعلاه بشكل دائم لأغراض المرجع. في
+      الاستخدام الفعلي، استخدم {fv} حتى تظهر الحلقة لمستخدمي لوحة المفاتيح فقط.
+    </>
+  ) : (
+    <>
+      The preview above has the focus ring permanently applied for reference. In
+      real usage, use {fv} so the ring only appears for keyboard users.
+    </>
+  );
+}
+
+function DoFocusVisibleCopy() {
+  const fv = <code>:focus-visible</code>;
+  return useLanguage() === "ar" ? (
+    <>استخدم {fv} لتظهر الحلقة لمستخدمي لوحة المفاتيح دون نقرات الفأرة.</>
+  ) : (
+    <>Use {fv} so the ring appears for keyboard users but not on mouse clicks.</>
+  );
+}
+
+function DoErrorVariantCopy() {
+  return useLanguage() === "ar" ? (
+    <>
+      استخدم نمط <strong>error</strong> على عناصر التحكّم التدميرية فقط، حتى
+      يحمل اللون معنًى متّسقًا.
+    </>
+  ) : (
+    <>
+      Use the <strong>error</strong> variant only on destructive controls so
+      color carries meaning consistently.
+    </>
+  );
+}
+
+function DontRemoveCopy() {
+  const on = <code>outline: none</code>;
+  return useLanguage() === "ar" ? (
+    <>لا تُزِل حلقات التركيز عبر {on} ما لم توفّر مؤشّرًا مرئيًا مكافئًا.</>
+  ) : (
+    <>
+      Don't remove focus rings with {on} unless you provide an equivalent
+      visible indicator.
+    </>
+  );
+}

@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { useT } from "../localization";
 
 export interface CopyButtonProps {
   value: string;
@@ -15,6 +16,7 @@ export const CopyButton: React.FC<CopyButtonProps> = ({
   variant = "solid",
 }) => {
   const [copied, setCopied] = useState(false);
+  const t = useT();
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
@@ -53,28 +55,28 @@ export const CopyButton: React.FC<CopyButtonProps> = ({
       ? {
           ...base,
           background: copied
-            ? "var(--color-success-50)"
+            ? "var(--cometchat-background-color-success)"
             : hovered
-            ? "var(--color-neutral-100)"
+            ? "var(--cometchat-neutral-color-200)"
             : "transparent",
           color: copied
-            ? "var(--color-success-700)"
+            ? "var(--cometchat-text-color-success)"
             : "var(--cometchat-neutral-color-700)",
           border: "1px solid transparent",
         }
       : {
           ...base,
           background: copied
-            ? "var(--color-success-50)"
+            ? "var(--cometchat-background-color-success)"
             : hovered
-            ? "var(--color-neutral-50)"
-            : "var(--color-white)",
+            ? "var(--cometchat-neutral-color-100)"
+            : "var(--cometchat-static-white)",
           color: copied
-            ? "var(--color-success-700)"
+            ? "var(--cometchat-text-color-success)"
             : "var(--cometchat-neutral-color-800)",
           border: `1px solid ${
             copied
-              ? "var(--color-success-200)"
+              ? "var(--cometchat-success-color)"
               : "var(--cometchat-neutral-color-200)"
           }`,
           boxShadow: "var(--cometchat-shadow-xs)",
@@ -86,11 +88,13 @@ export const CopyButton: React.FC<CopyButtonProps> = ({
       onClick={onClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      aria-label={ariaLabel ?? `Copy ${value}`}
+      aria-label={ariaLabel ?? `${t("Copy")} ${value}`}
       style={style}
     >
       <CopyIcon copied={copied} />
-      <span>{copied ? "Copied" : label ?? value}</span>
+      {/* A label is prose and translates; falling back to `value` means the
+          button is showing a token identifier, which never does. */}
+      <span>{copied ? t("Copied") : label ? t(label) : value}</span>
     </button>
   );
 };

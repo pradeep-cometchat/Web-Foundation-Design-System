@@ -37,7 +37,7 @@ export const FoundationCard: React.FC<FoundationCardProps> = ({
         padding: "var(--cometchat-spacing-4)",
         borderRadius: "var(--cometchat-radius-3)",
         border: "1px solid var(--cometchat-neutral-color-200)",
-        background: "var(--color-white)",
+        background: "var(--cometchat-static-white)",
         boxShadow: "var(--cometchat-shadow-xs)",
         display: "flex",
         flexDirection: "column",

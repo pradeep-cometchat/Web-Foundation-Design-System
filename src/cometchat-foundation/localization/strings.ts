@@ -21,6 +21,7 @@ export const AR: Readonly<Record<string, string>> = {
   Typography: "الطباعة",
   Spacing: "المسافات",
   "Border Radius": "استدارة الحواف",
+  Radius: "استدارة الحواف",
   "Icon library": "مكتبة الأيقونات",
   "Style variants": "أنماط الخطوط",
   "Variable axes": "المحاور المتغيّرة",
@@ -132,6 +133,77 @@ export const AR: Readonly<Record<string, string>> = {
     "يحسّن هندسة الأيقونة بما يناسب حجم عرضها. طابِق `opsz` مع `font-size` للحصول على أفضل نتيجة.",
   "Primary, Extended Primary (50–900), Neutrals (50–900), Alert colors, Static colors, plus semantic Background/Border/Text/Icon tokens.":
     "الألوان الأساسية، والأساسية الموسّعة (50–900)، والمحايدة (50–900)، وألوان التنبيهات، والألوان الثابتة، إضافةً إلى الرموز الدلالية للخلفيات والحدود والنصوص والأيقونات.",
+
+  /* ─── Introduction ─── */
+  "What's inside": "ما الذي تتضمّنه",
+  "Dark mode": "الوضع الداكن",
+  "The CometChat UI Kit token system covers five areas. Each maps to a Storybook page.":
+    "يغطّي نظام رموز واجهة CometChat خمسة مجالات، ويقابل كلٌّ منها صفحة في Storybook.",
+
+  /* ─── Icons ─── */
+  Outlined: "مفرّغ",
+  Rounded: "دائري",
+  Sharp: "حادّ",
+  Filled: "مملوء",
+  "All categories": "جميع الفئات",
+  // Icon registry categories
+  Navigation: "التنقّل",
+  Actions: "الإجراءات",
+  Content: "المحتوى",
+  Communication: "التواصل",
+  Media: "الوسائط",
+  Files: "الملفات",
+  Data: "البيانات",
+  Toggles: "المفاتيح",
+  User: "المستخدم",
+  Commerce: "التجارة",
+  Alerts: "التنبيهات",
+  Devices: "الأجهزة",
+  Editor: "المحرّر",
+  Maps: "الخرائط",
+  Social: "التواصل الاجتماعي",
+  Weather: "الطقس",
+  Misc: "متنوّعة",
+  Variant: "النمط",
+  Size: "الحجم",
+  Weight: "الوزن",
+  Fill: "التعبئة",
+  Grade: "الدرجة",
+  "Optical size": "الحجم البصري",
+  "Using icons": "استخدام الأيقونات",
+  "Font delivery": "تحميل الخطوط",
+  "React component": "مكوّن React",
+  "CSS utility class": "فئة CSS المساعدة",
+  "Outlined vs filled": "المفرّغ مقابل المملوء",
+  "Two ways to render an icon: the typed React component, or the CSS utility class.":
+    "طريقتان لعرض أيقونة: مكوّن React المُوصَّف بالأنواع، أو الرباط المجرّد مع فئة CSS مساعدة.",
+
+  /* ─── Effects ─── */
+  /* Callout titles */
+  Do: "افعل",
+  "Don't": "لا تفعل",
+  "Decorative icons": "الأيقونات الزخرفية",
+  "Meaningful icons": "الأيقونات ذات المعنى",
+  "Focused button": "زر مُركَّز عليه",
+  "Don't use emoji as icons": "لا تستخدم الإيموجي كأيقونات",
+  "Match optical size": "طابِق الحجم البصري",
+  "Try tabbing through the canvas": "جرّب التنقّل بمفتاح Tab عبر اللوحة",
+
+  "Material Symbols are vector, weight-tunable, and theme-aware. Emoji aren't — they render inconsistently across platforms.":
+    "أيقونات Material Symbols متّجهة وقابلة لضبط الوزن وتتكيّف مع السمة، بخلاف الإيموجي الذي يُعرض بشكل غير متّسق بين المنصّات.",
+  "Don't rely on the ring alone in forced-colors mode. Add a border state change as a backup.":
+    "لا تعتمد على الحلقة وحدها في وضع الألوان المفروضة. أضِف تغييرًا في حالة الحدّ كبديل احتياطي.",
+
+  "Focus ring reference": "مرجع حلقات التركيز",
+  "Copy-ready value": "قيمة جاهزة للنسخ",
+  "Two tokens cover all interactive states: a brand ring for standard controls and an error ring for destructive ones.":
+    "يغطّي رمزان جميع الحالات التفاعلية: حلقة بلون العلامة لعناصر التحكّم القياسية، وحلقة خطأ للعناصر التدميرية.",
+
+  "Usage guide": "دليل الاستخدام",
+  "Accessibility notes": "ملاحظات إمكانية الوصول",
+  "Don't rely on shadow alone": "لا تعتمد على الظل وحده",
+  "In high-contrast or forced-colors modes, shadows may be stripped. Pair elevation with borders and surface color changes so the boundary is still clear.":
+    "في أوضاع التباين العالي أو الألوان المفروضة، قد تُزال الظلال تمامًا. اقرن الارتفاع بحدٍّ أو بتغيير في الخلفية.",
 
   /* ─── Stickers ─── */
   "Sticker Footage": "أصول الملصقات",

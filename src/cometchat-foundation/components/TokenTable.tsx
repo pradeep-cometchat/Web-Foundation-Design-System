@@ -31,6 +31,15 @@ export const TokenTable: React.FC<TokenTableProps> = ({
   const t = useT();
   const isRTL = useIsRTL();
 
+  // "→ spacing-4" in a value cell means "maps to". The arrow encodes
+  // derivation, which follows reading order rather than a fixed physical
+  // direction, so it flips in RTL. Handled here because TokenTable is the only
+  // thing that renders these values — the eight call sites build plain strings.
+  const refValue = (v: string | number) =>
+    isRTL && typeof v === "string" && v.startsWith("→ ")
+      ? `← ${v.slice(2)}`
+      : v;
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return rows;
@@ -66,7 +75,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                 color: "var(--cometchat-text-color-primary)",
               }}
             >
-              {title}
+              <T>{title}</T>
             </h3>
           )}
           {searchable && (
@@ -80,7 +89,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                   insetInlineStart: 12,
                   top: "50%",
                   transform: "translateY(-50%)",
-                  color: "var(--color-neutral-400)",
+                  color: "var(--cometchat-neutral-color-400)",
                   fontSize: "14px",
                   lineHeight: 1,
                 }}
@@ -119,7 +128,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                   boxShadow: "var(--cometchat-shadow-xs)",
                 }}
                 onFocus={(e) =>
-                  (e.currentTarget.style.borderColor = "var(--color-ep-400)")
+                  (e.currentTarget.style.borderColor = "var(--cometchat-extended-primary-color-400)")
                 }
                 onBlur={(e) =>
                   (e.currentTarget.style.borderColor =
@@ -174,7 +183,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                 style={{
                   background:
                     hovered === row.name
-                      ? "var(--color-ep-25)"
+                      ? "var(--cometchat-extended-primary-color-50)"
                       : i % 2 === 0
                       ? "var(--cometchat-background-color-01)"
                       : "var(--cometchat-background-color-02)",
@@ -197,7 +206,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                   )}
                 </td>
                 <td style={td}>
-                  <code style={codeStyle}>{row.value}</code>
+                  <code style={codeStyle}>{refValue(row.value)}</code>
                 </td>
                 <td style={td}>
                   <code style={codeStyle}>{row.cssVar}</code>
@@ -214,7 +223,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                   style={{
                     ...td,
                     textAlign: "center",
-                    color: "var(--color-neutral-500)",
+                    color: "var(--cometchat-neutral-color-500)",
                     padding: 24,
                   }}
                 >

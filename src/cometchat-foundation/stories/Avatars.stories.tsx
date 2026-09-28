@@ -123,7 +123,7 @@ function AllAvatars() {
               insetInlineStart: 12,
               top: "50%",
               transform: "translateY(-50%)",
-              color: "var(--color-neutral-400)",
+              color: "var(--cometchat-neutral-color-400)",
               fontSize: "14px",
             }}
           >
@@ -210,8 +210,8 @@ function AvatarTile({
         gap: "var(--cometchat-spacing-2)",
         padding: "var(--cometchat-spacing-3)",
         borderRadius: "var(--cometchat-radius-3)",
-        border: `1px solid ${copied ? "var(--color-success-300)" : "var(--cometchat-neutral-color-200)"}`,
-        background: copied ? "var(--color-success-50)" : "var(--cometchat-static-white)",
+        border: `1px solid ${copied ? "var(--cometchat-success-color)" : "var(--cometchat-neutral-color-200)"}`,
+        background: copied ? "var(--cometchat-background-color-success)" : "var(--cometchat-static-white)",
         cursor: "pointer",
         fontFamily: "inherit",
         transition: "all 120ms ease",
@@ -224,8 +224,8 @@ function AvatarTile({
           height: isMedia ? 100 : 64,
           borderRadius: isMedia ? 8 : "50%",
           overflow: "hidden",
-          background: "var(--color-neutral-50)",
-          border: "1px solid var(--color-neutral-100)",
+          background: "var(--cometchat-neutral-color-100)",
+          border: "1px solid var(--cometchat-neutral-color-200)",
         }}
       >
         <img

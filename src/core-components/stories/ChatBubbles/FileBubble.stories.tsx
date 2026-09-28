@@ -293,9 +293,9 @@ function FileTypeIcon({ type, size }: { type: "pdf" | "doc" | "xls"; size: "larg
   const h = isLarge ? 80 : 22;
 
   const colors: Record<string, { bg: string; fold: string; text: string }> = {
-    pdf: { bg: "var(--cometchat-error-color)", fold: "var(--color-error-800)", text: "PDF" },
-    doc: { bg: "var(--cometchat-info-color)", fold: "var(--color-info-800)", text: "DOC" },
-    xls: { bg: "var(--cometchat-success-color)", fold: "var(--color-success-800)", text: "XLS" },
+    pdf: { bg: "var(--cometchat-error-color)", fold: "var(--cometchat-text-color-error)", text: "PDF" },
+    doc: { bg: "var(--cometchat-info-color)", fold: "var(--cometchat-info-color)", text: "DOC" },
+    xls: { bg: "var(--cometchat-success-color)", fold: "var(--cometchat-text-color-success)", text: "XLS" },
   };
 
   const c = colors[type];

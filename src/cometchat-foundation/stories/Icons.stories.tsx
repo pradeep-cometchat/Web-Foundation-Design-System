@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { T, useIsRTL } from "../localization";
+import { T, useIsRTL, useT, useLanguage } from "../localization";
 import { PageHeader } from "../components/PageHeader";
 import { Section } from "../components/Section";
 import { Callout } from "../components/Callout";
@@ -116,7 +116,7 @@ function IconPlayground(props: PlaygroundProps) {
           style={{
             padding: "var(--cometchat-spacing-12)",
             background:
-              "repeating-linear-gradient(45deg, var(--color-neutral-25) 0 8px, var(--color-neutral-50) 8px 16px)",
+              "repeating-linear-gradient(45deg, var(--cometchat-background-color-01) 0 8px, var(--cometchat-neutral-color-100) 8px 16px)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -130,7 +130,7 @@ function IconPlayground(props: PlaygroundProps) {
             display: "grid",
             gridTemplateColumns: "repeat(5, 1fr)",
             borderTop: "1px solid var(--cometchat-neutral-color-200)",
-            background: "var(--color-neutral-25)",
+            background: "var(--cometchat-background-color-01)",
           }}
         >
           <Stat label="Name" value={props.name} mono />
@@ -182,11 +182,11 @@ const Stat: React.FC<{
         fontWeight: "600",
         letterSpacing: "0.06em",
         textTransform: "uppercase",
-        color: "var(--color-neutral-500)",
+        color: "var(--cometchat-neutral-color-500)",
         marginBottom: "var(--cometchat-spacing-1)",
       }}
     >
-      {label}
+      <T>{label}</T>
     </div>
     <div
       style={{
@@ -211,7 +211,7 @@ const CodeCard: React.FC<{ language: string; code: string }> = ({
       border: "1px solid var(--cometchat-neutral-color-200)",
       borderRadius: "var(--cometchat-radius-3)",
       overflow: "hidden",
-      background: "var(--color-neutral-25)",
+      background: "var(--cometchat-background-color-01)",
     }}
   >
     <div
@@ -221,7 +221,7 @@ const CodeCard: React.FC<{ language: string; code: string }> = ({
         alignItems: "center",
         padding: "8px 12px",
         borderBottom: "1px solid var(--cometchat-neutral-color-200)",
-        background: "var(--color-neutral-50)",
+        background: "var(--cometchat-neutral-color-100)",
       }}
     >
       <span
@@ -244,7 +244,7 @@ const CodeCard: React.FC<{ language: string; code: string }> = ({
         fontFamily: "var(--cometchat-font-family)",
         fontSize: "12px",
         lineHeight: 1.6,
-        color: "var(--color-neutral-800)",
+        color: "var(--cometchat-neutral-color-800)",
         overflowX: "auto",
       }}
     >
@@ -314,6 +314,7 @@ export const Browse: StoryObj = {
 
 function BrowseView() {
   const isRTL = useIsRTL();
+  const t = useT();
   const {
     query,
     setQuery,
@@ -362,7 +363,7 @@ function BrowseView() {
               insetInlineStart: 12,
               top: "50%",
               transform: "translateY(-50%)",
-              color: "var(--color-neutral-400)",
+              color: "var(--cometchat-neutral-color-400)",
             }}
           >
             <Icon name="search" variant="rounded" size={18} ariaLabel="" />
@@ -418,10 +419,10 @@ function BrowseView() {
             cursor: "pointer",
           }}
         >
-          <option value="All">All categories</option>
+          <option value="All">{t("All categories")}</option>
           {iconCategories.map((c) => (
             <option key={c} value={c}>
-              {c}
+              {t(c)}
             </option>
           ))}
         </select>
@@ -442,10 +443,10 @@ function BrowseView() {
           style={{
             padding: "var(--cometchat-spacing-10)",
             textAlign: "center",
-            color: "var(--color-neutral-500)",
+            color: "var(--cometchat-neutral-color-500)",
             border: "1px solid var(--cometchat-neutral-color-200)",
             borderRadius: "var(--cometchat-radius-3)",
-            background: "var(--color-neutral-25)",
+            background: "var(--cometchat-background-color-01)",
           }}
         >
           No icons match "{query}".
@@ -516,13 +517,13 @@ const IconTile: React.FC<{
         borderRadius: "var(--cometchat-radius-2-5)",
         border: `1px solid ${
           copied
-            ? "var(--color-success-300)"
+            ? "var(--cometchat-success-color)"
             : hovered
             ? "var(--cometchat-extended-primary-color-300)"
             : "var(--cometchat-neutral-color-200)"
         }`,
         background: copied
-          ? "var(--color-success-50)"
+          ? "var(--cometchat-background-color-success)"
           : hovered
           ? "var(--cometchat-extended-primary-color-50)"
           : "var(--cometchat-static-white)",
@@ -539,7 +540,7 @@ const IconTile: React.FC<{
         size={28}
         opticalSize={24}
         color={
-          copied ? "var(--cometchat-success-color)" : "var(--color-neutral-800)"
+          copied ? "var(--cometchat-success-color)" : "var(--cometchat-neutral-color-800)"
         }
       />
       <span
@@ -589,6 +590,73 @@ function VariantHeader({
   );
 }
 
+/* Callout bodies that mix prose with code chips: Arabic word order differs, so
+   each needs a real alternative rather than a key lookup on a fragment. */
+function FontDeliveryCopy() {
+  const link = <code>&lt;link&gt;</code>;
+  return useLanguage() === "ar" ? (
+    <>
+      تُحمَّل الأنماط الثلاثة (Outlined وRounded وSharp) من Google Fonts عبر
+      {" "}{link}{" "}واحد في رأس معاينة Storybook. في تطبيقك، أدرِج ورقة
+      الأنماط نفسها، أو استضِف ملفات الخط المتغيّر ذاتيًا لدعم العمل دون اتصال.
+    </>
+  ) : (
+    <>
+      The three style variants (Outlined, Rounded, Sharp) are loaded from Google
+      Fonts as a single {link} in Storybook's preview head. In your app, include
+      the same stylesheet, or self-host the variable font files for offline
+      support.
+    </>
+  );
+}
+
+function MeaningfulIconsCopy() {
+  const aria = <code>ariaLabel</code>;
+  const role = <code>role=&quot;img&quot;</code>;
+  return useLanguage() === "ar" ? (
+    <>
+      مرّر {aria} يصف الإجراء. يضبط مكوّن Icon قيمة {role} والتسمية تلقائيًا.
+    </>
+  ) : (
+    <>
+      Pass an {aria} describing the action. The Icon component sets {role} and
+      the label automatically.
+    </>
+  );
+}
+
+function DecorativeIconsCopy() {
+  const al = <code>ariaLabel=&quot;&quot;</code>;
+  const ah = <code>aria-hidden</code>;
+  return useLanguage() === "ar" ? (
+    <>
+      عندما تقع الأيقونة بجوار تسمية مرئية (زر يحمل نصًّا مثلًا)، مرّر {al}.
+      عندئذٍ يعرض المكوّن {ah} فتتجاهلها برامج قراءة الشاشة.
+    </>
+  ) : (
+    <>
+      When the icon sits next to a visible label (e.g. a button with text), pass{" "}
+      {al}. The component renders {ah} so screen readers skip it.
+    </>
+  );
+}
+
+function OpticalSizeCopy() {
+  const os = <code>opticalSize</code>;
+  const sz = <code>size</code>;
+  return useLanguage() === "ar" ? (
+    <>
+      اضبط {os} قريبًا من قيمة {sz} المعروضة. القيم غير المتطابقة تجعل الخطوط
+      تبدو رفيعة أو سميكة أكثر من اللازم.
+    </>
+  ) : (
+    <>
+      Set {os} close to the rendered {sz}. Mismatched values make strokes look
+      too thin or too thick.
+    </>
+  );
+}
+
 function SegmentedControl<T extends string | number>({
   value,
   onChange,
@@ -605,7 +673,7 @@ function SegmentedControl<T extends string | number>({
         display: "inline-flex",
         padding: 3,
         borderRadius: "var(--cometchat-radius-2)",
-        background: "var(--color-neutral-100)",
+        background: "var(--cometchat-neutral-color-200)",
         gap: 2,
       }}
     >
@@ -634,7 +702,7 @@ function SegmentedControl<T extends string | number>({
               transition: "all 120ms ease",
             }}
           >
-            {opt.label}
+            <T>{opt.label}</T>
           </button>
         );
       })}
@@ -714,7 +782,7 @@ export const Variants: StoryObj = {
             }}
           >
             <thead>
-              <tr style={{ background: "var(--color-neutral-50)" }}>
+              <tr style={{ background: "var(--cometchat-neutral-color-100)" }}>
                 <th style={th}>
                   <T>Name</T>
                 </th>
@@ -753,7 +821,7 @@ export const Variants: StoryObj = {
                     background:
                       i % 2 === 0
                         ? "var(--cometchat-static-white)"
-                        : "var(--color-neutral-25)",
+                        : "var(--cometchat-background-color-01)",
                   }}
                 >
                   <td style={td}>
@@ -763,7 +831,7 @@ export const Variants: StoryObj = {
                         fontSize: "12px",
                         padding: "3px 7px",
                         borderRadius: "var(--cometchat-radius-1)",
-                        background: "var(--color-neutral-50)",
+                        background: "var(--cometchat-neutral-color-100)",
                         border: "1px solid var(--cometchat-neutral-color-200)",
                       }}
                     >
@@ -901,10 +969,7 @@ export const Usage: StoryObj = {
       />
 
       <Callout kind="info" title="Font delivery">
-        The three style variants (Outlined, Rounded, Sharp) are loaded from
-        Google Fonts as a single <code>&lt;link&gt;</code> in Storybook's
-        preview head. In your app, include the same stylesheet, or self-host
-        the variable font files for offline support.
+        <FontDeliveryCopy />
       </Callout>
       <div style={{ height: 24 }} />
 
@@ -914,7 +979,7 @@ export const Usage: StoryObj = {
           code={`import { Icon } from "@foundation/components/Icon";
 
 <Icon name="home" />
-<Icon name="favorite" variant="rounded" fill={1} color="var(--color-error-500)" />
+<Icon name="favorite" variant="rounded" fill={1} color="var(--cometchat-error-color)" />
 <Icon name="settings" size={32} weight={500} opticalSize={24} />`}
         />
       </Section>
@@ -942,21 +1007,19 @@ export const Usage: StoryObj = {
           }}
         >
           <Callout kind="success" title="Meaningful icons">
-            Pass an <code>ariaLabel</code> describing the action. The Icon
-            component sets <code>role="img"</code> and the label automatically.
+            <MeaningfulIconsCopy />
           </Callout>
           <Callout kind="success" title="Decorative icons">
-            When the icon sits next to a visible label (e.g. a button with
-            text), pass <code>ariaLabel=""</code>. The component renders{" "}
-            <code>aria-hidden</code> so screen readers skip it.
+            <DecorativeIconsCopy />
           </Callout>
           <Callout kind="warning" title="Don't use emoji as icons">
-            Material Symbols are vector, weight-tunable, and theme-aware.
-            Emoji aren't — they render inconsistently across platforms.
+            <T>
+              Material Symbols are vector, weight-tunable, and theme-aware.
+              Emoji aren't — they render inconsistently across platforms.
+            </T>
           </Callout>
           <Callout kind="warning" title="Match optical size">
-            Set <code>opticalSize</code> close to the rendered <code>size</code>
-            . Mismatched values make strokes look too thin or too thick.
+            <OpticalSizeCopy />
           </Callout>
         </div>
       </Section>
@@ -978,5 +1041,5 @@ const th: React.CSSProperties = {
 const td: React.CSSProperties = {
   padding: "12px 16px",
   verticalAlign: "middle",
-  borderBottom: "1px solid var(--color-neutral-100)",
+  borderBottom: "1px solid var(--cometchat-neutral-color-200)",
 };

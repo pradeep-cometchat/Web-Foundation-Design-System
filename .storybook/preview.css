@@ -160,23 +160,23 @@ samp,
 
 /* The story canvas root. */
 .sb-foundation-root {
-  color: var(--color-text-primary);
+  color: var(--cometchat-text-color-primary);
   background: transparent;
   line-height: 1.5;
 }
 
 /* Dark mode: story preview containers get dark background */
 [data-theme="dark"] .sb-foundation-root {
-  background: var(--color-bg-03);
-  color: var(--color-text-primary);
+  background: var(--cometchat-background-color-03);
+  color: var(--cometchat-text-color-primary);
 }
 
 [data-theme="dark"] .sbdocs-preview > div {
-  background: var(--color-bg-03) !important;
+  background: var(--cometchat-background-color-03) !important;
 }
 
 [data-theme="dark"] .docs-story {
-  background: var(--color-bg-03) !important;
+  background: var(--cometchat-background-color-03) !important;
 }
 
 /* Selection matches the brand. */

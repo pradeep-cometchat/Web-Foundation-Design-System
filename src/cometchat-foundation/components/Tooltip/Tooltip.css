@@ -37,7 +37,7 @@
 }
 
 .tooltip__content {
-  background: var(--color-neutral-lm-950); /* #0a0d12 */
+  background: var(--cometchat-neutral-color-900); /* #0a0d12 */
   border-radius: var(--radius-md); /* 8px */
   padding: var(--space-2) var(--space-3); /* 8px 12px */
   width: max-content;
@@ -53,7 +53,7 @@
   font-family: var(--font-family-heading);
   font-size: var(--font-size-1); /* 12px */
   font-weight: var(--font-weight-semibold); /* 600 */
-  color: var(--color-white);
+  color: var(--cometchat-static-white);
   line-height: var(--line-height-caption-1); /* 18px */
 }
 
@@ -61,7 +61,7 @@
   font-family: var(--font-family-heading);
   font-size: var(--font-size-1); /* 12px */
   font-weight: var(--font-weight-regular); /* 400 */
-  color: var(--color-white);
+  color: var(--cometchat-static-white);
   line-height: var(--line-height-caption-1); /* 18px */
   margin-top: var(--space-1);
   opacity: 0.9;
@@ -101,7 +101,7 @@
 .tooltip--top-left .tooltip__arrow,
 .tooltip--top-right .tooltip__arrow {
   border-width: 6px 6px 0 6px;
-  border-color: var(--color-neutral-lm-950) transparent transparent transparent;
+  border-color: var(--cometchat-neutral-color-900) transparent transparent transparent;
   bottom: -6px;
 }
 .tooltip--top-center .tooltip__arrow { left: 50%; transform: translateX(-50%); }
@@ -132,7 +132,7 @@
 .tooltip--bottom-left .tooltip__arrow,
 .tooltip--bottom-right .tooltip__arrow {
   border-width: 0 6px 6px 6px;
-  border-color: transparent transparent var(--color-neutral-lm-950) transparent;
+  border-color: transparent transparent var(--cometchat-neutral-color-900) transparent;
   top: -6px;
 }
 .tooltip--bottom-center .tooltip__arrow { left: 50%; transform: translateX(-50%); }
@@ -150,7 +150,7 @@
 
 .tooltip--left-pos .tooltip__arrow {
   border-width: 6px 0 6px 6px;
-  border-color: transparent transparent transparent var(--color-neutral-lm-950);
+  border-color: transparent transparent transparent var(--cometchat-neutral-color-900);
   right: -6px;
   top: 50%;
   transform: translateY(-50%);
@@ -169,7 +169,7 @@
 
 .tooltip--right-pos .tooltip__arrow {
   border-width: 6px 6px 6px 0;
-  border-color: transparent var(--color-neutral-lm-950) transparent transparent;
+  border-color: transparent var(--cometchat-neutral-color-900) transparent transparent;
   left: -6px;
   top: 50%;
   transform: translateY(-50%);

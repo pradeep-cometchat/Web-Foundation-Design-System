@@ -40,7 +40,7 @@ export const Swatch: React.FC<SwatchProps> = ({
         borderRadius: "var(--cometchat-radius-3)",
         overflow: "hidden",
         border: "1px solid var(--cometchat-neutral-color-200)",
-        background: "var(--color-white)",
+        background: "var(--cometchat-static-white)",
         boxShadow: hovered ? "var(--cometchat-shadow-md)" : "var(--cometchat-shadow-xs)",
         transform: hovered ? "translateY(-2px)" : "translateY(0)",
         transition: "all 160ms ease",
@@ -66,13 +66,13 @@ export const Swatch: React.FC<SwatchProps> = ({
               letterSpacing: "0.04em",
               padding: "3px 7px",
               borderRadius: "var(--cometchat-radius-max)",
-              background: "var(--color-white)",
+              background: "var(--cometchat-static-white)",
               color:
                 bestRating === "AAA" || bestRating === "AA"
-                  ? "var(--color-success-700)"
+                  ? "var(--cometchat-text-color-success)"
                   : bestRating === "AA Large"
-                  ? "var(--color-warning-700)"
-                  : "var(--color-error-700)",
+                  ? "var(--cometchat-text-color-warning)"
+                  : "var(--cometchat-text-color-error)",
               boxShadow: "var(--cometchat-shadow-xs)",
             }}
           >
@@ -104,7 +104,7 @@ export const Swatch: React.FC<SwatchProps> = ({
               fontSize: "12px",
               fontFamily:
                 "var(--font-family-body)",
-              color: "var(--color-neutral-500)",
+              color: "var(--cometchat-neutral-color-500)",
               textTransform: "uppercase",
             }}
           >

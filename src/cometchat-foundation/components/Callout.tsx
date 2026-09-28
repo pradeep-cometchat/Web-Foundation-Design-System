@@ -1,4 +1,5 @@
 import React from "react";
+import { T } from "../localization";
 
 export type CalloutKind = "info" | "tip" | "warning" | "success";
 
@@ -13,27 +14,27 @@ const palette: Record<
   { bg: string; border: string; accent: string; icon: string }
 > = {
   info: {
-    bg: "var(--color-info-50)",
-    border: "var(--color-info-200)",
-    accent: "var(--color-info-700)",
+    bg: "var(--cometchat-background-color-info)",
+    border: "var(--cometchat-info-color)",
+    accent: "var(--cometchat-info-color)",
     icon: "ⓘ",
   },
   tip: {
     bg: "var(--cometchat-extended-primary-color-50)",
-    border: "var(--color-ep-200)",
+    border: "var(--cometchat-extended-primary-color-200)",
     accent: "var(--cometchat-extended-primary-color-900)",
     icon: "✦",
   },
   warning: {
-    bg: "var(--color-warning-50)",
-    border: "var(--color-warning-200)",
-    accent: "var(--color-warning-700)",
+    bg: "var(--cometchat-background-color-warning)",
+    border: "var(--cometchat-warning-color)",
+    accent: "var(--cometchat-text-color-warning)",
     icon: "⚠",
   },
   success: {
-    bg: "var(--color-success-50)",
-    border: "var(--color-success-200)",
-    accent: "var(--color-success-700)",
+    bg: "var(--cometchat-background-color-success)",
+    border: "var(--cometchat-success-color)",
+    accent: "var(--cometchat-text-color-success)",
     icon: "✓",
   },
 };
@@ -76,9 +77,11 @@ export const Callout: React.FC<CalloutProps> = ({
       </span>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing)" }}>
         {title && (
-          <strong style={{ color: p.accent, fontSize: "12px" }}>{title}</strong>
+          <strong style={{ color: p.accent, fontSize: "12px" }}><T>{title}</T></strong>
         )}
-        <div>{children}</div>
+        <div>
+          <T>{children}</T>
+        </div>
       </div>
     </aside>
   );

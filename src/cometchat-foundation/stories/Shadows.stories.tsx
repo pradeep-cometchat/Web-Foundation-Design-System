@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { T } from "../localization";
 import { PageHeader } from "../components/PageHeader";
 import { Section } from "../components/Section";
 import { TokenTable } from "../components/TokenTable";
@@ -119,7 +120,7 @@ const Stat: React.FC<{
         marginBottom: "var(--cometchat-spacing-1)",
       }}
     >
-      {label}
+      <T>{label}</T>
     </div>
     <div
       style={{
