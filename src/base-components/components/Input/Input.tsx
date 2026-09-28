@@ -1,5 +1,5 @@
 import "./Input.css";
-import { T } from "../../../cometchat-foundation/localization";
+import { T, useT } from "../../../cometchat-foundation/localization";
 
 export interface InputProps {
   /** Label text above the input */
@@ -39,13 +39,14 @@ export function Input({
   trailingIcon,
   onChange,
 }: InputProps) {
+  const t = useT();
   const hasError = !!error;
 
   return (
     <div className={`input-field ${hasError ? "input-field--error" : ""} ${disabled ? "input-field--disabled" : ""}`}>
       {label && (
         <div className="input-field__label-wrap">
-          <label className="input-field__label"><T><T>{label}</T></T></label>
+          <label className="input-field__label"><T>{label}</T></label>
           {required && <span className="input-field__required">*</span>}
         </div>
       )}
@@ -58,8 +59,8 @@ export function Input({
         <input
           className="input-field__input"
           type={type}
-          placeholder={placeholder}
-          value={value}
+          placeholder={t(placeholder)}
+          value={value === undefined ? value : t(value)}
           disabled={disabled}
           onChange={(e) => onChange?.(e.target.value)}
         />
@@ -71,7 +72,7 @@ export function Input({
       </div>
       {(hint || error) && (
         <span className={`input-field__hint ${hasError ? "input-field__hint--error" : ""}`}>
-          {error || hint}
+          <T>{error || hint}</T>
         </span>
       )}
     </div>

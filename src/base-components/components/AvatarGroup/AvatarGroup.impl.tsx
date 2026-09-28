@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { T } from "../../../cometchat-foundation/localization";
+import { T, useT } from "../../../cometchat-foundation/localization";
 import type { AvatarProps, AvatarGroupProps, AvatarLabelGroupProps, AvatarSize } from "./AvatarGroup.types";
 import { avatarRegistry } from "../../../cometchat-foundation/tokens/avatars";
 import "./AvatarGroup.css";
@@ -18,6 +18,7 @@ export const Avatar: React.FC<AvatarProps> = ({
   className,
   name,
 }) => {
+  const t = useT();
   const [imgError, setImgError] = useState(false);
   const classes = ["avatar", `avatar--${size}`, className].filter(Boolean).join(" ");
 
@@ -39,7 +40,7 @@ export const Avatar: React.FC<AvatarProps> = ({
         </div>
       ) : (fallback || name) ? (
         <div className="avatar__fallback-wrap">
-          <span className="avatar__fallback">{fallback || getInitials(name)}</span>
+          <span className="avatar__fallback">{t(fallback ?? "") || getInitials(t(name ?? ""))}</span>
         </div>
       ) : (
         <div className="avatar__fallback-wrap" />
@@ -116,7 +117,7 @@ export const AvatarLabelGroup: React.FC<AvatarLabelGroupProps> = ({
     <div className={`avatar-label-group avatar-label-group--${size} ${className ?? ""}`}>
       <Avatar src={src} alt={alt} fallback={fallback} size={avatarSizeMap[size]} statusIcon={statusIcon} online={online} />
       <div className="avatar-label-group__text">
-        <span className="avatar-label-group__name"><T><T>{name}</T></T></span>
+        <span className="avatar-label-group__name"><T>{name}</T></span>
         {supportingText && <span className="avatar-label-group__supporting"><T>{supportingText}</T></span>}
       </div>
     </div>

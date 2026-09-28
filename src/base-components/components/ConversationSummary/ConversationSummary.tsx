@@ -74,7 +74,7 @@ export function ConversationSummary({
           <p className="conversation-summary__error"><T>{error}</T></p>
         )}
         {text && !loading && !error && (
-          <p className="conversation-summary__text"><T><T>{text}</T></T></p>
+          <p className="conversation-summary__text"><T>{text}</T></p>
         )}
       </div>
     </div>

@@ -1,5 +1,5 @@
 import "./Textarea.css";
-import { T } from "../../../cometchat-foundation/localization";
+import { T, useT } from "../../../cometchat-foundation/localization";
 
 export interface TextareaProps {
   /** Label text above the textarea */
@@ -36,27 +36,28 @@ export function Textarea({
   resizable = true,
   onChange,
 }: TextareaProps) {
+  const t = useT();
   const hasError = !!error;
 
   return (
     <div className={`textarea-field ${hasError ? "textarea-field--error" : ""} ${disabled ? "textarea-field--disabled" : ""}`}>
       {label && (
         <div className="textarea-field__label-wrap">
-          <label className="textarea-field__label"><T><T>{label}</T></T></label>
+          <label className="textarea-field__label"><T>{label}</T></label>
           {required && <span className="textarea-field__required">*</span>}
         </div>
       )}
       <textarea
         className={`textarea-field__input ${hasError ? "textarea-field__input--error" : ""} ${!resizable ? "textarea-field__input--no-resize" : ""}`}
-        placeholder={placeholder}
-        value={value}
+        placeholder={t(placeholder)}
+        value={value === undefined ? value : t(value)}
         rows={rows}
         disabled={disabled}
         onChange={(e) => onChange?.(e.target.value)}
       />
       {(hint || error) && (
         <span className={`textarea-field__hint ${hasError ? "textarea-field__hint--error" : ""}`}>
-          {error || hint}
+          <T>{error || hint}</T>
         </span>
       )}
     </div>

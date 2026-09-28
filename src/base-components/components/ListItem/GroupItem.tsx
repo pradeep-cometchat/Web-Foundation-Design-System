@@ -1,5 +1,5 @@
 import React from "react";
-import { T } from "../../../cometchat-foundation/localization";
+import { T, useT } from "../../../cometchat-foundation/localization";
 import "./GroupItem.css";
 
 export type GroupItemState = "default" | "hover" | "pressed";
@@ -92,15 +92,16 @@ interface AvatarPartProps {
 }
 
 const Avatar: React.FC<AvatarPartProps> = ({ variant, url, icon, text, title, status, groupType }) => {
+  const t = useT();
   return (
     <div className="group-item__avatar">
       {variant === "image" && url && <img src={url} alt={title} />}
       {variant === "image" && !url && (
-        <span className="group-item__avatar-fallback">{title.charAt(0)}</span>
+        <span className="group-item__avatar-fallback"><T>{title.charAt(0)}</T></span>
       )}
       {variant === "text" && (
         <span className="group-item__avatar-fallback">
-          {(text ?? title).slice(0, 2).toUpperCase()}
+          {t(text ?? title).slice(0, 2).toUpperCase()}
         </span>
       )}
       {variant === "icon" && (
@@ -163,12 +164,12 @@ export const GroupItem: React.FC<GroupItemProps> = ({
 
       <div className="group-item__content">
         <div className="group-item__header">
-          <div className="group-item__title"><T><T>{title}</T></T></div>
+          <div className="group-item__title"><T>{title}</T></div>
         </div>
 
         {description && (
           <div className="group-item__description">
-            <span className="group-item__description-text"><T><T>{description}</T></T></span>
+            <span className="group-item__description-text"><T>{description}</T></span>
           </div>
         )}
       </div>

@@ -51,7 +51,7 @@ export const Header: React.FC<HeaderProps> = ({
           <span className="icon-outlined">arrow_back</span>
         </button>
       )}
-      <h1 className="screen-header__title"><T><T>{title}</T></T></h1>
+      <h1 className="screen-header__title"><T>{title}</T></h1>
       <div className="screen-header__actions">
         {actions.map((action, i) => (
           <button

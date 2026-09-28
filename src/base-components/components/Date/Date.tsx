@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import "./Date.css";
 
 export type DatePattern = "time" | "date" | "datetime" | "relative";
@@ -30,7 +31,7 @@ export function DateTimestamp({
           <ReadReceiptIcon status={readStatus} />
         </span>
       )}
-      <span className="date-timestamp__text">{timestamp}</span>
+      <span className="date-timestamp__text"><T>{timestamp}</T></span>
     </span>
   );
 }

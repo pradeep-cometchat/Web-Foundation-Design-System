@@ -1,5 +1,5 @@
 import "./ReactionInfo.css";
-import { T } from "../../../cometchat-foundation/localization";
+import { T, useT } from "../../../cometchat-foundation/localization";
 
 export interface ReactionInfoProps {
   /** The emoji that was reacted with */
@@ -21,7 +21,8 @@ export function ReactionInfo({
   label = "reacted",
   showArrow = true,
 }: ReactionInfoProps) {
-  const visibleNames = names.slice(0, maxVisible);
+  const t = useT();
+  const visibleNames = names.slice(0, maxVisible).map((n) => t(n));
   const remaining = names.length - maxVisible;
 
   const nameText =
@@ -36,7 +37,7 @@ export function ReactionInfo({
           <span className="reaction-info__emoji">{emoji}</span>
           <div className="reaction-info__text">
             <span className="reaction-info__names"><T>{nameText}</T></span>
-            <span className="reaction-info__label"><T><T>{label}</T></T></span>
+            <span className="reaction-info__label"><T>{label}</T></span>
           </div>
         </div>
       </div>

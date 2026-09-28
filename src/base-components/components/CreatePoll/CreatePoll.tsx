@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { T } from "../../../cometchat-foundation/localization";
+import { T, useT } from "../../../cometchat-foundation/localization";
 import "./CreatePoll.css";
 
 export interface CreatePollProps {
@@ -19,6 +19,7 @@ export function CreatePoll({
   onCreate,
   maxOptions = 12,
 }: CreatePollProps) {
+  const t = useT();
   const [question, setQuestion] = useState("");
   const [options, setOptions] = useState(["", ""]);
   const [error, setError] = useState("");
@@ -27,7 +28,7 @@ export function CreatePoll({
 
   const addOption = () => {
     if (options.length >= maxOptions) {
-      setError(`You've reached the limit. You can add up to ${maxOptions} options.`);
+      setError(t("You've reached the limit. You can add up to {n} options.").replace("{n}", String(maxOptions)));
       return;
     }
     setOptions([...options, ""]);
@@ -51,7 +52,7 @@ export function CreatePoll({
 
   const handleCreate = () => {
     if (!canCreate) {
-      setError("Please fill in all required fields before creating a poll.");
+      setError(t("Please fill in all required fields before creating a poll."));
       return;
     }
     onCreate?.(question, options.filter((o) => o.trim()));
@@ -75,7 +76,7 @@ export function CreatePoll({
           <input
             type="text"
             className="create-poll__question-input"
-            placeholder="Ask a question"
+            placeholder={t("Ask a question")}
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
           />
@@ -92,7 +93,7 @@ export function CreatePoll({
                 <input
                   type="text"
                   className="create-poll__option-input"
-                  placeholder="Option"
+                  placeholder={t("Option")}
                   value={option}
                   onChange={(e) => updateOption(index, e.target.value)}
                 />

@@ -49,7 +49,7 @@ export function ActionSheet({
         aria-label={title || "Action sheet"}
         style={{ width }}
       >
-        {title && <div className="action-sheet__title"><T><T>{title}</T></T></div>}
+        {title && <div className="action-sheet__title"><T>{title}</T></div>}
         {items.map((item, index) => (
           <ActionSheetRow key={index} item={item} />
         ))}

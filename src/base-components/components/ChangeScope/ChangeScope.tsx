@@ -63,7 +63,7 @@ export function ChangeScope({
               <span className={`change-scope__radio ${currentRole === role ? "change-scope__radio--checked" : ""}`}>
                 {currentRole === role && <span className="change-scope__radio-dot" />}
               </span>
-              <span className="change-scope__item-label">{roleLabels[role]}</span>
+              <span className="change-scope__item-label"><T>{roleLabels[role]}</T></span>
               <input
                 type="radio"
                 name="scope-role"

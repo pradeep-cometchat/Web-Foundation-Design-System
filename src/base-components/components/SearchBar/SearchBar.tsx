@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useT } from "../../../cometchat-foundation/localization";
 import "./SearchBar.css";
 
 export interface SearchBarProps {
@@ -61,8 +62,11 @@ export function SearchBar({
   showClear = true,
   className,
 }: SearchBarProps) {
+  const t = useT();
   const [internalValue, setInternalValue] = useState("");
-  const currentValue = value !== undefined ? value : internalValue;
+  // A story passes `value` as a fixture, so it is display text and is translated;
+  // anything the user types stays exactly as typed.
+  const currentValue = value !== undefined ? t(value) : internalValue;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
@@ -89,10 +93,10 @@ export function SearchBar({
         <input
           className="search-bar__input"
           type="text"
-          placeholder={placeholder}
+          placeholder={t(placeholder)}
           value={currentValue}
           onChange={handleChange}
-          aria-label={placeholder}
+          aria-label={t(placeholder)}
         />
         {showClear && currentValue && (
           <button

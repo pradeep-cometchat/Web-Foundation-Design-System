@@ -1,5 +1,5 @@
 import React from "react";
-import { T } from "../../../cometchat-foundation/localization";
+import { T, useT } from "../../../cometchat-foundation/localization";
 import "./CallItem.css";
 
 export type CallItemState = "default" | "hover" | "pressed";
@@ -69,15 +69,16 @@ interface AvatarPartProps {
 }
 
 const Avatar: React.FC<AvatarPartProps> = ({ variant, url, icon, text, title, status }) => {
+  const t = useT();
   return (
     <div className="call-item__avatar">
       {variant === "image" && url && <img src={url} alt={title} />}
       {variant === "image" && !url && (
-        <span className="call-item__avatar-fallback">{title.charAt(0)}</span>
+        <span className="call-item__avatar-fallback"><T>{title.charAt(0)}</T></span>
       )}
       {variant === "text" && (
         <span className="call-item__avatar-fallback">
-          {(text ?? title).slice(0, 2).toUpperCase()}
+          {t(text ?? title).slice(0, 2).toUpperCase()}
         </span>
       )}
       {variant === "icon" && (
@@ -141,7 +142,7 @@ export const CallItem: React.FC<CallItemProps> = ({
 
       <div className="call-item__content">
         <div className="call-item__header">
-          <div className="call-item__title"><T><T>{title}</T></T></div>
+          <div className="call-item__title"><T>{title}</T></div>
         </div>
 
         <div className="call-item__meta">
@@ -151,7 +152,7 @@ export const CallItem: React.FC<CallItemProps> = ({
           >
             {directionIcon[direction]}
           </span>
-          {dateTime && <span className="call-item__datetime">{dateTime}</span>}
+          {dateTime && <span className="call-item__datetime"><T>{dateTime}</T></span>}
         </div>
       </div>
 

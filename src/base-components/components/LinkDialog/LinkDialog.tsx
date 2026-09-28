@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { T } from "../../../cometchat-foundation/localization";
+import { useEffect, useState } from "react";
+import { T, useT } from "../../../cometchat-foundation/localization";
 import { Input } from "../Input";
 import "./LinkDialog.css";
 
@@ -41,8 +41,12 @@ export function LinkDialog({
   onCancel,
   onSave,
 }: LinkDialogProps) {
-  const [text, setText] = useState(initialText);
+  const t = useT();
+  const [text, setText] = useState(() => t(initialText));
   const [url, setUrl] = useState(initialUrl);
+
+  // `initialText` is fixture copy, so it follows the language; a URL never does.
+  useEffect(() => setText(t(initialText)), [t, initialText]);
 
   if (!open) return null;
 

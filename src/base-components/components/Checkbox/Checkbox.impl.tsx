@@ -77,8 +77,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       </button>
       {(label || description) && (
         <div className="checkbox__text">
-          {label && <span className="checkbox__label"><T><T>{label}</T></T></span>}
-          {description && <span className="checkbox__description"><T><T>{description}</T></T></span>}
+          {label && <span className="checkbox__label"><T>{label}</T></span>}
+          {description && <span className="checkbox__description"><T>{description}</T></span>}
         </div>
       )}
     </div>

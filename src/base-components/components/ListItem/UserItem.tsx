@@ -1,5 +1,5 @@
 import React from "react";
-import { T } from "../../../cometchat-foundation/localization";
+import { T, useT } from "../../../cometchat-foundation/localization";
 import "./UserItem.css";
 
 export type UserItemState = "default" | "hover" | "pressed";
@@ -104,15 +104,16 @@ interface AvatarPartProps {
 }
 
 const Avatar: React.FC<AvatarPartProps> = ({ variant, url, icon, text, title, status }) => {
+  const t = useT();
   return (
     <div className="user-item__avatar">
       {variant === "image" && url && <img src={url} alt={title} />}
       {variant === "image" && !url && (
-        <span className="user-item__avatar-fallback">{title.charAt(0)}</span>
+        <span className="user-item__avatar-fallback"><T>{title.charAt(0)}</T></span>
       )}
       {variant === "text" && (
         <span className="user-item__avatar-fallback">
-          {(text ?? title).slice(0, 2).toUpperCase()}
+          {t(text ?? title).slice(0, 2).toUpperCase()}
         </span>
       )}
       {variant === "icon" && (
@@ -182,7 +183,7 @@ export const UserItem: React.FC<UserItemProps> = ({
 
       <div className="user-item__content">
         <div className="user-item__header">
-          <div className="user-item__title"><T><T>{title}</T></T></div>
+          <div className="user-item__title"><T>{title}</T></div>
         </div>
 
         {hasSubtitle && (
@@ -230,7 +231,7 @@ export const UserItemDivider: React.FC<UserItemDividerProps> = ({ label, classNa
   const classes = ["user-item", "user-item--divider", className].filter(Boolean).join(" ");
   return (
     <div className={classes}>
-      <div className="user-item__divider-label"><T><T>{label}</T></T></div>
+      <div className="user-item__divider-label"><T>{label}</T></div>
     </div>
   );
 };

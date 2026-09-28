@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { T } from "../../../cometchat-foundation/localization";
+import { T, useT } from "../../../cometchat-foundation/localization";
 import "./FlagMessageDialog.css";
 
 export interface FlagMessageDialogProps {
@@ -29,6 +29,7 @@ export function FlagMessageDialog({
   onCancel,
   onReport,
 }: FlagMessageDialogProps) {
+  const t = useT();
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [context, setContext] = useState("");
 
@@ -92,7 +93,7 @@ export function FlagMessageDialog({
           </label>
           <textarea
             className="flag-message-dialog__textarea"
-            placeholder="Provide additional context for your report..."
+            placeholder={t("Provide additional context for your report...")}
             value={context}
             onChange={(e) => setContext(e.target.value)}
             rows={4}

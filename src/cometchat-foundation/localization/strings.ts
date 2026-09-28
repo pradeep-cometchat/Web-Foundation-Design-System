@@ -1064,7 +1064,7 @@ export const AR: Readonly<Record<string, string>> = {
   "A dialog for creating a new poll. Includes a question input, dynamic option list with drag handles, emoji buttons, delete buttons, an \"Add an option\" link, error states, and Cancel/Create action buttons. **Structure (from Figma):** - Container: 420px, `--radius-3xl` (20px), `--shadow-lg` - Header: 64px, \"Create Poll\" (20px, bold), close X, border-bottom - Question: label (16px, medium) + rounded input (14px, border `--color-neutral-200`) - Options: drag handle (≡) + rounded input with emoji icon (😊) + X delete button - \"+ Add an option\": ⊕ icon + text in `--color-ep-600` - Error: pink banner (`--color-error-50` bg) with error icon + message - Buttons: Cancel (outlined) + Create (disabled: gray / active: `--color-ep-600`) - Max options: 12 **States:** - Empty — 2 blank options, Create disabled - Filled — question + options filled, Create active (purple) - Validation error — \"Please fill in all required fields before creating a poll.\" - Max limit — \"You've reached the limit. You can add up to 12 options.\"":
     "مربّع حوار لإنشاء استطلاع جديد. يضمّ حقل السؤال، وقائمة خيارات ديناميكية بمقابض سحب، وأزرار إيموجي، وأزرار حذف، ورابط «إضافة خيار»، وحالات الخطأ، وزرَّي الإلغاء والإنشاء. **البنية (من Figma):** - الحاوية: 420px، `--radius-3xl` (20px)، `--shadow-lg` - الترويسة: 64px، \"Create Poll\" (20px، عريض)، زر إغلاق X، حدّ سفلي - السؤال: تسمية (16px، متوسط) + حقل مستدير (14px، حدّ `--color-neutral-200`) - الخيارات: مقبض سحب (≡) + حقل مستدير بأيقونة إيموجي (😊) + زر حذف X - «+ إضافة خيار»: أيقونة ⊕ ونص بلون `--color-ep-600` - الخطأ: شريط وردي (خلفية `--color-error-50`) بأيقونة خطأ ورسالة - الأزرار: إلغاء (محدّد بإطار) + إنشاء (معطّل: رمادي / نشط: `--color-ep-600`) - أقصى عدد خيارات: 12 **الحالات:** - فارغ — خياران فارغان، وزر الإنشاء معطّل - مملوء — السؤال والخيارات مُعبّأة، وزر الإنشاء نشط (بنفسجي) - خطأ تحقّق — \"Please fill in all required fields before creating a poll.\" - بلوغ الحدّ — \"You've reached the limit. You can add up to 12 options.\"",
   "The timestamp shown inside message bubbles, indicating when a message was sent. Compact inline element that sits below or beside the message text. **Structure (from Figma):** - Size: Hug content × 24px height - Font: 12px (`--font-size-1`), weight 400, line-height 16px (`--line-height-caption-2`) - Color: `--color-neutral-500` (#717680) - Optional read receipt icon (16×16) with 2px gap **Variants:** - `sent` — timestamp on sent messages (gray, may include read receipts) - `received` — timestamp on received messages (gray) - `separator` — date separator chip between message groups (\"Today\", \"Yesterday\") **Patterns:** - `time` — \"4:56 pm\", \"10:30 am\" - `date` — \"12 Jan\", \"5 Mar 2024\" - `datetime` — \"12 Jan, 4:56 pm\" - `relative` — \"Just now\", \"2 min ago\"":
-    "الطابع الزمني المعروض داخل فقاعات الرسائل، ويوضّح وقت إرسال الرسالة. عنصر مضغوط ضمن السطر يقع أسفل نص الرسالة أو بجانبه. **البنية (من Figma):** - الحجم: بمقدار المحتوى × ارتفاع 24px - الخط: 12px (`--font-size-1`)، وزن 400، ارتفاع سطر 16px (`--line-height-caption-2`) - اللون: `--color-neutral-500` (#717680) - أيقونة إيصال قراءة اختيارية (16×16) بفجوة 2px **الأنماط:** - `sent` — طابع زمني على الرسائل المُرسَلة (رمادي، قد يتضمّن إيصالات القراءة) - `received` — طابع زمني على الرسائل الواردة (رمادي) - `separator` — شريحة فاصل تاريخ بين مجموعات الرسائل (\"Today\"، \"Yesterday\") **الأشكال:** - `time` — \"4:56 pm\"، \"10:30 am\" - `date` — \"12 Jan\"، \"5 Mar 2024\" - `datetime` — \"12 Jan, 4:56 pm\" - `relative` — \"Just now\"، \"2 min ago\"",
+    "الطابع الزمني المعروض داخل فقاعات الرسائل، ويوضّح وقت إرسال الرسالة. عنصر مضغوط ضمن السطر يقع أسفل نص الرسالة أو بجانبه. **البنية (من Figma):** - الحجم: بمقدار المحتوى × ارتفاع 24px - الخط: 12px (`--font-size-1`)، وزن 400، ارتفاع سطر 16px (`--line-height-caption-2`) - اللون: `--color-neutral-500` (#717680) - أيقونة إيصال قراءة اختيارية (16×16) بفجوة 2px **الأنماط:** - `sent` — طابع زمني على الرسائل المُرسَلة (رمادي، قد يتضمّن إيصالات القراءة) - `received` — طابع زمني على الرسائل الواردة (رمادي) - `separator` — شريحة فاصل تاريخ بين مجموعات الرسائل (\"اليوم\"، \"أمس\") **الأشكال:** - `time` — \"4:56 م\"، \"10:30 ص\" - `date` — \"12 يناير\"، \"5 مارس 2024\" - `datetime` — \"12 يناير، 4:56 م\" - `relative` — \"الآن\"، \"قبل دقيقتين\"",
   "An emoji picker popup with categories, search, and a grid of selectable emojis. Appears above the message composer when the emoji icon is clicked. **Structure (from Figma node 4105:547232 → Emoji Popup):** - Container: 300px × 348px, `--radius-3xl` (20px), `--shadow-lg`, border `--color-neutral-100` - Category label: 14px, weight 400, `--color-neutral-600` - Search: 28px height, `--radius-full`, `--color-neutral-100` bg - Emoji grid: 24px emojis, 12px horizontal gap, 8px vertical gap, 10 per row - Category tabs: 32px icons, 8px gap, active has `--color-ep-100` bg + `--radius-md` **Categories:** Recents, Smileys & People, Animals & Nature, Food & Drink, Activity, Travel & Places, Objects, Symbols, Flags":
     "نافذة منبثقة لاختيار الإيموجي مع الفئات والبحث وشبكة من الإيموجي القابلة للتحديد. تظهر أعلى محرّر الرسائل عند النقر على أيقونة الإيموجي. **البنية (من عقدة Figma رقم 4105:547232 ← Emoji Popup):** - الحاوية: 300px × 348px، `--radius-3xl` (20px)، `--shadow-lg`، حدّ `--color-neutral-100` - تسمية الفئة: 14px، وزن 400، `--color-neutral-600` - البحث: ارتفاع 28px، `--radius-full`، خلفية `--color-neutral-100` - شبكة الإيموجي: إيموجي 24px، فجوة أفقية 12px، فجوة رأسية 8px، 10 في الصف - تبويبات الفئات: أيقونات 32px، فجوة 8px، والنشط له خلفية `--color-ep-100` و`--radius-md` **الفئات:** المستخدمة مؤخّرًا، الوجوه والأشخاص، الحيوانات والطبيعة، الطعام والشراب، الأنشطة، السفر والأماكن، الأشياء، الرموز، الأعلام",
   "A dialog for reporting or flagging inappropriate messages. Presents selectable reason badges, an optional text area for additional context, and cancel/report actions. **Structure (from Figma node 4090:860298):** - Container: 400px, `--radius-3xl` (20px), `--shadow-lg`, border `--color-neutral-100` - Header: title (20px, bold, `--color-neutral-900`), close icon (24px), description (14px, `--color-neutral-700`) - Badges: pill-shaped (`--radius-full`), border `--color-neutral-200`, 14px medium text, wrap layout - Selected badge: `--color-ep-50` bg, `--color-ep-300` border, `--color-ep-700` text - Text area: `--color-neutral-50` bg, `--radius-md`, border `--color-neutral-100`, placeholder in `--color-neutral-600` - Cancel: outlined button, Report: disabled (`--color-neutral-200` bg) until a reason is selected, then `--color-error` bg":
@@ -1449,6 +1449,130 @@ export const AR: Readonly<Record<string, string>> = {
   "total assets": "إجمالي الأصول",
   levels: "المستويات",
   categories: "الفئات",
+
+  /* ─── Tooltip, fixtures and field copy (RTL sweep) ─── */
+  "GA":
+    "جآ",
+  "AD":
+    "الف",
+  "JD":
+    "فف",
+  "EU":
+    "مت",
+  "OR":
+    "أر",
+  "Hey, I was wondering if you could help me with something. I've been trying to figure out how to set up the new project and I'm having some trouble with the configuration files.":
+    "مرحبًا، كنت أتساءل إن كان بإمكانك مساعدتي في أمر ما. أحاول معرفة كيفية إعداد المشروع الجديد وأواجه بعض الصعوبة مع ملفات الإعدادات.",
+  "This member will be removed from the group but can rejoin if they have an invite link. Their previous messages will remain.":
+    "سيُزال هذا العضو من المجموعة، لكن يمكنه الانضمام مجددًا إذا كان لديه رابط دعوة. وستظل رسائله السابقة ظاهرة.",
+  "False Information":
+    "معلومات مضللة",
+  "Insert":
+    "إدراج",
+  "Display text":
+    "النص المعروض",
+  "Paste URL here":
+    "الصق الرابط هنا",
+  "CometChat Documentation":
+    "وثائق CometChat",
+  "OK":
+    "حسنًا",
+  "Hey, I was wondering if you could help me with something. I've been trying to figure out how to set up the new project structure and I'm a bit stuck on the configuration part.":
+    "مرحبًا، كنت أتساءل إن كان بإمكانك مساعدتي في أمر ما. أحاول معرفة كيفية إعداد بنية المشروع الجديدة وأواجه بعض الصعوبة في جزء الإعدادات.",
+  "{name} is typing":
+    "{name} يكتب",
+  "{name} is recording":
+    "{name} يسجّل",
+  "{name} is uploading":
+    "{name} يرفع ملفًا",
+  "{count} people are typing":
+    "{count} أشخاص يكتبون",
+  "{count} people are recording":
+    "{count} أشخاص يسجّلون",
+  "{count} people are uploading":
+    "{count} أشخاص يرفعون ملفات",
+  "A small popup that shows contextual information on hover or focus.\n\n**Background:** #0a0d12, **text:** white 12px/600, **supporting:** white 12px/400.\n\n**Arrow positions:** Top (center/left/right), Bottom (center/left/right), Left, Right, None.\n\n**Padding:** 8px 12px (title only), 12px (with supporting text).\n\nUses foundation tokens: `--color-neutral-lm-950`, `--color-white`, `--radius-md`,\n`--font-size-1`, `--font-weight-semibold`, `--font-weight-regular`.":
+    "نافذة صغيرة تعرض معلومات سياقية عند التمرير أو التركيز.\n\n**الخلفية:** #0a0d12، **النص:** أبيض 12px/600، **النص المساعد:** أبيض 12px/400.\n\n**مواضع السهم:** أعلى (وسط/يسار/يمين)، أسفل (وسط/يسار/يمين)، يسار، يمين، بدون.\n\n**الحشو:** 8px 12px (العنوان فقط)، 12px (مع نص مساعد).\n\nيستخدم رموز الأساسيات: `--color-neutral-lm-950`، `--color-white`، `--radius-md`،\n`--font-size-1`، `--font-weight-semibold`، `--font-weight-regular`.",
+  "Tooltip": "تلميح",
+  "Arrow Positions": "مواضع السهم",
+  "With Supporting Text": "مع نص مساعد",
+  "Interactive": "تفاعلي",
+  "Arrow at bottom (tooltip appears above trigger)": "السهم في الأسفل (يظهر التلميح فوق العنصر)",
+  "Arrow at top (tooltip appears below trigger)": "السهم في الأعلى (يظهر التلميح أسفل العنصر)",
+  "Arrow on sides": "السهم على الجانبين",
+  "Bottom arrow (tooltip above)": "سهم سفلي (التلميح في الأعلى)",
+  "Top arrow (tooltip below)": "سهم علوي (التلميح في الأسفل)",
+  "Side arrows": "أسهم جانبية",
+  "Bottom left": "أسفل اليسار",
+  "Bottom center": "أسفل الوسط",
+  "Bottom right": "أسفل اليمين",
+  "Top left": "أعلى اليسار",
+  "Top center": "أعلى الوسط",
+  "Top right": "أعلى اليمين",
+  "Arrow right": "سهم يمين",
+  "Arrow left": "سهم يسار",
+  "This is a tooltip": "هذا تلميح",
+  "Tooltips are used to describe or identify an element. In most scenarios, tooltips help the user understand meaning.": "تُستخدم التلميحات لوصف عنصر أو تعريفه. في معظم الحالات تساعد التلميحات المستخدم على فهم المعنى.",
+  "Tooltips are used to describe or identify an element.": "تُستخدم التلميحات لوصف عنصر أو تعريفه.",
+  "Add to favorites": "إضافة إلى المفضلة",
+  "Share this item": "مشاركة هذا العنصر",
+  "Copy a link or share via email.": "انسخ رابطًا أو شارِك عبر البريد الإلكتروني.",
+  "Delete permanently": "حذف نهائي",
+  "This action cannot be undone.": "لا يمكن التراجع عن هذا الإجراء.",
+  "Hover me": "مرّر المؤشر فوقي",
+  "Title Only": "العنوان فقط",
+  "Simple tooltip with just a title. Padding: 8px 12px. Used for icon labels and short hints.": "تلميح بسيط بعنوان فقط. الحشو: 8px 12px. يُستخدم لتسميات الأيقونات والتلميحات القصيرة.",
+  "Title + description. Padding: 12px. Max-width 320px. Used for longer explanations.": "عنوان + وصف. الحشو: 12px. أقصى عرض 320px. يُستخدم للشروح الأطول.",
+  "9 positions: top (left/center/right), bottom (left/center/right), left, right, none.": "٩ مواضع: أعلى (يسار/وسط/يمين)، أسفل (يسار/وسط/يمين)، يسار، يمين، بدون.",
+  "All arrow positions — rendered as static tooltip previews (no clipping).": "كل مواضع السهم — معروضة كمعاينات ثابتة للتلميح (بدون اقتصاص).",
+  "With supporting text — all positions.": "مع نص مساعد — كل المواضع.",
+  "Interactive — hover to see tooltip appear.": "تفاعلي — مرّر المؤشر لرؤية التلميح.",
+  "Interactive playground — use the controls panel to configure the Tooltip.": "مساحة تجريبية تفاعلية — استخدم لوحة التحكم لضبط التلميح.",
+  "Sarah Johnson": "سارة جونسون",
+  "Ben Scott": "بن سكوت",
+  "John": "جون",
+  "George": "جورج",
+  "Online": "متصل",
+  "User Blocked": "تم حظر المستخدم",
+  "Connection Lost": "انقطع الاتصال",
+  "Message Failed": "فشل إرسال الرسالة",
+  "New Feature": "ميزة جديدة",
+  "Photo": "صورة",
+  "Video": "فيديو",
+  "Audio": "صوت",
+  "File": "ملف",
+  "Location": "موقع",
+  "Sticker": "ملصق",
+  "GIF": "صورة متحركة",
+  "Today": "اليوم",
+  "Yesterday": "أمس",
+  "Now": "الآن",
+  "Just now": "الآن",
+  "Mon": "الاثنين",
+  "Tue": "الثلاثاء",
+  "Wed": "الأربعاء",
+  "Thu": "الخميس",
+  "Fri": "الجمعة",
+  "Sat": "السبت",
+  "Sun": "الأحد",
+  "Moderator": "مشرف",
+  "Owner": "المالك",
+  "Participant": "مشارك",
+  "Understood": "مفهوم",
+  "Looks like something went wrong.\nPlease try again.": "يبدو أن هناك خطأ ما.\nيرجى المحاولة مرة أخرى.",
+  "Recently Used": "المستخدمة مؤخرًا",
+  "Smiley & People": "الوجوه والأشخاص",
+  "Food & Drink": "الطعام والشراب",
+  "Activity": "الأنشطة",
+  "Travel & Places": "السفر والأماكن",
+  "Objects": "الأشياء",
+  "Flags": "الأعلام",
+  "In-store": "في المتجر",
+  "Others": "أخرى",
+  "Design system": "نظام التصميم",
+  "Hello": "مرحبًا",
+  "You've reached the limit. You can add up to {n} options.": "لقد بلغت الحد الأقصى. يمكنك إضافة ما يصل إلى {n} خيارات.",
+  "On my way!": "أنا في الطريق!",
 };
 
 /**
@@ -1463,6 +1587,56 @@ const LOOSE: Record<string, string> = Object.fromEntries(
   Object.entries(AR).map(([en, ar]) => [squash(en), ar])
 );
 
+/**
+ * Timestamps are assembled at runtime ("22 Apr, 01:36 pm", "Yesterday, 9:00 pm"),
+ * so no fixed key can ever match one. Translate the parts instead: month and day
+ * names, the meridiem, and the relative words around them.
+ */
+const DATE_ATOMS: Record<string, string> = {
+  January: "يناير", February: "فبراير", March: "مارس", April: "أبريل",
+  May: "مايو", June: "يونيو", July: "يوليو", August: "أغسطس",
+  September: "سبتمبر", October: "أكتوبر", November: "نوفمبر", December: "ديسمبر",
+  Jan: "يناير", Feb: "فبراير", Mar: "مارس", Apr: "أبريل",
+  Jun: "يونيو", Jul: "يوليو", Aug: "أغسطس", Sep: "سبتمبر",
+  Sept: "سبتمبر", Oct: "أكتوبر", Nov: "نوفمبر", Dec: "ديسمبر",
+  Monday: "الاثنين", Tuesday: "الثلاثاء", Wednesday: "الأربعاء",
+  Thursday: "الخميس", Friday: "الجمعة", Saturday: "السبت", Sunday: "الأحد",
+  Mon: "الاثنين", Tue: "الثلاثاء", Wed: "الأربعاء", Thu: "الخميس",
+  Fri: "الجمعة", Sat: "السبت", Sun: "الأحد",
+  Today: "اليوم", Yesterday: "أمس", Tomorrow: "غدًا",
+  am: "ص", pm: "م", AM: "ص", PM: "م",
+  ago: "مضت", min: "دقيقة", mins: "دقائق", hr: "ساعة", hrs: "ساعات",
+  h: "س", m: "د", d: "ي",
+};
+
+const ATOM_RE = new RegExp(`\\b(${Object.keys(DATE_ATOMS).join("|")})\\b`, "g");
+
+/**
+ * Only fires for strings that actually look like a timestamp — a digit plus at
+ * least one known atom — so ordinary prose is never rewritten piecemeal.
+ */
+const toArabicDateLike = (english: string): string | undefined => {
+  if (!/\d/.test(english)) return undefined;
+  ATOM_RE.lastIndex = 0;
+  if (!ATOM_RE.test(english)) return undefined;
+  ATOM_RE.lastIndex = 0;
+  return english.replace(ATOM_RE, (m) => DATE_ATOMS[m] ?? m);
+};
+
+/**
+ * A sender label arrives as "John:" and a heading as "Type:", so retry once
+ * without the trailing separator and put it back on the Arabic.
+ */
+const toArabicSuffixed = (english: string): string | undefined => {
+  const m = english.match(/^(.*?)(\s*[:：])$/);
+  if (!m) return undefined;
+  const stem = AR[m[1]] ?? LOOSE[squash(m[1])];
+  return stem === undefined ? undefined : stem + m[2];
+};
+
 /** The Arabic rendering for an English string, or undefined if untranslated. */
 export const toArabic = (english: string): string | undefined =>
-  AR[english] ?? LOOSE[squash(english)];
+  AR[english] ??
+  LOOSE[squash(english)] ??
+  toArabicSuffixed(english) ??
+  toArabicDateLike(english);

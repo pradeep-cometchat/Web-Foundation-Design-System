@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { T, useT } from "../../../cometchat-foundation/localization";
 import "./ReactionList.css";
 
 export interface ReactionListItem {
@@ -41,6 +42,7 @@ export function ReactionList({
   onTabChange,
   onItemClick,
 }: ReactionListProps) {
+  const t = useT();
   const [selectedTab, setSelectedTab] = useState(activeTab || tabs[0]?.key || "all");
 
   const handleTabClick = (key: string) => {
@@ -66,7 +68,7 @@ export function ReactionList({
             className={`reaction-list__tab ${selectedTab === tab.key ? "reaction-list__tab--active" : ""}`}
             onClick={() => handleTabClick(tab.key)}
           >
-            {tab.label}
+            <T>{tab.label}</T>
           </button>
         ))}
       </div>
@@ -87,13 +89,13 @@ export function ReactionList({
               {item.avatar ? (
                 <img src={item.avatar} alt={item.name} />
               ) : (
-                <AvatarPlaceholder name={item.name} />
+                <AvatarPlaceholder name={t(item.name)} />
               )}
             </div>
             <div className="reaction-list__text">
-              <span className="reaction-list__name">{item.name}</span>
+              <span className="reaction-list__name"><T>{item.name}</T></span>
               {item.subtitle && (
-                <span className="reaction-list__subtitle">{item.subtitle}</span>
+                <span className="reaction-list__subtitle"><T>{item.subtitle}</T></span>
               )}
             </div>
             <span className="reaction-list__emoji">{item.emoji}</span>

@@ -1,5 +1,5 @@
 import "./TypingIndicator.css";
-import { T } from "../../../cometchat-foundation/localization";
+import { T, useT } from "../../../cometchat-foundation/localization";
 
 /** Activity type being performed. */
 export type TypingActivity = "typing" | "recording" | "uploading";
@@ -22,24 +22,20 @@ function getActivityText(
   activity: TypingActivity,
   context: TypingContext,
   userName: string,
-  count: number
+  count: number,
+  t: (english: string) => string
 ): string {
-  const activityVerb =
-    activity === "typing" ? "typing" :
-    activity === "recording" ? "recording" :
-    "uploading";
-
   if (context === "single") {
     // Capitalize first letter
-    return activityVerb.charAt(0).toUpperCase() + activityVerb.slice(1);
+    return t(activity.charAt(0).toUpperCase() + activity.slice(1));
   }
 
   if (context === "group") {
-    return `${userName} is ${activityVerb}`;
+    return t(`{name} is ${activity}`).replace("{name}", t(userName));
   }
 
   // multiple
-  return `${count} people are ${activityVerb}`;
+  return t(`{count} people are ${activity}`).replace("{count}", String(count));
 }
 
 export function TypingIndicator({
@@ -48,7 +44,8 @@ export function TypingIndicator({
   userName = "John",
   count = 2,
 }: TypingIndicatorProps) {
-  const text = getActivityText(activity, context, userName, count);
+  const t = useT();
+  const text = getActivityText(activity, context, userName, count, t);
 
   return (
     <div className="typing-indicator" role="status" aria-live="polite" aria-label={text}>
@@ -57,7 +54,7 @@ export function TypingIndicator({
         <span className="typing-indicator__dot" />
         <span className="typing-indicator__dot" />
       </div>
-      <span className="typing-indicator__text"><T><T>{text}</T></T></span>
+      <span className="typing-indicator__text"><T>{text}</T></span>
     </div>
   );
 }

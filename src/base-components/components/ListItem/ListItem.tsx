@@ -71,7 +71,7 @@ export const ListItem: React.FC<ListItemProps> = ({
       </div>
 
       <div className="list-item__content">
-        <div className="list-item__title"><T><T>{title}</T></T></div>
+        <div className="list-item__title"><T>{title}</T></div>
         {subtitle && (
           <div className="list-item__subtitle">
             {subtitleIcon && (
@@ -79,7 +79,7 @@ export const ListItem: React.FC<ListItemProps> = ({
                 {subtitleIcon}
               </span>
             )}
-            <span className="list-item__subtitle-text"><T><T>{subtitle}</T></T></span>
+            <span className="list-item__subtitle-text"><T>{subtitle}</T></span>
           </div>
         )}
       </div>

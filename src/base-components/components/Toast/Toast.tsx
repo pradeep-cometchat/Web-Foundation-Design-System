@@ -34,7 +34,7 @@ export function Toast({
   return (
     <div className="toast" role="status" aria-live="polite">
       <div className="toast__content">
-        <span className="toast__message"><T><T>{message}</T></T></span>
+        <span className="toast__message"><T>{message}</T></span>
       </div>
     </div>
   );

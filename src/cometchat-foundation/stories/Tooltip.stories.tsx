@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { useIsRTL } from "../localization";
+import { T, useIsRTL } from "../localization";
 import { Tooltip } from "../components/Tooltip/Tooltip.impl";
 import type { TooltipArrow } from "../components/Tooltip/Tooltip.types";
 
@@ -177,7 +177,7 @@ function TriggerBtn({ label = "Hover me", icon }: { label?: string; icon?: strin
           {icon}
         </span>
       )}
-      {label}
+      <T>{label}</T>
     </button>
   );
 }
@@ -284,7 +284,7 @@ function StaticTooltip({
           lineHeight: "18px",
         }}
       >
-        {title}
+        <T>{title}</T>
       </div>
       {supportingText && (
         <div
@@ -298,7 +298,7 @@ function StaticTooltip({
             opacity: 0.9,
           }}
         >
-          {supportingText}
+          <T>{supportingText}</T>
         </div>
       )}
     </div>
@@ -323,7 +323,7 @@ function StaticTooltip({
           marginBottom: "var(--cometchat-spacing-1)",
         }}
       >
-        {label}
+        <T>{label}</T>
       </span>
       {side ? (
         <div style={{ display: "flex", alignItems: "center", gap: 0 }}>
@@ -363,7 +363,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
           marginBottom: "var(--cometchat-spacing-3)",
         }}
       >
-        {title}
+        <T>{title}</T>
       </div>
       {children}
     </div>
@@ -506,7 +506,9 @@ export const Usage: Story = {
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
-      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>
+        <T>{title}</T>
+      </div>
       {children}
     </div>
   );
@@ -528,8 +530,12 @@ function CodeCard({ language, code }: { language: string; code: string }) {
 function StateCard({ title, description }: { title: string; description: string }) {
   return (
     <div style={{ padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
-      <strong style={{ fontSize: "14px", fontWeight: "600", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>{title}</strong>
-      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "18px" }}>{description}</span>
+      <strong style={{ fontSize: "14px", fontWeight: "600", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>
+        <T>{title}</T>
+      </strong>
+      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "18px" }}>
+        <T>{description}</T>
+      </span>
     </div>
   );
 }

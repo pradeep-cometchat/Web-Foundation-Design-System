@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { T } from "../../../../cometchat-foundation/localization";
+import { T, useT } from "../../../../cometchat-foundation/localization";
 import "./InfoSelectionDialog.css";
 
 export type InfoSelectionDialogVariant = "messageInfo" | "addMembers" | "transferOwnership" | "alert";
@@ -132,8 +132,8 @@ function AlertContent({
         </div>
       </div>
       <div className="info-dialog__alert-text">
-        <div className="info-dialog__alert-title"><T><T>{title}</T></T></div>
-        <div className="info-dialog__alert-description"><T><T>{description}</T></T></div>
+        <div className="info-dialog__alert-title"><T>{title}</T></div>
+        <div className="info-dialog__alert-description"><T>{description}</T></div>
       </div>
       <div className="info-dialog__alert-actions">
         <button
@@ -179,18 +179,18 @@ function MessageInfoContent({
                 {user.avatar ? (
                   <img src={user.avatar} alt={user.name} />
                 ) : (
-                  <span>{user.name.charAt(0)}</span>
+                  <span><T>{user.name.charAt(0)}</T></span>
                 )}
               </div>
               <div className="info-dialog__group-info-content">
-                <div className="info-dialog__group-info-name">{user.name}</div>
+                <div className="info-dialog__group-info-name"><T>{user.name}</T></div>
                 <div className="info-dialog__group-info-row">
                   <span className="info-dialog__group-info-label"><T>Read</T></span>
-                  <span className="info-dialog__group-info-time">{user.readTimestamp || "---"}</span>
+                  <span className="info-dialog__group-info-time"><T>{user.readTimestamp || "---"}</T></span>
                 </div>
                 <div className="info-dialog__group-info-row">
                   <span className="info-dialog__group-info-label"><T>Delivered</T></span>
-                  <span className="info-dialog__group-info-time">{user.deliveredTimestamp || "---"}</span>
+                  <span className="info-dialog__group-info-time"><T>{user.deliveredTimestamp || "---"}</T></span>
                 </div>
               </div>
             </div>
@@ -201,8 +201,8 @@ function MessageInfoContent({
           {items?.map((item, i) => (
             <div key={i} className="info-dialog__info-section">
               <div className="info-dialog__info-item">
-                <span className="info-dialog__info-label">{item.label}</span>
-                <span className="info-dialog__info-value">{item.timestamp}</span>
+                <span className="info-dialog__info-label"><T>{item.label}</T></span>
+                <span className="info-dialog__info-value"><T>{item.timestamp}</T></span>
               </div>
             </div>
           ))}
@@ -216,12 +216,13 @@ function MessageInfoContent({
 function MemberSelectionContent({ members, selectionType = "checkbox" }: { members?: MemberItem[]; selectionType?: "checkbox" | "radio" }) {
   const defaultSelected = members?.findIndex((m) => m.selected) ?? -1;
   const [selectedIndex, setSelectedIndex] = useState(defaultSelected >= 0 ? defaultSelected : -1);
+  const t = useT();
 
   return (
     <div className="info-dialog__body">
       <div className="info-dialog__search">
         <SearchIcon />
-        <input type="text" className="info-dialog__search-input" placeholder="Search" />
+        <input type="text" className="info-dialog__search-input" placeholder={t("Search")} />
       </div>
       <div className="info-dialog__member-list">
         {members?.map((member, i) => (
@@ -246,17 +247,17 @@ function MemberSelectionContent({ members, selectionType = "checkbox" }: { membe
                 <img src={member.avatar} alt={member.name} />
               ) : (
                 <div className="info-dialog__member-avatar-fallback">
-                  {member.name.slice(0, 2).toUpperCase()}
+                  {t(member.name).slice(0, 2).toUpperCase()}
                 </div>
               )}
             </div>
             <div className="info-dialog__member-info">
-              <span className="info-dialog__member-name">{member.name}</span>
-              {member.status && !member.role && <span className="info-dialog__member-status">{member.status}</span>}
+              <span className="info-dialog__member-name"><T>{member.name}</T></span>
+              {member.status && !member.role && <span className="info-dialog__member-status"><T>{member.status}</T></span>}
             </div>
             {member.role && (
               <span className={`info-dialog__member-role info-dialog__member-role--${member.role.toLowerCase()}`}>
-                {member.role}
+                <T>{member.role}</T>
               </span>
             )}
           </div>
@@ -308,7 +309,7 @@ export function InfoSelectionDialog({
       <div className="info-dialog" role="dialog" aria-modal="true" aria-labelledby="info-dialog-title">
         {/* Header */}
         <div className="info-dialog__header">
-          <div className="info-dialog__title" id="info-dialog-title">{config.title}</div>
+          <div className="info-dialog__title" id="info-dialog-title"><T>{config.title}</T></div>
           <button type="button" className="info-dialog__close" onClick={onClose} aria-label="Close">
             <CloseIcon />
           </button>
@@ -334,7 +335,7 @@ export function InfoSelectionDialog({
               <T>Cancel</T>
             </button>
             <button type="button" className="info-dialog__btn info-dialog__btn--submit" onClick={onConfirm}>
-              {config.submitLabel}
+              <T>{config.submitLabel}</T>
             </button>
           </div>
         )}

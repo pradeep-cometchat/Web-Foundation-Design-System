@@ -1,5 +1,6 @@
 import React from "react";
 import type { TooltipProps } from "./Tooltip.types";
+import { T } from "../../localization";
 import "./Tooltip.css";
 
 /**
@@ -35,9 +36,9 @@ export const Tooltip: React.FC<TooltipProps> = ({
       {children}
       <div className={tooltipClasses} role="tooltip">
         <div className="tooltip__content">
-          <div className="tooltip__title">{title}</div>
+          <div className="tooltip__title"><T>{title}</T></div>
           {supportingText && (
-            <div className="tooltip__supporting">{supportingText}</div>
+            <div className="tooltip__supporting"><T>{supportingText}</T></div>
           )}
         </div>
         {arrow !== "none" && <span className="tooltip__arrow" />}

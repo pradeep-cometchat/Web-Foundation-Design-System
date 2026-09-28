@@ -107,7 +107,7 @@ export function ThreadView({
       {/* Header */}
       <div className="thread-view__header">
         <div className="thread-view__header-text">
-          <div className="thread-view__title"><T><T>{title}</T></T></div>
+          <div className="thread-view__title"><T>{title}</T></div>
         </div>
         <div className="thread-view__header-actions">
           <button type="button" className="thread-view__header-btn" onClick={onClose} aria-label="Close">

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { T } from "../../../../cometchat-foundation/localization";
+import { T, useT } from "../../../../cometchat-foundation/localization";
 import "./FormDialog.css";
 
 export type FormDialogVariant = "createGroup" | "joinGroup";
@@ -30,6 +30,7 @@ function CloseIcon() {
 /* ─── Create Group Form ─── */
 function CreateGroupForm({ initialGroupType = "public" }: { initialGroupType?: GroupType }) {
   const [groupType, setGroupType] = useState<GroupType>(initialGroupType);
+  const t = useT();
 
   return (
     <div className="form-dialog__body">
@@ -67,7 +68,7 @@ function CreateGroupForm({ initialGroupType = "public" }: { initialGroupType?: G
           <span className="form-dialog__label"><T>Group Name</T></span>
           <span className="form-dialog__required">*</span>
         </div>
-        <input type="text" className="form-dialog__input" placeholder="Enter group name" />
+        <input type="text" className="form-dialog__input" placeholder={t("Enter group name")} />
       </div>
 
       {/* Password Field (only for Protected type) */}
@@ -77,7 +78,7 @@ function CreateGroupForm({ initialGroupType = "public" }: { initialGroupType?: G
             <span className="form-dialog__label"><T>Password</T></span>
             <span className="form-dialog__required">*</span>
           </div>
-          <input type="password" className="form-dialog__input" placeholder="Enter group password" />
+          <input type="password" className="form-dialog__input" placeholder={t("Enter group password")} />
         </div>
       )}
     </div>
@@ -86,6 +87,7 @@ function CreateGroupForm({ initialGroupType = "public" }: { initialGroupType?: G
 
 /* ─── Join Group Form ─── */
 function JoinGroupForm() {
+  const t = useT();
   return (
     <div className="form-dialog__body">
       <div className="form-dialog__profile">
@@ -106,7 +108,7 @@ function JoinGroupForm() {
           <span className="form-dialog__required">*</span>
         </div>
         <div className="form-dialog__input-wrap">
-          <input type="password" className="form-dialog__input form-dialog__input--with-icon" placeholder="Enter password" />
+          <input type="password" className="form-dialog__input form-dialog__input--with-icon" placeholder={t("Enter password")} />
           <button type="button" className="form-dialog__input-icon" aria-label="Toggle password visibility">
             <span className="icon-outlined" style={{ fontSize: 20, fontFamily: "var(--cometchat-font-family)", color: "var(--cometchat-icon-color-tertiary)" }}>
               visibility_off
@@ -139,7 +141,7 @@ export function FormDialog({
       <div className="form-dialog" role="dialog" aria-modal="true" aria-labelledby="form-dialog-title">
         {/* Header */}
         <div className="form-dialog__header">
-          <div className="form-dialog__title" id="form-dialog-title">{config.title}</div>
+          <div className="form-dialog__title" id="form-dialog-title"><T>{config.title}</T></div>
           <button type="button" className="form-dialog__close" onClick={onCancel} aria-label="Close">
             <CloseIcon />
           </button>
@@ -155,7 +157,7 @@ export function FormDialog({
             <T>Cancel</T>
           </button>
           <button type="button" className="form-dialog__btn form-dialog__btn--submit" onClick={onSubmit}>
-            {config.submitLabel}
+            <T>{config.submitLabel}</T>
           </button>
         </div>
       </div>

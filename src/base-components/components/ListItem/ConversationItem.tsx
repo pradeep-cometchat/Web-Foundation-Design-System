@@ -1,5 +1,5 @@
 import React from "react";
-import { T } from "../../../cometchat-foundation/localization";
+import { T, useT } from "../../../cometchat-foundation/localization";
 import "./ConversationItem.css";
 
 export type ConversationItemState = "default" | "hover" | "pressed";
@@ -131,15 +131,16 @@ interface AvatarPartProps {
 }
 
 const Avatar: React.FC<AvatarPartProps> = ({ variant, url, icon, text, title, status }) => {
+  const t = useT();
   return (
     <div className="conversation-item__avatar">
       {variant === "image" && url && <img src={url} alt={title} />}
       {variant === "image" && !url && (
-        <span className="conversation-item__avatar-fallback">{title.charAt(0)}</span>
+        <span className="conversation-item__avatar-fallback"><T>{title.charAt(0)}</T></span>
       )}
       {variant === "text" && (
         <span className="conversation-item__avatar-fallback">
-          {(text ?? title).slice(0, 2).toUpperCase()}
+          {t(text ?? title).slice(0, 2).toUpperCase()}
         </span>
       )}
       {variant === "icon" && (
@@ -224,12 +225,12 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
       <div className="conversation-item__content">
         {/* Header */}
         <div className="conversation-item__header">
-          <div className="conversation-item__title"><T><T>{title}</T></T></div>
+          <div className="conversation-item__title"><T>{title}</T></div>
           {timestamp && (
             <div
               className={`conversation-item__timestamp conversation-item__timestamp--${dateType}`}
             >
-              {timestamp}
+              <T>{timestamp}</T>
             </div>
           )}
         </div>
@@ -266,7 +267,7 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
                 </span>
                 {showTypeLabel && (
                   <span className="conversation-item__type-label">
-                    {messageTypeLabelText[messageType]}
+                    <T>{messageTypeLabelText[messageType]}</T>
                   </span>
                 )}
               </span>

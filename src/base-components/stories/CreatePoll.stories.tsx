@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { T } from "../../cometchat-foundation/localization";
+import { T, useT } from "../../cometchat-foundation/localization";
 import { CreatePoll } from "../components/CreatePoll";
 
 /**
@@ -168,6 +168,7 @@ export const Playground: StoryObj<typeof CreatePoll> = {
 /* ─── Demo components for pre-filled states ─── */
 
 function FilledDemo() {
+  const t = useT();
   return (
     <div className="create-poll">
       <div className="create-poll__header">
@@ -179,7 +180,7 @@ function FilledDemo() {
       <div className="create-poll__body">
         <div className="create-poll__section">
           <label className="create-poll__label"><T>Question</T></label>
-          <input type="text" className="create-poll__question-input" defaultValue="How do you prefer to shop?" readOnly />
+          <input type="text" className="create-poll__question-input" value={t("How do you prefer to shop?")} placeholder={t("Ask a question")} readOnly />
         </div>
         <div className="create-poll__section">
           <OptionRowDemo value="Online" />
@@ -202,6 +203,7 @@ function FilledDemo() {
 }
 
 function ValidationErrorDemo() {
+  const t = useT();
   return (
     <div className="create-poll">
       <div className="create-poll__header">
@@ -213,7 +215,7 @@ function ValidationErrorDemo() {
       <div className="create-poll__body">
         <div className="create-poll__section">
           <label className="create-poll__label"><T>Question</T></label>
-          <input type="text" className="create-poll__question-input" defaultValue="How do you prefer to shop?" readOnly />
+          <input type="text" className="create-poll__question-input" value={t("How do you prefer to shop?")} placeholder={t("Ask a question")} readOnly />
         </div>
         <div className="create-poll__section">
           <OptionRowDemo value="Online" />
@@ -242,6 +244,7 @@ function ValidationErrorDemo() {
 }
 
 function MaxOptionsDemo() {
+  const t = useT();
   return (
     <div className="create-poll">
       <div className="create-poll__header">
@@ -253,7 +256,7 @@ function MaxOptionsDemo() {
       <div className="create-poll__body">
         <div className="create-poll__section">
           <label className="create-poll__label"><T>Question</T></label>
-          <input type="text" className="create-poll__question-input" defaultValue="How do you prefer to shop?" readOnly />
+          <input type="text" className="create-poll__question-input" value={t("How do you prefer to shop?")} placeholder={t("Ask a question")} readOnly />
         </div>
         <div className="create-poll__section">
           <OptionRowDemo value="Online" />
@@ -280,13 +283,14 @@ function MaxOptionsDemo() {
 }
 
 function OptionRowDemo({ value }: { value: string }) {
+  const t = useT();
   return (
     <div className="create-poll__option-row">
       <button type="button" className="create-poll__drag" tabIndex={-1}>
         <svg viewBox="0 0 24 24" fill="none"><path d="M3 8H21M3 16H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
       </button>
       <div className="create-poll__option-field">
-        <input type="text" className="create-poll__option-input" defaultValue={value} placeholder="Option" readOnly />
+        <input type="text" className="create-poll__option-input" value={t(value)} placeholder={t("Option")} readOnly />
         <button type="button" className="create-poll__emoji-btn" tabIndex={-1}>
           <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/><path d="M8.5 14.5C9.33 15.33 10.67 16 12 16C13.33 16 14.67 15.33 15.5 14.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
         </button>
@@ -315,7 +319,7 @@ const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language,
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T><T>{title}</T></T></div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T>{title}</T></div>
       {children}
     </div>
   );
