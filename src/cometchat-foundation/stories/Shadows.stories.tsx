@@ -103,7 +103,7 @@ const Stat: React.FC<{
   <div
     style={{
       padding: "16px 20px",
-      borderLeft: divider
+      borderInlineStart: divider
         ? "1px solid var(--cometchat-border-color-default)"
         : "none",
       background: "var(--cometchat-background-color-01)",

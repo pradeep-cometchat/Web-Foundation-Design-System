@@ -1,4 +1,6 @@
 import { useState, useMemo } from "react";
+import { Icon } from "../components/Icon";
+import { useIsRTL } from "../localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import { PageHeader } from "../components/PageHeader";
 import { Section } from "../components/Section";
@@ -55,6 +57,7 @@ function SizeBar({ size, onChange }: { size: IconSize; onChange: (s: IconSize) =
 /* ─── Browse All ───────────────────────────────────────────────────────────── */
 
 function BrowseAll() {
+  const isRTL = useIsRTL();
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<MiscIconCategory | "All">("All");
   const [size, setSize] = useState<IconSize>(24);
@@ -73,14 +76,14 @@ function BrowseAll() {
       <SizeBar size={size} onChange={setSize} />
       <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--cometchat-spacing-3)", marginBottom: 20, alignItems: "center" }}>
         <div style={{ position: "relative", flex: "1 1 260px", minWidth: 220 }}>
-          <span aria-hidden style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "var(--cometchat-icon-color-tertiary)", fontSize: "14px" }}>⌕</span>
-          <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search icons" style={{ width: "100%", fontSize: "12px", padding: "8px 12px 8px 32px", borderRadius: "var(--cometchat-radius-2)", border: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-static-white)", outline: "none", fontFamily: "inherit", color: "var(--cometchat-text-color-primary)" }} />
+          <span aria-hidden style={{ position: "absolute", insetInlineStart: 12, top: "50%", transform: "translateY(-50%)", color: "var(--cometchat-icon-color-tertiary)", fontSize: "14px" }}><Icon name="search" variant="rounded" size={18} ariaLabel="" /></span>
+          <input type="search" dir="ltr" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search icons" style={{ width: "100%", fontSize: "12px", paddingBlock: "8px", /* Physical, not logical: dir="ltr" pins this element's inline axis. */ paddingLeft: isRTL ? "12px" : "32px", paddingRight: isRTL ? "32px" : "12px", textAlign: isRTL ? "right" : "left", borderRadius: "var(--cometchat-radius-2)", border: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-static-white)", outline: "none", fontFamily: "inherit", color: "var(--cometchat-text-color-primary)" }} />
         </div>
         <select value={category} onChange={(e) => setCategory(e.target.value as any)} style={{ fontSize: "12px", padding: "8px 12px", borderRadius: "var(--cometchat-radius-2)", border: "1px solid var(--cometchat-border-color-default)", background: "var(--cometchat-static-white)", color: "var(--cometchat-text-color-primary)", fontFamily: "inherit", cursor: "pointer" }}>
           <option value="All">All categories</option>
           {miscIconCategories.map((c) => <option key={c} value={c}>{c}</option>)}
         </select>
-        <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-secondary)", marginLeft: "auto" }}>{totalShown} icons</span>
+        <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-secondary)", marginInlineStart: "auto" }}>{totalShown} icons</span>
       </div>
       {filtered.map(({ category: cat, items }) => (
         <Section key={cat} title={cat} description={`${items.length} icons`}>

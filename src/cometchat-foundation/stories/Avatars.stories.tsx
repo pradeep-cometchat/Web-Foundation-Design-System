@@ -1,4 +1,6 @@
 import { useState, useMemo } from "react";
+import { Icon } from "../components/Icon";
+import { useIsRTL } from "../localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import { PageHeader } from "../components/PageHeader";
 import { Section } from "../components/Section";
@@ -75,6 +77,7 @@ function AvatarGrid({ category }: { category: AvatarCategory }) {
 }
 
 function AllAvatars() {
+  const isRTL = useIsRTL();
   const [query, setQuery] = useState("");
 
   const allowedCategories = avatarCategories.filter(
@@ -117,24 +120,24 @@ function AllAvatars() {
             aria-hidden
             style={{
               position: "absolute",
-              left: 12,
+              insetInlineStart: 12,
               top: "50%",
               transform: "translateY(-50%)",
               color: "var(--color-neutral-400)",
               fontSize: "14px",
             }}
           >
-            ⌕
+            <Icon name="search" variant="rounded" size={18} ariaLabel="" />
           </span>
           <input
-            type="search"
+            type="search" dir="ltr"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search avatars and media"
             style={{
               width: "100%",
               fontSize: "12px",
-              padding: "8px 12px 8px 32px",
+              paddingBlock: "8px", /* Physical, not logical: dir="ltr" pins this element's inline axis. */ paddingLeft: isRTL ? "12px" : "32px", paddingRight: isRTL ? "32px" : "12px", textAlign: isRTL ? "right" : "left",
               borderRadius: "var(--cometchat-radius-2)",
               border: "1px solid var(--cometchat-neutral-color-200)",
               background: "var(--cometchat-static-white)",

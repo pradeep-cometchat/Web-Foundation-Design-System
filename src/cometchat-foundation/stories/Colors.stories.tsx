@@ -334,6 +334,6 @@ function ColorCell({ color }: { color: string }) {
   );
 }
 
-const th: React.CSSProperties = { padding: "var(--cometchat-spacing-3) var(--cometchat-spacing-4)", fontWeight: "600", fontSize: "10px", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-secondary)", borderBottom: "1px solid var(--cometchat-border-color-default)", textAlign: "left", whiteSpace: "nowrap" };
+const th: React.CSSProperties = { padding: "var(--cometchat-spacing-3) var(--cometchat-spacing-4)", fontWeight: "600", fontSize: "10px", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--cometchat-text-color-secondary)", borderBottom: "1px solid var(--cometchat-border-color-default)", textAlign: "start", whiteSpace: "nowrap" };
 const td: React.CSSProperties = { padding: "var(--cometchat-spacing-3) var(--cometchat-spacing-4)", verticalAlign: "middle", borderBottom: "1px solid var(--cometchat-border-color-light)" };
 const code: React.CSSProperties = { fontFamily: "var(--cometchat-font-family)", fontSize: "12px", color: "var(--cometchat-text-color-primary)", background: "var(--cometchat-background-color-03)", padding: "var(--cometchat-spacing) var(--cometchat-spacing-2)", borderRadius: "var(--cometchat-radius-1)", border: "1px solid var(--cometchat-border-color-default)" };

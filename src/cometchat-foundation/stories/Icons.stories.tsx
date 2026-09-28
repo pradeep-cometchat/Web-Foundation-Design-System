@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { T } from "../localization";
+import { T, useIsRTL } from "../localization";
 import { PageHeader } from "../components/PageHeader";
 import { Section } from "../components/Section";
 import { Callout } from "../components/Callout";
@@ -173,7 +173,7 @@ const Stat: React.FC<{
   <div
     style={{
       padding: "14px 16px",
-      borderLeft: divider ? "1px solid var(--cometchat-neutral-color-200)" : "none",
+      borderInlineStart: divider ? "1px solid var(--cometchat-neutral-color-200)" : "none",
     }}
   >
     <div
@@ -313,6 +313,7 @@ export const Browse: StoryObj = {
 };
 
 function BrowseView() {
+  const isRTL = useIsRTL();
   const {
     query,
     setQuery,
@@ -358,23 +359,23 @@ function BrowseView() {
             aria-hidden
             style={{
               position: "absolute",
-              left: 12,
+              insetInlineStart: 12,
               top: "50%",
               transform: "translateY(-50%)",
               color: "var(--color-neutral-400)",
             }}
           >
-            ⌕
+            <Icon name="search" variant="rounded" size={18} ariaLabel="" />
           </span>
           <input
-            type="search"
+            type="search" dir="ltr"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search icons"
             style={{
               width: "100%",
               fontSize: "12px",
-              padding: "8px 12px 8px 32px",
+              paddingBlock: "8px", /* Physical, not logical: dir="ltr" pins this element's inline axis. */ paddingLeft: isRTL ? "12px" : "32px", paddingRight: isRTL ? "32px" : "12px", textAlign: isRTL ? "right" : "left",
               borderRadius: "var(--cometchat-radius-2)",
               border: "1px solid var(--cometchat-neutral-color-200)",
               background: "var(--cometchat-static-white)",
@@ -429,7 +430,7 @@ function BrowseView() {
           style={{
             fontSize: "12px",
             color: "var(--cometchat-neutral-color-600)",
-            marginLeft: "auto",
+            marginInlineStart: "auto",
           }}
         >
           {totalShown} icon{totalShown === 1 ? "" : "s"}
@@ -559,6 +560,34 @@ const IconTile: React.FC<{
     </button>
   );
 };
+
+/**
+ * "<Variant> · <fill state>" column header.
+ *
+ * Each part is isolated. The separator especially: a bare "·" between a Latin
+ * run and an Arabic one is a neutral character, so without isolation the bidi
+ * algorithm resolves it to the paragraph direction and parks it on the far side
+ * of the variant name instead of between the two.
+ */
+function VariantHeader({
+  variant,
+  children,
+}: {
+  variant: IconVariant;
+  children: React.ReactNode;
+}) {
+  const iso = { unicodeBidi: "isolate" as const };
+  return (
+    <>
+      {/* The variant label is the font's own name — never translated. */}
+      <span dir="ltr" style={iso}>
+        {iconVariantLabel[variant]}
+      </span>
+      <span style={iso}> · </span>
+      <span style={iso}>{children}</span>
+    </>
+  );
+}
 
 function SegmentedControl<T extends string | number>({
   value,
@@ -691,14 +720,16 @@ export const Variants: StoryObj = {
                 </th>
                 {iconVariants.map((v) => (
                   <th key={`${v}-o`} style={th}>
-                    {/* The variant label is the font's own name — never translated. */}
-                    <span dir="ltr">{iconVariantLabel[v]}</span> ·{" "}
-                    <T>outlined</T>
+                    <VariantHeader variant={v}>
+                      <T>outlined</T>
+                    </VariantHeader>
                   </th>
                 ))}
                 {iconVariants.map((v) => (
                   <th key={`${v}-f`} style={th}>
-                    <span dir="ltr">{iconVariantLabel[v]}</span> · <T>filled</T>
+                    <VariantHeader variant={v}>
+                      <T>filled</T>
+                    </VariantHeader>
                   </th>
                 ))}
               </tr>
@@ -941,7 +972,7 @@ const th: React.CSSProperties = {
   textTransform: "uppercase",
   color: "var(--cometchat-neutral-color-600)",
   borderBottom: "1px solid var(--cometchat-neutral-color-200)",
-  textAlign: "left",
+  textAlign: "start",
 };
 
 const td: React.CSSProperties = {

@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
+import { Icon } from "./Icon";
 import { CopyButton } from "./CopyButton";
-import { T, useT } from "../localization";
+import { T, useT, useIsRTL } from "../localization";
 
 export type TokenRow = {
   name: string;
@@ -28,6 +29,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
   const [query, setQuery] = useState("");
   const [hovered, setHovered] = useState<string | null>(null);
   const t = useT();
+  const isRTL = useIsRTL();
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -83,7 +85,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                   lineHeight: 1,
                 }}
               >
-                ⌕
+                <Icon name="search" variant="rounded" size={18} ariaLabel="" />
               </span>
               <input
                 type="search"
@@ -91,14 +93,23 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={t("Search tokens")}
                 // Token names, CSS variables and hex values are Latin
-                // identifiers, so the field's content stays LTR even in Arabic.
+                // identifiers, so the field's content stays LTR even in Arabic
+                // — otherwise a query starting `--` has its dashes thrown to
+                // the far end. That fixes the field's own inline axis to LTR,
+                // so its padding and alignment are driven from the page
+                // direction instead, keeping the glyph and the text gap
+                // mirrored together.
                 dir="ltr"
                 style={{
                   width: "100%",
                   fontSize: "12px",
                   paddingBlock: "8px",
-                  paddingInlineStart: "32px",
-                  paddingInlineEnd: "12px",
+                  // Physical, not logical: dir="ltr" above pins this element's
+                  // own inline axis, so logical props here would resolve LTR
+                  // and land opposite the glyph.
+                  paddingLeft: isRTL ? "12px" : "32px",
+                  paddingRight: isRTL ? "32px" : "12px",
+                  textAlign: isRTL ? "right" : "left",
                   borderRadius: "var(--cometchat-radius-2)",
                   border: "1px solid var(--cometchat-border-color-default)",
                   background: "var(--cometchat-background-color-01)",
@@ -138,7 +149,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
           }}
         >
           <thead>
-            <tr style={{ background: "var(--cometchat-background-color-02)", textAlign: "left" }}>
+            <tr style={{ background: "var(--cometchat-background-color-02)", textAlign: "start" }}>
               <th style={th}>
                 <T>{previewHeader}</T>
               </th>

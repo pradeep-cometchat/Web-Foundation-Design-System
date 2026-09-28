@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { T } from "../localization";
 import React from "react";
 import { avatarRegistry } from "../tokens/avatars";
 import "../tokens/cometchat-tokens.css";
@@ -30,7 +31,7 @@ export const StickerCatalog: StoryObj = {
   render: () => (
     <div style={{ maxWidth: 800, margin: "0 auto" }}>
       <div style={headerStyle}>
-        <h2 style={titleStyle}>Sticker Footage</h2>
+        <h2 style={titleStyle}><T>Sticker Footage</T></h2>
         <p style={descStyle}>
           Illustrated character stickers for chat messages. These are pre-rendered PNG assets served from the design system CDN.
         </p>
@@ -68,7 +69,7 @@ export const StickerSizes: StoryObj = {
   render: () => (
     <div style={{ maxWidth: 800, margin: "0 auto" }}>
       <div style={headerStyle}>
-        <h2 style={titleStyle}>Sticker Sizes</h2>
+        <h2 style={titleStyle}><T>Sticker Sizes</T></h2>
         <p style={descStyle}>
           Stickers can be rendered at different sizes depending on context.
         </p>
@@ -253,7 +254,7 @@ const sizeLabelStyle: React.CSSProperties = {
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
-      <div style={{ fontSize: "12px", fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase" as const, letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase" as const, letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}><T>{title}</T></div>
       {children}
     </div>
   );
@@ -275,8 +276,8 @@ function CodeCard({ language, code }: { language: string; code: string }) {
 function StateCard({ title, description }: { title: string; description: string }) {
   return (
     <div style={{ padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
-      <strong style={{ fontSize: "14px", fontWeight: 600, color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>{title}</strong>
-      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "18px" }}>{description}</span>
+      <strong style={{ fontSize: "14px", fontWeight: 600, color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}><T>{title}</T></strong>
+      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "18px" }}><T>{description}</T></span>
     </div>
   );
 }

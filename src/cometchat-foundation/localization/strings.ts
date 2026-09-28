@@ -133,6 +133,23 @@ export const AR: Readonly<Record<string, string>> = {
   "Primary, Extended Primary (50–900), Neutrals (50–900), Alert colors, Static colors, plus semantic Background/Border/Text/Icon tokens.":
     "الألوان الأساسية، والأساسية الموسّعة (50–900)، والمحايدة (50–900)، وألوان التنبيهات، والألوان الثابتة، إضافةً إلى الرموز الدلالية للخلفيات والحدود والنصوص والأيقونات.",
 
+  /* ─── Stickers ─── */
+  "Sticker Footage": "أصول الملصقات",
+  "Sticker Sizes": "أحجام الملصقات",
+  "Token Source": "مصدر الرمز",
+  "HTML Structure": "بنية HTML",
+  Specifications: "المواصفات",
+  Format: "الصيغة",
+  Source: "المصدر",
+  Sizes: "الأحجام",
+  "Chat Bubble": "فقاعة المحادثة",
+  "Picker Grid": "شبكة الاختيار",
+  Count: "العدد",
+  "Stickers render without bubble background — just the image + timestamp.":
+    "تُعرض الملصقات دون خلفية فقاعة — الصورة والطابع الزمني فقط.",
+  "sm: 48px, md: 80px, lg: 120px (chat bubble), xl: 160px (preview).":
+    "sm: 48px، md: 80px، lg: 120px (فقاعة المحادثة)، xl: 160px (المعاينة).",
+
   /* ─── Token table chrome ─── */
   "Search tokens": "ابحث في الرموز",
   Token: "الرمز",

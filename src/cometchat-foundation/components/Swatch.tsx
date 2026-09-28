@@ -60,7 +60,7 @@ export const Swatch: React.FC<SwatchProps> = ({
             style={{
               position: "absolute",
               top: 10,
-              right: 10,
+              insetInlineEnd: 10,
               fontSize: "10px",
               fontWeight: "700",
               letterSpacing: "0.04em",
