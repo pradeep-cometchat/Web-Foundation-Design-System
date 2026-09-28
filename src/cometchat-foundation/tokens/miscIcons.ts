@@ -1,7 +1,406 @@
 /**
  * Miscellaneous icons — Social, File Type, Country Flags, Featured Icons.
- * All exported as SVG from Figma.
+ *
+ * These previously hotlinked Figma's CDN (figma-alpha-api.s3), whose signed
+ * URLs expired and returned 403 — every icon on the Misc Icons page broke.
+ * All 404 are now committed under ../misc-icons and imported locally.
+ *
+ * Sources:
+ *  - File Type (sized)  exported from the design system, node 746:4933
+ *  - Social             simple-icons, tinted brand / neutral-600 per variant
+ *  - Country Flags      circle-flags
+ *  - Featured / badges  generated from Foundation tokens
  */
+
+import icSocialBrandAngellist from "../misc-icons/social-brand/angellist.svg";
+import icSocialBrandApple from "../misc-icons/social-brand/apple.svg";
+import icSocialBrandClubhouse from "../misc-icons/social-brand/clubhouse.svg";
+import icSocialBrandDiscord from "../misc-icons/social-brand/discord.svg";
+import icSocialBrandDribbble from "../misc-icons/social-brand/dribbble.svg";
+import icSocialBrandFacebook from "../misc-icons/social-brand/facebook.svg";
+import icSocialBrandFigma from "../misc-icons/social-brand/figma.svg";
+import icSocialBrandFramer from "../misc-icons/social-brand/framer.svg";
+import icSocialBrandGithub from "../misc-icons/social-brand/github.svg";
+import icSocialBrandGoogle from "../misc-icons/social-brand/google.svg";
+import icSocialBrandInstagram from "../misc-icons/social-brand/instagram.svg";
+import icSocialBrandLayers from "../misc-icons/social-brand/layers.svg";
+import icSocialBrandLinkedin from "../misc-icons/social-brand/linkedin.svg";
+import icSocialBrandNotion from "../misc-icons/social-brand/notion.svg";
+import icSocialBrandPaypal from "../misc-icons/social-brand/paypal.svg";
+import icSocialBrandPinterest from "../misc-icons/social-brand/pinterest.svg";
+import icSocialBrandReddit from "../misc-icons/social-brand/reddit.svg";
+import icSocialBrandSignal from "../misc-icons/social-brand/signal.svg";
+import icSocialBrandSlack from "../misc-icons/social-brand/slack.svg";
+import icSocialBrandSnapchat from "../misc-icons/social-brand/snapchat.svg";
+import icSocialBrandSpotify from "../misc-icons/social-brand/spotify.svg";
+import icSocialBrandStripe from "../misc-icons/social-brand/stripe.svg";
+import icSocialBrandTelegram from "../misc-icons/social-brand/telegram.svg";
+import icSocialBrandTiktok from "../misc-icons/social-brand/tiktok.svg";
+import icSocialBrandTumblr from "../misc-icons/social-brand/tumblr.svg";
+import icSocialBrandTwitch from "../misc-icons/social-brand/twitch.svg";
+import icSocialBrandTwitter from "../misc-icons/social-brand/twitter.svg";
+import icSocialBrandWebflow from "../misc-icons/social-brand/webflow.svg";
+import icSocialBrandWhatsapp from "../misc-icons/social-brand/whatsapp.svg";
+import icSocialBrandWise from "../misc-icons/social-brand/wise.svg";
+import icSocialBrandX from "../misc-icons/social-brand/x.svg";
+import icSocialBrandYoutube from "../misc-icons/social-brand/youtube.svg";
+import icSocialGrayAngellist from "../misc-icons/social-gray/angellist.svg";
+import icSocialGrayApple from "../misc-icons/social-gray/apple.svg";
+import icSocialGrayClubhouse from "../misc-icons/social-gray/clubhouse.svg";
+import icSocialGrayDiscord from "../misc-icons/social-gray/discord.svg";
+import icSocialGrayDribbble from "../misc-icons/social-gray/dribbble.svg";
+import icSocialGrayFacebook from "../misc-icons/social-gray/facebook.svg";
+import icSocialGrayFigma from "../misc-icons/social-gray/figma.svg";
+import icSocialGrayFramer from "../misc-icons/social-gray/framer.svg";
+import icSocialGrayGithub from "../misc-icons/social-gray/github.svg";
+import icSocialGrayGoogle from "../misc-icons/social-gray/google.svg";
+import icSocialGrayInstagram from "../misc-icons/social-gray/instagram.svg";
+import icSocialGrayLayers from "../misc-icons/social-gray/layers.svg";
+import icSocialGrayLinkedin from "../misc-icons/social-gray/linkedin.svg";
+import icSocialGrayNotion from "../misc-icons/social-gray/notion.svg";
+import icSocialGrayPaypal from "../misc-icons/social-gray/paypal.svg";
+import icSocialGrayPinterest from "../misc-icons/social-gray/pinterest.svg";
+import icSocialGrayReddit from "../misc-icons/social-gray/reddit.svg";
+import icSocialGraySignal from "../misc-icons/social-gray/signal.svg";
+import icSocialGraySlack from "../misc-icons/social-gray/slack.svg";
+import icSocialGraySnapchat from "../misc-icons/social-gray/snapchat.svg";
+import icSocialGraySpotify from "../misc-icons/social-gray/spotify.svg";
+import icSocialGrayStripe from "../misc-icons/social-gray/stripe.svg";
+import icSocialGrayTelegram from "../misc-icons/social-gray/telegram.svg";
+import icSocialGrayTiktok from "../misc-icons/social-gray/tiktok.svg";
+import icSocialGrayTumblr from "../misc-icons/social-gray/tumblr.svg";
+import icSocialGrayTwitch from "../misc-icons/social-gray/twitch.svg";
+import icSocialGrayTwitter from "../misc-icons/social-gray/twitter.svg";
+import icSocialGrayWebflow from "../misc-icons/social-gray/webflow.svg";
+import icSocialGrayWhatsapp from "../misc-icons/social-gray/whatsapp.svg";
+import icSocialGrayWise from "../misc-icons/social-gray/wise.svg";
+import icSocialGrayX from "../misc-icons/social-gray/x.svg";
+import icSocialGrayYoutube from "../misc-icons/social-gray/youtube.svg";
+import icFiletypeBadgeArchiveRar from "../misc-icons/filetype-badge/archive-rar.svg";
+import icFiletypeBadgeArchiveZip from "../misc-icons/filetype-badge/archive-zip.svg";
+import icFiletypeBadgeDesignAepAfterEffects from "../misc-icons/filetype-badge/design-aep-after-effects.svg";
+import icFiletypeBadgeDesignAiIllustrator from "../misc-icons/filetype-badge/design-ai-illustrator.svg";
+import icFiletypeBadgeDesignFigFigma from "../misc-icons/filetype-badge/design-fig-figma.svg";
+import icFiletypeBadgeDesignInddIndesign from "../misc-icons/filetype-badge/design-indd-indesign.svg";
+import icFiletypeBadgeDesignPsdPhotoshop from "../misc-icons/filetype-badge/design-psd-photoshop.svg";
+import icFiletypeBadgeDocumentCsv from "../misc-icons/filetype-badge/document-csv.svg";
+import icFiletypeBadgeDocumentDoc from "../misc-icons/filetype-badge/document-doc.svg";
+import icFiletypeBadgeDocumentDocx from "../misc-icons/filetype-badge/document-docx.svg";
+import icFiletypeBadgeDocumentPdf from "../misc-icons/filetype-badge/document-pdf.svg";
+import icFiletypeBadgeDocumentPpt from "../misc-icons/filetype-badge/document-ppt.svg";
+import icFiletypeBadgeDocumentPptx from "../misc-icons/filetype-badge/document-pptx.svg";
+import icFiletypeBadgeDocumentTxt from "../misc-icons/filetype-badge/document-txt.svg";
+import icFiletypeBadgeDocumentXls from "../misc-icons/filetype-badge/document-xls.svg";
+import icFiletypeBadgeDocumentXlsx from "../misc-icons/filetype-badge/document-xlsx.svg";
+import icFiletypeBadgeImageEps from "../misc-icons/filetype-badge/image-eps.svg";
+import icFiletypeBadgeImageGif from "../misc-icons/filetype-badge/image-gif.svg";
+import icFiletypeBadgeImageImg from "../misc-icons/filetype-badge/image-img.svg";
+import icFiletypeBadgeImageJpeg from "../misc-icons/filetype-badge/image-jpeg.svg";
+import icFiletypeBadgeImageJpg from "../misc-icons/filetype-badge/image-jpg.svg";
+import icFiletypeBadgeImagePng from "../misc-icons/filetype-badge/image-png.svg";
+import icFiletypeBadgeImageSvg from "../misc-icons/filetype-badge/image-svg.svg";
+import icFiletypeBadgeImageTiff from "../misc-icons/filetype-badge/image-tiff.svg";
+import icFiletypeBadgeImageWebp from "../misc-icons/filetype-badge/image-webp.svg";
+import icFiletypeBadgeMediaAvi from "../misc-icons/filetype-badge/media-avi.svg";
+import icFiletypeBadgeMediaMkv from "../misc-icons/filetype-badge/media-mkv.svg";
+import icFiletypeBadgeMediaMp3 from "../misc-icons/filetype-badge/media-mp3.svg";
+import icFiletypeBadgeMediaMp4 from "../misc-icons/filetype-badge/media-mp4.svg";
+import icFiletypeBadgeMediaMpeg from "../misc-icons/filetype-badge/media-mpeg.svg";
+import icFiletypeBadgeMediaWav from "../misc-icons/filetype-badge/media-wav.svg";
+import icFiletypeJpg from "../misc-icons/filetype/jpg.svg";
+import icFiletypeLink from "../misc-icons/filetype/link.svg";
+import icFiletypeMov from "../misc-icons/filetype/mov.svg";
+import icFiletypeMp3 from "../misc-icons/filetype/mp3.svg";
+import icFiletypePdf from "../misc-icons/filetype/pdf.svg";
+import icFiletypePpt from "../misc-icons/filetype/ppt.svg";
+import icFiletypeTxt from "../misc-icons/filetype/txt.svg";
+import icFiletypeWord from "../misc-icons/filetype/word.svg";
+import icFiletypeXlsx from "../misc-icons/filetype/xlsx.svg";
+import icFiletypeZip from "../misc-icons/filetype/zip.svg";
+import icFiletypeUnknown from "../misc-icons/filetype/unknown.svg";
+import icFlagsAd from "../misc-icons/flags/ad.svg";
+import icFlagsAe from "../misc-icons/flags/ae.svg";
+import icFlagsAf from "../misc-icons/flags/af.svg";
+import icFlagsAg from "../misc-icons/flags/ag.svg";
+import icFlagsAi from "../misc-icons/flags/ai.svg";
+import icFlagsAl from "../misc-icons/flags/al.svg";
+import icFlagsAm from "../misc-icons/flags/am.svg";
+import icFlagsAo from "../misc-icons/flags/ao.svg";
+import icFlagsAr from "../misc-icons/flags/ar.svg";
+import icFlagsAs from "../misc-icons/flags/as.svg";
+import icFlagsAt from "../misc-icons/flags/at.svg";
+import icFlagsAu from "../misc-icons/flags/au.svg";
+import icFlagsAw from "../misc-icons/flags/aw.svg";
+import icFlagsAx from "../misc-icons/flags/ax.svg";
+import icFlagsAz from "../misc-icons/flags/az.svg";
+import icFlagsBa from "../misc-icons/flags/ba.svg";
+import icFlagsBb from "../misc-icons/flags/bb.svg";
+import icFlagsBd from "../misc-icons/flags/bd.svg";
+import icFlagsBe from "../misc-icons/flags/be.svg";
+import icFlagsBf from "../misc-icons/flags/bf.svg";
+import icFlagsBg from "../misc-icons/flags/bg.svg";
+import icFlagsBh from "../misc-icons/flags/bh.svg";
+import icFlagsBi from "../misc-icons/flags/bi.svg";
+import icFlagsBj from "../misc-icons/flags/bj.svg";
+import icFlagsBl from "../misc-icons/flags/bl.svg";
+import icFlagsBm from "../misc-icons/flags/bm.svg";
+import icFlagsBn from "../misc-icons/flags/bn.svg";
+import icFlagsBo from "../misc-icons/flags/bo.svg";
+import icFlagsBq from "../misc-icons/flags/bq.svg";
+import icFlagsBr from "../misc-icons/flags/br.svg";
+import icFlagsBs from "../misc-icons/flags/bs.svg";
+import icFlagsBt from "../misc-icons/flags/bt.svg";
+import icFlagsBw from "../misc-icons/flags/bw.svg";
+import icFlagsBy from "../misc-icons/flags/by.svg";
+import icFlagsBz from "../misc-icons/flags/bz.svg";
+import icFlagsCa from "../misc-icons/flags/ca.svg";
+import icFlagsCc from "../misc-icons/flags/cc.svg";
+import icFlagsCd from "../misc-icons/flags/cd.svg";
+import icFlagsCf from "../misc-icons/flags/cf.svg";
+import icFlagsCh from "../misc-icons/flags/ch.svg";
+import icFlagsCk from "../misc-icons/flags/ck.svg";
+import icFlagsCl from "../misc-icons/flags/cl.svg";
+import icFlagsCm from "../misc-icons/flags/cm.svg";
+import icFlagsCn from "../misc-icons/flags/cn.svg";
+import icFlagsCo from "../misc-icons/flags/co.svg";
+import icFlagsCr from "../misc-icons/flags/cr.svg";
+import icFlagsCu from "../misc-icons/flags/cu.svg";
+import icFlagsCw from "../misc-icons/flags/cw.svg";
+import icFlagsCx from "../misc-icons/flags/cx.svg";
+import icFlagsCy from "../misc-icons/flags/cy.svg";
+import icFlagsCz from "../misc-icons/flags/cz.svg";
+import icFlagsDe from "../misc-icons/flags/de.svg";
+import icFlagsDj from "../misc-icons/flags/dj.svg";
+import icFlagsDk from "../misc-icons/flags/dk.svg";
+import icFlagsDm from "../misc-icons/flags/dm.svg";
+import icFlagsDo from "../misc-icons/flags/do.svg";
+import icFlagsDs from "../misc-icons/flags/ds.svg";
+import icFlagsDz from "../misc-icons/flags/dz.svg";
+import icFlagsEc from "../misc-icons/flags/ec.svg";
+import icFlagsEe from "../misc-icons/flags/ee.svg";
+import icFlagsEg from "../misc-icons/flags/eg.svg";
+import icFlagsEh from "../misc-icons/flags/eh.svg";
+import icFlagsEr from "../misc-icons/flags/er.svg";
+import icFlagsEs from "../misc-icons/flags/es.svg";
+import icFlagsEt from "../misc-icons/flags/et.svg";
+import icFlagsFi from "../misc-icons/flags/fi.svg";
+import icFlagsFj from "../misc-icons/flags/fj.svg";
+import icFlagsFk from "../misc-icons/flags/fk.svg";
+import icFlagsFm from "../misc-icons/flags/fm.svg";
+import icFlagsFo from "../misc-icons/flags/fo.svg";
+import icFlagsFr from "../misc-icons/flags/fr.svg";
+import icFlagsGa from "../misc-icons/flags/ga.svg";
+import icFlagsGb from "../misc-icons/flags/gb.svg";
+import icFlagsGb2 from "../misc-icons/flags/gb-2.svg";
+import icFlagsGd from "../misc-icons/flags/gd.svg";
+import icFlagsGe from "../misc-icons/flags/ge.svg";
+import icFlagsGg from "../misc-icons/flags/gg.svg";
+import icFlagsGh from "../misc-icons/flags/gh.svg";
+import icFlagsGi from "../misc-icons/flags/gi.svg";
+import icFlagsGl from "../misc-icons/flags/gl.svg";
+import icFlagsGm from "../misc-icons/flags/gm.svg";
+import icFlagsGn from "../misc-icons/flags/gn.svg";
+import icFlagsGq from "../misc-icons/flags/gq.svg";
+import icFlagsGr from "../misc-icons/flags/gr.svg";
+import icFlagsGt from "../misc-icons/flags/gt.svg";
+import icFlagsGu from "../misc-icons/flags/gu.svg";
+import icFlagsGw from "../misc-icons/flags/gw.svg";
+import icFlagsGy from "../misc-icons/flags/gy.svg";
+import icFlagsHk from "../misc-icons/flags/hk.svg";
+import icFlagsHn from "../misc-icons/flags/hn.svg";
+import icFlagsHr from "../misc-icons/flags/hr.svg";
+import icFlagsHt from "../misc-icons/flags/ht.svg";
+import icFlagsHu from "../misc-icons/flags/hu.svg";
+import icFlagsId from "../misc-icons/flags/id.svg";
+import icFlagsIe from "../misc-icons/flags/ie.svg";
+import icFlagsIl from "../misc-icons/flags/il.svg";
+import icFlagsIm from "../misc-icons/flags/im.svg";
+import icFlagsIn from "../misc-icons/flags/in.svg";
+import icFlagsIo from "../misc-icons/flags/io.svg";
+import icFlagsIq from "../misc-icons/flags/iq.svg";
+import icFlagsIr from "../misc-icons/flags/ir.svg";
+import icFlagsIs from "../misc-icons/flags/is.svg";
+import icFlagsIt from "../misc-icons/flags/it.svg";
+import icFlagsJe from "../misc-icons/flags/je.svg";
+import icFlagsJm from "../misc-icons/flags/jm.svg";
+import icFlagsJo from "../misc-icons/flags/jo.svg";
+import icFlagsJp from "../misc-icons/flags/jp.svg";
+import icFlagsKe from "../misc-icons/flags/ke.svg";
+import icFlagsKg from "../misc-icons/flags/kg.svg";
+import icFlagsKh from "../misc-icons/flags/kh.svg";
+import icFlagsKi from "../misc-icons/flags/ki.svg";
+import icFlagsKm from "../misc-icons/flags/km.svg";
+import icFlagsKn from "../misc-icons/flags/kn.svg";
+import icFlagsKp from "../misc-icons/flags/kp.svg";
+import icFlagsKr from "../misc-icons/flags/kr.svg";
+import icFlagsKw from "../misc-icons/flags/kw.svg";
+import icFlagsKy from "../misc-icons/flags/ky.svg";
+import icFlagsKz from "../misc-icons/flags/kz.svg";
+import icFlagsLa from "../misc-icons/flags/la.svg";
+import icFlagsLb from "../misc-icons/flags/lb.svg";
+import icFlagsLc from "../misc-icons/flags/lc.svg";
+import icFlagsLi from "../misc-icons/flags/li.svg";
+import icFlagsLk from "../misc-icons/flags/lk.svg";
+import icFlagsLr from "../misc-icons/flags/lr.svg";
+import icFlagsLs from "../misc-icons/flags/ls.svg";
+import icFlagsLt from "../misc-icons/flags/lt.svg";
+import icFlagsLu from "../misc-icons/flags/lu.svg";
+import icFlagsLv from "../misc-icons/flags/lv.svg";
+import icFlagsLy from "../misc-icons/flags/ly.svg";
+import icFlagsMa from "../misc-icons/flags/ma.svg";
+import icFlagsMc from "../misc-icons/flags/mc.svg";
+import icFlagsMd from "../misc-icons/flags/md.svg";
+import icFlagsMe from "../misc-icons/flags/me.svg";
+import icFlagsMg from "../misc-icons/flags/mg.svg";
+import icFlagsMh from "../misc-icons/flags/mh.svg";
+import icFlagsMk from "../misc-icons/flags/mk.svg";
+import icFlagsMl from "../misc-icons/flags/ml.svg";
+import icFlagsMm from "../misc-icons/flags/mm.svg";
+import icFlagsMn from "../misc-icons/flags/mn.svg";
+import icFlagsMo from "../misc-icons/flags/mo.svg";
+import icFlagsMp from "../misc-icons/flags/mp.svg";
+import icFlagsMq from "../misc-icons/flags/mq.svg";
+import icFlagsMr from "../misc-icons/flags/mr.svg";
+import icFlagsMs from "../misc-icons/flags/ms.svg";
+import icFlagsMt from "../misc-icons/flags/mt.svg";
+import icFlagsMu from "../misc-icons/flags/mu.svg";
+import icFlagsMv from "../misc-icons/flags/mv.svg";
+import icFlagsMw from "../misc-icons/flags/mw.svg";
+import icFlagsMx from "../misc-icons/flags/mx.svg";
+import icFlagsMy from "../misc-icons/flags/my.svg";
+import icFlagsMz from "../misc-icons/flags/mz.svg";
+import icFlagsNa from "../misc-icons/flags/na.svg";
+import icFlagsNe from "../misc-icons/flags/ne.svg";
+import icFlagsNf from "../misc-icons/flags/nf.svg";
+import icFlagsNg from "../misc-icons/flags/ng.svg";
+import icFlagsNi from "../misc-icons/flags/ni.svg";
+import icFlagsNl from "../misc-icons/flags/nl.svg";
+import icFlagsNo from "../misc-icons/flags/no.svg";
+import icFlagsNp from "../misc-icons/flags/np.svg";
+import icFlagsNr from "../misc-icons/flags/nr.svg";
+import icFlagsNu from "../misc-icons/flags/nu.svg";
+import icFlagsNz from "../misc-icons/flags/nz.svg";
+import icFlagsOm from "../misc-icons/flags/om.svg";
+import icFlagsPa from "../misc-icons/flags/pa.svg";
+import icFlagsPe from "../misc-icons/flags/pe.svg";
+import icFlagsPf from "../misc-icons/flags/pf.svg";
+import icFlagsPg from "../misc-icons/flags/pg.svg";
+import icFlagsPh from "../misc-icons/flags/ph.svg";
+import icFlagsPk from "../misc-icons/flags/pk.svg";
+import icFlagsPl from "../misc-icons/flags/pl.svg";
+import icFlagsPn from "../misc-icons/flags/pn.svg";
+import icFlagsPr from "../misc-icons/flags/pr.svg";
+import icFlagsPs from "../misc-icons/flags/ps.svg";
+import icFlagsPt from "../misc-icons/flags/pt.svg";
+import icFlagsPw from "../misc-icons/flags/pw.svg";
+import icFlagsPy from "../misc-icons/flags/py.svg";
+import icFlagsQa from "../misc-icons/flags/qa.svg";
+import icFlagsRo from "../misc-icons/flags/ro.svg";
+import icFlagsRs from "../misc-icons/flags/rs.svg";
+import icFlagsRu from "../misc-icons/flags/ru.svg";
+import icFlagsRw from "../misc-icons/flags/rw.svg";
+import icFlagsSa from "../misc-icons/flags/sa.svg";
+import icFlagsSb from "../misc-icons/flags/sb.svg";
+import icFlagsSc from "../misc-icons/flags/sc.svg";
+import icFlagsSe from "../misc-icons/flags/se.svg";
+import icFlagsSg from "../misc-icons/flags/sg.svg";
+import icFlagsSi from "../misc-icons/flags/si.svg";
+import icFlagsSk from "../misc-icons/flags/sk.svg";
+import icFlagsSl from "../misc-icons/flags/sl.svg";
+import icFlagsSm from "../misc-icons/flags/sm.svg";
+import icFlagsSn from "../misc-icons/flags/sn.svg";
+import icFlagsSo from "../misc-icons/flags/so.svg";
+import icFlagsSr from "../misc-icons/flags/sr.svg";
+import icFlagsSs from "../misc-icons/flags/ss.svg";
+import icFlagsSt from "../misc-icons/flags/st.svg";
+import icFlagsSv from "../misc-icons/flags/sv.svg";
+import icFlagsSx from "../misc-icons/flags/sx.svg";
+import icFlagsSy from "../misc-icons/flags/sy.svg";
+import icFlagsSz from "../misc-icons/flags/sz.svg";
+import icFlagsTc from "../misc-icons/flags/tc.svg";
+import icFlagsTd from "../misc-icons/flags/td.svg";
+import icFlagsTg from "../misc-icons/flags/tg.svg";
+import icFlagsTh from "../misc-icons/flags/th.svg";
+import icFlagsTj from "../misc-icons/flags/tj.svg";
+import icFlagsTk from "../misc-icons/flags/tk.svg";
+import icFlagsTl from "../misc-icons/flags/tl.svg";
+import icFlagsTm from "../misc-icons/flags/tm.svg";
+import icFlagsTn from "../misc-icons/flags/tn.svg";
+import icFlagsTo from "../misc-icons/flags/to.svg";
+import icFlagsTr from "../misc-icons/flags/tr.svg";
+import icFlagsTt from "../misc-icons/flags/tt.svg";
+import icFlagsTv from "../misc-icons/flags/tv.svg";
+import icFlagsTw from "../misc-icons/flags/tw.svg";
+import icFlagsTz from "../misc-icons/flags/tz.svg";
+import icFlagsUa from "../misc-icons/flags/ua.svg";
+import icFlagsUg from "../misc-icons/flags/ug.svg";
+import icFlagsUs from "../misc-icons/flags/us.svg";
+import icFlagsUy from "../misc-icons/flags/uy.svg";
+import icFlagsUz from "../misc-icons/flags/uz.svg";
+import icFlagsVc from "../misc-icons/flags/vc.svg";
+import icFlagsVe from "../misc-icons/flags/ve.svg";
+import icFlagsVg from "../misc-icons/flags/vg.svg";
+import icFlagsVi from "../misc-icons/flags/vi.svg";
+import icFlagsVn from "../misc-icons/flags/vn.svg";
+import icFlagsVu from "../misc-icons/flags/vu.svg";
+import icFlagsWs from "../misc-icons/flags/ws.svg";
+import icFlagsYe from "../misc-icons/flags/ye.svg";
+import icFlagsZa from "../misc-icons/flags/za.svg";
+import icFlagsZm from "../misc-icons/flags/zm.svg";
+import icFlagsZw from "../misc-icons/flags/zw.svg";
+import icFlagsEarth from "../misc-icons/flags/earth.svg";
+import icFeaturedSmBrandLight from "../misc-icons/featured/sm-brand-light.svg";
+import icFeaturedSmBrandModern from "../misc-icons/featured/sm-brand-modern.svg";
+import icFeaturedSmErrorLight from "../misc-icons/featured/sm-error-light.svg";
+import icFeaturedSmGrayLight from "../misc-icons/featured/sm-gray-light.svg";
+import icFeaturedSmGrayModern from "../misc-icons/featured/sm-gray-modern.svg";
+import icFeaturedSmSuccessLight from "../misc-icons/featured/sm-success-light.svg";
+import icFeaturedSmWarningLight from "../misc-icons/featured/sm-warning-light.svg";
+import icFeaturedMdBrandLight from "../misc-icons/featured/md-brand-light.svg";
+import icFeaturedMdBrandModern from "../misc-icons/featured/md-brand-modern.svg";
+import icFeaturedMdErrorLight from "../misc-icons/featured/md-error-light.svg";
+import icFeaturedMdGrayLight from "../misc-icons/featured/md-gray-light.svg";
+import icFeaturedMdGrayModern from "../misc-icons/featured/md-gray-modern.svg";
+import icFeaturedMdSuccessLight from "../misc-icons/featured/md-success-light.svg";
+import icFeaturedMdWarningLight from "../misc-icons/featured/md-warning-light.svg";
+import icFeaturedLgBrandLight from "../misc-icons/featured/lg-brand-light.svg";
+import icFeaturedLgBrandModern from "../misc-icons/featured/lg-brand-modern.svg";
+import icFeaturedLgErrorLight from "../misc-icons/featured/lg-error-light.svg";
+import icFeaturedLgGrayLight from "../misc-icons/featured/lg-gray-light.svg";
+import icFeaturedLgGrayModern from "../misc-icons/featured/lg-gray-modern.svg";
+import icFeaturedLgSuccessLight from "../misc-icons/featured/lg-success-light.svg";
+import icFeaturedLgWarningLight from "../misc-icons/featured/lg-warning-light.svg";
+import icFeaturedXlBrandLight from "../misc-icons/featured/xl-brand-light.svg";
+import icFeaturedXlBrandModern from "../misc-icons/featured/xl-brand-modern.svg";
+import icFeaturedXlErrorLight from "../misc-icons/featured/xl-error-light.svg";
+import icFeaturedXlGrayLight from "../misc-icons/featured/xl-gray-light.svg";
+import icFeaturedXlGrayModern from "../misc-icons/featured/xl-gray-modern.svg";
+import icFeaturedXlSuccessLight from "../misc-icons/featured/xl-success-light.svg";
+import icFeaturedXlWarningLight from "../misc-icons/featured/xl-warning-light.svg";
+import icFeaturedOutlineSmBrand from "../misc-icons/featured/outline-sm-brand.svg";
+import icFeaturedOutlineSmError from "../misc-icons/featured/outline-sm-error.svg";
+import icFeaturedOutlineSmGray from "../misc-icons/featured/outline-sm-gray.svg";
+import icFeaturedOutlineSmInfo from "../misc-icons/featured/outline-sm-info.svg";
+import icFeaturedOutlineSmSuccess from "../misc-icons/featured/outline-sm-success.svg";
+import icFeaturedOutlineSmWarning from "../misc-icons/featured/outline-sm-warning.svg";
+import icFeaturedOutlineMdBrand from "../misc-icons/featured/outline-md-brand.svg";
+import icFeaturedOutlineMdError from "../misc-icons/featured/outline-md-error.svg";
+import icFeaturedOutlineMdGray from "../misc-icons/featured/outline-md-gray.svg";
+import icFeaturedOutlineMdInfo from "../misc-icons/featured/outline-md-info.svg";
+import icFeaturedOutlineMdSuccess from "../misc-icons/featured/outline-md-success.svg";
+import icFeaturedOutlineMdWarning from "../misc-icons/featured/outline-md-warning.svg";
+import icFeaturedOutlineLgBrand from "../misc-icons/featured/outline-lg-brand.svg";
+import icFeaturedOutlineLgError from "../misc-icons/featured/outline-lg-error.svg";
+import icFeaturedOutlineLgGray from "../misc-icons/featured/outline-lg-gray.svg";
+import icFeaturedOutlineLgInfo from "../misc-icons/featured/outline-lg-info.svg";
+import icFeaturedOutlineLgSuccess from "../misc-icons/featured/outline-lg-success.svg";
+import icFeaturedOutlineLgWarning from "../misc-icons/featured/outline-lg-warning.svg";
+import icFeaturedOutlineXlBrand from "../misc-icons/featured/outline-xl-brand.svg";
+import icFeaturedOutlineXlError from "../misc-icons/featured/outline-xl-error.svg";
+import icFeaturedOutlineXlGray from "../misc-icons/featured/outline-xl-gray.svg";
+import icFeaturedOutlineXlInfo from "../misc-icons/featured/outline-xl-info.svg";
+import icFeaturedOutlineXlSuccess from "../misc-icons/featured/outline-xl-success.svg";
+import icFeaturedOutlineXlWarning from "../misc-icons/featured/outline-xl-warning.svg";
 
 export interface MiscIconAsset {
   name: string;
@@ -12,431 +411,610 @@ export interface MiscIconAsset {
   style?: "brand" | "gray";
 }
 
-export type MiscIconCategory = "Social (Brand)" | "Social (Gray)" | "File Type" | "File Type (Sized)" | "Country Flags" | "Featured Icon" | "Featured Icon Outline";
+export type MiscIconCategory =
+  | "Social (Brand)"
+  | "Social (Gray)"
+  | "File Type"
+  | "File Type (Sized)"
+  | "Country Flags"
+  | "Featured Icon"
+  | "Featured Icon Outline";
 
 export const socialIconsBrand: MiscIconAsset[] = [
-  { name: "AngelList", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7a587f0e-ec6a-46b9-8f58-df8f8b820d39", style: "brand" as const },
-  { name: "Apple", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c115ecaa-dfe7-418f-85b2-df3049fde3ae", style: "brand" as const },
-  { name: "Clubhouse", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/620fb31c-c1aa-4237-a679-6ec37bf8d1e1", style: "brand" as const },
-  { name: "Discord 01", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5f6f445e-0415-4746-ae81-ee51359dc735", style: "brand" as const },
-  { name: "Discord 02", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c007cde7-0e39-421d-8cb9-7f06c2224c00", style: "brand" as const },
-  { name: "Dribbble", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/ff4a6812-5bb9-4e8f-9bdd-4c4902710dbe", style: "brand" as const },
-  { name: "Facebook", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/cffa98dd-cc80-436f-8eb6-8fa0c4656461", style: "brand" as const },
-  { name: "Figma", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/721d5bac-86ca-43cd-91bd-bb147a17f568", style: "brand" as const },
-  { name: "Framer 01", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c9f46510-8f92-4fdb-b246-18dfabb9e659", style: "brand" as const },
-  { name: "Framer 02", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/713f941f-ddb6-4e22-ade8-6ef1220cb35d", style: "brand" as const },
-  { name: "GitHub", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2383e347-2160-4a88-9576-fd02d988478b", style: "brand" as const },
-  { name: "Google", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7bb0a418-9ef8-44c4-bc4e-79b276ebddb8", style: "brand" as const },
-  { name: "Instagram", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/4fc33f40-3a12-4701-a973-8b87349d75ac", style: "brand" as const },
-  { name: "Layers", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/87cfbd8d-d801-452f-b606-a7bfda666bc6", style: "brand" as const },
-  { name: "LinkedIn", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/f20db101-d79e-4f50-8835-dde6fbdccede", style: "brand" as const },
-  { name: "Notion", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/91de7558-85be-4ba5-924b-b2f4f40559ad", style: "brand" as const },
-  { name: "PayPal", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7993620a-522e-47a8-92e8-08b602761ee9", style: "brand" as const },
-  { name: "Pinterest", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/1207d313-2808-4c17-baaf-a09de73e4fc6", style: "brand" as const },
-  { name: "Reddit", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/f6989fa9-cf1b-4979-9108-58f54dd122dc", style: "brand" as const },
-  { name: "Signal", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/176a33f6-c738-46ce-afe8-53adcdbdc17f", style: "brand" as const },
-  { name: "Slack", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7683a520-e007-4262-956c-2f4354a6d461", style: "brand" as const },
-  { name: "Snapchat", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/cf8ab345-d8b9-4058-bbb2-ed7c06551efa", style: "brand" as const },
-  { name: "Spotify", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/db509a75-ba45-4cca-abc4-e3840eab0602", style: "brand" as const },
-  { name: "Stripe", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7693596e-de06-467c-9f21-b98446ca3d9f", style: "brand" as const },
-  { name: "Telegram", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6820f2e6-fc62-4d4d-8e3e-4cca67203062", style: "brand" as const },
-  { name: "TikTok", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/8d93e74b-e0b4-4602-9095-1a28456862af", style: "brand" as const },
-  { name: "Tumblr", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/8227f1eb-11d1-4750-b0cf-52ff9eb717da", style: "brand" as const },
-  { name: "Twitch", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2a61ea37-55aa-458c-bf35-3fe19d1bd614", style: "brand" as const },
-  { name: "Twitter", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/b881dd00-8f9e-460b-b8d6-df8ddcca27da", style: "brand" as const },
-  { name: "Webflow", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/e8571214-7b24-4729-ad72-940cf7e6b89c", style: "brand" as const },
-  { name: "WhatsApp", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2e0c493e-922d-4995-8305-b3e127c6d566", style: "brand" as const },
-  { name: "Wise", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c1e6ca38-906c-485e-8512-ff44dead81f5", style: "brand" as const },
-  { name: "X (Twitter)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/dad4a4d7-75ec-41bc-9387-23b36636827c", style: "brand" as const },
-  { name: "YouTube", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/55d8594a-0743-4872-8284-dcb327d46d75", style: "brand" as const },
+  {
+    name: "AngelList",
+    svgUrl: icSocialBrandAngellist,
+    style: "brand" as const,
+  },
+  { name: "Apple", svgUrl: icSocialBrandApple, style: "brand" as const },
+  {
+    name: "Clubhouse",
+    svgUrl: icSocialBrandClubhouse,
+    style: "brand" as const,
+  },
+  { name: "Discord 01", svgUrl: icSocialBrandDiscord, style: "brand" as const },
+  { name: "Discord 02", svgUrl: icSocialBrandDiscord, style: "brand" as const },
+  { name: "Dribbble", svgUrl: icSocialBrandDribbble, style: "brand" as const },
+  { name: "Facebook", svgUrl: icSocialBrandFacebook, style: "brand" as const },
+  { name: "Figma", svgUrl: icSocialBrandFigma, style: "brand" as const },
+  { name: "Framer 01", svgUrl: icSocialBrandFramer, style: "brand" as const },
+  { name: "Framer 02", svgUrl: icSocialBrandFramer, style: "brand" as const },
+  { name: "GitHub", svgUrl: icSocialBrandGithub, style: "brand" as const },
+  { name: "Google", svgUrl: icSocialBrandGoogle, style: "brand" as const },
+  {
+    name: "Instagram",
+    svgUrl: icSocialBrandInstagram,
+    style: "brand" as const,
+  },
+  { name: "Layers", svgUrl: icSocialBrandLayers, style: "brand" as const },
+  { name: "LinkedIn", svgUrl: icSocialBrandLinkedin, style: "brand" as const },
+  { name: "Notion", svgUrl: icSocialBrandNotion, style: "brand" as const },
+  { name: "PayPal", svgUrl: icSocialBrandPaypal, style: "brand" as const },
+  {
+    name: "Pinterest",
+    svgUrl: icSocialBrandPinterest,
+    style: "brand" as const,
+  },
+  { name: "Reddit", svgUrl: icSocialBrandReddit, style: "brand" as const },
+  { name: "Signal", svgUrl: icSocialBrandSignal, style: "brand" as const },
+  { name: "Slack", svgUrl: icSocialBrandSlack, style: "brand" as const },
+  { name: "Snapchat", svgUrl: icSocialBrandSnapchat, style: "brand" as const },
+  { name: "Spotify", svgUrl: icSocialBrandSpotify, style: "brand" as const },
+  { name: "Stripe", svgUrl: icSocialBrandStripe, style: "brand" as const },
+  { name: "Telegram", svgUrl: icSocialBrandTelegram, style: "brand" as const },
+  { name: "TikTok", svgUrl: icSocialBrandTiktok, style: "brand" as const },
+  { name: "Tumblr", svgUrl: icSocialBrandTumblr, style: "brand" as const },
+  { name: "Twitch", svgUrl: icSocialBrandTwitch, style: "brand" as const },
+  { name: "Twitter", svgUrl: icSocialBrandTwitter, style: "brand" as const },
+  { name: "Webflow", svgUrl: icSocialBrandWebflow, style: "brand" as const },
+  { name: "WhatsApp", svgUrl: icSocialBrandWhatsapp, style: "brand" as const },
+  { name: "Wise", svgUrl: icSocialBrandWise, style: "brand" as const },
+  { name: "X (Twitter)", svgUrl: icSocialBrandX, style: "brand" as const },
+  { name: "YouTube", svgUrl: icSocialBrandYoutube, style: "brand" as const },
 ];
 
 export const socialIconsGray: MiscIconAsset[] = [
-  { name: "AngelList", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/e43c57d9-d802-4f27-8727-a9b777eae086", style: "gray" as const },
-  { name: "Apple", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/1417bedb-3a5e-4417-aa20-79cbc35298c7", style: "gray" as const },
-  { name: "Clubhouse", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/00815a5a-0153-41d3-b118-2aa679b3e56e", style: "gray" as const },
-  { name: "Discord 01", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/b499ed19-723e-445d-b447-9349829912f0", style: "gray" as const },
-  { name: "Discord 02", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/cafe4016-e990-4bd3-9a59-603638e5a409", style: "gray" as const },
-  { name: "Dribbble", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2df04da0-aca4-4792-96c6-88044408e959", style: "gray" as const },
-  { name: "Facebook", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/eca38897-723b-4528-b369-411504d9907e", style: "gray" as const },
-  { name: "Figma", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/f2e49274-d723-4590-a325-82264bb2089e", style: "gray" as const },
-  { name: "Framer 01", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/22052bc7-707c-4340-82e1-f432a6f93a11", style: "gray" as const },
-  { name: "Framer 02", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/33fdc0a8-8923-43ee-9917-763956dc7240", style: "gray" as const },
-  { name: "GitHub", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/f124896e-49f9-46fc-8614-d0470a4ca336", style: "gray" as const },
-  { name: "Google", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/792a4caa-933c-4de0-b0c9-32dd1fb8f000", style: "gray" as const },
-  { name: "Instagram", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/1b2e8a39-2ce8-490d-ae9d-04f29cb56cc9", style: "gray" as const },
-  { name: "Layers", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c29a9b81-ae67-410c-a4a3-6b6fb0186258", style: "gray" as const },
-  { name: "LinkedIn", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/ed79ccab-d545-48cc-8ef4-6ef8d5b11e90", style: "gray" as const },
-  { name: "Notion", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5e1ac2dc-23b2-4bdc-927a-e06945f34f6c", style: "gray" as const },
-  { name: "PayPal", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/49ce91a2-446f-4b49-bfba-6f46738b64c4", style: "gray" as const },
-  { name: "Pinterest", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/437ce8c2-2cfd-4dc6-93d1-efb1bf991c7e", style: "gray" as const },
-  { name: "Reddit", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/91bd7c8e-9a9b-4325-b291-b6a85797da4e", style: "gray" as const },
-  { name: "Signal", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c52a89fe-90d0-4a3a-8ac4-5ba27f564837", style: "gray" as const },
-  { name: "Slack", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c52413fd-9475-4f1b-952e-a301a2e9564e", style: "gray" as const },
-  { name: "Snapchat", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5137fb78-d913-4822-866f-8487b6cdbaee", style: "gray" as const },
-  { name: "Spotify", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/580330b8-8206-4dbe-bfd6-2f87b35e21f0", style: "gray" as const },
-  { name: "Stripe", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/9d2facad-c29f-45df-8612-4a819b9c5faf", style: "gray" as const },
-  { name: "Telegram", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/51f3d8ff-2c7e-446e-b79a-8d983a3cfa98", style: "gray" as const },
-  { name: "TikTok", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/be69b221-d965-475e-b440-4213582edd18", style: "gray" as const },
-  { name: "Tumblr", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/a845caee-19a5-4ffb-bce4-543adfc06414", style: "gray" as const },
-  { name: "Twitch", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d209090c-9594-43ed-9f1b-f9ccafe59982", style: "gray" as const },
-  { name: "Twitter", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/e52cdbd6-2cb7-4994-89c3-fa32727afe74", style: "gray" as const },
-  { name: "Webflow", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/b1827770-3256-41dd-8604-bd68b79c4d32", style: "gray" as const },
-  { name: "WhatsApp", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/f0a04ad4-4621-4431-9754-cc1fe8acbcdd", style: "gray" as const },
-  { name: "Wise", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/1431dfd8-003e-4312-8907-d34554380c02", style: "gray" as const },
-  { name: "X (Twitter)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0f74c762-7dd5-4986-872f-491fb3a5f0b7", style: "gray" as const },
-  { name: "YouTube", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/ca2cd8c1-7741-4508-8f36-d92aa99fbbc4", style: "gray" as const },
+  { name: "AngelList", svgUrl: icSocialGrayAngellist, style: "gray" as const },
+  { name: "Apple", svgUrl: icSocialGrayApple, style: "gray" as const },
+  { name: "Clubhouse", svgUrl: icSocialGrayClubhouse, style: "gray" as const },
+  { name: "Discord 01", svgUrl: icSocialGrayDiscord, style: "gray" as const },
+  { name: "Discord 02", svgUrl: icSocialGrayDiscord, style: "gray" as const },
+  { name: "Dribbble", svgUrl: icSocialGrayDribbble, style: "gray" as const },
+  { name: "Facebook", svgUrl: icSocialGrayFacebook, style: "gray" as const },
+  { name: "Figma", svgUrl: icSocialGrayFigma, style: "gray" as const },
+  { name: "Framer 01", svgUrl: icSocialGrayFramer, style: "gray" as const },
+  { name: "Framer 02", svgUrl: icSocialGrayFramer, style: "gray" as const },
+  { name: "GitHub", svgUrl: icSocialGrayGithub, style: "gray" as const },
+  { name: "Google", svgUrl: icSocialGrayGoogle, style: "gray" as const },
+  { name: "Instagram", svgUrl: icSocialGrayInstagram, style: "gray" as const },
+  { name: "Layers", svgUrl: icSocialGrayLayers, style: "gray" as const },
+  { name: "LinkedIn", svgUrl: icSocialGrayLinkedin, style: "gray" as const },
+  { name: "Notion", svgUrl: icSocialGrayNotion, style: "gray" as const },
+  { name: "PayPal", svgUrl: icSocialGrayPaypal, style: "gray" as const },
+  { name: "Pinterest", svgUrl: icSocialGrayPinterest, style: "gray" as const },
+  { name: "Reddit", svgUrl: icSocialGrayReddit, style: "gray" as const },
+  { name: "Signal", svgUrl: icSocialGraySignal, style: "gray" as const },
+  { name: "Slack", svgUrl: icSocialGraySlack, style: "gray" as const },
+  { name: "Snapchat", svgUrl: icSocialGraySnapchat, style: "gray" as const },
+  { name: "Spotify", svgUrl: icSocialGraySpotify, style: "gray" as const },
+  { name: "Stripe", svgUrl: icSocialGrayStripe, style: "gray" as const },
+  { name: "Telegram", svgUrl: icSocialGrayTelegram, style: "gray" as const },
+  { name: "TikTok", svgUrl: icSocialGrayTiktok, style: "gray" as const },
+  { name: "Tumblr", svgUrl: icSocialGrayTumblr, style: "gray" as const },
+  { name: "Twitch", svgUrl: icSocialGrayTwitch, style: "gray" as const },
+  { name: "Twitter", svgUrl: icSocialGrayTwitter, style: "gray" as const },
+  { name: "Webflow", svgUrl: icSocialGrayWebflow, style: "gray" as const },
+  { name: "WhatsApp", svgUrl: icSocialGrayWhatsapp, style: "gray" as const },
+  { name: "Wise", svgUrl: icSocialGrayWise, style: "gray" as const },
+  { name: "X (Twitter)", svgUrl: icSocialGrayX, style: "gray" as const },
+  { name: "YouTube", svgUrl: icSocialGrayYoutube, style: "gray" as const },
 ];
 
 export const fileTypeIcons: MiscIconAsset[] = [
-  { name: "Archive / RAR", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/f796e719-b993-42e0-89b9-af41c233e12e" },
-  { name: "Archive / ZIP", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c54db18c-61f7-454b-b62f-18c3ce71742c" },
-  { name: "Design / AEP (After Effects)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2198e23e-1270-4a38-a36c-3254eb98f7d4" },
-  { name: "Design / AI (Illustrator)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7f465ac0-c93d-4846-9da3-913d9e577085" },
-  { name: "Design / FIG (Figma)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/a60248f2-3598-4dc3-bd7b-39046d95e1ba" },
-  { name: "Design / INDD (InDesign)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c457f653-6e37-49b1-9232-5ebad21d52f1" },
-  { name: "Design / PSD (Photoshop)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6ff969d9-b4de-4fd3-a3fa-3552d8cff2f2" },
-  { name: "Document / CSV", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c51729dc-4b39-4774-b006-33f74d8c05a9" },
-  { name: "Document / DOC", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5c029cf5-00e1-4663-b461-b7d560a6bfa5" },
-  { name: "Document / DOCX", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/eb8034a0-2f94-411b-bd98-6e365f2e646a" },
-  { name: "Document / PDF", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/b41b71d2-f019-4562-aad1-2d8c4b8be0c2" },
-  { name: "Document / PPT", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/67fdd093-2946-46e6-b90c-7ed70a4c9343" },
-  { name: "Document / PPTX", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/17ee3318-a33e-42fd-892f-2f1f51819d62" },
-  { name: "Document / TXT", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/667f843e-d6a6-4d52-a9ef-f19a8437aed8" },
-  { name: "Document / XLS", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/bfe2ba3f-2b87-4adb-a451-5e74273fecea" },
-  { name: "Document / XLSX", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2ca6b41a-a29b-4301-a1d4-f4463739914d" },
-  { name: "Image / EPS", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/b3e677cd-bf3c-4f9b-b624-359304c4dbd1" },
-  { name: "Image / GIF", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/af2d79e3-36bf-46ec-8fde-c7f701745c25" },
-  { name: "Image / IMG", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/b6df1e13-52d3-4c31-8fee-8fb98dd1fb1a" },
-  { name: "Image / JPEG", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/b12493db-8328-4259-9beb-34a892b1f791" },
-  { name: "Image / JPG", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/743f92c0-f3c5-454b-92a3-b7d943d3fff6" },
-  { name: "Image / PNG", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/3cb535c5-dbfb-4808-b9a5-68e04509013c" },
-  { name: "Image / SVG", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/a8ec8446-77ae-4f05-8397-43d6e72ca7ad" },
-  { name: "Image / TIFF", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/01f27814-137f-4fcf-87d4-62f740d1e4ec" },
-  { name: "Image / WebP", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/860259e0-9292-48d2-a0a4-f8e804ac4e19" },
-  { name: "Media / AVI", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/cd6588dd-eda6-471d-aff2-e07f40346bd4" },
-  { name: "Media / MKV", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/46558fde-861c-43ad-837b-95aa6e28b956" },
-  { name: "Media / MP3", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2a3d1098-822c-4f94-9c19-a0e405e955e6" },
-  { name: "Media / MP4", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7ca244ad-10c3-4271-bcdf-547957dd7641" },
-  { name: "Media / MPEG", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/1b3d37e4-c394-4f49-8153-ee01dc2e621f" },
-  { name: "Media / WAV", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0540821d-b30f-44ac-a878-1b9f78d972b6" },
+  { name: "Archive / RAR", svgUrl: icFiletypeBadgeArchiveRar },
+  { name: "Archive / ZIP", svgUrl: icFiletypeBadgeArchiveZip },
+  {
+    name: "Design / AEP (After Effects)",
+    svgUrl: icFiletypeBadgeDesignAepAfterEffects,
+  },
+  {
+    name: "Design / AI (Illustrator)",
+    svgUrl: icFiletypeBadgeDesignAiIllustrator,
+  },
+  { name: "Design / FIG (Figma)", svgUrl: icFiletypeBadgeDesignFigFigma },
+  {
+    name: "Design / INDD (InDesign)",
+    svgUrl: icFiletypeBadgeDesignInddIndesign,
+  },
+  {
+    name: "Design / PSD (Photoshop)",
+    svgUrl: icFiletypeBadgeDesignPsdPhotoshop,
+  },
+  { name: "Document / CSV", svgUrl: icFiletypeBadgeDocumentCsv },
+  { name: "Document / DOC", svgUrl: icFiletypeBadgeDocumentDoc },
+  { name: "Document / DOCX", svgUrl: icFiletypeBadgeDocumentDocx },
+  { name: "Document / PDF", svgUrl: icFiletypeBadgeDocumentPdf },
+  { name: "Document / PPT", svgUrl: icFiletypeBadgeDocumentPpt },
+  { name: "Document / PPTX", svgUrl: icFiletypeBadgeDocumentPptx },
+  { name: "Document / TXT", svgUrl: icFiletypeBadgeDocumentTxt },
+  { name: "Document / XLS", svgUrl: icFiletypeBadgeDocumentXls },
+  { name: "Document / XLSX", svgUrl: icFiletypeBadgeDocumentXlsx },
+  { name: "Image / EPS", svgUrl: icFiletypeBadgeImageEps },
+  { name: "Image / GIF", svgUrl: icFiletypeBadgeImageGif },
+  { name: "Image / IMG", svgUrl: icFiletypeBadgeImageImg },
+  { name: "Image / JPEG", svgUrl: icFiletypeBadgeImageJpeg },
+  { name: "Image / JPG", svgUrl: icFiletypeBadgeImageJpg },
+  { name: "Image / PNG", svgUrl: icFiletypeBadgeImagePng },
+  { name: "Image / SVG", svgUrl: icFiletypeBadgeImageSvg },
+  { name: "Image / TIFF", svgUrl: icFiletypeBadgeImageTiff },
+  { name: "Image / WebP", svgUrl: icFiletypeBadgeImageWebp },
+  { name: "Media / AVI", svgUrl: icFiletypeBadgeMediaAvi },
+  { name: "Media / MKV", svgUrl: icFiletypeBadgeMediaMkv },
+  { name: "Media / MP3", svgUrl: icFiletypeBadgeMediaMp3 },
+  { name: "Media / MP4", svgUrl: icFiletypeBadgeMediaMp4 },
+  { name: "Media / MPEG", svgUrl: icFiletypeBadgeMediaMpeg },
+  { name: "Media / WAV", svgUrl: icFiletypeBadgeMediaWav },
 ];
 
 export const fileTypeSized: MiscIconAsset[] = [
-  { name: ".jpg (Icon)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/440e8eff-3244-4787-9106-38fc6dfeea0e", size: "icon" as any },
-  { name: ".jpg (Image)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/cae1595c-375c-48e6-b57f-5d39d00621dc", size: "image" as any },
-  { name: ".link (Icon)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/90c6cb4b-3770-447e-944d-5e583692a3dd", size: "icon" as any },
-  { name: ".link (Image)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5f527a3e-dc0d-40a7-8e32-851ca5d0bd9c", size: "image" as any },
-  { name: ".mov (Icon)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/40a53849-4fc5-40e3-8cf1-c7e034677470", size: "icon" as any },
-  { name: ".mov (Image)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/4a941a54-696e-4035-b5e1-038c1249c9c1", size: "image" as any },
-  { name: ".mp3 (Icon)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0b0603be-b691-40d9-b7b3-c76549688a9b", size: "icon" as any },
-  { name: ".mp3 (Image)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/ef5ec4d3-f8ca-446f-953e-e2dcb9fd1af7", size: "image" as any },
-  { name: ".pdf (Icon)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/a9251038-a1f5-4e4e-89b8-05b60b7c2e8e", size: "icon" as any },
-  { name: ".pdf (Image)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7fff198f-d08b-4f81-ba95-7b4b8d8d4289", size: "image" as any },
-  { name: ".ppt (Icon)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/f1b70561-d00c-4bbb-82b6-1472e3787cfe", size: "icon" as any },
-  { name: ".ppt (Image)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/f713675c-5b4b-4fc2-9693-274181ab7725", size: "image" as any },
-  { name: ".txt (Icon)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/54f3ace8-3604-4227-b857-5310479a1e2a", size: "icon" as any },
-  { name: ".txt (Image)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/e3502f9e-aef2-4bc6-9c57-912ba0ed91c5", size: "image" as any },
-  { name: ".word (Icon)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0e394cf4-38eb-4857-959a-5cf17544ec6e", size: "icon" as any },
-  { name: ".word (Image)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/65bf6b19-0003-4347-82a9-cac792daf576", size: "image" as any },
-  { name: ".xlsx (Icon)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/cd57504a-8428-4dee-ab32-967c39a84e0a", size: "icon" as any },
-  { name: ".xlsx (Image)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5ab01c13-68b6-4cd1-abaa-06cd6dc91642", size: "image" as any },
-  { name: ".zip (Icon)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/fd6e634c-5eda-4c60-9f83-99772e561dfc", size: "icon" as any },
-  { name: ".zip (Image)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d6c9ebb6-76f7-4e52-9d30-e4b9dbe67fe7", size: "image" as any },
-  { name: "? (Icon)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/3d584dde-a032-4045-944b-b16dd457b887", size: "icon" as any },
-  { name: "? (Image)", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0c53ee75-cfaa-44da-a13a-a8636d29d113", size: "image" as any },
+  { name: ".jpg (Icon)", svgUrl: icFiletypeJpg },
+  { name: ".jpg (Image)", svgUrl: icFiletypeJpg },
+  { name: ".link (Icon)", svgUrl: icFiletypeLink },
+  { name: ".link (Image)", svgUrl: icFiletypeLink },
+  { name: ".mov (Icon)", svgUrl: icFiletypeMov },
+  { name: ".mov (Image)", svgUrl: icFiletypeMov },
+  { name: ".mp3 (Icon)", svgUrl: icFiletypeMp3 },
+  { name: ".mp3 (Image)", svgUrl: icFiletypeMp3 },
+  { name: ".pdf (Icon)", svgUrl: icFiletypePdf },
+  { name: ".pdf (Image)", svgUrl: icFiletypePdf },
+  { name: ".ppt (Icon)", svgUrl: icFiletypePpt },
+  { name: ".ppt (Image)", svgUrl: icFiletypePpt },
+  { name: ".txt (Icon)", svgUrl: icFiletypeTxt },
+  { name: ".txt (Image)", svgUrl: icFiletypeTxt },
+  { name: ".word (Icon)", svgUrl: icFiletypeWord },
+  { name: ".word (Image)", svgUrl: icFiletypeWord },
+  { name: ".xlsx (Icon)", svgUrl: icFiletypeXlsx },
+  { name: ".xlsx (Image)", svgUrl: icFiletypeXlsx },
+  { name: ".zip (Icon)", svgUrl: icFiletypeZip },
+  { name: ".zip (Image)", svgUrl: icFiletypeZip },
+  { name: "? (Icon)", svgUrl: icFiletypeUnknown },
+  { name: "? (Image)", svgUrl: icFiletypeUnknown },
 ];
 
 export const countryFlags: MiscIconAsset[] = [
-  { name: "AD", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2f29f5a8-4ad2-45c9-9703-75ef912d9277" },
-  { name: "AE", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/fa718609-0a61-4ed2-a41b-00c3e7f432b5" },
-  { name: "AF", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/e5a68a4e-ba37-41f7-a0fa-ea5c8cc6d547" },
-  { name: "AG", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/760cf9ad-263a-4df2-b799-d2818bd04eee" },
-  { name: "AI", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/e529ff81-ac8f-45fa-be0c-3fd3d18f2855" },
-  { name: "AL", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6cfc71e2-5da9-448a-9a5b-f29939f46452" },
-  { name: "AM", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/079bf12b-2d71-4f07-9685-c781275275bc" },
-  { name: "AO", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/07fd9504-af7e-4cc5-b6ba-cbd1af75d964" },
-  { name: "AR", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/3f82f7d8-45fb-4788-8a78-c57e1c7c9bdb" },
-  { name: "AS", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/bf711494-f6d5-4800-8d79-c1b7a0b4c4cc" },
-  { name: "AT", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/030a3a31-b1df-46dd-bc42-a69478fc0bd0" },
-  { name: "AU", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/56580b4c-a803-414f-b702-e2a70d68b9b0" },
-  { name: "AW", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/720fb892-1504-49ef-9ee2-d1849cd38813" },
-  { name: "AX", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/1e8b8536-34ca-4197-a710-a19e51e9294a" },
-  { name: "AZ", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/098ebe2c-afa5-4625-b20f-bfa7ac946921" },
-  { name: "BA", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6ac8733a-16ec-4839-9cc8-9c59ea07c8e4" },
-  { name: "BB", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6deca1a3-a25d-448f-a696-d78bc2f77609" },
-  { name: "BD", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0009054d-8243-4837-9c3e-989c5ee63080" },
-  { name: "BE", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5b506706-296b-4aec-8230-b0be7fdd3927" },
-  { name: "BF", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6257d39c-5baa-4949-9d62-7b4b5fae8fae" },
-  { name: "BG", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5b87e7a1-1014-4918-a118-1322579cd2db" },
-  { name: "BH", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/71df927e-ee16-4353-a899-03a56ca24b61" },
-  { name: "BI", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/83340f8f-dcee-4a2d-af14-62d5a2da986d" },
-  { name: "BJ", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0acd8f96-ebe0-4d3c-ae1d-0a1a8ed2fcd7" },
-  { name: "BL", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6eab6ca6-04ab-4bda-af32-f3a8c060e324" },
-  { name: "BM", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5f50a177-c42f-4513-84d4-539e8b8cd350" },
-  { name: "BN", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/dc84e17a-9a1f-4cf9-8416-9d6517f0ecf6" },
-  { name: "BO", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/f0ff8ec8-3fb3-41a0-842b-f76972619cd3" },
-  { name: "BQ", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d8c6482b-7608-426b-82a1-55717e2eca9c" },
-  { name: "BR", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/91a70ede-309b-4781-8cba-05c8a15023f5" },
-  { name: "BS", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/41f6a2de-016c-4b78-a84a-0b9bc66f3d14" },
-  { name: "BT", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/1cfe1b63-349f-44cc-a574-3d84126d201a" },
-  { name: "BW", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c51f618d-3364-4243-87fd-603e3176d171" },
-  { name: "BY", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/1633a2ea-5be8-492b-980a-f431c29bd10f" },
-  { name: "BZ", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/58b8a589-4e2b-4ea4-a121-85b038ced5fb" },
-  { name: "CA", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7fc04cae-0eba-456c-a83b-0d99ca27a64f" },
-  { name: "CC", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/b6a453b8-18fd-4fd5-b35a-9c5498df7eba" },
-  { name: "CD", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c4c9fab5-cc3a-42d2-9098-0d26974dc640" },
-  { name: "CF", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c91f608a-a722-41f7-b44e-187925c00ff2" },
-  { name: "CH", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/cc7919e5-7a02-4e18-b3dc-c501b12b0068" },
-  { name: "CK", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/24c2e7a8-3c0b-4d06-adf2-52623dbdb81f" },
-  { name: "CL", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/52a7fe3f-c010-4242-808e-30898467125c" },
-  { name: "CM", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/03777295-1336-462f-8540-1d6c56be2e3c" },
-  { name: "CN", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7fd7106f-fce0-4c7c-b71e-3ea920b73eb7" },
-  { name: "CO", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/ab517c75-ba5f-42db-9aef-436f2190e4e4" },
-  { name: "CR", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0386237f-ac4b-490e-8e0f-cebf3fea3b83" },
-  { name: "CU", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/607a862e-6ca9-4c2b-ac05-8cce5c200cb6" },
-  { name: "CW", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/4cf39909-3e8c-42c6-b67c-ca402c316047" },
-  { name: "CX", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5a5a991d-d464-4d4b-bb62-44a9a4279304" },
-  { name: "CY", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/96ceb4c9-4648-482c-9b0b-609354394e73" },
-  { name: "CZ", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/87d580a3-f7e8-4cb8-88d5-2fcc1c28fd4d" },
-  { name: "DE", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/ecc919bf-7ce6-459d-92b6-e77768e3e977" },
-  { name: "DJ", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/920b44ee-c434-4e0f-befd-8855caa3da5e" },
-  { name: "DK", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/12a9ab1d-1a8f-4cb3-873f-2f052bb58179" },
-  { name: "DM", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d15d478f-970e-4470-a6ab-959f07a63b2c" },
-  { name: "DO", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/b8b8bb9f-2812-435f-9430-6241bb559039" },
-  { name: "DS", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d67a2c7a-7744-4392-84d3-35c27afb0ca4" },
-  { name: "DZ", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/e19d2d0a-5d4b-4815-8732-bfbff0aaded7" },
-  { name: "EC", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/1891dc08-f9e2-4269-8384-d646e7175ccc" },
-  { name: "EE", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/044eea38-047b-4d8b-9196-05c72fcdc4ff" },
-  { name: "EG", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/9d68daa4-4971-4064-888c-2a90afb870a8" },
-  { name: "EH", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/30541949-d986-4508-bb4c-81b7fe977fb9" },
-  { name: "ER", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/b1613507-e4ba-4571-b85e-ce5b76e718c6" },
-  { name: "ES", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d4b5ec9a-6503-4a83-8520-07f9ea9cb278" },
-  { name: "ET", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/932a3236-f216-4c34-af79-acd223bbc214" },
-  { name: "FI", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/37a8d1a8-a993-43f4-9b0e-eb8fac862986" },
-  { name: "FJ", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/58f50e8d-e9d7-4e28-826c-5118ea5e0b69" },
-  { name: "FK", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/f4458f3e-bcd0-4d7e-8451-41ba92d85d3d" },
-  { name: "FM", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/3702aa5b-fb10-4ed7-aa5c-72ca90355837" },
-  { name: "FO", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/4f60c446-6bf3-42bf-8c0e-ea52c3612c97" },
-  { name: "FR", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/65554cba-1ef6-4e7a-a68c-f1aedfe51c0f" },
-  { name: "GA", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5837b546-55a5-4a9b-9cab-fcd668576e70" },
-  { name: "GB", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7478624e-d4d7-41c2-8b00-183f2c61cba7" },
-  { name: "GB-2", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/9fce653c-cf47-4407-9010-25e8259efdc1" },
-  { name: "GD", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/17bcbfaa-bbf4-4f95-8471-850914b4daec" },
-  { name: "GE", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/25e8c1e1-5b08-4aeb-b358-7fb81ab23e9d" },
-  { name: "GG", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/14036ebf-bef5-4bc1-af88-c061938bcce1" },
-  { name: "GH", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/bf8accd8-36d9-4029-a24e-b635b026f8c6" },
-  { name: "GI", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2291e592-7c59-4087-b6ae-f004c5cf1764" },
-  { name: "GL", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/efdcd72d-934e-4ea4-aff9-9668a2087358" },
-  { name: "GM", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7ba69854-bc0a-4a4f-add5-158bdb9d5ab3" },
-  { name: "GN", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/a66896a8-873e-4749-9183-51c3fc297454" },
-  { name: "GQ", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d3bab5ea-71a0-4023-8b57-25eddb6dabce" },
-  { name: "GR", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c1bc7007-e29e-41cc-8bb2-47871e666a66" },
-  { name: "GT", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/69db7817-969b-42b0-8737-9b468613a643" },
-  { name: "GU", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/bf3cd902-5bdd-46a2-99e4-860806545bdb" },
-  { name: "GW", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6d73ac5b-e689-4a84-b3ae-a07de27958a3" },
-  { name: "GY", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5f5b8292-4758-4b7a-81ef-a3b3adb545d1" },
-  { name: "HK", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/f84c6508-59ef-411c-9bfb-cd1c0773eca8" },
-  { name: "HN", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/af2ef52e-d0ce-4e02-b7c8-aea3400cb5cc" },
-  { name: "HR", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/653b3118-9bdc-43d6-b87c-7e059be6f988" },
-  { name: "HT", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d7205877-d51f-4b7d-97da-92c1c030fcd2" },
-  { name: "HU", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c478aa7e-cac3-4dc2-b882-8f3c34df4932" },
-  { name: "ID", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/ae039ce4-5a14-4bb3-9aca-58cd2f4278c8" },
-  { name: "IE", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/4e4a6bb0-b3f0-4ac0-92fc-8ec01d68ae92" },
-  { name: "IL", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0de2db37-f309-4fa4-967c-1a7f43a95db6" },
-  { name: "IM", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/96dc1316-40df-464a-9b9e-4cb955780d7b" },
-  { name: "IN", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/daa38e1e-33e7-4e10-93ae-76790bcb1ba2" },
-  { name: "IO", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/aabd4986-82b8-41ef-8842-1a1bf260288a" },
-  { name: "IQ", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6bd2d7dd-93cf-4df7-8415-a7ca560796a0" },
-  { name: "IR", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/b094adcf-aa37-4d55-aad4-cb658f15af85" },
-  { name: "IS", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5ca4129d-f521-4873-a48b-29625e459a9e" },
-  { name: "IT", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/548a04e9-bada-4c61-884a-ffedb605c52d" },
-  { name: "JE", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/ba4bc2ee-41a0-40c1-ae86-e98c67dfa79f" },
-  { name: "JM", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/bd26eb0d-3c83-4447-a661-78e099ee481d" },
-  { name: "JO", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/61e68048-bb9d-402f-9a48-2f17da18c586" },
-  { name: "JP", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/00fdbc54-6b18-4f83-b69b-1b85d783f38b" },
-  { name: "KE", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/4238de20-9901-4f01-8cf9-d4c286a239bd" },
-  { name: "KG", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/1a47d74b-8281-495d-aa02-95e1fd8c0c56" },
-  { name: "KH", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/49dc07dc-bdea-428a-9828-b9e6a6dad01e" },
-  { name: "KI", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/43634fce-498b-4fa2-acb0-54f6ea2e2f35" },
-  { name: "KM", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/e5d8b0d8-aaaf-4abc-a5b5-ea7007227c38" },
-  { name: "KN", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2df605a9-f2ec-4e19-ac98-004906fda22c" },
-  { name: "KP", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/826a2ad2-cd50-4e99-8d6a-9fc66eb66e6d" },
-  { name: "KR", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/443fcdab-6059-4236-a435-d86fc7eef70e" },
-  { name: "KW", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c0117798-f1e6-4053-9239-925f58c2b62f" },
-  { name: "KY", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/43b7a3de-95fb-4f02-985d-ac1a5a8a5ea9" },
-  { name: "KZ", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/edc67241-5536-437b-955a-f741d156d81b" },
-  { name: "LA", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0dc936c2-3ca7-4750-bdba-a9fa27ce0cd0" },
-  { name: "LB", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5066664d-226d-4dca-be6f-5c057e30d0f6" },
-  { name: "LC", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6a74af04-892a-487f-8722-8d64379a47ee" },
-  { name: "LI", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/62654c46-47c8-4d35-89df-79f4cc3ebf35" },
-  { name: "LK", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/19afd23a-73d6-4843-9a4c-07dfc3ca6d59" },
-  { name: "LR", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/84910f64-878c-4a9c-a1d9-45fa556c8d04" },
-  { name: "LS", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/fcf1b0de-4c1b-4341-ae7d-4d343f939f50" },
-  { name: "LT", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/79508362-b4f2-4f19-8448-be2f19ce7620" },
-  { name: "LU", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/e730d753-0eff-465f-899f-eb01a43c8fd1" },
-  { name: "LV", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/fc7df63f-11f0-42cf-b19f-bf70797c0ec7" },
-  { name: "LY", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/8f224061-697c-4656-8016-659a542f52af" },
-  { name: "MA", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/4a73e638-f531-4834-9850-854b48b7db91" },
-  { name: "MC", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c24bbb6d-a9a2-47a3-b31b-0a45b1aae398" },
-  { name: "MD", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/e977d810-9212-4da1-b43c-a434526abf21" },
-  { name: "ME", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/4ef3b5e3-ec85-43e5-92e1-9bc8e1fa0ece" },
-  { name: "MG", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/442876b8-403b-4a2e-9a07-f561e052013a" },
-  { name: "MH", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/09acab8b-d6c0-497e-980e-1d3b34f66b14" },
-  { name: "MK", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/075471db-7e8b-4304-a6eb-69ee4f9e2d67" },
-  { name: "ML", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/29a0e8b5-6b05-4d73-a45f-a9fcf45f3908" },
-  { name: "MM", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/ddff3142-7f34-48ca-a174-75cb043f1c67" },
-  { name: "MN", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c64b7b2b-b634-46ea-a985-67c58e27b9de" },
-  { name: "MO", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c1fdd621-1511-4114-be62-8d3ab20806ad" },
-  { name: "MP", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/904cd90a-5366-462a-99b9-37140c101f70" },
-  { name: "MQ", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d16dada7-d4cf-4926-8e4b-bb8517d4407d" },
-  { name: "MR", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/dcb614ca-c720-46e1-9043-7bc50535b54b" },
-  { name: "MS", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/ccf5d4ce-3b91-4b26-87bd-93f4017490bf" },
-  { name: "MT", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7c1f3af5-1e02-4e76-971b-b52a6416edd1" },
-  { name: "MU", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c51278c2-e61d-4958-8691-23d970b28ba0" },
-  { name: "MV", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7a4b0d3c-7ed4-40f8-a9ce-38c7fff88922" },
-  { name: "MW", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/39e4f0ea-9aef-4d98-8f1a-2eca3168665b" },
-  { name: "MX", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/607c5f78-60f7-4d24-9406-39432d51b43e" },
-  { name: "MY", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/24acd5f2-615b-41a9-8b9c-c7ce95394b1b" },
-  { name: "MZ", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/f8ae306b-4279-4463-9a0f-fdbc7f4b5324" },
-  { name: "NA", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/be91726a-db14-4d40-a600-7d62f811432c" },
-  { name: "NE", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/9f9864b5-75a4-4611-b87f-7e3baaf4195b" },
-  { name: "NF", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d251bb82-457a-4ba3-934a-2d1c2a811fc6" },
-  { name: "NG", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/be37d4c8-e608-4852-b27b-1637d0024e35" },
-  { name: "NI", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/a21c1880-97a4-424e-96be-d2e20a7878e4" },
-  { name: "NL", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/59c98169-7a3e-4738-8ad0-4d6694dc4bfe" },
-  { name: "NO", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c0ed0e1b-aa17-45c9-875b-d4850c67f206" },
-  { name: "NP", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/35ea2ef0-1b5c-4db0-bb2f-bbfc0beb8ebc" },
-  { name: "NR", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/e6df48ab-0a63-4b05-b63d-38a3ca08019b" },
-  { name: "NU", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/00b3594e-a68b-4308-8397-1768cad42896" },
-  { name: "NZ", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/4c6b1085-b060-4f67-b360-679f4ad15f49" },
-  { name: "OM", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/4c3517a6-1cfc-41a5-95d7-8804275c9e6b" },
-  { name: "PA", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/a62c5b8c-bb0a-449a-b1a2-25e48750ea72" },
-  { name: "PE", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/8f4eb87f-f779-4dfc-877d-15226ffd3614" },
-  { name: "PF", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/9152f8fd-54d4-428b-8208-88d9df3b6794" },
-  { name: "PG", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/926e8eeb-30f2-4675-9c9e-54216e2ea82c" },
-  { name: "PH", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/eeddde75-6f1b-4418-bdff-222c5446cf02" },
-  { name: "PK", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2b24ebb7-e582-4723-ae83-12917ddd00b4" },
-  { name: "PL", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/593e1b7b-7b65-481c-92bb-73723fb028ea" },
-  { name: "PN", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2204a0f6-f656-4314-a110-7d28410ecc09" },
-  { name: "PR", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/10dcd471-3938-4213-92ff-ded9db6db815" },
-  { name: "PS", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0258d34b-0dd0-4185-be22-29de8b1a52c1" },
-  { name: "PT", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/39b250c2-bf1f-46a0-94dd-4b4c5d060dfc" },
-  { name: "PW", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5c3c249f-5b79-466d-a3ce-4de6fa736741" },
-  { name: "PY", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/738979d8-c65d-4835-8249-48ef835a908e" },
-  { name: "QA", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/ae80db2f-d5f8-4665-b52e-f1157e6373fe" },
-  { name: "RO", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2263720c-ff6a-46c2-852f-92a00b7b8e57" },
-  { name: "RS", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/a510d721-7b0f-482b-9a46-86200744665a" },
-  { name: "RU", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2f372631-877b-4ab5-b296-f1eb6732f6c5" },
-  { name: "RW", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/52be7b9e-4879-45d7-a672-83c764555dda" },
-  { name: "SA", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/ec7d48de-1dd3-4452-b996-467304cf884c" },
-  { name: "SB", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/b1ba1fb5-1a4a-4a9d-a0bf-f75c536253f0" },
-  { name: "SC", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d732adc0-5abb-4a30-9aba-1f9d67702a94" },
-  { name: "SE", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/41dd9e25-ee5c-461c-ad41-dc015b1c937a" },
-  { name: "SG", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6a517504-5df0-4518-a027-6428ab3475ba" },
-  { name: "SI", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/9ccc541c-44f8-45dd-a070-c16e07c0fdce" },
-  { name: "SK", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/183a9b7b-1b69-4147-8447-a51d04c93569" },
-  { name: "SL", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/78bb9aa6-7899-453d-b7b7-327d36899c13" },
-  { name: "SM", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7e2d4ac3-6251-475f-8d7a-641bbb84e53d" },
-  { name: "SN", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/9608cdba-560d-473c-a4fb-8c42e283c944" },
-  { name: "SO", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2ec35633-c112-4c21-92a1-5f56017eae8e" },
-  { name: "SR", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/48fdfc22-30f3-493d-a336-f94c7cf91dfc" },
-  { name: "SS", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2e3f6e77-7bfe-467e-a77d-f480b47f16fd" },
-  { name: "ST", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/4c36a082-35f9-4083-ae57-d68b837f12cb" },
-  { name: "SV", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/f4580f75-5ce1-4dbe-b8aa-111eaefc83e7" },
-  { name: "SX", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/e41b23d5-872c-4296-8acf-a4ca132183b3" },
-  { name: "SY", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7c95ba0f-bcbe-4a78-a3d1-1e9ec18fd45b" },
-  { name: "SZ", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d83aa085-5a4d-4144-a346-a0284e2be5bf" },
-  { name: "TC", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/e2dc9689-b71f-4e0d-8b00-ab19a54c0e94" },
-  { name: "TD", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/273c6b1e-ee48-474e-a8c4-019c4c5ce966" },
-  { name: "TG", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/748830e2-3422-456a-b08f-7555b2ccc679" },
-  { name: "TH", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d2b3b9fe-5b59-4516-95c5-71fb320f2833" },
-  { name: "TJ", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/45cb66e1-c910-4d14-909f-af946dee1668" },
-  { name: "TK", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/578be5c0-2bc5-4c27-9564-5595c230a1b9" },
-  { name: "TL", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5b40b3f4-907e-4ae6-99f4-f5122ab1ad3a" },
-  { name: "TM", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7203f0c6-247d-4e61-8f9f-66855bbfbfa2" },
-  { name: "TN", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/bca7f215-1447-4ad2-8f77-e153997b378d" },
-  { name: "TO", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/65bb727d-9218-4921-9550-888dffa2c167" },
-  { name: "TR", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/1bb8d9f9-794e-4451-8bef-be4ea20f332a" },
-  { name: "TT", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/df7683ab-e2f4-4505-89a6-4728356c47fe" },
-  { name: "TV", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0e8e19b9-a962-4d92-ae77-099515870e69" },
-  { name: "TW", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2efe3335-9b2c-47f6-9238-ae7f2dab88f1" },
-  { name: "TZ", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/cb3595ff-9873-461c-bf93-73244cb8bc41" },
-  { name: "UA", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/3c973ccb-8e12-435f-b6a0-427f948daf9b" },
-  { name: "UG", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/f642c30a-9b40-402b-8b1b-7ba35bf93583" },
-  { name: "US", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2797a46f-c1a8-4812-a0ae-06d218518080" },
-  { name: "UY", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5937a855-92ac-4bba-8a65-2d9790f5887f" },
-  { name: "UZ", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0f5ae2f1-f2e4-4e5f-b0e4-c8a5310a3065" },
-  { name: "VC", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5ceff4c7-e1c2-4943-86d9-1f900d3b7bbb" },
-  { name: "VE", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6c8e6950-0c82-4724-b267-d4f4f2e73fe2" },
-  { name: "VG", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/cd813b18-0080-46ef-852c-52aec6e9053c" },
-  { name: "VI", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/e1ce3631-c176-4dc6-a230-6e3a1433d0ee" },
-  { name: "VN", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7d1e78a4-6dee-4e97-8625-49b38abaf9f3" },
-  { name: "VU", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6f31e754-6f2a-4129-bae4-3bd3a0c8b988" },
-  { name: "WS", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/3b070c1b-2bfd-4960-bfb8-75ba12f7540c" },
-  { name: "YE", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/f1965224-6cb5-4067-ba6c-96bb933a07a0" },
-  { name: "ZA", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/da3e083f-39b1-4fc4-9668-cb08cc1cbf5d" },
-  { name: "ZM", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/aa3fb167-f2ed-4ad3-a97a-01a70435b845" },
-  { name: "ZW", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/1ecb8c8e-a4df-477d-bfa6-19e93c6cbb86" },
-  { name: "earth", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6c92295f-a3ae-4d34-b1c2-81974f30d6c4" },
+  { name: "AD", svgUrl: icFlagsAd },
+  { name: "AE", svgUrl: icFlagsAe },
+  { name: "AF", svgUrl: icFlagsAf },
+  { name: "AG", svgUrl: icFlagsAg },
+  { name: "AI", svgUrl: icFlagsAi },
+  { name: "AL", svgUrl: icFlagsAl },
+  { name: "AM", svgUrl: icFlagsAm },
+  { name: "AO", svgUrl: icFlagsAo },
+  { name: "AR", svgUrl: icFlagsAr },
+  { name: "AS", svgUrl: icFlagsAs },
+  { name: "AT", svgUrl: icFlagsAt },
+  { name: "AU", svgUrl: icFlagsAu },
+  { name: "AW", svgUrl: icFlagsAw },
+  { name: "AX", svgUrl: icFlagsAx },
+  { name: "AZ", svgUrl: icFlagsAz },
+  { name: "BA", svgUrl: icFlagsBa },
+  { name: "BB", svgUrl: icFlagsBb },
+  { name: "BD", svgUrl: icFlagsBd },
+  { name: "BE", svgUrl: icFlagsBe },
+  { name: "BF", svgUrl: icFlagsBf },
+  { name: "BG", svgUrl: icFlagsBg },
+  { name: "BH", svgUrl: icFlagsBh },
+  { name: "BI", svgUrl: icFlagsBi },
+  { name: "BJ", svgUrl: icFlagsBj },
+  { name: "BL", svgUrl: icFlagsBl },
+  { name: "BM", svgUrl: icFlagsBm },
+  { name: "BN", svgUrl: icFlagsBn },
+  { name: "BO", svgUrl: icFlagsBo },
+  { name: "BQ", svgUrl: icFlagsBq },
+  { name: "BR", svgUrl: icFlagsBr },
+  { name: "BS", svgUrl: icFlagsBs },
+  { name: "BT", svgUrl: icFlagsBt },
+  { name: "BW", svgUrl: icFlagsBw },
+  { name: "BY", svgUrl: icFlagsBy },
+  { name: "BZ", svgUrl: icFlagsBz },
+  { name: "CA", svgUrl: icFlagsCa },
+  { name: "CC", svgUrl: icFlagsCc },
+  { name: "CD", svgUrl: icFlagsCd },
+  { name: "CF", svgUrl: icFlagsCf },
+  { name: "CH", svgUrl: icFlagsCh },
+  { name: "CK", svgUrl: icFlagsCk },
+  { name: "CL", svgUrl: icFlagsCl },
+  { name: "CM", svgUrl: icFlagsCm },
+  { name: "CN", svgUrl: icFlagsCn },
+  { name: "CO", svgUrl: icFlagsCo },
+  { name: "CR", svgUrl: icFlagsCr },
+  { name: "CU", svgUrl: icFlagsCu },
+  { name: "CW", svgUrl: icFlagsCw },
+  { name: "CX", svgUrl: icFlagsCx },
+  { name: "CY", svgUrl: icFlagsCy },
+  { name: "CZ", svgUrl: icFlagsCz },
+  { name: "DE", svgUrl: icFlagsDe },
+  { name: "DJ", svgUrl: icFlagsDj },
+  { name: "DK", svgUrl: icFlagsDk },
+  { name: "DM", svgUrl: icFlagsDm },
+  { name: "DO", svgUrl: icFlagsDo },
+  { name: "DS", svgUrl: icFlagsDs },
+  { name: "DZ", svgUrl: icFlagsDz },
+  { name: "EC", svgUrl: icFlagsEc },
+  { name: "EE", svgUrl: icFlagsEe },
+  { name: "EG", svgUrl: icFlagsEg },
+  { name: "EH", svgUrl: icFlagsEh },
+  { name: "ER", svgUrl: icFlagsEr },
+  { name: "ES", svgUrl: icFlagsEs },
+  { name: "ET", svgUrl: icFlagsEt },
+  { name: "FI", svgUrl: icFlagsFi },
+  { name: "FJ", svgUrl: icFlagsFj },
+  { name: "FK", svgUrl: icFlagsFk },
+  { name: "FM", svgUrl: icFlagsFm },
+  { name: "FO", svgUrl: icFlagsFo },
+  { name: "FR", svgUrl: icFlagsFr },
+  { name: "GA", svgUrl: icFlagsGa },
+  { name: "GB", svgUrl: icFlagsGb },
+  { name: "GB-2", svgUrl: icFlagsGb2 },
+  { name: "GD", svgUrl: icFlagsGd },
+  { name: "GE", svgUrl: icFlagsGe },
+  { name: "GG", svgUrl: icFlagsGg },
+  { name: "GH", svgUrl: icFlagsGh },
+  { name: "GI", svgUrl: icFlagsGi },
+  { name: "GL", svgUrl: icFlagsGl },
+  { name: "GM", svgUrl: icFlagsGm },
+  { name: "GN", svgUrl: icFlagsGn },
+  { name: "GQ", svgUrl: icFlagsGq },
+  { name: "GR", svgUrl: icFlagsGr },
+  { name: "GT", svgUrl: icFlagsGt },
+  { name: "GU", svgUrl: icFlagsGu },
+  { name: "GW", svgUrl: icFlagsGw },
+  { name: "GY", svgUrl: icFlagsGy },
+  { name: "HK", svgUrl: icFlagsHk },
+  { name: "HN", svgUrl: icFlagsHn },
+  { name: "HR", svgUrl: icFlagsHr },
+  { name: "HT", svgUrl: icFlagsHt },
+  { name: "HU", svgUrl: icFlagsHu },
+  { name: "ID", svgUrl: icFlagsId },
+  { name: "IE", svgUrl: icFlagsIe },
+  { name: "IL", svgUrl: icFlagsIl },
+  { name: "IM", svgUrl: icFlagsIm },
+  { name: "IN", svgUrl: icFlagsIn },
+  { name: "IO", svgUrl: icFlagsIo },
+  { name: "IQ", svgUrl: icFlagsIq },
+  { name: "IR", svgUrl: icFlagsIr },
+  { name: "IS", svgUrl: icFlagsIs },
+  { name: "IT", svgUrl: icFlagsIt },
+  { name: "JE", svgUrl: icFlagsJe },
+  { name: "JM", svgUrl: icFlagsJm },
+  { name: "JO", svgUrl: icFlagsJo },
+  { name: "JP", svgUrl: icFlagsJp },
+  { name: "KE", svgUrl: icFlagsKe },
+  { name: "KG", svgUrl: icFlagsKg },
+  { name: "KH", svgUrl: icFlagsKh },
+  { name: "KI", svgUrl: icFlagsKi },
+  { name: "KM", svgUrl: icFlagsKm },
+  { name: "KN", svgUrl: icFlagsKn },
+  { name: "KP", svgUrl: icFlagsKp },
+  { name: "KR", svgUrl: icFlagsKr },
+  { name: "KW", svgUrl: icFlagsKw },
+  { name: "KY", svgUrl: icFlagsKy },
+  { name: "KZ", svgUrl: icFlagsKz },
+  { name: "LA", svgUrl: icFlagsLa },
+  { name: "LB", svgUrl: icFlagsLb },
+  { name: "LC", svgUrl: icFlagsLc },
+  { name: "LI", svgUrl: icFlagsLi },
+  { name: "LK", svgUrl: icFlagsLk },
+  { name: "LR", svgUrl: icFlagsLr },
+  { name: "LS", svgUrl: icFlagsLs },
+  { name: "LT", svgUrl: icFlagsLt },
+  { name: "LU", svgUrl: icFlagsLu },
+  { name: "LV", svgUrl: icFlagsLv },
+  { name: "LY", svgUrl: icFlagsLy },
+  { name: "MA", svgUrl: icFlagsMa },
+  { name: "MC", svgUrl: icFlagsMc },
+  { name: "MD", svgUrl: icFlagsMd },
+  { name: "ME", svgUrl: icFlagsMe },
+  { name: "MG", svgUrl: icFlagsMg },
+  { name: "MH", svgUrl: icFlagsMh },
+  { name: "MK", svgUrl: icFlagsMk },
+  { name: "ML", svgUrl: icFlagsMl },
+  { name: "MM", svgUrl: icFlagsMm },
+  { name: "MN", svgUrl: icFlagsMn },
+  { name: "MO", svgUrl: icFlagsMo },
+  { name: "MP", svgUrl: icFlagsMp },
+  { name: "MQ", svgUrl: icFlagsMq },
+  { name: "MR", svgUrl: icFlagsMr },
+  { name: "MS", svgUrl: icFlagsMs },
+  { name: "MT", svgUrl: icFlagsMt },
+  { name: "MU", svgUrl: icFlagsMu },
+  { name: "MV", svgUrl: icFlagsMv },
+  { name: "MW", svgUrl: icFlagsMw },
+  { name: "MX", svgUrl: icFlagsMx },
+  { name: "MY", svgUrl: icFlagsMy },
+  { name: "MZ", svgUrl: icFlagsMz },
+  { name: "NA", svgUrl: icFlagsNa },
+  { name: "NE", svgUrl: icFlagsNe },
+  { name: "NF", svgUrl: icFlagsNf },
+  { name: "NG", svgUrl: icFlagsNg },
+  { name: "NI", svgUrl: icFlagsNi },
+  { name: "NL", svgUrl: icFlagsNl },
+  { name: "NO", svgUrl: icFlagsNo },
+  { name: "NP", svgUrl: icFlagsNp },
+  { name: "NR", svgUrl: icFlagsNr },
+  { name: "NU", svgUrl: icFlagsNu },
+  { name: "NZ", svgUrl: icFlagsNz },
+  { name: "OM", svgUrl: icFlagsOm },
+  { name: "PA", svgUrl: icFlagsPa },
+  { name: "PE", svgUrl: icFlagsPe },
+  { name: "PF", svgUrl: icFlagsPf },
+  { name: "PG", svgUrl: icFlagsPg },
+  { name: "PH", svgUrl: icFlagsPh },
+  { name: "PK", svgUrl: icFlagsPk },
+  { name: "PL", svgUrl: icFlagsPl },
+  { name: "PN", svgUrl: icFlagsPn },
+  { name: "PR", svgUrl: icFlagsPr },
+  { name: "PS", svgUrl: icFlagsPs },
+  { name: "PT", svgUrl: icFlagsPt },
+  { name: "PW", svgUrl: icFlagsPw },
+  { name: "PY", svgUrl: icFlagsPy },
+  { name: "QA", svgUrl: icFlagsQa },
+  { name: "RO", svgUrl: icFlagsRo },
+  { name: "RS", svgUrl: icFlagsRs },
+  { name: "RU", svgUrl: icFlagsRu },
+  { name: "RW", svgUrl: icFlagsRw },
+  { name: "SA", svgUrl: icFlagsSa },
+  { name: "SB", svgUrl: icFlagsSb },
+  { name: "SC", svgUrl: icFlagsSc },
+  { name: "SE", svgUrl: icFlagsSe },
+  { name: "SG", svgUrl: icFlagsSg },
+  { name: "SI", svgUrl: icFlagsSi },
+  { name: "SK", svgUrl: icFlagsSk },
+  { name: "SL", svgUrl: icFlagsSl },
+  { name: "SM", svgUrl: icFlagsSm },
+  { name: "SN", svgUrl: icFlagsSn },
+  { name: "SO", svgUrl: icFlagsSo },
+  { name: "SR", svgUrl: icFlagsSr },
+  { name: "SS", svgUrl: icFlagsSs },
+  { name: "ST", svgUrl: icFlagsSt },
+  { name: "SV", svgUrl: icFlagsSv },
+  { name: "SX", svgUrl: icFlagsSx },
+  { name: "SY", svgUrl: icFlagsSy },
+  { name: "SZ", svgUrl: icFlagsSz },
+  { name: "TC", svgUrl: icFlagsTc },
+  { name: "TD", svgUrl: icFlagsTd },
+  { name: "TG", svgUrl: icFlagsTg },
+  { name: "TH", svgUrl: icFlagsTh },
+  { name: "TJ", svgUrl: icFlagsTj },
+  { name: "TK", svgUrl: icFlagsTk },
+  { name: "TL", svgUrl: icFlagsTl },
+  { name: "TM", svgUrl: icFlagsTm },
+  { name: "TN", svgUrl: icFlagsTn },
+  { name: "TO", svgUrl: icFlagsTo },
+  { name: "TR", svgUrl: icFlagsTr },
+  { name: "TT", svgUrl: icFlagsTt },
+  { name: "TV", svgUrl: icFlagsTv },
+  { name: "TW", svgUrl: icFlagsTw },
+  { name: "TZ", svgUrl: icFlagsTz },
+  { name: "UA", svgUrl: icFlagsUa },
+  { name: "UG", svgUrl: icFlagsUg },
+  { name: "US", svgUrl: icFlagsUs },
+  { name: "UY", svgUrl: icFlagsUy },
+  { name: "UZ", svgUrl: icFlagsUz },
+  { name: "VC", svgUrl: icFlagsVc },
+  { name: "VE", svgUrl: icFlagsVe },
+  { name: "VG", svgUrl: icFlagsVg },
+  { name: "VI", svgUrl: icFlagsVi },
+  { name: "VN", svgUrl: icFlagsVn },
+  { name: "VU", svgUrl: icFlagsVu },
+  { name: "WS", svgUrl: icFlagsWs },
+  { name: "YE", svgUrl: icFlagsYe },
+  { name: "ZA", svgUrl: icFlagsZa },
+  { name: "ZM", svgUrl: icFlagsZm },
+  { name: "ZW", svgUrl: icFlagsZw },
+  { name: "earth", svgUrl: icFlagsEarth },
 ];
 
 export const featuredIcons: MiscIconAsset[] = [
-  { name: "sm / Brand / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/844b4233-a63a-4394-8bfe-9d63c0a18b3c", size: "sm" as const },
-  { name: "sm / Brand / Modern", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/584698ad-8b24-4e9b-aa4c-d719a936d15a", size: "sm" as const },
-  { name: "sm / Error / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/3e457364-78c7-4bca-893a-31849d6d7981", size: "sm" as const },
-  { name: "sm / Gray / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/accc709e-d64f-4113-aaf4-860b8aa252af", size: "sm" as const },
-  { name: "sm / Gray / Modern", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/fb20fe7a-f0db-4480-a6fd-15e34f16885c", size: "sm" as const },
-  { name: "sm / Success / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/9ee93fc3-5114-4bfa-8731-ac0f6a729b34", size: "sm" as const },
-  { name: "sm / Warning / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/e1a6d6e4-9c9d-45dd-a263-c464ce6e29d9", size: "sm" as const },
-  { name: "md / Brand / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c751d2d0-cfc6-4150-916c-dc8cb46ad86d", size: "md" as const },
-  { name: "md / Brand / Modern", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c15de456-9904-4131-80a5-15a6f915a77a", size: "md" as const },
-  { name: "md / Error / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/be81fc72-1b94-4ff3-8f7d-544885bd46ff", size: "md" as const },
-  { name: "md / Gray / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d68a1075-7982-4e14-864e-3935b5315d7d", size: "md" as const },
-  { name: "md / Gray / Modern", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d317e93d-5bec-4dd5-921e-c4d1285648e5", size: "md" as const },
-  { name: "md / Success / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/1c0e3139-b191-4906-ac4c-52fbf322cfca", size: "md" as const },
-  { name: "md / Warning / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/fce4e70f-4e9a-46ed-b564-019739d008b7", size: "md" as const },
-  { name: "lg / Brand / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d2536fcd-ae95-48a3-9ece-6a8c9a6c2c58", size: "lg" as const },
-  { name: "lg / Brand / Modern", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/a95b0aa0-4cac-413e-90e0-f630192b8697", size: "lg" as const },
-  { name: "lg / Error / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/9f55ac29-5bd8-488b-bc51-348f6a40e1a9", size: "lg" as const },
-  { name: "lg / Gray / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0d26858c-56e9-44ba-8187-377b8ce0d97c", size: "lg" as const },
-  { name: "lg / Gray / Modern", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/72b6fe17-2724-4257-ad1c-35de43f602a2", size: "lg" as const },
-  { name: "lg / Success / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/b8d61cb6-18ad-4f02-a459-6f4dbf64b611", size: "lg" as const },
-  { name: "lg / Warning / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2a266a24-25f9-490a-8d15-e0b6b0e1340e", size: "lg" as const },
-  { name: "xl / Brand / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/556bca90-7dc3-4e33-91fe-0f50506c5524", size: "xl" as const },
-  { name: "xl / Brand / Modern", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/34b00c03-68d6-44c5-a248-94d0417f8ff0", size: "xl" as const },
-  { name: "xl / Error / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6028979c-c451-4909-94d3-24e6475edc99", size: "xl" as const },
-  { name: "xl / Gray / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/2b5a70b7-e508-4cdc-a912-18857784cd5d", size: "xl" as const },
-  { name: "xl / Gray / Modern", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d2ba8d87-4b88-429d-b1e6-46348cf47f0b", size: "xl" as const },
-  { name: "xl / Success / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0e398a2a-62e4-4f1e-868b-bab1a89e8726", size: "xl" as const },
-  { name: "xl / Warning / Light", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/8bab5d88-9396-44f7-a8ba-86a068eaebd0", size: "xl" as const },
+  {
+    name: "sm / Brand / Light",
+    svgUrl: icFeaturedSmBrandLight,
+    size: "sm" as const,
+  },
+  {
+    name: "sm / Brand / Modern",
+    svgUrl: icFeaturedSmBrandModern,
+    size: "sm" as const,
+  },
+  {
+    name: "sm / Error / Light",
+    svgUrl: icFeaturedSmErrorLight,
+    size: "sm" as const,
+  },
+  {
+    name: "sm / Gray / Light",
+    svgUrl: icFeaturedSmGrayLight,
+    size: "sm" as const,
+  },
+  {
+    name: "sm / Gray / Modern",
+    svgUrl: icFeaturedSmGrayModern,
+    size: "sm" as const,
+  },
+  {
+    name: "sm / Success / Light",
+    svgUrl: icFeaturedSmSuccessLight,
+    size: "sm" as const,
+  },
+  {
+    name: "sm / Warning / Light",
+    svgUrl: icFeaturedSmWarningLight,
+    size: "sm" as const,
+  },
+  {
+    name: "md / Brand / Light",
+    svgUrl: icFeaturedMdBrandLight,
+    size: "md" as const,
+  },
+  {
+    name: "md / Brand / Modern",
+    svgUrl: icFeaturedMdBrandModern,
+    size: "md" as const,
+  },
+  {
+    name: "md / Error / Light",
+    svgUrl: icFeaturedMdErrorLight,
+    size: "md" as const,
+  },
+  {
+    name: "md / Gray / Light",
+    svgUrl: icFeaturedMdGrayLight,
+    size: "md" as const,
+  },
+  {
+    name: "md / Gray / Modern",
+    svgUrl: icFeaturedMdGrayModern,
+    size: "md" as const,
+  },
+  {
+    name: "md / Success / Light",
+    svgUrl: icFeaturedMdSuccessLight,
+    size: "md" as const,
+  },
+  {
+    name: "md / Warning / Light",
+    svgUrl: icFeaturedMdWarningLight,
+    size: "md" as const,
+  },
+  {
+    name: "lg / Brand / Light",
+    svgUrl: icFeaturedLgBrandLight,
+    size: "lg" as const,
+  },
+  {
+    name: "lg / Brand / Modern",
+    svgUrl: icFeaturedLgBrandModern,
+    size: "lg" as const,
+  },
+  {
+    name: "lg / Error / Light",
+    svgUrl: icFeaturedLgErrorLight,
+    size: "lg" as const,
+  },
+  {
+    name: "lg / Gray / Light",
+    svgUrl: icFeaturedLgGrayLight,
+    size: "lg" as const,
+  },
+  {
+    name: "lg / Gray / Modern",
+    svgUrl: icFeaturedLgGrayModern,
+    size: "lg" as const,
+  },
+  {
+    name: "lg / Success / Light",
+    svgUrl: icFeaturedLgSuccessLight,
+    size: "lg" as const,
+  },
+  {
+    name: "lg / Warning / Light",
+    svgUrl: icFeaturedLgWarningLight,
+    size: "lg" as const,
+  },
+  {
+    name: "xl / Brand / Light",
+    svgUrl: icFeaturedXlBrandLight,
+    size: "xl" as const,
+  },
+  {
+    name: "xl / Brand / Modern",
+    svgUrl: icFeaturedXlBrandModern,
+    size: "xl" as const,
+  },
+  {
+    name: "xl / Error / Light",
+    svgUrl: icFeaturedXlErrorLight,
+    size: "xl" as const,
+  },
+  {
+    name: "xl / Gray / Light",
+    svgUrl: icFeaturedXlGrayLight,
+    size: "xl" as const,
+  },
+  {
+    name: "xl / Gray / Modern",
+    svgUrl: icFeaturedXlGrayModern,
+    size: "xl" as const,
+  },
+  {
+    name: "xl / Success / Light",
+    svgUrl: icFeaturedXlSuccessLight,
+    size: "xl" as const,
+  },
+  {
+    name: "xl / Warning / Light",
+    svgUrl: icFeaturedXlWarningLight,
+    size: "xl" as const,
+  },
 ];
 
 export const featuredIconsOutline: MiscIconAsset[] = [
-  { name: "sm / Brand", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/ee26d9f1-f4e0-4a95-baf1-b0232bd62744", size: "sm" as const },
-  { name: "sm / Error", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/cf81a87a-6984-438c-ba9f-bb278215f8d1", size: "sm" as const },
-  { name: "sm / Gray", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/deffcc85-f22f-4853-bfc1-b77957e66614", size: "sm" as const },
-  { name: "sm / Info", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/8329c717-248b-4054-bd04-c8a5c18b1eef", size: "sm" as const },
-  { name: "sm / Success", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/3da25a41-6a45-4fc6-90e8-1292c9e757f4", size: "sm" as const },
-  { name: "sm / Warning", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/13841493-2d47-4321-9193-09bc63f487a1", size: "sm" as const },
-  { name: "md / Brand", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0a89ca4c-1bae-4058-bb42-7d434333027c", size: "md" as const },
-  { name: "md / Error", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/9af9eec7-a8e4-4410-ac53-0a59cbe5a6b5", size: "md" as const },
-  { name: "md / Gray", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/cf043e49-23a5-476e-be08-42206413f4e2", size: "md" as const },
-  { name: "md / Info", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/9f1fe94a-6089-4338-aca9-a884a4b87c6c", size: "md" as const },
-  { name: "md / Success", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/19409803-833c-4076-a7c2-0ae235e3cc3d", size: "md" as const },
-  { name: "md / Warning", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/a9f0167c-a544-4215-b367-63461b81c065", size: "md" as const },
-  { name: "lg / Brand", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6f15bba1-d3be-4dcf-8491-2cf97651aaea", size: "lg" as const },
-  { name: "lg / Error", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5fd63c80-4a5b-4ad4-8b3d-8e4d4d5c2598", size: "lg" as const },
-  { name: "lg / Gray", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/75d45bb7-9b09-497c-9b7d-8748acda9600", size: "lg" as const },
-  { name: "lg / Info", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7c8878d5-d6bc-41a7-b29f-cc05a2a50243", size: "lg" as const },
-  { name: "lg / Success", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0c143ff5-59cb-483b-a2d7-43a81252e225", size: "lg" as const },
-  { name: "lg / Warning", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/e6d9ed9a-c594-454f-aa79-6772cd15ed8b", size: "lg" as const },
-  { name: "xl / Brand", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/77bf2958-4987-4e76-b58f-17139a972bf2", size: "xl" as const },
-  { name: "xl / Error", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/570b61f7-226d-4add-a9d3-e59186a98685", size: "xl" as const },
-  { name: "xl / Gray", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/38f8c8e0-5ad4-4958-8a74-2b6919b51edb", size: "xl" as const },
-  { name: "xl / Info", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/f4deaa95-cec8-4e08-b160-f747ed1ba8a1", size: "xl" as const },
-  { name: "xl / Success", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/7fa15e21-f7d9-4004-8c31-1cbec2ff2a8e", size: "xl" as const },
-  { name: "xl / Warning", svgUrl: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/48db6e6d-db32-4c39-84e7-853eeb83333e", size: "xl" as const },
+  { name: "sm / Brand", svgUrl: icFeaturedOutlineSmBrand, size: "sm" as const },
+  { name: "sm / Error", svgUrl: icFeaturedOutlineSmError, size: "sm" as const },
+  { name: "sm / Gray", svgUrl: icFeaturedOutlineSmGray, size: "sm" as const },
+  { name: "sm / Info", svgUrl: icFeaturedOutlineSmInfo, size: "sm" as const },
+  {
+    name: "sm / Success",
+    svgUrl: icFeaturedOutlineSmSuccess,
+    size: "sm" as const,
+  },
+  {
+    name: "sm / Warning",
+    svgUrl: icFeaturedOutlineSmWarning,
+    size: "sm" as const,
+  },
+  { name: "md / Brand", svgUrl: icFeaturedOutlineMdBrand, size: "md" as const },
+  { name: "md / Error", svgUrl: icFeaturedOutlineMdError, size: "md" as const },
+  { name: "md / Gray", svgUrl: icFeaturedOutlineMdGray, size: "md" as const },
+  { name: "md / Info", svgUrl: icFeaturedOutlineMdInfo, size: "md" as const },
+  {
+    name: "md / Success",
+    svgUrl: icFeaturedOutlineMdSuccess,
+    size: "md" as const,
+  },
+  {
+    name: "md / Warning",
+    svgUrl: icFeaturedOutlineMdWarning,
+    size: "md" as const,
+  },
+  { name: "lg / Brand", svgUrl: icFeaturedOutlineLgBrand, size: "lg" as const },
+  { name: "lg / Error", svgUrl: icFeaturedOutlineLgError, size: "lg" as const },
+  { name: "lg / Gray", svgUrl: icFeaturedOutlineLgGray, size: "lg" as const },
+  { name: "lg / Info", svgUrl: icFeaturedOutlineLgInfo, size: "lg" as const },
+  {
+    name: "lg / Success",
+    svgUrl: icFeaturedOutlineLgSuccess,
+    size: "lg" as const,
+  },
+  {
+    name: "lg / Warning",
+    svgUrl: icFeaturedOutlineLgWarning,
+    size: "lg" as const,
+  },
+  { name: "xl / Brand", svgUrl: icFeaturedOutlineXlBrand, size: "xl" as const },
+  { name: "xl / Error", svgUrl: icFeaturedOutlineXlError, size: "xl" as const },
+  { name: "xl / Gray", svgUrl: icFeaturedOutlineXlGray, size: "xl" as const },
+  { name: "xl / Info", svgUrl: icFeaturedOutlineXlInfo, size: "xl" as const },
+  {
+    name: "xl / Success",
+    svgUrl: icFeaturedOutlineXlSuccess,
+    size: "xl" as const,
+  },
+  {
+    name: "xl / Warning",
+    svgUrl: icFeaturedOutlineXlWarning,
+    size: "xl" as const,
+  },
 ];
 
 export const miscIconRegistry: Record<MiscIconCategory, MiscIconAsset[]> = {
@@ -449,5 +1027,13 @@ export const miscIconRegistry: Record<MiscIconCategory, MiscIconAsset[]> = {
   "Featured Icon Outline": featuredIconsOutline,
 };
 
-export const miscIconCategories: MiscIconCategory[] = ["Social (Brand)", "Social (Gray)", "File Type", "File Type (Sized)", "Country Flags", "Featured Icon", "Featured Icon Outline"];
+export const miscIconCategories: MiscIconCategory[] = [
+  "Social (Brand)",
+  "Social (Gray)",
+  "File Type",
+  "File Type (Sized)",
+  "Country Flags",
+  "Featured Icon",
+  "Featured Icon Outline",
+];
 export const miscIconTotalCount = 404;
