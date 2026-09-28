@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { T } from "../localization";
 import { PageHeader } from "../components/PageHeader";
 import { Section } from "../components/Section";
 import { TokenTable } from "../components/TokenTable";
@@ -300,11 +301,11 @@ function ThemeTable({ rows }: { rows: TokenRow[] }) {
         </colgroup>
         <thead>
           <tr style={{ background: "var(--cometchat-background-color-02)" }}>
-            <th style={th}>Token</th>
-            <th style={th}>Light</th>
-            <th style={th}>Dark</th>
-            <th style={th}>CSS Variable</th>
-            <th style={th}>Usage</th>
+            <th style={th}><T>Token</T></th>
+            <th style={th}><T>Light</T></th>
+            <th style={th}><T>Dark</T></th>
+            <th style={th}><T>CSS Variable</T></th>
+            <th style={th}><T>Usage</T></th>
           </tr>
         </thead>
         <tbody>

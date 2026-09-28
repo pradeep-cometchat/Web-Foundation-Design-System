@@ -99,7 +99,7 @@ export const AllTokens: StoryObj = {
       <Section title="Font Family">
         <TokenTable
           searchable={false}
-          rows={[{ name: "Font Family", value: "'Roboto', 'Inter'", cssVar: "var(--cometchat-font-family)" }]}
+          rows={[{ name: "Font Family", value: "'Roboto', 'Inter', 'Noto Sans Arabic', sans-serif", cssVar: "var(--cometchat-font-family)" }]}
           previewHeader=""
           valueHeader="Value"
         />

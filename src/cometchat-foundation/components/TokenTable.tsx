@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { CopyButton } from "./CopyButton";
+import { T, useT } from "../localization";
 
 export type TokenRow = {
   name: string;
@@ -26,6 +27,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
 }) => {
   const [query, setQuery] = useState("");
   const [hovered, setHovered] = useState<string | null>(null);
+  const t = useT();
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -71,7 +73,9 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                 aria-hidden
                 style={{
                   position: "absolute",
-                  left: 12,
+                  // Pairs with the input's paddingInlineStart below — the two
+                  // must convert together or the caret runs under the glyph.
+                  insetInlineStart: 12,
                   top: "50%",
                   transform: "translateY(-50%)",
                   color: "var(--color-neutral-400)",
@@ -85,11 +89,16 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search tokens"
+                placeholder={t("Search tokens")}
+                // Token names, CSS variables and hex values are Latin
+                // identifiers, so the field's content stays LTR even in Arabic.
+                dir="ltr"
                 style={{
                   width: "100%",
                   fontSize: "12px",
-                  padding: "8px 12px 8px 32px",
+                  paddingBlock: "8px",
+                  paddingInlineStart: "32px",
+                  paddingInlineEnd: "12px",
                   borderRadius: "var(--cometchat-radius-2)",
                   border: "1px solid var(--cometchat-border-color-default)",
                   background: "var(--cometchat-background-color-01)",
@@ -130,10 +139,18 @@ export const TokenTable: React.FC<TokenTableProps> = ({
         >
           <thead>
             <tr style={{ background: "var(--cometchat-background-color-02)", textAlign: "left" }}>
-              <th style={th}>{previewHeader}</th>
-              <th style={th}>Token</th>
-              <th style={th}>{valueHeader}</th>
-              <th style={th}>CSS variable</th>
+              <th style={th}>
+                <T>{previewHeader}</T>
+              </th>
+              <th style={th}>
+                <T>Token</T>
+              </th>
+              <th style={th}>
+                <T>{valueHeader}</T>
+              </th>
+              <th style={th}>
+                <T>CSS variable</T>
+              </th>
               <th style={{ ...th, width: 1 }} aria-label="Actions" />
             </tr>
           </thead>
@@ -174,7 +191,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                 <td style={td}>
                   <code style={codeStyle}>{row.cssVar}</code>
                 </td>
-                <td style={{ ...td, textAlign: "right" }}>
+                <td style={{ ...td, textAlign: "end" }}>
                   <CopyButton value={row.cssVar} label="Copy" variant="ghost" />
                 </td>
               </tr>

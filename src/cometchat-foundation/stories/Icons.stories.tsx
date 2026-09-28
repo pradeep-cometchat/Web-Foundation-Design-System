@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
+import { T } from "../localization";
 import { PageHeader } from "../components/PageHeader";
 import { Section } from "../components/Section";
 import { Callout } from "../components/Callout";
@@ -685,15 +686,19 @@ export const Variants: StoryObj = {
           >
             <thead>
               <tr style={{ background: "var(--color-neutral-50)" }}>
-                <th style={th}>Name</th>
+                <th style={th}>
+                  <T>Name</T>
+                </th>
                 {iconVariants.map((v) => (
                   <th key={`${v}-o`} style={th}>
-                    {iconVariantLabel[v]} · outlined
+                    {/* The variant label is the font's own name — never translated. */}
+                    <span dir="ltr">{iconVariantLabel[v]}</span> ·{" "}
+                    <T>outlined</T>
                   </th>
                 ))}
                 {iconVariants.map((v) => (
                   <th key={`${v}-f`} style={th}>
-                    {iconVariantLabel[v]} · filled
+                    <span dir="ltr">{iconVariantLabel[v]}</span> · <T>filled</T>
                   </th>
                 ))}
               </tr>

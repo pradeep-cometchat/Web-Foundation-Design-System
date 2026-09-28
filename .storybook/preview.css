@@ -62,6 +62,22 @@ samp,
   font-family: "Material Symbols Sharp" !important;
 }
 
+/* Code, token names, CSS values and other identifiers are LTR in every
+   language. `isolate` is what matters: without it the bidi algorithm reorders
+   a neutral run inside an Arabic paragraph, so the shorthand `700 32px/38.4px`
+   renders as `32px/38.4px 700` and anyone who copies it gets broken CSS. */
+[dir="rtl"] code,
+[dir="rtl"] kbd,
+[dir="rtl"] samp,
+[dir="rtl"] pre {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+[dir="rtl"] pre {
+  text-align: left;
+}
+
 /* Widen the docs reading column and give stories room to breathe. */
 .sbdocs.sbdocs-wrapper {
   padding: 40px 32px 80px !important;
