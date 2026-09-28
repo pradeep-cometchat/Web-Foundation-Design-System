@@ -268,7 +268,7 @@ const thStyle: React.CSSProperties = {
   color: "var(--cometchat-neutral-color-600)",
   textTransform: "uppercase",
   letterSpacing: "0.06em",
-  textAlign: "left",
+  textAlign: "start",
   padding: "4px 8px",
 };
 

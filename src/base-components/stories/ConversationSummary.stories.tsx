@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { T } from "../../cometchat-foundation/localization";
 import { ConversationSummary } from "../components/ConversationSummary";
 
 /**
@@ -230,7 +231,7 @@ const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language,
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T>{title}</T></div>
       {children}
     </div>
   );

@@ -120,12 +120,12 @@
 }
 
 .form-dialog__input--with-icon {
-  padding-right: var(--cometchat-spacing-10);
+  padding-inline-end: var(--cometchat-spacing-10);
 }
 
 .form-dialog__input-icon {
   position: absolute;
-  right: var(--cometchat-spacing-3);
+  inset-inline-end: var(--cometchat-spacing-3);
   top: 50%;
   transform: translateY(-50%);
   background: none;

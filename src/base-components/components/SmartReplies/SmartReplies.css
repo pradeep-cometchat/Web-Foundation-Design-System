@@ -88,7 +88,7 @@
   font-weight: 400;
   line-height: 20px;
   color: var(--cometchat-text-color-primary);
-  text-align: left;
+  text-align: start;
   cursor: pointer;
   transition: background 120ms ease, border-color 120ms ease;
 }

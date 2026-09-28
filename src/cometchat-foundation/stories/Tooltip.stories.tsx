@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { useIsRTL } from "../localization";
 import { Tooltip } from "../components/Tooltip/Tooltip.impl";
 import type { TooltipArrow } from "../components/Tooltip/Tooltip.types";
 
@@ -209,10 +210,27 @@ function StaticTooltip({
 
   const arrowMargin: React.CSSProperties =
     arrowAlign === "flex-start"
-      ? { marginLeft: 12 }
+      ? { marginInlineStart: 12 }
       : arrowAlign === "flex-end"
-      ? { marginRight: 12 }
+      ? { marginInlineEnd: 12 }
       : {};
+
+  // A CSS triangle names physical edges, so it cannot be expressed logically.
+  // The side-positioned tooltip swaps sides under RTL, so pick the triangle
+  // from the side it actually ends up on rather than from the prop name.
+  const isRTL = useIsRTL();
+  const pointsLeft: React.CSSProperties = {
+    borderWidth: "6px 6px 6px 0",
+    borderColor:
+      "transparent var(--cometchat-neutral-color-900) transparent transparent",
+    marginInlineStart: -1,
+  };
+  const pointsRight: React.CSSProperties = {
+    borderWidth: "6px 0 6px 6px",
+    borderColor:
+      "transparent transparent transparent var(--cometchat-neutral-color-900)",
+    marginInlineEnd: -1,
+  };
 
   const arrowEl =
     arrow !== "none" && (
@@ -225,19 +243,13 @@ function StaticTooltip({
           alignSelf: side ? "center" : arrowAlign,
           ...(side ? {} : arrowMargin),
           ...(side === "right"
-            ? {
-                borderWidth: "6px 6px 6px 0",
-                borderColor:
-                  "transparent var(--cometchat-neutral-color-900) transparent transparent",
-                marginLeft: -1,
-              }
+            ? isRTL
+              ? pointsRight
+              : pointsLeft
             : side === "left"
-            ? {
-                borderWidth: "6px 0 6px 6px",
-                borderColor:
-                  "transparent transparent transparent var(--cometchat-neutral-color-900)",
-                marginRight: -1,
-              }
+            ? isRTL
+              ? pointsLeft
+              : pointsRight
             : arrowOnTop
             ? {
                 borderWidth: "0 6px 6px 6px",
@@ -453,17 +465,28 @@ export const Usage: Story = {
 .tooltip__arrow--left {
   border-width: 6px 0 6px 6px;
   border-color: transparent transparent transparent var(--cometchat-neutral-color-900);
-  right: -6px;
+  inset-inline-end: -6px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+/* A triangle names physical edges, so RTL needs the mirrored pair. */
+[dir="rtl"] .tooltip__arrow--left {
+  border-width: 6px 6px 6px 0;
+  border-color: transparent var(--cometchat-neutral-color-900) transparent transparent;
 }
 
 .tooltip__arrow--right {
   border-width: 6px 6px 6px 0;
   border-color: transparent var(--cometchat-neutral-color-900) transparent transparent;
-  left: -6px;
+  inset-inline-start: -6px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+[dir="rtl"] .tooltip__arrow--right {
+  border-width: 6px 0 6px 6px;
+  border-color: transparent transparent transparent var(--cometchat-neutral-color-900);
 }`}
         />
       </UsageSection>

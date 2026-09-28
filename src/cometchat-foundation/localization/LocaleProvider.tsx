@@ -14,6 +14,35 @@ const LocaleContext = React.createContext<Locale>({
 });
 
 export const useLocale = (): Locale => React.useContext(LocaleContext);
+
+/**
+ * Direction read from the DOM rather than from context.
+ *
+ * Storybook renders the docs-page chrome outside every decorator, so the
+ * provider's context never reaches it and `useLocale` there always reports the
+ * default. `dir` on <html> is the one signal that does cross that boundary, so
+ * watch the attribute the provider writes and re-render when it changes.
+ */
+export const useDocumentDirection = (): Direction => {
+  const read = (): Direction =>
+    typeof document !== "undefined" &&
+    document.documentElement.getAttribute("dir") === "rtl"
+      ? "rtl"
+      : "ltr";
+
+  const [direction, setDirection] = React.useState<Direction>(read);
+
+  React.useEffect(() => {
+    const el = document.documentElement;
+    const sync = () => setDirection(read());
+    sync();
+    const observer = new MutationObserver(sync);
+    observer.observe(el, { attributes: true, attributeFilter: ["dir"] });
+    return () => observer.disconnect();
+  }, []);
+
+  return direction;
+};
 export const useDirection = (): Direction => useLocale().direction;
 export const useLanguage = (): Language => useLocale().language;
 export const useIsRTL = (): boolean => useDirection() === "rtl";

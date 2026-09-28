@@ -38,7 +38,7 @@
   font-weight: 400;
   line-height: 20px;
   color: var(--cometchat-text-color-primary);
-  text-align: left;
+  text-align: start;
 }
 
 /* First item is taller (44px) per Figma */

@@ -77,7 +77,7 @@
 .avatar__status {
   position: absolute;
   bottom: 0;
-  right: 0;
+  inset-inline-end: 0;
   border-radius: var(--cometchat-radius-max);
   border: 1.5px solid var(--cometchat-background-color-01);
 }
@@ -97,7 +97,7 @@
 .avatar__verified {
   position: absolute;
   bottom: -2px;
-  right: -2px;
+  inset-inline-end: -2px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,7 +109,7 @@
 .avatar__company {
   position: absolute;
   bottom: -2px;
-  right: -2px;
+  inset-inline-end: -2px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,16 +125,16 @@
 
 .avatar-group .avatar {
   border: 2px solid var(--cometchat-background-color-01);
-  margin-left: -8px;
+  margin-inline-start: -8px;
 }
 
 .avatar-group .avatar:first-child {
-  margin-left: 0;
+  margin-inline-start: 0;
 }
 
-.avatar-group--xs .avatar { margin-left: -6px; }
-.avatar-group--sm .avatar { margin-left: -8px; }
-.avatar-group--md .avatar { margin-left: -10px; }
+.avatar-group--xs .avatar { margin-inline-start: -6px; }
+.avatar-group--sm .avatar { margin-inline-start: -8px; }
+.avatar-group--md .avatar { margin-inline-start: -10px; }
 
 .avatar-group__counter {
   display: inline-flex;
@@ -148,9 +148,9 @@
   color: var(--cometchat-text-color-secondary);
 }
 
-.avatar-group--xs .avatar-group__counter { width: 24px; height: 24px; font-size: 10px; margin-left: -6px; }
-.avatar-group--sm .avatar-group__counter { width: 32px; height: 32px; font-size: 12px; margin-left: -8px; }
-.avatar-group--md .avatar-group__counter { width: 40px; height: 40px; font-size: 14px; margin-left: -10px; }
+.avatar-group--xs .avatar-group__counter { width: 24px; height: 24px; font-size: 10px; margin-inline-start: -6px; }
+.avatar-group--sm .avatar-group__counter { width: 32px; height: 32px; font-size: 12px; margin-inline-start: -8px; }
+.avatar-group--md .avatar-group__counter { width: 40px; height: 40px; font-size: 14px; margin-inline-start: -10px; }
 
 /* ─── ADD BUTTON ───────────────────────────────────────────────────────────── */
 
@@ -164,7 +164,7 @@
   cursor: pointer;
   color: var(--cometchat-icon-color-tertiary);
   transition: border-color 120ms ease, color 120ms ease;
-  margin-left: var(--cometchat-spacing-1);
+  margin-inline-start: var(--cometchat-spacing-1);
   padding: 0;
   outline: none;
 }

@@ -99,7 +99,7 @@ export const AllStates: StoryObj = {
           <div style={{ background: "var(--cometchat-neutral-color-200)", borderRadius: "var(--cometchat-radius-3)", padding: "var(--cometchat-spacing-3)", fontSize: "14px", color: "var(--cometchat-neutral-color-900)" }}>
             Sure! Sending them over now.
           </div>
-          <div style={{ paddingLeft: 4, marginTop: -8 }}>
+          <div style={{ paddingInlineStart: 4, marginTop: -8 }}>
             <ReactionGroup
               reactions={[
                 { emoji: "😍", count: 1 },

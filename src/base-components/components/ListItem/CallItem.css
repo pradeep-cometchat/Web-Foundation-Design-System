@@ -65,7 +65,7 @@
 
 .call-item__avatar-status {
   position: absolute;
-  right: 0;
+  inset-inline-end: 0;
   bottom: 0;
   width: var(--cometchat-spacing-3);
   height: var(--cometchat-spacing-3);

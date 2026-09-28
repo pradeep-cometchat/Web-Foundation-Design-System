@@ -1,4 +1,5 @@
 import "./ActionSheet.css";
+import { T } from "../../../cometchat-foundation/localization";
 
 export interface ActionSheetItem {
   /** Icon as a React node (SVG component) */
@@ -66,7 +67,9 @@ function ActionSheetRow({ item }: { item: ActionSheetItem }) {
       type="button"
     >
       <span className="action-sheet__item-icon">{item.icon}</span>
-      <span className="action-sheet__item-label">{item.label}</span>
+      <span className="action-sheet__item-label">
+        <T>{item.label}</T>
+      </span>
     </button>
   );
 }

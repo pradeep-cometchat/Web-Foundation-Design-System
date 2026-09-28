@@ -96,7 +96,7 @@
   cursor: pointer;
   transition: background 120ms ease;
   box-sizing: border-box;
-  text-align: left;
+  text-align: start;
 }
 
 .reaction-list__item:hover {
@@ -134,7 +134,7 @@
   min-width: 0;
   justify-content: center;
   align-items: flex-start;
-  text-align: left;
+  text-align: start;
   white-space: nowrap;
 }
 

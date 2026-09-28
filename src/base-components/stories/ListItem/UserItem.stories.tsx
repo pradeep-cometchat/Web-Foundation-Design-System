@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { T } from "../../../cometchat-foundation/localization";
 import { UserItem, UserItemDivider, UserItemSkeleton } from "../../components/ListItem";
 import { avatarRegistry } from "../../../cometchat-foundation/tokens/avatars";
 
@@ -312,7 +313,7 @@ export const Usage: Story = {
 
 .list-item__status {
   position: absolute;
-  right: 0;
+  inset-inline-end: 0;
   bottom: 0;
   width: 10px;
   height: 10px;
@@ -393,7 +394,7 @@ const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language,
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T>{title}</T></div>
       {children}
     </div>
   );

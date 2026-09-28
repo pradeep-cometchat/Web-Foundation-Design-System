@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { T } from "../../cometchat-foundation/localization";
 import { MessagePreview } from "../components/MessagePreview";
 
 /**
@@ -167,7 +168,7 @@ export const Usage: StoryObj = {
 .message-preview__close {
   position: absolute;
   top: var(--cometchat-spacing-2);
-  right: var(--cometchat-spacing-2);
+  inset-inline-end: var(--cometchat-spacing-2);
   width: 20px;
   height: 20px;
   color: var(--cometchat-text-color-tertiary);
@@ -209,7 +210,7 @@ const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language,
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T>{title}</T></div>
       {children}
     </div>
   );

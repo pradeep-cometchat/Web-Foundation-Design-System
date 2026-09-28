@@ -416,7 +416,7 @@ export const Usage: Story = {
 .avatar__status {
   position: absolute;
   bottom: 0;
-  right: 0;
+  inset-inline-end: 0;
   border-radius: var(--cometchat-radius-max);
   border: 1.5px solid var(--cometchat-static-white);
 }
@@ -431,7 +431,7 @@ export const Usage: Story = {
 
 .avatar-group .avatar {
   border: 2px solid var(--cometchat-static-white);
-  margin-left: -8px;
+  margin-inline-start: -8px;
 }
 
 .avatar-label-group {
@@ -480,7 +480,7 @@ function GroupAvatarLabel({ src, size, name, supportingText, groupType }: { src:
           style={{ width: "100%", height: "100%", borderRadius: "var(--cometchat-radius-max)", objectFit: "cover", display: "block" }}
         />
         {showBadge && (
-          <span style={{ position: "absolute", right: -2, bottom: -2, width: badgePx, height: badgePx, display: "flex" }}>
+          <span style={{ position: "absolute", insetInlineEnd: -2, bottom: -2, width: badgePx, height: badgePx, display: "flex" }}>
             {groupType === "private" ? (
               <svg viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
                 <circle cx="8.5" cy="8.5" r="7.9" fill="#079455" stroke="white" strokeWidth="1.17" />

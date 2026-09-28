@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { T } from "../../../../cometchat-foundation/localization";
 import { ConfirmationDialog } from "../../../components/Dialog/ConfirmationDialogs";
 
 const meta: Meta<typeof ConfirmationDialog> = {
@@ -59,7 +60,7 @@ export const Playground: Story = {
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
-      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T>{title}</T></div>
       {children}
     </div>
   );

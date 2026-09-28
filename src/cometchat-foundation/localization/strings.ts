@@ -245,6 +245,169 @@ export const AR: Readonly<Record<string, string>> = {
   outlined: "مفرّغة",
   filled: "مملوءة",
 
+  /* ─── Base Components: component descriptions ─── */
+  "AI-suggested quick reply chips for fast message responses.": "شرائح ردود سريعة يقترحها الذكاء الاصطناعي للردّ على الرسائل بسرعة.",
+  "Animated indicator showing when other users are composing a message.": "مؤشّر متحرّك يوضّح أن مستخدمين آخرين يكتبون رسالة.",
+  "Audio and video recording interface with playback preview.": "واجهة لتسجيل الصوت والفيديو مع معاينة للتشغيل.",
+  "Bottom sheet overlay presenting a set of contextual actions or options.": "لوحة سفلية تعرض مجموعة من الإجراءات أو الخيارات السياقية.",
+  "Compact message representation for quotes, replies, and forwards.": "تمثيل مختصر للرسالة يُستخدم في الاقتباسات والردود وإعادة التوجيه.",
+  "Condensed preview of a conversation with metadata and last message.": "معاينة مختصرة للمحادثة مع بياناتها الوصفية وآخر رسالة.",
+  "Date display and formatting component with relative time support.": "مكوّن لعرض التاريخ وتنسيقه مع دعم الوقت النسبي.",
+  "Dialog for inserting or editing hyperlinks with URL validation.": "مربّع حوار لإدراج الروابط أو تعديلها مع التحقّق من صحّة الرابط.",
+  "Dialog for reporting or flagging inappropriate messages.": "مربّع حوار للإبلاغ عن الرسائل غير اللائقة أو الإشارة إليها.",
+  "Emoji picker with categories, search, and skin tone selection.": "منتقي الإيموجي مع الفئات والبحث واختيار درجة لون البشرة.",
+  "Entry point component for initiating new conversations.": "مكوّن نقطة البداية لبدء محادثات جديدة.",
+  "Floating content container with configurable placement and triggers.": "حاوية محتوى عائمة بموضع ومُشغِّلات قابلة للضبط.",
+  "Get notified when someone sends you a message.": "تلقَّ إشعارًا عندما يرسل إليك أحدهم رسالة.",
+  "Graceful error handling with fallback UI and retry actions.": "معالجة سلِسة للأخطاء مع واجهة بديلة وإجراءات لإعادة المحاولة.",
+  "Immersive media viewer with zoom, pan, and navigation controls.": "عارض وسائط غامر مع أدوات للتكبير والتحريك والتنقّل.",
+  "Inline popover showing link preview with open and edit actions.": "نافذة منبثقة ضمن السياق تعرض معاينة الرابط مع إجراءَي الفتح والتعديل.",
+  "Modal confirmation prompt with customizable actions and messaging.": "مطالبة تأكيد مشروطة بإجراءات ونصوص قابلة للتخصيص.",
+  "Primary, secondary, and ghost variants with icon support and loading states.": "أنماط أساسية وثانوية وشفّافة مع دعم الأيقونات وحالات التحميل.",
+  "Right-click or long-press menu with grouped actions and icons.": "قائمة تظهر بالنقر بالزر الأيمن أو الضغط المطوّل، بإجراءات مجمَّعة وأيقونات.",
+  "Save my login details for next time.": "احفظ بيانات تسجيل دخولي للمرّة القادمة.",
+  "Scope switcher for toggling between contexts like channels or groups.": "مبدّل نطاق للتنقّل بين السياقات مثل القنوات أو المجموعات.",
+  "Search input with suggestions, filters, and clear functionality.": "حقل بحث مع الاقتراحات والمرشّحات وإمكانية المسح.",
+  "Select menus with search, multi-select, and custom rendering.": "قوائم اختيار مع البحث والتحديد المتعدّد والعرض المخصّص.",
+  "Single and group checkboxes with indeterminate state support.": "مربّعات اختيار مفردة وجماعية مع دعم الحالة غير المحدّدة.",
+  "Single-select option within a group with label and description.": "خيار أحادي التحديد ضمن مجموعة، مع تسمية ووصف.",
+  "This setting is managed by your admin.": "يدير هذا الإعداد مسؤول النظام لديك.",
+  "Threaded conversation display with reply composition.": "عرض المحادثات المتسلسلة مع إمكانية كتابة الردود.",
+  "Transient notification with auto-dismiss, actions, and severity levels.": "إشعار مؤقّت يختفي تلقائيًا، مع إجراءات ومستويات أهمية.",
+  "User or entity representation with image, initials, or icon fallback.": "تمثيل للمستخدم أو الكيان بصورة أو أحرف أولى أو أيقونة بديلة.",
+  "Versatile list row with leading/trailing elements and interaction states.": "صفّ قائمة مرن بعناصر في البداية والنهاية وحالات تفاعل.",
+
+  /* ─── Base Components: UI labels ─── */
+  "Accessible": "سهل الوصول",
+  "Advanced features for teams.": "ميزات متقدّمة للفرق.",
+  "All notifications": "كل الإشعارات",
+  "Auto-save": "حفظ تلقائي",
+  "Basic features for individuals.": "ميزات أساسية للأفراد.",
+  "Chats": "المحادثات",
+  "Checked": "محدَّد",
+  "Clear search": "مسح البحث",
+  "Close": "إغلاق",
+  "Composable": "قابل للتركيب",
+  "Container": "الحاوية",
+  "Custom solutions for large organizations.": "حلول مخصّصة للمؤسّسات الكبيرة.",
+  "Date": "التاريخ",
+  "Declined": "مرفوض",
+  "Default": "افتراضي",
+  "Description": "الوصف",
+  "Destructive": "تدميري",
+  "Destructive states": "الحالات التدميرية",
+  "Divider": "فاصل",
+  "Elements": "العناصر",
+  "Email": "البريد الإلكتروني",
+  "Email notifications": "إشعارات البريد الإلكتروني",
+  "Enforced by your organization.": "مفروض من قِبل مؤسّستك.",
+  "Enterprise": "المؤسّسات",
+  "Favorite": "مفضّل",
+  "First option description.": "وصف الخيار الأول.",
+  "Free": "مجّاني",
+  "Get notified about suspicious activity.": "تلقَّ إشعارًا بالنشاط المشبوه.",
+  "Get notified for every message.": "تلقَّ إشعارًا بكل رسالة.",
+  "Go back": "رجوع",
+  "Group": "مجموعة",
+  "Header": "الترويسة",
+  "Hover": "عند التحويم",
+  "Icon only": "أيقونة فقط",
+  "Incoming": "وارد",
+  "Indeterminate": "غير محدَّد",
+  "Marketing emails": "رسائل تسويقية",
+  "Mentions only": "الإشارات فقط",
+  "Missed": "فائت",
+  "Modifiers": "المُعدِّلات",
+  "More actions": "إجراءات أخرى",
+  "Multiple": "متعدّد",
+  "Mute all notifications.": "كتم جميع الإشعارات.",
+  "New chat": "محادثة جديدة",
+  "No receipt": "بلا إيصال",
+  "None": "بلا",
+  "Notification preference": "تفضيلات الإشعارات",
+  "Only when someone mentions you.": "فقط عندما يشير إليك أحدهم.",
+  "Option A": "الخيار أ",
+  "Option B": "الخيار ب",
+  "Option C": "الخيار ج",
+  "Plan selection": "اختيار الخطة",
+  "Preference": "التفضيل",
+  "Pressed": "مضغوط",
+  "Primary states": "الحالات الأساسية",
+  "Pro": "احترافي",
+  "Push notifications": "الإشعارات الفورية",
+  "Receive alerts on your device.": "استقبل التنبيهات على جهازك.",
+  "Relative": "نسبي",
+  "Remember me": "تذكّرني",
+  "Responsive": "متجاوب",
+  "Root": "الجذر",
+  "Search": "بحث",
+  "Second option description.": "وصف الخيار الثاني.",
+  "Secondary states": "الحالات الثانوية",
+  "Security alerts": "تنبيهات الأمان",
+  "Settings": "الإعدادات",
+  "Settings list": "قائمة الإعدادات",
+  "Single": "مفرد",
+  "Standard": "قياسي",
+  "States": "الحالات",
+  "Themeable": "قابل للتنسيق",
+  "Third option description.": "وصف الخيار الثالث.",
+  "Time": "الوقت",
+  "Tips, product updates, and inspiration.": "نصائح وتحديثات للمنتج وأفكار ملهِمة.",
+  "Token-first": "الرموز أوّلًا",
+  "Two-factor auth": "المصادقة الثنائية",
+  "Unchecked": "غير محدَّد",
+  "Users": "المستخدمون",
+  "Variants": "الأنماط",
+  "Video call": "مكالمة فيديو",
+  "Voice call": "مكالمة صوتية",
+  "components": "مكوّنات",
+  "responsive": "متجاوب",
+
+  /* ─── Base Components: docs-page descriptions (markdown preserved) ─── */
+  "A popup overlay presenting a list of contextual actions. Used for attachment menus, message actions, and any context where the user needs to pick from a set of options. Appears anchored to a trigger element with elevation and rounded corners. **Anatomy:** Container (radius-4, shadow-lg) → Action Items (icon + label, 44px height) **Icons:** Material Symbols Rounded in brand color. Destructive items use error color.":
+    "لوحة منبثقة تعرض قائمة من الإجراءات السياقية. تُستخدم في قوائم المرفقات وإجراءات الرسائل وأي سياق يحتاج فيه المستخدم إلى الاختيار من مجموعة خيارات. تظهر مرتبطة بعنصر مُشغِّل مع ارتفاع وزوايا دائرية. **التشريح:** الحاوية (radius-4، shadow-lg) ← عناصر الإجراء (أيقونة + تسمية، ارتفاع 44px) **الأيقونات:** Material Symbols Rounded بلون العلامة. العناصر التدميرية تستخدم لون الخطأ.",
+  "Avatar system — individual avatars, grouped stacks, and labeled profiles. **Components:** Avatar, Avatar Group, Avatar Label Group. **Sizes:** xs (24), sm (32), md (40), lg (48), xl (56), 2xl (64). **Status icons:** Online indicator, Offline, Verified tick, Company icon. **Features:** Fallback initials, icon placeholder, add button, overflow counter. Uses foundation tokens and Avatars from the foundation tab.":
+    "نظام الصور الرمزية — صور مفردة ومجموعات متراصّة وملفّات معنونة. **المكوّنات:** Avatar، Avatar Group، Avatar Label Group. **الأحجام:** xs (24)، sm (32)، md (40)، lg (48)، xl (56)، 2xl (64). **أيقونات الحالة:** مؤشّر الاتصال، غير متصل، علامة التوثيق، أيقونة الشركة. **الميزات:** أحرف أولى بديلة، أيقونة نائبة، زر إضافة، عدّاد للفائض. يستخدم رموز الأساسيات والصور الرمزية من تبويب الأساسيات.",
+  "The primary interactive element. Triggers actions, submits forms, or navigates within the product. **Hierarchies:** Primary, Secondary, Tertiary, Link color, Link gray, plus destructive variants for each. **Sizes:** sm (36px), md (40px), lg (44px), xl (48px). **States:** Default, Hover, Focused, Disabled, Loading. All colors, spacing, radius, shadows, and typography use foundation design tokens (`var(--color-*)`, `var(--radius-*)`, `var(--shadow-*)`, etc.) so the button stays in sync with the design system automatically.":
+    "العنصر التفاعلي الأساسي. يُشغّل الإجراءات، ويرسل النماذج، أو ينقلك داخل المنتج. **التدرّجات:** أساسي، ثانوي، ثالثي، رابط ملوّن، رابط رمادي، مع نمط تدميري لكلٍّ منها. **الأحجام:** sm (36px)، md (40px)، lg (44px)، xl (48px). **الحالات:** افتراضي، تحويم، مُركَّز، معطّل، قيد التحميل. تستخدم كل الألوان والمسافات والاستدارات والظلال والطباعة رموز التصميم الأساسية (`var(--color-*)`، `var(--radius-*)`، `var(--shadow-*)`، وغيرها) حتى يبقى الزر متوافقًا مع نظام التصميم تلقائيًا.",
+  "A checkbox selection control — rounded square with check or minus icon. **Sizes:** sm (16px), md (20px). **States:** Default, Hover, Focus, Disabled, Checked, Indeterminate. **Text:** Optional label (16px/500) and description (14px/400). Uses foundation tokens: `--color-primary`, `--color-ep-700`, `--color-neutral-lm-*`, `--radius-xs` (sm), `--radius-sm` (md), `--focus-ring-xs`.":
+    "عنصر تحكّم للاختيار — مربّع بزوايا دائرية يحمل علامة صح أو ناقص. **الأحجام:** sm (16px)، md (20px). **الحالات:** افتراضي، تحويم، تركيز، معطّل، محدَّد، غير محدَّد. **النص:** تسمية اختيارية (16px/500) ووصف (14px/400). يستخدم رموز الأساسيات: `--color-primary`، `--color-ep-700`، `--color-neutral-lm-*`، `--radius-xs` (sm)، `--radius-sm` (md)، `--focus-ring-xs`.",
+  "A right-click or long-press context menu with grouped actions and icons. Appears anchored to a message or element with a compact list of actions. **Structure (from Figma node 4090:878265):** - Container: 160px wide, `--radius-md` (8px), shadow-lg, border `--color-neutral-100` - First item: 44px height, rest: 40px height - Item padding: 16px horizontal, 8px gap between icon and label - Icons: 24×24, color `#A1A1A1` (neutral-400) - Text: 14px, weight 400, line-height 1.2, color `--color-neutral-900` - Hover: `--color-neutral-50` (#fafafa) background - Destructive items: `--color-error` text and icon":
+    "قائمة سياقية تظهر بالنقر بالزر الأيمن أو بالضغط المطوّل، بإجراءات مجمَّعة وأيقونات. تظهر مرتبطة برسالة أو عنصر، بقائمة إجراءات مضغوطة. **البنية (من عقدة Figma رقم 4090:878265):** - الحاوية: عرض 160px، `--radius-md` (8px)، shadow-lg، حدّ `--color-neutral-100` - العنصر الأول: ارتفاع 44px، والبقية: 40px - حشو العنصر: 16px أفقيًا، وفجوة 8px بين الأيقونة والتسمية - الأيقونات: 24×24، اللون `#A1A1A1` (neutral-400) - النص: 14px، وزن 400، ارتفاع سطر 1.2، اللون `--color-neutral-900` - التحويم: خلفية `--color-neutral-50` (#fafafa) - العناصر التدميرية: نص وأيقونة بلون `--color-error`",
+  "Users List — a full-screen list view composing Header, SearchBar, and UserItem with alphabet section dividers. Used as the \"Users\" tab in the conversation list. **Composed from:** - Header (title: \"Users\") - SearchBar (placeholder: \"Search users\") - UserItemDivider (alphabet letters) - UserItem (user rows)":
+    "قائمة المستخدمين — عرض قائمة بملء الشاشة يجمع بين الترويسة وشريط البحث وعنصر المستخدم مع فواصل أبجدية. تُستخدم كتبويب «المستخدمون» في قائمة المحادثات. **مركّبة من:** - الترويسة (العنوان: \"Users\") - شريط البحث (النص النائب: \"Search users\") - UserItemDivider (الأحرف الأبجدية) - UserItem (صفوف المستخدمين)",
+  "AI-powered conversation starter suggestions displayed above the message composer. Presents a row of clickable pill-shaped tags with pre-written messages the user can tap to quickly start a conversation. **Structure (from Figma node 4088:704041):** - Container: full width, `--radius-2xl` (16px), wrapping flex layout - Tags: pill-shaped (`--radius-full`), 33px height, `--color-neutral-50` bg, border `--color-neutral-200` - Tag padding: 8px vertical, 20px horizontal - Tag text: 14px, weight 400, line-height 20px, `--color-neutral-900` - Gap between tags: 8px - Hover: `--color-neutral-100` bg, `--color-neutral-300` border":
+    "اقتراحات لبدء المحادثة مدعومة بالذكاء الاصطناعي تظهر أعلى محرّر الرسائل. تعرض صفًّا من الوسوم القابلة للنقر بشكل حبّة دواء، تحمل رسائل جاهزة يمكن للمستخدم النقر عليها لبدء محادثة بسرعة. **البنية (من عقدة Figma رقم 4088:704041):** - الحاوية: بعرض كامل، `--radius-2xl` (16px)، تخطيط مرن ملتفّ - الوسوم: بشكل حبّة دواء (`--radius-full`)، ارتفاع 33px، خلفية `--color-neutral-50`، حدّ `--color-neutral-200` - حشو الوسم: 8px رأسيًا، 20px أفقيًا - نص الوسم: 14px، وزن 400، ارتفاع سطر 20px، `--color-neutral-900` - الفجوة بين الوسوم: 8px - التحويم: خلفية `--color-neutral-100`، حدّ `--color-neutral-300`",
+  "An AI-generated conversation summary card that appears above the message composer. Displays a condensed overview of the conversation with a close action. **Structure (from Figma node 4043:347990):** - Container: full-width, `radius-md` (8px), `shadow-lg`, border `#f5f5f5` - Padding: 16px horizontal, 12px vertical, gap 8px - Header: \"Conversation summary\" (14px medium, #181d27) + close icon (20×20) - Body: Summary text (14px regular, line-height 20px, #181d27)":
+    "بطاقة ملخّص للمحادثة يولّدها الذكاء الاصطناعي وتظهر أعلى محرّر الرسائل. تعرض نظرة عامة مختصرة عن المحادثة مع إجراء للإغلاق. **البنية (من عقدة Figma رقم 4043:347990):** - الحاوية: بعرض كامل، `radius-md` (8px)، `shadow-lg`، حدّ `#f5f5f5` - الحشو: 16px أفقيًا، 12px رأسيًا، فجوة 8px - الترويسة: \"Conversation summary\" (14px متوسط، #181d27) + أيقونة إغلاق (20×20) - المتن: نص الملخّص (14px عادي، ارتفاع سطر 20px، #181d27)",
+
+  /* ─── Base Components: menu item labels ─── */
+  "Camera": "الكاميرا",
+  "Attach Image": "إرفاق صورة",
+  "Attach Video": "إرفاق فيديو",
+  "Attach Audio": "إرفاق ملف صوتي",
+  "Attach Document": "إرفاق مستند",
+  "Poll": "استطلاع",
+  "Collaborative Whiteboard": "لوح تعاوني",
+  "Collaborative Document": "مستند تعاوني",
+  "Reply": "ردّ",
+  "Copy Message": "نسخ الرسالة",
+  "Forward": "إعادة توجيه",
+  "Edit Message": "تعديل الرسالة",
+  "Pin Message": "تثبيت الرسالة",
+  "Delete Message": "حذف الرسالة",
+  "Reply in Thread": "الردّ في المحادثة",
+  "Report": "إبلاغ",
+  "Translate": "ترجمة",
+  "Delete": "حذف",
+  "Edit": "تعديل",
+  "Pin": "تثبيت",
+  "Unpin": "إلغاء التثبيت",
+  "Save": "حفظ",
+  "Share": "مشاركة",
+  "Select": "تحديد",
+  "Info": "معلومات",
+
   /* ─── Meta chip labels ─── */
   tokens: "رموز",
   themes: "السمات",
@@ -271,5 +434,18 @@ export const AR: Readonly<Record<string, string>> = {
   categories: "الفئات",
 };
 
+/**
+ * Source strings reach us with whatever whitespace their authoring context
+ * gave them: JSX collapses a wrapped sentence to single spaces, while a JSDoc
+ * comment extracted by react-docgen keeps its original newlines. Index on a
+ * whitespace-collapsed form so one dictionary entry matches either shape.
+ */
+const squash = (s: string) => s.replace(/\s+/g, " ").trim();
+
+const LOOSE: Record<string, string> = Object.fromEntries(
+  Object.entries(AR).map(([en, ar]) => [squash(en), ar])
+);
+
 /** The Arabic rendering for an English string, or undefined if untranslated. */
-export const toArabic = (english: string): string | undefined => AR[english];
+export const toArabic = (english: string): string | undefined =>
+  AR[english] ?? LOOSE[squash(english)];

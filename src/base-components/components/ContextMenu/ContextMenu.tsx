@@ -1,4 +1,5 @@
 import "./ContextMenu.css";
+import { T } from "../../../cometchat-foundation/localization";
 
 export interface ContextMenuItem {
   /** Icon as a React node (SVG) */
@@ -73,7 +74,9 @@ export function ContextMenu({
             type="button"
           >
             <span className="context-menu__item-icon">{item.icon}</span>
-            <span className="context-menu__item-label">{item.label}</span>
+            <span className="context-menu__item-label">
+              <T>{item.label}</T>
+            </span>
           </button>
         ))}
       </div>

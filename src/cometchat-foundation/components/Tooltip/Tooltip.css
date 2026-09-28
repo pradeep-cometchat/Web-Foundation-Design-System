@@ -91,10 +91,10 @@
   transform: translateX(-50%);
 }
 .tooltip--top-left {
-  left: 0;
+  inset-inline-start: 0;
 }
 .tooltip--top-right {
-  right: 0;
+  inset-inline-end: 0;
 }
 
 .tooltip--top-center .tooltip__arrow,
@@ -105,8 +105,8 @@
   bottom: -6px;
 }
 .tooltip--top-center .tooltip__arrow { left: 50%; transform: translateX(-50%); }
-.tooltip--top-left .tooltip__arrow { left: 12px; }
-.tooltip--top-right .tooltip__arrow { right: 12px; left: auto; }
+.tooltip--top-left .tooltip__arrow { inset-inline-start: 12px; }
+.tooltip--top-right .tooltip__arrow { inset-inline-end: 12px; inset-inline-start: auto; }
 
 /* ─── BOTTOM POSITIONS (tooltip appears BELOW trigger, arrow points UP) ────── */
 
@@ -122,10 +122,10 @@
   transform: translateX(-50%);
 }
 .tooltip--bottom-left {
-  left: 0;
+  inset-inline-start: 0;
 }
 .tooltip--bottom-right {
-  right: 0;
+  inset-inline-end: 0;
 }
 
 .tooltip--bottom-center .tooltip__arrow,
@@ -136,13 +136,13 @@
   top: -6px;
 }
 .tooltip--bottom-center .tooltip__arrow { left: 50%; transform: translateX(-50%); }
-.tooltip--bottom-left .tooltip__arrow { left: 12px; }
-.tooltip--bottom-right .tooltip__arrow { right: 12px; left: auto; }
+.tooltip--bottom-left .tooltip__arrow { inset-inline-start: 12px; }
+.tooltip--bottom-right .tooltip__arrow { inset-inline-end: 12px; inset-inline-start: auto; }
 
 /* ─── LEFT (tooltip appears to the LEFT of trigger, arrow points RIGHT) ────── */
 
 .tooltip--left-pos {
-  right: calc(100% + 6px);
+  inset-inline-end: calc(100% + 6px);
   top: 50%;
   transform: translateY(-50%);
   flex-direction: row;
@@ -151,17 +151,17 @@
 .tooltip--left-pos .tooltip__arrow {
   border-width: 6px 0 6px 6px;
   border-color: transparent transparent transparent var(--cometchat-neutral-color-900);
-  right: -6px;
+  inset-inline-end: -6px;
   top: 50%;
   transform: translateY(-50%);
-  left: auto;
+  inset-inline-start: auto;
   bottom: auto;
 }
 
 /* ─── RIGHT (tooltip appears to the RIGHT of trigger, arrow points LEFT) ───── */
 
 .tooltip--right-pos {
-  left: calc(100% + 6px);
+  inset-inline-start: calc(100% + 6px);
   top: 50%;
   transform: translateY(-50%);
   flex-direction: row;
@@ -170,10 +170,10 @@
 .tooltip--right-pos .tooltip__arrow {
   border-width: 6px 6px 6px 0;
   border-color: transparent var(--cometchat-neutral-color-900) transparent transparent;
-  left: -6px;
+  inset-inline-start: -6px;
   top: 50%;
   transform: translateY(-50%);
-  right: auto;
+  inset-inline-end: auto;
   bottom: auto;
 }
 
@@ -188,4 +188,21 @@
 
 .tooltip--none .tooltip__arrow {
   display: none;
+}
+
+/* ─── RTL: side-arrow triangles ───────────────────────────────────────────── */
+/* A CSS triangle has no logical equivalent — the 4-value border shorthand
+   names physical edges. Under RTL a side-positioned tooltip swaps sides, so
+   its arrow has to point the other way or it points away from its trigger.
+   The top/bottom arrows are vertical and need no counterpart. */
+[dir="rtl"] .tooltip--left-pos .tooltip__arrow {
+  border-width: 6px 6px 6px 0;
+  border-color: transparent var(--cometchat-neutral-color-900) transparent
+    transparent;
+}
+
+[dir="rtl"] .tooltip--right-pos .tooltip__arrow {
+  border-width: 6px 0 6px 6px;
+  border-color: transparent transparent transparent
+    var(--cometchat-neutral-color-900);
 }

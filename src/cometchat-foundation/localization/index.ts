@@ -4,6 +4,7 @@ export {
   useDirection,
   useLanguage,
   useIsRTL,
+  useDocumentDirection,
   type Direction,
   type Language,
   type Locale,
