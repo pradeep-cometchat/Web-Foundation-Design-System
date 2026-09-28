@@ -85,7 +85,7 @@ export const ListItem: React.FC<ListItemProps> = ({
       </div>
 
       <div className="list-item__trailing">
-        {trailingText && <div className="list-item__trailing-text">{trailingText}</div>}
+        {trailingText && <div className="list-item__trailing-text"><T>{trailingText}</T></div>}
         {trailingNode && <div className="list-item__trailing-node">{trailingNode}</div>}
         {trailingIcon && (
           <span className="icon-outlined list-item__trailing-icon" aria-hidden="true">

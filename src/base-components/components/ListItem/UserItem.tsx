@@ -209,7 +209,7 @@ export const UserItem: React.FC<UserItemProps> = ({
               </span>
             )}
 
-            {showText && <span className="user-item__text">{textContent}</span>}
+            {showText && <span className="user-item__text"><T>{textContent}</T></span>}
           </div>
         )}
       </div>

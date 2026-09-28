@@ -498,7 +498,7 @@ function GroupAvatarLabel({ src, size, name, supportingText, groupType }: { src:
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <span style={{ fontFamily: "var(--cometchat-font-family)", fontWeight: "500", fontSize: size === "sm" ? "14px" : size === "md" ? "14px" : size === "lg" ? "16px" : "18px", lineHeight: size === "lg" ? "19.2px" : "16.8px", color: "var(--cometchat-text-color-primary)" }}><T>{name}</T></span>
-        <span style={{ fontFamily: "var(--cometchat-font-family)", fontWeight: "400", fontSize: size === "sm" ? "12px" : "14px", lineHeight: "16.8px", color: "var(--cometchat-text-color-secondary)" }}>{supportingText}</span>
+        <span style={{ fontFamily: "var(--cometchat-font-family)", fontWeight: "400", fontSize: size === "sm" ? "12px" : "14px", lineHeight: "16.8px", color: "var(--cometchat-text-color-secondary)" }}><T>{supportingText}</T></span>
       </div>
     </div>
   );

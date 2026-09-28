@@ -1,4 +1,5 @@
 import "./MessagePreview.css";
+import { T } from "../../../cometchat-foundation/localization";
 
 export type MessagePreviewMode = "reply" | "edit" | "deleted";
 
@@ -24,7 +25,7 @@ export function MessagePreview({
       <div className={`message-preview__border message-preview__border--${mode}`} />
       <div className="message-preview__content">
         <span className={`message-preview__sender message-preview__sender--${mode}`}>
-          {senderName}
+          <T>{senderName}</T>
         </span>
         <div className="message-preview__text-container">
           {mode === "deleted" && (
@@ -35,7 +36,7 @@ export function MessagePreview({
               </svg>
             </span>
           )}
-          <span className="message-preview__text">{messageText}</span>
+          <span className="message-preview__text"><T>{messageText}</T></span>
         </div>
       </div>
       {onClose && (

@@ -226,7 +226,7 @@ function HeroChip({ label, value }: { label: string; value: string }) {
       }}
     >
       <span style={{ color: "var(--cometchat-neutral-color-500)", fontSize: "10px" }}><T>{label}</T></span>
-      <span style={{ fontWeight: "600" }}>{value}</span>
+      <span style={{ fontWeight: "600" }}><T>{value}</T></span>
     </span>
   );
 }
@@ -295,7 +295,7 @@ function PrincipleCard({ title, body }: { title: string; body: string }) {
         <T>{title}</T>
       </div>
       <div style={{ fontSize: "12px", color: "var(--cometchat-neutral-color-600)", lineHeight: 1.5 }}>
-        {body}
+        <T>{body}</T>
       </div>
     </div>
   );

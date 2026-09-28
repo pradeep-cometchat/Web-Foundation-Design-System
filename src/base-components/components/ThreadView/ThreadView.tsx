@@ -124,7 +124,7 @@ export function ThreadView({
         {/* Date chip */}
         {dateLabel && (
           <div className="thread-view__date-chip">
-            <span className="thread-view__date-chip-text">{dateLabel}</span>
+            <span className="thread-view__date-chip-text"><T>{dateLabel}</T></span>
           </div>
         )}
 

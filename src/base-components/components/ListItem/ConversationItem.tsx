@@ -257,7 +257,7 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
               </span>
             )}
 
-            {showSender && <span className="conversation-item__sender">{senderLabel}</span>}
+            {showSender && <span className="conversation-item__sender"><T>{senderLabel}</T></span>}
 
             {showType && (
               <span className="conversation-item__type">
@@ -278,7 +278,7 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
               </span>
             )}
 
-            {showText && <span className="conversation-item__text">{textContent}</span>}
+            {showText && <span className="conversation-item__text"><T>{textContent}</T></span>}
           </div>
 
           {conversationMeta && (

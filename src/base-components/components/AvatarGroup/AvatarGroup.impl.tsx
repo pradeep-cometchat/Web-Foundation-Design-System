@@ -117,7 +117,7 @@ export const AvatarLabelGroup: React.FC<AvatarLabelGroupProps> = ({
       <Avatar src={src} alt={alt} fallback={fallback} size={avatarSizeMap[size]} statusIcon={statusIcon} online={online} />
       <div className="avatar-label-group__text">
         <span className="avatar-label-group__name"><T><T>{name}</T></T></span>
-        {supportingText && <span className="avatar-label-group__supporting">{supportingText}</span>}
+        {supportingText && <span className="avatar-label-group__supporting"><T>{supportingText}</T></span>}
       </div>
     </div>
   );

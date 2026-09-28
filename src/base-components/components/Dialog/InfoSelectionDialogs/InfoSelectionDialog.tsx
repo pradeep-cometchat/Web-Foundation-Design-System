@@ -141,7 +141,7 @@ function AlertContent({
           className="info-dialog__alert-btn"
           onClick={onConfirm}
         >
-          {buttonLabel}
+          <T>{buttonLabel}</T>
         </button>
       </div>
     </div>
@@ -164,12 +164,12 @@ function MessageInfoContent({
     <div className="info-dialog__body">
       {messagePreview && (
         <div className="info-dialog__message-preview">
-          <div className="info-dialog__message-bubble">{messagePreview}</div>
+          <div className="info-dialog__message-bubble"><T>{messagePreview}</T></div>
         </div>
       )}
       {errorMessage ? (
         <div className="info-dialog__message-error">
-          <span className="info-dialog__message-error-text">{errorMessage}</span>
+          <span className="info-dialog__message-error-text"><T>{errorMessage}</T></span>
         </div>
       ) : groupUsers && groupUsers.length > 0 ? (
         <div className="info-dialog__group-info-list">

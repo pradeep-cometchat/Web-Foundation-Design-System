@@ -123,7 +123,7 @@ export const AllStates: Story = {
               paddingInlineStart: 4,
             }}
           >
-            {state}
+            <T>{state}</T>
           </span>
           <div style={{ flex: 1, display: "flex" }}>
             <MultiLineComposer

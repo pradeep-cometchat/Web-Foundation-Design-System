@@ -103,14 +103,14 @@ export function LinkDialog({
               className="link-dialog__btn link-dialog__btn--cancel"
               onClick={onCancel}
             >
-              {cancelLabel}
+              <T>{cancelLabel}</T>
             </button>
             <button
               type="button"
               className="link-dialog__btn link-dialog__btn--save"
               onClick={handleSave}
             >
-              {saveLabel}
+              <T>{saveLabel}</T>
             </button>
           </div>
         </div>

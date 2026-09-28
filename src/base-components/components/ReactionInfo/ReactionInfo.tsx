@@ -35,7 +35,7 @@ export function ReactionInfo({
         <div className="reaction-info__inner">
           <span className="reaction-info__emoji">{emoji}</span>
           <div className="reaction-info__text">
-            <span className="reaction-info__names">{nameText}</span>
+            <span className="reaction-info__names"><T>{nameText}</T></span>
             <span className="reaction-info__label"><T><T>{label}</T></T></span>
           </div>
         </div>

@@ -79,7 +79,7 @@ export function FlagMessageDialog({
               className={`flag-message-dialog__badge ${selected.has(reason) ? "flag-message-dialog__badge--selected" : ""}`}
               onClick={() => toggleReason(reason)}
             >
-              {reason}
+              <T>{reason}</T>
             </button>
           ))}
         </div>

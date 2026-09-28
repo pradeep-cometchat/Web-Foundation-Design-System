@@ -1,4 +1,5 @@
 import "./ConfirmationDialog.css";
+import { T } from "../../../../cometchat-foundation/localization";
 
 export type ConfirmationDialogVariant =
   | "deleteConversation"
@@ -194,10 +195,10 @@ export function ConfirmationDialog({
         {/* Text */}
         <div className="confirmation-dialog__text">
           <div className="confirmation-dialog__title" id="confirm-dialog-title">
-            {displayTitle}
+            <T>{displayTitle}</T>
           </div>
           <div className="confirmation-dialog__description">
-            {displayDescription}
+            <T>{displayDescription}</T>
           </div>
         </div>
 
@@ -209,7 +210,7 @@ export function ConfirmationDialog({
               className="confirmation-dialog__btn confirmation-dialog__btn--cancel"
               onClick={onCancel}
             >
-              {cancelLabel}
+              <T>{cancelLabel}</T>
             </button>
           </div>
           <div className="confirmation-dialog__btn-wrap">
@@ -218,7 +219,7 @@ export function ConfirmationDialog({
               className={`confirmation-dialog__btn ${isDestructive ? "confirmation-dialog__btn--confirm" : "confirmation-dialog__btn--primary"}`}
               onClick={onConfirm}
             >
-              {displayConfirmLabel}
+              <T>{displayConfirmLabel}</T>
             </button>
           </div>
         </div>
