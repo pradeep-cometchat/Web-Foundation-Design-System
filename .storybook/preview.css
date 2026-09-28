@@ -4,10 +4,12 @@
  * feels consistent with the story canvas.
  */
 :root {
-  --sb-font-inter: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
-  --sb-font-mono: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* "Noto Sans Arabic" follows Inter so only Arabic codepoints reach it —
+     Latin rendering is byte-identical to before. */
+  --sb-font-inter: Inter, "Noto Sans Arabic", ui-sans-serif, system-ui,
+    -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --sb-font-mono: Inter, "Noto Sans Arabic", ui-sans-serif, system-ui,
+    -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 html,

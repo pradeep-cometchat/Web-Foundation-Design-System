@@ -6,7 +6,10 @@
 
 :root {
   /* ─── Font Family ─── */
-  --cometchat-font-family: 'Roboto', 'Inter', sans-serif;
+  /* Noto Sans Arabic is appended, not swapped in under [dir="rtl"], so that
+     per-codepoint fallback resolves mixed Arabic/Latin strings correctly in
+     both directions. Latin still lands on Roboto/Inter exactly as before. */
+  --cometchat-font-family: 'Roboto', 'Inter', 'Noto Sans Arabic', sans-serif;
 
   /* ─── Font Shorthand Tokens ─── */
   --cometchat-font-title-bold: 700 32px/38.4px var(--cometchat-font-family);

@@ -1,4 +1,5 @@
 import React from "react";
+import { T } from "../localization";
 
 export interface PageHeaderProps {
   eyebrow?: string;
@@ -40,7 +41,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
           color: "var(--cometchat-extended-primary-color-900)",
         }}
       >
-        {eyebrow}
+        <T>{eyebrow}</T>
       </span>
       <h1
         style={{
@@ -52,7 +53,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
           color: "var(--cometchat-text-color-primary)",
         }}
       >
-        {title}
+        <T>{title}</T>
       </h1>
       {description && (
         <p
@@ -64,7 +65,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
             maxWidth: 720,
           }}
         >
-          {description}
+          <T>{description}</T>
         </p>
       )}
       {meta && meta.length > 0 && (
@@ -84,10 +85,17 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
                 color: "var(--cometchat-text-color-secondary)",
               }}
             >
-              <strong style={{ color: "var(--cometchat-text-color-primary)" }}>
+              {/* Values are identifiers — hex codes, px ranges, --cometchat-*,
+                  font names. They stay LTR and untranslated in every language. */}
+              <strong
+                dir="ltr"
+                style={{ color: "var(--cometchat-text-color-primary)" }}
+              >
                 {m.value}
               </strong>
-              <span style={{ color: "var(--cometchat-text-color-tertiary)" }}>{m.label}</span>
+              <span style={{ color: "var(--cometchat-text-color-tertiary)" }}>
+                <T>{m.label}</T>
+              </span>
             </span>
           ))}
         </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { T } from "../localization";
 
 export interface SectionProps {
   title: string;
@@ -44,7 +45,7 @@ export const Section: React.FC<SectionProps> = ({
                 color: "var(--cometchat-extended-primary-color-900)",
               }}
             >
-              {eyebrow}
+              <T>{eyebrow}</T>
             </span>
           )}
           <Heading
@@ -56,7 +57,7 @@ export const Section: React.FC<SectionProps> = ({
               color: "var(--cometchat-neutral-color-900)",
             }}
           >
-            {title}
+            <T>{title}</T>
           </Heading>
         </div>
         {actions}
@@ -71,7 +72,7 @@ export const Section: React.FC<SectionProps> = ({
             lineHeight: 1.6,
           }}
         >
-          {description}
+          <T>{description}</T>
         </p>
       )}
       {children}

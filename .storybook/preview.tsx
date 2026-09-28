@@ -6,8 +6,31 @@ import "../src/cometchat-foundation/tokens/cometchat-tokens.css";
 import "./preview.css";
 import { FoundationDocsPage } from "./DocsPage";
 import { foundationTheme } from "./theme";
+import { LocaleProvider } from "../src/cometchat-foundation/localization";
 
 const preview: Preview = {
+  globalTypes: {
+    direction: {
+      name: "Direction",
+      description: "Layout direction",
+      toolbar: {
+        title: "Direction",
+        icon: "transfer",
+        items: [
+          { value: "ltr", title: "LTR" },
+          { value: "rtl", title: "RTL" },
+        ],
+        dynamicTitle: true,
+      },
+    },
+    // No `toolbar` key: the language picker is rendered by the custom toolbar
+    // in manager.tsx instead, so it can appear only while RTL is selected.
+    language: { name: "Language", description: "Content language" },
+  },
+  initialGlobals: {
+    direction: "ltr",
+    language: "en",
+  },
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
@@ -161,6 +184,16 @@ const preview: Preview = {
       <div className="sb-foundation-root">
         <Story />
       </div>
+    ),
+    // Outermost: publishes direction and language to the tree and writes `dir`
+    // onto <html>, the same scope withThemeByDataAttribute uses for `data-theme`.
+    (Story, context) => (
+      <LocaleProvider
+        direction={context.globals.direction === "rtl" ? "rtl" : "ltr"}
+        language={context.globals.language === "ar" ? "ar" : "en"}
+      >
+        <Story />
+      </LocaleProvider>
     ),
   ],
   tags: ["autodocs"],
