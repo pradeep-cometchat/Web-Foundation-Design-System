@@ -23,13 +23,9 @@ const preview: Preview = {
         dynamicTitle: true,
       },
     },
-    // No `toolbar` key: the language picker is rendered by the custom toolbar
-    // in manager.tsx instead, so it can appear only while RTL is selected.
-    language: { name: "Language", description: "Content language" },
   },
   initialGlobals: {
     direction: "ltr",
-    language: "en",
   },
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
@@ -190,7 +186,6 @@ const preview: Preview = {
     (Story, context) => (
       <LocaleProvider
         direction={context.globals.direction === "rtl" ? "rtl" : "ltr"}
-        language={context.globals.language === "ar" ? "ar" : "en"}
       >
         <Story />
       </LocaleProvider>

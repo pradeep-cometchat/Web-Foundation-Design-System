@@ -20,7 +20,6 @@ export const useIsRTL = (): boolean => useDirection() === "rtl";
 
 export interface LocaleProviderProps {
   direction: Direction;
-  language: Language;
   children: React.ReactNode;
 }
 
@@ -32,17 +31,17 @@ export interface LocaleProviderProps {
  * the same scope; and it is the only target that reaches the docs-page chrome,
  * the iframe scrollbar edge, and fixed-position overlays.
  *
- * LTR always means English. The language toggle is only offered in RTL, so the
- * English Storybook renders exactly as it did before any of this existed.
+ * Language follows direction rather than being chosen separately: RTL is the
+ * Arabic Storybook, LTR is the English one. That keeps a single toggle and
+ * leaves the English rendering exactly as it was before any of this existed.
  */
 export const LocaleProvider: React.FC<LocaleProviderProps> = ({
   direction,
-  language,
   children,
 }) => {
   const effective: Locale = {
     direction,
-    language: direction === "ltr" ? "en" : language,
+    language: direction === "rtl" ? "ar" : "en",
   };
 
   React.useEffect(() => {
