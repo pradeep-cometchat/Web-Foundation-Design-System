@@ -1,4 +1,5 @@
 import "./ReactionInfo.css";
+import { T } from "../../../cometchat-foundation/localization";
 
 export interface ReactionInfoProps {
   /** The emoji that was reacted with */
@@ -35,7 +36,7 @@ export function ReactionInfo({
           <span className="reaction-info__emoji">{emoji}</span>
           <div className="reaction-info__text">
             <span className="reaction-info__names">{nameText}</span>
-            <span className="reaction-info__label">{label}</span>
+            <span className="reaction-info__label"><T><T>{label}</T></T></span>
           </div>
         </div>
       </div>

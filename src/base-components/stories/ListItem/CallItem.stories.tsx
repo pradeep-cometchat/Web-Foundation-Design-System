@@ -260,7 +260,7 @@ const Wrap = ({ label, children }: { label: string; children: React.ReactNode })
         letterSpacing: "0.04em",
       }}
     >
-      {label}
+      <T>{label}</T>
     </div>
     <div
       style={{
@@ -523,7 +523,7 @@ const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language,
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T>{title}</T></div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T><T>{title}</T></T></div>
       {children}
     </div>
   );

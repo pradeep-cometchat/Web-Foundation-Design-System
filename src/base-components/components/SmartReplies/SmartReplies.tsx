@@ -1,4 +1,5 @@
 import "./SmartReplies.css";
+import { T } from "../../../cometchat-foundation/localization";
 
 export interface SmartRepliesProps {
   /** Whether the component is visible */
@@ -26,7 +27,7 @@ export function SmartReplies({
     <div className="smart-replies">
       {/* Header */}
       <div className="smart-replies__header">
-        <span className="smart-replies__title">Suggest a reply</span>
+        <span className="smart-replies__title"><T>Suggest a reply</T></span>
         <button type="button" className="smart-replies__close" onClick={onClose} aria-label="Close">
           <svg viewBox="0 0 20 20" fill="none">
             <path d="M5.5 14.5L10 10L14.5 5.5M14.5 14.5L10 10L5.5 5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

@@ -1,4 +1,5 @@
 import React from "react";
+import { T } from "../../../cometchat-foundation/localization";
 import "./ListItem.css";
 
 export interface ListItemProps {
@@ -70,7 +71,7 @@ export const ListItem: React.FC<ListItemProps> = ({
       </div>
 
       <div className="list-item__content">
-        <div className="list-item__title">{title}</div>
+        <div className="list-item__title"><T><T>{title}</T></T></div>
         {subtitle && (
           <div className="list-item__subtitle">
             {subtitleIcon && (
@@ -78,7 +79,7 @@ export const ListItem: React.FC<ListItemProps> = ({
                 {subtitleIcon}
               </span>
             )}
-            <span className="list-item__subtitle-text">{subtitle}</span>
+            <span className="list-item__subtitle-text"><T><T>{subtitle}</T></T></span>
           </div>
         )}
       </div>

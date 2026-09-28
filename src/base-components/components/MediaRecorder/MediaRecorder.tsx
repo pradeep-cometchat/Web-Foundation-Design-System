@@ -1,4 +1,5 @@
 import "./MediaRecorder.css";
+import { T } from "../../../cometchat-foundation/localization";
 
 export type MediaRecorderState = "recording" | "paused" | "playing";
 
@@ -104,7 +105,7 @@ export function MediaRecorder({
         <button type="button" className="media-recorder__add-btn" aria-label="Add attachment">
           <AddCircleIcon />
         </button>
-        <span className="media-recorder__placeholder">{placeholder}</span>
+        <span className="media-recorder__placeholder"><T>{placeholder}</T></span>
       </div>
 
       {/* Mic icon */}

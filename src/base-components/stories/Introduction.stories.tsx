@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { T } from "../../cometchat-foundation/localization";
 
 const meta: Meta = {
   title: "Base Components/Introduction",
@@ -85,7 +86,7 @@ function IntroductionPage() {
               color: "var(--cometchat-neutral-color-900)",
             }}
           >
-            Base Components
+            <T>Base Components</T>
           </h1>
           <p
             style={{
@@ -95,10 +96,10 @@ function IntroductionPage() {
               color: "var(--cometchat-neutral-color-700)",
             }}
           >
-            Reusable, atomic UI components built on top of the foundation tokens.
+            <T>Reusable, atomic UI components built on top of the foundation tokens.
             These are the building blocks for every feature and screen — buttons,
             inputs, labels, tags, and more. Each component consumes foundation
-            tokens directly and exposes a clean, composable API.
+            tokens directly and exposes a clean, composable API.</T>
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--cometchat-spacing-2)", marginTop: 24 }}>
             <HeroChip label="components" value="28" />
@@ -111,9 +112,9 @@ function IntroductionPage() {
       </div>
 
       {/* WHAT'S INSIDE */}
-      <SectionHeading>What's inside</SectionHeading>
+      <SectionHeading><T>What's inside</T></SectionHeading>
       <p style={{ color: "var(--cometchat-neutral-color-600)", marginTop: 0, maxWidth: 720, fontSize: "14px", lineHeight: 1.6 }}>
-        28 base components form the atomic layer. Each is documented with interactive controls, accessibility notes, and usage guidelines.
+        <T>28 base components form the atomic layer. Each is documented with interactive controls, accessibility notes, and usage guidelines.</T>
       </p>
 
       <div
@@ -154,7 +155,7 @@ function IntroductionPage() {
       </div>
 
       {/* PRINCIPLES */}
-      <SectionHeading>Design principles</SectionHeading>
+      <SectionHeading><T>Design principles</T></SectionHeading>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "var(--cometchat-spacing-3-5)", margin: "20px 0 40px" }}>
         <PrincipleCard title="Token-first" body="Every color, spacing, and radius value comes from foundation tokens. No magic numbers." />
         <PrincipleCard title="Composable" body="Components are small and focused. Combine them to build complex patterns without tight coupling." />
@@ -164,10 +165,10 @@ function IntroductionPage() {
       </div>
 
       {/* USAGE */}
-      <SectionHeading>Usage</SectionHeading>
+      <SectionHeading><T>Usage</T></SectionHeading>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "var(--cometchat-spacing-4)", margin: "20px 0 40px" }}>
         <div style={panelStyle}>
-          <div style={panelLabel}>Import & use</div>
+          <div style={panelLabel}><T>Import & use</T></div>
           <pre style={codePre}><code>{`import { Button } from "@base-components/Button";
 import { Avatar } from "@base-components/Avatar";
 import { Toast } from "@base-components/Toast";
@@ -187,7 +188,7 @@ import { Toast } from "@base-components/Toast";
 </Toast>`}</code></pre>
         </div>
         <div style={panelStyle}>
-          <div style={panelLabel}>Composition pattern</div>
+          <div style={panelLabel}><T>Composition pattern</T></div>
           <pre style={codePre}><code>{`import { ListItem } from "@base-components/ListItem";
 import { Avatar } from "@base-components/Avatar";
 import { TypingIndicator } from "@base-components/TypingIndicator";
@@ -224,7 +225,7 @@ function HeroChip({ label, value }: { label: string; value: string }) {
         padding: "5px 12px",
       }}
     >
-      <span style={{ color: "var(--cometchat-neutral-color-500)", fontSize: "10px" }}>{label}</span>
+      <span style={{ color: "var(--cometchat-neutral-color-500)", fontSize: "10px" }}><T>{label}</T></span>
       <span style={{ fontWeight: "600" }}>{value}</span>
     </span>
   );
@@ -271,10 +272,10 @@ function ComponentCard({ name, description }: { name: string; description: strin
       }}
     >
       <div style={{ fontSize: "14px", fontWeight: "600", color: "var(--cometchat-neutral-color-900)", marginBottom: 6 }}>
-        {name}
+        <T>{name}</T>
       </div>
       <div style={{ fontSize: "12px", color: "var(--cometchat-neutral-color-600)", lineHeight: 1.5 }}>
-        {description}
+        <T>{description}</T>
       </div>
     </a>
   );
@@ -291,7 +292,7 @@ function PrincipleCard({ title, body }: { title: string; body: string }) {
       }}
     >
       <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-900)", marginBottom: 6 }}>
-        {title}
+        <T>{title}</T>
       </div>
       <div style={{ fontSize: "12px", color: "var(--cometchat-neutral-color-600)", lineHeight: 1.5 }}>
         {body}

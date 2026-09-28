@@ -1,4 +1,5 @@
 import "./ThreadView.css";
+import { T } from "../../../cometchat-foundation/localization";
 
 export interface ThreadMessage {
   /** Message text */
@@ -106,7 +107,7 @@ export function ThreadView({
       {/* Header */}
       <div className="thread-view__header">
         <div className="thread-view__header-text">
-          <div className="thread-view__title">{title}</div>
+          <div className="thread-view__title"><T><T>{title}</T></T></div>
         </div>
         <div className="thread-view__header-actions">
           <button type="button" className="thread-view__header-btn" onClick={onClose} aria-label="Close">
@@ -162,7 +163,7 @@ export function ThreadView({
               <span className="thread-view__composer-icon"><MicIcon /></span>
               <span className="thread-view__composer-icon"><SmileyIcon /></span>
               <span className="thread-view__composer-icon"><StickerIcon /></span>
-              <span className="thread-view__composer-icon thread-view__composer-icon--text">Aa</span>
+              <span className="thread-view__composer-icon thread-view__composer-icon--text"><T>Aa</T></span>
             </div>
             <button type="button" className="thread-view__send-btn" aria-label="Send">
               <SendIcon />

@@ -1,4 +1,5 @@
 import "./Textarea.css";
+import { T } from "../../../cometchat-foundation/localization";
 
 export interface TextareaProps {
   /** Label text above the textarea */
@@ -41,7 +42,7 @@ export function Textarea({
     <div className={`textarea-field ${hasError ? "textarea-field--error" : ""} ${disabled ? "textarea-field--disabled" : ""}`}>
       {label && (
         <div className="textarea-field__label-wrap">
-          <label className="textarea-field__label">{label}</label>
+          <label className="textarea-field__label"><T><T>{label}</T></T></label>
           {required && <span className="textarea-field__required">*</span>}
         </div>
       )}

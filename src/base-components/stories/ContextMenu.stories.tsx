@@ -190,20 +190,20 @@ export const Trigger: StoryObj = {
     <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <div>
         <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>
-          Trigger button (kebab icon)
+          <T>Trigger button (kebab icon)</T>
         </div>
         <div style={{ display: "flex", gap: "var(--cometchat-spacing-4)", alignItems: "center" }}>
           <ContextMenuTrigger />
-          <span style={{ fontSize: "12px", color: "var(--cometchat-neutral-color-500)" }}>Default</span>
+          <span style={{ fontSize: "12px", color: "var(--cometchat-neutral-color-500)" }}><T>Default</T></span>
         </div>
       </div>
       <div>
         <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>
-          In context — appears on message hover
+          <T>In context — appears on message hover</T>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-2)" }}>
           <div style={{ background: "var(--cometchat-neutral-color-100)", borderRadius: "var(--cometchat-radius-3)", padding: "8px 12px", fontSize: "14px", color: "var(--cometchat-neutral-color-900)" }}>
-            Yes, it's available.
+            <T>Yes, it's available.</T>
           </div>
           <ContextMenuTrigger />
         </div>
@@ -340,7 +340,7 @@ const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language,
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T>{title}</T></div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T><T>{title}</T></T></div>
       {children}
     </div>
   );

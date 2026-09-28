@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { T } from "../../../cometchat-foundation/localization";
 import "./CreatePoll.css";
 
 export interface CreatePollProps {
@@ -60,7 +61,7 @@ export function CreatePoll({
     <div className="create-poll">
       {/* Header */}
       <div className="create-poll__header">
-        <span className="create-poll__title">Create Poll</span>
+        <span className="create-poll__title"><T>Create Poll</T></span>
         <button type="button" className="create-poll__close" onClick={onClose} aria-label="Close">
           <svg viewBox="0 0 24 24" fill="none"><path d="M6.4 18.65L5.35 17.6L10.95 12L5.35 6.4L6.4 5.35L12 10.95L17.6 5.35L18.65 6.4L13.05 12L18.65 17.6L17.6 18.65L12 13.05L6.4 18.65Z" fill="currentColor"/></svg>
         </button>
@@ -70,7 +71,7 @@ export function CreatePoll({
       <div className="create-poll__body">
         {/* Question */}
         <div className="create-poll__section">
-          <label className="create-poll__label">Question</label>
+          <label className="create-poll__label"><T>Question</T></label>
           <input
             type="text"
             className="create-poll__question-input"
@@ -108,7 +109,7 @@ export function CreatePoll({
           {options.length < maxOptions && (
             <button type="button" className="create-poll__add-option" onClick={addOption}>
               <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5"/><path d="M12 8V16M8 12H16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
-              <span>Add an option</span>
+              <span><T>Add an option</T></span>
             </button>
           )}
         </div>
@@ -119,19 +120,19 @@ export function CreatePoll({
         {error && (
           <div className="create-poll__error">
             <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="currentColor"/><path d="M12 8V13" stroke="white" strokeWidth="1.5" strokeLinecap="round"/><circle cx="12" cy="16" r="1" fill="white"/></svg>
-            <span>{error}</span>
+            <span><T>{error}</T></span>
           </div>
         )}
         <div className="create-poll__buttons">
           <button type="button" className="create-poll__btn create-poll__btn--cancel" onClick={onClose}>
-            Cancel
+            <T>Cancel</T>
           </button>
           <button
             type="button"
             className={`create-poll__btn create-poll__btn--create ${canCreate ? "create-poll__btn--active" : ""}`}
             onClick={handleCreate}
           >
-            Create
+            <T>Create</T>
           </button>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { T } from "../../../../cometchat-foundation/localization";
 import "./InfoSelectionDialog.css";
 
 export type InfoSelectionDialogVariant = "messageInfo" | "addMembers" | "transferOwnership" | "alert";
@@ -131,8 +132,8 @@ function AlertContent({
         </div>
       </div>
       <div className="info-dialog__alert-text">
-        <div className="info-dialog__alert-title">{title}</div>
-        <div className="info-dialog__alert-description">{description}</div>
+        <div className="info-dialog__alert-title"><T><T>{title}</T></T></div>
+        <div className="info-dialog__alert-description"><T><T>{description}</T></T></div>
       </div>
       <div className="info-dialog__alert-actions">
         <button
@@ -184,11 +185,11 @@ function MessageInfoContent({
               <div className="info-dialog__group-info-content">
                 <div className="info-dialog__group-info-name">{user.name}</div>
                 <div className="info-dialog__group-info-row">
-                  <span className="info-dialog__group-info-label">Read</span>
+                  <span className="info-dialog__group-info-label"><T>Read</T></span>
                   <span className="info-dialog__group-info-time">{user.readTimestamp || "---"}</span>
                 </div>
                 <div className="info-dialog__group-info-row">
-                  <span className="info-dialog__group-info-label">Delivered</span>
+                  <span className="info-dialog__group-info-label"><T>Delivered</T></span>
                   <span className="info-dialog__group-info-time">{user.deliveredTimestamp || "---"}</span>
                 </div>
               </div>
@@ -330,7 +331,7 @@ export function InfoSelectionDialog({
         {config.submitLabel && (
           <div className="info-dialog__actions">
             <button type="button" className="info-dialog__btn info-dialog__btn--cancel" onClick={onCancel}>
-              Cancel
+              <T>Cancel</T>
             </button>
             <button type="button" className="info-dialog__btn info-dialog__btn--submit" onClick={onConfirm}>
               {config.submitLabel}

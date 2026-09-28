@@ -1,4 +1,5 @@
 import "./MultiLineComposer.css";
+import { T } from "../../../cometchat-foundation/localization";
 
 export type RecordingState = "idle" | "recording" | "paused" | "preview";
 
@@ -44,7 +45,7 @@ export function MultiLineComposer({
 
   return (
     <div className="ml-composer__popup">
-      <span className="ml-composer__popup-title">Voice Note</span>
+      <span className="ml-composer__popup-title"><T>Voice Note</T></span>
 
       {recordingState !== "preview" ? (
         <>

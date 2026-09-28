@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { T } from "../../../cometchat-foundation/localization";
 import type { AvatarProps, AvatarGroupProps, AvatarLabelGroupProps, AvatarSize } from "./AvatarGroup.types";
 import { avatarRegistry } from "../../../cometchat-foundation/tokens/avatars";
 import "./AvatarGroup.css";
@@ -115,7 +116,7 @@ export const AvatarLabelGroup: React.FC<AvatarLabelGroupProps> = ({
     <div className={`avatar-label-group avatar-label-group--${size} ${className ?? ""}`}>
       <Avatar src={src} alt={alt} fallback={fallback} size={avatarSizeMap[size]} statusIcon={statusIcon} online={online} />
       <div className="avatar-label-group__text">
-        <span className="avatar-label-group__name">{name}</span>
+        <span className="avatar-label-group__name"><T><T>{name}</T></T></span>
         {supportingText && <span className="avatar-label-group__supporting">{supportingText}</span>}
       </div>
     </div>

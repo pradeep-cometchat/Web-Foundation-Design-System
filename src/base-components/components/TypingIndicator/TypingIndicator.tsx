@@ -1,4 +1,5 @@
 import "./TypingIndicator.css";
+import { T } from "../../../cometchat-foundation/localization";
 
 /** Activity type being performed. */
 export type TypingActivity = "typing" | "recording" | "uploading";
@@ -56,7 +57,7 @@ export function TypingIndicator({
         <span className="typing-indicator__dot" />
         <span className="typing-indicator__dot" />
       </div>
-      <span className="typing-indicator__text">{text}</span>
+      <span className="typing-indicator__text"><T><T>{text}</T></T></span>
     </div>
   );
 }

@@ -171,14 +171,14 @@ function FilledDemo() {
   return (
     <div className="create-poll">
       <div className="create-poll__header">
-        <span className="create-poll__title">Create Poll</span>
+        <span className="create-poll__title"><T>Create Poll</T></span>
         <button type="button" className="create-poll__close" aria-label="Close">
           <svg viewBox="0 0 24 24" fill="none"><path d="M6.4 18.65L5.35 17.6L10.95 12L5.35 6.4L6.4 5.35L12 10.95L17.6 5.35L18.65 6.4L13.05 12L18.65 17.6L17.6 18.65L12 13.05L6.4 18.65Z" fill="currentColor"/></svg>
         </button>
       </div>
       <div className="create-poll__body">
         <div className="create-poll__section">
-          <label className="create-poll__label">Question</label>
+          <label className="create-poll__label"><T>Question</T></label>
           <input type="text" className="create-poll__question-input" defaultValue="How do you prefer to shop?" readOnly />
         </div>
         <div className="create-poll__section">
@@ -187,14 +187,14 @@ function FilledDemo() {
           <OptionRowDemo value="Others" />
           <button type="button" className="create-poll__add-option">
             <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5"/><path d="M12 8V16M8 12H16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
-            <span>Add an option</span>
+            <span><T>Add an option</T></span>
           </button>
         </div>
       </div>
       <div className="create-poll__footer">
         <div className="create-poll__buttons">
-          <button type="button" className="create-poll__btn create-poll__btn--cancel">Cancel</button>
-          <button type="button" className="create-poll__btn create-poll__btn--create create-poll__btn--active">Create</button>
+          <button type="button" className="create-poll__btn create-poll__btn--cancel"><T>Cancel</T></button>
+          <button type="button" className="create-poll__btn create-poll__btn--create create-poll__btn--active"><T>Create</T></button>
         </div>
       </div>
     </div>
@@ -205,14 +205,14 @@ function ValidationErrorDemo() {
   return (
     <div className="create-poll">
       <div className="create-poll__header">
-        <span className="create-poll__title">Create Poll</span>
+        <span className="create-poll__title"><T>Create Poll</T></span>
         <button type="button" className="create-poll__close" aria-label="Close">
           <svg viewBox="0 0 24 24" fill="none"><path d="M6.4 18.65L5.35 17.6L10.95 12L5.35 6.4L6.4 5.35L12 10.95L17.6 5.35L18.65 6.4L13.05 12L18.65 17.6L17.6 18.65L12 13.05L6.4 18.65Z" fill="currentColor"/></svg>
         </button>
       </div>
       <div className="create-poll__body">
         <div className="create-poll__section">
-          <label className="create-poll__label">Question</label>
+          <label className="create-poll__label"><T>Question</T></label>
           <input type="text" className="create-poll__question-input" defaultValue="How do you prefer to shop?" readOnly />
         </div>
         <div className="create-poll__section">
@@ -223,18 +223,18 @@ function ValidationErrorDemo() {
           <OptionRowDemo value="" />
           <button type="button" className="create-poll__add-option">
             <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5"/><path d="M12 8V16M8 12H16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
-            <span>Add an option</span>
+            <span><T>Add an option</T></span>
           </button>
         </div>
       </div>
       <div className="create-poll__footer">
         <div className="create-poll__error">
           <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="currentColor"/><path d="M12 8V13" stroke="white" strokeWidth="1.5" strokeLinecap="round"/><circle cx="12" cy="16" r="1" fill="white"/></svg>
-          <span>Please fill in all required fields before creating a poll.</span>
+          <span><T>Please fill in all required fields before creating a poll.</T></span>
         </div>
         <div className="create-poll__buttons">
-          <button type="button" className="create-poll__btn create-poll__btn--cancel">Cancel</button>
-          <button type="button" className="create-poll__btn create-poll__btn--create create-poll__btn--active">Create</button>
+          <button type="button" className="create-poll__btn create-poll__btn--cancel"><T>Cancel</T></button>
+          <button type="button" className="create-poll__btn create-poll__btn--create create-poll__btn--active"><T>Create</T></button>
         </div>
       </div>
     </div>
@@ -245,14 +245,14 @@ function MaxOptionsDemo() {
   return (
     <div className="create-poll">
       <div className="create-poll__header">
-        <span className="create-poll__title">Create Poll</span>
+        <span className="create-poll__title"><T>Create Poll</T></span>
         <button type="button" className="create-poll__close" aria-label="Close">
           <svg viewBox="0 0 24 24" fill="none"><path d="M6.4 18.65L5.35 17.6L10.95 12L5.35 6.4L6.4 5.35L12 10.95L17.6 5.35L18.65 6.4L13.05 12L18.65 17.6L17.6 18.65L12 13.05L6.4 18.65Z" fill="currentColor"/></svg>
         </button>
       </div>
       <div className="create-poll__body">
         <div className="create-poll__section">
-          <label className="create-poll__label">Question</label>
+          <label className="create-poll__label"><T>Question</T></label>
           <input type="text" className="create-poll__question-input" defaultValue="How do you prefer to shop?" readOnly />
         </div>
         <div className="create-poll__section">
@@ -268,11 +268,11 @@ function MaxOptionsDemo() {
       <div className="create-poll__footer">
         <div className="create-poll__error">
           <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="currentColor"/><path d="M12 8V13" stroke="white" strokeWidth="1.5" strokeLinecap="round"/><circle cx="12" cy="16" r="1" fill="white"/></svg>
-          <span>You've reached the limit. You can add up to 12 options.</span>
+          <span><T>You've reached the limit. You can add up to 12 options.</T></span>
         </div>
         <div className="create-poll__buttons">
-          <button type="button" className="create-poll__btn create-poll__btn--cancel">Cancel</button>
-          <button type="button" className="create-poll__btn create-poll__btn--create create-poll__btn--active">Create</button>
+          <button type="button" className="create-poll__btn create-poll__btn--cancel"><T>Cancel</T></button>
+          <button type="button" className="create-poll__btn create-poll__btn--create create-poll__btn--active"><T>Create</T></button>
         </div>
       </div>
     </div>
@@ -315,7 +315,7 @@ const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language,
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T>{title}</T></div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T><T>{title}</T></T></div>
       {children}
     </div>
   );

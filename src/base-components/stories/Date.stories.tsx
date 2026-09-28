@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { T } from "../../cometchat-foundation/localization";
 import { DateTimestamp } from "../components/Date";
 
 /**
@@ -148,7 +149,7 @@ export const InContext: StoryObj = {
 
       {/* Received bubble */}
       <div style={{ alignSelf: "flex-start", background: "var(--cometchat-received-bubble-background)", borderRadius: "var(--cometchat-radius-3)", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", maxWidth: "var(--space-70, 280px)" }}>
-        <div style={{ fontSize: "14px", color: "var(--cometchat-received-bubble-text)", marginBottom: "var(--cometchat-spacing-1)" }}>Yes, it's available.</div>
+        <div style={{ fontSize: "14px", color: "var(--cometchat-received-bubble-text)", marginBottom: "var(--cometchat-spacing-1)" }}><T>Yes, it's available.</T></div>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <DateTimestamp timestamp="4:56 pm" variant="received" />
         </div>
@@ -156,20 +157,20 @@ export const InContext: StoryObj = {
 
       {/* Sent bubble */}
       <div style={{ alignSelf: "flex-end", background: "var(--cometchat-send-bubble-background)", borderRadius: "var(--cometchat-radius-3)", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", maxWidth: "var(--space-70, 280px)" }}>
-        <div style={{ fontSize: "14px", color: "var(--cometchat-send-bubble-text)", marginBottom: "var(--cometchat-spacing-1)" }}>I'll take it. Can you ship it?</div>
+        <div style={{ fontSize: "14px", color: "var(--cometchat-send-bubble-text)", marginBottom: "var(--cometchat-spacing-1)" }}><T>I'll take it. Can you ship it?</T></div>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <span className="date-timestamp date-timestamp--sent" style={{ color: "rgba(255,255,255,0.7)" }}>
             <span className="date-timestamp__receipt date-timestamp__receipt--read" style={{ color: "var(--cometchat-message-seen-color)" }}>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L5 11.5L11 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M5.5 8.5L8.5 11.5L14.5 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </span>
-            <span className="date-timestamp__text">4:56 pm</span>
+            <span className="date-timestamp__text"><T>4:56 pm</T></span>
           </span>
         </div>
       </div>
 
       {/* Another received */}
       <div style={{ alignSelf: "flex-start", background: "var(--cometchat-received-bubble-background)", borderRadius: "var(--cometchat-radius-3)", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", maxWidth: "var(--space-70, 280px)" }}>
-        <div style={{ fontSize: "14px", color: "var(--cometchat-received-bubble-text)", marginBottom: "var(--cometchat-spacing-1)" }}>Sure! Sending them over now.</div>
+        <div style={{ fontSize: "14px", color: "var(--cometchat-received-bubble-text)", marginBottom: "var(--cometchat-spacing-1)" }}><T>Sure! Sending them over now.</T></div>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <DateTimestamp timestamp="4:58 pm" variant="received" />
         </div>
@@ -261,7 +262,7 @@ export const Playground: StoryObj<typeof DateTimestamp> = {
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-4)" }}>
-      <span style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", width: 160, flexShrink: 0 }}>{label}</span>
+      <span style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", width: 160, flexShrink: 0 }}><T>{label}</T></span>
       {children}
     </div>
   );
@@ -284,7 +285,7 @@ const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language,
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T>{title}</T></div>
       {children}
     </div>
   );

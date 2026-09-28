@@ -1,4 +1,5 @@
 import React from "react";
+import { T } from "../../../cometchat-foundation/localization";
 import "./ConversationItem.css";
 
 export type ConversationItemState = "default" | "hover" | "pressed";
@@ -223,7 +224,7 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
       <div className="conversation-item__content">
         {/* Header */}
         <div className="conversation-item__header">
-          <div className="conversation-item__title">{title}</div>
+          <div className="conversation-item__title"><T><T>{title}</T></T></div>
           {timestamp && (
             <div
               className={`conversation-item__timestamp conversation-item__timestamp--${dateType}`}
@@ -243,7 +244,7 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
                   <span className="conversation-item__dot" />
                   <span className="conversation-item__dot" />
                 </span>
-                <span className="conversation-item__typing-text">Typing</span>
+                <span className="conversation-item__typing-text"><T>Typing</T></span>
               </div>
             )}
 

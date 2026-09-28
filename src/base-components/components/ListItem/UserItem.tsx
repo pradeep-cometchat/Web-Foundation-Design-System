@@ -1,4 +1,5 @@
 import React from "react";
+import { T } from "../../../cometchat-foundation/localization";
 import "./UserItem.css";
 
 export type UserItemState = "default" | "hover" | "pressed";
@@ -181,7 +182,7 @@ export const UserItem: React.FC<UserItemProps> = ({
 
       <div className="user-item__content">
         <div className="user-item__header">
-          <div className="user-item__title">{title}</div>
+          <div className="user-item__title"><T><T>{title}</T></T></div>
         </div>
 
         {hasSubtitle && (
@@ -229,7 +230,7 @@ export const UserItemDivider: React.FC<UserItemDividerProps> = ({ label, classNa
   const classes = ["user-item", "user-item--divider", className].filter(Boolean).join(" ");
   return (
     <div className={classes}>
-      <div className="user-item__divider-label">{label}</div>
+      <div className="user-item__divider-label"><T><T>{label}</T></T></div>
     </div>
   );
 };

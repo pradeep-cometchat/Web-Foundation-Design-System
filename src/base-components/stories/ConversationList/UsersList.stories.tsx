@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { T } from "../../../cometchat-foundation/localization";
 import { Header } from "../../components/Header";
 import { SearchBar } from "../../components/SearchBar";
 import { UserItem, UserItemDivider, UserItemSkeleton } from "../../components/ListItem";
@@ -196,7 +197,7 @@ export const Empty: Story = {
                 textAlign: "center",
               }}
             >
-              No users yet
+              <T>No users yet</T>
             </div>
             <div
               style={{
@@ -209,7 +210,7 @@ export const Empty: Story = {
                 maxWidth: 280,
               }}
             >
-              Users will appear here once they join your workspace or organization.
+              <T>Users will appear here once they join your workspace or organization.</T>
             </div>
           </div>
         </div>
@@ -269,7 +270,7 @@ export const Error: Story = {
                 textAlign: "center",
               }}
             >
-              Unable to load users
+              <T>Unable to load users</T>
             </div>
             <div
               style={{
@@ -282,7 +283,7 @@ export const Error: Story = {
                 maxWidth: 280,
               }}
             >
-              Something went wrong while loading the user list. Please try again.
+              <T>Something went wrong while loading the user list. Please try again.</T>
             </div>
           </div>
           <button
@@ -304,7 +305,7 @@ export const Error: Story = {
             onMouseEnter={(e) => (e.currentTarget.style.background = "var(--cometchat-extended-primary-color-900)")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "var(--cometchat-primary-color)")}
           >
-            Retry
+            <T>Retry</T>
           </button>
         </div>
       </>
@@ -328,7 +329,7 @@ export const AllStates: Story = {
       }}
     >
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <div style={{ fontSize: "12px", fontWeight: "500", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}>Default</div>
+        <div style={{ fontSize: "12px", fontWeight: "500", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}><T>Default</T></div>
         {container(
           <>
             <Header title="Users" actions={[]} showMore={false} />
@@ -351,7 +352,7 @@ export const AllStates: Story = {
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <div style={{ fontSize: "12px", fontWeight: "500", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}>Skeleton</div>
+        <div style={{ fontSize: "12px", fontWeight: "500", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}><T>Skeleton</T></div>
         {container(
           <>
             <Header title="Users" actions={[]} showMore={false} />
@@ -371,7 +372,7 @@ export const AllStates: Story = {
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <div style={{ fontSize: "12px", fontWeight: "500", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}>Search Active</div>
+        <div style={{ fontSize: "12px", fontWeight: "500", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}><T>Search Active</T></div>
         {container(
           <>
             <Header title="Users" actions={[]} showMore={false} />
@@ -393,7 +394,7 @@ export const AllStates: Story = {
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <div style={{ fontSize: "12px", fontWeight: "500", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}>Empty</div>
+        <div style={{ fontSize: "12px", fontWeight: "500", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}><T>Empty</T></div>
         {container(
           <>
             <Header title="Users" actions={[]} showMore={false} />
@@ -405,8 +406,8 @@ export const AllStates: Story = {
                 <span className="icon-outlined" style={{ fontSize: 32, color: "var(--cometchat-text-color-primary)" }}>person</span>
               </div>
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-2)" }}>
-                <div style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: "700", color: "var(--cometchat-text-color-primary)", textAlign: "center" }}>No users yet</div>
-                <div style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "14px", color: "var(--cometchat-text-color-tertiary)", textAlign: "center", maxWidth: 280 }}>Users will appear here once they join your workspace or organization.</div>
+                <div style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: "700", color: "var(--cometchat-text-color-primary)", textAlign: "center" }}><T>No users yet</T></div>
+                <div style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "14px", color: "var(--cometchat-text-color-tertiary)", textAlign: "center", maxWidth: 280 }}><T>Users will appear here once they join your workspace or organization.</T></div>
               </div>
             </div>
           </>
@@ -414,7 +415,7 @@ export const AllStates: Story = {
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <div style={{ fontSize: "12px", fontWeight: "500", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}>Error</div>
+        <div style={{ fontSize: "12px", fontWeight: "500", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}><T>Error</T></div>
         {container(
           <>
             <Header title="Users" actions={[]} showMore={false} />
@@ -426,15 +427,15 @@ export const AllStates: Story = {
                 <span className="icon-outlined" style={{ fontSize: 32, color: "var(--cometchat-text-color-primary)" }}>error_outline</span>
               </div>
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-2)" }}>
-                <div style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: "700", color: "var(--cometchat-text-color-primary)", textAlign: "center" }}>Unable to load users</div>
-                <div style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "14px", color: "var(--cometchat-text-color-tertiary)", textAlign: "center", maxWidth: 280 }}>Something went wrong while loading the user list. Please try again.</div>
+                <div style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: "700", color: "var(--cometchat-text-color-primary)", textAlign: "center" }}><T>Unable to load users</T></div>
+                <div style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "14px", color: "var(--cometchat-text-color-tertiary)", textAlign: "center", maxWidth: 280 }}><T>Something went wrong while loading the user list. Please try again.</T></div>
               </div>
               <button
                 style={{ padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-6)", background: "var(--cometchat-primary-color)", color: "var(--cometchat-static-white)", border: "none", borderRadius: "var(--cometchat-radius-2)", fontFamily: "var(--cometchat-font-family)", fontSize: "14px", fontWeight: "500", cursor: "pointer", height: 40, transition: "background 120ms ease" }}
                 onMouseEnter={(e) => (e.currentTarget.style.background = "var(--cometchat-extended-primary-color-900)")}
                 onMouseLeave={(e) => (e.currentTarget.style.background = "var(--cometchat-primary-color)")}
               >
-                Retry
+                <T>Retry</T>
               </button>
             </div>
           </>

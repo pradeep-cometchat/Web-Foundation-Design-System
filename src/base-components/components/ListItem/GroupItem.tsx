@@ -1,4 +1,5 @@
 import React from "react";
+import { T } from "../../../cometchat-foundation/localization";
 import "./GroupItem.css";
 
 export type GroupItemState = "default" | "hover" | "pressed";
@@ -162,12 +163,12 @@ export const GroupItem: React.FC<GroupItemProps> = ({
 
       <div className="group-item__content">
         <div className="group-item__header">
-          <div className="group-item__title">{title}</div>
+          <div className="group-item__title"><T><T>{title}</T></T></div>
         </div>
 
         {description && (
           <div className="group-item__description">
-            <span className="group-item__description-text">{description}</span>
+            <span className="group-item__description-text"><T><T>{description}</T></T></span>
           </div>
         )}
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { T } from "../../../cometchat-foundation/localization";
 import "./Header.css";
 
 export interface HeaderAction {
@@ -50,7 +51,7 @@ export const Header: React.FC<HeaderProps> = ({
           <span className="icon-outlined">arrow_back</span>
         </button>
       )}
-      <h1 className="screen-header__title">{title}</h1>
+      <h1 className="screen-header__title"><T><T>{title}</T></T></h1>
       <div className="screen-header__actions">
         {actions.map((action, i) => (
           <button

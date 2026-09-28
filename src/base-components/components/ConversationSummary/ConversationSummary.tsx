@@ -1,4 +1,5 @@
 import "./ConversationSummary.css";
+import { T } from "../../../cometchat-foundation/localization";
 
 export interface ConversationSummaryProps {
   /** The summary text content */
@@ -48,7 +49,7 @@ export function ConversationSummary({
       {/* Header */}
       <div className="conversation-summary__header">
         <div className="conversation-summary__heading">
-          <span className="conversation-summary__title">Conversation summary</span>
+          <span className="conversation-summary__title"><T>Conversation summary</T></span>
         </div>
         <button
           type="button"
@@ -70,10 +71,10 @@ export function ConversationSummary({
           </>
         )}
         {error && !loading && (
-          <p className="conversation-summary__error">{error}</p>
+          <p className="conversation-summary__error"><T>{error}</T></p>
         )}
         {text && !loading && !error && (
-          <p className="conversation-summary__text">{text}</p>
+          <p className="conversation-summary__text"><T><T>{text}</T></T></p>
         )}
       </div>
     </div>

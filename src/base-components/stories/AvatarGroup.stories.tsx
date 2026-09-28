@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { T } from "../../cometchat-foundation/localization";
 import { Avatar, AvatarLabelGroup } from "../components/AvatarGroup/AvatarGroup.impl";
 import type { AvatarSize } from "../components/AvatarGroup/AvatarGroup.types";
 import { avatarRegistry } from "../../cometchat-foundation/tokens/avatars";
@@ -264,7 +265,7 @@ const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T>{title}</T></div>
       {children}
     </div>
   );
@@ -496,7 +497,7 @@ function GroupAvatarLabel({ src, size, name, supportingText, groupType }: { src:
         )}
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <span style={{ fontFamily: "var(--cometchat-font-family)", fontWeight: "500", fontSize: size === "sm" ? "14px" : size === "md" ? "14px" : size === "lg" ? "16px" : "18px", lineHeight: size === "lg" ? "19.2px" : "16.8px", color: "var(--cometchat-text-color-primary)" }}>{name}</span>
+        <span style={{ fontFamily: "var(--cometchat-font-family)", fontWeight: "500", fontSize: size === "sm" ? "14px" : size === "md" ? "14px" : size === "lg" ? "16px" : "18px", lineHeight: size === "lg" ? "19.2px" : "16.8px", color: "var(--cometchat-text-color-primary)" }}><T>{name}</T></span>
         <span style={{ fontFamily: "var(--cometchat-font-family)", fontWeight: "400", fontSize: size === "sm" ? "12px" : "14px", lineHeight: "16.8px", color: "var(--cometchat-text-color-secondary)" }}>{supportingText}</span>
       </div>
     </div>

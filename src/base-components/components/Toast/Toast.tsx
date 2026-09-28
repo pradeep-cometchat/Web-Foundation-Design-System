@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { T } from "../../../cometchat-foundation/localization";
 import "./Toast.css";
 
 export interface ToastProps {
@@ -33,7 +34,7 @@ export function Toast({
   return (
     <div className="toast" role="status" aria-live="polite">
       <div className="toast__content">
-        <span className="toast__message">{message}</span>
+        <span className="toast__message"><T><T>{message}</T></T></span>
       </div>
     </div>
   );

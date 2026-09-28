@@ -1,4 +1,5 @@
 import React from "react";
+import { T } from "../../../cometchat-foundation/localization";
 import type { CheckboxProps } from "./Checkbox.types";
 import "./Checkbox.css";
 
@@ -76,8 +77,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       </button>
       {(label || description) && (
         <div className="checkbox__text">
-          {label && <span className="checkbox__label">{label}</span>}
-          {description && <span className="checkbox__description">{description}</span>}
+          {label && <span className="checkbox__label"><T><T>{label}</T></T></span>}
+          {description && <span className="checkbox__description"><T><T>{description}</T></T></span>}
         </div>
       )}
     </div>

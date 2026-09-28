@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { T } from "../../cometchat-foundation/localization";
 import { Button } from "../components/Button/Button.impl";
 import type { ButtonVariant, ButtonSize } from "../components/Button/Button.types";
 
@@ -101,19 +102,19 @@ export const Hierarchies: Story = {
     <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <Section title="Standard">
         <div style={{ display: "flex", gap: "var(--cometchat-spacing-3)", flexWrap: "wrap", alignItems: "center" }}>
-          <Button variant="primary">Primary</Button>
-          <Button variant="secondary">Secondary</Button>
-          <Button variant="tertiary">Tertiary</Button>
-          <Button variant="link-color">Link color</Button>
-          <Button variant="link-gray">Link gray</Button>
+          <Button variant="primary"><T>Primary</T></Button>
+          <Button variant="secondary"><T>Secondary</T></Button>
+          <Button variant="tertiary"><T>Tertiary</T></Button>
+          <Button variant="link-color"><T>Link color</T></Button>
+          <Button variant="link-gray"><T>Link gray</T></Button>
         </div>
       </Section>
       <Section title="Destructive">
         <div style={{ display: "flex", gap: "var(--cometchat-spacing-3)", flexWrap: "wrap", alignItems: "center" }}>
-          <Button variant="destructive-primary">Primary</Button>
-          <Button variant="destructive-secondary">Secondary</Button>
-          <Button variant="destructive-tertiary">Tertiary</Button>
-          <Button variant="destructive-link">Link</Button>
+          <Button variant="destructive-primary"><T>Primary</T></Button>
+          <Button variant="destructive-secondary"><T>Secondary</T></Button>
+          <Button variant="destructive-tertiary"><T>Tertiary</T></Button>
+          <Button variant="destructive-link"><T>Link</T></Button>
         </div>
       </Section>
     </div>
@@ -125,10 +126,10 @@ export const Sizes: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
   render: () => (
     <div style={{ display: "flex", gap: "var(--cometchat-spacing-3)", alignItems: "center" }}>
-      <Button size="sm">Small</Button>
-      <Button size="md">Medium</Button>
-      <Button size="lg">Large</Button>
-      <Button size="xl">Extra large</Button>
+      <Button size="sm"><T>Small</T></Button>
+      <Button size="md"><T>Medium</T></Button>
+      <Button size="lg"><T>Large</T></Button>
+      <Button size="xl"><T>Extra large</T></Button>
     </div>
   ),
 };
@@ -140,23 +141,23 @@ export const States: Story = {
     <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <Section title="Primary states">
         <div style={{ display: "flex", gap: "var(--cometchat-spacing-3)", alignItems: "center" }}>
-          <Button variant="primary">Default</Button>
-          <Button variant="primary" disabled>Disabled</Button>
-          <Button variant="primary" loading>Loading</Button>
+          <Button variant="primary"><T>Default</T></Button>
+          <Button variant="primary" disabled><T>Disabled</T></Button>
+          <Button variant="primary" loading><T>Loading</T></Button>
         </div>
       </Section>
       <Section title="Secondary states">
         <div style={{ display: "flex", gap: "var(--cometchat-spacing-3)", alignItems: "center" }}>
-          <Button variant="secondary">Default</Button>
-          <Button variant="secondary" disabled>Disabled</Button>
-          <Button variant="secondary" loading>Loading</Button>
+          <Button variant="secondary"><T>Default</T></Button>
+          <Button variant="secondary" disabled><T>Disabled</T></Button>
+          <Button variant="secondary" loading><T>Loading</T></Button>
         </div>
       </Section>
       <Section title="Destructive states">
         <div style={{ display: "flex", gap: "var(--cometchat-spacing-3)", alignItems: "center" }}>
-          <Button variant="destructive-primary">Default</Button>
-          <Button variant="destructive-primary" disabled>Disabled</Button>
-          <Button variant="destructive-primary" loading>Loading</Button>
+          <Button variant="destructive-primary"><T>Default</T></Button>
+          <Button variant="destructive-primary" disabled><T>Disabled</T></Button>
+          <Button variant="destructive-primary" loading><T>Loading</T></Button>
         </div>
       </Section>
     </div>
@@ -170,15 +171,15 @@ export const WithIcons: Story = {
     <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)" }}>
       <Section title="Icon left">
         <div style={{ display: "flex", gap: "var(--cometchat-spacing-3)", alignItems: "center" }}>
-          <Button variant="primary" iconLeft={<StarIcon />}>Favorite</Button>
-          <Button variant="secondary" iconLeft={<AddIcon />}>Add item</Button>
-          <Button variant="destructive-primary" iconLeft={<DeleteIcon />}>Delete</Button>
+          <Button variant="primary" iconLeft={<StarIcon />}><T>Favorite</T></Button>
+          <Button variant="secondary" iconLeft={<AddIcon />}><T>Add item</T></Button>
+          <Button variant="destructive-primary" iconLeft={<DeleteIcon />}><T>Delete</T></Button>
         </div>
       </Section>
       <Section title="Icon right">
         <div style={{ display: "flex", gap: "var(--cometchat-spacing-3)", alignItems: "center" }}>
-          <Button variant="primary" iconRight={<StarIcon />}>Favorite</Button>
-          <Button variant="secondary" iconRight={<AddIcon />}>Add item</Button>
+          <Button variant="primary" iconRight={<StarIcon />}><T>Favorite</T></Button>
+          <Button variant="secondary" iconRight={<AddIcon />}><T>Add item</T></Button>
         </div>
       </Section>
       <Section title="Icon only">
@@ -200,9 +201,9 @@ export const FullWidth: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
   render: () => (
     <div style={{ width: 360, display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-3)" }}>
-      <Button variant="primary" fullWidth>Sign in</Button>
-      <Button variant="secondary" fullWidth>Create account</Button>
-      <Button variant="tertiary" fullWidth>Skip for now</Button>
+      <Button variant="primary" fullWidth><T>Sign in</T></Button>
+      <Button variant="secondary" fullWidth><T>Create account</T></Button>
+      <Button variant="tertiary" fullWidth><T>Skip for now</T></Button>
     </div>
   ),
 };
@@ -237,7 +238,7 @@ export const Matrix: Story = {
                 <td style={tdStyle}><code style={{ fontSize: "10px" }}>{v}</code></td>
                 {sizes.map((s) => (
                   <td key={s} style={tdStyle}>
-                    <Button variant={v} size={s}>Button</Button>
+                    <Button variant={v} size={s}><T>Button</T></Button>
                   </td>
                 ))}
               </tr>
@@ -255,7 +256,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   return (
     <div>
       <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>
-        {title}
+        <T>{title}</T>
       </div>
       {children}
     </div>
@@ -343,7 +344,7 @@ const ClassGroup: React.FC<{ title: string; items: string[] }> = ({ title, items
         marginBottom: "var(--cometchat-spacing-2)",
       }}
     >
-      {title}
+      <T>{title}</T>
     </div>
     <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-1)" }}>
       {items.map((item) => (

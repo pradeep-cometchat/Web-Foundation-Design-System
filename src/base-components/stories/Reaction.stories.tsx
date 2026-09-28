@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { T } from "../../cometchat-foundation/localization";
 import { Reaction, ReactionGroup } from "../components/Reaction";
 
 /**
@@ -78,7 +79,7 @@ export const AllStates: StoryObj = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-4)" }}>
       <div>
-        <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>Default</div>
+        <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T>Default</T></div>
         <div style={{ display: "flex", gap: "var(--cometchat-spacing-1)" }}>
           <Reaction emoji="😍" />
           <Reaction emoji="👍" count={2} />
@@ -86,7 +87,7 @@ export const AllStates: StoryObj = {
         </div>
       </div>
       <div>
-        <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>Active (user reacted)</div>
+        <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T>Active (user reacted)</T></div>
         <div style={{ display: "flex", gap: "var(--cometchat-spacing-1)" }}>
           <Reaction emoji="😍" active />
           <Reaction emoji="👍" count={3} active />
@@ -94,10 +95,10 @@ export const AllStates: StoryObj = {
         </div>
       </div>
       <div>
-        <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>In context (below a message)</div>
+        <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T>In context (below a message)</T></div>
         <div style={{ maxWidth: "300px" }}>
           <div style={{ background: "var(--cometchat-neutral-color-200)", borderRadius: "var(--cometchat-radius-3)", padding: "var(--cometchat-spacing-3)", fontSize: "14px", color: "var(--cometchat-neutral-color-900)" }}>
-            Sure! Sending them over now.
+            <T>Sure! Sending them over now.</T>
           </div>
           <div style={{ paddingInlineStart: 4, marginTop: -8 }}>
             <ReactionGroup
@@ -119,7 +120,7 @@ export const AllStates: StoryObj = {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T>{title}</T></div>
       {children}
     </div>
   );
@@ -138,7 +139,7 @@ const CodeCard: React.FC<{ language: string; code: string }> = ({ language, code
 
 const ClassGroup: React.FC<{ title: string; items: string[] }> = ({ title, items }) => (
   <div style={{ padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
-    <div style={{ fontSize: "10px", fontWeight: "600", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
+    <div style={{ fontSize: "10px", fontWeight: "600", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T>{title}</T></div>
     <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-1)" }}>
       {items.map((item) => (
         <code key={item} style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "12px", color: "var(--cometchat-text-color-primary)", background: "var(--cometchat-background-color-02)", padding: "var(--cometchat-spacing) var(--cometchat-spacing-2)", borderRadius: "var(--cometchat-radius-1)", border: "1px solid var(--cometchat-border-color-default)", display: "inline-block", width: "fit-content" }}>.{item}</code>

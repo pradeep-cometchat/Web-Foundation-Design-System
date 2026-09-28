@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { T } from "../../../cometchat-foundation/localization";
 import "./FlagMessageDialog.css";
 
 export interface FlagMessageDialogProps {
@@ -50,7 +51,7 @@ export function FlagMessageDialog({
       <div className="flag-message-dialog__header">
         <div className="flag-message-dialog__header-content">
           <div className="flag-message-dialog__header-top">
-            <div className="flag-message-dialog__title">Report a message</div>
+            <div className="flag-message-dialog__title"><T>Report a message</T></div>
             <button
               type="button"
               className="flag-message-dialog__close"
@@ -63,7 +64,7 @@ export function FlagMessageDialog({
             </button>
           </div>
           <p className="flag-message-dialog__description">
-            Report this chat if it goes against our Community Standards. We won't tell the account you reported them.
+            <T>Report this chat if it goes against our Community Standards. We won't tell the account you reported them.</T>
           </p>
         </div>
       </div>
@@ -86,8 +87,8 @@ export function FlagMessageDialog({
         {/* Text area */}
         <div className="flag-message-dialog__field">
           <label className="flag-message-dialog__label">
-            <span className="flag-message-dialog__label-text">Reason </span>
-            <span className="flag-message-dialog__label-optional">(Optional)</span>
+            <span className="flag-message-dialog__label-text"><T>Reason</T> </span>
+            <span className="flag-message-dialog__label-optional"><T>(Optional)</T></span>
           </label>
           <textarea
             className="flag-message-dialog__textarea"
@@ -102,7 +103,7 @@ export function FlagMessageDialog({
       {/* Buttons */}
       <div className="flag-message-dialog__buttons">
         <button type="button" className="flag-message-dialog__btn flag-message-dialog__btn--cancel" onClick={onCancel}>
-          Cancel
+          <T>Cancel</T>
         </button>
         <button
           type="button"
@@ -110,7 +111,7 @@ export function FlagMessageDialog({
           disabled={!hasSelection}
           onClick={() => onReport?.(Array.from(selected), context)}
         >
-          Report
+          <T>Report</T>
         </button>
       </div>
     </div>

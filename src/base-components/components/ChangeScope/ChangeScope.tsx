@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { T } from "../../../cometchat-foundation/localization";
 import "./ChangeScope.css";
 
 export type ScopeRole = "owner" | "admin" | "moderator" | "participant";
@@ -46,9 +47,9 @@ export function ChangeScope({
 
         {/* Text */}
         <div className="change-scope__text">
-          <div className="change-scope__title">Change Scope</div>
+          <div className="change-scope__title"><T>Change Scope</T></div>
           <div className="change-scope__description">
-            You can change roles to manage group permissions and responsibilities.
+            <T>You can change roles to manage group permissions and responsibilities.</T>
           </div>
         </div>
 
@@ -78,10 +79,10 @@ export function ChangeScope({
         {/* Buttons */}
         <div className="change-scope__buttons">
           <button type="button" className="change-scope__btn change-scope__btn--cancel" onClick={onCancel}>
-            Cancel
+            <T>Cancel</T>
           </button>
           <button type="button" className="change-scope__btn change-scope__btn--save" onClick={() => onSave?.(currentRole)}>
-            Save
+            <T>Save</T>
           </button>
         </div>
       </div>

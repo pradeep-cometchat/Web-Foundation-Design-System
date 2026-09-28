@@ -1,4 +1,5 @@
 import React from "react";
+import { T } from "../../../cometchat-foundation/localization";
 import "./CallItem.css";
 
 export type CallItemState = "default" | "hover" | "pressed";
@@ -140,7 +141,7 @@ export const CallItem: React.FC<CallItemProps> = ({
 
       <div className="call-item__content">
         <div className="call-item__header">
-          <div className="call-item__title">{title}</div>
+          <div className="call-item__title"><T><T>{title}</T></T></div>
         </div>
 
         <div className="call-item__meta">

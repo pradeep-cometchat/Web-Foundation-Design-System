@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { T } from "../../../../cometchat-foundation/localization";
 import "./FormDialog.css";
 
 export type FormDialogVariant = "createGroup" | "joinGroup";
@@ -34,28 +35,28 @@ function CreateGroupForm({ initialGroupType = "public" }: { initialGroupType?: G
     <div className="form-dialog__body">
       {/* Type Field */}
       <div className="form-dialog__field">
-        <label className="form-dialog__label">Type</label>
+        <label className="form-dialog__label"><T>Type</T></label>
         <div className="form-dialog__tabs">
           <button
             type="button"
             className={`form-dialog__tab ${groupType === "public" ? "form-dialog__tab--active" : ""}`}
             onClick={() => setGroupType("public")}
           >
-            Public
+            <T>Public</T>
           </button>
           <button
             type="button"
             className={`form-dialog__tab ${groupType === "private" ? "form-dialog__tab--active" : ""}`}
             onClick={() => setGroupType("private")}
           >
-            Private
+            <T>Private</T>
           </button>
           <button
             type="button"
             className={`form-dialog__tab ${groupType === "protected" ? "form-dialog__tab--active" : ""}`}
             onClick={() => setGroupType("protected")}
           >
-            Password
+            <T>Password</T>
           </button>
         </div>
       </div>
@@ -63,7 +64,7 @@ function CreateGroupForm({ initialGroupType = "public" }: { initialGroupType?: G
       {/* Group Name Field */}
       <div className="form-dialog__field">
         <div className="form-dialog__label-wrap">
-          <span className="form-dialog__label">Group Name</span>
+          <span className="form-dialog__label"><T>Group Name</T></span>
           <span className="form-dialog__required">*</span>
         </div>
         <input type="text" className="form-dialog__input" placeholder="Enter group name" />
@@ -73,7 +74,7 @@ function CreateGroupForm({ initialGroupType = "public" }: { initialGroupType?: G
       {groupType === "protected" && (
         <div className="form-dialog__field">
           <div className="form-dialog__label-wrap">
-            <span className="form-dialog__label">Password</span>
+            <span className="form-dialog__label"><T>Password</T></span>
             <span className="form-dialog__required">*</span>
           </div>
           <input type="password" className="form-dialog__input" placeholder="Enter group password" />
@@ -95,13 +96,13 @@ function JoinGroupForm() {
           </svg>
         </div>
         <div className="form-dialog__profile-info">
-          <div className="form-dialog__profile-name">Innovative Online Shopping</div>
-          <div className="form-dialog__profile-meta">44 Members</div>
+          <div className="form-dialog__profile-name"><T>Innovative Online Shopping</T></div>
+          <div className="form-dialog__profile-meta"><T>44 Members</T></div>
         </div>
       </div>
       <div className="form-dialog__field">
         <div className="form-dialog__label-wrap">
-          <span className="form-dialog__label">Password</span>
+          <span className="form-dialog__label"><T>Password</T></span>
           <span className="form-dialog__required">*</span>
         </div>
         <div className="form-dialog__input-wrap">
@@ -151,7 +152,7 @@ export function FormDialog({
         {/* Actions */}
         <div className="form-dialog__actions">
           <button type="button" className="form-dialog__btn form-dialog__btn--cancel" onClick={onCancel}>
-            Cancel
+            <T>Cancel</T>
           </button>
           <button type="button" className="form-dialog__btn form-dialog__btn--submit" onClick={onSubmit}>
             {config.submitLabel}

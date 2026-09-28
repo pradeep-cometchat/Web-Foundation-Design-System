@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { T } from "../../../cometchat-foundation/localization";
 import { Input } from "../Input";
 import "./LinkDialog.css";
 
@@ -64,7 +65,7 @@ export function LinkDialog({
         <div className="link-dialog__header">
           <div className="link-dialog__header-text">
             <div className="link-dialog__title" id="link-dialog-title" role="heading" aria-level={2}>
-              {title}
+              <T>{title}</T>
             </div>
           </div>
           <button

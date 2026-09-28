@@ -1,4 +1,5 @@
 import "./Input.css";
+import { T } from "../../../cometchat-foundation/localization";
 
 export interface InputProps {
   /** Label text above the input */
@@ -44,7 +45,7 @@ export function Input({
     <div className={`input-field ${hasError ? "input-field--error" : ""} ${disabled ? "input-field--disabled" : ""}`}>
       {label && (
         <div className="input-field__label-wrap">
-          <label className="input-field__label">{label}</label>
+          <label className="input-field__label"><T><T>{label}</T></T></label>
           {required && <span className="input-field__required">*</span>}
         </div>
       )}
