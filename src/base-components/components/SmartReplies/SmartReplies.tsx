@@ -51,7 +51,7 @@ export function SmartReplies({
               className="smart-replies__reply"
               onClick={() => onSelect?.(reply)}
             >
-              {reply}
+              <T>{reply}</T>
             </button>
           ))
         )}

@@ -1284,6 +1284,25 @@ export const AR: Readonly<Record<string, string>> = {
   "Ivan": "عصام",
   "Judy": "جودي",
 
+  /* ─── Base Components: suggestion and summary content ─── */
+  "Hi there! How's it going?": "مرحبًا! كيف الحال؟",
+  "Hey, how are you doing today?": "أهلًا، كيف حالك اليوم؟",
+  "Hello! How's your day been so far?": "مرحبًا! كيف كان يومك حتى الآن؟",
+  "Hope all's well!": "أتمنّى أن تكون بخير!",
+  "I'd like to know more about your services": "أودّ معرفة المزيد عن خدماتكم",
+  "Can you help me with my order?": "هل يمكنك مساعدتي في طلبي؟",
+  "What are your business hours?": "ما هي ساعات العمل لديكم؟",
+  "I have a question about pricing": "لديّ سؤال عن الأسعار",
+  "What's up? 👋": "كيف الحال؟ 👋",
+  "Long time no see!": "لم نلتقِ منذ وقت طويل!",
+  "Got any plans this weekend?": "هل لديك خطط لعطلة نهاية الأسبوع؟",
+  "Did you see that movie?": "هل شاهدت ذلك الفيلم؟",
+  "How's the family?": "كيف حال العائلة؟",
+  "Say hello 👋": "ألقِ التحية 👋",
+  "In Context": "في السياق",
+  "The user expressed interest in a watch listed for sale and confirmed its availability with the seller. They negotiated the price down from $130 to $120. After agreeing on the new price, the user asked if they could pick up the watch the same day. The seller responded positively with emojis, and the user confirmed availability after 5 PM. They concluded the conversation with plans to meet soon.":
+    "أبدى المستخدم اهتمامًا بساعة معروضة للبيع وتأكّد من توفّرها لدى البائع. وتفاوضا على السعر فانخفض من 130 إلى 120 دولارًا. وبعد الاتفاق على السعر الجديد، سأل المستخدم إن كان بإمكانه استلام الساعة في اليوم نفسه. وردّ البائع بالإيجاب مستخدمًا الإيموجي، فأكّد المستخدم توفّره بعد الساعة 5 مساءً. واختُتمت المحادثة بالاتفاق على اللقاء قريبًا.",
+
   /* ─── Meta chip labels ─── */
   tokens: "رموز",
   themes: "السمات",

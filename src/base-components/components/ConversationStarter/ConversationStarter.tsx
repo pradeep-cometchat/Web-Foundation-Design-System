@@ -1,4 +1,5 @@
 import "./ConversationStarter.css";
+import { T } from "../../../cometchat-foundation/localization";
 
 export interface ConversationStarterProps {
   /** Array of suggested conversation starter messages */
@@ -26,7 +27,7 @@ export function ConversationStarter({
             className="conversation-starter__tag"
             onClick={() => onSelect?.(suggestion)}
           >
-            {suggestion}
+            <T>{suggestion}</T>
           </button>
         ))}
       </div>
