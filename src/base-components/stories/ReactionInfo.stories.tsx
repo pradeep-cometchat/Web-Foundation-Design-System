@@ -94,23 +94,23 @@ export const States: StoryObj = {
   render: () => (
     <div style={{ display: "flex", gap: "var(--cometchat-spacing-6)", flexWrap: "wrap", justifyContent: "center", alignItems: "flex-start", padding: "var(--cometchat-spacing-10)" }}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-2)" }}>
-        <div style={stateLabelStyle}>Single</div>
+        <div style={stateLabelStyle}><T>Single</T></div>
         <ReactionInfo emoji="👍" names={["George Alan"]} />
       </div>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-2)" }}>
-        <div style={stateLabelStyle}>Two names</div>
+        <div style={stateLabelStyle}><T>Two names</T></div>
         <ReactionInfo emoji="❤️" names={["George Alan", "Pourav Raj"]} />
       </div>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-2)" }}>
-        <div style={stateLabelStyle}>Overflow (+5)</div>
+        <div style={stateLabelStyle}><T>Overflow (+5)</T></div>
         <ReactionInfo emoji="😍" names={["George Alan", "Pourav Raj", "Alice", "Bob", "Charlie", "Dave", "Eve"]} />
       </div>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-2)" }}>
-        <div style={stateLabelStyle}>Different emoji</div>
+        <div style={stateLabelStyle}><T>Different emoji</T></div>
         <ReactionInfo emoji="🔥" names={["Alice", "Bob", "Charlie"]} maxVisible={3} />
       </div>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-2)" }}>
-        <div style={stateLabelStyle}>No arrow</div>
+        <div style={stateLabelStyle}><T>No arrow</T></div>
         <ReactionInfo emoji="😂" names={["George Alan", "Pourav Raj"]} showArrow={false} />
       </div>
     </div>

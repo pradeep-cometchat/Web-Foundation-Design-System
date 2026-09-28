@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { T } from "../../cometchat-foundation/localization";
 import { MediaRecorder } from "../components/MediaRecorder";
 import type { MediaRecorderState } from "../components/MediaRecorder";
 
@@ -73,15 +74,15 @@ export const States: StoryObj = {
   render: () => (
     <div style={{ padding: "var(--cometchat-spacing-10)", display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-8)", maxWidth: 900, margin: "0 auto" }}>
       <div>
-        <div style={stateLabelStyle}>Recording</div>
+        <div style={stateLabelStyle}><T>Recording</T></div>
         <MediaRecorder state="recording" duration="00:32" />
       </div>
       <div>
-        <div style={stateLabelStyle}>Paused</div>
+        <div style={stateLabelStyle}><T>Paused</T></div>
         <MediaRecorder state="paused" duration="00:00" />
       </div>
       <div>
-        <div style={stateLabelStyle}>Playing</div>
+        <div style={stateLabelStyle}><T>Playing</T></div>
         <MediaRecorder state="playing" duration="00:24" />
       </div>
     </div>

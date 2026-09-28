@@ -132,15 +132,15 @@ export const States: StoryObj = {
   render: () => (
     <div style={{ padding: "var(--cometchat-spacing-10)", display: "flex", gap: "var(--cometchat-spacing-8)", flexWrap: "wrap", justifyContent: "center", alignItems: "flex-start" }}>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <div style={stateLabelStyle}>Single reaction</div>
+        <div style={stateLabelStyle}><T>Single reaction</T></div>
         <ReactionList tabs={singleReactionTabs} items={singleReactionItems} activeTab="all" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <div style={stateLabelStyle}>Multiple reactions</div>
+        <div style={stateLabelStyle}><T>Multiple reactions</T></div>
         <ReactionList tabs={multiReactionTabs} items={multiReactionItems} activeTab="all" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <div style={stateLabelStyle}>Filtered (👍)</div>
+        <div style={stateLabelStyle}><T>Filtered (👍)</T></div>
         <ReactionList tabs={multiReactionTabs} items={multiReactionItems} activeTab="👍" />
       </div>
     </div>

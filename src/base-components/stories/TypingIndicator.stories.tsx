@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { T } from "../../cometchat-foundation/localization";
 import { TypingIndicator } from "../components/TypingIndicator";
 import type { TypingActivity, TypingContext } from "../components/TypingIndicator";
 
@@ -121,19 +122,19 @@ export const States: StoryObj = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-4)" }}>
       <div style={{ display: "flex", gap: "var(--cometchat-spacing-8)", alignItems: "center" }}>
-        <div style={stateLabelStyle}>Typing</div>
+        <div style={stateLabelStyle}><T>Typing</T></div>
         <TypingIndicator activity="typing" context="single" />
         <TypingIndicator activity="typing" context="group" userName="John" />
         <TypingIndicator activity="typing" context="multiple" count={2} />
       </div>
       <div style={{ display: "flex", gap: "var(--cometchat-spacing-8)", alignItems: "center" }}>
-        <div style={stateLabelStyle}>Recording</div>
+        <div style={stateLabelStyle}><T>Recording</T></div>
         <TypingIndicator activity="recording" context="single" />
         <TypingIndicator activity="recording" context="group" userName="John" />
         <TypingIndicator activity="recording" context="multiple" count={2} />
       </div>
       <div style={{ display: "flex", gap: "var(--cometchat-spacing-8)", alignItems: "center" }}>
-        <div style={stateLabelStyle}>Uploading</div>
+        <div style={stateLabelStyle}><T>Uploading</T></div>
         <TypingIndicator activity="uploading" context="single" />
         <TypingIndicator activity="uploading" context="group" userName="John" />
         <TypingIndicator activity="uploading" context="multiple" count={2} />

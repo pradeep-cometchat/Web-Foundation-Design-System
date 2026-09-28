@@ -408,6 +408,266 @@ export const AR: Readonly<Record<string, string>> = {
   "Select": "تحديد",
   "Info": "معلومات",
 
+  /* ─── Base Components: story names, states, dialogs ─── */
+  "Stories": "القصص",
+  "Message Actions": "إجراءات الرسالة",
+  "With Title": "مع عنوان",
+  "Minimal": "مبسّط",
+  "Custom Width": "عرض مخصّص",
+  "Destructive Actions": "إجراءات تدميرية",
+  "Playground": "ساحة التجربة",
+  "Hierarchies": "التدرّجات",
+  "With Icons": "مع أيقونات",
+  "Full Width": "بعرض كامل",
+  "Matrix": "المصفوفة",
+  "Overview": "نظرة عامة",
+  "Reference": "المرجع",
+  "Scale": "المقياس",
+  "Usage Guide": "دليل الاستخدام",
+  "Active": "نشط",
+  "Destructive Hover": "تدميري عند التحويم",
+  "Loading": "قيد التحميل",
+  "Error": "خطأ",
+  "Paused": "متوقّف مؤقّتًا",
+  "Playing": "قيد التشغيل",
+  "Recording": "قيد التسجيل",
+  "Typing": "يكتب",
+  "Uploading": "قيد الرفع",
+  "With value": "مع قيمة",
+  "No arrow": "بلا سهم",
+  "No clear button": "بلا زر مسح",
+  "Custom placeholder": "نص نائب مخصّص",
+  "Empty (placeholder)": "فارغ (نص نائب)",
+  "Short Summary": "ملخّص قصير",
+  "Two names": "اسمان",
+  "Single reaction": "تفاعل واحد",
+  "Multiple reactions": "تفاعلات متعدّدة",
+  "Different emoji": "إيموجي مختلف",
+  "Block User": "حظر المستخدم",
+  "Reply in thread": "الردّ في المحادثة",
+  "Delivered": "تم التسليم",
+  "Read": "مقروء",
+  "Cancel": "إلغاء",
+  "Discard": "تجاهل",
+  "Go Back": "رجوع",
+  "Keep Account": "الاحتفاظ بالحساب",
+  "Keep Chat": "الاحتفاظ بالمحادثة",
+  "Keep Ownership": "الاحتفاظ بالملكية",
+  "Keep in Group": "الإبقاء في المجموعة",
+  "Nevermind": "لا بأس",
+  "Stay": "البقاء",
+  "Ban Permanently": "حظر دائم",
+  "Delete & Exit": "حذف وخروج",
+  "Delete Account": "حذف الحساب",
+  "Delete Forever": "حذف نهائي",
+  "Leave Group": "مغادرة المجموعة",
+  "Remove Member": "إزالة العضو",
+  "Transfer Now": "نقل الآن",
+  "Yes, Block": "نعم، احظر",
+  "Link Copied": "تم نسخ الرابط",
+  "Message Copied": "تم نسخ الرسالة",
+  "Message Deleted": "تم حذف الرسالة",
+  "Message Sent": "تم إرسال الرسالة",
+  "Your message has been forwarded successfully": "تمت إعادة توجيه رسالتك بنجاح",
+  "Add users": "إضافة مستخدمين",
+  "Enter a description...": "أدخل وصفًا...",
+  "Search conversations...": "ابحث في المحادثات...",
+  "Search users": "ابحث عن مستخدمين",
+  "Type your message...": "اكتب رسالتك...",
+  "Search icons": "ابحث في الأيقونات",
+  "Add Link": "إضافة رابط",
+  "Edit Link": "تعديل الرابط",
+  "Insert Hyperlink": "إدراج رابط تشعّبي",
+  "Danger Zone": "منطقة الخطر",
+  "Contacts": "جهات الاتصال",
+  "Tap to remove": "انقر للإزالة",
+  "Assistant": "المساعد",
+
+  /* ─── Base Components: component names (docs page titles) ─── */
+  "Action Sheet": "لوحة الإجراءات",
+  "Add Members": "إضافة أعضاء",
+  "Avatar Group": "مجموعة الصور الرمزية",
+  "Ban Member": "حظر عضو",
+  "Button": "الزر",
+  "Call Item": "عنصر المكالمة",
+  "Change Scope": "تغيير النطاق",
+  "Checkbox": "مربّع الاختيار",
+  "Context Menu": "القائمة السياقية",
+  "Conversation Item": "عنصر المحادثة",
+  "Conversation Starter": "بادئ المحادثة",
+  "Conversation Summary": "ملخّص المحادثة",
+  "Create Group": "إنشاء مجموعة",
+  "Create Poll": "إنشاء استطلاع",
+  "Delete And Exit": "حذف وخروج",
+  "Delete Conversation": "حذف المحادثة",
+  "Delete User": "حذف المستخدم",
+  "Emoji Keyboard": "لوحة الإيموجي",
+  "Flag Message Dialog": "مربّع الإبلاغ عن رسالة",
+  "Group Item": "عنصر المجموعة",
+  "Input": "حقل الإدخال",
+  "Introduction": "مقدمة",
+  "Join Group": "الانضمام إلى مجموعة",
+  "Kick Member": "طرد عضو",
+  "Link Dialog": "مربّع الروابط",
+  "Message Info": "معلومات الرسالة",
+  "Message Preview": "معاينة الرسالة",
+  "Multi Line Composer": "محرّر متعدّد الأسطر",
+  "Radio Button": "زر الاختيار",
+  "Reaction": "التفاعل",
+  "Reaction Info": "معلومات التفاعل",
+  "Reaction List": "قائمة التفاعلات",
+  "Search Bar": "شريط البحث",
+  "Single Line Composer": "محرّر بسطر واحد",
+  "Smart Replies": "الردود الذكية",
+  "Textarea": "منطقة النص",
+  "Toast": "الإشعار العابر",
+  "Transfer Ownership": "نقل الملكية",
+  "Translate Alert": "تنبيه الترجمة",
+  "Typing Indicator": "مؤشّر الكتابة",
+  "User Item": "عنصر المستخدم",
+
+  /* ─── Base Components: per-story descriptions ─── */
+  "**All states** — side-by-side visual reference for all four variants.":
+    "**كل الحالات** — مرجع بصري جنبًا إلى جنب للأنماط الأربعة.",
+  "**Playground** — use controls to explore every prop.":
+    "**ساحة التجربة** — استخدم عناصر التحكّم لاستكشاف كل خاصية.",
+  "**Preview** — playback mode after recording stops. Shows a waveform and a play button.":
+    "**المعاينة** — وضع التشغيل بعد توقّف التسجيل. يعرض شكل الموجة وزر تشغيل.",
+  "**Usage** — HTML & CSS reference for the Multi Line Composer (Voice Note Popup).":
+    "**الاستخدام** — مرجع HTML وCSS للمحرّر متعدّد الأسطر (نافذة الملاحظة الصوتية).",
+  "Action sheets can contain as few as two items. Useful for simple edit/delete patterns.":
+    "يمكن أن تحتوي لوحة الإجراءات على عنصرين فقط. مفيدة لأنماط التعديل والحذف البسيطة.",
+  "Active/selected reaction.":
+    "تفاعل نشط أو محدَّد.",
+  "All categories side by side for comparison.":
+    "كل الفئات جنبًا إلى جنب للمقارنة.",
+  "All four sizes.":
+    "الأحجام الأربعة كلّها.",
+  "All modes side by side for comparison.":
+    "كل الأوضاع جنبًا إلى جنب للمقارنة.",
+  "All patterns side by side.":
+    "كل الأنماط جنبًا إلى جنب.",
+  "All read receipt states.":
+    "كل حالات إيصال القراءة.",
+  "All sizes × all hierarchies matrix.":
+    "مصفوفة بكل الأحجام وكل التدرّجات.",
+  "All states side by side for comparison.":
+    "كل الحالات جنبًا إلى جنب للمقارنة.",
+  "All states side by side.":
+    "كل الحالات جنبًا إلى جنب.",
+  "All states stacked for comparison.":
+    "كل الحالات مرتّبة عموديًا للمقارنة.",
+  "All variants side by side.":
+    "كل الأنماط جنبًا إلى جنب.",
+  "All variants — matching Figma component set layout.":
+    "كل الأنماط — مطابقة لتخطيط مجموعة المكوّنات في Figma.",
+  "An optional title can be displayed at the top to provide context about the available actions.":
+    "يمكن عرض عنوان اختياري في الأعلى لتوضيح سياق الإجراءات المتاحة.",
+  "Animals & Nature category.":
+    "فئة الحيوانات والطبيعة.",
+  "Avatar variants — different content types and fallback behaviors.":
+    "أنماط الصور الرمزية — أنواع محتوى مختلفة وسلوكيات بديلة.",
+  "Business/support context with service-related starters.":
+    "سياق الأعمال والدعم مع عبارات بدء متعلّقة بالخدمة.",
+  "Buttons with leading and trailing icons.":
+    "أزرار بأيقونات في البداية والنهاية.",
+  "Casual conversation starters with more options (wraps to second line).":
+    "عبارات بدء محادثة غير رسمية مع خيارات أكثر (تلتفّ إلى سطر ثانٍ).",
+  "Custom placeholder text.":
+    "نص نائب مخصّص.",
+  "Custom reasons for a different context.":
+    "أسباب مخصّصة لسياق مختلف.",
+  "Custom width (200px) for longer labels.":
+    "عرض مخصّص (200px) للتسميات الأطول.",
+  "Date separator chip — shown between message groups.":
+    "شريحة فاصل التاريخ — تظهر بين مجموعات الرسائل.",
+  "Deleted mode — referencing a deleted message with block icon.":
+    "وضع المحذوف — يشير إلى رسالة محذوفة بأيقونة حظر.",
+  "Destructive-only variant showing how error styling applies to all items.":
+    "نمط تدميري فقط يوضّح كيف يُطبَّق تنسيق الخطأ على كل العناصر.",
+  "Edit mode — editing your own message. Blue accent color.":
+    "وضع التعديل — تعديل رسالتك. بلون تمييز أزرق.",
+  "Error state — when summary generation fails.":
+    "حالة الخطأ — عند فشل توليد الملخّص.",
+  "Fewer reasons — minimal variant.":
+    "أسباب أقل — النمط المبسّط.",
+  "Filled state — Create button active (purple).":
+    "الحالة المملوءة — زر الإنشاء نشط (بنفسجي).",
+  "Filtered view — showing only a specific emoji tab.":
+    "عرض مُرشَّح — يُظهر تبويب إيموجي محدّد فقط.",
+  "Fixed width (328px) matching Figma's original frame.":
+    "عرض ثابت (328px) مطابق للإطار الأصلي في Figma.",
+  "Food & Drink category.":
+    "فئة الطعام والشراب.",
+  "Full-width buttons.":
+    "أزرار بعرض كامل.",
+  "Group context — shows a user name.":
+    "سياق المجموعة — يعرض اسم مستخدم.",
+  "Group with add button.":
+    "مجموعة مع زر إضافة.",
+  "In context — shown above a message composer mock.":
+    "في السياق — تظهر أعلى نموذج محرّر الرسائل.",
+  "In-context preview showing timestamps inside message bubbles.":
+    "معاينة ضمن السياق تُظهر الطوابع الزمنية داخل فقاعات الرسائل.",
+  "Interactive playground — use the controls panel to configure.":
+    "ساحة تجربة تفاعلية — استخدم لوحة التحكّم للضبط.",
+  "Interactive playground.":
+    "ساحة تجربة تفاعلية.",
+  "Interactive states for Primary.":
+    "الحالات التفاعلية للنمط الأساسي.",
+  "Link copied confirmation.":
+    "تأكيد نسخ الرابط.",
+  "Loaded state — reply suggestions displayed.":
+    "حالة التحميل المكتمل — تُعرض اقتراحات الردّ.",
+  "Loading state — skeleton placeholders while AI generates the summary.":
+    "حالة التحميل — عناصر نائبة هيكلية أثناء توليد الذكاء الاصطناعي للملخّص.",
+  "Long message text — demonstrates truncation.":
+    "نص رسالة طويل — يوضّح الاقتطاع.",
+  "Long summary text that wraps multiple lines.":
+    "نص ملخّص طويل يلتفّ على عدّة أسطر.",
+  "Longer message text.":
+    "نص رسالة أطول.",
+  "Many emoji types with several reactors.":
+    "أنواع إيموجي متعدّدة مع عدّة متفاعلين.",
+  "Many reactors with overflow.":
+    "متفاعلون كُثر مع فائض.",
+  "HTML & CSS usage reference for the Action Sheet component.":
+    "مرجع استخدام HTML وCSS لمكوّن لوحة الإجراءات.",
+  "HTML & CSS usage reference for the Avatar Group component.":
+    "مرجع استخدام HTML وCSS لمكوّن مجموعة الصور الرمزية.",
+  "HTML & CSS usage reference for the Context Menu component.":
+    "مرجع استخدام HTML وCSS لمكوّن القائمة السياقية.",
+  "HTML & CSS usage reference for the Conversation Starter component.":
+    "مرجع استخدام HTML وCSS لمكوّن بادئ المحادثة.",
+  "HTML & CSS usage reference for the Conversation Summary component.":
+    "مرجع استخدام HTML وCSS لمكوّن ملخّص المحادثة.",
+  "HTML & CSS usage reference for the Create Poll component.":
+    "مرجع استخدام HTML وCSS لمكوّن إنشاء الاستطلاع.",
+  "HTML & CSS usage reference for the Date Timestamp component.":
+    "مرجع استخدام HTML وCSS لمكوّن الطابع الزمني للتاريخ.",
+  "HTML & CSS usage reference for the Emoji Keyboard component.":
+    "مرجع استخدام HTML وCSS لمكوّن لوحة الإيموجي.",
+  "HTML & CSS usage reference for the Flag Message Dialog component.":
+    "مرجع استخدام HTML وCSS لمكوّن مربّع الإبلاغ عن رسالة.",
+  "HTML & CSS usage reference for the Message Preview component.":
+    "مرجع استخدام HTML وCSS لمكوّن معاينة الرسالة.",
+  "HTML & CSS usage reference for the Radio Button component.":
+    "مرجع استخدام HTML وCSS لمكوّن زر الاختيار.",
+  "HTML & CSS usage reference for the Reaction Info component.":
+    "مرجع استخدام HTML وCSS لمكوّن معلومات التفاعل.",
+  "HTML & CSS usage reference for the Reaction List component.":
+    "مرجع استخدام HTML وCSS لمكوّن قائمة التفاعلات.",
+  "HTML & CSS usage reference for the Typing Indicator component.":
+    "مرجع استخدام HTML وCSS لمكوّن مؤشّر الكتابة.",
+  "Interactive playground — use the controls panel to configure the Action Sheet.":
+    "ساحة تجربة تفاعلية — استخدم لوحة التحكّم لضبط لوحة الإجراءات.",
+  "Interactive playground — use the controls panel to configure the Avatar.":
+    "ساحة تجربة تفاعلية — استخدم لوحة التحكّم لضبط الصورة الرمزية.",
+  "Interactive playground — use the controls panel to configure the Button.":
+    "ساحة تجربة تفاعلية — استخدم لوحة التحكّم لضبط الزر.",
+  "Interactive playground — use the controls panel to configure the Context Menu.":
+    "ساحة تجربة تفاعلية — استخدم لوحة التحكّم لضبط القائمة السياقية.",
+
   /* ─── Meta chip labels ─── */
   tokens: "رموز",
   themes: "السمات",

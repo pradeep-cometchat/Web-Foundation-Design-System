@@ -133,75 +133,75 @@ export const States: StoryObj = {
     <div style={{ padding: "var(--cometchat-spacing-10)", display: "flex", gap: "var(--cometchat-spacing-8)", flexWrap: "wrap", justifyContent: "center" }}>
       {/* Default */}
       <div>
-        <div style={stateLabelStyle}>Default</div>
+        <div style={stateLabelStyle}><T>Default</T></div>
         <div className="action-sheet" style={{ width: 244 }}>
           <button className="action-sheet__item" type="button">
             <span className="action-sheet__item-icon"><CameraIcon /></span>
-            <span className="action-sheet__item-label">Camera</span>
+            <span className="action-sheet__item-label"><T>Camera</T></span>
           </button>
           <button className="action-sheet__item" type="button">
             <span className="action-sheet__item-icon"><PhotoIcon /></span>
-            <span className="action-sheet__item-label">Attach Image</span>
+            <span className="action-sheet__item-label"><T>Attach Image</T></span>
           </button>
         </div>
       </div>
 
       {/* Hover */}
       <div>
-        <div style={stateLabelStyle}>Hover</div>
+        <div style={stateLabelStyle}><T>Hover</T></div>
         <div className="action-sheet" style={{ width: 244 }}>
           <button className="action-sheet__item" type="button">
             <span className="action-sheet__item-icon"><CameraIcon /></span>
-            <span className="action-sheet__item-label">Camera</span>
+            <span className="action-sheet__item-label"><T>Camera</T></span>
           </button>
           <button className="action-sheet__item action-sheet__item--hover-preview" type="button">
             <span className="action-sheet__item-icon"><PhotoIcon /></span>
-            <span className="action-sheet__item-label">Attach Image</span>
+            <span className="action-sheet__item-label"><T>Attach Image</T></span>
           </button>
         </div>
       </div>
 
       {/* Active */}
       <div>
-        <div style={stateLabelStyle}>Active</div>
+        <div style={stateLabelStyle}><T>Active</T></div>
         <div className="action-sheet" style={{ width: 244 }}>
           <button className="action-sheet__item" type="button">
             <span className="action-sheet__item-icon"><CameraIcon /></span>
-            <span className="action-sheet__item-label">Camera</span>
+            <span className="action-sheet__item-label"><T>Camera</T></span>
           </button>
           <button className="action-sheet__item action-sheet__item--active-preview" type="button">
             <span className="action-sheet__item-icon"><PhotoIcon /></span>
-            <span className="action-sheet__item-label">Attach Image</span>
+            <span className="action-sheet__item-label"><T>Attach Image</T></span>
           </button>
         </div>
       </div>
 
       {/* Destructive */}
       <div>
-        <div style={stateLabelStyle}>Destructive</div>
+        <div style={stateLabelStyle}><T>Destructive</T></div>
         <div className="action-sheet" style={{ width: 244 }}>
           <button className="action-sheet__item" type="button">
             <span className="action-sheet__item-icon"><EditIcon /></span>
-            <span className="action-sheet__item-label">Edit</span>
+            <span className="action-sheet__item-label"><T>Edit</T></span>
           </button>
           <button className="action-sheet__item action-sheet__item--destructive" type="button">
             <span className="action-sheet__item-icon"><DeleteIcon /></span>
-            <span className="action-sheet__item-label">Delete</span>
+            <span className="action-sheet__item-label"><T>Delete</T></span>
           </button>
         </div>
       </div>
 
       {/* Destructive Hover */}
       <div>
-        <div style={stateLabelStyle}>Destructive Hover</div>
+        <div style={stateLabelStyle}><T>Destructive Hover</T></div>
         <div className="action-sheet" style={{ width: 244 }}>
           <button className="action-sheet__item" type="button">
             <span className="action-sheet__item-icon"><EditIcon /></span>
-            <span className="action-sheet__item-label">Edit</span>
+            <span className="action-sheet__item-label"><T>Edit</T></span>
           </button>
           <button className="action-sheet__item action-sheet__item--destructive action-sheet__item--hover-preview" type="button">
             <span className="action-sheet__item-icon"><DeleteIcon /></span>
-            <span className="action-sheet__item-label">Delete</span>
+            <span className="action-sheet__item-label"><T>Delete</T></span>
           </button>
         </div>
       </div>

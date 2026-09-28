@@ -88,19 +88,19 @@ export const States: StoryObj = {
   render: () => (
     <div style={{ padding: "var(--cometchat-spacing-10)", display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)", maxWidth: 1020, margin: "0 auto" }}>
       <div>
-        <div style={stateLabelStyle}>Default</div>
+        <div style={stateLabelStyle}><T>Default</T></div>
         <ConversationSummary text={defaultSummaryText} open={true} />
       </div>
       <div>
-        <div style={stateLabelStyle}>Short Summary</div>
+        <div style={stateLabelStyle}><T>Short Summary</T></div>
         <ConversationSummary text={shortSummaryText} open={true} />
       </div>
       <div>
-        <div style={stateLabelStyle}>Loading</div>
+        <div style={stateLabelStyle}><T>Loading</T></div>
         <ConversationSummary loading={true} open={true} />
       </div>
       <div>
-        <div style={stateLabelStyle}>Error</div>
+        <div style={stateLabelStyle}><T>Error</T></div>
         <ConversationSummary error="Unable to generate summary. Please try again." open={true} />
       </div>
     </div>

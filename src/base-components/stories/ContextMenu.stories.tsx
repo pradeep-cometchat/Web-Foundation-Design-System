@@ -139,43 +139,43 @@ export const States: StoryObj = {
   render: () => (
     <div style={{ padding: "var(--cometchat-spacing-10)", display: "flex", gap: "var(--cometchat-spacing-8)", flexWrap: "wrap", justifyContent: "center" }}>
       <div>
-        <div style={stateLabelStyle}>Default</div>
+        <div style={stateLabelStyle}><T>Default</T></div>
         <div className="context-menu" style={{ width: 160 }}>
           <button className="context-menu__item context-menu__item--first" type="button">
             <span className="context-menu__item-icon"><CopyIcon /></span>
-            <span className="context-menu__item-label">Copy</span>
+            <span className="context-menu__item-label"><T>Copy</T></span>
           </button>
           <button className="context-menu__item" type="button">
             <span className="context-menu__item-icon"><ReplyIcon /></span>
-            <span className="context-menu__item-label">Reply</span>
+            <span className="context-menu__item-label"><T>Reply</T></span>
           </button>
         </div>
       </div>
 
       <div>
-        <div style={stateLabelStyle}>Hover</div>
+        <div style={stateLabelStyle}><T>Hover</T></div>
         <div className="context-menu" style={{ width: 160 }}>
           <button className="context-menu__item context-menu__item--first" type="button">
             <span className="context-menu__item-icon"><CopyIcon /></span>
-            <span className="context-menu__item-label">Copy</span>
+            <span className="context-menu__item-label"><T>Copy</T></span>
           </button>
           <button className="context-menu__item context-menu__item--hover-preview" type="button">
             <span className="context-menu__item-icon"><ReplyIcon /></span>
-            <span className="context-menu__item-label">Reply</span>
+            <span className="context-menu__item-label"><T>Reply</T></span>
           </button>
         </div>
       </div>
 
       <div>
-        <div style={stateLabelStyle}>Destructive</div>
+        <div style={stateLabelStyle}><T>Destructive</T></div>
         <div className="context-menu" style={{ width: 160 }}>
           <button className="context-menu__item context-menu__item--first" type="button">
             <span className="context-menu__item-icon"><CopyIcon /></span>
-            <span className="context-menu__item-label">Copy</span>
+            <span className="context-menu__item-label"><T>Copy</T></span>
           </button>
           <button className="context-menu__item context-menu__item--destructive" type="button">
             <span className="context-menu__item-icon"><DeleteIcon /></span>
-            <span className="context-menu__item-label">Delete</span>
+            <span className="context-menu__item-label"><T>Delete</T></span>
           </button>
         </div>
       </div>

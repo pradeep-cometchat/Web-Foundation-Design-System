@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { T } from "../../cometchat-foundation/localization";
 import { SearchBar } from "../components/SearchBar";
 
 /**
@@ -83,19 +84,19 @@ export const States: StoryObj = {
   render: () => (
     <div style={{ padding: "var(--cometchat-spacing-10)", display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)", maxWidth: 400, margin: "0 auto" }}>
       <div>
-        <div style={stateLabelStyle}>Empty (placeholder)</div>
+        <div style={stateLabelStyle}><T>Empty (placeholder)</T></div>
         <SearchBar placeholder="Search" />
       </div>
       <div>
-        <div style={stateLabelStyle}>With value</div>
+        <div style={stateLabelStyle}><T>With value</T></div>
         <SearchBar placeholder="Search" value="Design system" />
       </div>
       <div>
-        <div style={stateLabelStyle}>Custom placeholder</div>
+        <div style={stateLabelStyle}><T>Custom placeholder</T></div>
         <SearchBar placeholder="Search messages..." />
       </div>
       <div>
-        <div style={stateLabelStyle}>No clear button</div>
+        <div style={stateLabelStyle}><T>No clear button</T></div>
         <SearchBar placeholder="Search" value="Hello" showClear={false} />
       </div>
     </div>
