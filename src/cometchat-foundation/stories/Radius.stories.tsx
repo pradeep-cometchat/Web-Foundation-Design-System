@@ -66,8 +66,8 @@ export const AllTokens: StoryObj = {
                   style={{
                     width: 48,
                     height: 48,
-                    background: "var(--color-ep-100)",
-                    border: "2px solid var(--color-ep-500)",
+                    background: "var(--cometchat-extended-primary-color-100)",
+                    border: "2px solid var(--cometchat-extended-primary-color-500)",
                     borderRadius: t.value >= 1000 ? "50%" : t.value,
                   }}
                 />
@@ -84,7 +84,7 @@ export const AllTokens: StoryObj = {
         <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--cometchat-spacing-4)", padding: "var(--cometchat-spacing-4)" }}>
           {radiusTokens.map(t => (
             <div key={t.name} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-2)" }}>
-              <div style={{ width: 64, height: 64, background: "var(--color-ep-100)", border: "2px solid var(--color-ep-500)", borderRadius: t.value >= 1000 ? "50%" : t.value }} />
+              <div style={{ width: 64, height: 64, background: "var(--cometchat-extended-primary-color-100)", border: "2px solid var(--cometchat-extended-primary-color-500)", borderRadius: t.value >= 1000 ? "50%" : t.value }} />
               <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-secondary)", fontWeight: "var(--font-weight-medium)" }}>{t.value}px</span>
               <code style={{ fontSize: "10px", color: "var(--cometchat-text-color-tertiary)" }}>{t.name}</code>
             </div>

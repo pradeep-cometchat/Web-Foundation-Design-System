@@ -92,7 +92,7 @@ export const AllTokens: StoryObj = {
             cssVar: `var(--cometchat-${t.step})`,
             preview: (
               <div aria-hidden style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <div style={{ background: "var(--color-ep-500)", width: Math.min(t.value, 200), height: 10, borderRadius: "var(--radius-xxs)" }} />
+                <div style={{ background: "var(--cometchat-extended-primary-color-500)", width: Math.min(t.value, 200), height: 10, borderRadius: "var(--radius-xxs)" }} />
                 {t.isNew && <NewChip />}
               </div>
             ),
