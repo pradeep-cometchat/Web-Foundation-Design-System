@@ -1194,6 +1194,96 @@ export const AR: Readonly<Record<string, string>> = {
   "**Paused** — recording on hold. Circle stays purple, rings collapse, duration dims. Center button → mic to resume.":
     "**متوقّف مؤقّتًا** — التسجيل معلّق. تبقى الدائرة بنفسجية، وتنكمش الحلقات، وتخفت المدّة. الزر الأوسط ← الميكروفون للاستئناف.",
 
+  /* ─── Base Components: dialog copy, reasons, fixtures ─── */
+  "All messages will be permanently deleted and you will be removed from this group. This action cannot be undone.":
+    "ستُحذف جميع الرسائل نهائيًا وستُزال من هذه المجموعة. لا يمكن التراجع عن هذا الإجراء.",
+  "Are you sure you want to ban this member? They will be removed and won't be able to rejoin.":
+    "هل تريد بالتأكيد حظر هذا العضو؟ ستتم إزالته ولن يتمكّن من الانضمام مجدّدًا.",
+  "Are you sure you want to block this contact? You won't receive/send messages from them anymore.":
+    "هل تريد بالتأكيد حظر جهة الاتصال هذه؟ لن تتمكّن من تبادل الرسائل معها بعد الآن.",
+  "Are you sure you want to delete this chat and exit the group? This action cannot be undone.":
+    "هل تريد بالتأكيد حذف هذه المحادثة ومغادرة المجموعة؟ لا يمكن التراجع عن هذا الإجراء.",
+  "Are you sure you want to leave this group? You will no longer receive messages from this group.":
+    "هل تريد بالتأكيد مغادرة هذه المجموعة؟ لن تصلك رسائل منها بعد الآن.",
+  "Are you sure you want to transfer ownership? This can't be undone, and the new owner will take full control.":
+    "هل تريد بالتأكيد نقل الملكية؟ لا يمكن التراجع عن ذلك، وسيحصل المالك الجديد على تحكّم كامل.",
+  "Blocking this user will prevent them from sending you messages, seeing your online status, or adding you to groups.":
+    "سيمنع حظر هذا المستخدم إرساله رسائل إليك، أو رؤية حالة اتصالك، أو إضافتك إلى مجموعات.",
+  "This action will permanently delete the user account and all associated data including messages, media, and group memberships.":
+    "سيحذف هذا الإجراء حساب المستخدم نهائيًا مع كل البيانات المرتبطة به، بما فيها الرسائل والوسائط والعضويات في المجموعات.",
+  "This member will be permanently removed and will not be able to rejoin this group. All their messages will remain visible.":
+    "ستتم إزالة هذا العضو نهائيًا ولن يتمكّن من الانضمام إلى هذه المجموعة مجدّدًا. وستبقى جميع رسائله ظاهرة.",
+  "This member will be removed from the group but can rejoin if they have an invite link. Their previous messages will remain visible.":
+    "ستتم إزالة هذا العضو من المجموعة، لكن يمكنه الانضمام مجدّدًا إذا كان لديه رابط دعوة. وستبقى رسائله السابقة ظاهرة.",
+  "You will lose all owner privileges and become a regular member. The new owner will have full control over group settings.":
+    "ستفقد جميع صلاحيات المالك وتصبح عضوًا عاديًا. وسيحصل المالك الجديد على تحكّم كامل في إعدادات المجموعة.",
+  "You will no longer receive messages from this group. You can rejoin later if the group is public or if you receive an invite.":
+    "لن تصلك رسائل من هذه المجموعة بعد الآن. ويمكنك الانضمام لاحقًا إذا كانت المجموعة عامة أو إذا تلقّيت دعوة.",
+  "Spam": "رسائل مزعجة",
+  "Harassment or bullying": "تحرّش أو تنمّر",
+  "Impersonation": "انتحال هوية",
+  "Inappropriate content": "محتوى غير لائق",
+  "Intellectual property violation": "انتهاك للملكية الفكرية",
+  "Self-harm or suicide": "إيذاء النفس أو الانتحار",
+  "Other": "أخرى",
+  "I'll think about it and get back to you.": "سأفكّر في الأمر وأعود إليك.",
+  "Sounds good, let's do it!": "يبدو جيدًا، لنفعل ذلك!",
+  "Sure, I can ship it. Where are you located?": "بالتأكيد، يمكنني شحنها. أين تقع؟",
+  "Thanks for your interest! Let me check the shipping options.":
+    "شكرًا لاهتمامك! دعني أتحقّق من خيارات الشحن.",
+  "Thanks! I appreciate it.": "شكرًا! أقدّر ذلك.",
+  "Yes, it's still available! Would you like to see more photos?":
+    "نعم، ما زالت متاحة! هل تودّ رؤية صور أخرى؟",
+  "Components are small and focused. Combine them to build complex patterns without tight coupling.":
+    "المكوّنات صغيرة ومركّزة. ادمجها لبناء أنماط معقّدة دون اقتران وثيق.",
+  "Every color, spacing, and radius value comes from foundation tokens. No magic numbers.":
+    "كل قيم الألوان والمسافات والاستدارة مصدرها رموز الأساسيات. بلا أرقام عشوائية.",
+  "Keyboard navigation, ARIA attributes, and focus management are built in from the start.":
+    "التنقّل بلوحة المفاتيح وخصائص ARIA وإدارة التركيز مدمجة منذ البداية.",
+  "Light and dark modes work automatically through CSS variable remapping. No prop changes needed.":
+    "يعمل الوضعان الفاتح والداكن تلقائيًا عبر إعادة ربط متغيّرات CSS. دون الحاجة إلى تغيير أي خاصية.",
+  "Mobile-first with adaptive layouts. Components scale from 320px mobile to desktop with touch-friendly targets on all interactive elements.":
+    "تصميم يبدأ من الجوّال بتخطيطات متكيّفة. تتدرّج المكوّنات من 320px على الجوّال إلى سطح المكتب، مع مساحات لمس مريحة في كل العناصر التفاعلية.",
+  "A little about the company and the team that you'll be working with.":
+    "نبذة عن الشركة والفريق الذي ستعمل معه.",
+  "Add": "إضافة",
+  "Transfer": "نقل",
+  "This is an error message.": "هذه رسالة خطأ.",
+  "Unable to generate summary. Please try again.":
+    "تعذّر توليد الملخّص. يُرجى المحاولة مرّة أخرى.",
+  "Admin": "مسؤول",
+  "Admin Selected": "تم تحديد مسؤول",
+  "All Categories": "كل الفئات",
+  "All Modes": "كل الأوضاع",
+  "All States": "كل الحالات",
+  "All Variants": "كل الأنماط",
+  "Animals": "الحيوانات",
+  "Animals & Nature": "الحيوانات والطبيعة",
+  "With Text": "مع نص",
+  "Examples": "أمثلة",
+  "Received Message": "رسالة واردة",
+  "Sent Message": "رسالة مُرسَلة",
+  "Trigger": "عنصر التشغيل",
+  "Business": "الأعمال",
+  "Casual": "غير رسمي",
+  "Appears on hover/focus with 150ms fade transition. Disappears on mouse leave/blur.":
+    "تظهر عند التحويم أو التركيز بتلاشٍ مدّته 150 مللي ثانية، وتختفي عند إبعاد المؤشّر أو فقدان التركيز.",
+  "A small popup that shows contextual information on hover or focus.":
+    "نافذة صغيرة تعرض معلومات سياقية عند التحويم أو التركيز.",
+  "All arrow positions — rendered as static tooltip previews.":
+    "كل مواضع السهم — معروضة كمعاينات ثابتة للتلميح.",
+  "Alice, Bob, Charlie": "عالية وبدر وشادي",
+  "Alice, Bob, Charlie, +7": "عالية وبدر وشادي، +7",
+  "Bob": "بدر",
+  "Charlie": "شادي",
+  "Dave": "داوود",
+  "Eve": "إيفا",
+  "Frank": "فارس",
+  "Grace": "غادة",
+  "Heidi": "هدى",
+  "Ivan": "عصام",
+  "Judy": "جودي",
+
   /* ─── Meta chip labels ─── */
   tokens: "رموز",
   themes: "السمات",
