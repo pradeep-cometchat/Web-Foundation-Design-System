@@ -1452,6 +1452,74 @@ export const AR: Readonly<Record<string, string>> = {
 
   /* ─── Tooltip, fixtures and field copy (RTL sweep) ─── */
 
+  /* ─── Foundation — composed shade labels ─── */
+  "Brand shade 50":
+    "درجة العلامة 50",
+  "Extended Primary 50":
+    "الأساسي الموسّع 50",
+  "Neutral 50":
+    "محايد 50",
+  "Brand shade 100":
+    "درجة العلامة 100",
+  "Extended Primary 100":
+    "الأساسي الموسّع 100",
+  "Neutral 100":
+    "محايد 100",
+  "Brand shade 200":
+    "درجة العلامة 200",
+  "Extended Primary 200":
+    "الأساسي الموسّع 200",
+  "Neutral 200":
+    "محايد 200",
+  "Brand shade 300":
+    "درجة العلامة 300",
+  "Extended Primary 300":
+    "الأساسي الموسّع 300",
+  "Neutral 300":
+    "محايد 300",
+  "Brand shade 400":
+    "درجة العلامة 400",
+  "Extended Primary 400":
+    "الأساسي الموسّع 400",
+  "Neutral 400":
+    "محايد 400",
+  "Brand shade 500":
+    "درجة العلامة 500",
+  "Extended Primary 500":
+    "الأساسي الموسّع 500",
+  "Neutral 500":
+    "محايد 500",
+  "Brand shade 600":
+    "درجة العلامة 600",
+  "Extended Primary 600":
+    "الأساسي الموسّع 600",
+  "Neutral 600":
+    "محايد 600",
+  "Brand shade 700":
+    "درجة العلامة 700",
+  "Extended Primary 700":
+    "الأساسي الموسّع 700",
+  "Neutral 700":
+    "محايد 700",
+  "Brand shade 800":
+    "درجة العلامة 800",
+  "Extended Primary 800":
+    "الأساسي الموسّع 800",
+  "Neutral 800":
+    "محايد 800",
+  "Brand shade 900":
+    "درجة العلامة 900",
+  "Extended Primary 900":
+    "الأساسي الموسّع 900",
+  "Neutral 900":
+    "محايد 900",
+  "Brand shade 950":
+    "درجة العلامة 950",
+  "Extended Primary 950":
+    "الأساسي الموسّع 950",
+  "Neutral 950":
+    "محايد 950",
+
   /* ─── Foundation — meta counts ─── */
   "10 shades":
     "10 درجات",

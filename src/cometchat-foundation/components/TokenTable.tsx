@@ -201,7 +201,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                         marginTop: 3,
                       }}
                     >
-                      {row.description}
+                      <T>{row.description}</T>
                     </div>
                   )}
                 </td>
@@ -227,7 +227,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                     padding: 24,
                   }}
                 >
-                  No tokens match "{query}".
+                  <T>No tokens match</T> &quot;{query}&quot;.
                 </td>
               </tr>
             )}

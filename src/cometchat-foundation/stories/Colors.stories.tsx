@@ -315,7 +315,7 @@ function ThemeTable({ rows }: { rows: TokenRow[] }) {
               <td style={td}><ColorCell color={row.light} /></td>
               <td style={td}><ColorCell color={row.dark} /></td>
               <td style={td}><code style={code}>{row.cssVar}</code></td>
-              <td style={td}><span style={{ color: "var(--cometchat-text-color-tertiary)" }}>{row.usage}</span></td>
+              <td style={td}><span style={{ color: "var(--cometchat-text-color-tertiary)" }}><T>{row.usage}</T></span></td>
             </tr>
           ))}
         </tbody>
