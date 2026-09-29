@@ -246,7 +246,7 @@ function TextBubble({
 
         {/* Meta — timestamp + receipt */}
         <div className="chat-bubble-meta">
-          <span className="chat-bubble-meta-time">{time}</span>
+          <span className="chat-bubble-meta-time"><T>{time}</T></span>
           {isSent && status && <ReceiptIcon status={status} />}
         </div>
       </div>

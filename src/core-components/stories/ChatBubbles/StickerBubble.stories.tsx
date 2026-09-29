@@ -235,7 +235,7 @@ function StickerBubble({
           width: "100%",
         }}
       >
-        <span style={{ fontSize: "12px", color: isSent ? "rgba(255,255,255,0.7)" : "var(--cometchat-text-color-tertiary)" }}>{time}</span>
+        <span style={{ fontSize: "12px", color: isSent ? "rgba(255,255,255,0.7)" : "var(--cometchat-text-color-tertiary)" }}><T>{time}</T></span>
         {isSent && status && <ReceiptIcon status={status} />}
       </div>
     </div>

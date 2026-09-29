@@ -144,7 +144,7 @@ export function TextBubble({
               <span>·</span>
             </>
           )}
-          <span>{time}</span>
+          <span><T>{time}</T></span>
           {isSent && <ReceiptIcon status="read" />}
         </div>
       </div>
@@ -236,7 +236,7 @@ export function MessageMenuWithSubmenu({
               <MIcon glyph={r.glyph} size={18} />
             </span>
             <span className="context-menu__item-label" style={{ flex: 1 }}>
-              {r.label}
+              <T>{r.label}</T>
             </span>
             {r.label === "Organise" && (
               <MIcon glyph="chevron_right" size={18} />
@@ -362,7 +362,7 @@ export function PinDialog({
               color: "var(--cometchat-static-white)",
             }}
           >
-            {confirmLabel}
+            <T>{confirmLabel}</T>
           </button>
         </div>
       </div>

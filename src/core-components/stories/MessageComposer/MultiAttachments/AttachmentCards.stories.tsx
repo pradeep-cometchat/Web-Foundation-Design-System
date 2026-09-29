@@ -773,7 +773,7 @@ function TypePage({
                     letterSpacing: "0.06em",
                   }}
                 >
-                  {s}
+                  <T>{s}</T>
                 </span>
                 {render(s, "mobile")}
               </div>

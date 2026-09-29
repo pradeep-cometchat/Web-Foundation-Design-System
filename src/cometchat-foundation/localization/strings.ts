@@ -1452,6 +1452,1182 @@ export const AR: Readonly<Record<string, string>> = {
 
   /* ─── Tooltip, fixtures and field copy (RTL sweep) ─── */
 
+  /* ─── Core Components — batch 10 ─── */
+  "Search bar in default state (unfocused, no text).":
+    "شريط البحث في الحالة الافتراضية (غير مُركَّز وبلا نص).",
+  "Search bar in idle state with placeholder text.":
+    "شريط البحث في الحالة الخاملة مع نص نائب.",
+  "Search bar with complete text and clear button.":
+    "شريط البحث بنص كامل وزر مسح.",
+  "Search bar with filter chips and complete text.":
+    "شريط البحث مع شرائح التصفية ونص كامل.",
+  "Search bar with filter chips and partial text.":
+    "شريط البحث مع شرائح التصفية ونص جزئي.",
+  "Search bar with filter chips in default state.":
+    "شريط البحث مع شرائح التصفية في الحالة الافتراضية.",
+  "Search bar with partial text input and clear button.":
+    "شريط البحث بنص جزئي وزر مسح.",
+  "Search list row — icon tile, name, size · sharer, download.":
+    "صف قائمة البحث — بلاطة أيقونة، الاسم، الحجم · المُشارِك، التنزيل.",
+  "Search list row — play button, title, seek bar, time · sender.":
+    "صف قائمة البحث — زر التشغيل، العنوان، شريط التنقّل، الوقت · المُرسِل.",
+  "Search video tile with play overlay + duration badge.":
+    "بلاطة فيديو في البحث تعلوها أيقونة تشغيل مع شارة المدة.",
+  "Several audio clips — like documents, one bubble with a card per clip.":
+    "عدة مقاطع صوتية — مثل المستندات، فقاعة واحدة تضم بطاقة لكل مقطع.",
+  "Several documents — ONE bubble; each document is a washed card inside it. With a caption it sits under the cards; a reply quote sits above them.":
+    "عدة مستندات — فقاعة واحدة، وكل مستند بطاقة باهتة داخلها. ويقع التعليق أسفل البطاقات، بينما يقع الاقتباس أعلاها.",
+  "Single image displayed at full width within the received bubble.":
+    "صورة مفردة تُعرض بالعرض الكامل داخل الفقاعة الواردة.",
+  "Single image displayed at full width within the sent bubble.":
+    "صورة مفردة تُعرض بالعرض الكامل داخل الفقاعة المُرسَلة.",
+  "Single image in loading state with a cancel button overlay.":
+    "صورة مفردة في حالة التحميل يعلوها زر إلغاء.",
+  "Single video received with play button overlay.":
+    "فيديو مفرد وارد يعلوه زر تشغيل.",
+  "Single-slot corner control — ✕ remove, spinner while uploading, error mark on failure.":
+    "عنصر ركني بخانة واحدة — ✕ للإزالة، ومؤشّر دوّار أثناء الرفع، وعلامة خطأ عند الفشل.",
+  "Single-slot corner: ✕ remove (hover / mobile), never colliding with loading or error.":
+    "الركن ذو الخانة الواحدة: ✕ للإزالة (عند التمرير أو على الجوال)، ولا يتعارض أبدًا مع التحميل أو الخطأ.",
+  "Sticker action selected — StickerPicker appears above, aligned with sticker icon.":
+    "تم اختيار إجراء الملصقات — يظهر مُنتقي الملصقات في الأعلى بمحاذاة أيقونة الملصق.",
+  "Strikethrough formatting — selected text rendered with line-through.":
+    "تنسيق الخط المتوسّط — يُعرض النص المحدّد ويتوسّطه خط.",
+  "Underline formatting — selected text rendered with underline.":
+    "تنسيق الخط السفلي — يُعرض النص المحدّد وتحته خط.",
+  "Suggest a Reply card displayed above the composer.":
+    "بطاقة اقتراح الردّ معروضة أعلى المُنشئ.",
+  "The Multi Line Composer Attachment feature displays file previews in a horizontally scrollable row between the input area and the action toolbar. Supported attachment types: Image, Video, Document, Audio, and Voice.":
+    "تعرض ميزة المرفقات في مُنشئ الأسطر المتعددة معاينات الملفات في صف أفقي قابل للتمرير بين منطقة الإدخال وشريط الأدوات. وأنواع المرفقات المدعومة هي: صورة وفيديو ومستند وصوت وملاحظة صوتية.",
+  "The Single Line Composer Attachment feature displays file previews in a horizontally scrollable row between the input area and the action toolbar. Supported attachment types: Image, Video, Document, Audio, and Voice.":
+    "تعرض ميزة المرفقات في مُنشئ السطر الواحد معاينات الملفات في صف أفقي قابل للتمرير بين منطقة الإدخال وشريط الأدوات. وأنواع المرفقات المدعومة هي: صورة وفيديو ومستند وصوت وملاحظة صوتية.",
+  "The Multi Line Composer is the primary message input area for chat interfaces. It supports three interactive states: Placeholder (idle), Focus (active cursor), and Typing (text entered, send enabled).":
+    "مُنشئ الأسطر المتعددة هو منطقة إدخال الرسائل الأساسية في واجهات الدردشة، ويدعم ثلاث حالات تفاعلية: نائب (خامل)، وتركيز (مؤشّر نشط)، وكتابة (نص مُدخَل مع تفعيل الإرسال).",
+  "The Single Line Composer is the primary message input area for chat interfaces. It supports three interactive states: Placeholder (idle), Focus (active cursor), and Typing (text entered, send enabled).":
+    "مُنشئ السطر الواحد هو منطقة إدخال الرسائل الأساسية في واجهات الدردشة، ويدعم ثلاث حالات تفاعلية: نائب (خامل)، وتركيز (مؤشّر نشط)، وكتابة (نص مُدخَل مع تفعيل الإرسال).",
+  "The Panel feature of the Multi Line Composer displays AI-powered panels above the message input area. Panels include Conversation Starters, Suggest a Reply, and Conversation Summary.":
+    "تعرض ميزة اللوحة في مُنشئ الأسطر المتعددة لوحات مدعومة بالذكاء الاصطناعي أعلى منطقة إدخال الرسالة، وتشمل بادئات المحادثة واقتراح الردّ وملخّص المحادثة.",
+  "The Panel feature of the Single Line Composer displays AI-powered panels above the message input area. Panels include Conversation Starters, Suggest a Reply, and Conversation Summary.":
+    "تعرض ميزة اللوحة في مُنشئ السطر الواحد لوحات مدعومة بالذكاء الاصطناعي أعلى منطقة إدخال الرسالة، وتشمل بادئات المحادثة واقتراح الردّ وملخّص المحادثة.",
+  "The Pinned Messages panel lists every pinned message in the chat.":
+    "تسرد لوحة الرسائل المثبّتة كل رسالة مثبّتة في الدردشة.",
+  "The buyer is interested in the watch and wants to confirm if it is still available. They are asking about the condition and whether the product is original, along with details like box and warranty. There are also questions around pricing and if there is any room for negotiation.":
+    "المشتري مهتم بالساعة ويريد التأكد من أنها ما زالت متاحة. ويسأل عن حالتها وعمّا إذا كان المنتج أصليًا، إضافة إلى تفاصيل مثل العلبة والضمان. كما توجد أسئلة حول السعر وإمكانية التفاوض.",
+  "The buyer is interested in the watch and wants to confirm if it is still available. They are asking about the condition and whether the product is original, along with details like box and warranty. There are also questions around pricing and if there is any room for negotiation. The buyer has requested additional photos to better evaluate the item. Overall, they are trying to verify authenticity, condition, and value before making a decision.":
+    "المشتري مهتم بالساعة ويريد التأكد من أنها ما زالت متاحة. ويسأل عن حالتها وعمّا إذا كان المنتج أصليًا، إضافة إلى تفاصيل مثل العلبة والضمان. كما توجد أسئلة حول السعر وإمكانية التفاوض. وقد طلب المشتري صورًا إضافية لتقييم القطعة بشكل أفضل. وإجمالًا، هو يحاول التحقق من الأصالة والحالة والقيمة قبل اتخاذ قراره.",
+  "The chat header's ⋮ menu holds the \"Pinned messages\" entry.":
+    "تحتوي قائمة ⋮ في ترويسة الدردشة على مدخل «الرسائل المثبّتة».",
+  "The composer tray loaded with every attachment format at once — photos, video, documents and audio queued together above a thread of multi-attachment messages. Press Send to post them as separate-format bubbles.":
+    "درج المُنشئ محمّلًا بكل تنسيقات المرفقات دفعة واحدة — صور وفيديو ومستندات وصوتيات في الانتظار معًا فوق سلسلة رسائل متعددة المرفقات. اضغط إرسال لنشرها كفقاعات منفصلة لكل تنسيق.",
+  "The conversation row's context menu offers \"Pin conversation\".":
+    "تعرض قائمة سياق صف المحادثة خيار «تثبيت المحادثة».",
+  "The design-system Single Line and Multi Line composers, empty (no attachments) — the base surface for the drag-and-drop states.":
+    "مُنشئا السطر الواحد والأسطر المتعددة من نظام التصميم، فارغين بلا مرفقات — وهما السطح الأساسي لحالات السحب والإفلات.",
+  "The global chat search, filtered by attachment type. Each filter renders its results differently:":
+    "بحث الدردشة الشامل مُرشَّحًا حسب نوع المرفق، ويعرض كل مرشّح نتائجه بشكل مختلف:",
+  "The standalone attachment-card primitives — Document, Image, Video and Audio — in every state, on both desktop and mobile.":
+    "عناصر بطاقات المرفقات المستقلة — مستند وصورة وفيديو وصوت — في كل الحالات، على سطح المكتب والجوال.",
+  "Three images — one large on left, two stacked on right.":
+    "ثلاث صور — واحدة كبيرة في البداية واثنتان متراكبتان في النهاية.",
+  "Typing state — user has entered text, send button becomes active.":
+    "حالة الكتابة — أدخل المستخدم نصًا وأصبح زر الإرسال نشطًا.",
+  "Unfocused state, visually same as placeholder.":
+    "حالة عدم التركيز، وتبدو مطابقة للحالة النائبة.",
+  "Unpinned — removed from the panel, toast confirms.":
+    "غير مثبّتة — أُزيلت من اللوحة ويؤكّد إشعار منبثق ذلك.",
+  "Unpinned — the glyph is gone and a toast confirms.":
+    "غير مثبّتة — اختفت الأيقونة ويؤكّد إشعار منبثق ذلك.",
+  "Unsupported / undecodable attachments — image & video thumbnails fall back to the generic \"?\" file placeholder; documents and audio show the \"?\" icon with a download control.":
+    "المرفقات غير المدعومة أو التي يتعذّر فك ترميزها — ترجع صور الصور والفيديو المصغّرة إلى نائب الملف العام «؟»، بينما تعرض المستندات والصوتيات أيقونة «؟» مع عنصر تنزيل.",
+  "Uploading — some attachments still in flight (spinner badge).":
+    "جارٍ الرفع — بعض المرفقات ما زالت قيد الإرسال (شارة مؤشّر دوّار).",
+  "Vertical stack of one sender's bubbles — mixed formats become separate bubbles, aligned to the sender's side.":
+    "تراكم رأسي لفقاعات مُرسِل واحد — تصبح التنسيقات المختلطة فقاعات منفصلة بمحاذاة جهة المُرسِل.",
+  "Voice Record action selected — VoiceRecorderPopup appears above, aligned with mic icon.":
+    "تم اختيار إجراء التسجيل الصوتي — تظهر نافذة المسجّل في الأعلى بمحاذاة أيقونة الميكروفون.",
+  "Voice attachment in all states (including Play and Pause).":
+    "مرفق صوتي في كل الحالات (بما فيها التشغيل والإيقاف المؤقّت).",
+  "You're welcome! Let me know if you find any other good deals.":
+    "على الرحب والسعة! أخبرني إن وجدت عروضًا جيدة أخرى.",
+  "a multi-attachment message. The quoted preview summarises the original — \"Reply to {name}\" + an icon + \"6 Images · hello\" / \"6 Videos\".":
+    "رسالة متعددة المرفقات. تلخّص المعاينة المقتبسة الرسالة الأصلية — «ردّ على {name}» + أيقونة + «6 صور · مرحبًا» / «6 مقاطع فيديو».",
+  "filter is intentionally not shown here — it falls back to the normal conversation list; these views are the attachment-type filters.":
+    "لا يُعرض المرشّح هنا عمدًا — إذ يرجع إلى قائمة المحادثات العادية، وهذه العروض هي مرشّحات أنواع المرفقات.",
+  "in the composer via the mic and cannot be added through the attachment picker. It shares this waveform card visually, but it is a separate recording flow — so it is not represented as an attachable type here.":
+    "في المُنشئ عبر الميكروفون ولا يمكن إضافتها من مُنتقي المرفقات. وهي تشترك بصريًا مع بطاقة الموجة الصوتية هذه، لكنها مسار تسجيل منفصل — ولذلك لا تُمثَّل هنا كنوع قابل للإرفاق.",
+  "looks identical but is recorded via the mic — it is not attachable in the composer, so it isn't shown as a type here.":
+    "تبدو مطابقة لكنها تُسجَّل عبر الميكروفون — وهي غير قابلة للإرفاق في المُنشئ، فلا تُعرض هنا كنوع.",
+  "mark (failed) — never two at once. On mobile there is no hover, so the ✕ is persistent; during loading the spinner takes that slot instead of the ✕ (which would otherwise collide with the error mark when an upload fails).":
+    "علامة (فشل) — ولا تظهر اثنتان معًا أبدًا. وعلى الجوال لا يوجد تمرير، فتبقى ✕ ظاهرة دائمًا؛ وأثناء التحميل يشغل المؤشّر الدوّار تلك الخانة بدل ✕ (التي كانت ستتعارض مع علامة الخطأ عند فشل الرفع).",
+  "to post them as separate-format bubbles running":
+    "لنشرها كفقاعات منفصلة لكل تنسيق تمتد",
+  "— a media thumbnail with a \"+N\" count on the right.":
+    "— صورة وسائط مصغّرة مع عدد «+N» في نهاية السطر.",
+  "— from a conversation row's context menu: confirm in a dialog, the row gains a pin glyph and a toast confirms. Unpinning mirrors the same steps.":
+    "— من قائمة سياق صف المحادثة: أكّد في نافذة حوارية، فيكتسب الصف أيقونة تثبيت ويؤكّد إشعار منبثق ذلك. وإلغاء التثبيت يتبع الخطوات نفسها.",
+  "— images, videos, documents and audio each become their own message bubble, stacked one below another. Multiple items of the same format group into a grid (an image grid, a video grid); different formats never share a bubble. A caption or a quoted reply attaches to a single bubble.":
+    "— تصبح الصور والفيديو والمستندات والصوتيات كل منها فقاعة رسالة خاصة بها، تتراكم واحدة تحت الأخرى. وتتجمّع العناصر المتعددة من التنسيق نفسه في شبكة (شبكة صور، شبكة فيديو)، بينما لا تتشارك التنسيقات المختلفة فقاعة واحدة أبدًا. ويرتبط التعليق أو الاقتباس بفقاعة واحدة.",
+  "— the first document's icon with a stack behind it, plus time. With a caption the count is appended after it — \"the signed copy · 6 Files\".":
+    "— أيقونة المستند الأول وخلفها حزمة، مع الوقت. وعند وجود تعليق يُضاف العدد بعده — «النسخة الموقّعة · 6 ملفات».",
+
+  /* ─── Core Components — batch 9 ─── */
+  "Filter-specific result rows: right media thumb, fanned doc stack + count, play button + time.":
+    "صفوف نتائج خاصة بكل مرشّح: صورة وسائط مصغّرة في النهاية، وحزمة مستندات مروّحة مع العدد، وزر تشغيل مع الوقت.",
+  "Focus state — input is focused, ready for typing.":
+    "حالة التركيز — الحقل مُركَّز وجاهز للكتابة.",
+  "Formatting action selected — format toolbar appears inside the composer above the input row.":
+    "تم اختيار إجراء التنسيق — يظهر شريط أدوات التنسيق داخل المُنشئ أعلى صف الإدخال.",
+  "Four images in a 2×2 grid with a '+N' overlay on the last image indicating more.":
+    "أربع صور في شبكة 2×2 مع طبقة «+N» على الصورة الأخيرة تشير إلى وجود المزيد.",
+  "Gray background. Same as missed for video calls.":
+    "خلفية رمادية، مثل الفائتة في مكالمات الفيديو.",
+  "Gray background. Same as missed — user actively declined the call.":
+    "خلفية رمادية، مثل الفائتة — رفض المستخدم المكالمة عمدًا.",
+  "Great, I'll check it out. Any other recommendations?":
+    "رائع، سألقي نظرة عليه. هل من ترشيحات أخرى؟",
+  "HTML & CSS usage reference for the Thread View component.":
+    "مرجع الاستخدام بـ HTML و CSS لمكوّن عرض السلسلة.",
+  "HTML + CSS usage reference for attachment previews.":
+    "مرجع الاستخدام بـ HTML و CSS لمعاينات المرفقات.",
+  "HTML + CSS usage reference for the Panel feature.":
+    "مرجع الاستخدام بـ HTML و CSS لميزة اللوحة.",
+  "HTML + CSS usage reference for the formatting toolbar.":
+    "مرجع الاستخدام بـ HTML و CSS لشريط أدوات التنسيق.",
+  "Header: 64px, \"Thread\" (20px bold), close + info icons":
+    "الترويسة: 64 بكسل، «السلسلة» (20 بكسل عريض)، مع أيقونتي الإغلاق والمعلومات",
+  "Hey! I just wanted to let you know that the package has been shipped and should arrive by Thursday. I've also included t...":
+    "أهلًا! أردت إخبارك بأن الطرد قد شُحن ومن المفترض أن يصل بحلول الخميس. كما أضفت أيضًا...",
+  "Hey, check out this new design I've been working on!":
+    "أهلًا، ألقِ نظرة على هذا التصميم الجديد الذي أعمل عليه!",
+  "How a batch of mixed attachments looks while queued in the message composer, before the message is sent. Previews sit in a horizontally scrollable strip between the input and the toolbar.":
+    "كيف تبدو دفعة مرفقات مختلطة أثناء انتظارها في مُنشئ الرسائل قبل الإرسال. تقع المعاينات في شريط أفقي قابل للتمرير بين حقل الإدخال وشريط الأدوات.",
+  "How attachments render in the conversation once sent.":
+    "كيف تُعرض المرفقات في المحادثة بعد إرسالها.",
+  "Icon carriers — translucent dark overlay hosts the progress ring (loading) or error mark (mobile error).":
+    "حوامل الأيقونات — تحمل طبقة داكنة شبه شفافة حلقة التقدّم (أثناء التحميل) أو علامة الخطأ (خطأ على الجوال).",
+  "Image files across every surface: queued in the composer (loading → default → hover → remove → error), delivered in a message (single, grids, \"+N\" overflow, uploading, failed), and in search.":
+    "ملفات الصور عبر كل السطوح: في انتظار المُنشئ (تحميل ← افتراضي ← تمرير ← إزالة ← خطأ)، ومُسلَّمة في رسالة (مفردة، شبكات، فائض «+N»، قيد الرفع، فاشلة)، وفي البحث.",
+  "Image hidden behind a sensitive content warning with a 'See Photo' action.":
+    "صورة مخفية خلف تحذير محتوى حسّاس مع إجراء «عرض الصورة».",
+  "In search — media grid tiles and a conversation result.":
+    "في البحث — بلاطات شبكة الوسائط ونتيجة محادثة.",
+  "In search — the Audio filter renders a play-list of audio results.":
+    "في البحث — يعرض مرشّح الصوت قائمة تشغيل بالنتائج الصوتية.",
+  "In search — the Documents filter renders a file list.":
+    "في البحث — يعرض مرشّح المستندات قائمة ملفات.",
+  "In search — video tiles with play + duration, and a conversation result.":
+    "في البحث — بلاطات فيديو مع التشغيل والمدة، ونتيجة محادثة.",
+  "Incoming long text message truncated with a 'Read more' link.":
+    "رسالة نصية واردة طويلة مقتطعة برابط «قراءة المزيد».",
+  "Outgoing long text message truncated with a 'Read more' link.":
+    "رسالة نصية صادرة طويلة مقتطعة برابط «قراءة المزيد».",
+  "Incoming parent message — thread started by another user.":
+    "رسالة أصلية واردة — سلسلة بدأها مستخدم آخر.",
+  "Italic formatting — selected text rendered in italic.":
+    "تنسيق الخط المائل — يُعرض النص المحدّد بخط مائل.",
+  "Landscape/horizontal image displayed wider than tall.":
+    "صورة عرضية/أفقية تُعرض أوسع من ارتفاعها.",
+  "Portrait/vertical image displayed taller than wide.":
+    "صورة طولية/رأسية تُعرض أطول من عرضها.",
+  "Link formatting — selected text rendered as a hyperlink.":
+    "تنسيق الرابط — يُعرض النص المحدّد كرابط تشعّبي.",
+  "Media-player card: play/pause button, elapsed-fill seek bar, mm:ss / mm:ss.":
+    "بطاقة مشغّل الوسائط: زر تشغيل/إيقاف مؤقّت، وشريط تنقّل يمتلئ مع المدة المنقضية، بصيغة دد:ثث / دد:ثث.",
+  "Message composer with the horizontal, scrollable attachment preview strip.":
+    "مُنشئ الرسائل مع شريط معاينة المرفقات الأفقي القابل للتمرير.",
+  "Multiple attachments with a caption — an image album, and a stacked send where the caption attaches to the last bubble.":
+    "مرفقات متعددة مع تعليق — ألبوم صور، وإرسال متراكم يرتبط فيه التعليق بالفقاعة الأخيرة.",
+  "Multiple images collapse into a grid within one bubble (\"+N\" past four).":
+    "تنطوي الصور المتعددة في شبكة داخل فقاعة واحدة («+N» بعد الأربع).",
+  "Multiple images in loading state with a cancel button overlay.":
+    "صور متعددة في حالة التحميل يعلوها زر إلغاء.",
+  "Multiple videos collapse into their own grid (play overlay on every tile).":
+    "تنطوي مقاطع الفيديو المتعددة في شبكة خاصة بها، مع طبقة تشغيل على كل بلاطة.",
+  "One bubble per format: media grid, file card or audio card + caption, quoted reply, time and receipt.":
+    "فقاعة لكل تنسيق: شبكة وسائط أو بطاقة ملف أو بطاقة صوت + تعليق، مع ردّ مقتبس ووقت وإيصال.",
+  "Ordered List formatting — numbered list in the composer.":
+    "تنسيق القائمة المرقّمة — قائمة مرقّمة داخل المُنشئ.",
+  "Outgoing audio call that was answered and ended.":
+    "مكالمة صوتية صادرة تم الرد عليها وانتهت.",
+  "Outgoing audio call that was cancelled by the caller.":
+    "مكالمة صوتية صادرة ألغاها المتصل.",
+  "Outgoing video call that was answered and ended.":
+    "مكالمة فيديو صادرة تم الرد عليها وانتهت.",
+  "Outgoing video call that was cancelled by the caller.":
+    "مكالمة فيديو صادرة ألغاها المتصل.",
+  "Outgoing collaborative document bubble with delivered status.":
+    "فقاعة مستند تعاوني صادرة بحالة سُلّمت.",
+  "Outgoing collaborative document bubble with read receipt.":
+    "فقاعة مستند تعاوني صادرة مع إيصال قراءة.",
+  "Outgoing collaborative document bubble with sent status.":
+    "فقاعة مستند تعاوني صادرة بحالة أُرسلت.",
+  "Outgoing collaborative whiteboard bubble with delivered status.":
+    "فقاعة سبّورة تعاونية صادرة بحالة سُلّمت.",
+  "Outgoing collaborative whiteboard bubble with read receipt.":
+    "فقاعة سبّورة تعاونية صادرة مع إيصال قراءة.",
+  "Outgoing collaborative whiteboard bubble with sent status.":
+    "فقاعة سبّورة تعاونية صادرة بحالة أُرسلت.",
+  "Overflow — many attachments; the strip scrolls horizontally.":
+    "الفائض — مرفقات كثيرة، ويتمرّر الشريط أفقيًا.",
+  "Per-type document glyph (PDF / DOC / XLS / PPT / ZIP / TXT / generic).":
+    "أيقونة مستند لكل نوع (PDF / DOC / XLS / PPT / ZIP / TXT / عام).",
+  "Pinned sent message — pin glyph next to the time, toast confirms.":
+    "رسالة مُرسَلة مثبّتة — أيقونة تثبيت بجوار الوقت، ويؤكّد إشعار منبثق ذلك.",
+  "Pinned — the row gains a pin glyph and a toast confirms.":
+    "مثبّتة — يكتسب الصف أيقونة تثبيت ويؤكّد إشعار منبثق ذلك.",
+  "Pinning conversations and messages, mirrored from the Web Desktop Chat UI Kit designs.":
+    "تثبيت المحادثات والرسائل، منقولًا عن تصاميم حزمة واجهة الدردشة لسطح المكتب.",
+  "Placeholder state — the default idle state of the composer.":
+    "الحالة النائبة — الحالة الخاملة الافتراضية للمُنشئ.",
+  "Plus icon | input | emoji, sticker, mic | send — all in one row.":
+    "أيقونة الزائد | حقل الإدخال | رمز تعبيري وملصق وميكروفون | إرسال — كلها في صف واحد.",
+  "Purple background. Same as ended for video calls.":
+    "خلفية بنفسجية، مثل المنتهية في مكالمات الفيديو.",
+  "Purple background. Same as ended — caller hung up before answer.":
+    "خلفية بنفسجية، مثل المنتهية — أنهى المتصل المكالمة قبل الرد.",
+  "Read receipts on a sent attachment: sent (✓), delivered (✓✓), read (✓✓ blue).":
+    "إيصالات القراءة على مرفق مُرسَل: أُرسل (✓)، سُلّم (✓✓)، قُرئ (✓✓ أزرق).",
+  "Renders identically in dark mode via the theme toggle — every color is a Foundations token.":
+    "يُعرض بالشكل نفسه في الوضع الداكن عبر مبدّل السمة — فكل لون هو رمز من رموز الأساسيات.",
+  "Replying — the quoted message (DS MessagePreview) sits above the input while attachments are queued.":
+    "الردّ — تقع الرسالة المقتبسة (معاينة رسالة نظام التصميم) أعلى حقل الإدخال بينما المرفقات في الانتظار.",
+  "Rich Text Formatting in the Multi Line Composer. When the formatting mode is active (Aa button highlighted), a formatting toolbar appears above the input area. Each formatting type shows the toolbar with the active option highlighted.":
+    "تنسيق النص الغني في مُنشئ الأسطر المتعددة. عندما يكون وضع التنسيق نشطًا (زر أ ب مميّز)، يظهر شريط أدوات التنسيق أعلى منطقة الإدخال، ويعرض كل نوع تنسيق الشريط مع تمييز الخيار النشط.",
+  "Rich Text Formatting in the Single Line Composer. When formatting is active, a formatting toolbar appears above the single-line input. The composer remains inline with all icons in one row.":
+    "تنسيق النص الغني في مُنشئ السطر الواحد. عندما يكون التنسيق نشطًا، يظهر شريط أدوات التنسيق أعلى حقل السطر الواحد، ويبقى المُنشئ ضمن السطر بكل أيقوناته في صف واحد.",
+  "Same as 4 Grid but the last cell has a dark overlay with '+N' count.":
+    "مثل شبكة الأربع، لكن الخلية الأخيرة تحمل طبقة داكنة بعدد «+N».",
+  "Same as default with double check (✓✓) in white/muted color indicating delivery.":
+    "مثل الافتراضي مع علامتي صح (✓✓) بلون أبيض/خافت تشيران إلى التسليم.",
+  "Same as default with double check in muted white indicating delivery.":
+    "مثل الافتراضي مع علامتي صح بلون أبيض خافت تشيران إلى التسليم.",
+  "Same as default with single check in muted white indicating sent.":
+    "مثل الافتراضي مع علامة صح واحدة بلون أبيض خافت تشير إلى الإرسال.",
+  "Same as read with double check in muted white.":
+    "مثل المقروءة مع علامتي صح بلون أبيض خافت.",
+  "Same chat, but dragging files shows a compact drop overlay on the composer footer only — the message thread stays visible.":
+    "الدردشة نفسها، لكن سحب الملفات يُظهر طبقة إفلات مضغوطة على تذييل المُنشئ فقط، وتبقى سلسلة الرسائل ظاهرة.",
+  "Same compact overlay, but the composer already has attachments queued — dropping more files adds to the existing batch.":
+    "الطبقة المضغوطة نفسها، لكن المُنشئ يحوي مرفقات في الانتظار — وإفلات ملفات إضافية يضيفها إلى الدفعة الحالية.",
+  "Same lifecycle as images, but every tile carries a play overlay (and a duration badge in search). Composer preview states, delivered single/grid/overflow, uploading/failed, and search.":
+    "الدورة نفسها كالصور، لكن كل بلاطة تحمل طبقة تشغيل (وشارة مدة في البحث). حالات معاينة المُنشئ، والتسليم مفردًا أو شبكةً أو فائضًا، والرفع والفشل، والبحث.",
+
+  /* ─── Core Components — batch 8 ─── */
+  "), where each item can be unpinned, copied or muted; clicking one jumps to it in the conversation.":
+    "‎)، حيث يمكن إلغاء تثبيت كل عنصر أو نسخه أو كتم إشعاراته؛ والضغط على أحدها ينقلك إليه في المحادثة.",
+  "): confirm in a dialog, the bubble gains a pin glyph next to its time and a toast confirms. Pinned messages collect in the":
+    "‎): أكّد في نافذة حوارية، فتظهر أيقونة تثبيت بجوار وقت الفقاعة ويؤكّد إشعار منبثق ذلك. وتُجمع الرسائل المثبّتة في",
+  ". The thread is pre-seeded with the range of states.":
+    ". السلسلة مهيّأة مسبقًا بمجموعة الحالات.",
+  "120px square tile; loading ring or error overlay in the centre.":
+    "بلاطة مربّعة 120 بكسل، مع حلقة تحميل أو طبقة خطأ في المنتصف.",
+  "3+ documents or audio clips collapse to three cards with a \"Show N more\" control that expands the bubble (click it in the canvas). Media grids keep the \"+N\" overlay instead.":
+    "تُطوى المستندات أو المقاطع الصوتية التي تزيد على ثلاثة إلى ثلاث بطاقات مع عنصر «عرض N إضافية» يوسّع الفقاعة (اضغط عليه في اللوحة). أما شبكات الوسائط فتحتفظ بطبقة «+N» بدلًا من ذلك.",
+  "300px cards — icon tile or play button + name + subtitle; red border + error treatment on failure.":
+    "بطاقات بعرض 300 بكسل — بلاطة أيقونة أو زر تشغيل + الاسم + العنوان الفرعي، مع حدّ أحمر ومعالجة خطأ عند الفشل.",
+  "72px media thumbnails; video carries a play overlay.":
+    "صور وسائط مصغّرة بحجم 72 بكسل، ويحمل الفيديو طبقة تشغيل.",
+  "A full mixed batch — images, video, document and audio queued together.":
+    "دفعة مختلطة كاملة — صور وفيديو ومستند وصوت في الانتظار معًا.",
+  "A pinned conversation's menu offers \"Unpin conversation\".":
+    "تعرض قائمة المحادثة المثبّتة خيار «إلغاء تثبيت المحادثة».",
+  "A pinned item's menu — Unpin Message, Stop notifications…":
+    "قائمة العنصر المثبّت — إلغاء تثبيت الرسالة، إيقاف الإشعارات…",
+  "A received message's menu — same Organise submenu, plus receive-only items.":
+    "قائمة الرسالة الواردة — قائمة التنظيم الفرعية نفسها، مع عناصر خاصة بالواردة.",
+  "A sent message's menu — Organise ▸ Pin message / Save message.":
+    "قائمة الرسالة المُرسَلة — تنظيم ▸ تثبيت الرسالة / حفظ الرسالة.",
+  "A side panel displaying a threaded conversation with the parent message, reply separator, reply bubbles, and a message composer.":
+    "لوحة جانبية تعرض محادثة متسلسلة تضم الرسالة الأصلية وفاصل الردود وفقاعات الردود ومُنشئ الرسائل.",
+  "AI action selected — ConversationSummary appears above the composer.":
+    "تم اختيار إجراء الذكاء الاصطناعي — يظهر ملخّص المحادثة أعلى المُنشئ.",
+  "Actions available in the Multi Line Composer toolbar. Each action button triggers a specific feature (Attachment, Voice Record, Emoji, Sticker, Formatting, AI). When active, icons appear filled and a corresponding dialog/popup is shown.":
+    "الإجراءات المتاحة في شريط أدوات مُنشئ الأسطر المتعددة. يُشغّل كل زر ميزة محدّدة (مرفق، تسجيل صوتي، رمز تعبيري، ملصق، تنسيق، ذكاء اصطناعي). وعند التفعيل تظهر الأيقونات ممتلئة مع نافذة أو قائمة منبثقة مقابلة.",
+  "Actions available in the Single Line Composer. Each action button triggers a specific feature (Attachment, Voice Record, Emoji, Sticker, Formatting, AI). When active, icons appear filled in primary purple and a corresponding dialog/popup is shown above the composer.":
+    "الإجراءات المتاحة في مُنشئ السطر الواحد. يُشغّل كل زر ميزة محدّدة (مرفق، تسجيل صوتي، رمز تعبيري، ملصق، تنسيق، ذكاء اصطناعي). وعند التفعيل تظهر الأيقونات ممتلئة باللون البنفسجي الأساسي مع نافذة أو قائمة منبثقة أعلى المُنشئ.",
+  "All / Photos / Videos / Audio / Documents — active chip fills with primary.":
+    "الكل / الصور / الفيديو / الصوت / المستندات — تمتلئ الشريحة النشطة باللون الأساسي.",
+  "All attachment types displayed together in the composer.":
+    "كل أنواع المرفقات معروضة معًا في المُنشئ.",
+  "All attachment-type filters side by side (excludes \"All\"). Each shows both an attachment-only preview and one with a caption.":
+    "كل مرشّحات أنواع المرفقات جنبًا إلى جنب (باستثناء «الكل»)، ويعرض كلٌّ منها معاينة بالمرفق وحده وأخرى مع تعليق.",
+  "All interactive states of the Multi Line Composer.":
+    "كل الحالات التفاعلية لمُنشئ الأسطر المتعددة.",
+  "All interactive states of the Single Line Composer.":
+    "كل الحالات التفاعلية لمُنشئ السطر الواحد.",
+  "Attachment action selected — ActionSheet appears above, left-aligned with plus icon.":
+    "تم اختيار إجراء المرفقات — تظهر ورقة الإجراءات في الأعلى، بمحاذاة بداية السطر مع أيقونة الزائد.",
+  "Audio attachment in all states (including Play and Pause).":
+    "مرفق صوتي في كل الحالات (بما فيها التشغيل والإيقاف المؤقّت).",
+  "Base Component opened by the composer ＋ — camera, image, video, audio, document, poll…":
+    "مكوّن أساسي يفتحه زر ＋ في المُنشئ — كاميرا، صورة، فيديو، صوت، مستند، استطلاع…",
+  "Base Components composing the Chat List sidebar; the active row mirrors the latest sent message.":
+    "المكوّنات الأساسية التي يتركّب منها شريط قائمة المحادثات الجانبي، ويعكس الصف النشط آخر رسالة مُرسَلة.",
+  "Below the video, right-aligned. Same pattern as image bubble.":
+    "أسفل الفيديو بمحاذاة نهاية السطر، بالنمط نفسه المتّبع في فقاعة الصورة.",
+  "Block Quote formatting — indented quote in the composer.":
+    "تنسيق الاقتباس — اقتباس مُزاح داخل المُنشئ.",
+  "Bold formatting — selected text rendered in bold.":
+    "تنسيق الخط العريض — يُعرض النص المحدّد بخط عريض.",
+  "Bottom-right aligned below the sticker. Same pattern as other bubbles.":
+    "بمحاذاة نهاية السطر أسفل الملصق، بالنمط نفسه المتّبع في بقية الفقاعات.",
+  "Bullet-point List formatting — bulleted list in the composer.":
+    "تنسيق القائمة النقطية — قائمة نقطية داخل المُنشئ.",
+  "Call bubble with an optional \"Call Back\" action button.":
+    "فقاعة مكالمة مع زر «معاودة الاتصال» الاختياري.",
+  "Chat area: date chip, parent bubble, \"N replies\" separator + line, reply bubbles":
+    "منطقة الدردشة: شريحة التاريخ، الفقاعة الأصلية، فاصل «N ردود» مع خط، ثم فقاعات الردود",
+  "Clicking a pinned message jumps to it in the conversation (flash highlight).":
+    "الضغط على رسالة مثبّتة ينقلك إليها في المحادثة مع وميض تمييز.",
+  "Code Block formatting — multi-line code block in the composer.":
+    "تنسيق كتلة الشيفرة — كتلة شيفرة متعددة الأسطر داخل المُنشئ.",
+  "Code formatting — inline code in the composer.":
+    "تنسيق الشيفرة — شيفرة ضمن السطر داخل المُنشئ.",
+  "Composer audio chip — play button, title, seek bar, time; single-slot corner badge.":
+    "شريحة صوت في المُنشئ — زر تشغيل وعنوان وشريط تنقّل ووقت، مع شارة ركنية لخانة واحدة.",
+  "Composer file chip — white app-tile icon + name + meta, single-slot corner badge.":
+    "شريحة ملف في المُنشئ — أيقونة تطبيق بيضاء + الاسم + البيانات، مع شارة ركنية لخانة واحدة.",
+  "Composer preview — every badge state, plus the three file types.":
+    "معاينة المُنشئ — كل حالات الشارة، إضافة إلى أنواع الملفات الثلاثة.",
+  "Composer thumbnail with a centered play overlay and the single-slot corner badge.":
+    "صورة مصغّرة في المُنشئ تعلوها أيقونة تشغيل في المنتصف مع شارة ركنية لخانة واحدة.",
+  "Composer thumbnail with the single-slot corner badge (remove / loading / error).":
+    "صورة مصغّرة في المُنشئ مع شارة ركنية لخانة واحدة (إزالة / تحميل / خطأ).",
+  "Composer: input + toolbar with icons + send button":
+    "المُنشئ: حقل إدخال + شريط أدوات بأيقونات + زر إرسال",
+  "Container: 420px wide, full height, white bg, border":
+    "الحاوية: عرض 420 بكسل، ارتفاع كامل، خلفية بيضاء، مع حدّ",
+  "Conversation Starter chips displayed above the composer.":
+    "شرائح بادئات المحادثة معروضة أعلى المُنشئ.",
+  "Conversation Summary card displayed above the composer.":
+    "بطاقة ملخّص المحادثة معروضة أعلى المُنشئ.",
+  "DS composer row with the attachment preview strip and reply-preview strip above it.":
+    "صف مُنشئ نظام التصميم مع شريط معاينة المرفقات وشريط معاينة الردّ أعلاه.",
+  "Default — outgoing parent message with 4 replies. Exact match to Figma.":
+    "افتراضي — رسالة أصلية صادرة مع 4 ردود، مطابقة تمامًا لتصميم Figma.",
+  "Deleted outgoing message with delivered status.":
+    "رسالة صادرة محذوفة بحالة سُلّمت.",
+  "Delivered audio message; always its own bubble, download affordance once sent.":
+    "رسالة صوتية مُسلَّمة، تكون دائمًا في فقاعة خاصة بها مع إمكانية التنزيل بعد الإرسال.",
+  "Delivered file card; multiple documents stack as separate bubbles.":
+    "بطاقة ملف مُسلَّمة، وتتراكم المستندات المتعددة كفقاعات منفصلة.",
+  "Delivered image grid (1–4 tiles + “+N” overflow) with time + read receipt.":
+    "شبكة صور مُسلَّمة (من 1 إلى 4 بلاطات + فائض «+N») مع الوقت وإيصال القراءة.",
+  "Delivered messages — separate bubble per format, uploading → read lifecycle.":
+    "رسائل مُسلَّمة — فقاعة منفصلة لكل تنسيق، من الرفع حتى القراءة.",
+  "Delivered video grid — every tile carries a play overlay; “+N” for overflow.":
+    "شبكة فيديو مُسلَّمة — تحمل كل بلاطة طبقة تشغيل، و«+N» للفائض.",
+  "Delivered — an audio message is always its own bubble. When sent alongside a document, each format is a separate bubble stacked one below another.":
+    "مُسلَّمة — تكون الرسالة الصوتية دائمًا في فقاعة خاصة بها. وعند إرسالها مع مستند يُوضع كل تنسيق في فقاعة منفصلة تتراكم واحدة تحت الأخرى.",
+  "Delivered — single card, several stacked, uploading and failed.":
+    "مُسلَّمة — بطاقة واحدة، أو عدة بطاقات متراكمة، مع حالتي الرفع والفشل.",
+  "Delivered — single, grids and overflow, sent and received.":
+    "مُسلَّمة — مفردة وشبكات وفائض، مُرسَلة وواردة.",
+  "Delivered — single, grids, overflow, sent and received.":
+    "مُسلَّمة — مفردة وشبكات وفائض، مُرسَلة وواردة.",
+  "Design-system search input at the top of the panel.":
+    "حقل بحث نظام التصميم أعلى اللوحة.",
+  "Design-system search input used by the Audio filter.":
+    "حقل بحث نظام التصميم المستخدَم في مرشّح الصوت.",
+  "Design-system search input used by the Documents filter.":
+    "حقل بحث نظام التصميم المستخدَم في مرشّح المستندات.",
+  "Design-system search input used by the Photos filter.":
+    "حقل بحث نظام التصميم المستخدَم في مرشّح الصور.",
+  "Design-system search input used by the Videos filter.":
+    "حقل بحث نظام التصميم المستخدَم في مرشّح الفيديو.",
+  "Determinate progress ring shown while a received attachment downloads.":
+    "حلقة تقدّم محدّدة تظهر أثناء تنزيل مرفق وارد.",
+  "Documents (PDF / DOC / XLS) across the composer (loading → default → hover → remove → error), delivered as stacked file cards (single, multiple, uploading, failed), and as a search list.":
+    "المستندات (PDF / DOC / XLS) عبر المُنشئ (تحميل ← افتراضي ← تمرير ← إزالة ← خطأ)، ومُسلَّمة كبطاقات ملفات متراكمة (مفردة، متعددة، قيد الرفع، فاشلة)، وكقائمة بحث.",
+  "Downloading — a received attachment being fetched (progress ring).":
+    "جارٍ التنزيل — مرفق وارد قيد الجلب (حلقة تقدّم).",
+  "Dragging files onto a single composer — a compact overlay (icon + header only) covers just the composer, not the whole chat panel.":
+    "سحب الملفات إلى مُنشئ واحد — تغطي طبقة مضغوطة (أيقونة وترويسة فقط) المُنشئ وحده لا لوحة الدردشة بأكملها.",
+  "Dragging files over the chat — a dark full-bleed overlay with the upload icon and the destination chat name covers the conversation.":
+    "سحب الملفات فوق الدردشة — تغطي المحادثة طبقة داكنة كاملة تحمل أيقونة الرفع واسم الدردشة الوجهة.",
+  "Emoji action selected — EmojiKeyboard appears above, aligned with emoji icon.":
+    "تم اختيار إجراء الرموز التعبيرية — تظهر لوحة الرموز في الأعلى بمحاذاة أيقونة الرمز التعبيري.",
+  "Empty placeholder state before an image loads.":
+    "حالة نائبة فارغة قبل تحميل الصورة.",
+  "Error — one attachment failed to upload (error badge).":
+    "خطأ — فشل رفع أحد المرفقات (شارة خطأ).",
+  "Every card type in its default state, desktop and mobile.":
+    "كل أنواع البطاقات في حالتها الافتراضية، على سطح المكتب والجوال.",
+
+  /* ─── Core Components — batch 7 ─── */
+  "Pinned Messages":
+    "الرسائل المثبّتة",
+  "Pinned messages":
+    "الرسائل المثبّتة",
+  "Pinned Messages · Item Menu":
+    "الرسائل المثبّتة · قائمة العنصر",
+  "Pinned Messages · Jump To Message":
+    "الرسائل المثبّتة · الانتقال إلى الرسالة",
+  "Pinned Messages · Panel":
+    "الرسائل المثبّتة · اللوحة",
+  "Pinned Messages · Unpin Modal":
+    "الرسائل المثبّتة · نافذة إلغاء التثبيت",
+  "Pinned Messages · Unpinned":
+    "الرسائل المثبّتة · غير مثبّتة",
+  "Pinned received message.":
+    "رسالة واردة مثبّتة.",
+  "Placeholder — Received":
+    "نائب — واردة",
+  "Placeholder — Sent":
+    "نائب — مُرسَلة",
+  "Placeholder — states to be defined.":
+    "نائب — حالات ستُحدَّد لاحقًا.",
+  "Poll Bubble":
+    "فقاعة الاستطلاع",
+  "Pradeep":
+    "براديب",
+  "Priya":
+    "بريا",
+  "Priya Nair":
+    "بريا ناير",
+  "Quoted (Reply)":
+    "مقتبسة (ردّ)",
+  "Receipt States":
+    "حالات الإيصال",
+  "Received bubbles: bg":
+    "الفقاعات الواردة: الخلفية",
+  "Sent bubbles: bg":
+    "الفقاعات المُرسَلة: الخلفية",
+  "Received — Long Text (Read More)":
+    "واردة — نص طويل (قراءة المزيد)",
+  "Sent — Long Text (Read More)":
+    "مُرسَلة — نص طويل (قراءة المزيد)",
+  "Reply to":
+    "ردّ على",
+  "Replying":
+    "جارٍ الردّ",
+  "Report.docx":
+    "تقرير.docx",
+  "Signed.pdf":
+    "موقّع.pdf",
+  "Save message":
+    "حفظ الرسالة",
+  "Saving messages in a conversation.":
+    "حفظ الرسائل في محادثة.",
+  "Search bar with filter chips in idle state.":
+    "شريط بحث مع شرائح تصفية في الحالة الخاملة.",
+  "Sensitive Content — Received":
+    "محتوى حسّاس — واردة",
+  "Sensitive Content — Sent":
+    "محتوى حسّاس — مُرسَلة",
+  "Sent & Received":
+    "المُرسَلة والواردة",
+  "Show 2 more":
+    "عرض 2 إضافيين",
+  "Single Image — Received":
+    "صورة مفردة — واردة",
+  "Single Image — Sent":
+    "صورة مفردة — مُرسَلة",
+  "Single reply thread.":
+    "سلسلة ردّ واحدة.",
+  "Single video sent with play button overlay.":
+    "فيديو مفرد مُرسَل يعلوه زر تشغيل.",
+  "Single — Loading (Received)":
+    "مفردة — جارٍ التحميل (واردة)",
+  "Single — Loading (Sent)":
+    "مفردة — جارٍ التحميل (مُرسَلة)",
+  "Single — Received":
+    "مفردة — واردة",
+  "Single — Sent":
+    "مفردة — مُرسَلة",
+  "Sounds good!":
+    "يبدو جيدًا!",
+  "Square media-grid result tile in search.":
+    "بلاطة نتيجة مربّعة في شبكة وسائط البحث.",
+  "State":
+    "الحالة",
+  "Sticker Bubble":
+    "فقاعة الملصق",
+  "Sticker action selected.":
+    "تم اختيار إجراء الملصقات.",
+  "Stop notifications":
+    "إيقاف الإشعارات",
+  "Strikethrough formatting.":
+    "تنسيق الخط المتوسّط.",
+  "Structure (from Figma node 4090:846250):":
+    "البنية (من عقدة Figma رقم 4090:846250):",
+  "Suggest Reply Panel":
+    "لوحة اقتراح الردّ",
+  "Sure, I'll send it over in a minute.":
+    "بالتأكيد، سأرسلها خلال دقيقة.",
+  "Sure, checking it now":
+    "بالتأكيد، أتحقق منها الآن",
+  "TXT":
+    "نص",
+  "ZIP":
+    "أرشيف",
+  "Tap to retry":
+    "اضغط لإعادة المحاولة",
+  "Tessa:":
+    "تيسا:",
+  "Text Bubble":
+    "فقاعة النص",
+  "Thanks":
+    "شكرًا",
+  "Thanks! I spent a lot of time on the palette.":
+    "شكرًا! قضيت وقتًا طويلًا على لوحة الألوان.",
+  "Thanks! Will do":
+    "شكرًا! سأفعل",
+  "Thread Notifications":
+    "إشعارات السلسلة",
+  "Two flows:":
+    "مساران:",
+  "Two images displayed in a 2-column grid.":
+    "صورتان معروضتان في شبكة من عمودين.",
+  "UNSUPPORTED":
+    "غير مدعوم",
+  "Unsupported File":
+    "ملف غير مدعوم",
+  "Underline formatting.":
+    "تنسيق الخط السفلي.",
+  "Unpin conversation":
+    "إلغاء تثبيت المحادثة",
+  "Upload failed":
+    "فشل الرفع",
+  "Uploading & Failed":
+    "الرفع والفشل",
+  "Uploading and failed delivery states.":
+    "حالتا الرفع وفشل التسليم.",
+  "Usage — HTML structure + token CSS.":
+    "الاستخدام — بنية HTML + CSS الرموز.",
+  "User info":
+    "معلومات المستخدم",
+  "Users List":
+    "قائمة المستخدمين",
+  "Vertical — Received":
+    "رأسي — واردة",
+  "Vertical — Sent":
+    "رأسي — مُرسَلة",
+  "Video Attachment":
+    "مرفق فيديو",
+  "Video Bubble":
+    "فقاعة الفيديو",
+  "Video Grid (4+)":
+    "شبكة فيديو (+4)",
+  "Video attachment in all states.":
+    "مرفق فيديو في كل الحالات.",
+  "Video attachment — all states.":
+    "مرفق فيديو — كل الحالات.",
+  "Voice Attachment":
+    "مرفق صوتي",
+  "Voice Record action selected.":
+    "تم اختيار إجراء التسجيل الصوتي.",
+  "Voice-note.mp3":
+    "ملاحظة-صوتية.mp3",
+  "Voice-reply.mp3":
+    "ردّ-صوتي.mp3",
+  "Walkthrough.mp3":
+    "جولة.mp3",
+  "What is the condition of the watch?":
+    "ما حالة الساعة؟",
+  "When was it purchased?":
+    "متى تم شراؤها؟",
+  "With Caption":
+    "مع تعليق",
+  "With Error":
+    "مع خطأ",
+  "With Reply":
+    "مع ردّ",
+  "With Typing Indicator":
+    "مع مؤشّر الكتابة",
+  "Without Back Button":
+    "بدون زر الرجوع",
+  "XLS · 96 KB":
+    "XLS · 96 كيلوبايت",
+  "Yes, I can proceed with the order":
+    "نعم، يمكنني المتابعة بالطلب",
+  "Yes, available right now":
+    "نعم، متاح الآن",
+  "Yes, delivery in 2 to 3 days":
+    "نعم، التوصيل خلال يومين إلى ثلاثة",
+  "You can check and confirm":
+    "يمكنك التحقق والتأكيد",
+  "You removed Jack as admin":
+    "أزلت جاك من المسؤولين",
+  "Your course certificate is ready to do...":
+    "شهادة دورتك جاهزة للتن...",
+  "Your ride has arrived.":
+    "وصلت سيارتك.",
+  "Your trip receipt is ready":
+    "إيصال رحلتك جاهز",
+  "Your ride has arrived. Driver is waiting outside.":
+    "وصلت سيارتك. السائق ينتظر في الخارج.",
+  "action.":
+    "إجراء.",
+  "archive.rar":
+    "أرشيف.rar",
+  "clip.opus":
+    "مقطع.opus",
+  "slides.key":
+    "شرائح.key",
+  "attached from the picker.":
+    "مُرفق من المُنتقي.",
+  "can you send the docs?":
+    "هل يمكنك إرسال المستندات؟",
+  "drag files onto the chat":
+    "اسحب الملفات إلى الدردشة",
+  "everything from the shoot 📦":
+    "كل ما من جلسة التصوير 📦",
+  "format goes separately":
+    "كل تنسيق يُرسل على حدة",
+  "join the match now":
+    "انضم إلى المباراة الآن",
+  "one more batch":
+    "دفعة أخرى",
+  "single slot":
+    "خانة واحدة",
+  "uploading → read":
+    "جارٍ الرفع ← قُرئت",
+  "wired up:":
+    "موصولة:",
+  "· shared by":
+    "· شاركها",
+  "panel (chat header":
+    "لوحة (ترويسة الدردشة",
+  "received · 2 grid":
+    "واردة · شبكة من 2",
+  "received · 3 grid":
+    "واردة · شبكة من 3",
+  "received · 4 grid":
+    "واردة · شبكة من 4",
+  "received · 4+ overflow":
+    "واردة · فائض +4",
+  "received · multiple (one bubble)":
+    "واردة · متعددة (فقاعة واحدة)",
+  "received · playing":
+    "واردة · قيد التشغيل",
+  "received · single":
+    "واردة · مفردة",
+  "received · with a document (separate bubbles)":
+    "واردة · مع مستند (فقاعات منفصلة)",
+  "sent · 2 grid":
+    "مُرسَلة · شبكة من 2",
+  "sent · 3 grid":
+    "مُرسَلة · شبكة من 3",
+  "sent · 4 grid":
+    "مُرسَلة · شبكة من 4",
+  "sent · 4+ overflow":
+    "مُرسَلة · فائض +4",
+  "sent · multiple (one bubble)":
+    "مُرسَلة · متعددة (فقاعة واحدة)",
+  "sent · playing":
+    "مُرسَلة · قيد التشغيل",
+  "sent · single":
+    "مُرسَلة · مفردة",
+  "sent · with a document (separate bubbles)":
+    "مُرسَلة · مع مستند (فقاعات منفصلة)",
+  "— a play button on the left, plus time.":
+    "— زر تشغيل في البداية، مع الوقت.",
+  "— from a message's context menu (":
+    "— من قائمة سياق الرسالة (",
+  "⋮ → Pinned messages":
+    "⋮ ← الرسائل المثبّتة",
+  "The top-right corner is a":
+    "الزاوية العلوية في النهاية هي",
+  "Panel overlay for":
+    "طبقة لوحة لـ",
+  "Every":
+    "كل",
+  ": it shows the remove":
+    ": تعرض زر الإزالة",
+  "A single chat with the design-system":
+    "محادثة واحدة مع فريق نظام التصميم",
+  "A voice note is":
+    "الملاحظة الصوتية هي",
+  "An audio":
+    "ملف صوتي",
+  "(default), a":
+    "(افتراضي)، أو",
+  "(loading), or an":
+    "(أثناء التحميل)، أو",
+  "(or use ＋) to queue previews, then":
+    "(أو استخدم ＋) لوضع المعاينات في الانتظار، ثم",
+  ", dark text, radius 12px":
+    "، نص داكن، استدارة 12 بكسل",
+  ", white text, radius 12px":
+    "، نص أبيض، استدارة 12 بكسل",
+
+  /* ─── Core Components — batch 6 ─── */
+  "1.2 MB":
+    "1.2 ميجابايت",
+  "2.4 MB":
+    "2.4 ميجابايت",
+  "6.1 MB":
+    "6.1 ميجابايت",
+  "200 KB":
+    "200 كيلوبايت",
+  "340 KB":
+    "340 كيلوبايت",
+  "540 KB":
+    "540 كيلوبايت",
+  "812 KB":
+    "812 كيلوبايت",
+  "120 KB · DOCX":
+    "120 كيلوبايت · DOCX",
+  "1.2 MB · PDF":
+    "1.2 ميجابايت · PDF",
+  "2.4 MB · PDF":
+    "2.4 ميجابايت · PDF",
+  "340 KB · DOCX":
+    "340 كيلوبايت · DOCX",
+  "340 KB · XLSX":
+    "340 كيلوبايت · XLSX",
+  "812 KB · XLSX":
+    "812 كيلوبايت · XLSX",
+  "PDF · 1.2 MB":
+    "PDF · 1.2 ميجابايت",
+  "PDF · 2.4 MB":
+    "PDF · 2.4 ميجابايت",
+  "PDF · 6.1 MB":
+    "PDF · 6.1 ميجابايت",
+  "XLS · 812 KB":
+    "XLS · 812 كيلوبايت",
+  "DOC · 340 KB":
+    "DOC · 340 كيلوبايت",
+  "12 Jun · 1.1 MB":
+    "12 يونيو · 1.1 ميجابايت",
+  "12 Jun · 2.4 MB":
+    "12 يونيو · 2.4 ميجابايت",
+  "12 Jun · 340 KB":
+    "12 يونيو · 340 كيلوبايت",
+  "12 Jun · 6.1 MB":
+    "12 يونيو · 6.1 ميجابايت",
+  "12 Jun · 812 KB":
+    "12 يونيو · 812 كيلوبايت",
+  "16 Sep, 2026":
+    "16 سبتمبر 2026",
+  "12 Files":
+    "12 ملفًا",
+  "2 Files":
+    "ملفان",
+  "3 Files":
+    "3 ملفات",
+  "4 Files":
+    "4 ملفات",
+  "6 Files":
+    "6 ملفات",
+  "9 Files":
+    "9 ملفات",
+  "2 Audio":
+    "مقطعان صوتيان",
+  "4 Images":
+    "4 صور",
+  "4 Videos":
+    "4 مقاطع فيديو",
+  "6 Videos":
+    "6 مقاطع فيديو",
+  "3+ Files (Show More)":
+    "‎3+ ملفات (عرض المزيد)",
+  "6 Images · hello":
+    "6 صور · مرحبًا",
+  "6 Images · the set":
+    "6 صور · المجموعة",
+  "2 Grid — Received":
+    "شبكة من 2 — واردة",
+  "2 Grid — Sent":
+    "شبكة من 2 — مُرسَلة",
+  "3 Grid — Received":
+    "شبكة من 3 — واردة",
+  "3 Grid — Sent":
+    "شبكة من 3 — مُرسَلة",
+  "4 Grid — Received":
+    "شبكة من 4 — واردة",
+  "4 Grid — Sent":
+    "شبكة من 4 — مُرسَلة",
+  "4+ Grid — Received":
+    "شبكة من +4 — واردة",
+  "4+ Grid — Sent":
+    "شبكة من +4 — مُرسَلة",
+  "Horizontal — Received":
+    "أفقي — واردة",
+  "Horizontal — Sent":
+    "أفقي — مُرسَلة",
+  "Loading — Received":
+    "جارٍ التحميل — واردة",
+  "Loading — Sent":
+    "جارٍ التحميل — مُرسَلة",
+  "Multiple Loading — Received":
+    "تحميل متعدد — واردة",
+  "Multiple Loading — Sent":
+    "تحميل متعدد — مُرسَلة",
+  "Multiple — Loading (Received)":
+    "متعددة — جارٍ التحميل (واردة)",
+  "Multiple — Loading (Sent)":
+    "متعددة — جارٍ التحميل (مُرسَلة)",
+  "Action":
+    "إجراء",
+  "Action Badge":
+    "شارة الإجراء",
+  "Action List":
+    "قائمة الإجراءات",
+  "ActionSheet":
+    "ورقة الإجراءات",
+  "Badge":
+    "شارة",
+  "Overflow":
+    "الفائض",
+  "Panel":
+    "اللوحة",
+  "All Actions":
+    "كل الإجراءات",
+  "All Attachments":
+    "كل المرفقات",
+  "All Call Actions":
+    "كل إجراءات المكالمات",
+  "All Dividers":
+    "كل الفواصل",
+  "All Formatting Types":
+    "كل أنواع التنسيق",
+  "All Group Actions":
+    "كل إجراءات المجموعات",
+  "All Layouts":
+    "كل التخطيطات",
+  "All Received States":
+    "كل حالات الواردة",
+  "All Sent States":
+    "كل حالات المُرسَلة",
+  "All Stickers (Received)":
+    "كل الملصقات (واردة)",
+  "All Stickers (Sent)":
+    "كل الملصقات (مُرسَلة)",
+  "All action states overview.":
+    "نظرة عامة على كل حالات الإجراءات.",
+  "All formatting types overview.":
+    "نظرة عامة على كل أنواع التنسيق.",
+  "All formatting types.":
+    "كل أنواع التنسيق.",
+  "AI action selected.":
+    "تم اختيار إجراء الذكاء الاصطناعي.",
+  "Attachment action selected.":
+    "تم اختيار إجراء المرفقات.",
+  "Emoji action selected.":
+    "تم اختيار إجراء الرموز التعبيرية.",
+  "Formatting action selected.":
+    "تم اختيار إجراء التنسيق.",
+  "Default state — no action selected.":
+    "الحالة الافتراضية — لا إجراء محدّد.",
+  "Audio Attachment":
+    "مرفق صوتي",
+  "Audio Bubble":
+    "فقاعة صوتية",
+  "Audio attachment — all states.":
+    "مرفق صوتي — كل الحالات.",
+  "Call Bubble":
+    "فقاعة المكالمة",
+  "Call List":
+    "قائمة المكالمات",
+  "Chat Header":
+    "ترويسة الدردشة",
+  "Chat List":
+    "قائمة المحادثات",
+  "Block Quote formatting.":
+    "تنسيق الاقتباس.",
+  "Bold formatting.":
+    "تنسيق الخط العريض.",
+  "Bullet Point List":
+    "قائمة نقطية",
+  "Bullet-point List formatting.":
+    "تنسيق القائمة النقطية.",
+  "Code Block formatting.":
+    "تنسيق كتلة الشيفرة.",
+  "Code formatting.":
+    "تنسيق الشيفرة.",
+  "Italic formatting.":
+    "تنسيق الخط المائل.",
+  "Link formatting.":
+    "تنسيق الرابط.",
+  "Ordered List formatting.":
+    "تنسيق القائمة المرقّمة.",
+  "Can we reschedule tomorrow morning":
+    "هل يمكننا إعادة الجدولة صباح الغد",
+  "Can you share more photos?":
+    "هل يمكنك مشاركة مزيد من الصور؟",
+  "Can you share the Figma link?":
+    "هل يمكنك مشاركة رابط Figma؟",
+  "Chat (Attachments Queued)":
+    "دردشة (مرفقات في الانتظار)",
+  "Chat (Composer Drop)":
+    "دردشة (إفلات في المُنشئ)",
+  "Check this out from yesterday!":
+    "ألقِ نظرة على هذا من الأمس!",
+  "Check this out!":
+    "ألقِ نظرة على هذا!",
+  "Claim your free game before it e...":
+    "احصل على لعبتك المجانية قبل أن ت...",
+  "Collaborative Document Bubble":
+    "فقاعة المستند التعاوني",
+  "Collaborative Whiteboard Bubble":
+    "فقاعة السبّورة التعاونية",
+  "Composer preview — every badge state.":
+    "معاينة المُنشئ — كل حالات الشارة.",
+  "Composers":
+    "المُنشئات",
+  "Confirming the pin.":
+    "تأكيد التثبيت.",
+  "Confirming the unpin from the panel.":
+    "تأكيد إلغاء التثبيت من اللوحة.",
+  "Confirming the unpin.":
+    "تأكيد إلغاء التثبيت.",
+  "Conversation Starter Panel":
+    "لوحة بادئات المحادثة",
+  "Conversation Summary Panel":
+    "لوحة ملخّص المحادثة",
+  "Conversation pinned":
+    "تم تثبيت المحادثة",
+  "Conversation unpinned":
+    "تم إلغاء تثبيت المحادثة",
+  "Conversation · Menu":
+    "المحادثة · القائمة",
+  "Conversation · Pin Modal":
+    "المحادثة · نافذة التثبيت",
+  "Conversation · Pinned":
+    "المحادثة · مثبّتة",
+  "Conversation · Unpin Menu":
+    "المحادثة · قائمة إلغاء التثبيت",
+  "Conversation · Unpin Modal":
+    "المحادثة · نافذة إلغاء التثبيت",
+  "Conversation · Unpinned":
+    "المحادثة · غير مثبّتة",
+  "Message pinned":
+    "تم تثبيت الرسالة",
+  "Message unpinned":
+    "تم إلغاء تثبيت الرسالة",
+  "Message · Menu (Received)":
+    "الرسالة · القائمة (واردة)",
+  "Message · Menu (Sent)":
+    "الرسالة · القائمة (مُرسَلة)",
+  "Message · Pin Modal":
+    "الرسالة · نافذة التثبيت",
+  "Message · Pinned (Received)":
+    "الرسالة · مثبّتة (واردة)",
+  "Message · Pinned (Sent)":
+    "الرسالة · مثبّتة (مُرسَلة)",
+  "Header · Menu":
+    "الترويسة · القائمة",
+  "Pin conversation":
+    "تثبيت المحادثة",
+  "Pin message":
+    "تثبيت الرسالة",
+  "Data.xlsx":
+    "بيانات.xlsx",
+  "Deck.pptx":
+    "العرض.pptx",
+  "Component_list.xlsx":
+    "قائمة_المكوّنات.xlsx",
+  "Design_specs.pdf":
+    "مواصفات_التصميم.pdf",
+  "File.pdf":
+    "ملف.pdf",
+  "Follow-up.mp3":
+    "متابعة.mp3",
+  "Hello by Adele.mp3":
+    "هيلو لأديل.mp3",
+  "Delete Bubble":
+    "فقاعة الحذف",
+  "Deleted incoming message.":
+    "رسالة واردة محذوفة.",
+  "Deleted outgoing message with read receipt.":
+    "رسالة صادرة محذوفة مع إيصال قراءة.",
+  "Deleted outgoing message with sent status.":
+    "رسالة صادرة محذوفة بحالة أُرسلت.",
+  "Did you finish the assignment?":
+    "هل أنهيت المهمة؟",
+  "Do you offer delivery?":
+    "هل توفّرون التوصيل؟",
+  "Document":
+    "مستند",
+  "Document Attachment":
+    "مرفق مستند",
+  "Document Types":
+    "أنواع المستندات",
+  "Document attachment in all states.":
+    "مرفق مستند في كل الحالات.",
+  "Documents come in several file-type variants.":
+    "تأتي المستندات بعدة أنماط حسب نوع الملف.",
+  "Downloading":
+    "جارٍ التنزيل",
+  "Drag & Drop":
+    "السحب والإفلات",
+  "Drag & Drop (Composer · With Files)":
+    "السحب والإفلات (المُنشئ · مع ملفات)",
+  "Drag & Drop (Composer)":
+    "السحب والإفلات (المُنشئ)",
+  "End to End":
+    "من البداية إلى النهاية",
+  "Every state together.":
+    "كل الحالات معًا.",
+  "Every composer state stacked for review.":
+    "كل حالات المُنشئ مجمّعة للمراجعة.",
+  "Figma:":
+    "Figma:",
+  "File Bubble":
+    "فقاعة الملف",
+  "File and audio chips at the same 72px height.":
+    "شرائح الملفات والصوتيات بالارتفاع نفسه 72 بكسل.",
+  "File attachment — all states.":
+    "مرفق ملف — كل الحالات.",
+  "Filter chips":
+    "شرائح التصفية",
+  "Final logo video walkthrough, tak...":
+    "جولة فيديو الشعار النهائية، اللقطة...",
+  "Forwarded & Edited":
+    "مُعاد توجيهها ومُعدَّلة",
+  "Forwarded and edited markers.":
+    "علامتا إعادة التوجيه والتعديل.",
+  "Four images in a 2×2 grid layout.":
+    "أربع صور في تخطيط شبكي 2×2.",
+  "Friday":
+    "الجمعة",
+  "Sunday":
+    "الأحد",
+  "Gifs":
+    "صور متحركة",
+  "Links":
+    "روابط",
+  "Group name changed to \"Watch World\"":
+    "تغيّر اسم المجموعة إلى «عالم الساعات»",
+  "HTML + CSS usage reference.":
+    "مرجع الاستخدام بـ HTML و CSS.",
+  "Header + SearchBar + ConversationItem":
+    "الترويسة + شريط البحث + عنصر المحادثة",
+  "I love it! The colors are perfect.":
+    "أحببته! الألوان مثالية.",
+  "Image":
+    "صورة",
+  "Image Attachment":
+    "مرفق صورة",
+  "Image Bubble":
+    "فقاعة الصورة",
+  "Image Grid (4+)":
+    "شبكة صور (+4)",
+  "Image attachment in all states.":
+    "مرفق صورة في كل الحالات.",
+  "Image attachment — all states.":
+    "مرفق صورة — كل الحالات.",
+  "In Message":
+    "في الرسالة",
+  "In Search":
+    "في البحث",
+  "Incoming Excel file bubble.":
+    "فقاعة ملف Excel واردة.",
+  "Incoming PDF file bubble.":
+    "فقاعة ملف PDF واردة.",
+  "Incoming Parent":
+    "رسالة أصلية واردة",
+  "Incoming Word document file bubble.":
+    "فقاعة ملف مستند Word واردة.",
+  "Incoming audio call that was missed.":
+    "مكالمة صوتية واردة فائتة.",
+  "Incoming audio call that was rejected.":
+    "مكالمة صوتية واردة مرفوضة.",
+  "Incoming collaborative document bubble.":
+    "فقاعة مستند تعاوني واردة.",
+  "Incoming collaborative whiteboard bubble.":
+    "فقاعة سبّورة تعاونية واردة.",
+  "Incoming poll bubble with vote results.":
+    "فقاعة استطلاع واردة مع نتائج التصويت.",
+  "Incoming sticker bubble.":
+    "فقاعة ملصق واردة.",
+  "Incoming text message.":
+    "رسالة نصية واردة.",
+  "Incoming video call that was missed.":
+    "مكالمة فيديو واردة فائتة.",
+  "Incoming video call that was rejected.":
+    "مكالمة فيديو واردة مرفوضة.",
+  "Incoming voice call":
+    "مكالمة صوتية واردة",
+  "Is the price negotiable?":
+    "هل السعر قابل للتفاوض؟",
+  "Is there any warranty left?":
+    "هل ما زال هناك ضمان؟",
+  "Is this still available?":
+    "هل ما زال متاحًا؟",
+  "Is this watch still available?":
+    "هل ما زالت هذه الساعة متاحة؟",
+  "It's ₹7,999":
+    "السعر ₹7,999",
+  "Layout:":
+    "التخطيط:",
+  "Let me know if you have any feedback.":
+    "أخبرني إن كان لديك أي ملاحظات.",
+  "Main Actions — Pin.":
+    "الإجراءات الرئيسية — التثبيت.",
+  "Main Actions — Save.":
+    "الإجراءات الرئيسية — الحفظ.",
+  "Main Actions — Thread Notifications.":
+    "الإجراءات الرئيسية — إشعارات السلسلة.",
+  "Mark unread":
+    "وضع علامة كغير مقروءة",
+  "Message Composer – Actions":
+    "مُنشئ الرسائل – الإجراءات",
+  "Message Composer – Attachment":
+    "مُنشئ الرسائل – المرفقات",
+  "Message Composer – Formatting":
+    "مُنشئ الرسائل – التنسيق",
+  "Message Composer – Panel":
+    "مُنشئ الرسائل – اللوحة",
+  "Message Composer – State":
+    "مُنشئ الرسائل – الحالة",
+  "Mixed Batch":
+    "دفعة مختلطة",
+  "Multi Attachments — End to End.":
+    "المرفقات المتعددة — من البداية إلى النهاية.",
+  "Multi Attachments — In Composer.":
+    "المرفقات المتعددة — داخل المُنشئ.",
+  "Multi Attachments — In Search.":
+    "المرفقات المتعددة — في البحث.",
+  "Multi Attachments — Sent & Received.":
+    "المرفقات المتعددة — المُرسَلة والواردة.",
+  "Multiple Audio":
+    "صوتيات متعددة",
+  "Multiple Documents":
+    "مستندات متعددة",
+  "Multiple Formats":
+    "تنسيقات متعددة",
+  "Nice, Does it come with warranty?":
+    "جميل، هل يأتي مع ضمان؟",
+  "No Replies":
+    "لا ردود",
+  "No replies yet — just the parent message.":
+    "لا ردود بعد — الرسالة الأصلية فقط.",
+  "Not a voice note.":
+    "ليست ملاحظة صوتية.",
+  "Notification behaviour for message threads.":
+    "سلوك الإشعارات لسلاسل الرسائل.",
+  "Order delivered":
+    "تم تسليم الطلب",
+  "Organise":
+    "تنظيم",
+  "Organise → Pin message":
+    "تنظيم ← تثبيت الرسالة",
+  "Outgoing Excel file bubble.":
+    "فقاعة ملف Excel صادرة.",
+  "Outgoing PDF file bubble.":
+    "فقاعة ملف PDF صادرة.",
+  "Outgoing Word document file bubble.":
+    "فقاعة ملف مستند Word صادرة.",
+  "Outgoing poll bubble with vote results.":
+    "فقاعة استطلاع صادرة مع نتائج التصويت.",
+  "Outgoing sticker bubble with read receipt.":
+    "فقاعة ملصق صادرة مع إيصال قراءة.",
+  "Outgoing text message with delivered status.":
+    "رسالة نصية صادرة بحالة سُلّمت.",
+  "Outgoing text message with read receipt.":
+    "رسالة نصية صادرة مع إيصال قراءة.",
+  "Outgoing text message with sent status.":
+    "رسالة نصية صادرة بحالة أُرسلت.",
+  "PPT":
+    "عرض تقديمي",
+  "Photo & Video Library":
+    "مكتبة الصور والفيديو",
+  "Photos / Videos":
+    "الصور / الفيديو",
+
   /* ─── Core Components — avatar initials ─── */
   "SF":
     "سف",

@@ -253,7 +253,7 @@ function FileBubble({
               whiteSpace: "nowrap",
             }}
           >
-            {fileName}
+            <T>{fileName}</T>
           </span>
           <span
             style={{
@@ -308,7 +308,7 @@ function FileTypeIcon({ type, size }: { type: "pdf" | "doc" | "xls"; size: "larg
       {/* Fold */}
       <path d="M44 0L60 16H48C45.79 16 44 14.21 44 12V0Z" fill={c.fold} opacity="0.6" />
       {/* Text label */}
-      <text x="32" y="56" textAnchor="middle" fontSize="16" fontWeight="700" fill="white">{c.text}</text>
+      <text x="32" y="56" textAnchor="middle" fontSize="16" fontWeight="700" fill="white"><T>{c.text}</T></text>
     </svg>
   );
 }

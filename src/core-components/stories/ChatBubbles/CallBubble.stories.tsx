@@ -399,7 +399,7 @@ function CallBubble({
               color: isOutgoing ? "rgba(255, 255, 255, 0.7)" : "var(--cometchat-text-color-tertiary)",
             }}
           >
-            {timestamp}
+            <T>{timestamp}</T>
           </span>
         </div>
       </div>

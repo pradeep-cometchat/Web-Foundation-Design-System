@@ -470,7 +470,7 @@ function ImageBubble({ layout, extraCount = 0, variant = "sent", time = "4:56 pm
   function renderMeta() {
     return (
       <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "var(--cometchat-spacing-1)", padding: "0 var(--cometchat-spacing-1)" }}>
-        <span style={{ fontSize: "12px", color: isSent ? "rgba(255,255,255,0.7)" : "var(--cometchat-text-color-tertiary)" }}>{time}</span>
+        <span style={{ fontSize: "12px", color: isSent ? "rgba(255,255,255,0.7)" : "var(--cometchat-text-color-tertiary)" }}><T>{time}</T></span>
         {isSent && <ReceiptIcon status={status} />}
       </div>
     );

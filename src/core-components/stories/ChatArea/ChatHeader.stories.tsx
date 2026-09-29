@@ -233,7 +233,7 @@ function ChatHeader({ showBack = true, showTyping = false, status = "Online" }: 
             {showTyping ? (
               <TypingIndicator activity="typing" context="single" />
             ) : (
-              <span className="chat-header__status">{status}</span>
+              <span className="chat-header__status"><T>{status}</T></span>
             )}
           </div>
         </div>

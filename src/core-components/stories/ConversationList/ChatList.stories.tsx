@@ -380,7 +380,7 @@ function FilterChips() {
             borderColor: i === 0 ? "var(--cometchat-background-color-solid)" : "var(--cometchat-border-color-default)",
           }}
         >
-          {chip}
+          <T>{chip}</T>
         </span>
       ))}
     </div>

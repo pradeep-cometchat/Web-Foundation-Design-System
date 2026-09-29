@@ -273,7 +273,7 @@ export const CodeBlock: Story = {
           <div style={{ background: "var(--cometchat-extended-primary-color-100)", display: "inline", fontFamily: "monospace", fontSize: 13, lineHeight: "22px" }}>
             {"import React from 'react';"}<br/>
             {"function App() {"}<br/>
-            {"  return <h1><T>Hello, World!</T></h1>;"}<br/>
+            {"  return <h1>Hello, World!</h1>;"}<br/>
           </div>
         </div>
       </FormattingComposer>
@@ -295,7 +295,7 @@ export const AllFormattingTypes: Story = {
       <Section title="Bullet-point List"><FormattingComposer active="bulletList"><div style={{ background: "var(--cometchat-extended-primary-color-100)", borderRadius: 2, padding: "2px 4px", display: "inline-block" }}><div><T>• First item</T></div><div><T>• Second item</T></div><div><T>• Third item</T></div></div></FormattingComposer></Section>
       <Section title="Block Quote"><FormattingComposer active="blockQuote"><T>Hey!</T> <span style={{ ...selectionBg, borderInlineStart: "2px solid var(--cometchat-border-color-highlight)", paddingInlineStart: 4 }}><T>Block Quote</T></span></FormattingComposer></Section>
       <Section title="Code"><FormattingComposer active="code"><T>Hey!</T> <span style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: 12, padding: "2px 4px", display: "inline-flex" }}><span style={{ background: "var(--cometchat-extended-primary-color-100)", padding: "2px 6px", color: "var(--cometchat-text-color-highlight)", fontFamily: "monospace" }}><T>Code</T></span></span></FormattingComposer></Section>
-      <Section title="Code Block"><FormattingComposer active="codeBlock"><div style={{ background: "var(--cometchat-background-color-03)", borderRadius: 8, padding: "10px 12px" }}><div style={{ background: "var(--cometchat-extended-primary-color-100)", display: "inline", fontFamily: "monospace", fontSize: 13, lineHeight: "22px" }}>{"import React from 'react';"}<br/>{"function App() {"}<br/>{"  return <h1><T>Hello, World!</T></h1>;"}</div></div></FormattingComposer></Section>
+      <Section title="Code Block"><FormattingComposer active="codeBlock"><div style={{ background: "var(--cometchat-background-color-03)", borderRadius: 8, padding: "10px 12px" }}><div style={{ background: "var(--cometchat-extended-primary-color-100)", display: "inline", fontFamily: "monospace", fontSize: 13, lineHeight: "22px" }}>{"import React from 'react';"}<br/>{"function App() {"}<br/>{"  return <h1>Hello, World!</h1>;"}</div></div></FormattingComposer></Section>
     </div>
   ),
 };
@@ -449,7 +449,7 @@ export const Playground: Story = {
     return (
       <div style={{ padding: 24 }}>
         <FormattingComposer active={f}>
-          <T>Hey!</T> <span style={selectionBg}><strong>{f}</strong></span>
+          <T>Hey!</T> <span style={selectionBg}><strong><T>{f}</T></strong></span>
         </FormattingComposer>
       </div>
     );

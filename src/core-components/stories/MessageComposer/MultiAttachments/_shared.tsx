@@ -1216,7 +1216,7 @@ export function MultiAttachmentBubble({
               whiteSpace: "nowrap",
             }}
           >
-            {f.name}
+            <T>{f.name}</T>
           </span>
           {(downloading || f.meta) && (
             <span style={{ fontSize: 12, color: secondary }}>
@@ -1434,7 +1434,7 @@ export function MultiAttachmentBubble({
           {edited && (
             <span style={{ fontSize: 12, color: secondary }}><T>Edited</T></span>
           )}
-          <span style={{ fontSize: 12, color: secondary }}>{time}</span>
+          <span style={{ fontSize: 12, color: secondary }}><T>{time}</T></span>
           {isSent && (state === "default" || state === "downloading") && (
             <ReceiptIcon status={status} />
           )}
@@ -1707,7 +1707,7 @@ export function SearchHeader({
                 whiteSpace: "nowrap",
               }}
             >
-              {f}
+              <T>{f}</T>
             </button>
           );
         })}
@@ -1796,7 +1796,7 @@ export function ConversationResult({
               flexShrink: 0,
             }}
           >
-            {time}
+            <T>{time}</T>
           </span>
         </div>
         <span
@@ -1922,7 +1922,7 @@ export function MediaTile({
                 fontWeight: 500,
               }}
             >
-              {duration}
+              <T>{duration}</T>
             </div>
           )}
         </>
@@ -3011,7 +3011,7 @@ export function UsageDoc({
                   marginBottom: "var(--cometchat-spacing-1)",
                 }}
               >
-                {c.name}
+                <T>{c.name}</T>
               </strong>
               <span
                 style={{
@@ -3019,7 +3019,7 @@ export function UsageDoc({
                   color: "var(--cometchat-text-color-tertiary)",
                 }}
               >
-                {c.desc}
+                <T>{c.desc}</T>
               </span>
             </div>
           ))}

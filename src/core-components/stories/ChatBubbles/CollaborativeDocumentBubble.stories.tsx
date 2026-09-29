@@ -417,7 +417,7 @@ function CollaborativeDocBubble({
             padding: "0 var(--cometchat-spacing-3) var(--cometchat-spacing-2)",
           }}
         >
-          <span className="chat-bubble-meta-time">{time}</span>
+          <span className="chat-bubble-meta-time"><T>{time}</T></span>
           {isSent && status && <ReceiptIcon status={status} />}
         </div>
       </div>

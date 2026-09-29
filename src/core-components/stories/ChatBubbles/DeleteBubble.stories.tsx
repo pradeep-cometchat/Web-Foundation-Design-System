@@ -245,7 +245,7 @@ function DeleteBubble({
             marginTop: "var(--cometchat-spacing-1)",
           }}
         >
-          <span className="chat-bubble-meta-time">{time}</span>
+          <span className="chat-bubble-meta-time"><T>{time}</T></span>
           {isSent && status && <ReceiptIcon status={status} />}
         </div>
       </div>

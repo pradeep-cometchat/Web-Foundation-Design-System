@@ -201,7 +201,7 @@ function PollBubble({ variant }: { variant: "sent" | "received" }) {
               ) : (
                 <div style={{ width: 24, height: 24, borderRadius: "var(--cometchat-radius-max)", border: `2px solid ${isSent ? "rgba(255,255,255,0.5)" : "var(--cometchat-text-color-tertiary)"}`, flexShrink: 0 }} />
               )}
-              <span style={{ fontSize: "16px", fontWeight: "500", fontFamily: "var(--cometchat-font-family)", color: isSent ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)", flex: 1 }}>{option.label}</span>
+              <span style={{ fontSize: "16px", fontWeight: "500", fontFamily: "var(--cometchat-font-family)", color: isSent ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)", flex: 1 }}><T>{option.label}</T></span>
               <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-1)" }}>
                 <div style={{ display: "flex", alignItems: "center" }}>
                   {Array.from({ length: Math.min(option.voters, 3) }).map((_, i) => (

@@ -123,7 +123,7 @@ function Preview({ sent, sender, kind, count = 1, caption }: PreviewProps) {
           {TYPE_ICON[kind]}
         </span>
       )}
-      <span style={clamp}>{mainText}</span>
+      <span style={clamp}><T>{mainText}</T></span>
       {showCount && <span style={{ flexShrink: 0 }}> · {base}</span>}
     </span>
   );
@@ -160,7 +160,7 @@ function FilterPills({ active }: { active: string }) {
               whiteSpace: "nowrap",
             }}
           >
-            {f}
+            <T>{f}</T>
           </span>
         );
       })}
@@ -485,7 +485,7 @@ function DocRow({
             flexShrink: 0,
           }}
         >
-          {time}
+          <T>{time}</T>
         </span>
       }
     />
@@ -542,7 +542,7 @@ function AudioRow({
             flexShrink: 0,
           }}
         >
-          {time}
+          <T>{time}</T>
         </span>
       }
     />

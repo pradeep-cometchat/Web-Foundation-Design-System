@@ -135,7 +135,7 @@ function StickerPicker() {
       <div style={{ display: "flex", alignItems: "center", gap: 4, padding: "10px 12px", borderBottom: "1px solid var(--cometchat-border-color-light)" }}>
         {stickerTabs.map((tab, i) => (
           <div key={i} style={{ width: 32, height: 32, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, background: i === 0 ? "var(--cometchat-extended-primary-color-50)" : "transparent", cursor: "pointer" }}>
-            {tab}
+            <T>{tab}</T>
           </div>
         ))}
       </div>
@@ -350,7 +350,7 @@ export const Usage: Story = {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           {(["sticker", "emoji", "formatting", "ai"] as const).map(a => (
             <div key={a} style={{ padding: "var(--cometchat-spacing-3)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
-              <strong style={{ fontSize: "14px", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>{a}</strong>
+              <strong style={{ fontSize: "14px", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}><T>{a}</T></strong>
               <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)" }}>Panel overlay for {a} action.</span>
             </div>
           ))}

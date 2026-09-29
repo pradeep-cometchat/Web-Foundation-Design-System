@@ -169,7 +169,7 @@ export const Code: Story = {
 /** Code Block formatting. */
 export const CodeBlock: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
-  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="codeBlock"><div style={{ background: "#f5f5f5", borderRadius: 8, padding: "10px 12px" }}><div style={{ background: "var(--cometchat-extended-primary-color-100)", display: "inline", fontFamily: "monospace", fontSize: 13, lineHeight: "22px" }}>{"import React from 'react';"}<br/>{"function App() {"}<br/>{"  return <h1><T>Hello, World!</T></h1>;"}</div></div></SingleLineFormattingComposer></div>,
+  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="codeBlock"><div style={{ background: "#f5f5f5", borderRadius: 8, padding: "10px 12px" }}><div style={{ background: "var(--cometchat-extended-primary-color-100)", display: "inline", fontFamily: "monospace", fontSize: 13, lineHeight: "22px" }}>{"import React from 'react';"}<br/>{"function App() {"}<br/>{"  return <h1>Hello, World!</h1>;"}</div></div></SingleLineFormattingComposer></div>,
 };
 
 /** All formatting types. */
@@ -195,7 +195,7 @@ export const Playground: Story = {
   parameters: { layout: "padded", docs: { disable: true } },
   render: function Render(args) {
     const f = (args as Record<string, unknown>).formatting as FormattingType;
-    return <div style={{ padding: 24 }}><SingleLineFormattingComposer active={f}><T>Hey!</T> <span style={selectionBg}><strong>{f}</strong></span></SingleLineFormattingComposer></div>;
+    return <div style={{ padding: 24 }}><SingleLineFormattingComposer active={f}><T>Hey!</T> <span style={selectionBg}><strong><T>{f}</T></strong></span></SingleLineFormattingComposer></div>;
   },
 };
 
@@ -213,7 +213,7 @@ export const Usage: Story = {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           {(["bold", "italic", "underline", "strikethrough", "link", "orderedList", "bulletList", "blockQuote", "code", "codeBlock"] as const).map(f => (
             <div key={f} style={{ padding: "var(--cometchat-spacing-3)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
-              <strong style={{ fontSize: "14px", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>{f}</strong>
+              <strong style={{ fontSize: "14px", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}><T>{f}</T></strong>
             </div>
           ))}
         </div>

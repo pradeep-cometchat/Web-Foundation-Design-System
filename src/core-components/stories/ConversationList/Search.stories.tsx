@@ -276,7 +276,7 @@ function SearchField({ state, value = "", showFilters }: { state: SearchState; v
                 whiteSpace: "nowrap",
               }}
             >
-              {filter}
+              <T>{filter}</T>
             </button>
           ))}
         </div>
