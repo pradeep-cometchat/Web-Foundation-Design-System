@@ -1452,6 +1452,24 @@ export const AR: Readonly<Record<string, string>> = {
 
   /* ─── Tooltip, fixtures and field copy (RTL sweep) ─── */
 
+  /* ─── Shell — page names and remaining fixtures ─── */
+  "Chat Empty State":
+    "حالة الدردشة الفارغة",
+  "Scroll To Bottom FAB":
+    "زر التمرير إلى الأسفل",
+  "Scroll To Bottom With Badge":
+    "زر التمرير إلى الأسفل مع شارة",
+  "Hey, how are you doing?":
+    "أهلًا، كيف حالك؟",
+  "Daniel Brooks":
+    "دانيال بروكس",
+  "James Anderson":
+    "جيمس أندرسون",
+  "Leo Martin":
+    "ليو مارتن",
+  "Maxwell Tan":
+    "ماكسويل تان",
+
   /* ─── Shell — screens, states and chat fixtures ─── */
   "Shell Screens":
     "شاشات الهيكل",
