@@ -144,7 +144,7 @@ const stickers = avatarRegistry["Sticker Footage"];
       <UsageSection title="Specifications">
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <StateCard title="Format" description="PNG with transparent background, pre-rendered at 2× resolution." />
-          <StateCard title="Source" description="avatarRegistry['Sticker Footage'] → foundation/tokens/avatars.ts" />
+          <StateCard title="Source" description="avatarRegistry['Sticker Footage'] in foundation/tokens/avatars.ts" />
           <StateCard title="Sizes" description="sm: 48px, md: 80px, lg: 120px (chat bubble), xl: 160px (preview)." />
           <StateCard title="Chat Bubble" description="Stickers render without bubble background — just the image + timestamp." />
           <StateCard title="Picker Grid" description="Displayed in a 4-column grid at 80×80px in the sticker picker panel." />
