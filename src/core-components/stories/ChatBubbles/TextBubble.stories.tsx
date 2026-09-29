@@ -230,7 +230,7 @@ function TextBubble({
           {truncate && message.length > maxChars && (
             <span
               style={{
-                marginLeft: "var(--cometchat-spacing)",
+                marginInlineStart: "var(--cometchat-spacing)",
                 fontSize: "14px",
                 fontFamily: "var(--cometchat-font-family)",
                 fontWeight: "500",

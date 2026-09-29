@@ -146,7 +146,7 @@ export const Usage: Story = {
 
 .ma-tile { position: relative; aspect-ratio: 1 / 1; border-radius: var(--cometchat-radius-2); overflow: hidden; }
 .ma-tile__duration {
-  position: absolute; left: 6px; bottom: 6px;
+  position: absolute; inset-inline-start: 6px; bottom: 6px;
   padding: 1px var(--cometchat-spacing-1-5);
   border-radius: var(--cometchat-radius-1);
   font: var(--cometchat-font-caption2-medium);

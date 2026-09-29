@@ -204,7 +204,7 @@ function PollBubble({ variant }: { variant: "sent" | "received" }) {
               <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-1)" }}>
                 <div style={{ display: "flex", alignItems: "center" }}>
                   {Array.from({ length: Math.min(option.voters, 3) }).map((_, i) => (
-                    <img key={i} src={AVATARS[i % AVATARS.length]} alt="" style={{ width: 28, height: 28, borderRadius: "var(--cometchat-radius-max)", border: "2px solid", borderColor: isSent ? "var(--cometchat-send-bubble-background)" : "var(--cometchat-received-bubble-background)", marginLeft: i > 0 ? -10 : 0, objectFit: "cover" }} />
+                    <img key={i} src={AVATARS[i % AVATARS.length]} alt="" style={{ width: 28, height: 28, borderRadius: "var(--cometchat-radius-max)", border: "2px solid", borderColor: isSent ? "var(--cometchat-send-bubble-background)" : "var(--cometchat-received-bubble-background)", marginInlineStart: i > 0 ? -10 : 0, objectFit: "cover" }} />
                   ))}
                 </div>
                 {option.showExtra ? (
@@ -215,7 +215,7 @@ function PollBubble({ variant }: { variant: "sent" | "received" }) {
               </div>
             </div>
             {/* Progress bar — starts aligned with answer text */}
-            <div style={{ marginLeft: 36, height: 8, borderRadius: 4, background: isSent ? "rgba(255,255,255,0.2)" : "var(--cometchat-border-color-dark)", overflow: "hidden" }}>
+            <div style={{ marginInlineStart: 36, height: 8, borderRadius: 4, background: isSent ? "rgba(255,255,255,0.2)" : "var(--cometchat-border-color-dark)", overflow: "hidden" }}>
               <div style={{ height: "100%", width: `${option.progress * 100}%`, borderRadius: 4, background: isSent ? "var(--cometchat-static-white)" : "var(--cometchat-icon-color-highlight)" }} />
             </div>
           </div>

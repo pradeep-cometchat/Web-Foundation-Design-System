@@ -272,7 +272,7 @@ export const Usage: Story = {
   font-size: 14px;
   color: var(--cometchat-text-color-primary);
   border-bottom: 1px solid var(--cometchat-border-color-light);
-  border-left: 2px solid transparent;
+  border-inline-start: 2px solid transparent;
   cursor: pointer;
 }
 .suggest-reply__item:last-child {

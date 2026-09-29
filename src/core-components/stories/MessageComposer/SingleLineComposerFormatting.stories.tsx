@@ -156,7 +156,7 @@ export const BulletPointList: Story = {
 /** Block Quote formatting. */
 export const BlockQuote: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
-  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="blockQuote">Hey! <span style={{ ...selectionBg, borderLeft: "2px solid var(--cometchat-border-color-highlight)", paddingLeft: 4 }}>Block Quote</span></SingleLineFormattingComposer></div>,
+  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="blockQuote">Hey! <span style={{ ...selectionBg, borderInlineStart: "2px solid var(--cometchat-border-color-highlight)", paddingInlineStart: 4 }}>Block Quote</span></SingleLineFormattingComposer></div>,
 };
 
 /** Code formatting. */
@@ -181,7 +181,7 @@ export const AllFormattingTypes: Story = {
       <Section title="Underline"><SingleLineFormattingComposer active="underline">Hey! <span style={selectionBg}><span style={{ textDecoration: "underline" }}>Underline</span></span></SingleLineFormattingComposer></Section>
       <Section title="Strikethrough"><SingleLineFormattingComposer active="strikethrough">Hey! <span style={selectionBg}><span style={{ textDecoration: "line-through" }}>Strikethrough</span></span></SingleLineFormattingComposer></Section>
       <Section title="Link"><SingleLineFormattingComposer active="link">Hey! <span style={selectionBg}><span style={{ color: "var(--cometchat-text-color-highlight)", textDecoration: "underline" }}>Link text</span></span></SingleLineFormattingComposer></Section>
-      <Section title="Block Quote"><SingleLineFormattingComposer active="blockQuote">Hey! <span style={{ ...selectionBg, borderLeft: "2px solid var(--cometchat-border-color-highlight)", paddingLeft: 4 }}>Block Quote</span></SingleLineFormattingComposer></Section>
+      <Section title="Block Quote"><SingleLineFormattingComposer active="blockQuote">Hey! <span style={{ ...selectionBg, borderInlineStart: "2px solid var(--cometchat-border-color-highlight)", paddingInlineStart: 4 }}>Block Quote</span></SingleLineFormattingComposer></Section>
       <Section title="Code"><SingleLineFormattingComposer active="code">Hey! <span style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: 12, padding: "2px 4px", display: "inline-flex" }}><span style={{ background: "var(--cometchat-extended-primary-color-100)", padding: "2px 6px", color: "var(--cometchat-text-color-highlight)", fontFamily: "monospace" }}>Code</span></span></SingleLineFormattingComposer></Section>
     </div>
   ),

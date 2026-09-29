@@ -902,7 +902,7 @@ function EndToEndChat({
                 style={{
                   position: "absolute",
                   top: -6,
-                  right: -6,
+                  insetInlineEnd: -6,
                   width: 22,
                   height: 22,
                   borderRadius: "50%",
@@ -1075,7 +1075,7 @@ function EndToEndChat({
             style={{
               position: "absolute",
               bottom: "calc(100% - 8px)",
-              left: 16,
+              insetInlineStart: 16,
               zIndex: 1000,
             }}
           >
@@ -1463,7 +1463,7 @@ export const Usage: Story = {
 
         .chat__reply {
           padding: var(--cometchat-spacing-2) var(--cometchat-spacing-3);
-          border-left: 3px solid var(--cometchat-primary-color);
+          border-inline-start: 3px solid var(--cometchat-primary-color);
           border-radius: var(--cometchat-radius-2);
           background: var(--cometchat-background-color-02);
           font: var(--cometchat-font-caption1-regular);

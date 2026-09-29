@@ -191,25 +191,25 @@ function ComposerWithAction({ active }: { active: ActionType }) {
     <div style={{ position: "relative", paddingTop: active === "attachment" ? 280 : active === "voiceRecord" ? 380 : active === "emoji" ? 380 : active === "sticker" ? 400 : 0 }}>
       {/* Action Sheet popup for Attachment */}
       {active === "attachment" && (
-        <div style={{ position: "absolute", bottom: 54, left: 12, zIndex: 10 }}>
+        <div style={{ position: "absolute", bottom: 54, insetInlineStart: 12, zIndex: 10 }}>
           <ActionSheet items={attachmentItems} />
         </div>
       )}
       {/* Voice Recorder popup */}
       {active === "voiceRecord" && (
-        <div style={{ position: "absolute", bottom: 54, left: 52, zIndex: 10, width: 320 }}>
+        <div style={{ position: "absolute", bottom: 54, insetInlineStart: 52, zIndex: 10, width: 320 }}>
           <VoiceRecorderPopup recordingState="idle" duration="00:00:00" />
         </div>
       )}
       {/* Emoji Keyboard popup */}
       {active === "emoji" && (
-        <div style={{ position: "absolute", bottom: 54, left: 92, zIndex: 10 }}>
+        <div style={{ position: "absolute", bottom: 54, insetInlineStart: 92, zIndex: 10 }}>
           <EmojiKeyboard />
         </div>
       )}
       {/* Sticker Picker popup */}
       {active === "sticker" && (
-        <div style={{ position: "absolute", bottom: 54, left: 132, zIndex: 10 }}>
+        <div style={{ position: "absolute", bottom: 54, insetInlineStart: 132, zIndex: 10 }}>
           <StickerPicker />
         </div>
       )}

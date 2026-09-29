@@ -170,7 +170,7 @@ const sendBase: React.CSSProperties = {
 const badgeBase: React.CSSProperties = {
   position: "absolute",
   top: -6,
-  right: -6,
+  insetInlineEnd: -6,
   width: 22,
   height: 22,
   borderRadius: "50%",
@@ -678,7 +678,7 @@ export const Usage: Story = {
 .attachment__badge {
   position: absolute;
   top: -4px;
-  right: -4px;
+  inset-inline-end: -4px;
   width: 20px;
   height: 20px;
   border-radius: 50%;

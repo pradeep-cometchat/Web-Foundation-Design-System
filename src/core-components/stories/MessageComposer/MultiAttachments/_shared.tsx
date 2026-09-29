@@ -258,7 +258,7 @@ export function AudioSeekBar({
           style={{
             position: "absolute",
             top: 0,
-            left: 0,
+            insetInlineStart: 0,
             bottom: 0,
             width: `${progress}%`,
             borderRadius: 3,
@@ -273,7 +273,7 @@ export function AudioSeekBar({
           position: "absolute",
           top: "50%",
           // Inset the knob by its own width so it sits flush at 0% and never overflows at 100%.
-          left: `calc(${progress}% - ${(progress / 100) * 16}px)`,
+          insetInlineStart: `calc(${progress}% - ${(progress / 100) * 16}px)`,
           transform: "translateY(-50%)",
           width: 16,
           height: 16,
@@ -420,7 +420,7 @@ export type BadgeState =
 const badgeBase: React.CSSProperties = {
   position: "absolute",
   top: -6,
-  right: -6,
+  insetInlineEnd: -6,
   width: 22,
   height: 22,
   borderRadius: "50%",
@@ -1418,14 +1418,14 @@ export function MultiAttachmentBubble({
         >
           {state === "uploading" && (
             <span
-              style={{ fontSize: 12, color: secondary, marginRight: "auto" }}
+              style={{ fontSize: 12, color: secondary, marginInlineEnd: "auto" }}
             >
               Uploading…
             </span>
           )}
           {state === "downloading" && (
             <span
-              style={{ fontSize: 12, color: secondary, marginRight: "auto" }}
+              style={{ fontSize: 12, color: secondary, marginInlineEnd: "auto" }}
             >
               Downloading…
             </span>
@@ -1892,7 +1892,7 @@ export function MediaTile({
             style={{
               position: "absolute",
               top: 6,
-              right: 6,
+              insetInlineEnd: 6,
               width: 28,
               height: 28,
               borderRadius: "50%",
@@ -1911,7 +1911,7 @@ export function MediaTile({
               style={{
                 position: "absolute",
                 bottom: 6,
-                left: 6,
+                insetInlineStart: 6,
                 padding: "1px var(--cometchat-spacing-1-5)",
                 borderRadius: "var(--cometchat-radius-1)",
                 background:
@@ -2415,7 +2415,7 @@ export function UnsupportedFileDialog({
           style={{
             position: "absolute",
             top: "var(--cometchat-spacing-4)",
-            right: "var(--cometchat-spacing-4)",
+            insetInlineEnd: "var(--cometchat-spacing-4)",
             width: 28,
             height: 28,
             display: "flex",

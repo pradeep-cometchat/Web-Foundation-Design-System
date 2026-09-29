@@ -476,7 +476,7 @@ export const Usage: StoryObj = {
   width: 100%;
   height: 100%;
   background: var(--cometchat-background-color-01);
-  border-right: 1px solid var(--cometchat-border-color-default);
+  border-inline-end: 1px solid var(--cometchat-border-color-default);
   overflow: hidden;
 }
 

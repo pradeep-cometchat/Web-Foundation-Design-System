@@ -42,7 +42,7 @@ const IconPlay = ({ size = 16 }: { size?: number }) => (
     height={size}
     viewBox="0 0 12 12"
     fill="none"
-    style={{ marginLeft: size * 0.08 }}
+    style={{ marginInlineStart: size * 0.08 }}
   >
     <path d="M3 1.5v9l7.5-4.5L3 1.5Z" fill="currentColor" />
   </svg>
@@ -405,7 +405,7 @@ function Sheet({
         position: "absolute",
         left: "50%",
         top: 5,
-        marginLeft: -w / 2,
+        marginInlineStart: -w / 2,
         transform,
         transformOrigin: "50% 100%",
       }}

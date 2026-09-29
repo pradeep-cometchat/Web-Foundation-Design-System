@@ -113,7 +113,7 @@ function SingleLineComposer({ state, text }: { state: "placeholder" | "focus" | 
           <span style={{ color: "var(--cometchat-text-color-primary)" }}>{text}</span>
         ) : state === "focus" ? (
           <span style={{ color: "var(--cometchat-text-color-placeholder)", display: "flex", alignItems: "center" }}>
-            <span style={{ display: "inline-block", width: 1.5, height: 18, background: "var(--cometchat-text-color-primary)", marginRight: 2 }} />
+            <span style={{ display: "inline-block", width: 1.5, height: 18, background: "var(--cometchat-text-color-primary)", marginInlineEnd: 2 }} />
             Enter your message here
           </span>
         ) : (

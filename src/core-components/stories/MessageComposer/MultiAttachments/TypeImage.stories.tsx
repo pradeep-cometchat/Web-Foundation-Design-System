@@ -145,7 +145,7 @@ export const Usage: Story = {
   border: 1px solid var(--cometchat-border-color-default);
 }
 .ma-badge {
-  position: absolute; top: -6px; right: -6px;
+  position: absolute; top: -6px; inset-inline-end: -6px;
   width: 22px; height: 22px;
   border-radius: var(--cometchat-radius-max);
   border: 2px solid var(--cometchat-background-color-01);

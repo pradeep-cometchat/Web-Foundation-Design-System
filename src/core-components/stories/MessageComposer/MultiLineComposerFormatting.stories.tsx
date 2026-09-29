@@ -244,7 +244,7 @@ export const BlockQuote: Story = {
   render: () => (
     <div style={{ padding: 24 }}>
       <FormattingComposer active="blockQuote">
-        Hey! <span style={{ ...selectionBg, borderLeft: "2px solid var(--cometchat-border-color-highlight)", paddingLeft: 4 }}>Block Quote</span>
+        Hey! <span style={{ ...selectionBg, borderInlineStart: "2px solid var(--cometchat-border-color-highlight)", paddingInlineStart: 4 }}>Block Quote</span>
       </FormattingComposer>
     </div>
   ),
@@ -292,7 +292,7 @@ export const AllFormattingTypes: Story = {
       <Section title="Link"><FormattingComposer active="link">Hey! <span style={selectionBg}><span style={{ color: "var(--cometchat-text-color-highlight)", textDecoration: "underline" }}>Link text</span></span></FormattingComposer></Section>
       <Section title="Ordered List"><FormattingComposer active="orderedList"><div style={{ background: "var(--cometchat-extended-primary-color-100)", borderRadius: 2, padding: "2px 4px", display: "inline-block" }}><div>1. First item</div><div>2. Second item</div><div>3. Third item</div></div></FormattingComposer></Section>
       <Section title="Bullet-point List"><FormattingComposer active="bulletList"><div style={{ background: "var(--cometchat-extended-primary-color-100)", borderRadius: 2, padding: "2px 4px", display: "inline-block" }}><div>• First item</div><div>• Second item</div><div>• Third item</div></div></FormattingComposer></Section>
-      <Section title="Block Quote"><FormattingComposer active="blockQuote">Hey! <span style={{ ...selectionBg, borderLeft: "2px solid var(--cometchat-border-color-highlight)", paddingLeft: 4 }}>Block Quote</span></FormattingComposer></Section>
+      <Section title="Block Quote"><FormattingComposer active="blockQuote">Hey! <span style={{ ...selectionBg, borderInlineStart: "2px solid var(--cometchat-border-color-highlight)", paddingInlineStart: 4 }}>Block Quote</span></FormattingComposer></Section>
       <Section title="Code"><FormattingComposer active="code">Hey! <span style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: 12, padding: "2px 4px", display: "inline-flex" }}><span style={{ background: "var(--cometchat-extended-primary-color-100)", padding: "2px 6px", color: "var(--cometchat-text-color-highlight)", fontFamily: "monospace" }}>Code</span></span></FormattingComposer></Section>
       <Section title="Code Block"><FormattingComposer active="codeBlock"><div style={{ background: "var(--cometchat-background-color-03)", borderRadius: 8, padding: "10px 12px" }}><div style={{ background: "var(--cometchat-extended-primary-color-100)", display: "inline", fontFamily: "monospace", fontSize: 13, lineHeight: "22px" }}>{"import React from 'react';"}<br/>{"function App() {"}<br/>{"  return <h1>Hello, World!</h1>;"}</div></div></FormattingComposer></Section>
     </div>
@@ -382,8 +382,8 @@ export const Usage: Story = {
   font-size: 13px;
 }
 .composer__input .block-quote {
-  border-left: 2px solid #6852d6;
-  padding-left: 4px;
+  border-inline-start: 2px solid #6852d6;
+  padding-inline-start: 4px;
 }
 
 /* Selection highlight */
@@ -405,7 +405,7 @@ export const Usage: Story = {
 5. Link          — color: #6852d6, text-decoration: underline
 6. Ordered List  — numbered list (1. 2. 3.)
 7. Bullet List   — bulleted list (• • •)
-8. Block Quote   — border-left: 2px solid #6852d6
+8. Block Quote   — border-inline-start: 2px solid #6852d6
 9. Code          — inline code pill, color: #6852d6, monospace
 10. Code Block   — gray container (#f5f5f5), monospace
 

@@ -247,9 +247,9 @@ export function MessageMenuWithSubmenu({
       <div
         style={{
           position: "absolute",
-          left: "100%",
+          insetInlineStart: "100%",
           top: variant === "sent" ? 148 : 96,
-          marginLeft: "var(--cometchat-spacing-1)",
+          marginInlineStart: "var(--cometchat-spacing-1)",
         }}
       >
         <ContextMenu
@@ -390,7 +390,7 @@ export function PinnedPanel({
         flexShrink: 0,
         display: "flex",
         flexDirection: "column",
-        borderLeft: "1px solid var(--cometchat-border-color-default)",
+        borderInlineStart: "1px solid var(--cometchat-border-color-default)",
         background: "var(--cometchat-background-color-01)",
         fontFamily: font,
         position: "relative",
@@ -461,7 +461,7 @@ export function PinnedPanel({
               <div
                 style={{
                   position: "absolute",
-                  left: 24,
+                  insetInlineStart: 24,
                   top: "100%",
                   zIndex: 20,
                 }}
@@ -477,7 +477,7 @@ export function PinnedPanel({
             <div
               style={{
                 position: "absolute",
-                right: 140,
+                insetInlineEnd: 140,
                 top: "100%",
                 zIndex: 20,
               }}
@@ -697,7 +697,7 @@ export function PinScreen({
                 <div
                   style={{
                     position: "absolute",
-                    right: "var(--cometchat-spacing-4)",
+                    insetInlineEnd: "var(--cometchat-spacing-4)",
                     bottom: "var(--cometchat-spacing-3)",
                     display: "flex",
                     alignItems: "center",
@@ -716,7 +716,7 @@ export function PinScreen({
                   style={{
                     position: "absolute",
                     top: "100%",
-                    right: "var(--cometchat-spacing-4)",
+                    insetInlineEnd: "var(--cometchat-spacing-4)",
                     zIndex: 20,
                   }}
                 >
@@ -793,7 +793,7 @@ export function PinScreen({
           <div
             style={{
               position: "absolute",
-              right: "var(--cometchat-spacing-4)",
+              insetInlineEnd: "var(--cometchat-spacing-4)",
               top: 56,
               zIndex: 20,
             }}
@@ -846,7 +846,7 @@ export function PinScreen({
                 <div
                   style={{
                     position: "absolute",
-                    right: 360,
+                    insetInlineEnd: 360,
                     top: "50%",
                     transform: "translateY(-40%)",
                     zIndex: 20,
@@ -859,7 +859,7 @@ export function PinScreen({
                 <div
                   style={{
                     position: "absolute",
-                    left: 160,
+                    insetInlineStart: 160,
                     top: "60%",
                     zIndex: 20,
                   }}
@@ -958,9 +958,9 @@ export function PinScreen({
               bottom: "var(--cometchat-spacing-5)",
               zIndex: 30,
               ...(toastPos === "left"
-                ? { left: "var(--cometchat-spacing-5)" }
+                ? { insetInlineStart: "var(--cometchat-spacing-5)" }
                 : toastPos === "right"
-                  ? { right: "var(--cometchat-spacing-5)" }
+                  ? { insetInlineEnd: "var(--cometchat-spacing-5)" }
                   : { left: "50%", transform: "translateX(-50%)" }),
             }}
           >

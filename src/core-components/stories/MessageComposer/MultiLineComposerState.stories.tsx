@@ -129,11 +129,11 @@ function MultiLineComposer({ state, text }: { state: "placeholder" | "focus" | "
         {state === "typing" && text ? (
           <span style={{ color: "var(--cometchat-text-color-primary)", display: "flex", alignItems: "center", gap: 0 }}>
             {text}
-            <span style={{ display: "inline-block", width: 1.5, height: 18, background: "var(--cometchat-text-color-primary)", marginLeft: 1 }} />
+            <span style={{ display: "inline-block", width: 1.5, height: 18, background: "var(--cometchat-text-color-primary)", marginInlineStart: 1 }} />
           </span>
         ) : state === "focus" ? (
           <span style={{ color: "var(--cometchat-text-color-placeholder)", display: "flex", alignItems: "center", gap: 0 }}>
-            <span style={{ display: "inline-block", width: 1.5, height: 18, background: "var(--cometchat-text-color-primary)", marginRight: 2 }} />
+            <span style={{ display: "inline-block", width: 1.5, height: 18, background: "var(--cometchat-text-color-primary)", marginInlineEnd: 2 }} />
             Type your message...
           </span>
         ) : (

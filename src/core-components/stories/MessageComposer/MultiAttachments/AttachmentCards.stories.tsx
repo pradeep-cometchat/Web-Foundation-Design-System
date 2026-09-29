@@ -43,7 +43,7 @@ const IconPlay = ({ size = 16 }: { size?: number }) => (
     height={size}
     viewBox="0 0 12 12"
     fill="none"
-    style={{ marginLeft: size * 0.08 }}
+    style={{ marginInlineStart: size * 0.08 }}
   >
     <path d="M3 1.5v9l7.5-4.5L3 1.5Z" fill="currentColor" />
   </svg>
@@ -119,7 +119,7 @@ function CornerBadge({ kind }: { kind: CornerKind }) {
       style={{
         position: "absolute",
         top: -8,
-        right: -8,
+        insetInlineEnd: -8,
         width: 22,
         height: 22,
         borderRadius: "50%",
@@ -366,7 +366,7 @@ function SeekBar({ progress = 0 }: { progress?: number }) {
           style={{
             position: "absolute",
             top: 0,
-            left: 0,
+            insetInlineStart: 0,
             height: "100%",
             width: `${progress}%`,
             borderRadius: 3,
@@ -378,7 +378,7 @@ function SeekBar({ progress = 0 }: { progress?: number }) {
         style={{
           position: "absolute",
           top: "50%",
-          left: `calc(${progress}% - ${(progress / 100) * 16}px)`,
+          insetInlineStart: `calc(${progress}% - ${(progress / 100) * 16}px)`,
           transform: "translateY(-50%)",
           width: 16,
           height: 16,
@@ -600,7 +600,7 @@ function MediaTile({
               style={{
                 position: "absolute",
                 bottom: 6,
-                left: 6,
+                insetInlineStart: 6,
                 padding: "1px var(--cometchat-spacing-1-5)",
                 borderRadius: "var(--cometchat-radius-1)",
                 background:
@@ -1020,7 +1020,7 @@ export const Usage: Story = {
         .ma-badge {
           position: absolute;
           top: -8px;
-          right: -8px;
+          inset-inline-end: -8px;
           width: 22px;
           height: 22px;
           border-radius: var(--cometchat-radius-max);
