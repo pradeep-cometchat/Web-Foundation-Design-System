@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import "./ChatBubbles.css";
+import { avatarRegistry } from "../../../cometchat-foundation/tokens/avatars";
 
 const meta: Meta = {
   title: "Core Components/Chat Bubbles/Poll Bubble",
@@ -139,12 +140,11 @@ export const Usage: StoryObj = {
    HELPERS
    ═══════════════════════════════════════════════════════════════════════════ */
 
+// Figma's signed CDN URLs have lapsed (403), so these read from the committed registry.
 const AVATARS = [
-  "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/4fc4f92e-1273-4695-9212-9ecad5b0e4b7",
-  "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/219ae09e-7eac-4a0a-bcbb-10552c1ee531",
-  "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/097eae8e-e136-4b3e-a162-1bf9a960bf46",
-  "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0fc4a0de-e4dc-4cfd-ba7f-35d799b05451",
-];
+  ...avatarRegistry["Male Avatar"].slice(0, 2),
+  ...avatarRegistry["Female Avatar"].slice(0, 2),
+].map((a) => a.imageUrl);
 
 interface PollOption {
   label: string;

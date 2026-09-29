@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { fileTypeIcons } from "../../../cometchat-foundation/tokens/miscIcons";
 
 /**
  * The Multi Line Composer Attachment feature displays file previews in a
@@ -80,8 +81,12 @@ const IconError = () => (
   </svg>
 );
 
+// The Figma CDN URL for this thumbnail has lapsed (403); the PDF badge from
+// the committed misc-icon set stands in for it.
+const pdfBadge = fileTypeIcons.find((i) => i.name === "Document / PDF")!.svgUrl;
+
 const IconDocument = () => (
-  <img src="https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/b41b71d2-f019-4562-aad1-2d8c4b8be0c2" alt="PDF" width="40" height="40" style={{ borderRadius: 6 }} />
+  <img src={pdfBadge} alt="PDF" width="40" height="40" style={{ borderRadius: 6 }} />
 );
 
 const IconSpinner = () => (

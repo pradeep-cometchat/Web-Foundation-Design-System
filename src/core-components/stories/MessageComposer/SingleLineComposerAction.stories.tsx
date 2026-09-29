@@ -3,6 +3,7 @@ import { ActionSheet, CameraIcon, PhotoIcon, VideocamIcon, DescriptionIcon, Poll
 import { MultiLineComposer as VoiceRecorderPopup } from "../../../base-components/components/MediaRecorder";
 import { EmojiKeyboard } from "../../../base-components/components/EmojiKeyboard";
 import { ConversationSummary } from "../../../base-components/components/ConversationSummary";
+import { avatarRegistry } from "../../../cometchat-foundation/tokens/avatars";
 
 /**
  * Actions available in the Single Line Composer. Each action button triggers a
@@ -142,14 +143,8 @@ const attachmentItems = [
 
 const stickerTabs = ["🕐", "😊", "🐻", "🍔", "⚽", "🚗", "💡", "🎵"];
 
-const stickerImages = [
-  "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/b93ef91c-07e3-4c69-8c3b-abe87a2007bf",
-  "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/82839107-6efc-4a55-a53d-da2460f7111c",
-  "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/99d357d1-7499-4f9d-806d-b0e28e4fc953",
-  "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/9c81c176-7d75-47ec-90a2-22df905a8cb0",
-  "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/07293b78-a1d8-489c-ad60-0d3a1a25ccc4",
-  "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/df84d621-8da9-4e3c-b732-9118ab70eb24",
-];
+// Figma's signed CDN URLs have lapsed (403), so these read from the committed registry.
+const stickerImages = avatarRegistry["Sticker Footage"].map((a) => a.imageUrl);
 
 function StickerPicker() {
   return (
