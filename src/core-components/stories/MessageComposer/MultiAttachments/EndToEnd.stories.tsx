@@ -1236,7 +1236,7 @@ function EndToEndChat({
                 onKeyDown={(e) => {
                   if (e.key === "Enter") send();
                 }}
-                placeholder="Enter your message here"
+                placeholder={toArabicOr("Enter your message here")}
                 style={{
                   flex: 1,
                   minWidth: 0,

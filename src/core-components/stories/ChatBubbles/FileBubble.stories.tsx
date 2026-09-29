@@ -266,7 +266,7 @@ function FileBubble({
               whiteSpace: "nowrap",
             }}
           >
-            {fileDate} • {fileSize}
+            <T>{fileDate}</T> • <T>{fileSize}</T>
           </span>
         </div>
 

@@ -351,7 +351,7 @@ export const Usage: Story = {
           {(["sticker", "emoji", "formatting", "ai"] as const).map(a => (
             <div key={a} style={{ padding: "var(--cometchat-spacing-3)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
               <strong style={{ fontSize: "14px", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}><T>{a}</T></strong>
-              <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)" }}>Panel overlay for {a} action.</span>
+              <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)" }}><T>Panel overlay for</T> <T>{a}</T> <T>action.</T></span>
             </div>
           ))}
         </div>

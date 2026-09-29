@@ -1354,7 +1354,7 @@ export function MultiAttachmentBubble({
           >
             reply
           </span>
-          Forwarded
+          <T>Forwarded</T>
         </div>
       )}
       {replyPreview()}
