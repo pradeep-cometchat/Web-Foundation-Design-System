@@ -2,6 +2,7 @@ import React from "react";
 import {
   buildIconVariation,
   iconFontFamily,
+  iconMirrorProps,
   type IconVariant,
 } from "../tokens/icons";
 
@@ -28,6 +29,11 @@ export interface IconProps {
   className?: string;
   /** Inline style overrides. */
   style?: React.CSSProperties;
+  /**
+   * Flip direction-sensitive glyphs in RTL. On by default; the icon catalog
+   * passes false so it keeps showing each glyph as the font draws it.
+   */
+  mirror?: boolean;
 }
 
 /**
@@ -46,6 +52,7 @@ export const Icon: React.FC<IconProps> = ({
   ariaLabel,
   className,
   style,
+  mirror = true,
 }) => {
   const opsz = opticalSize ?? size;
   const isDecorative = ariaLabel === "";
@@ -54,6 +61,7 @@ export const Icon: React.FC<IconProps> = ({
     <span
       className={[`icon-${variant}`, className].filter(Boolean).join(" ")}
       data-icon={variant}
+      {...(mirror ? iconMirrorProps(name) : {})}
       aria-hidden={isDecorative || undefined}
       aria-label={isDecorative ? undefined : ariaLabel ?? name}
       role={isDecorative ? undefined : "img"}

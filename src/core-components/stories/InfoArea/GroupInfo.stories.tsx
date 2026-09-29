@@ -296,7 +296,7 @@ function GroupInfoActions() {
       </div>
       {/* Leave */}
       <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 20px", cursor: "pointer" }}>
-        <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-error-color)" }}>logout</span>
+        <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-error-color)" }} data-icon-mirror>logout</span>
         <span style={{ fontSize: 16, color: "var(--cometchat-error-color)" }}><T>Leave</T></span>
       </div>
       {/* Delete and Exit */}

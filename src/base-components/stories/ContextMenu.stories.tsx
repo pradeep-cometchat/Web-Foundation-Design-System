@@ -42,7 +42,7 @@ function CopyIcon() {
 }
 
 function ReplyIcon() {
-  return <span className="icon-rounded" style={fillStyle}>reply</span>;
+  return <span className="icon-rounded" style={fillStyle} data-icon-mirror>reply</span>;
 }
 
 function ReplyInThreadIcon() {

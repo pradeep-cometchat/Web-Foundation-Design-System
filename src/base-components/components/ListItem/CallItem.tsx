@@ -1,6 +1,7 @@
 import React from "react";
 import { T, useT } from "../../../cometchat-foundation/localization";
 import "./CallItem.css";
+import { iconMirrorProps } from "../../../cometchat-foundation/tokens/icons";
 
 export type CallItemState = "default" | "hover" | "pressed";
 export type CallDirection = "incoming" | "outgoing" | "declined" | "missed";
@@ -149,6 +150,7 @@ export const CallItem: React.FC<CallItemProps> = ({
           <span
             className={`icon-outlined call-item__direction call-item__direction--${direction}`}
             aria-hidden="true"
+            {...iconMirrorProps(directionIcon[direction])}
           >
             {directionIcon[direction]}
           </span>

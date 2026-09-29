@@ -38,7 +38,7 @@ function IntroductionPage() {
           style={{
             position: "absolute",
             top: -80,
-            right: -80,
+            insetInlineEnd: -80,
             width: 320,
             height: 320,
             borderRadius: "50%",

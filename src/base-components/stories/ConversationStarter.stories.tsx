@@ -127,7 +127,7 @@ export const InContext: StoryObj = {
             display: "flex", alignItems: "center", justifyContent: "center",
             boxShadow: "var(--cometchat-shadow-xs)",
           }}>
-            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--cometchat-icon-color-tertiary)" }}>send</span>
+            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--cometchat-icon-color-tertiary)" }} data-icon-mirror>send</span>
           </div>
         </div>
       </div>

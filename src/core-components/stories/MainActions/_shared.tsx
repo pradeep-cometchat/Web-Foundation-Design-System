@@ -1,3 +1,4 @@
+import { iconMirrorProps } from "../../../cometchat-foundation/tokens/icons";
 import { T } from "../../../cometchat-foundation/localization";
 import "../../../shell/Shell.css";
 import "../ChatBubbles/ChatBubbles.css";
@@ -31,6 +32,7 @@ export function MIcon({
   return (
     <span
       className="icon-rounded"
+      {...iconMirrorProps(glyph)}
       style={{
         fontSize: size,
         lineHeight: 1,

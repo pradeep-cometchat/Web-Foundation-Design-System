@@ -29,6 +29,52 @@ export const iconFontFamily: Record<IconVariant, string> = {
   sharp: "Material Symbols Sharp",
 };
 
+/**
+ * Glyphs that encode a reading direction and so must be flipped in RTL: a back
+ * arrow points toward where the text starts, which is the right-hand side in
+ * Arabic. Everything else — a clock, a trash can, a checkmark — means the same
+ * thing in both directions and must NOT be flipped.
+ *
+ * The icon catalog is the deliberate exception: it documents each glyph as the
+ * font draws it, so it opts out via `mirror={false}`.
+ */
+export const mirroredIcons = new Set<string>([
+  "arrow_back",
+  "arrow_back_ios",
+  "arrow_forward",
+  "arrow_forward_ios",
+  "call_made",
+  "call_received",
+  "chevron_left",
+  "chevron_right",
+  "double_arrow",
+  "first_page",
+  "format_indent_decrease",
+  "format_indent_increase",
+  "keyboard_arrow_left",
+  "keyboard_arrow_right",
+  "last_page",
+  "login",
+  "logout",
+  "navigate_before",
+  "navigate_next",
+  "redo",
+  "reply",
+  "reply_all",
+  "send",
+  "subdirectory_arrow_right",
+  "trending_flat",
+  "undo",
+]);
+
+/**
+ * Spread onto any element rendering a Material Symbols ligature. The paired
+ * rule in cometchat-tokens.css does the flip, so every render path — the Icon
+ * component or a raw span — mirrors identically.
+ */
+export const iconMirrorProps = (name: string) =>
+  mirroredIcons.has(name) ? { "data-icon-mirror": "" } : {};
+
 export type IconCategory =
   | "Navigation"
   | "Actions"

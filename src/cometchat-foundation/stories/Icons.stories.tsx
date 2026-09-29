@@ -124,7 +124,7 @@ function IconPlayground(props: PlaygroundProps) {
             minHeight: 220,
           }}
         >
-          <Icon {...props} />
+          <Icon {...props} mirror={false} />
         </div>
         <div
           style={{
@@ -538,6 +538,7 @@ const IconTile: React.FC<{
         name={name}
         variant={variant}
         fill={fill}
+        mirror={false}
         size={28}
         opticalSize={24}
         color={

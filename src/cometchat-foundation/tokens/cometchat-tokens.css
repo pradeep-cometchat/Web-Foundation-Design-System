@@ -306,3 +306,11 @@
   --cometchat-shimmer-background-color: var(--cometchat-background-color-01);
   --cometchat-shimmer-gradient-color: linear-gradient(90deg, #383838 0%, #272727 100%);
 }
+
+/* Direction-sensitive glyphs flip in RTL. The attribute is set from the
+   mirroredIcons set in tokens/icons.ts, so a raw span and the Icon component
+   mirror the same way. Icons carry direction:ltr for ligature lookup, which
+   does not mirror them — only this transform does. */
+[dir="rtl"] [data-icon-mirror] {
+  transform: scaleX(-1);
+}

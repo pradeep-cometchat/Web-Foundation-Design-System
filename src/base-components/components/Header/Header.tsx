@@ -48,7 +48,7 @@ export const Header: React.FC<HeaderProps> = ({
           aria-label="Go back"
           onClick={onBackClick}
         >
-          <span className="icon-outlined">arrow_back</span>
+          <span className="icon-outlined" data-icon-mirror>arrow_back</span>
         </button>
       )}
       <h1 className="screen-header__title"><T>{title}</T></h1>

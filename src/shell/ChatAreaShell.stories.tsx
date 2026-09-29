@@ -233,7 +233,7 @@ export const ScrollToBottomFAB: StoryObj = {
           <div style={{ flex: 1, padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", background: "var(--cometchat-background-color-03)", borderRadius: "var(--cometchat-radius-max)", fontSize: "14px", color: "var(--cometchat-text-color-placeholder)" }}><T>Type your message...</T></div>
           <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-tertiary)" }}>mood</span>
           <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-tertiary)" }}>mic</span>
-          <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-tertiary)" }}>send</span>
+          <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-tertiary)" }} data-icon-mirror>send</span>
         </div>
       </div>
     </div>
@@ -293,7 +293,7 @@ export const ScrollToBottomWithBadge: StoryObj = {
           <div style={{ flex: 1, padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", background: "var(--cometchat-background-color-03)", borderRadius: "var(--cometchat-radius-max)", fontSize: "14px", color: "var(--cometchat-text-color-placeholder)" }}><T>Type your message...</T></div>
           <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-tertiary)" }}>mood</span>
           <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-tertiary)" }}>mic</span>
-          <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-tertiary)" }}>send</span>
+          <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-tertiary)" }} data-icon-mirror>send</span>
         </div>
       </div>
     </div>
@@ -360,9 +360,9 @@ function ChatBubble({ variant, text, time }: { variant: "sent" | "received"; tex
   const isSent = variant === "sent";
   return (
     <div style={{ display: "flex", justifyContent: isSent ? "flex-end" : "flex-start" }}>
-      <div style={{ maxWidth: "65%", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderRadius: "var(--cometchat-radius-2-5)", borderBottomRightRadius: isSent ? "var(--cometchat-radius-1)" : undefined, borderBottomLeftRadius: !isSent ? "var(--cometchat-radius-1)" : undefined, background: isSent ? "var(--cometchat-send-bubble-background)" : "var(--cometchat-received-bubble-background)", color: isSent ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)", fontSize: "14px", lineHeight: "16.8px" }}>
+      <div style={{ maxWidth: "65%", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderRadius: "var(--cometchat-radius-2-5)", borderEndEndRadius: isSent ? "var(--cometchat-radius-1)" : 0, borderEndStartRadius: isSent ? 0 : "var(--cometchat-radius-1)", background: isSent ? "var(--cometchat-send-bubble-background)" : "var(--cometchat-received-bubble-background)", color: isSent ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)", fontSize: "14px", lineHeight: "16.8px" }}>
         <div><T>{text}</T></div>
-        <div style={{ fontSize: "10px", opacity: 0.7, textAlign: "right", marginTop: 2 }}><T>{time}</T></div>
+        <div style={{ fontSize: "10px", opacity: 0.7, textAlign: "end", marginTop: 2 }}><T>{time}</T></div>
       </div>
     </div>
   );

@@ -220,7 +220,7 @@ function ChatHeader({ showBack = true, showTyping = false, status = "Online" }: 
     <div className="chat-header">
       {showBack && (
         <button className="chat-header__back-btn">
-          <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>arrow_back</span>
+          <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }} data-icon-mirror>arrow_back</span>
         </button>
       )}
       <div className="chat-header__info">
