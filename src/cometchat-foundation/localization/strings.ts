@@ -1452,6 +1452,12 @@ export const AR: Readonly<Record<string, string>> = {
 
   /* ─── Tooltip, fixtures and field copy (RTL sweep) ─── */
 
+  /* ─── Core Components — attachment counter ─── */
+  "attachment":
+    "مرفق",
+  "attachments":
+    "مرفقات",
+
   /* ─── Base Components — reply counter ─── */
   "reply":
     "ردّ",

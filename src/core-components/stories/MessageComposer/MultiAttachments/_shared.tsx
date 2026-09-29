@@ -1819,7 +1819,8 @@ export function ConversationResult({
           >
             <IconClip size={15} />
           </span>
-          {count} {count === 1 ? "attachment" : "attachments"}
+          <T>{String(count)}</T>{" "}
+          <T>{count === 1 ? "attachment" : "attachments"}</T>
         </span>
       </div>
       <div style={{ display: "flex", gap: 3, flexShrink: 0 }}>
