@@ -1452,6 +1452,10 @@ export const AR: Readonly<Record<string, string>> = {
 
   /* ─── Tooltip, fixtures and field copy (RTL sweep) ─── */
 
+  /* ─── Core Components — filter chip hidden by a scanner blind spot ─── */
+  "All":
+    "الكل",
+
   /* ─── Core Components — full long-text fixture ─── */
   "Hey! I just wanted to let you know that the package has been shipped and should arrive by Thursday. I've also included the tracking number in the email I sent earlier. Let me know if you have any questions about the delivery timeline or if you need me to...":
     "أهلًا! أردت إخبارك بأن الطرد قد شُحن ومن المفترض أن يصل بحلول الخميس. كما أضفت رقم التتبّع في البريد الذي أرسلته سابقًا. أخبرني إن كان لديك أي أسئلة عن موعد التسليم أو إن احتجت مني أن...",
