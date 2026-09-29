@@ -585,7 +585,7 @@ export function DocumentPreview({
             color: "var(--cometchat-text-color-secondary)",
           }}
         >
-          {meta}
+          <T>{meta}</T>
         </span>
       </div>
       <Badge state={badge} />
@@ -1220,7 +1220,7 @@ export function MultiAttachmentBubble({
           </span>
           {(downloading || f.meta) && (
             <span style={{ fontSize: 12, color: secondary }}>
-              {downloading ? "Downloading…" : f.meta}
+              {downloading ? <T>Downloading…</T> : <T>{f.meta}</T>}
             </span>
           )}
         </div>
@@ -1290,7 +1290,7 @@ export function MultiAttachmentBubble({
               textOverflow: "ellipsis",
             }}
           >
-            Reply to {quoted.name}
+            <T>Reply to</T> <T>{quoted.name}</T>
           </span>
           <span
             style={{
@@ -1980,7 +1980,7 @@ export function DocumentResult({
             color: "var(--cometchat-text-color-tertiary)",
           }}
         >
-          {meta} · shared by {from}
+          <T>{meta}</T> · <T>shared by</T> <T>{from}</T>
         </span>
       </div>
       <span
@@ -2050,7 +2050,7 @@ export function AudioResult({
           flexShrink: 0,
         }}
       >
-        {meta} · {from}
+        <T>{meta}</T> · <T>{from}</T>
       </span>
     </div>
   );

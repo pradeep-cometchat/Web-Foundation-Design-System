@@ -1,4 +1,4 @@
-import { T } from "../../../cometchat-foundation/localization";
+import { T, useT } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import "../../../base-components/components/SearchBar/SearchBar.css";
 
@@ -221,6 +221,7 @@ type SearchState = "placeholder" | "default" | "focus" | "typing";
 const FILTERS = ["All", "Unread", "Groups", "Photos", "Videos", "Audio", "Documents", "Gifs", "Links"];
 
 function SearchField({ state, value = "", showFilters }: { state: SearchState; value?: string; showFilters?: boolean }) {
+  const t = useT();
   const isFocus = state === "focus";
   const isTyping = state === "typing";
   const hasValue = isTyping && value.length > 0;
@@ -238,8 +239,8 @@ function SearchField({ state, value = "", showFilters }: { state: SearchState; v
           <input
             className="search-bar__input"
             type="text"
-            placeholder="Search"
-            value={hasValue ? value : ""}
+            placeholder={t("Search")}
+            value={hasValue ? t(value) : ""}
             readOnly
           />
           {hasValue && (

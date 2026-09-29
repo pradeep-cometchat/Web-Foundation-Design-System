@@ -468,7 +468,7 @@ function DocumentCard({
         }}
       >
         <span style={titleStyle}><T>{name}</T></span>
-        <span style={subStyle(state)}>{subtitle(state, FILE_LABEL[type])}</span>
+        <span style={subStyle(state)}><T>{subtitle(state, FILE_LABEL[type])}</T></span>
       </div>
       <CornerBadge kind={cornerFor(state, platform)} />
     </div>
@@ -508,7 +508,7 @@ function AudioCard({
       >
         <span style={titleStyle}><T>{name}</T></span>
         {state === "error" || state === "retry" ? (
-          <span style={subStyle(state)}>{subtitle(state, "")}</span>
+          <span style={subStyle(state)}><T>{subtitle(state, "")}</T></span>
         ) : (
           <>
             <SeekBar progress={playing ? 38 : 0} />
