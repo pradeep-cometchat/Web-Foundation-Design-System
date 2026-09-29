@@ -1452,6 +1452,58 @@ export const AR: Readonly<Record<string, string>> = {
 
   /* ─── Tooltip, fixtures and field copy (RTL sweep) ─── */
 
+  /* ─── Shell — screens, states and chat fixtures ─── */
+  "Shell Screens":
+    "شاشات الهيكل",
+  "Chat Area Shell Screens":
+    "شاشات هيكل منطقة الدردشة",
+  "Chat Area Empty":
+    "منطقة الدردشة فارغة",
+  "Chat Area Error":
+    "خطأ في منطقة الدردشة",
+  "Skeleton Loading":
+    "تحميل هيكلي",
+  "List Empty State":
+    "حالة القائمة الفارغة",
+  "Error State":
+    "حالة الخطأ",
+  "Welcome to Your Conversations":
+    "مرحبًا بك في محادثاتك",
+  "Select a chat from the list to start exploring your messages or begin a new conversation":
+    "اختر محادثة من القائمة لبدء استعراض رسائلك أو ابدأ محادثة جديدة",
+  "Start a new chat or invite others to join the conversation.":
+    "ابدأ محادثة جديدة أو ادعُ آخرين للانضمام إلى المحادثة.",
+  "Looks like something went wrong. Please try again.":
+    "يبدو أن هناك خطأ ما. يرجى المحاولة مرة أخرى.",
+  "Chat list on left, welcome empty state centered on right.":
+    "قائمة المحادثات في البداية، وحالة الترحيب الفارغة في المنتصف عند النهاية.",
+  "Chat list on left, error state with retry button on right.":
+    "قائمة المحادثات في البداية، وحالة الخطأ مع زر إعادة المحاولة عند النهاية.",
+  "Chat list on left, skeleton bubbles + header + composer loading on right.":
+    "قائمة المحادثات في البداية، وفقاعات هيكلية مع الترويسة والمُنشئ قيد التحميل عند النهاية.",
+  "Chat list with conversations on left, welcome empty state on right.":
+    "قائمة المحادثات مع المحادثات في البداية، وحالة الترحيب الفارغة عند النهاية.",
+  "Empty conversation list with illustration + message, welcome state on right.":
+    "قائمة محادثات فارغة مع رسم توضيحي ورسالة، وحالة الترحيب عند النهاية.",
+  "Error message with retry button on left, welcome state on right.":
+    "رسالة خطأ مع زر إعادة المحاولة في البداية، وحالة الترحيب عند النهاية.",
+  "Skeleton loading placeholders on left while data loads.":
+    "عناصر تحميل هيكلية نائبة في البداية أثناء تحميل البيانات.",
+  "Hey! How's it going?":
+    "أهلًا! كيف الحال؟",
+  "I'm doing great, thanks for asking!":
+    "بخير تمامًا، شكرًا لسؤالك!",
+  "Did you check the design files?":
+    "هل اطّلعت على ملفات التصميم؟",
+  "Yes! They look amazing.":
+    "نعم! تبدو رائعة.",
+  "I'll send you a detailed review.":
+    "سأرسل لك مراجعة مفصّلة.",
+  "Sounds good! Take your time.":
+    "يبدو جيدًا! خذ وقتك.",
+  "Sure, let me know what you think.":
+    "بالتأكيد، أخبرني برأيك.",
+
   /* ─── Core Components — attachment counter ─── */
   "attachment":
     "مرفق",

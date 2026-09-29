@@ -1,3 +1,4 @@
+import { T } from "../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import "./Shell.css";
 import "../core-components/stories/ChatBubbles/ChatBubbles.css";
@@ -52,8 +53,8 @@ export const Default: StoryObj = {
             <span className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-icon-color-tertiary)" }}>chat</span>
           </div>
           <div>
-            <p className="shell__empty-title">Welcome to Your Conversations</p>
-            <p className="shell__empty-description">Select a chat from the list to start exploring your messages or begin a new conversation</p>
+            <p className="shell__empty-title"><T>Welcome to Your Conversations</T></p>
+            <p className="shell__empty-description"><T>Select a chat from the list to start exploring your messages or begin a new conversation</T></p>
           </div>
         </div>
       </div>
@@ -72,8 +73,8 @@ export const ListEmptyState: StoryObj = {
           <div style={{ width: 48, height: 48, borderRadius: "var(--cometchat-radius-3)", border: "1px solid var(--cometchat-border-color-dark)", background: "var(--cometchat-background-color-01)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "var(--cometchat-spacing-4)" }}>
             <span className="icon-rounded" style={{ fontSize: 28, color: "var(--cometchat-text-color-primary)" }}>chat</span>
           </div>
-          <p style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: 600, color: "var(--cometchat-text-color-primary)", margin: "0 0 var(--cometchat-spacing-1)" }}>No Conversations Yet</p>
-          <p style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "14px", color: "var(--cometchat-text-color-tertiary)", margin: 0, lineHeight: "16.8px" }}>Start a new chat or invite others to join the conversation.</p>
+          <p style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: 600, color: "var(--cometchat-text-color-primary)", margin: "0 0 var(--cometchat-spacing-1)" }}><T>No Conversations Yet</T></p>
+          <p style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "14px", color: "var(--cometchat-text-color-tertiary)", margin: 0, lineHeight: "16.8px" }}><T>Start a new chat or invite others to join the conversation.</T></p>
         </div>
         {/* Tab bar */}
         <div className="shell__tab-bar">
@@ -91,8 +92,8 @@ export const ListEmptyState: StoryObj = {
             <span className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-icon-color-tertiary)" }}>chat</span>
           </div>
           <div>
-            <p className="shell__empty-title">Welcome to Your Conversations</p>
-            <p className="shell__empty-description">Select a chat from the list to start exploring your messages or begin a new conversation</p>
+            <p className="shell__empty-title"><T>Welcome to Your Conversations</T></p>
+            <p className="shell__empty-description"><T>Select a chat from the list to start exploring your messages or begin a new conversation</T></p>
           </div>
         </div>
       </div>
@@ -111,9 +112,9 @@ export const ErrorState: StoryObj = {
           <div style={{ width: 48, height: 48, borderRadius: "var(--cometchat-radius-3)", border: "1px solid var(--cometchat-border-color-dark)", background: "var(--cometchat-background-color-01)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "var(--cometchat-spacing-4)" }}>
             <span className="icon-rounded" style={{ fontSize: 28, color: "var(--cometchat-text-color-primary)" }}>warning</span>
           </div>
-          <p style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: 600, color: "var(--cometchat-text-color-primary)", margin: "0 0 var(--cometchat-spacing-1)" }}>Oops!</p>
-          <p style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "14px", color: "var(--cometchat-text-color-tertiary)", margin: "0 0 var(--cometchat-spacing-4)", lineHeight: "16.8px" }}>Looks like something went wrong. Please try again.</p>
-          <Button variant="secondary" size="sm">Retry</Button>
+          <p style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: 600, color: "var(--cometchat-text-color-primary)", margin: "0 0 var(--cometchat-spacing-1)" }}><T>Oops!</T></p>
+          <p style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "14px", color: "var(--cometchat-text-color-tertiary)", margin: "0 0 var(--cometchat-spacing-4)", lineHeight: "16.8px" }}><T>Looks like something went wrong. Please try again.</T></p>
+          <Button variant="secondary" size="sm"><T>Retry</T></Button>
         </div>
         {/* Tab bar */}
         <div className="shell__tab-bar">
@@ -131,8 +132,8 @@ export const ErrorState: StoryObj = {
             <span className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-icon-color-tertiary)" }}>chat</span>
           </div>
           <div>
-            <p className="shell__empty-title">Welcome to Your Conversations</p>
-            <p className="shell__empty-description">Select a chat from the list to start exploring your messages or begin a new conversation</p>
+            <p className="shell__empty-title"><T>Welcome to Your Conversations</T></p>
+            <p className="shell__empty-description"><T>Select a chat from the list to start exploring your messages or begin a new conversation</T></p>
           </div>
         </div>
       </div>
@@ -168,8 +169,8 @@ export const SkeletonLoading: StoryObj = {
             <span className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-icon-color-tertiary)" }}>chat</span>
           </div>
           <div>
-            <p className="shell__empty-title">Welcome to Your Conversations</p>
-            <p className="shell__empty-description">Select a chat from the list to start exploring your messages or begin a new conversation</p>
+            <p className="shell__empty-title"><T>Welcome to Your Conversations</T></p>
+            <p className="shell__empty-description"><T>Select a chat from the list to start exploring your messages or begin a new conversation</T></p>
           </div>
         </div>
       </div>
@@ -186,7 +187,7 @@ export const Usage: StoryObj = {
   render: () => (
     <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
-        <div style={{ fontSize: "12px", fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase" as const, letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>Shell Screens</div>
+        <div style={{ fontSize: "12px", fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase" as const, letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}><T>Shell Screens</T></div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <StateCard title="Default" description="Chat list with conversations on left, welcome empty state on right." />
           <StateCard title="List Empty State" description="Empty conversation list with illustration + message, welcome state on right." />
@@ -211,7 +212,7 @@ function TabItem({ icon, label, active }: { icon: string; label: string; active?
   return (
     <div className="shell__tab-item">
       <span className={`icon-rounded shell__tab-icon ${active ? "shell__tab-icon--active" : ""}`}>{icon}</span>
-      <span className={`shell__tab-label ${active ? "shell__tab-label--active" : ""}`}>{label}</span>
+      <span className={`shell__tab-label ${active ? "shell__tab-label--active" : ""}`}><T>{label}</T></span>
     </div>
   );
 }
@@ -219,8 +220,8 @@ function TabItem({ icon, label, active }: { icon: string; label: string; active?
 function StateCard({ title, description }: { title: string; description: string }) {
   return (
     <div style={{ padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
-      <strong style={{ fontSize: "14px", fontWeight: 600, color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>{title}</strong>
-      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "14.4px" }}>{description}</span>
+      <strong style={{ fontSize: "14px", fontWeight: 600, color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}><T>{title}</T></strong>
+      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "14.4px" }}><T>{description}</T></span>
     </div>
   );
 }
