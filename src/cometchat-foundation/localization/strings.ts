@@ -1451,6 +1451,12 @@ export const AR: Readonly<Record<string, string>> = {
   categories: "الفئات",
 
   /* ─── Tooltip, fixtures and field copy (RTL sweep) ─── */
+  "https://": "⁦https://⁩",
+  "https://www.example.com": "⁦https://www.مثال.com⁩",
+  /* An address mixes scripts, so bidi would otherwise put the domain to the
+     left of the local part. U+2066/U+2069 isolate it as one LTR token. */
+  "olivia@untitledui.com": "\u2066أوليفيا@untitledui.com\u2069",
+  "george@cometchat.com": "\u2066جورج@cometchat.com\u2069",
   "GA":
     "جآ",
   "AD":

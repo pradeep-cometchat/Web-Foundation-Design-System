@@ -43,10 +43,11 @@ export function LinkDialog({
 }: LinkDialogProps) {
   const t = useT();
   const [text, setText] = useState(() => t(initialText));
-  const [url, setUrl] = useState(initialUrl);
+  const [url, setUrl] = useState(() => t(initialUrl));
 
-  // `initialText` is fixture copy, so it follows the language; a URL never does.
+  // Both fields are fixture copy, so they re-seed when the language flips.
   useEffect(() => setText(t(initialText)), [t, initialText]);
+  useEffect(() => setUrl(t(initialUrl)), [t, initialUrl]);
 
   if (!open) return null;
 
