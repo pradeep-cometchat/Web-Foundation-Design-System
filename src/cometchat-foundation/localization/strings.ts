@@ -1452,6 +1452,216 @@ export const AR: Readonly<Record<string, string>> = {
 
   /* ─── Tooltip, fixtures and field copy (RTL sweep) ─── */
 
+  /* ─── Foundation — token usage and page copy ─── */
+  "Border hover state":
+    "حالة تمرير الحدّ",
+  "Brand icons":
+    "أيقونات العلامة",
+  "Brand text hover":
+    "تمرير نص العلامة",
+  "Always white":
+    "أبيض دائمًا",
+  "Cards, dropdowns":
+    "البطاقات والقوائم المنسدلة",
+  "Captions":
+    "التسميات التوضيحية",
+  "Default focus ring (primary)":
+    "حلقة التركيز الافتراضية (أساسية)",
+  "Disabled border":
+    "حدّ معطّل",
+  "Disabled icons":
+    "أيقونات معطّلة",
+  "Disabled state":
+    "حالة معطّلة",
+  "Disabled surface":
+    "سطح معطّل",
+  "Error border":
+    "حدّ الخطأ",
+  "Error focus ring":
+    "حلقة تركيز الخطأ",
+  "Error icons":
+    "أيقونات الخطأ",
+  "Error state":
+    "حالة الخطأ",
+  "Error tinted surface":
+    "سطح بلون الخطأ",
+  "Focus, active":
+    "التركيز والنشط",
+  "Headings, body":
+    "العناوين والمتن",
+  "Info icons":
+    "أيقونات المعلومات",
+  "Info state":
+    "حالة المعلومات",
+  "Info tinted surface":
+    "سطح بلون المعلومات",
+  "Input placeholder":
+    "نص الإدخال النائب",
+  "Large overlays":
+    "الطبقات الكبيرة",
+  "Links in received":
+    "الروابط في الواردة",
+  "Links, accents":
+    "الروابط والتمييزات",
+  "Meta info":
+    "معلومات إضافية",
+  "Modal/dialog overlay":
+    "طبقة النافذة الحوارية",
+  "Modals, dialogs":
+    "النوافذ والحوارات",
+  "On colored surfaces":
+    "على الأسطح الملوّنة",
+  "Popovers":
+    "النوافذ المنبثقة",
+  "Pressed/active":
+    "مضغوط/نشط",
+  "Primary icons":
+    "الأيقونات الأساسية",
+  "Primary surface":
+    "السطح الأساسي",
+  "Primary surface hover":
+    "تمرير السطح الأساسي",
+  "Read receipt checkmark":
+    "علامة إيصال القراءة",
+  "Received message background":
+    "خلفية الرسالة الواردة",
+  "Received message text":
+    "نص الرسالة الواردة",
+  "Received timestamp":
+    "الطابع الزمني للواردة",
+  "Same in both modes":
+    "متطابق في الوضعين",
+  "Secondary hover":
+    "تمرير ثانوي",
+  "Secondary icons":
+    "الأيقونات الثانوية",
+  "Secondary surface":
+    "السطح الثانوي",
+  "Sent message background":
+    "خلفية الرسالة المُرسَلة",
+  "Sent message text":
+    "نص الرسالة المُرسَلة",
+  "Sent timestamp":
+    "الطابع الزمني للمُرسَلة",
+  "Solid brand hover":
+    "تمرير العلامة الصلب",
+  "Solid brand surface":
+    "سطح العلامة الصلب",
+  "Standard borders":
+    "الحدود القياسية",
+  "Static Black":
+    "أسود ثابت",
+  "Static White":
+    "أبيض ثابت",
+  "Strong border hover":
+    "تمرير الحدّ القوي",
+  "Stronger borders":
+    "حدود أقوى",
+  "Subtitles":
+    "العناوين الفرعية",
+  "Subtle dividers":
+    "فواصل خفيفة",
+  "Subtle elevation":
+    "ارتفاع خفيف",
+  "Success":
+    "نجاح",
+  "Success icons":
+    "أيقونات النجاح",
+  "Success state":
+    "حالة النجاح",
+  "Success tinted surface":
+    "سطح بلون النجاح",
+  "Tertiary hover":
+    "تمرير ثالثي",
+  "Tertiary icons":
+    "الأيقونات الثالثية",
+  "Tertiary surface (inputs)":
+    "السطح الثالثي (الحقول)",
+  "Warning":
+    "تحذير",
+  "Warning icons":
+    "أيقونات التحذير",
+  "Warning state":
+    "حالة التحذير",
+  "Warning tinted surface":
+    "سطح بلون التحذير",
+  "All Tokens":
+    "كل الرموز",
+  "All elevation tokens side by side.":
+    "كل رموز الارتفاع جنبًا إلى جنب.",
+  "Accessibility guidance.":
+    "إرشادات الوصول.",
+  "Implementation guide.":
+    "دليل التنفيذ.",
+  "Axes":
+    "المحاور",
+  "Axis reference — weight, fill, grade, optical size.":
+    "مرجع المحاور — الوزن والتعبئة والدرجة والحجم البصري.",
+  "Icons":
+    "الأيقونات",
+  "Material Symbols":
+    "Material Symbols",
+  "Roboto":
+    "Roboto",
+  "TypeScript":
+    "TypeScript",
+  "Source:":
+    "المصدر:",
+  "Use the":
+    "استخدم",
+  "Reference of focus ring tokens with descriptions.":
+    "مرجع رموز حلقة التركيز مع أوصافها.",
+  "Shadow token reference.":
+    "مرجع رموز الظلال.",
+  "Suggested usage per level.":
+    "الاستخدام المقترح لكل مستوى.",
+  "Side-by-side comparison of the three style variants.":
+    "مقارنة جنبًا إلى جنب للأنماط الثلاثة.",
+  "Sent and received message bubble tokens.":
+    "رموز فقاعات الرسائل المُرسَلة والواردة.",
+  "Focus states stack three layers:":
+    "تتكوّن حالات التركيز من ثلاث طبقات:",
+  "Always apply a visible focus ring to interactive elements. Use the":
+    "طبّق دائمًا حلقة تركيز مرئية على العناصر التفاعلية. استخدم",
+  "variant for destructive controls so the focus color matches intent.":
+    "النمط الخاص بعناصر التحكم الهدّامة ليطابق لون التركيز الغرض منها.",
+  "A 2px white halo to separate the ring from the control.":
+    "هالة بيضاء بسماكة 2 بكسل تفصل الحلقة عن عنصر التحكم.",
+  "A 4px colored outer ring — brand or error.":
+    "حلقة خارجية ملوّنة بسماكة 4 بكسل — بلون العلامة أو الخطأ.",
+  "Five elevation tokens from":
+    "خمسة رموز ارتفاع من",
+  "(subtle lift) to":
+    "(ارتفاع خفيف) إلى",
+  "The base elevation (matches":
+    "الارتفاع الأساسي (يطابق",
+  "Pair elevation with borders and background tokens, not alone — shadows":
+    "اقرن الارتفاع برموز الحدود والخلفيات، لا وحده — فالظلال",
+  "component (typed props + ligature name) or apply the":
+    "المكوّن (خصائص مُعرّفة + اسم الرابطة) أو طبّق",
+  "→ spacing":
+    "← المسافات",
+  "Sticker Catalog":
+    "فهرس الملصقات",
+  "Sticker List":
+    "قائمة الملصقات",
+  "Sticker 01":
+    "ملصق 01",
+  "Sticker 02":
+    "ملصق 02",
+  "Sticker 03":
+    "ملصق 03",
+  "Sticker 04":
+    "ملصق 04",
+  "Sticker 05":
+    "ملصق 05",
+  "Sticker 06":
+    "ملصق 06",
+  "Stickers can be rendered at different sizes depending on context.":
+    "يمكن عرض الملصقات بأحجام مختلفة حسب السياق.",
+  "→ \"Sticker Footage\" category.":
+    "← فئة «Sticker Footage».",
+
   /* ─── Foundation — composed shade labels ─── */
   "Brand shade 50":
     "درجة العلامة 50",
