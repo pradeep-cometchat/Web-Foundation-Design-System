@@ -388,7 +388,7 @@ function AudioAttachmentPreview({ badge = "none" as BadgeState, playing = false 
     <div style={audioCard}>
       <div style={audioPlayBtn}><IconPlay /></div>
       <Waveform playing={playing} />
-      <span style={durationText}>0:32</span>
+      <span style={durationText}><T>0:32</T></span>
       <AttachmentBadge state={badge} />
     </div>
   );
@@ -399,7 +399,7 @@ function VoiceAttachmentPreview({ badge = "none" as BadgeState, playing = false 
     <div style={audioCard}>
       <div style={audioPlayBtn}><IconPlay /></div>
       <Waveform playing={playing} />
-      <span style={durationText}>0:32</span>
+      <span style={durationText}><T>0:32</T></span>
       <AttachmentBadge state={badge} />
     </div>
   );

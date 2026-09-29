@@ -610,9 +610,7 @@ function MediaTile({
                 fontSize: 10,
                 fontWeight: 500,
               }}
-            >
-              0:12
-            </div>
+            ><T>0:12</T></div>
           </>
         )}
         {state === "loading" && (
@@ -693,9 +691,7 @@ function MobileFrame({ children }: { children: React.ReactNode }) {
             fontWeight: 600,
             color: "var(--cometchat-text-color-secondary)",
           }}
-        >
-          9:41
-        </span>
+        ><T>9:41</T></span>
         <div
           style={{
             width: 60,

@@ -563,7 +563,9 @@ function quoteSummary(q: QuotedReply): string {
       audio: ["Audio", "Audio"],
     };
   const [s, p] = labels[q.media.kind];
-  return `${q.media.count} ${toArabicOr(q.media.count === 1 ? s : p)}${q.media.caption ? ` · ${toArabicOr(q.media.caption)}` : ""}`;
+  return toArabicOr(
+    `${q.media.count} ${q.media.count === 1 ? s : p}${q.media.caption ? ` · ${q.media.caption}` : ""}`
+  );
 }
 
 /* ─── Chat ─────────────────────────────────────────────────────────────────── */
