@@ -1451,6 +1451,1266 @@ export const AR: Readonly<Record<string, string>> = {
   categories: "الفئات",
 
   /* ─── Tooltip, fixtures and field copy (RTL sweep) ─── */
+
+  /* ─── Core Components — avatar initials ─── */
+  "SF":
+    "سف",
+
+  /* ─── Core Components — batch 5 ─── */
+  "Light gray background. Purple whiteboard icon, dark title, gray description, purple 'Open Whiteboard' button. No receipt.":
+    "خلفية رمادية فاتحة وأيقونة سبّورة بنفسجية وعنوان داكن ووصف رمادي وزر «فتح السبّورة» بنفسجي، بلا إيصال.",
+  "Shows group avatar, name, member count, action buttons (Add Members, Leave, Delete and Exit), tabbed member list with role badges.":
+    "تعرض صورة المجموعة والاسم وعدد الأعضاء وأزرار الإجراءات (إضافة أعضاء، مغادرة، حذف وخروج)، وقائمة أعضاء بتبويبات مع شارات الأدوار.",
+  "Whiteboard preview with dotted grid background, text boxes with selection handles, and collaborative cursors (Sarah, Jason, Stephen).":
+    "معاينة سبّورة بخلفية شبكة منقّطة ومربّعات نص بمقابض تحديد ومؤشّرات تعاونية (سارة، جيسون، ستيفن).",
+  "Brain Michael":
+    "براين مايكل",
+  "Dana Cooper":
+    "دانا كوبر",
+  "Bright Minds Education":
+    "تعليم العقول النيّرة",
+  "Creative Event":
+    "فعالية إبداعية",
+  "Design Duo":
+    "ثنائي التصميم",
+  "Design Team":
+    "فريق التصميم",
+  "Assets.zip":
+    "الأصول.zip",
+  "Audio.mp3":
+    "صوت.mp3",
+  "Budget.xlsx":
+    "الميزانية.xlsx",
+  "Contract.pdf":
+    "العقد.pdf",
+  "Deck.pdf":
+    "العرض.pdf",
+  "Document.pdf":
+    "المستند.pdf",
+  "Hello.mp3":
+    "مرحبًا.mp3",
+  "Invoice 45821.pdf":
+    "فاتورة 45821.pdf",
+  "Kickoff deck.pptx":
+    "عرض الانطلاق.pptx",
+  "Notes.docx":
+    "ملاحظات.docx",
+  "Notes.txt":
+    "ملاحظات.txt",
+  "Proposal draft.docx":
+    "مسوّدة المقترح.docx",
+  "Q3 Budget.xlsx":
+    "ميزانية الربع الثالث.xlsx",
+  "Q3-Report.pdf":
+    "تقرير-الربع-الثالث.pdf",
+  "Recording.m4a":
+    "تسجيل.m4a",
+  "Sheet.xlsx":
+    "جدول.xlsx",
+  "Watch by Billie.mp3":
+    "ووتش لبيلي.mp3",
+  "data.bin":
+    "بيانات.bin",
+  "unknown.xyz":
+    "غير معروف.xyz",
+  "DOC":
+    "مستند",
+  "XLS":
+    "جدول",
+  "Icon: call":
+    "الأيقونة: call",
+  "Icon: call_end":
+    "الأيقونة: call_end",
+  "Icon: phone_callback":
+    "الأيقونة: phone_callback",
+  "Icon: videocam":
+    "الأيقونة: videocam",
+  "Icon: videocam_off":
+    "الأيقونة: videocam_off",
+  "rgba(255, 255, 255, 0.7)":
+    "rgba(255, 255, 255, 0.7)",
+
+  /* ─── Core Components — batch 4 ─── */
+  "Start a new chat to begin messaging your contacts.":
+    "ابدأ محادثة جديدة لمراسلة جهات اتصالك.",
+  "Start your first call to begin.":
+    "ابدأ مكالمتك الأولى للانطلاق.",
+  "Status text replaced with typing indicator (dots + 'Typing' in highlight color).":
+    "يُستبدل نص الحالة بمؤشّر الكتابة (نقاط + «يكتب» بلون مميّز).",
+  "Stephen":
+    "ستيفن",
+  "Sticker Image":
+    "صورة الملصق",
+  "Sticker Size":
+    "حجم الملصق",
+  "Strikethrough":
+    "يتوسّطه خط",
+  "Subtitle":
+    "العنوان الفرعي",
+  "Title":
+    "العنوان",
+  "Suggest a Reply (CSS)":
+    "اقترح ردًا (CSS)",
+  "Suggest a Reply (HTML)":
+    "اقترح ردًا (HTML)",
+  "Teach Tech":
+    "تعليم التقنية",
+  "Tessa Joseph":
+    "تيسا جوزيف",
+  "Tessa Joseph(2)":
+    "تيسا جوزيف(2)",
+  "Text Avatar":
+    "صورة رمزية نصية",
+  "Text input with placeholder. 16px font, full width.":
+    "حقل نص بنص نائب، بخط 16 بكسل وعرض كامل.",
+  "The input area for composing messages with text input, attachments, emoji, and send actions.":
+    "منطقة إنشاء الرسائل بحقل نص ومرفقات ورموز تعبيرية وإجراءات إرسال.",
+  "The main chat view combining message bubbles, date separators, and scroll behavior into a cohesive thread.":
+    "عرض الدردشة الرئيسي الذي يجمع فقاعات الرسائل وفواصل التاريخ وسلوك التمرير في سلسلة متماسكة.",
+  "These look great! 🙌":
+    "تبدو رائعة! 🙌",
+  "This file type isn’t supported for preview.":
+    "نوع الملف هذا غير مدعوم للمعاينة.",
+  "This is an":
+    "هذا",
+  "This media may contain graphic or violent content.":
+    "قد تحتوي هذه الوسائط على محتوى صادم أو عنيف.",
+  "Thread Notifications — stories coming soon.":
+    "إشعارات السلسلة — القصص قادمة قريبًا.",
+  "Thread Replies Divider":
+    "فاصل ردود السلسلة",
+  "Timestamp":
+    "الطابع الزمني",
+  "Timestamp + Receipt":
+    "الطابع الزمني + الإيصال",
+  "Truncated description text — 'Open document to edit content toge...' in muted color.":
+    "نص وصف مقتطع — «افتح المستند لتحرير المحتوى معًا...» بلون خافت.",
+  "Two images side by side, each taking 50% width with a 2px gap.":
+    "صورتان جنبًا إلى جنب، كل منهما بعرض 50% وبينهما فاصل 2 بكسل.",
+  "Uber Cars":
+    "أوبر كارز",
+  "Unable to load calls":
+    "تعذّر تحميل المكالمات",
+  "Unable to load groups":
+    "تعذّر تحميل المجموعات",
+  "Underline":
+    "تحته خط",
+  "Unpin Conversation":
+    "إلغاء تثبيت المحادثة",
+  "Unpin Message":
+    "إلغاء تثبيت الرسالة",
+  "Uploading…":
+    "جارٍ الرفع…",
+  "User Info":
+    "معلومات المستخدم",
+  "User Unblocked":
+    "أُلغي حظر المستخدم",
+  "User is offline — shows last seen timestamp instead of Online.":
+    "المستخدم غير متصل — يُعرض وقت آخر ظهور بدلًا من «متصل».",
+  "User is typing, clear (×) button appears on the right.":
+    "المستخدم يكتب، ويظهر زر المسح (×) في نهاية السطر.",
+  "Vertical (Received)":
+    "رأسي (واردة)",
+  "Vertical (Sent)":
+    "رأسي (مُرسَلة)",
+  "Video Call Answered":
+    "تم الرد على مكالمة الفيديو",
+  "Video Call Rejected":
+    "رُفضت مكالمة الفيديو",
+  "Voice Call Answered":
+    "تم الرد على المكالمة الصوتية",
+  "Voice Call Rejected":
+    "رُفضت المكالمة الصوتية",
+  "Video — Answered":
+    "فيديو — تم الرد",
+  "Video — Cancelled (outgoing)":
+    "فيديو — أُلغيت (صادرة)",
+  "Video — Ended (outgoing)":
+    "فيديو — انتهت (صادرة)",
+  "Video — Incoming":
+    "فيديو — واردة",
+  "Video — Missed":
+    "فيديو — فائتة",
+  "Video — Missed (incoming)":
+    "فيديو — فائتة (واردة)",
+  "Video — Outgoing":
+    "فيديو — صادرة",
+  "Video — Rejected":
+    "فيديو — مرفوضة",
+  "Video — Rejected (incoming)":
+    "فيديو — مرفوضة (واردة)",
+  "Voice — Answered":
+    "صوتية — تم الرد",
+  "Voice — Incoming":
+    "صوتية — واردة",
+  "Voice — Missed":
+    "صوتية — فائتة",
+  "Voice — Outgoing":
+    "صوتية — صادرة",
+  "Voice — Rejected":
+    "صوتية — مرفوضة",
+  "Voice Record":
+    "تسجيل صوتي",
+  "Videos":
+    "مقاطع الفيديو",
+  "View All":
+    "عرض الكل",
+  "View Members":
+    "عرض الأعضاء",
+  "View all (6 more)":
+    "عرض الكل (6 إضافية)",
+  "Voter Avatars":
+    "صور المصوّتين",
+  "Waveform":
+    "الموجة الصوتية",
+  "What's the price?":
+    "ما السعر؟",
+  "When a user adds someone to the group.":
+    "عندما يضيف مستخدم شخصًا إلى المجموعة.",
+  "When a user blocks another user.":
+    "عندما يحظر مستخدم مستخدمًا آخر.",
+  "When a user creates a new group.":
+    "عندما ينشئ مستخدم مجموعة جديدة.",
+  "When a user is promoted to admin.":
+    "عندما يُرقّى مستخدم إلى مسؤول.",
+  "When a user is removed from the group.":
+    "عندما يُزال مستخدم من المجموعة.",
+  "When a user joins the group.":
+    "عندما ينضم مستخدم إلى المجموعة.",
+  "When a user leaves the group.":
+    "عندما يغادر مستخدم المجموعة.",
+  "When a user unblocks another user.":
+    "عندما يلغي مستخدم حظر مستخدم آخر.",
+  "When admin privileges are revoked.":
+    "عند سحب صلاحيات المسؤول.",
+  "When group profile/avatar changes.":
+    "عند تغيّر ملف المجموعة أو صورتها.",
+  "When the group name is updated.":
+    "عند تحديث اسم المجموعة.",
+  "White with dotted grid pattern":
+    "أبيض بنمط شبكة منقّطة",
+  "White/light background showing a large file type icon (PDF, DOC, XLS) centered.":
+    "خلفية بيضاء/فاتحة تعرض أيقونة نوع ملف كبيرة (PDF أو DOC أو XLS) في المنتصف.",
+  "Whiteboard":
+    "السبّورة",
+  "Whiteboard Icon":
+    "أيقونة السبّورة",
+  "With Call Back Button":
+    "مع زر معاودة الاتصال",
+  "With Filters — All States":
+    "مع التصفية — كل الحالات",
+  "With Filters — Default":
+    "مع التصفية — افتراضي",
+  "With Filters — Filled":
+    "مع التصفية — مملوء",
+  "With Filters — Placeholder":
+    "مع التصفية — نص نائب",
+  "With Filters — Typing":
+    "مع التصفية — أثناء الكتابة",
+  "With Typing":
+    "أثناء الكتابة",
+  "With caption":
+    "مع تعليق",
+  "You blocked George":
+    "لقد حظرت جورج",
+  "You unblocked George":
+    "لقد ألغيت حظر جورج",
+  "You haven't made or received any calls.":
+    "لم تُجرِ أو تستقبل أي مكالمات.",
+  "and here's the hero shot 📸":
+    "وهذه اللقطة الرئيسية 📸",
+  "audio file attachment":
+    "مرفق ملف صوتي",
+  "campaign bundle":
+    "حزمة الحملة",
+  "check this out 👀":
+    "ألقِ نظرة على هذا 👀",
+  "here are all the assets and the final export from yesterday's review session":
+    "هذه كل الأصول والتصدير النهائي من جلسة مراجعة الأمس",
+  "love these 🙌":
+    "أحببتها 🙌",
+  "on the way!":
+    "في الطريق!",
+  "release notes":
+    "ملاحظات الإصدار",
+  "the highlights 🎬":
+    "أبرز اللقطات 🎬",
+  "the signed copy":
+    "النسخة الموقّعة",
+  "updated the caption ✍️":
+    "حدّثت التعليق ✍️",
+  "voice note":
+    "ملاحظة صوتية",
+  "voice note 🎙":
+    "ملاحظة صوتية 🎙",
+  "watch till the end":
+    "شاهد حتى النهاية",
+  "× icon that appears when text is entered. Clears the input on click.":
+    "أيقونة × تظهر عند إدخال نص، وتمسح الحقل عند النقر.",
+  "• First item":
+    "• العنصر الأول",
+  "• Second item":
+    "• العنصر الثاني",
+  "• Third item":
+    "• العنصر الثالث",
+  "rgba(0, 0, 0, 0.12) — Semi-transparent black":
+    "rgba(0, 0, 0, 0.12) — أسود شبه شفاف",
+  "rgba(0, 0, 0, 0.4) — Semi-transparent dark":
+    "rgba(0, 0, 0, 0.4) — داكن شبه شفاف",
+  "rgba(0, 0, 0, 0.5) — Dark overlay with white '+N' text":
+    "rgba(0, 0, 0, 0.5) — طبقة داكنة بنص «+N» أبيض",
+  "rgba(0, 0, 0, 0.6) — Darker semi-transparent":
+    "rgba(0, 0, 0, 0.6) — داكن أكثر شبه شفاف",
+  "rgba(255, 255, 255, 0.2) — Muted white":
+    "rgba(255, 255, 255, 0.2) — أبيض خافت",
+  "rgba(255, 255, 255, 0.2) — Semi-transparent white":
+    "rgba(255, 255, 255, 0.2) — أبيض شبه شفاف",
+  "rgba(255, 255, 255, 0.4) — Muted white outline":
+    "rgba(255, 255, 255, 0.4) — إطار أبيض خافت",
+  "rgba(255, 255, 255, 0.6) — Semi-transparent white":
+    "rgba(255, 255, 255, 0.6) — أبيض شبه شفاف",
+  "rgba(255, 255, 255, 0.7) — Muted white":
+    "rgba(255, 255, 255, 0.7) — أبيض خافت",
+  "Web Desktop — Chat UI Kits → Audio section (node 4072:76974)":
+    "ويب سطح المكتب — حزم واجهة الدردشة ← قسم الصوت (العقدة 4072:76974)",
+  "Web Desktop — Chat UI Kits → Collaborative Document section (node 4104:458701)":
+    "ويب سطح المكتب — حزم واجهة الدردشة ← قسم المستند التعاوني (العقدة 4104:458701)",
+  "Web Desktop — Chat UI Kits → Collaborative Whiteboard section (node 4104:453092)":
+    "ويب سطح المكتب — حزم واجهة الدردشة ← قسم السبّورة التعاونية (العقدة 4104:453092)",
+  "Web Desktop — Chat UI Kits → Delete Bubble section (node 4090:865230)":
+    "ويب سطح المكتب — حزم واجهة الدردشة ← قسم فقاعة الحذف (العقدة 4090:865230)",
+  "Web Desktop — Chat UI Kits → Sticker Bubble (node 4080:303913)":
+    "ويب سطح المكتب — حزم واجهة الدردشة ← فقاعة الملصق (العقدة 4080:303913)",
+  "Web Desktop — Chat UI Kits → Text Bubble section (node 4080:241111)":
+    "ويب سطح المكتب — حزم واجهة الدردشة ← قسم فقاعة النص (العقدة 4080:241111)",
+  "Design System — Web Chat UI Kits → Document Container (node 17219:542)":
+    "نظام التصميم — حزم واجهة دردشة الويب ← حاوية المستند (العقدة 17219:542)",
+  "Design System — Web Chat UI Kits → Image Container (node 17303:78709)":
+    "نظام التصميم — حزم واجهة دردشة الويب ← حاوية الصورة (العقدة 17303:78709)",
+  "Design System — Web Chat UI Kits → Poll Container (node 17219:542)":
+    "نظام التصميم — حزم واجهة دردشة الويب ← حاوية الاستطلاع (العقدة 17219:542)",
+  "Design System — Web Chat UI Kits → Search Field (node 17588:77085)":
+    "نظام التصميم — حزم واجهة دردشة الويب ← حقل البحث (العقدة 17588:77085)",
+  "Design System — Web Chat UI Kits → Video Container (node 17303:79942)":
+    "نظام التصميم — حزم واجهة دردشة الويب ← حاوية الفيديو (العقدة 17303:79942)",
+  "avatarRegistry['Sticker Footage'] from foundation/tokens/avatars.ts":
+    "avatarRegistry['Sticker Footage'] من foundation/tokens/avatars.ts",
+
+  /* ─── Core Components — batch 3 ─── */
+  "PNG with transparent background, rendered at 160×160 centered in the bubble.":
+    "صورة PNG بخلفية شفافة تُعرض بحجم 160×160 في منتصف الفقاعة.",
+  "Padding":
+    "الحشو",
+  "Paul David":
+    "بول ديفيد",
+  "Photos":
+    "الصور",
+  "Pin Conversation":
+    "تثبيت المحادثة",
+  "Placeholder (Default)":
+    "نائب (افتراضي)",
+  "Placeholder (Received)":
+    "نائب (واردة)",
+  "Placeholder (Sent)":
+    "نائب (مُرسَلة)",
+  "Play Button":
+    "زر التشغيل",
+  "Play Button (Received)":
+    "زر التشغيل (واردة)",
+  "Play Button (Sent)":
+    "زر التشغيل (مُرسَلة)",
+  "Play Button BG":
+    "خلفية زر التشغيل",
+  "Play button becomes pause icon. Waveform shows progress with highlighted portion.":
+    "يتحوّل زر التشغيل إلى أيقونة إيقاف مؤقّت، وتُظهر الموجة الصوتية التقدّم بجزء مميّز.",
+  "Play/Pause Button":
+    "زر التشغيل/الإيقاف المؤقّت",
+  "Playing (pause + progress)":
+    "قيد التشغيل (إيقاف مؤقّت + تقدّم)",
+  "Please try again.":
+    "يرجى المحاولة مرة أخرى.",
+  "Poll option label (e.g. 'Poll List').":
+    "تسمية خيار الاستطلاع (مثل «قائمة الاستطلاع»).",
+  "Portrait image with taller aspect ratio (approx 3:5).":
+    "صورة طولية بنسبة أبعاد أطول (نحو 3:5).",
+  "Portrait video thumbnail (taller aspect ratio) with play overlay.":
+    "صورة فيديو مصغّرة طولية (بنسبة أبعاد أطول) تعلوها أيقونة تشغيل.",
+  "Preview Area":
+    "منطقة المعاينة",
+  "Preview Background":
+    "خلفية المعاينة",
+  "Preview Image":
+    "صورة المعاينة",
+  "Progress Bar":
+    "شريط التقدّم",
+  "Progress Bar (Received)":
+    "شريط التقدّم (واردة)",
+  "Progress Bar (Sent)":
+    "شريط التقدّم (مُرسَلة)",
+  "Progress Track (Received)":
+    "مسار التقدّم (واردة)",
+  "Progress Track (Sent)":
+    "مسار التقدّم (مُرسَلة)",
+  "Purple background bubble with sticker image centered. Green read receipt + timestamp at bottom-right.":
+    "فقاعة بخلفية بنفسجية والملصق في المنتصف، مع إيصال قراءة أخضر وطابع زمني في نهاية السطر بالأسفل.",
+  "Purple background, white play button, white waveform bars. Shows single check for sent status.":
+    "خلفية بنفسجية وزر تشغيل أبيض وأشرطة موجة صوتية بيضاء، مع علامة صح واحدة لحالة الإرسال.",
+  "Purple background. Block icon + italic 'This message was deleted' in muted white. Green read receipt.":
+    "خلفية بنفسجية وأيقونة حظر مع «تم حذف هذه الرسالة» بخط مائل أبيض خافت، وإيصال قراءة أخضر.",
+  "Purple background. Phone icon in white circle. White text. Shown when an outgoing voice call ends normally.":
+    "خلفية بنفسجية وأيقونة هاتف في دائرة بيضاء ونص أبيض، تظهر عند انتهاء مكالمة صوتية صادرة بشكل طبيعي.",
+  "Purple background. Truncated text with 'Read more' link in white.":
+    "خلفية بنفسجية بنص مقتطع ورابط «قراءة المزيد» باللون الأبيض.",
+  "Purple background. Video camera icon in white circle. White text.":
+    "خلفية بنفسجية وأيقونة كاميرا فيديو في دائرة بيضاء ونص أبيض.",
+  "Purple background. White document icon, white title/description, white 'Open Document' button. Green read receipt.":
+    "خلفية بنفسجية وأيقونة مستند بيضاء وعنوان ووصف أبيضان وزر «فتح المستند» أبيض، وإيصال قراءة أخضر.",
+  "Purple background. White text, white radio buttons, white progress bars. Voter avatars shown on the right.":
+    "خلفية بنفسجية بنص أبيض وأزرار اختيار بيضاء وأشرطة تقدّم بيضاء، مع صور المصوّتين في نهاية السطر.",
+  "Purple background. White text. Green double-check receipt icon.":
+    "خلفية بنفسجية بنص أبيض وأيقونة إيصال بعلامتي صح خضراوين.",
+  "Purple background. White text. Muted white double-check receipt icon.":
+    "خلفية بنفسجية بنص أبيض وأيقونة إيصال بعلامتي صح بيضاوين خافتتين.",
+  "Purple background. White text. Muted white single-check receipt icon.":
+    "خلفية بنفسجية بنص أبيض وأيقونة إيصال بعلامة صح واحدة بيضاء خافتة.",
+  "Purple background. White whiteboard icon, white title/description, white 'Open Whiteboard' button. Green read receipt.":
+    "خلفية بنفسجية وأيقونة سبّورة بيضاء وعنوان ووصف أبيضان وزر «فتح السبّورة» أبيض، وإيصال قراءة أخضر.",
+  "Purple info bar. White preview area with large PDF icon. File thumbnail, name, date/size, and download icon in white.":
+    "شريط معلومات بنفسجي ومنطقة معاينة بيضاء بأيقونة PDF كبيرة، والصورة المصغّرة والاسم والتاريخ/الحجم وأيقونة التنزيل باللون الأبيض.",
+  "Quoted (reply)":
+    "مقتبسة (ردّ)",
+  "Quoted — reply to 6 images":
+    "مقتبسة — ردّ على 6 صور",
+  "Quoted — reply to 6 videos":
+    "مقتبسة — ردّ على 6 مقاطع فيديو",
+  "Radio (Received)":
+    "زر اختيار (واردة)",
+  "Radio (Sent)":
+    "زر اختيار (مُرسَلة)",
+  "Raj Dubey":
+    "راج دوبي",
+  "Read More (Received)":
+    "قراءة المزيد (واردة)",
+  "Read More (Sent)":
+    "قراءة المزيد (مُرسَلة)",
+  "Read More Link":
+    "رابط قراءة المزيد",
+  "Read more":
+    "قراءة المزيد",
+  "Receipt Status":
+    "حالة الإيصال",
+  "Received (Sticker 2)":
+    "واردة (ملصق 2)",
+  "Received (Sticker 3)":
+    "واردة (ملصق 3)",
+  "Received Background":
+    "خلفية الواردة",
+  "Received Info Bar":
+    "شريط معلومات الواردة",
+  "Received Separator":
+    "فاصل الواردة",
+  "Received Text":
+    "نص الواردة",
+  "Received Text/Icon":
+    "نص/أيقونة الواردة",
+  "Received Timestamp":
+    "الطابع الزمني للواردة",
+  "Received Waveform":
+    "موجة الواردة الصوتية",
+  "Received · downloading":
+    "واردة · جارٍ التنزيل",
+  "Received — DOC":
+    "واردة — DOC",
+  "Received — Default":
+    "واردة — افتراضي",
+  "Received — Long Text":
+    "واردة — نص طويل",
+  "Received — PDF":
+    "واردة — PDF",
+  "Received — Paused":
+    "واردة — متوقّفة مؤقّتًا",
+  "Received — Playing":
+    "واردة — قيد التشغيل",
+  "Received — XLS":
+    "واردة — XLS",
+  "Recent used":
+    "المستخدمة مؤخرًا",
+  "Red line with 'New' label aligned right — marks unread messages.":
+    "خط أحمر بتسمية «جديد» في نهاية السطر — يميّز الرسائل غير المقروءة.",
+  "Regular weight body text. White on sent, dark on received.":
+    "نص متن بوزن عادي. أبيض على المُرسَلة، داكن على الواردة.",
+  "Remove":
+    "إزالة",
+  "Remove attachment":
+    "إزالة المرفق",
+  "Removed As Admin":
+    "أُزيل من المسؤولين",
+  "Reply count label aligned left with line extending right.":
+    "تسمية عدد الردود في بداية السطر مع خط يمتد إلى نهايته.",
+  "Review pack 👆":
+    "حزمة المراجعة 👆",
+  "Robert Allen":
+    "روبرت ألين",
+  "Rounded container (var(--cometchat-radius-3)) with sent/received background color.":
+    "حاوية بزوايا دائرية (var(--cometchat-radius-3)) بلون خلفية المُرسَلة/الواردة.",
+  "Safiya Fareena":
+    "صفية فارينا",
+  "Same layout with Excel icon (green).":
+    "التخطيط نفسه بأيقونة Excel (خضراء).",
+  "Same layout with Excel icon.":
+    "التخطيط نفسه بأيقونة Excel.",
+  "Same layout with Word document icon (blue).":
+    "التخطيط نفسه بأيقونة مستند Word (زرقاء).",
+  "Same layout with Word document icon.":
+    "التخطيط نفسه بأيقونة مستند Word.",
+  "Same layout with gray bubble wrapper.":
+    "التخطيط نفسه داخل فقاعة رمادية.",
+  "Same layout with gray bubble wrapper. No receipt icon.":
+    "التخطيط نفسه داخل فقاعة رمادية، بلا أيقونة إيصال.",
+  "Same loading state with gray bubble wrapper.":
+    "حالة التحميل نفسها داخل فقاعة رمادية.",
+  "Same search states but with filter chips below. 'All' chip is active (purple) by default.":
+    "حالات البحث نفسها مع شرائح تصفية أسفلها، وشريحة «الكل» نشطة (بنفسجية) افتراضيًا.",
+  "Same with muted white double-check.":
+    "المثل مع علامتي صح بيضاوين خافتتين.",
+  "Same with muted white single-check.":
+    "المثل مع علامة صح واحدة بيضاء خافتة.",
+  "Same with single check in muted white.":
+    "المثل مع علامة صح واحدة بلون أبيض خافت.",
+  "Sarah":
+    "سارة",
+  "Save — stories coming soon.":
+    "الحفظ — القصص قادمة قريبًا.",
+  "Scott Franklin":
+    "سكوت فرانكلين",
+  "Search Icon":
+    "أيقونة البحث",
+  "Search chats or messages":
+    "ابحث في المحادثات أو الرسائل",
+  "Search groups":
+    "ابحث في المجموعات",
+  "Search sticker":
+    "ابحث عن ملصق",
+  "Secondary question/description text below the title.":
+    "نص سؤال/وصف ثانوي أسفل العنوان.",
+  "See Photo":
+    "عرض الصورة",
+  "See Video":
+    "عرض الفيديو",
+  "Semibold text showing the file name (e.g. 'File.pdf').":
+    "نص شبه عريض يعرض اسم الملف (مثل «File.pdf»).",
+  "Sensitive (Received)":
+    "محتوى حسّاس (واردة)",
+  "Sensitive (Sent)":
+    "محتوى حسّاس (مُرسَلة)",
+  "Sensitive Background":
+    "خلفية المحتوى الحسّاس",
+  "Sensitive Content":
+    "محتوى حسّاس",
+  "Sensitive Content (Received)":
+    "محتوى حسّاس (واردة)",
+  "Sensitive Content (Sent)":
+    "محتوى حسّاس (مُرسَلة)",
+  "Sensitive Text":
+    "نص المحتوى الحسّاس",
+  "Sent":
+    "مُرسَلة",
+  "Sent Background":
+    "خلفية المُرسَلة",
+  "Sent Info Bar":
+    "شريط معلومات المُرسَلة",
+  "Sent Separator":
+    "فاصل المُرسَلة",
+  "Sent Text":
+    "نص المُرسَلة",
+  "Sent Text/Icon":
+    "نص/أيقونة المُرسَلة",
+  "Sent Timestamp":
+    "الطابع الزمني للمُرسَلة",
+  "Sent Waveform":
+    "موجة المُرسَلة الصوتية",
+  "Sent and received message bubbles with text, media, reactions, timestamps, and read receipts.":
+    "فقاعات رسائل مُرسَلة وواردة تضم النصوص والوسائط والتفاعلات والطوابع الزمنية وإيصالات القراءة.",
+  "Sent bubbles show delivery status: ✓ sent, ✓✓ delivered, ✓✓ (green) read.":
+    "تعرض الفقاعات المُرسَلة حالة التسليم: ✓ أُرسلت، ✓✓ سُلّمت، ✓✓ (أخضر) قُرئت.",
+  "Sent only. ✓ sent, ✓✓ delivered (muted), ✓✓ read (green).":
+    "للمُرسَلة فقط. ✓ أُرسلت، ✓✓ سُلّمت (خافت)، ✓✓ قُرئت (أخضر).",
+  "Sent — DOC":
+    "مُرسَلة — DOC",
+  "Sent — Default":
+    "مُرسَلة — افتراضي",
+  "Sent — Default (Sent)":
+    "مُرسَلة — افتراضي (مُرسَلة)",
+  "Sent — Delivered":
+    "مُرسَلة — سُلّمت",
+  "Sent — Long Text":
+    "مُرسَلة — نص طويل",
+  "Sent — PDF":
+    "مُرسَلة — PDF",
+  "Sent — Paused":
+    "مُرسَلة — متوقّفة مؤقّتًا",
+  "Sent — Playing":
+    "مُرسَلة — قيد التشغيل",
+  "Sent — Read":
+    "مُرسَلة — قُرئت",
+  "Sent — Sent":
+    "مُرسَلة — أُرسلت",
+  "Sent — XLS":
+    "مُرسَلة — XLS",
+  "Series of vertical bars with varying heights representing audio amplitude. Animates on playback.":
+    "سلسلة أشرطة رأسية بارتفاعات متفاوتة تمثّل شدّة الصوت، وتتحرّك أثناء التشغيل.",
+  "Shown when loading fails. Displays a warning icon, error message, and a Retry button.":
+    "تظهر عند فشل التحميل، وتعرض أيقونة تحذير ورسالة خطأ وزر إعادة المحاولة.",
+  "Shown when loading fails. Displays an error icon, message, and a Retry button.":
+    "تظهر عند فشل التحميل، وتعرض أيقونة خطأ ورسالة وزر إعادة المحاولة.",
+  "Shown when text exceeds max lines. White on sent, purple on received. Clickable.":
+    "يظهر عندما يتجاوز النص الحد الأقصى للأسطر. أبيض على المُرسَلة، بنفسجي على الواردة، وقابل للنقر.",
+  "Shown when there are no calls. Displays a call icon, title, description, and Start a call button.":
+    "تظهر عند عدم وجود مكالمات، وتعرض أيقونة مكالمة وعنوانًا ووصفًا وزر بدء مكالمة.",
+  "Shown when there are no conversations. Displays a chat icon, title, and description.":
+    "تظهر عند عدم وجود محادثات، وتعرض أيقونة دردشة وعنوانًا ووصفًا.",
+  "Shown when there are no groups. Displays a groups icon, title, and description.":
+    "تظهر عند عدم وجود مجموعات، وتعرض أيقونة مجموعات وعنوانًا ووصفًا.",
+  "Shows avatar, name, status (Online), and action buttons (video, call, more).":
+    "تعرض الصورة الرمزية والاسم والحالة (متصل) وأزرار الإجراءات (فيديو، مكالمة، المزيد).",
+  "Shows current time / total duration (e.g. 00:00/00:32). Updates during playback.":
+    "يعرض الوقت الحالي / المدة الإجمالية (مثل 00:00/00:32)، ويتحدّث أثناء التشغيل.",
+  "Shows user avatar (text initials on purple background), name, online status, and action buttons (Block, Delete Chat).":
+    "تعرض صورة المستخدم الرمزية (أحرف أولى على خلفية بنفسجية) والاسم وحالة الاتصال وأزرار الإجراءات (حظر، حذف المحادثة).",
+  "Simple — Default":
+    "بسيط — افتراضي",
+  "Simple — Filled":
+    "بسيط — مملوء",
+  "Simple — Placeholder":
+    "بسيط — نص نائب",
+  "Simple — Typing":
+    "بسيط — أثناء الكتابة",
+  "Single (Received)":
+    "مفردة (واردة)",
+  "Single (Sent)":
+    "مفردة (مُرسَلة)",
+  "Single (click a thumbnail)":
+    "مفردة (اضغط على صورة مصغّرة)",
+  "Single Loading":
+    "تحميل مفرد",
+  "Single Loading (Received)":
+    "تحميل مفرد (واردة)",
+  "Single Loading (Sent)":
+    "تحميل مفرد (مُرسَلة)",
+  "Skeleton placeholders for all elements while data loads.":
+    "هياكل نائبة لجميع العناصر أثناء تحميل البيانات.",
+  "Skill Sphere":
+    "مجال المهارات",
+  "Small muted text at bottom-right (e.g. '4:56 pm').":
+    "نص صغير خافت في نهاية السطر بالأسفل (مثل «4:56 م»).",
+  "Small rounded square (36×36) with the file type icon at the left of the info bar.":
+    "مربّع صغير بزوايا دائرية (36×36) يحمل أيقونة نوع الملف في بداية شريط المعلومات.",
+  "Smart":
+    "ذكي",
+  "Something went wrong while loading the group list. Please try again.":
+    "حدث خطأ أثناء تحميل قائمة المجموعات. يرجى المحاولة مرة أخرى.",
+  "Something went wrong while loading your call history. Please try again.":
+    "حدث خطأ أثناء تحميل سجل مكالماتك. يرجى المحاولة مرة أخرى.",
+  "Source File":
+    "الملف المصدر",
+  "Specs + the component list 📎":
+    "المواصفات + قائمة المكوّنات 📎",
+  "Square video thumbnail with play button overlay and duration badge. Purple bubble wrapper with timestamp + receipt.":
+    "صورة فيديو مصغّرة مربّعة يعلوها زر تشغيل وشارة مدة، داخل فقاعة بنفسجية مع طابع زمني وإيصال.",
+  "Stacked circular avatars of users who voted for this option. Shows +N for overflow.":
+    "صور دائرية متراكبة للمستخدمين الذين صوّتوا لهذا الخيار، وتعرض +N عند الزيادة.",
+  "Start a call":
+    "ابدأ مكالمة",
+
+  /* ─── Core Components — batch 2 ─── */
+  "Download Icon (Received)":
+    "أيقونة التنزيل (واردة)",
+  "Download Icon (Sent)":
+    "أيقونة التنزيل (مُرسَلة)",
+  "Downloading…":
+    "جارٍ التنزيل…",
+  "Drop files here":
+    "أفلِت الملفات هنا",
+  "Duration Badge":
+    "شارة المدة",
+  "Duration Badge BG":
+    "خلفية شارة المدة",
+  "Duration Label":
+    "تسمية المدة",
+  "Edited":
+    "مُعدَّلة",
+  "Emily":
+    "إيميلي",
+  "Emoji":
+    "رمز تعبيري",
+  "Empty gray container with a landscape icon placeholder.":
+    "حاوية رمادية فارغة فيها أيقونة صورة نائبة.",
+  "Enter your message here":
+    "اكتب رسالتك هنا",
+  "Epic Games":
+    "إيبيك جيمز",
+  "Error & Retry":
+    "الخطأ وإعادة المحاولة",
+  "Everything from the review 👆":
+    "كل ما ورد في المراجعة 👆",
+  "FILE":
+    "ملف",
+  "Failed (error)":
+    "فشل (خطأ)",
+  "Figma Reference":
+    "مرجع Figma",
+  "File Meta":
+    "بيانات الملف",
+  "File Meta (Received)":
+    "بيانات الملف (واردة)",
+  "File Meta (Sent)":
+    "بيانات الملف (مُرسَلة)",
+  "File Name":
+    "اسم الملف",
+  "File Name (Received)":
+    "اسم الملف (واردة)",
+  "File Name (Sent)":
+    "اسم الملف (مُرسَلة)",
+  "File Thumbnail":
+    "صورة الملف المصغّرة",
+  "File types":
+    "أنواع الملفات",
+  "Files & audio":
+    "الملفات والصوتيات",
+  "Filter Chips":
+    "شرائح التصفية",
+  "Focus":
+    "التركيز",
+  "Formatting":
+    "التنسيق",
+  "Formatting Types":
+    "أنواع التنسيق",
+  "Forwarded":
+    "مُعاد توجيهها",
+  "Foundation — Group avatar images from the avatar registry.":
+    "الأساسيات — صور المجموعات الرمزية من سجلّ الصور الرمزية.",
+  "Four images in a 2×2 grid with 2px gaps.":
+    "أربع صور في شبكة 2×2 بفواصل 2 بكسل.",
+  "Full-width 1px line dividing info from action.":
+    "خط بعرض كامل بسماكة 1 بكسل يفصل المعلومات عن الإجراء.",
+  "Full-width text button below the bubble content, separated by a top border.":
+    "زر نصي بعرض كامل أسفل محتوى الفقاعة، يفصله حدّ علوي.",
+  "Future Technology":
+    "تكنولوجيا المستقبل",
+  "Generic admin removal notification.":
+    "إشعار عام بإزالة مسؤول.",
+  "George added Jack":
+    "أضاف جورج جاك",
+  "George created the group":
+    "أنشأ جورج المجموعة",
+  "George joined the group":
+    "انضم جورج إلى المجموعة",
+  "George left the group":
+    "غادر جورج المجموعة",
+  "George made Emma an admin":
+    "عيّن جورج إيما مسؤولة",
+  "George removed Jack":
+    "أزال جورج جاك",
+  "Gray background bubble with sticker image centered. Timestamp only, no receipt.":
+    "فقاعة بخلفية رمادية والملصق في المنتصف. الطابع الزمني فقط بلا إيصال.",
+  "Gray background. Dark text, gray radio buttons, purple progress bars. Voter avatars shown on the right.":
+    "خلفية رمادية بنص داكن وأزرار اختيار رمادية وأشرطة تقدّم بنفسجية، مع صور المصوّتين في نهاية السطر.",
+  "Gray background. Dark text. Timestamp only, no receipt.":
+    "خلفية رمادية بنص داكن. الطابع الزمني فقط بلا إيصال.",
+  "Gray background. Phone icon in white circle. Dark text. Shown when an incoming call was not answered.":
+    "خلفية رمادية وأيقونة هاتف في دائرة بيضاء ونص داكن، تظهر عند عدم الرد على مكالمة واردة.",
+  "Gray background. Truncated text with 'Read more' link in purple.":
+    "خلفية رمادية بنص مقتطع ورابط «قراءة المزيد» باللون البنفسجي.",
+  "Gray background. Video camera icon in white circle. Dark text.":
+    "خلفية رمادية وأيقونة كاميرا فيديو في دائرة بيضاء ونص داكن.",
+  "Gray bubble with a 'Call Back' action button below the call info. Separated by a border-top divider.":
+    "فقاعة رمادية بزر «معاودة الاتصال» أسفل معلومات المكالمة، يفصله حدّ علوي.",
+  "Gray info bar. White preview area with large PDF icon. File thumbnail, name, date/size in dark, download icon in purple.":
+    "شريط معلومات رمادي ومنطقة معاينة بيضاء بأيقونة PDF كبيرة. الصورة المصغّرة والاسم والتاريخ/الحجم بلون داكن، وأيقونة التنزيل بنفسجية.",
+  "Grid Gap":
+    "فاصل الشبكة",
+  "Group 1":
+    "المجموعة 1",
+  "Group 2":
+    "المجموعة 2",
+  "Group Created":
+    "أُنشئت المجموعة",
+  "Group Info":
+    "معلومات المجموعة",
+  "Group Name Changed":
+    "تغيّر اسم المجموعة",
+  "Group Profile Updated":
+    "حُدّث ملف المجموعة",
+  "Group Profile updated":
+    "حُدّث ملف المجموعة",
+  "Groups":
+    "المجموعات",
+  "Groups will appear here once they join your workspace or organization.":
+    "ستظهر المجموعات هنا بمجرد انضمامها إلى مساحة عملك أو مؤسستك.",
+  "Header + Search + Conversation items list. The primary state showing all recent conversations.":
+    "ترويسة + بحث + قائمة عناصر المحادثات. الحالة الأساسية التي تعرض كل المحادثات الأخيرة.",
+  "Header + Search + scrollable list of GroupItems showing available groups with member counts.":
+    "ترويسة + بحث + قائمة مجموعات قابلة للتمرير تعرض المجموعات المتاحة مع عدد الأعضاء.",
+  "Header + scrollable list of CallItems showing recent calls with direction indicators and call type icons.":
+    "ترويسة + قائمة مكالمات قابلة للتمرير تعرض المكالمات الأخيرة مع مؤشرات الاتجاه وأيقونات نوع المكالمة.",
+  "Hello, World!":
+    "مرحبًا بالعالم!",
+  "Hey!":
+    "أهلًا!",
+  "Hi, is the watch still up for sale?":
+    "مرحبًا، هل الساعة ما زالت معروضة للبيع؟",
+  "Higher-level composed components built from Base Components and Foundation tokens. These represent complete UI patterns ready for integration into product screens. All components are responsive and adapt to mobile, tablet, and desktop viewports.":
+    "مكوّنات مُركّبة أعلى مستوى، مبنية من المكوّنات الأساسية ورموز الأساسيات. تمثّل أنماط واجهة كاملة جاهزة للدمج في شاشات المنتج، وجميعها متجاوبة وتتكيّف مع شاشات الجوال واللوحي وسطح المكتب.",
+  "Horizontal (Received)":
+    "أفقي (واردة)",
+  "Horizontal (Sent)":
+    "أفقي (مُرسَلة)",
+  "Horizontal bar showing vote percentage. White on sent, purple on received.":
+    "شريط أفقي يعرض نسبة التصويت. أبيض على المُرسَلة، بنفسجي على الواردة.",
+  "Horizontal row of selectable chips. Active chip has purple background with white text.":
+    "صف أفقي من الشرائح القابلة للتحديد، والشريحة النشطة بخلفية بنفسجية ونص أبيض.",
+  "Icon Circle":
+    "دائرة الأيقونة",
+  "Icon Color":
+    "لون الأيقونة",
+  "Icon Reference":
+    "مرجع الأيقونة",
+  "Icon: missed_video_call (error color)":
+    "الأيقونة: missed_video_call (بلون الخطأ)",
+  "Icon: phone_missed (error color)":
+    "الأيقونة: phone_missed (بلون الخطأ)",
+  "Idle state with 'Search' placeholder text and search icon.":
+    "حالة خاملة بنص «بحث» النائب وأيقونة البحث.",
+  "Image Avatar":
+    "صورة رمزية",
+  "In Composer":
+    "داخل المُنشئ",
+  "Incoming Background":
+    "خلفية الواردة",
+  "Outgoing Background":
+    "خلفية الصادرة",
+  "Incoming Video Call":
+    "مكالمة فيديو واردة",
+  "Incoming Voice Call":
+    "مكالمة صوتية واردة",
+  "Outgoing Video Call":
+    "مكالمة فيديو صادرة",
+  "Outgoing Voice Call":
+    "مكالمة صوتية صادرة",
+  "Incoming parent + many replies":
+    "رسالة أصلية واردة + ردود كثيرة",
+  "Outgoing parent + 4 replies":
+    "رسالة أصلية صادرة + 4 ردود",
+  "Innovative Online Shop...":
+    "التسوق الإلكتروني المبتكر...",
+  "Input Field":
+    "حقل الإدخال",
+  "Italic":
+    "مائل",
+  "Jason":
+    "جيسون",
+  "Jennifer Lynn":
+    "جينيفر لين",
+  "John Paul":
+    "جون بول",
+  "Label":
+    "التسمية",
+  "Landscape image with wider aspect ratio (approx 5:3).":
+    "صورة عرضية بنسبة أبعاد أوسع (نحو 5:3).",
+  "Landscape video thumbnail (wider aspect ratio) with play overlay.":
+    "صورة فيديو مصغّرة عرضية (بنسبة أبعاد أوسع) تعلوها أيقونة تشغيل.",
+  "Last Seen":
+    "آخر ظهور",
+  "Leading search (magnifying glass) icon in secondary color.":
+    "أيقونة بحث (عدسة مكبّرة) في بداية الحقل بلون ثانوي.",
+  "Let me know if you're interested":
+    "أخبرني إن كنت مهتمًا",
+  "Light gray background, purple play button, purple waveform bars. No receipt indicator.":
+    "خلفية رمادية فاتحة وزر تشغيل بنفسجي وأشرطة موجة صوتية بنفسجية، بلا مؤشر إيصال.",
+  "Light gray background. Block icon + italic text in muted dark. No receipt.":
+    "خلفية رمادية فاتحة وأيقونة حظر مع نص مائل بلون داكن خافت، بلا إيصال.",
+  "Light gray background. Purple document icon, dark title, gray description, purple 'Open Document' button. No receipt.":
+    "خلفية رمادية فاتحة وأيقونة مستند بنفسجية وعنوان داكن ووصف رمادي وزر «فتح المستند» بنفسجي، بلا إيصال.",
+  "Link text":
+    "نص الرابط",
+  "Loading (Received)":
+    "جارٍ التحميل (واردة)",
+  "Loading (Sent)":
+    "جارٍ التحميل (مُرسَلة)",
+  "Loading Overlay":
+    "طبقة التحميل",
+  "Loading state with skeleton placeholders while call history is being fetched.":
+    "حالة تحميل بهياكل نائبة أثناء جلب سجل المكالمات.",
+  "Loading state with skeleton placeholders while conversations are being fetched.":
+    "حالة تحميل بهياكل نائبة أثناء جلب المحادثات.",
+  "Loading state with skeleton placeholders while groups are being fetched.":
+    "حالة تحميل بهياكل نائبة أثناء جلب المجموعات.",
+  "Looks like something went wrong.":
+    "يبدو أن هناك خطأ ما.",
+  "Made Admin":
+    "عُيّن مسؤولًا",
+  "March 2026":
+    "مارس 2026",
+  "Marketing":
+    "التسويق",
+  "Material icon 'block' (outlined, 20px). Muted white on sent, muted dark on received.":
+    "أيقونة Material باسم block (محدّدة، 20 بكسل). أبيض خافت على المُرسَلة، وداكن خافت على الواردة.",
+  "Material icon 'description' (filled, 24px). White on sent, purple on received.":
+    "أيقونة Material باسم description (ممتلئة، 24 بكسل). أبيض على المُرسَلة، بنفسجي على الواردة.",
+  "Material icon 'download' at the right of the info bar. White on sent, purple on received.":
+    "أيقونة Material باسم download في نهاية شريط المعلومات. أبيض على المُرسَلة، بنفسجي على الواردة.",
+  "Media grid":
+    "شبكة الوسائط",
+  "Member Added":
+    "أُضيف عضو",
+  "Member Joined":
+    "انضم عضو",
+  "Member Left":
+    "غادر عضو",
+  "Member Removed":
+    "أُزيل عضو",
+  "Message Composer":
+    "مُنشئ الرسائل",
+  "Message Text":
+    "نص الرسالة",
+  "Message time displayed below the audio content (e.g. 4:56 pm).":
+    "وقت الرسالة معروضًا أسفل المحتوى الصوتي (مثل 4:56 م).",
+  "Micheal Scott":
+    "مايكل سكوت",
+  "Mind Body Wellness":
+    "صحة الجسد والعقل",
+  "Missed Voice Call":
+    "مكالمة صوتية فائتة",
+  "Mixed batch":
+    "دفعة مختلطة",
+  "Mobile":
+    "الجوال",
+  "Muhammed Fareed":
+    "محمد فريد",
+  "Multiple Loading":
+    "تحميل متعدد",
+  "Multiple Loading (Received)":
+    "تحميل متعدد (واردة)",
+  "Multiple Loading (Sent)":
+    "تحميل متعدد (مُرسَلة)",
+  "Multiple formats (separate)":
+    "تنسيقات متعددة (منفصلة)",
+  "New":
+    "جديد",
+  "New Message Divider":
+    "فاصل الرسائل الجديدة",
+  "No Conversations Yet":
+    "لا محادثات بعد",
+  "No calls yet":
+    "لا مكالمات بعد",
+  "No group yet":
+    "لا مجموعات بعد",
+  "No preview available":
+    "لا تتوفّر معاينة",
+  "No replies":
+    "لا ردود",
+  "Not delivered":
+    "لم تُسلَّم",
+  "On it 👍":
+    "جارٍ العمل عليه 👍",
+  "One image at full container width, square aspect ratio.":
+    "صورة واحدة بعرض الحاوية الكامل بنسبة أبعاد مربّعة.",
+  "One large image on the left (50%), two stacked images on the right (50%).":
+    "صورة كبيرة واحدة في البداية (50%)، وصورتان متراكبتان في النهاية (50%).",
+  "Oops!":
+    "عذرًا!",
+  "Open Document":
+    "فتح المستند",
+  "Open Whiteboard":
+    "فتح السبّورة",
+  "Open document to edit content toge...":
+    "افتح المستند لتحرير المحتوى معًا...",
+  "Open whiteboard to draw together":
+    "افتح السبّورة للرسم معًا",
+  "Option Text":
+    "نص الخيار",
+  "Ordered List":
+    "قائمة مرقّمة",
+  "Overlay (4+)":
+    "طبقة (+4)",
+
+  /* ─── Core Components — batch 1 ─── */
+  "'Collaborative Document' — semibold, primary size.":
+    "«مستند تعاوني» — خط شبه عريض بالحجم الأساسي.",
+  "'Collaborative Whiteboard' — semibold, primary size.":
+    "«سبّورة تعاونية» — خط شبه عريض بالحجم الأساسي.",
+  "'Open Document' — semibold, centered. White on sent, purple on received.":
+    "«فتح المستند» — شبه عريض ومتوسّط. أبيض على المُرسَلة، بنفسجي على الواردة.",
+  "'Open Whiteboard' — semibold, centered. White on sent, purple on received.":
+    "«فتح السبّورة» — شبه عريض ومتوسّط. أبيض على المُرسَلة، بنفسجي على الواردة.",
+  "'Open whiteboard to draw together' in muted color.":
+    "«افتح السبّورة للرسم معًا» بلون خافت.",
+  "'This message was deleted' — italic, regular weight, muted color.":
+    "«تم حذف هذه الرسالة» — مائل بوزن عادي ولون خافت.",
+  "'Voice call' or 'Video call' — semibold, primary text color (white on outgoing, dark on incoming).":
+    "«مكالمة صوتية» أو «مكالمة فيديو» — شبه عريض بلون النص الأساسي (أبيض للصادرة، داكن للواردة).",
+  "1,225 Members":
+    "1,225 عضوًا",
+  "11 Members":
+    "11 عضوًا",
+  "16 Members":
+    "16 عضوًا",
+  "233 Members":
+    "233 عضوًا",
+  "32 Members":
+    "32 عضوًا",
+  "33 Members":
+    "33 عضوًا",
+  "35 Members":
+    "35 عضوًا",
+  "36 Members":
+    "36 عضوًا",
+  "42 Members":
+    "42 عضوًا",
+  "8 Members":
+    "8 أعضاء",
+  "1. First item":
+    "1. العنصر الأول",
+  "2. Second item":
+    "2. العنصر الثاني",
+  "3. Third item":
+    "3. العنصر الثالث",
+  "160×160px in chat bubble context":
+    "‎160×160 بكسل داخل فقاعة الدردشة",
+  "2px — Between grid images":
+    "2 بكسل — بين صور الشبكة",
+  "36×36 white circle containing the call type icon (phone or video camera) in purple.":
+    "دائرة بيضاء 36×36 تحوي أيقونة نوع المكالمة (هاتف أو كاميرا فيديو) باللون البنفسجي.",
+  "2 Grid":
+    "شبكة من 2",
+  "3 Grid":
+    "شبكة من 3",
+  "4 Grid":
+    "شبكة من 4",
+  "4+ Grid":
+    "شبكة من +4",
+  "2 Grid (Received)":
+    "شبكة من 2 (واردة)",
+  "2 Grid (Sent)":
+    "شبكة من 2 (مُرسَلة)",
+  "3 Grid (Received)":
+    "شبكة من 3 (واردة)",
+  "3 Grid (Sent)":
+    "شبكة من 3 (مُرسَلة)",
+  "4 Grid (Received)":
+    "شبكة من 4 (واردة)",
+  "4 Grid (Sent)":
+    "شبكة من 4 (مُرسَلة)",
+  "4+ Grid (Received)":
+    "شبكة من +4 (واردة)",
+  "4+ Grid (Sent)":
+    "شبكة من +4 (مُرسَلة)",
+  "4 Replies":
+    "4 ردود",
+  "Grid":
+    "شبكة",
+  "Horizontal":
+    "أفقي",
+  "Vertical":
+    "رأسي",
+  "A scrollable list of conversations with avatars, message previews, timestamps, and unread indicators.":
+    "قائمة محادثات قابلة للتمرير تعرض الصور الرمزية ومعاينات الرسائل والطوابع الزمنية ومؤشرات غير المقروء.",
+  "AI":
+    "الذكاء الاصطناعي",
+  "AI features":
+    "ميزات الذكاء الاصطناعي",
+  "Aa":
+    "أ ب",
+  "Action Button":
+    "زر الإجراء",
+  "Action Text (Received)":
+    "نص الإجراء (واردة)",
+  "Action Text (Sent)":
+    "نص الإجراء (مُرسَلة)",
+  "Action Types":
+    "أنواع الإجراءات",
+  "Active Chip BG":
+    "خلفية الشريحة النشطة",
+  "Active search with filtered group results based on query.":
+    "بحث نشط يعرض نتائج المجموعات المُرشَّحة حسب الاستعلام.",
+  "Active search with focused input, filter chips, and filtered conversation results.":
+    "بحث نشط بحقل مُركَّز وشرائح تصفية ونتائج محادثات مُرشَّحة.",
+  "Add photos, videos, documents or audio to your message.":
+    "أضف صورًا أو مقاطع فيديو أو مستندات أو ملفات صوتية إلى رسالتك.",
+  "Admin Removed":
+    "تمت إزالة المسؤول",
+  "Anatomy":
+    "البنية",
+  "Attach file":
+    "إرفاق ملف",
+  "Attachment":
+    "مرفق",
+  "Audio results":
+    "نتائج صوتية",
+  "Audio — Cancelled (outgoing)":
+    "صوتية — أُلغيت (صادرة)",
+  "Audio — Ended (outgoing)":
+    "صوتية — انتهت (صادرة)",
+  "Audio — Missed (incoming)":
+    "صوتية — فائتة (واردة)",
+  "Audio — Rejected (incoming)":
+    "صوتية — مرفوضة (واردة)",
+  "Back to chats":
+    "العودة إلى المحادثات",
+  "Background":
+    "الخلفية",
+  "Banned Members":
+    "الأعضاء المحظورون",
+  "Base Component — Individual call row with avatar, name, direction, datetime, and trailing call/video icon.":
+    "مكوّن أساسي — صف مكالمة مفرد يضم الصورة الرمزية والاسم والاتجاه والتاريخ والوقت وأيقونة مكالمة/فيديو في نهايته.",
+  "Base Component — Individual conversation row with avatar, name, message preview, timestamp.":
+    "مكوّن أساسي — صف محادثة مفرد يضم الصورة الرمزية والاسم ومعاينة الرسالة والطابع الزمني.",
+  "Base Component — Individual group row with avatar, name, and member count.":
+    "مكوّن أساسي — صف مجموعة مفرد يضم الصورة الرمزية والاسم وعدد الأعضاء.",
+  "Base Component — Primary button used for Retry action in error state.":
+    "مكوّن أساسي — زر رئيسي يُستخدم لإجراء إعادة المحاولة في حالة الخطأ.",
+  "Base Component — Primary button used for Start a call and Retry actions.":
+    "مكوّن أساسي — زر رئيسي يُستخدم لإجراءي بدء مكالمة وإعادة المحاولة.",
+  "Base Component — Screen header with title and action buttons.":
+    "مكوّن أساسي — ترويسة شاشة بعنوان وأزرار إجراءات.",
+  "Base Component — Screen header with title and create group action.":
+    "مكوّن أساسي — ترويسة شاشة بعنوان وإجراء إنشاء مجموعة.",
+  "Base Component — Screen header with title.":
+    "مكوّن أساسي — ترويسة شاشة بعنوان.",
+  "Base Component — Search input field.":
+    "مكوّن أساسي — حقل إدخال بحث.",
+  "Base Component — Search input for filtering groups.":
+    "مكوّن أساسي — حقل بحث لتصفية المجموعات.",
+  "Base Component — Search input used in the members section.":
+    "مكوّن أساسي — حقل بحث يُستخدم في قسم الأعضاء.",
+  "Base Component — Skeleton loading placeholder for call items.":
+    "مكوّن أساسي — هيكل تحميل مؤقّت لعناصر المكالمات.",
+  "Base Component — Skeleton loading placeholder for conversation items.":
+    "مكوّن أساسي — هيكل تحميل مؤقّت لعناصر المحادثات.",
+  "Base Component — Skeleton loading placeholder for group items.":
+    "مكوّن أساسي — هيكل تحميل مؤقّت لعناصر المجموعات.",
+  "Block Icon":
+    "أيقونة الحظر",
+  "Block Quote":
+    "اقتباس",
+  "Bold":
+    "عريض",
+  "Blurred grid with a circular cancel (×) button overlay.":
+    "شبكة ضبابية يعلوها زر إلغاء (×) دائري.",
+  "Blurred image with a circular cancel (×) button overlay.":
+    "صورة ضبابية يعلوها زر إلغاء (×) دائري.",
+  "Blurred image with centered cancel button":
+    "صورة ضبابية بزر إلغاء في المنتصف",
+  "Blurred thumbnail with cancel (×) button overlay.":
+    "صورة مصغّرة ضبابية يعلوها زر إلغاء (×).",
+  "Bold question text at the top of the poll.":
+    "نص السؤال بخط عريض أعلى الاستطلاع.",
+  "Border":
+    "الحدّ",
+  "Both takes 🎧":
+    "كلا التسجيلين 🎧",
+  "Bottom-left badge showing video length (e.g. '02:34'). Semi-transparent dark background with white text.":
+    "شارة في الأسفل عند البداية تعرض مدة الفيديو (مثل «02:34»)، بخلفية داكنة شبه شفافة ونص أبيض.",
+  "Bottom-right aligned. Time + read receipt (sent only).":
+    "محاذاة إلى نهاية السطر في الأسفل. الوقت + إيصال القراءة (للمُرسَلة فقط).",
+  "Bubble Background":
+    "خلفية الفقاعة",
+  "Bullet List":
+    "قائمة نقطية",
+  "Bullet-point List":
+    "قائمة نقطية",
+  "Call Back":
+    "معاودة الاتصال",
+  "Call Back Button (optional)":
+    "زر معاودة الاتصال (اختياري)",
+  "Calls":
+    "المكالمات",
+  "Cancel Button (Loading)":
+    "زر الإلغاء (أثناء التحميل)",
+  "Centered circular button (48×48) with semi-transparent dark background and white play_arrow icon.":
+    "زر دائري في المنتصف (48×48) بخلفية داكنة شبه شفافة وأيقونة تشغيل بيضاء.",
+  "Centered circular button with close icon. Shown during upload.":
+    "زر دائري في المنتصف بأيقونة إغلاق، يظهر أثناء الرفع.",
+  "Centered date label (Today, Yesterday, etc.) with pill border. No lines.":
+    "تسمية تاريخ في المنتصف (اليوم، أمس، إلخ) بحدّ على شكل حبّة دواء، بلا خطوط.",
+  "Chat Area":
+    "منطقة الدردشة",
+  "Chat Bubbles":
+    "فقاعات الدردشة",
+  "Chip Border":
+    "حدّ الشريحة",
+  "Circular button (48×48) with play_arrow or pause icon. White bg with purple icon on both variants.":
+    "زر دائري (48×48) بأيقونة تشغيل أو إيقاف مؤقّت، بخلفية بيضاء وأيقونة بنفسجية في كلا النمطين.",
+  "Circular outline indicating selectable option. Muted white on sent, gray on received.":
+    "إطار دائري يشير إلى خيار قابل للتحديد. أبيض خافت على المُرسَلة، ورمادي على الواردة.",
+  "Clear Button":
+    "زر المسح",
+  "Code":
+    "شيفرة",
+  "Code Block":
+    "كتلة شيفرة",
+  "Collaborative":
+    "تعاوني",
+  "Composed From":
+    "مُركَّب من",
+  "Complete search term entered with clear button visible.":
+    "مصطلح بحث كامل مُدخَل مع ظهور زر المسح.",
+  "Conversation List":
+    "قائمة المحادثات",
+  "Conversation result":
+    "نتيجة محادثة",
+  "Conversation Starters (HTML)":
+    "بادئات المحادثة (HTML)",
+  "Conversation Summary (HTML)":
+    "ملخّص المحادثة (HTML)",
+  "Core Components":
+    "المكوّنات الأساسية",
+  "Custom SVG (phone + outgoing arrow)":
+    "رسم SVG مخصّص (هاتف + سهم صادر)",
+  "Custom SVG (videocam + incoming arrow)":
+    "رسم SVG مخصّص (كاميرا فيديو + سهم وارد)",
+  "Custom SVG (videocam + outgoing arrow)":
+    "رسم SVG مخصّص (كاميرا فيديو + سهم صادر)",
+  "Custom SVG whiteboard icon (from ActionSheet). White on sent, purple on received.":
+    "أيقونة سبّورة SVG مخصّصة (من ورقة الإجراءات). أبيض على المُرسَلة، بنفسجي على الواردة.",
+  "Dark overlay with visibility_off icon, warning text, and 'See Photo' button.":
+    "طبقة داكنة بأيقونة إخفاء ونص تحذير وزر «عرض الصورة».",
+  "Date Divider":
+    "فاصل التاريخ",
+  "Date and file size separated by a bullet (e.g. '16 Sep, 2026 • 200 KB').":
+    "التاريخ وحجم الملف يفصل بينهما نقطة (مثل «16 سبتمبر 2026 • 200 كيلوبايت»).",
+  "Date and time (e.g. '19 May, 05:23 PM') — smaller, muted color.":
+    "التاريخ والوقت (مثل «19 مايو، 05:23 م») — بحجم أصغر ولون خافت.",
+  "Delete Chat":
+    "حذف المحادثة",
+  "Delete and Exit":
+    "حذف وخروج",
+  "Design Tokens":
+    "رموز التصميم",
+  "Desktop":
+    "سطح المكتب",
+  "Do you want to pin this conversation?":
+    "هل تريد تثبيت هذه المحادثة؟",
+  "Do you want to pin this message to this conversation?":
+    "هل تريد تثبيت هذه الرسالة في هذه المحادثة؟",
+  "Do you want to unpin this conversation?":
+    "هل تريد إلغاء تثبيت هذه المحادثة؟",
+  "Do you want to unpin this message from this conversation?":
+    "هل تريد إلغاء تثبيت هذه الرسالة من هذه المحادثة؟",
+  "Document Icon":
+    "أيقونة المستند",
+  "Document preview thumbnail at the top with rounded corners. Shows collaborative editing with user cursors.":
+    "معاينة مصغّرة للمستند في الأعلى بزوايا دائرية، تُظهر التحرير التعاوني مع مؤشّرات المستخدمين.",
+  "Document results":
+    "نتائج المستندات",
+  "Documents":
+    "المستندات",
+  "Documents — collapsed, click \"Show more\"":
+    "المستندات — مطوية، اضغط «عرض المزيد»",
+  "Double check (✓✓) in green/highlight color indicating the message was read.":
+    "علامتا صح (✓✓) بلون أخضر/مميّز تشيران إلى أن الرسالة قد قُرئت.",
+  "Download Icon":
+    "أيقونة التنزيل",
   "https://www.cometchat.com/docs": "https://www.cometchat.com/docs/ar",
   "https://": "⁦https://⁩",
   "https://www.example.com": "⁦https://www.مثال.com⁩",
