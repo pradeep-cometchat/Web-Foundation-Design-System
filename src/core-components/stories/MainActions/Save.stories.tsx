@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 
 /**
@@ -23,7 +24,7 @@ export const Default: Story = {
         color: "var(--cometchat-text-color-secondary)",
       }}
     >
-      Save — stories coming soon.
+      <T>Save — stories coming soon.</T>
     </div>
   ),
 };

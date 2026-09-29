@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Header } from "../../../base-components/components/Header";
 import { Button } from "../../../base-components/components/Button";
@@ -106,8 +107,8 @@ export const Empty: StoryObj = {
             <span className="icon-rounded" style={{ fontSize: 28, color: "var(--cometchat-text-color-primary)" }}>group</span>
           </div>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-1)", textAlign: "center", maxWidth: 352 }}>
-            <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: "600", lineHeight: "24px", color: "var(--cometchat-text-color-primary)" }}>No group yet</span>
-            <span style={{ fontSize: "14px", fontWeight: "400", lineHeight: "20px", color: "var(--cometchat-text-color-tertiary)" }}>Groups will appear here once they join your workspace or organization.</span>
+            <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: "600", lineHeight: "24px", color: "var(--cometchat-text-color-primary)" }}><T>No group yet</T></span>
+            <span style={{ fontSize: "14px", fontWeight: "400", lineHeight: "20px", color: "var(--cometchat-text-color-tertiary)" }}><T>Groups will appear here once they join your workspace or organization.</T></span>
           </div>
         </div>
       </div>
@@ -133,11 +134,11 @@ export const Error: StoryObj = {
               <span className="icon-rounded" style={{ fontSize: 28, color: "var(--cometchat-text-color-primary)" }}>error</span>
             </div>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-1)", textAlign: "center", maxWidth: 352 }}>
-              <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: "600", lineHeight: "24px", color: "var(--cometchat-text-color-primary)" }}>Unable to load groups</span>
-              <span style={{ fontSize: "14px", fontWeight: "400", lineHeight: "20px", color: "var(--cometchat-text-color-tertiary)" }}>Something went wrong while loading the group list. Please try again.</span>
+              <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: "600", lineHeight: "24px", color: "var(--cometchat-text-color-primary)" }}><T>Unable to load groups</T></span>
+              <span style={{ fontSize: "14px", fontWeight: "400", lineHeight: "20px", color: "var(--cometchat-text-color-tertiary)" }}><T>Something went wrong while loading the group list. Please try again.</T></span>
             </div>
           </div>
-          <Button variant="primary" size="md">Retry</Button>
+          <Button variant="primary" size="md"><T>Retry</T></Button>
         </div>
       </div>
     </div>
@@ -209,8 +210,8 @@ export const AllStates: StoryObj = {
                 <span className="icon-rounded" style={{ fontSize: 28, color: "var(--cometchat-text-color-primary)" }}>group</span>
               </div>
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-1)", textAlign: "center", maxWidth: 352 }}>
-                <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: "600", color: "var(--cometchat-text-color-primary)" }}>No group yet</span>
-                <span style={{ fontSize: "14px", color: "var(--cometchat-text-color-tertiary)" }}>Groups will appear here once they join your workspace or organization.</span>
+                <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: "600", color: "var(--cometchat-text-color-primary)" }}><T>No group yet</T></span>
+                <span style={{ fontSize: "14px", color: "var(--cometchat-text-color-tertiary)" }}><T>Groups will appear here once they join your workspace or organization.</T></span>
               </div>
             </div>
           </div>
@@ -230,11 +231,11 @@ export const AllStates: StoryObj = {
                   <span className="icon-rounded" style={{ fontSize: 28, color: "var(--cometchat-text-color-primary)" }}>error</span>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-1)", textAlign: "center", maxWidth: 352 }}>
-                  <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: "600", color: "var(--cometchat-text-color-primary)" }}>Unable to load groups</span>
-                  <span style={{ fontSize: "14px", color: "var(--cometchat-text-color-tertiary)" }}>Something went wrong while loading the group list. Please try again.</span>
+                  <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: "600", color: "var(--cometchat-text-color-primary)" }}><T>Unable to load groups</T></span>
+                  <span style={{ fontSize: "14px", color: "var(--cometchat-text-color-tertiary)" }}><T>Something went wrong while loading the group list. Please try again.</T></span>
                 </div>
               </div>
-              <Button variant="primary" size="md">Retry</Button>
+              <Button variant="primary" size="md"><T>Retry</T></Button>
             </div>
           </div>
         </div>
@@ -349,7 +350,7 @@ export const Usage: StoryObj = {
 function StateLabel({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-      <span style={{ fontSize: "12px", fontWeight: "500", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}>{label}</span>
+      <span style={{ fontSize: "12px", fontWeight: "500", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}><T>{label}</T></span>
       {children}
     </div>
   );
@@ -358,7 +359,7 @@ function StateLabel({ label, children }: { label: string; children: React.ReactN
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
-      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}><T>{title}</T></div>
       {children}
     </div>
   );
@@ -380,8 +381,8 @@ function CodeCard({ language, code }: { language: string; code: string }) {
 function StateCard({ title, description }: { title: string; description: string }) {
   return (
     <div style={{ padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
-      <strong style={{ fontSize: "14px", fontWeight: "600", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>{title}</strong>
-      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "18px" }}>{description}</span>
+      <strong style={{ fontSize: "14px", fontWeight: "600", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}><T>{title}</T></strong>
+      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "18px" }}><T>{description}</T></span>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import "../../../shell/Shell.css";
 import "../ChatBubbles/ChatBubbles.css";
 import "./MainActions.css";
@@ -125,7 +126,7 @@ export function TextBubble({
           fontFamily: "var(--cometchat-font-family, Inter, sans-serif)",
         }}
       >
-        {text}
+        <T>{text}</T>
         <div
           style={{
             display: "flex",
@@ -328,7 +329,7 @@ export function PinDialog({
               color: "var(--cometchat-text-color-primary)",
             }}
           >
-            {title}
+            <T>{title}</T>
           </span>
           <span
             style={{
@@ -337,7 +338,7 @@ export function PinDialog({
               color: "var(--cometchat-text-color-secondary)",
             }}
           >
-            {description}
+            <T>{description}</T>
           </span>
         </div>
         <div style={{ display: "flex", gap: "var(--cometchat-spacing-2)" }}>
@@ -350,7 +351,7 @@ export function PinDialog({
               color: "var(--cometchat-text-color-primary)",
             }}
           >
-            Cancel
+            <T>Cancel</T>
           </button>
           <button
             className="ma-btn ma-btn--primary"
@@ -414,7 +415,7 @@ export function PinnedPanel({
             color: "var(--cometchat-text-color-primary)",
           }}
         >
-          {title}
+          <T>{title}</T>
         </span>
         <button
           className="ma-icon-btn"
@@ -447,7 +448,7 @@ export function PinnedPanel({
               color: "var(--cometchat-text-color-secondary)",
             }}
           >
-            Today
+            <T>Today</T>
           </span>
         </div>
         {!afterUnpin && (
@@ -517,7 +518,7 @@ export function PinnedPanel({
               }}
             />
             <div style={{ margin: "var(--cometchat-spacing-1) 0 0" }}>
-              Let me know if you're interested
+              <T>Let me know if you're interested</T>
             </div>
             <div
               style={{
@@ -531,7 +532,7 @@ export function PinnedPanel({
             >
               <PinGlyph size={12} />
               <span>·</span>
-              <span>4:56 pm</span>
+              <span><T>4:56 pm</T></span>
             </div>
           </div>
         </div>
@@ -759,8 +760,8 @@ export function PinScreen({
               />
             </div>
             <div className="chat-header__text">
-              <span className="chat-header__name">George Alan</span>
-              <span className="chat-header__status">Online</span>
+              <span className="chat-header__name"><T>George Alan</T></span>
+              <span className="chat-header__status"><T>Online</T></span>
             </div>
           </div>
           <div className="chat-header__actions">
@@ -831,7 +832,7 @@ export function PinScreen({
                 color: "var(--cometchat-text-color-secondary)",
               }}
             >
-              Today
+              <T>Today</T>
             </span>
           </div>
           {THREAD.map((m) => (
@@ -895,7 +896,7 @@ export function PinScreen({
                 cursor: "text",
               }}
             >
-              Type your message...
+              <T>Type your message...</T>
             </div>
             <div
               style={{
@@ -925,7 +926,7 @@ export function PinScreen({
                   <span
                     style={{ fontSize: 15, fontWeight: 600, lineHeight: 1 }}
                   >
-                    Aa
+                    <T>Aa</T>
                   </span>
                 </button>
                 <button className="ma-icon-btn" aria-label="AI features">

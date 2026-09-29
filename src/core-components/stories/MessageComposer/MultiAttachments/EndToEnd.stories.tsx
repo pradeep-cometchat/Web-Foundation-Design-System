@@ -1,3 +1,4 @@
+import { T } from "../../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect, useRef, useState } from "react";
 import "../../../../shell/Shell.css";
@@ -206,7 +207,7 @@ function TabItem({
       <span
         className={`shell__tab-label ${active ? "shell__tab-label--active" : ""}`}
       >
-        {label}
+        <T>{label}</T>
       </span>
     </div>
   );
@@ -977,8 +978,8 @@ function EndToEndChat({
             />
           </div>
           <div className="chat-header__text">
-            <span className="chat-header__name">George Alan</span>
-            <span className="chat-header__status">Online</span>
+            <span className="chat-header__name"><T>George Alan</T></span>
+            <span className="chat-header__status"><T>Online</T></span>
           </div>
         </div>
         <div className="chat-header__actions">

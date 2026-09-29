@@ -1,3 +1,4 @@
+import { T } from "../../../../cometchat-foundation/localization";
 /**
  * Shared primitives for the "Multi Attachments" story pages.
  *
@@ -359,7 +360,7 @@ export function AudioCard({
             lineHeight: compact ? "16px" : "20px",
           }}
         >
-          {title}
+          <T>{title}</T>
         </span>
         {showSeek && <AudioSeekBar progress={seek} onDark={onDark} />}
         <span
@@ -576,7 +577,7 @@ export function DocumentPreview({
             textOverflow: "ellipsis",
           }}
         >
-          {name}
+          <T>{name}</T>
         </span>
         <span
           style={{
@@ -1403,7 +1404,7 @@ export function MultiAttachmentBubble({
             fontFamily: "var(--cometchat-font-family, Inter, sans-serif)",
           }}
         >
-          {caption}
+          <T>{caption}</T>
         </div>
       )}
       {showMeta && (
@@ -1420,18 +1421,18 @@ export function MultiAttachmentBubble({
             <span
               style={{ fontSize: 12, color: secondary, marginInlineEnd: "auto" }}
             >
-              Uploading…
+              <T>Uploading…</T>
             </span>
           )}
           {state === "downloading" && (
             <span
               style={{ fontSize: 12, color: secondary, marginInlineEnd: "auto" }}
             >
-              Downloading…
+              <T>Downloading…</T>
             </span>
           )}
           {edited && (
-            <span style={{ fontSize: 12, color: secondary }}>Edited</span>
+            <span style={{ fontSize: 12, color: secondary }}><T>Edited</T></span>
           )}
           <span style={{ fontSize: 12, color: secondary }}>{time}</span>
           {isSent && (state === "default" || state === "downloading") && (
@@ -1600,7 +1601,7 @@ export function Section({
           letterSpacing: "0.06em",
         }}
       >
-        {title}
+        <T>{title}</T>
       </div>
       {children}
     </div>
@@ -1624,7 +1625,7 @@ export function Item({
         alignItems: "flex-start",
       }}
     >
-      <Label>{label}</Label>
+      <Label><T>{label}</T></Label>
       {children}
     </div>
   );
@@ -1732,7 +1733,7 @@ export function Avatar({ label }: { label: string; hue?: number }) {
         font: "var(--cometchat-font-body-semibold)",
       }}
     >
-      {label}
+      <T>{label}</T>
     </div>
   );
 }
@@ -1786,7 +1787,7 @@ export function ConversationResult({
               color: "var(--cometchat-text-color-primary)",
             }}
           >
-            {name}
+            <T>{name}</T>
           </span>
           <span
             style={{
@@ -1971,7 +1972,7 @@ export function DocumentResult({
             whiteSpace: "nowrap",
           }}
         >
-          {name}
+          <T>{name}</T>
         </span>
         <span
           style={{
@@ -2038,7 +2039,7 @@ export function AudioResult({
             whiteSpace: "nowrap",
           }}
         >
-          {title}
+          <T>{title}</T>
         </span>
         <AudioSeekBar />
       </div>
@@ -2135,7 +2136,7 @@ export function DocFrontIcon({ size = 40 }: { size?: number } = {}) {
         fontWeight="700"
         fill="var(--cometchat-static-white)"
       >
-        FILE
+        <T>FILE</T>
       </text>
     </svg>
   );
@@ -2339,7 +2340,7 @@ export function DropOverlay({
           marginTop: compact ? 0 : "var(--cometchat-spacing-2)",
         }}
       >
-        Drop files here
+        <T>Drop files here</T>
       </span>
       {!compact && (
         <span
@@ -2353,7 +2354,7 @@ export function DropOverlay({
             maxWidth: 380,
           }}
         >
-          Add photos, videos, documents or audio to your message.
+          <T>Add photos, videos, documents or audio to your message.</T>
         </span>
       )}
     </div>
@@ -2468,7 +2469,7 @@ export function UnsupportedFileDialog({
               color: "var(--cometchat-text-color-primary)",
             }}
           >
-            No preview available
+            <T>No preview available</T>
           </span>
           <span
             style={{
@@ -2477,7 +2478,7 @@ export function UnsupportedFileDialog({
               color: "var(--cometchat-text-color-secondary)",
             }}
           >
-            This file type isn’t supported for preview.
+            <T>This file type isn’t supported for preview.</T>
           </span>
         </div>
 
@@ -2789,7 +2790,7 @@ export function SingleLineComposer({
             fontFamily: "var(--cometchat-font-family, Inter, sans-serif)",
           }}
         >
-          Enter your message here
+          <T>Enter your message here</T>
         </div>
         <button style={cActionBtn} aria-label="Emoji">
           <CIconMood />
@@ -2832,7 +2833,7 @@ export function MultiLineComposer({
           fontFamily: "var(--cometchat-font-family, Inter, sans-serif)",
         }}
       >
-        Type your message...
+        <T>Type your message...</T>
       </div>
       <div
         style={{
@@ -2905,7 +2906,7 @@ function UsageSection({
           borderBottom: "1px solid var(--cometchat-border-color-default)",
         }}
       >
-        {title}
+        <T>{title}</T>
       </div>
       {children}
     </div>

@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 
 /**
@@ -110,14 +111,14 @@ function SingleLineComposer({ state, text }: { state: "placeholder" | "focus" | 
       {/* Input area */}
       <div style={inputInline}>
         {state === "typing" && text ? (
-          <span style={{ color: "var(--cometchat-text-color-primary)" }}>{text}</span>
+          <span style={{ color: "var(--cometchat-text-color-primary)" }}><T>{text}</T></span>
         ) : state === "focus" ? (
           <span style={{ color: "var(--cometchat-text-color-placeholder)", display: "flex", alignItems: "center" }}>
             <span style={{ display: "inline-block", width: 1.5, height: 18, background: "var(--cometchat-text-color-primary)", marginInlineEnd: 2 }} />
-            Enter your message here
+            <T>Enter your message here</T>
           </span>
         ) : (
-          <span style={{ color: "var(--cometchat-text-color-placeholder)" }}>Enter your message here</span>
+          <span style={{ color: "var(--cometchat-text-color-placeholder)" }}><T>Enter your message here</T></span>
         )}
       </div>
 
@@ -140,7 +141,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   return (
     <div>
       <div style={{ fontSize: 12, fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>
-        {title}
+        <T>{title}</T>
       </div>
       {children}
     </div>

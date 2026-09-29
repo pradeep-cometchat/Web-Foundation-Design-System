@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 
 /**
@@ -128,16 +129,16 @@ function MultiLineComposer({ state, text }: { state: "placeholder" | "focus" | "
       <div style={inputBox}>
         {state === "typing" && text ? (
           <span style={{ color: "var(--cometchat-text-color-primary)", display: "flex", alignItems: "center", gap: 0 }}>
-            {text}
+            <T>{text}</T>
             <span style={{ display: "inline-block", width: 1.5, height: 18, background: "var(--cometchat-text-color-primary)", marginInlineStart: 1 }} />
           </span>
         ) : state === "focus" ? (
           <span style={{ color: "var(--cometchat-text-color-placeholder)", display: "flex", alignItems: "center", gap: 0 }}>
             <span style={{ display: "inline-block", width: 1.5, height: 18, background: "var(--cometchat-text-color-primary)", marginInlineEnd: 2 }} />
-            Type your message...
+            <T>Type your message...</T>
           </span>
         ) : (
-          <span style={{ color: "var(--cometchat-text-color-placeholder)" }}>Type your message...</span>
+          <span style={{ color: "var(--cometchat-text-color-placeholder)" }}><T>Type your message...</T></span>
         )}
       </div>
       <div style={toolbarBox}>
@@ -163,7 +164,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   return (
     <div>
       <div style={{ fontSize: 12, fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>
-        {title}
+        <T>{title}</T>
       </div>
       {children}
     </div>

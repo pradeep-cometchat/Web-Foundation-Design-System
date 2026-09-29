@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import "./ChatBubbles.css";
 import { avatarRegistry } from "../../../cometchat-foundation/tokens/avatars";
@@ -227,83 +228,83 @@ export const AllLayouts: StoryObj = {
   render: () => (
     <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--cometchat-spacing-4)", padding: "var(--cometchat-spacing-4)", maxWidth: 1200 }}>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>Single (Sent)</Label>
+        <Label><T>Single (Sent)</T></Label>
         <VideoBubble layout="single" variant="sent" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>Single (Received)</Label>
+        <Label><T>Single (Received)</T></Label>
         <VideoBubble layout="single" variant="received" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>2 Grid (Sent)</Label>
+        <Label><T>2 Grid (Sent)</T></Label>
         <VideoBubble layout="2-grid" variant="sent" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>2 Grid (Received)</Label>
+        <Label><T>2 Grid (Received)</T></Label>
         <VideoBubble layout="2-grid" variant="received" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>3 Grid (Sent)</Label>
+        <Label><T>3 Grid (Sent)</T></Label>
         <VideoBubble layout="3-grid" variant="sent" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>3 Grid (Received)</Label>
+        <Label><T>3 Grid (Received)</T></Label>
         <VideoBubble layout="3-grid" variant="received" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>4 Grid (Sent)</Label>
+        <Label><T>4 Grid (Sent)</T></Label>
         <VideoBubble layout="4-grid" variant="sent" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>4 Grid (Received)</Label>
+        <Label><T>4 Grid (Received)</T></Label>
         <VideoBubble layout="4-grid" variant="received" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>4+ Grid (Sent)</Label>
+        <Label><T>4+ Grid (Sent)</T></Label>
         <VideoBubble layout="4+-grid" variant="sent" extraCount={2} />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>4+ Grid (Received)</Label>
+        <Label><T>4+ Grid (Received)</T></Label>
         <VideoBubble layout="4+-grid" variant="received" extraCount={2} />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>Horizontal (Sent)</Label>
+        <Label><T>Horizontal (Sent)</T></Label>
         <VideoBubble layout="horizontal" variant="sent" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>Horizontal (Received)</Label>
+        <Label><T>Horizontal (Received)</T></Label>
         <VideoBubble layout="horizontal" variant="received" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>Loading (Sent)</Label>
+        <Label><T>Loading (Sent)</T></Label>
         <VideoBubble layout="loading" variant="sent" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>Loading (Received)</Label>
+        <Label><T>Loading (Received)</T></Label>
         <VideoBubble layout="loading" variant="received" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>Multiple Loading (Sent)</Label>
+        <Label><T>Multiple Loading (Sent)</T></Label>
         <VideoBubble layout="multiple-loading" variant="sent" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>Multiple Loading (Received)</Label>
+        <Label><T>Multiple Loading (Received)</T></Label>
         <VideoBubble layout="multiple-loading" variant="received" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>Sensitive (Sent)</Label>
+        <Label><T>Sensitive (Sent)</T></Label>
         <VideoBubble layout="sensitive" variant="sent" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>Sensitive (Received)</Label>
+        <Label><T>Sensitive (Received)</T></Label>
         <VideoBubble layout="sensitive" variant="received" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>Placeholder (Sent)</Label>
+        <Label><T>Placeholder (Sent)</T></Label>
         <VideoBubble layout="placeholder" variant="sent" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>Placeholder (Received)</Label>
+        <Label><T>Placeholder (Received)</T></Label>
         <VideoBubble layout="placeholder" variant="received" />
       </div>
     </div>
@@ -463,7 +464,7 @@ function VideoBubble({ layout, variant, extraCount = 0 }: { layout: VideoLayout;
   function renderMeta() {
     return (
       <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "var(--cometchat-spacing-1)", padding: "0 var(--cometchat-spacing-1)" }}>
-        <span style={{ fontSize: "12px", color: isSent ? "rgba(255,255,255,0.7)" : "var(--cometchat-text-color-tertiary)" }}>4:56 pm</span>
+        <span style={{ fontSize: "12px", color: isSent ? "rgba(255,255,255,0.7)" : "var(--cometchat-text-color-tertiary)" }}><T>4:56 pm</T></span>
         {isSent && <ReceiptIcon />}
       </div>
     );
@@ -555,11 +556,11 @@ function VideoBubble({ layout, variant, extraCount = 0 }: { layout: VideoLayout;
             <img src={SAMPLE_IMAGES[0]} alt="" style={{ ...imgStyle, height: size, filter: "blur(20px)", transform: "scale(1.1)" }} />
             <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.6)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "var(--cometchat-spacing-2)", padding: "var(--cometchat-spacing-4)" }}>
               <span className="icon-rounded" style={{ fontSize: 36, color: "white", "--icon-fill": 0 } as React.CSSProperties}>visibility_off</span>
-              <span style={{ fontSize: "14px", fontWeight: "600", color: "white", textAlign: "center" }}>Sensitive Content</span>
-              <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.7)", textAlign: "center", lineHeight: "18px" }}>This media may contain graphic or violent content.</span>
+              <span style={{ fontSize: "14px", fontWeight: "600", color: "white", textAlign: "center" }}><T>Sensitive Content</T></span>
+              <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.7)", textAlign: "center", lineHeight: "18px" }}><T>This media may contain graphic or violent content.</T></span>
             </div>
             <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, borderTop: "1px solid rgba(255,255,255,0.2)", background: "rgba(0,0,0,0.5)", padding: "var(--cometchat-spacing-3)", textAlign: "center" }}>
-              <span style={{ fontSize: "14px", fontWeight: "600", color: "white", cursor: "pointer" }}>See Video</span>
+              <span style={{ fontSize: "14px", fontWeight: "600", color: "white", cursor: "pointer" }}><T>See Video</T></span>
             </div>
           </div>
         );
@@ -610,7 +611,7 @@ function Label({ children }: { children: React.ReactNode }) {
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
-      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}><T>{title}</T></div>
       {children}
     </div>
   );
@@ -632,8 +633,8 @@ function CodeCard({ language, code }: { language: string; code: string }) {
 function StateCard({ title, description }: { title: string; description: string }) {
   return (
     <div style={{ padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
-      <strong style={{ fontSize: "14px", fontWeight: "600", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>{title}</strong>
-      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "18px" }}>{description}</span>
+      <strong style={{ fontSize: "14px", fontWeight: "600", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}><T>{title}</T></strong>
+      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "18px" }}><T>{description}</T></span>
     </div>
   );
 }

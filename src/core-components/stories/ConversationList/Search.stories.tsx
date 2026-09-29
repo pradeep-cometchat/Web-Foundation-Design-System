@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import "../../../base-components/components/SearchBar/SearchBar.css";
 
@@ -106,23 +107,23 @@ export const AllStates: StoryObj = {
   render: () => (
     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--cometchat-spacing-6)", padding: "var(--cometchat-spacing-4)", maxWidth: 900 }}>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-4)" }}>
-        <Label>Simple — Placeholder</Label>
+        <Label><T>Simple — Placeholder</T></Label>
         <SearchField state="placeholder" />
-        <Label>Simple — Default</Label>
+        <Label><T>Simple — Default</T></Label>
         <SearchField state="default" />
-        <Label>Simple — Typing</Label>
+        <Label><T>Simple — Typing</T></Label>
         <SearchField state="typing" value="S" />
-        <Label>Simple — Filled</Label>
+        <Label><T>Simple — Filled</T></Label>
         <SearchField state="typing" value="Smart" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-4)" }}>
-        <Label>With Filters — Placeholder</Label>
+        <Label><T>With Filters — Placeholder</T></Label>
         <SearchField state="placeholder" showFilters />
-        <Label>With Filters — Default</Label>
+        <Label><T>With Filters — Default</T></Label>
         <SearchField state="default" showFilters />
-        <Label>With Filters — Typing</Label>
+        <Label><T>With Filters — Typing</T></Label>
         <SearchField state="typing" value="S" showFilters />
-        <Label>With Filters — Filled</Label>
+        <Label><T>With Filters — Filled</T></Label>
         <SearchField state="typing" value="Smart" showFilters />
       </div>
     </div>
@@ -303,7 +304,7 @@ function Label({ children }: { children: React.ReactNode }) {
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
-      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}><T>{title}</T></div>
       {children}
     </div>
   );
@@ -325,8 +326,8 @@ function CodeCard({ language, code }: { language: string; code: string }) {
 function StateCard({ title, description }: { title: string; description: string }) {
   return (
     <div style={{ padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
-      <strong style={{ fontSize: "14px", fontWeight: "600", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>{title}</strong>
-      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "14.4px" }}>{description}</span>
+      <strong style={{ fontSize: "14px", fontWeight: "600", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}><T>{title}</T></strong>
+      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "14.4px" }}><T>{description}</T></span>
     </div>
   );
 }

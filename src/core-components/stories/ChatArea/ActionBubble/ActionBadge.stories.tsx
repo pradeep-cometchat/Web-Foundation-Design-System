@@ -1,3 +1,4 @@
+import { T } from "../../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import "../../ChatBubbles/ChatBubbles.css";
 
@@ -190,7 +191,7 @@ function CallActionDivider({ icon, label, missed, videoDirection }: { icon: stri
         ) : (
           <span className="icon-rounded action-bubble-call-badge__icon">{icon}</span>
         )}
-        <span className="action-bubble-call-badge__label">{label}</span>
+        <span className="action-bubble-call-badge__label"><T>{label}</T></span>
       </div>
     </div>
   );
@@ -233,7 +234,7 @@ function Wrapper({ children, width = 360 }: { children: React.ReactNode; width?:
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
-      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}><T>{title}</T></div>
       {children}
     </div>
   );
@@ -255,8 +256,8 @@ function CodeCard({ language, code }: { language: string; code: string }) {
 function StateCard({ title, description }: { title: string; description: string }) {
   return (
     <div style={{ padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
-      <strong style={{ fontSize: "14px", fontWeight: "600", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>{title}</strong>
-      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "18px" }}>{description}</span>
+      <strong style={{ fontSize: "14px", fontWeight: "600", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}><T>{title}</T></strong>
+      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "18px" }}><T>{description}</T></span>
     </div>
   );
 }

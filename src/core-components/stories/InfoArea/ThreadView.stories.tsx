@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ThreadView } from "../../../base-components/components/ThreadView";
 import type { ThreadMessage } from "../../../base-components/components/ThreadView";
@@ -119,15 +120,15 @@ export const States: StoryObj = {
   render: () => (
     <div style={{ display: "flex", gap: "var(--cometchat-spacing-6)", padding: "var(--cometchat-spacing-6)", overflowX: "auto", height: 800 }}>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <div style={stateLabelStyle}>Outgoing parent + 4 replies</div>
+        <div style={stateLabelStyle}><T>Outgoing parent + 4 replies</T></div>
         <ThreadView parentMessage={outgoingParent} replies={defaultReplies} dateLabel="Today" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <div style={stateLabelStyle}>Incoming parent + many replies</div>
+        <div style={stateLabelStyle}><T>Incoming parent + many replies</T></div>
         <ThreadView parentMessage={incomingParent} replies={longReplies} dateLabel="Today" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <div style={stateLabelStyle}>No replies</div>
+        <div style={stateLabelStyle}><T>No replies</T></div>
         <ThreadView parentMessage={incomingParent} replies={[]} dateLabel="Yesterday" />
       </div>
     </div>
@@ -284,7 +285,7 @@ const UsageCodeCard: React.FC<{ language: string; code: string }> = ({ language,
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-neutral-color-600)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)" }}><T>{title}</T></div>
       {children}
     </div>
   );

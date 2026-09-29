@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import "./ChatBubbles.css";
 
@@ -127,22 +128,22 @@ export const AllStates: StoryObj = {
   parameters: { layout: "padded" },
   render: () => (
     <Wrapper width={500}>
-      <Label>Audio — Ended (outgoing)</Label>
+      <Label><T>Audio — Ended (outgoing)</T></Label>
       <CallBubble type="audio" variant="outgoing" label="Voice call" timestamp="19 May, 05:23 PM" />
 
-      <Label>Video — Ended (outgoing)</Label>
+      <Label><T>Video — Ended (outgoing)</T></Label>
       <CallBubble type="video" variant="outgoing" label="Video call" timestamp="19 May, 05:23 PM" />
 
-      <Label>Audio — Missed (incoming)</Label>
+      <Label><T>Audio — Missed (incoming)</T></Label>
       <CallBubble type="audio" variant="incoming" label="Voice call" timestamp="19 May, 05:23 PM" />
 
-      <Label>Video — Missed (incoming)</Label>
+      <Label><T>Video — Missed (incoming)</T></Label>
       <CallBubble type="video" variant="incoming" label="Video call" timestamp="19 May, 05:23 PM" />
 
-      <Label>Audio — Cancelled (outgoing)</Label>
+      <Label><T>Audio — Cancelled (outgoing)</T></Label>
       <CallBubble type="audio" variant="outgoing" label="Voice call" timestamp="19 May, 05:23 PM" />
 
-      <Label>With Call Back Button</Label>
+      <Label><T>With Call Back Button</T></Label>
       <CallBubble type="audio" variant="incoming" label="Voice call" timestamp="19 May, 03:29 PM" showCallBack />
     </Wrapper>
   ),
@@ -388,7 +389,7 @@ function CallBubble({
               color: isOutgoing ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)",
             }}
           >
-            {label}
+            <T>{label}</T>
           </span>
           <span
             style={{
@@ -428,7 +429,7 @@ function CallBubble({
                 cursor: "pointer",
               }}
             >
-              Call Back
+              <T>Call Back</T>
             </span>
           </div>
         </div>
@@ -519,7 +520,7 @@ function UsageSection({ title, children }: { title: string; children: React.Reac
           borderBottom: "1px solid var(--cometchat-border-color-default)",
         }}
       >
-        {title}
+        <T>{title}</T>
       </div>
       {children}
     </div>
@@ -594,7 +595,7 @@ function StateCard({ title, description }: { title: string; description: string 
           marginBottom: "var(--cometchat-spacing-1)",
         }}
       >
-        {title}
+        <T>{title}</T>
       </strong>
       <span
         style={{
@@ -603,7 +604,7 @@ function StateCard({ title, description }: { title: string; description: string 
           lineHeight: "18px",
         }}
       >
-        {description}
+        <T>{description}</T>
       </span>
     </div>
   );

@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import "./ChatBubbles.css";
 
@@ -86,11 +87,11 @@ export const AllVariants: StoryObj = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)", width: 320, padding: "var(--cometchat-spacing-4)" }}>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>Sent — PDF</Label>
+        <Label><T>Sent — PDF</T></Label>
         <FileBubble variant="sent" fileName="File.pdf" fileDate="16 Sep, 2026" fileSize="200 KB" fileType="pdf" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>Received — PDF</Label>
+        <Label><T>Received — PDF</T></Label>
         <FileBubble variant="received" fileName="File.pdf" fileDate="16 Sep, 2026" fileSize="200 KB" fileType="pdf" />
       </div>
     </div>
@@ -362,7 +363,7 @@ function UsageSection({ title, children }: { title: string; children: React.Reac
           borderBottom: "1px solid var(--cometchat-border-color-default)",
         }}
       >
-        {title}
+        <T>{title}</T>
       </div>
       {children}
     </div>
@@ -437,7 +438,7 @@ function StateCard({ title, description }: { title: string; description: string 
           marginBottom: "var(--cometchat-spacing-1)",
         }}
       >
-        {title}
+        <T>{title}</T>
       </strong>
       <span
         style={{
@@ -446,7 +447,7 @@ function StateCard({ title, description }: { title: string; description: string 
           lineHeight: "18px",
         }}
       >
-        {description}
+        <T>{description}</T>
       </span>
     </div>
   );

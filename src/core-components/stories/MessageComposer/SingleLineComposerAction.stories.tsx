@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ActionSheet, CameraIcon, PhotoIcon, VideocamIcon, DescriptionIcon, PollIcon, CollaborativeWhiteboardIcon, CollaborativeDocumentIcon } from "../../../base-components/components/ActionSheet";
 import { MultiLineComposer as VoiceRecorderPopup } from "../../../base-components/components/MediaRecorder";
@@ -161,11 +162,11 @@ function StickerPicker() {
       <div style={{ padding: "8px 12px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 14px", background: "var(--cometchat-background-color-03)", borderRadius: 20 }}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14Z" fill="currentColor" style={{ color: "var(--cometchat-icon-color-tertiary)" }}/></svg>
-          <span style={{ fontSize: 14, color: "var(--cometchat-text-color-placeholder)" }}>Search sticker</span>
+          <span style={{ fontSize: 14, color: "var(--cometchat-text-color-placeholder)" }}><T>Search sticker</T></span>
         </div>
       </div>
       {/* Section title */}
-      <div style={{ padding: "4px 12px 8px", fontSize: 14, fontWeight: 600, color: "var(--cometchat-text-color-primary)" }}>Recent used</div>
+      <div style={{ padding: "4px 12px 8px", fontSize: 14, fontWeight: 600, color: "var(--cometchat-text-color-primary)" }}><T>Recent used</T></div>
       {/* Sticker grid - foundation stickers */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8, padding: "0 12px 16px" }}>
         {stickerImages.map((url, i) => (
@@ -253,7 +254,7 @@ function ComposerWithAction({ active }: { active: ActionType }) {
 
           {/* Input area — flex: 1 */}
           <div style={{ flex: 1, fontSize: 14, lineHeight: "20px", fontFamily: "'Inter', sans-serif", color: "var(--cometchat-text-color-placeholder)" }}>
-            Enter your message here
+            <T>Enter your message here</T>
           </div>
 
           {/* Right-side action icons: emoji, sticker, mic */}
@@ -280,7 +281,7 @@ function ComposerWithAction({ active }: { active: ActionType }) {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--cometchat-text-color-placeholder)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>{title}</div>
+      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--cometchat-text-color-placeholder)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}><T>{title}</T></div>
       {children}
     </div>
   );
@@ -367,7 +368,7 @@ export const Usage: Story = {
   render: () => (
     <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
-        <div style={{ fontSize: "12px", fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase" as const, letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>Action Types</div>
+        <div style={{ fontSize: "12px", fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase" as const, letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}><T>Action Types</T></div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           {(["sticker", "emoji", "formatting", "ai"] as const).map(a => (
             <div key={a} style={{ padding: "var(--cometchat-spacing-3)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>

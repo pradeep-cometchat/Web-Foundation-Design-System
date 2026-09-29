@@ -1,3 +1,4 @@
+import { T } from "../../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import {
   UsageDoc,
@@ -105,7 +106,7 @@ export const InSearch: Story = {
         <Panel>
           <SearchHeader value="review" active="Documents" />
           <Divider />
-          <ResultsLabel>Documents</ResultsLabel>
+          <ResultsLabel><T>Documents</T></ResultsLabel>
           <DocumentResult name="Q3-Report.pdf" meta="2.4 MB" type="pdf" from="You" />
           <DocumentResult name="Notes.docx" meta="340 KB" type="doc" from="Priya" />
           <DocumentResult name="Budget.xlsx" meta="812 KB" type="xls" from="Marketing" />

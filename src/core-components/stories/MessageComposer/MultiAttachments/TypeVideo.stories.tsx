@@ -1,3 +1,4 @@
+import { T } from "../../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import {
   UsageDoc,
@@ -87,7 +88,7 @@ export const InSearch: Story = {
           <Panel>
             <SearchHeader value="review" active="Videos" />
             <Divider />
-            <ResultsLabel>Videos</ResultsLabel>
+            <ResultsLabel><T>Videos</T></ResultsLabel>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "var(--cometchat-spacing-1-5)" }}>
               {Array.from({ length: 6 }).map((_, i) => (
                 <MediaTile key={i} src={SAMPLE_IMAGES[i % SAMPLE_IMAGES.length]} video duration="0:12" />

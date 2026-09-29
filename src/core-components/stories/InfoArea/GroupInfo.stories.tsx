@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import { avatarRegistry } from "../../../cometchat-foundation/tokens/avatars";
 import { SearchBar } from "../../../base-components/components/SearchBar";
@@ -266,7 +267,7 @@ function GroupInfoHeader() {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 8, height: 64, padding: "8px 16px", borderBottom: "1px solid var(--cometchat-border-color-light)" }}>
       <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-text-color-primary)", cursor: "pointer" }}>close</span>
-      <span style={{ flex: 1, fontFamily: "var(--cometchat-font-family)", fontSize: 20, fontWeight: 700, lineHeight: "30px", color: "var(--cometchat-text-color-primary)" }}>Group Info</span>
+      <span style={{ flex: 1, fontFamily: "var(--cometchat-font-family)", fontSize: 20, fontWeight: 700, lineHeight: "30px", color: "var(--cometchat-text-color-primary)" }}><T>Group Info</T></span>
     </div>
   );
 }
@@ -278,8 +279,8 @@ function GroupInfoProfile() {
         <img src={group[7].imageUrl} alt="Innovative Online Shopping" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0, width: 244, textAlign: "center" }}>
-        <p style={{ margin: 0, fontFamily: "var(--cometchat-font-family)", fontSize: 20, fontWeight: 500, lineHeight: "30px", color: "var(--cometchat-text-color-primary)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", width: "100%" }}>Innovative Online Shop...</p>
-        <span style={{ fontSize: 12, lineHeight: "18px", color: "var(--cometchat-text-color-secondary)" }}>44 Members</span>
+        <p style={{ margin: 0, fontFamily: "var(--cometchat-font-family)", fontSize: 20, fontWeight: 500, lineHeight: "30px", color: "var(--cometchat-text-color-primary)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", width: "100%" }}><T>Innovative Online Shop...</T></p>
+        <span style={{ fontSize: 12, lineHeight: "18px", color: "var(--cometchat-text-color-secondary)" }}><T>44 Members</T></span>
       </div>
     </div>
   );
@@ -291,17 +292,17 @@ function GroupInfoActions() {
       {/* Add Members */}
       <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 20px", cursor: "pointer" }}>
         <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-primary-color)" }}>group_add</span>
-        <span style={{ fontSize: 16, color: "var(--cometchat-primary-color)" }}>Add Members</span>
+        <span style={{ fontSize: 16, color: "var(--cometchat-primary-color)" }}><T>Add Members</T></span>
       </div>
       {/* Leave */}
       <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 20px", cursor: "pointer" }}>
         <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-error-color)" }}>logout</span>
-        <span style={{ fontSize: 16, color: "var(--cometchat-error-color)" }}>Leave</span>
+        <span style={{ fontSize: 16, color: "var(--cometchat-error-color)" }}><T>Leave</T></span>
       </div>
       {/* Delete and Exit */}
       <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 20px", cursor: "pointer" }}>
         <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-error-color)" }}>delete</span>
-        <span style={{ fontSize: 16, color: "var(--cometchat-error-color)" }}>Delete and Exit</span>
+        <span style={{ fontSize: 16, color: "var(--cometchat-error-color)" }}><T>Delete and Exit</T></span>
       </div>
     </div>
   );
@@ -314,10 +315,10 @@ function GroupInfoMembersTabs() {
       <div style={{ padding: "16px 16px 0" }}>
         <div style={{ display: "flex", background: "var(--cometchat-background-color-03)", border: "1px solid var(--cometchat-border-color-light)", borderRadius: "var(--cometchat-radius-max)", overflow: "hidden" }}>
           <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", height: 32, padding: "6px 16px", borderRadius: "var(--cometchat-radius-max)", background: "var(--color-bg-01, white)", border: "1px solid var(--cometchat-border-color-light)", fontFamily: "var(--cometchat-font-family)", fontSize: 14, fontWeight: 500, lineHeight: "20px", color: "var(--cometchat-primary-color)", cursor: "pointer" }}>
-            View Members
+            <T>View Members</T>
           </div>
           <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", height: 32, padding: "6px 16px", borderRadius: "var(--cometchat-radius-max)", fontFamily: "var(--cometchat-font-family)", fontSize: 14, fontWeight: 500, lineHeight: "20px", color: "var(--color-text-quaternary, #717680)", cursor: "pointer" }}>
-            Banned Members
+            <T>Banned Members</T>
           </div>
         </div>
       </div>
@@ -341,7 +342,7 @@ function GroupInfoMembersTabs() {
 
       {/* View all link */}
       <div style={{ padding: "20px 20px", cursor: "pointer" }}>
-        <span style={{ fontSize: 16, color: "var(--cometchat-primary-color)" }}>View all (6 more)</span>
+        <span style={{ fontSize: 16, color: "var(--cometchat-primary-color)" }}><T>View all (6 more)</T></span>
       </div>
     </div>
   );
@@ -385,7 +386,7 @@ function MemberItem({ name, avatar, role }: { name: string; avatar: string; role
         <img src={avatar} alt={name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
       <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "space-between", minWidth: 0 }}>
-        <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: 16, fontWeight: 500, lineHeight: "24px", color: "var(--color-text-primary, #181d27)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{name}</span>
+        <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: 16, fontWeight: 500, lineHeight: "24px", color: "var(--color-text-primary, #181d27)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}><T>{name}</T></span>
         {role && <span style={badgeStyles[role]}>{role.charAt(0).toUpperCase() + role.slice(1)}</span>}
       </div>
     </div>
@@ -399,7 +400,7 @@ function MemberItem({ name, avatar, role }: { name: string; avatar: string; role
 function StateLabel({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-      <span style={{ fontSize: "12px", fontWeight: "500", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}>{label}</span>
+      <span style={{ fontSize: "12px", fontWeight: "500", color: "var(--cometchat-text-color-tertiary)", textTransform: "uppercase", letterSpacing: "0.04em" }}><T>{label}</T></span>
       {children}
     </div>
   );
@@ -408,7 +409,7 @@ function StateLabel({ label, children }: { label: string; children: React.ReactN
 function UsageSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
-      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>{title}</div>
+      <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}><T>{title}</T></div>
       {children}
     </div>
   );
@@ -430,8 +431,8 @@ function CodeCard({ language, code }: { language: string; code: string }) {
 function StateCard({ title, description }: { title: string; description: string }) {
   return (
     <div style={{ padding: "var(--cometchat-spacing-3-5) var(--cometchat-spacing-4)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
-      <strong style={{ fontSize: "14px", fontWeight: "600", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}>{title}</strong>
-      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "18px" }}>{description}</span>
+      <strong style={{ fontSize: "14px", fontWeight: "600", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}><T>{title}</T></strong>
+      <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)", lineHeight: "18px" }}><T>{description}</T></span>
     </div>
   );
 }

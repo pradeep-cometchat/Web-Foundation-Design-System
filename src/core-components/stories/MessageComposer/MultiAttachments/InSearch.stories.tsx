@@ -1,3 +1,4 @@
+import { T } from "../../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import { SearchBar } from "../../../../base-components/components/SearchBar";
 import { UsageDoc, SAMPLE_IMAGES, DocFrontIcon } from "./_shared";
@@ -194,7 +195,7 @@ function ChatSearchPanel({
           fontFamily: "var(--cometchat-font-family, Inter, sans-serif)",
         }}
       >
-        Chats
+        <T>Chats</T>
       </span>
       <SearchBar placeholder="Search" />
       <FilterPills active={active} />
@@ -206,7 +207,7 @@ function ChatSearchPanel({
           marginTop: 4,
         }}
       >
-        March 2026
+        <T>March 2026</T>
       </span>
       <div style={{ display: "flex", flexDirection: "column" }}>{children}</div>
     </div>
@@ -256,9 +257,9 @@ function Row({
             textOverflow: "ellipsis",
           }}
         >
-          {title}
+          <T>{title}</T>
         </span>
-        {subtitle}
+        <T>{subtitle}</T>
       </div>
       {right}
     </div>

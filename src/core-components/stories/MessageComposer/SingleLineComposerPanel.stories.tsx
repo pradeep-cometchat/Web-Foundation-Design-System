@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ConversationStarter } from "../../../base-components/components/ConversationStarter";
 import { ConversationSummary } from "../../../base-components/components/ConversationSummary";
@@ -85,7 +86,7 @@ function ComposerPlaceholder() {
   return (
     <div style={{ width: 800, display: "flex", alignItems: "center", gap: 8, background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: 8, padding: "8px 12px" }}>
       <button style={actionButton} aria-label="Attach file"><IconAddCircle /></button>
-      <div style={{ flex: 1, fontSize: 14, lineHeight: "20px", fontFamily: "'Inter', sans-serif", color: "var(--cometchat-text-color-placeholder)" }}>Enter your message here</div>
+      <div style={{ flex: 1, fontSize: 14, lineHeight: "20px", fontFamily: "'Inter', sans-serif", color: "var(--cometchat-text-color-placeholder)" }}><T>Enter your message here</T></div>
       <button style={actionButton} aria-label="Emoji"><IconMood /></button>
       <button style={actionButton} aria-label="Sticker"><IconSticker /></button>
       <button style={actionButton} aria-label="Voice record"><IconMic /></button>
@@ -250,7 +251,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   return (
     <div>
       <div style={{ fontSize: 12, fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>
-        {title}
+        <T>{title}</T>
       </div>
       {children}
     </div>

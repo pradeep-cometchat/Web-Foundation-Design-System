@@ -1,3 +1,4 @@
+import { T } from "../../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import {
   UsageDoc,
@@ -466,7 +467,7 @@ function DocumentCard({
           gap: 6,
         }}
       >
-        <span style={titleStyle}>{name}</span>
+        <span style={titleStyle}><T>{name}</T></span>
         <span style={subStyle(state)}>{subtitle(state, FILE_LABEL[type])}</span>
       </div>
       <CornerBadge kind={cornerFor(state, platform)} />
@@ -505,7 +506,7 @@ function AudioCard({
           gap: 6,
         }}
       >
-        <span style={titleStyle}>{name}</span>
+        <span style={titleStyle}><T>{name}</T></span>
         {state === "error" || state === "retry" ? (
           <span style={subStyle(state)}>{subtitle(state, "")}</span>
         ) : (

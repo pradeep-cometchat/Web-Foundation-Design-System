@@ -1,3 +1,4 @@
+import { T } from "../../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import {
   UsageDoc,
@@ -37,7 +38,7 @@ function Callout() {
     <div style={{ display: "flex", gap: "var(--cometchat-spacing-2-5)", padding: "var(--cometchat-spacing-3) var(--cometchat-spacing-3-5)", borderRadius: "var(--cometchat-radius-2)", background: "var(--cometchat-background-color-02)", border: "1px solid var(--cometchat-border-color-default)", maxWidth: 640 }}>
       <span className="icon-rounded" style={{ fontSize: 20, color: "var(--cometchat-icon-color-highlight)", "--icon-fill": 0 } as React.CSSProperties}>info</span>
       <span style={{ fontSize: 13, lineHeight: "20px", color: "var(--cometchat-text-color-secondary)" }}>
-        This is an <strong>audio file attachment</strong>. A <strong>voice note</strong> looks identical but is recorded via the mic — it is not attachable in the composer, so it isn't shown as a type here.
+        <T>This is an</T> <strong><T>audio file attachment</T></strong>. A <strong><T>voice note</T></strong> looks identical but is recorded via the mic — it is not attachable in the composer, so it isn't shown as a type here.
       </span>
     </div>
   );
@@ -109,7 +110,7 @@ export const InSearch: Story = {
         <Panel>
           <SearchHeader value="review" active="Audio" />
           <Divider />
-          <ResultsLabel>Audio</ResultsLabel>
+          <ResultsLabel><T>Audio</T></ResultsLabel>
           <AudioResult title="Audio.mp3" meta="00:32" from="You" />
           <AudioResult title="Recording.m4a" meta="01:14" from="Priya" />
         </Panel>

@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import "./ChatBubbles.css";
 
@@ -66,11 +67,11 @@ export const AllVariants: StoryObj = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)", width: 340, padding: "var(--cometchat-spacing-4)" }}>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>Sent — Read</Label>
+        <Label><T>Sent — Read</T></Label>
         <CollaborativeDocBubble variant="sent" status="read" time="4:56 pm" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>Received</Label>
+        <Label><T>Received</T></Label>
         <CollaborativeDocBubble variant="received" time="4:56 pm" />
       </div>
     </div>
@@ -360,7 +361,7 @@ function CollaborativeDocBubble({
                 color: isSent ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)",
               }}
             >
-              Collaborative Document
+              <T>Collaborative Document</T>
             </span>
             <span
               style={{
@@ -373,7 +374,7 @@ function CollaborativeDocBubble({
                 whiteSpace: "nowrap",
               }}
             >
-              Open document to edit content toge...
+              <T>Open document to edit content toge...</T>
             </span>
           </div>
         </div>
@@ -402,7 +403,7 @@ function CollaborativeDocBubble({
               cursor: "pointer",
             }}
           >
-            Open Document
+            <T>Open Document</T>
           </span>
         </div>
 
@@ -469,15 +470,15 @@ function DocumentPreview() {
       {/* Cursor — Sarah (red) */}
       <polygon points="185,40 188,52 192,48" fill="#f87171" />
       <rect x="180" y="28" width="40" height="16" rx="4" fill="#fecaca" />
-      <text x="188" y="39" fontSize="8" fill="#dc2626" fontWeight="500">Sarah</text>
+      <text x="188" y="39" fontSize="8" fill="#dc2626" fontWeight="500"><T>Sarah</T></text>
       {/* Cursor — Jason (green) */}
       <polygon points="62,105 65,117 69,113" fill="#34d399" />
       <rect x="55" y="115" width="38" height="16" rx="4" fill="#d1fae5" />
-      <text x="62" y="126" fontSize="8" fill="#059669" fontWeight="500">Jason</text>
+      <text x="62" y="126" fontSize="8" fill="#059669" fontWeight="500"><T>Jason</T></text>
       {/* Cursor — Stephen (purple) */}
       <polygon points="210,135 213,147 217,143" fill="#a78bfa" />
       <rect x="205" y="145" width="50" height="16" rx="4" fill="#ede9fe" />
-      <text x="212" y="156" fontSize="8" fill="#7c3aed" fontWeight="500">Stephen</text>
+      <text x="212" y="156" fontSize="8" fill="#7c3aed" fontWeight="500"><T>Stephen</T></text>
     </svg>
   );
 }
@@ -532,7 +533,7 @@ function UsageSection({ title, children }: { title: string; children: React.Reac
           borderBottom: "1px solid var(--cometchat-border-color-default)",
         }}
       >
-        {title}
+        <T>{title}</T>
       </div>
       {children}
     </div>
@@ -607,7 +608,7 @@ function StateCard({ title, description }: { title: string; description: string 
           marginBottom: "var(--cometchat-spacing-1)",
         }}
       >
-        {title}
+        <T>{title}</T>
       </strong>
       <span
         style={{
@@ -616,7 +617,7 @@ function StateCard({ title, description }: { title: string; description: string 
           lineHeight: "18px",
         }}
       >
-        {description}
+        <T>{description}</T>
       </span>
     </div>
   );

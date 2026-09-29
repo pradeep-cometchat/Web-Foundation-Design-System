@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ConversationStarter } from "../../../base-components/components/ConversationStarter";
 import { ConversationSummary } from "../../../base-components/components/ConversationSummary";
@@ -128,7 +129,7 @@ function ComposerPlaceholder() {
   return (
     <div style={composerBox}>
       <div style={inputBox}>
-        <span style={{ color: "var(--cometchat-text-color-placeholder)" }}>Type your message...</span>
+        <span style={{ color: "var(--cometchat-text-color-placeholder)" }}><T>Type your message...</T></span>
       </div>
       <div style={toolbarBox}>
         <div style={actionsLeft}>
@@ -303,7 +304,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   return (
     <div>
       <div style={{ fontSize: 12, fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>
-        {title}
+        <T>{title}</T>
       </div>
       {children}
     </div>

@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import { fileTypeIcons } from "../../../cometchat-foundation/tokens/miscIcons";
 
@@ -374,8 +375,8 @@ function DocumentAttachmentPreview({ badge = "none" as BadgeState }) {
     <div style={documentCard}>
       <IconDocument />
       <div style={{ display: "flex", flexDirection: "column", gap: 2, overflow: "hidden" }}>
-        <span style={{ fontSize: 12, fontWeight: 500, color: "var(--cometchat-text-color-primary)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>Document.pdf</span>
-        <span style={{ fontSize: 11, color: "var(--cometchat-text-color-secondary)" }}>PDF</span>
+        <span style={{ fontSize: 12, fontWeight: 500, color: "var(--cometchat-text-color-primary)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}><T>Document.pdf</T></span>
+        <span style={{ fontSize: 11, color: "var(--cometchat-text-color-secondary)" }}><T>PDF</T></span>
       </div>
       <AttachmentBadge state={badge} />
     </div>
@@ -430,7 +431,7 @@ function ComposerWithAttachments({ children }: { children: React.ReactNode }) {
   return (
     <div style={composerBox}>
       <SpinKeyframes />
-      <div style={inputBox}>Type your message...</div>
+      <div style={inputBox}><T>Type your message...</T></div>
       <div className="composer-attachments" style={attachmentRow}>{children}</div>
       <Toolbar />
     </div>
@@ -443,7 +444,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   return (
     <div>
       <div style={{ fontSize: 12, fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>
-        {title}
+        <T>{title}</T>
       </div>
       {children}
     </div>

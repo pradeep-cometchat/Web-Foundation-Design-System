@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import "./ChatBubbles.css";
 
@@ -66,11 +67,11 @@ export const AllVariants: StoryObj = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-6)", width: 340, padding: "var(--cometchat-spacing-4)" }}>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>Sent — Read</Label>
+        <Label><T>Sent — Read</T></Label>
         <WhiteboardBubble variant="sent" status="read" time="4:56 pm" />
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-2)" }}>
-        <Label>Received</Label>
+        <Label><T>Received</T></Label>
         <WhiteboardBubble variant="received" time="4:56 pm" />
       </div>
     </div>
@@ -232,7 +233,7 @@ function WhiteboardBubble({
                 color: isSent ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)",
               }}
             >
-              Collaborative Whiteboard
+              <T>Collaborative Whiteboard</T>
             </span>
             <span
               style={{
@@ -242,7 +243,7 @@ function WhiteboardBubble({
                 color: isSent ? "rgba(255, 255, 255, 0.7)" : "var(--cometchat-text-color-tertiary)",
               }}
             >
-              Open whiteboard to draw together
+              <T>Open whiteboard to draw together</T>
             </span>
           </div>
         </div>
@@ -261,7 +262,7 @@ function WhiteboardBubble({
               cursor: "pointer",
             }}
           >
-            Open Whiteboard
+            <T>Open Whiteboard</T>
           </span>
         </div>
 
@@ -331,7 +332,7 @@ function WhiteboardPreview() {
       <rect x="46" y="96" width="8" height="8" fill="#666" />
       <rect x="126" y="96" width="8" height="8" fill="#666" />
       <rect x="206" y="96" width="8" height="8" fill="#666" />
-      <text x="75" y="82" fontSize="18" fontWeight="500" fill="#333">Collaborative</text>
+      <text x="75" y="82" fontSize="18" fontWeight="500" fill="#333"><T>Collaborative</T></text>
       {/* Text box 2 — "Whiteboard" */}
       <rect x="90" y="120" width="140" height="50" fill="#f0f0f0" stroke="#888" strokeWidth="1" />
       <rect x="86" y="116" width="8" height="8" fill="#666" />
@@ -342,20 +343,20 @@ function WhiteboardPreview() {
       <rect x="86" y="166" width="8" height="8" fill="#666" />
       <rect x="156" y="166" width="8" height="8" fill="#666" />
       <rect x="226" y="166" width="8" height="8" fill="#666" />
-      <text x="115" y="152" fontSize="18" fontWeight="500" fill="#333">Whiteboard</text>
+      <text x="115" y="152" fontSize="18" fontWeight="500" fill="#333"><T>Whiteboard</T></text>
       {/* Cursor — Sarah (red) */}
       <polygon points="175,35 178,47 182,43" fill="#f87171" />
       <rect x="170" y="22" width="40" height="16" rx="4" fill="#fecaca" />
-      <text x="178" y="33" fontSize="8" fill="#dc2626" fontWeight="500">Sarah</text>
+      <text x="178" y="33" fontSize="8" fill="#dc2626" fontWeight="500"><T>Sarah</T></text>
       {/* Cursor — Jason (green) */}
       <polygon points="42" y="110" fill="#34d399" />
       <polygon points="42,110 45,122 49,118" fill="#34d399" />
       <rect x="35" y="120" width="38" height="16" rx="4" fill="#d1fae5" />
-      <text x="42" y="131" fontSize="8" fill="#059669" fontWeight="500">Jason</text>
+      <text x="42" y="131" fontSize="8" fill="#059669" fontWeight="500"><T>Jason</T></text>
       {/* Cursor — Stephen (purple) */}
       <polygon points="220,155 223,167 227,163" fill="#a78bfa" />
       <rect x="215" y="165" width="50" height="16" rx="4" fill="#ede9fe" />
-      <text x="222" y="176" fontSize="8" fill="#7c3aed" fontWeight="500">Stephen</text>
+      <text x="222" y="176" fontSize="8" fill="#7c3aed" fontWeight="500"><T>Stephen</T></text>
     </svg>
   );
 }
@@ -410,7 +411,7 @@ function UsageSection({ title, children }: { title: string; children: React.Reac
           borderBottom: "1px solid var(--cometchat-border-color-default)",
         }}
       >
-        {title}
+        <T>{title}</T>
       </div>
       {children}
     </div>
@@ -485,7 +486,7 @@ function StateCard({ title, description }: { title: string; description: string 
           marginBottom: "var(--cometchat-spacing-1)",
         }}
       >
-        {title}
+        <T>{title}</T>
       </strong>
       <span
         style={{
@@ -494,7 +495,7 @@ function StateCard({ title, description }: { title: string; description: string 
           lineHeight: "18px",
         }}
       >
-        {description}
+        <T>{description}</T>
       </span>
     </div>
   );

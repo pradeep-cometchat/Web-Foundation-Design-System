@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import "./ChatBubbles.css";
 
@@ -65,13 +66,13 @@ export const AllVariants: StoryObj = {
   parameters: { layout: "padded" },
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "var(--cometchat-spacing-4)", width: 400, padding: "var(--cometchat-spacing-4)" }}>
-      <Label>Sent — Read</Label>
+      <Label><T>Sent — Read</T></Label>
       <DeleteBubble variant="sent" status="read" time="4:56 pm" />
-      <Label>Sent — Delivered</Label>
+      <Label><T>Sent — Delivered</T></Label>
       <DeleteBubble variant="sent" status="delivered" time="4:56 pm" />
-      <Label>Sent — Sent</Label>
+      <Label><T>Sent — Sent</T></Label>
       <DeleteBubble variant="sent" status="sent" time="4:56 pm" />
-      <Label>Received</Label>
+      <Label><T>Received</T></Label>
       <DeleteBubble variant="received" time="4:56 pm" />
     </div>
   ),
@@ -230,7 +231,7 @@ function DeleteBubble({
               color: isSent ? "rgba(255, 255, 255, 0.7)" : "var(--cometchat-text-color-tertiary)",
             }}
           >
-            This message was deleted
+            <T>This message was deleted</T>
           </span>
         </div>
 
@@ -321,7 +322,7 @@ function UsageSection({ title, children }: { title: string; children: React.Reac
           borderBottom: "1px solid var(--cometchat-border-color-default)",
         }}
       >
-        {title}
+        <T>{title}</T>
       </div>
       {children}
     </div>
@@ -396,7 +397,7 @@ function StateCard({ title, description }: { title: string; description: string 
           marginBottom: "var(--cometchat-spacing-1)",
         }}
       >
-        {title}
+        <T>{title}</T>
       </strong>
       <span
         style={{
@@ -405,7 +406,7 @@ function StateCard({ title, description }: { title: string; description: string 
           lineHeight: "18px",
         }}
       >
-        {description}
+        <T>{description}</T>
       </span>
     </div>
   );

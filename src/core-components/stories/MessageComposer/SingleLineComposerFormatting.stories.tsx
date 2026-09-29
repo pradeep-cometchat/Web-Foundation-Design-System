@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 
 /**
@@ -103,7 +104,7 @@ function SingleLineFormattingComposer({ active, children }: { active: Formatting
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>{title}</div>
+      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}><T>{title}</T></div>
       {children}
     </div>
   );
@@ -114,61 +115,61 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 /** Bold formatting. */
 export const Bold: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
-  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="bold">Hey! <span style={selectionBg}><strong>Bold</strong></span></SingleLineFormattingComposer></div>,
+  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="bold"><T>Hey!</T> <span style={selectionBg}><strong><T>Bold</T></strong></span></SingleLineFormattingComposer></div>,
 };
 
 /** Italic formatting. */
 export const Italic: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
-  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="italic">Hey! <span style={selectionBg}><em>Italic</em></span></SingleLineFormattingComposer></div>,
+  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="italic"><T>Hey!</T> <span style={selectionBg}><em><T>Italic</T></em></span></SingleLineFormattingComposer></div>,
 };
 
 /** Underline formatting. */
 export const Underline: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
-  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="underline">Hey! <span style={selectionBg}><span style={{ textDecoration: "underline" }}>Underline</span></span></SingleLineFormattingComposer></div>,
+  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="underline"><T>Hey!</T> <span style={selectionBg}><span style={{ textDecoration: "underline" }}><T>Underline</T></span></span></SingleLineFormattingComposer></div>,
 };
 
 /** Strikethrough formatting. */
 export const Strikethrough: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
-  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="strikethrough">Hey! <span style={selectionBg}><span style={{ textDecoration: "line-through" }}>Strikethrough</span></span></SingleLineFormattingComposer></div>,
+  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="strikethrough"><T>Hey!</T> <span style={selectionBg}><span style={{ textDecoration: "line-through" }}><T>Strikethrough</T></span></span></SingleLineFormattingComposer></div>,
 };
 
 /** Link formatting. */
 export const Link: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
-  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="link">Hey! <span style={selectionBg}><span style={{ color: "var(--cometchat-text-color-highlight)", textDecoration: "underline" }}>Link text</span></span></SingleLineFormattingComposer></div>,
+  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="link"><T>Hey!</T> <span style={selectionBg}><span style={{ color: "var(--cometchat-text-color-highlight)", textDecoration: "underline" }}><T>Link text</T></span></span></SingleLineFormattingComposer></div>,
 };
 
 /** Ordered List formatting. */
 export const OrderedList: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
-  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="orderedList"><div style={{ background: "var(--cometchat-extended-primary-color-100)", borderRadius: 2, padding: "2px 4px", display: "inline-block" }}><div>1. First item</div><div>2. Second item</div><div>3. Third item</div></div></SingleLineFormattingComposer></div>,
+  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="orderedList"><div style={{ background: "var(--cometchat-extended-primary-color-100)", borderRadius: 2, padding: "2px 4px", display: "inline-block" }}><div><T>1. First item</T></div><div><T>2. Second item</T></div><div><T>3. Third item</T></div></div></SingleLineFormattingComposer></div>,
 };
 
 /** Bullet-point List formatting. */
 export const BulletPointList: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
-  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="bulletList"><div style={{ background: "var(--cometchat-extended-primary-color-100)", borderRadius: 2, padding: "2px 4px", display: "inline-block" }}><div>• First item</div><div>• Second item</div><div>• Third item</div></div></SingleLineFormattingComposer></div>,
+  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="bulletList"><div style={{ background: "var(--cometchat-extended-primary-color-100)", borderRadius: 2, padding: "2px 4px", display: "inline-block" }}><div><T>• First item</T></div><div><T>• Second item</T></div><div><T>• Third item</T></div></div></SingleLineFormattingComposer></div>,
 };
 
 /** Block Quote formatting. */
 export const BlockQuote: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
-  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="blockQuote">Hey! <span style={{ ...selectionBg, borderInlineStart: "2px solid var(--cometchat-border-color-highlight)", paddingInlineStart: 4 }}>Block Quote</span></SingleLineFormattingComposer></div>,
+  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="blockQuote"><T>Hey!</T> <span style={{ ...selectionBg, borderInlineStart: "2px solid var(--cometchat-border-color-highlight)", paddingInlineStart: 4 }}><T>Block Quote</T></span></SingleLineFormattingComposer></div>,
 };
 
 /** Code formatting. */
 export const Code: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
-  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="code">Hey! <span style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: 12, padding: "2px 4px", display: "inline-flex" }}><span style={{ background: "var(--cometchat-extended-primary-color-100)", padding: "2px 6px", color: "var(--cometchat-text-color-highlight)", fontFamily: "monospace" }}>Code</span></span></SingleLineFormattingComposer></div>,
+  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="code"><T>Hey!</T> <span style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: 12, padding: "2px 4px", display: "inline-flex" }}><span style={{ background: "var(--cometchat-extended-primary-color-100)", padding: "2px 6px", color: "var(--cometchat-text-color-highlight)", fontFamily: "monospace" }}><T>Code</T></span></span></SingleLineFormattingComposer></div>,
 };
 
 /** Code Block formatting. */
 export const CodeBlock: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
-  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="codeBlock"><div style={{ background: "#f5f5f5", borderRadius: 8, padding: "10px 12px" }}><div style={{ background: "var(--cometchat-extended-primary-color-100)", display: "inline", fontFamily: "monospace", fontSize: 13, lineHeight: "22px" }}>{"import React from 'react';"}<br/>{"function App() {"}<br/>{"  return <h1>Hello, World!</h1>;"}</div></div></SingleLineFormattingComposer></div>,
+  render: () => <div style={{ padding: 24 }}><SingleLineFormattingComposer active="codeBlock"><div style={{ background: "#f5f5f5", borderRadius: 8, padding: "10px 12px" }}><div style={{ background: "var(--cometchat-extended-primary-color-100)", display: "inline", fontFamily: "monospace", fontSize: 13, lineHeight: "22px" }}>{"import React from 'react';"}<br/>{"function App() {"}<br/>{"  return <h1><T>Hello, World!</T></h1>;"}</div></div></SingleLineFormattingComposer></div>,
 };
 
 /** All formatting types. */
@@ -176,13 +177,13 @@ export const AllFormattingTypes: Story = {
   parameters: { controls: { disable: true }, layout: "padded" },
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: 48, padding: 24 }}>
-      <Section title="Bold"><SingleLineFormattingComposer active="bold">Hey! <span style={selectionBg}><strong>Bold</strong></span></SingleLineFormattingComposer></Section>
-      <Section title="Italic"><SingleLineFormattingComposer active="italic">Hey! <span style={selectionBg}><em>Italic</em></span></SingleLineFormattingComposer></Section>
-      <Section title="Underline"><SingleLineFormattingComposer active="underline">Hey! <span style={selectionBg}><span style={{ textDecoration: "underline" }}>Underline</span></span></SingleLineFormattingComposer></Section>
-      <Section title="Strikethrough"><SingleLineFormattingComposer active="strikethrough">Hey! <span style={selectionBg}><span style={{ textDecoration: "line-through" }}>Strikethrough</span></span></SingleLineFormattingComposer></Section>
-      <Section title="Link"><SingleLineFormattingComposer active="link">Hey! <span style={selectionBg}><span style={{ color: "var(--cometchat-text-color-highlight)", textDecoration: "underline" }}>Link text</span></span></SingleLineFormattingComposer></Section>
-      <Section title="Block Quote"><SingleLineFormattingComposer active="blockQuote">Hey! <span style={{ ...selectionBg, borderInlineStart: "2px solid var(--cometchat-border-color-highlight)", paddingInlineStart: 4 }}>Block Quote</span></SingleLineFormattingComposer></Section>
-      <Section title="Code"><SingleLineFormattingComposer active="code">Hey! <span style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: 12, padding: "2px 4px", display: "inline-flex" }}><span style={{ background: "var(--cometchat-extended-primary-color-100)", padding: "2px 6px", color: "var(--cometchat-text-color-highlight)", fontFamily: "monospace" }}>Code</span></span></SingleLineFormattingComposer></Section>
+      <Section title="Bold"><SingleLineFormattingComposer active="bold"><T>Hey!</T> <span style={selectionBg}><strong><T>Bold</T></strong></span></SingleLineFormattingComposer></Section>
+      <Section title="Italic"><SingleLineFormattingComposer active="italic"><T>Hey!</T> <span style={selectionBg}><em><T>Italic</T></em></span></SingleLineFormattingComposer></Section>
+      <Section title="Underline"><SingleLineFormattingComposer active="underline"><T>Hey!</T> <span style={selectionBg}><span style={{ textDecoration: "underline" }}><T>Underline</T></span></span></SingleLineFormattingComposer></Section>
+      <Section title="Strikethrough"><SingleLineFormattingComposer active="strikethrough"><T>Hey!</T> <span style={selectionBg}><span style={{ textDecoration: "line-through" }}><T>Strikethrough</T></span></span></SingleLineFormattingComposer></Section>
+      <Section title="Link"><SingleLineFormattingComposer active="link"><T>Hey!</T> <span style={selectionBg}><span style={{ color: "var(--cometchat-text-color-highlight)", textDecoration: "underline" }}><T>Link text</T></span></span></SingleLineFormattingComposer></Section>
+      <Section title="Block Quote"><SingleLineFormattingComposer active="blockQuote"><T>Hey!</T> <span style={{ ...selectionBg, borderInlineStart: "2px solid var(--cometchat-border-color-highlight)", paddingInlineStart: 4 }}><T>Block Quote</T></span></SingleLineFormattingComposer></Section>
+      <Section title="Code"><SingleLineFormattingComposer active="code"><T>Hey!</T> <span style={{ border: "1px solid var(--cometchat-border-color-default)", borderRadius: 12, padding: "2px 4px", display: "inline-flex" }}><span style={{ background: "var(--cometchat-extended-primary-color-100)", padding: "2px 6px", color: "var(--cometchat-text-color-highlight)", fontFamily: "monospace" }}><T>Code</T></span></span></SingleLineFormattingComposer></Section>
     </div>
   ),
 };
@@ -194,7 +195,7 @@ export const Playground: Story = {
   parameters: { layout: "padded", docs: { disable: true } },
   render: function Render(args) {
     const f = (args as Record<string, unknown>).formatting as FormattingType;
-    return <div style={{ padding: 24 }}><SingleLineFormattingComposer active={f}>Hey! <span style={selectionBg}><strong>{f}</strong></span></SingleLineFormattingComposer></div>;
+    return <div style={{ padding: 24 }}><SingleLineFormattingComposer active={f}><T>Hey!</T> <span style={selectionBg}><strong>{f}</strong></span></SingleLineFormattingComposer></div>;
   },
 };
 
@@ -208,7 +209,7 @@ export const Usage: Story = {
   render: () => (
     <div style={{ padding: "var(--cometchat-spacing-8)", maxWidth: 1200, margin: "0 auto" }}>
       <div style={{ marginBottom: "var(--cometchat-spacing-6)" }}>
-        <div style={{ fontSize: "12px", fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase" as const, letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}>Formatting Types</div>
+        <div style={{ fontSize: "12px", fontWeight: 600, color: "var(--cometchat-text-color-secondary)", textTransform: "uppercase" as const, letterSpacing: "0.06em", marginBottom: "var(--cometchat-spacing-2)", paddingBottom: "var(--cometchat-spacing-2)", borderBottom: "1px solid var(--cometchat-border-color-default)" }}><T>Formatting Types</T></div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           {(["bold", "italic", "underline", "strikethrough", "link", "orderedList", "bulletList", "blockQuote", "code", "codeBlock"] as const).map(f => (
             <div key={f} style={{ padding: "var(--cometchat-spacing-3)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>

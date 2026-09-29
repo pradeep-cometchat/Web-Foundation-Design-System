@@ -1,3 +1,4 @@
+import { T } from "../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta = {
@@ -36,7 +37,7 @@ export const Overview: StoryObj = {
             color: "var(--cometchat-extended-primary-color-700)",
           }}
         >
-          Core Components
+          <T>Core Components</T>
         </span>
         <h1
           style={{
@@ -48,7 +49,7 @@ export const Overview: StoryObj = {
             color: "var(--cometchat-text-color-primary)",
           }}
         >
-          Core Components
+          <T>Core Components</T>
         </h1>
         <p
           style={{
@@ -59,9 +60,9 @@ export const Overview: StoryObj = {
             maxWidth: 720,
           }}
         >
-          Higher-level composed components built from Base Components and Foundation tokens.
+          <T>Higher-level composed components built from Base Components and Foundation tokens.
           These represent complete UI patterns ready for integration into product screens.
-          All components are responsive and adapt to mobile, tablet, and desktop viewports.
+          All components are responsive and adapt to mobile, tablet, and desktop viewports.</T>
         </p>
       </header>
 
@@ -115,7 +116,7 @@ function ComponentCard({ title, description }: { title: string; description: str
           lineHeight: "24px",
         }}
       >
-        {title}
+        <T>{title}</T>
       </strong>
       <p
         style={{
@@ -125,7 +126,7 @@ function ComponentCard({ title, description }: { title: string; description: str
           color: "var(--cometchat-text-color-tertiary)",
         }}
       >
-        {description}
+        <T>{description}</T>
       </p>
     </div>
   );
