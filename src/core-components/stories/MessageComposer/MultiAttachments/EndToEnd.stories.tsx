@@ -857,6 +857,7 @@ function EndToEndChat({
         >
           <span
             className="icon-rounded"
+            data-icon-mirror
             style={{ fontSize: 18, "--icon-fill": 0 } as React.CSSProperties}
           >
             reply
