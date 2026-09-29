@@ -17,3 +17,15 @@ export const toArabicOr = (english: string): string => {
     document.documentElement.getAttribute("dir") === "rtl";
   return rtl ? toArabicDigits(toArabic(english) ?? english) : english;
 };
+
+/**
+ * The direction-aware form of toArabicDigits, for the same callers: a plain
+ * function has no language context, and converting unconditionally would put
+ * Arabic numerals into the English rendering.
+ */
+export const localizeDigits = (s: string): string => {
+  const rtl =
+    typeof document !== "undefined" &&
+    document.documentElement.getAttribute("dir") === "rtl";
+  return rtl ? toArabicDigits(s) : s;
+};

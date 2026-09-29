@@ -1,4 +1,4 @@
-import { T, useT, toArabicDigits } from "../../../../cometchat-foundation/localization";
+import { T, useT, localizeDigits } from "../../../../cometchat-foundation/localization";
 /**
  * Shared primitives for the "Multi Attachments" story pages.
  *
@@ -1250,7 +1250,7 @@ export function MultiAttachmentBubble({
     if (!quoted) return null;
     const m = quoted.media;
     const summaryText = m
-      ? toArabicDigits(
+      ? localizeDigits(
           `${m.count} ${t(quotedTypeLabel(m.kind, m.count))}${m.caption ? ` · ${t(m.caption)}` : ""}`
         )
       : t(quoted.text ?? "");
@@ -1394,7 +1394,7 @@ export function MultiAttachmentBubble({
           >
             {expanded ? "expand_less" : "expand_more"}
           </span>
-          {expanded ? <T>Show less</T> : <>{toArabicDigits(t("Show {n} more").replace("{n}", String(files.length - 3)))}</>}
+          {expanded ? <T>Show less</T> : <>{localizeDigits(t("Show {n} more").replace("{n}", String(files.length - 3)))}</>}
         </button>
       )}
       {caption && (
