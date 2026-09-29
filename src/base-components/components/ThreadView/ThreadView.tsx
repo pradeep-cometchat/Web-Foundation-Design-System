@@ -179,9 +179,9 @@ function MessageBubble({ message }: { message: ThreadMessage }) {
   return (
     <div className={`thread-view__message ${message.isSent ? "thread-view__message--sent" : "thread-view__message--received"}`}>
       <div className={`thread-view__bubble ${message.isSent ? "thread-view__bubble--sent" : "thread-view__bubble--received"}`}>
-        <p className="thread-view__bubble-text">{message.text}</p>
+        <p className="thread-view__bubble-text"><T>{message.text}</T></p>
         <div className="thread-view__bubble-meta">
-          <span className="thread-view__bubble-time">{message.time}</span>
+          <span className="thread-view__bubble-time"><T>{message.time}</T></span>
           {message.isSent && message.isRead && (
             <span className="thread-view__read-receipt">
               <ReadReceiptIcon />
