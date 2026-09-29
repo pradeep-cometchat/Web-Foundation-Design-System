@@ -126,7 +126,7 @@ export function MultiLineComposer({
                 />
               ))}
             </div>
-            <span className="ml-composer__preview-duration">{duration}</span>
+            <span className="ml-composer__preview-duration"><T>{duration}</T></span>
           </div>
         </div>
       )}

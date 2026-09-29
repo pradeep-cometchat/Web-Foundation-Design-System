@@ -131,7 +131,7 @@ export function MediaRecorder({
         </div>
 
         {/* Duration */}
-        <span className="media-recorder__duration">{duration}</span>
+        <span className="media-recorder__duration"><T>{duration}</T></span>
 
         {/* Waveform */}
         <div className="media-recorder__waveform">

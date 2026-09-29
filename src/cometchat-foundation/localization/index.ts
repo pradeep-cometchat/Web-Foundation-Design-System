@@ -13,3 +13,4 @@ export {
 export { T, useT, type TProps } from "./T";
 export { AR, toArabic } from "./strings";
 export { toArabicOr } from "./runtime";
+export { toArabicDigits } from "./digits";

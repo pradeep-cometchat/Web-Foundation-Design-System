@@ -1,4 +1,5 @@
 import { toArabic } from "./strings";
+import { toArabicDigits } from "./digits";
 
 /**
  * For strings assembled at runtime — "6 Images · hello" is never a dictionary
@@ -14,5 +15,5 @@ export const toArabicOr = (english: string): string => {
   const rtl =
     typeof document !== "undefined" &&
     document.documentElement.getAttribute("dir") === "rtl";
-  return rtl ? (toArabic(english) ?? english) : english;
+  return rtl ? toArabicDigits(toArabic(english) ?? english) : english;
 };

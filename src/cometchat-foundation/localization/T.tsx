@@ -1,6 +1,7 @@
 import React from "react";
 import { useLanguage } from "./LocaleProvider";
 import { toArabic } from "./strings";
+import { toArabicDigits } from "./digits";
 
 export interface TProps {
   children: React.ReactNode;
@@ -20,7 +21,7 @@ export const T: React.FC<TProps> = ({ children, ar }) => {
 
   if (language !== "ar" || typeof children !== "string") return <>{children}</>;
 
-  return <>{ar ?? toArabic(children) ?? children}</>;
+  return <>{toArabicDigits(ar ?? toArabic(children) ?? children)}</>;
 };
 
 /** The string form, for places that need text rather than an element. */
@@ -28,7 +29,9 @@ export const useT = (): ((english: string, ar?: string) => string) => {
   const language = useLanguage();
   return React.useCallback(
     (english: string, ar?: string) =>
-      language === "ar" ? (ar ?? toArabic(english) ?? english) : english,
+      language === "ar"
+        ? toArabicDigits(ar ?? toArabic(english) ?? english)
+        : english,
     [language]
   );
 };

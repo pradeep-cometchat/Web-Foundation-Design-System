@@ -400,7 +400,7 @@ function AudioBubble({
                 lineHeight: 1,
               }}
             >
-              {currentTime}/{duration}
+              <T>{currentTime}</T>/<T>{duration}</T>
             </span>
           </div>
         </div>
