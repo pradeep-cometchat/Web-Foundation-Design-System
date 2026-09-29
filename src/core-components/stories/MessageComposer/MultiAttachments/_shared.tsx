@@ -1346,10 +1346,10 @@ export function MultiAttachmentBubble({
         >
           <span
             className="icon-rounded"
+            data-icon-mirror="inverted"
             style={
               {
                 fontSize: 15,
-                transform: "scaleX(-1)",
                 "--icon-fill": 0,
               } as React.CSSProperties
             }

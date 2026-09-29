@@ -314,3 +314,14 @@
 [dir="rtl"] [data-icon-mirror] {
   transform: scaleX(-1);
 }
+
+/* "inverted" is for a glyph whose LTR baseline is already a flip — the
+   Forwarded marker draws the reply arrow backwards to mean forward. In RTL it
+   returns to the glyph's natural direction, which is the mirror of that. */
+[data-icon-mirror="inverted"] {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] [data-icon-mirror="inverted"] {
+  transform: none;
+}
