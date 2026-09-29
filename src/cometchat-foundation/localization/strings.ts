@@ -1452,6 +1452,14 @@ export const AR: Readonly<Record<string, string>> = {
 
   /* ─── Tooltip, fixtures and field copy (RTL sweep) ─── */
 
+  /* ─── Foundation — meta counts ─── */
+  "10 shades":
+    "10 درجات",
+  "20+":
+    "+20",
+  "120+":
+    "+120",
+
   /* ─── Shell — page names and remaining fixtures ─── */
   "Chat Empty State":
     "حالة الدردشة الفارغة",

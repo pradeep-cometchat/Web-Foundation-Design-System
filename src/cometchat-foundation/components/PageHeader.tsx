@@ -8,6 +8,10 @@ export interface PageHeaderProps {
   meta?: Array<{ label: string; value: string }>;
 }
 
+/** Hex codes, CSS lengths, token prefixes, font names and en-dash ranges. */
+const isReference = (v: string) =>
+  /#|--|px|[A-Z]|\u2013/.test(v);
+
 /**
  * Page header with eyebrow, title, description, and optional metadata chips.
  * Drop at the top of every foundation docs page for a consistent hero.
@@ -85,14 +89,22 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
                 color: "var(--cometchat-text-color-secondary)",
               }}
             >
-              {/* Values are identifiers — hex codes, px ranges, --cometchat-*,
-                  font names. They stay LTR and untranslated in every language. */}
-              <strong
-                dir="ltr"
-                style={{ color: "var(--cometchat-text-color-primary)" }}
-              >
-                {m.value}
-              </strong>
+              {/* A meta value is either reference material — a hex code, a px
+                  range, --cometchat-*, a font name — which stays LTR and
+                  untranslated, or a plain count like "4" or "10 shades", which
+                  reads as copy and follows the language. */}
+              {isReference(m.value) ? (
+                <strong
+                  dir="ltr"
+                  style={{ color: "var(--cometchat-text-color-primary)" }}
+                >
+                  {m.value}
+                </strong>
+              ) : (
+                <strong style={{ color: "var(--cometchat-text-color-primary)" }}>
+                  <T>{m.value}</T>
+                </strong>
+              )}
               <span style={{ color: "var(--cometchat-text-color-tertiary)" }}>
                 <T>{m.label}</T>
               </span>
