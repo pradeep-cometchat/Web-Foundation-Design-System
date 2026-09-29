@@ -317,7 +317,7 @@ function MediaThumb({
             justifyContent: "center",
           }}
         >
-          +{count}
+          <T>{`+${count}`}</T>
         </div>
       ) : (
         kind === "video" && (

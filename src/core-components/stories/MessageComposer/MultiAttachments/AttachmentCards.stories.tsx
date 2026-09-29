@@ -518,7 +518,7 @@ function AudioCard({
                 color: "var(--cometchat-text-color-tertiary)",
               }}
             >
-              {playing ? "00:12" : "00:00"}/00:32
+              <T>{playing ? "00:12" : "00:00"}</T>/<T>00:32</T>
             </span>
           </>
         )}

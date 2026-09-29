@@ -1024,7 +1024,7 @@ export function MultiAttachmentBubble({
                 fontWeight: 600,
               }}
             >
-              +{overflow}
+              <T>{`+${overflow}`}</T>
             </span>
           </div>
         )}
@@ -1855,7 +1855,7 @@ export function ConversationResult({
                   fontWeight: 600,
                 }}
               >
-                +{count - idx.length}
+                <T>{`+${count - idx.length}`}</T>
               </div>
             )}
           </div>
