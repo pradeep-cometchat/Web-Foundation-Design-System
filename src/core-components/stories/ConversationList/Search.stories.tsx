@@ -222,7 +222,6 @@ const FILTERS = ["All", "Unread", "Groups", "Photos", "Videos", "Audio", "Docume
 
 function SearchField({ state, value = "", showFilters }: { state: SearchState; value?: string; showFilters?: boolean }) {
   const t = useT();
-  const isFocus = state === "focus";
   const isTyping = state === "typing";
   const hasValue = isTyping && value.length > 0;
 

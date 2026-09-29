@@ -33,14 +33,14 @@ export const StickerCatalog: StoryObj = {
       <div style={headerStyle}>
         <h2 style={titleStyle}><T>Sticker Footage</T></h2>
         <p style={descStyle}>
-          Illustrated character stickers for chat messages. These are pre-rendered PNG assets served from the design system CDN.
+          <T>Illustrated character stickers for chat messages. These are pre-rendered PNG assets served from the design system CDN.</T>
         </p>
       </div>
       <div style={gridStyle}>
         {stickers.map((sticker) => (
           <div key={sticker.name} style={cardStyle}>
             <img src={sticker.imageUrl} alt={sticker.name} style={stickerImgStyle} />
-            <span style={cardLabelStyle}>{sticker.name}</span>
+            <span dir="ltr" style={cardLabelStyle}>{sticker.name}</span>
           </div>
         ))}
       </div>
@@ -56,7 +56,7 @@ export const StickerList: StoryObj = {
         {stickers.map((sticker) => (
           <div key={sticker.name} style={listItemStyle}>
             <img src={sticker.imageUrl} alt={sticker.name} style={listStickerImgStyle} />
-            <span style={listLabelStyle}>{sticker.name}</span>
+            <span dir="ltr" style={listLabelStyle}>{sticker.name}</span>
           </div>
         ))}
       </div>
@@ -71,25 +71,25 @@ export const StickerSizes: StoryObj = {
       <div style={headerStyle}>
         <h2 style={titleStyle}><T>Sticker Sizes</T></h2>
         <p style={descStyle}>
-          Stickers can be rendered at different sizes depending on context.
+          <T>Stickers can be rendered at different sizes depending on context.</T>
         </p>
       </div>
       <div style={{ display: "flex", alignItems: "flex-end", gap: "var(--cometchat-spacing-8)", padding: "var(--cometchat-spacing-6)" }}>
         <div style={{ textAlign: "center" }}>
           <img src={stickers[0].imageUrl} alt={stickers[0].name} style={{ width: 48, height: 48, objectFit: "contain" }} />
-          <span style={sizeLabelStyle}>48px (sm)</span>
+          <span dir="ltr" style={sizeLabelStyle}>48px (sm)</span>
         </div>
         <div style={{ textAlign: "center" }}>
           <img src={stickers[0].imageUrl} alt={stickers[0].name} style={{ width: 80, height: 80, objectFit: "contain" }} />
-          <span style={sizeLabelStyle}>80px (md)</span>
+          <span dir="ltr" style={sizeLabelStyle}>80px (md)</span>
         </div>
         <div style={{ textAlign: "center" }}>
           <img src={stickers[0].imageUrl} alt={stickers[0].name} style={{ width: 120, height: 120, objectFit: "contain" }} />
-          <span style={sizeLabelStyle}>120px (lg)</span>
+          <span dir="ltr" style={sizeLabelStyle}>120px (lg)</span>
         </div>
         <div style={{ textAlign: "center" }}>
           <img src={stickers[0].imageUrl} alt={stickers[0].name} style={{ width: 160, height: 160, objectFit: "contain" }} />
-          <span style={sizeLabelStyle}>160px (xl)</span>
+          <span dir="ltr" style={sizeLabelStyle}>160px (xl)</span>
         </div>
       </div>
     </div>
@@ -144,7 +144,7 @@ const stickers = avatarRegistry["Sticker Footage"];
       <UsageSection title="Specifications">
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--cometchat-spacing-3)" }}>
           <StateCard title="Format" description="PNG with transparent background, pre-rendered at 2× resolution." />
-          <StateCard title="Source" description="avatarRegistry['Sticker Footage'] in foundation/tokens/avatars.ts" />
+          <StateCard title="Source" description="avatarRegistry['Sticker Footage'] → foundation/tokens/avatars.ts" />
           <StateCard title="Sizes" description="sm: 48px, md: 80px, lg: 120px (chat bubble), xl: 160px (preview)." />
           <StateCard title="Chat Bubble" description="Stickers render without bubble background — just the image + timestamp." />
           <StateCard title="Picker Grid" description="Displayed in a 4-column grid at 80×80px in the sticker picker panel." />

@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import "./Shell.css";
 import "../core-components/stories/ChatBubbles/ChatBubbles.css";
 import { Header } from "../base-components/components/Header";
-import { SearchBar } from "../base-components/components/SearchBar";
 import { ConversationItem } from "../base-components/components/ListItem";
 import { avatarRegistry } from "../cometchat-foundation/tokens/avatars";
 
@@ -15,7 +14,6 @@ const meta: Meta = {
 export default meta;
 
 const avatars = avatarRegistry["Male Avatar"];
-const femaleAvatars = avatarRegistry["Female Avatar"];
 
 export const SkeletonLoading: StoryObj = {
   name: "Skeleton Loading",

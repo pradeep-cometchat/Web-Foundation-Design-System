@@ -280,13 +280,28 @@ function ColorDot({ color }: { color: string }) {
 
 function NewChip() {
   return (
-    <span style={{ display: "inline-flex", alignItems: "center", padding: "2px 8px", borderRadius: "var(--radius-full, 9999px)", background: "var(--color-success-50, #ecfdf3)", color: "var(--color-success-700, #067647)", fontSize: 10, fontWeight: 600, letterSpacing: "0.04em", textTransform: "uppercase", marginLeft: 8, whiteSpace: "nowrap" }}>
-      New
+    <span style={{ display: "inline-flex", alignItems: "center", padding: "2px 8px", borderRadius: "var(--radius-full, 9999px)", background: "var(--color-success-50, #ecfdf3)", color: "var(--color-success-700, #067647)", fontSize: 10, fontWeight: 600, letterSpacing: "0.04em", textTransform: "uppercase", marginInlineStart: 8, whiteSpace: "nowrap" }}>
+      <T>New</T>
     </span>
   );
 }
 
 type TokenRow = { name: string; light: string; dark: string; cssVar: string; usage: string };
+
+/**
+ * "Neutral 300" translates the label but keeps the scale step in Latin
+ * numerals, so it still reads the same as the --cometchat-*-300 variable
+ * printed beside it.
+ */
+function ScaleLabel({ text }: { text: string }) {
+  const parts = /^(.+?)\s(\d+)$/.exec(text);
+  if (!parts) return <T>{text}</T>;
+  return (
+    <>
+      <T>{parts[1]}</T> <span dir="ltr">{parts[2]}</span>
+    </>
+  );
+}
 
 function ThemeTable({ rows }: { rows: TokenRow[] }) {
   return (
@@ -311,11 +326,11 @@ function ThemeTable({ rows }: { rows: TokenRow[] }) {
         <tbody>
           {rows.map((row, i) => (
             <tr key={row.name} style={{ background: i % 2 === 0 ? "var(--cometchat-background-color-01)" : "var(--cometchat-background-color-02)" }}>
-              <td style={td}><span style={{ fontWeight: "var(--font-weight-medium)", color: "var(--cometchat-text-color-primary)" }}>{row.name}</span></td>
+              <td style={td}><span style={{ fontWeight: "var(--font-weight-medium)", color: "var(--cometchat-text-color-primary)" }}><ScaleLabel text={row.name} /></span></td>
               <td style={td}><ColorCell color={row.light} /></td>
               <td style={td}><ColorCell color={row.dark} /></td>
               <td style={td}><code style={code}>{row.cssVar}</code></td>
-              <td style={td}><span style={{ color: "var(--cometchat-text-color-tertiary)" }}><T>{row.usage}</T></span></td>
+              <td style={td}><span style={{ color: "var(--cometchat-text-color-tertiary)" }}><ScaleLabel text={row.usage} /></span></td>
             </tr>
           ))}
         </tbody>
@@ -329,7 +344,10 @@ function ColorCell({ color }: { color: string }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "var(--cometchat-spacing-2)" }}>
       <div aria-hidden style={{ width: 28, height: 28, borderRadius: "var(--cometchat-radius-1-5)", background: color, border: isLight ? "1px solid var(--cometchat-border-color-default)" : "none", flexShrink: 0 }} />
-      <span style={{ fontFamily: "var(--cometchat-font-family)", color: "var(--cometchat-text-color-secondary)", fontSize: "12px" }}>{color}</span>
+      {/* "#" is a neutral character: beside a hex that opens with a letter it
+          resolves to the paragraph direction and lands after the digits
+          ("F9F8FD#"). Isolating the run keeps the hash where it belongs. */}
+      <span dir="ltr" style={{ unicodeBidi: "isolate", fontFamily: "var(--cometchat-font-family)", color: "var(--cometchat-text-color-secondary)", fontSize: "12px" }}>{color}</span>
     </div>
   );
 }

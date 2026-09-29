@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { T } from "../localization";
 import { PageHeader } from "../components/PageHeader";
 import { Section } from "../components/Section";
 import { TokenTable } from "../components/TokenTable";
@@ -65,7 +66,7 @@ const marginTokens = spacingTokens.filter(t => t.step !== "spacing-max").map(t =
 function NewChip() {
   return (
     <span style={{ display: "inline-flex", alignItems: "center", padding: "2px 8px", borderRadius: "var(--radius-full, 9999px)", background: "var(--color-success-50, #ecfdf3)", color: "var(--color-success-700, #067647)", fontSize: 10, fontWeight: 600, letterSpacing: "0.04em", textTransform: "uppercase", whiteSpace: "nowrap" }}>
-      New
+      <T>New</T>
     </span>
   );
 }

@@ -94,6 +94,7 @@ interface PlaygroundProps {
 }
 
 function IconPlayground(props: PlaygroundProps) {
+  const t = useT();
   const jsxSnippet = `<Icon\n  name="${props.name}"\n  variant="${props.variant}"\n  size={${props.size}}\n  weight={${props.weight}}\n  fill={${props.fill}}\n  grade={${props.grade}}\n  opticalSize={${props.opticalSize}}\n/>`;
 
   const cssSnippet = `<span class="icon-${props.variant}" style="--icon-fill:${props.fill}; --icon-wght:${props.weight}; --icon-grad:${props.grade}; --icon-opsz:${props.opticalSize}; font-size:${props.size}px">
@@ -136,7 +137,7 @@ function IconPlayground(props: PlaygroundProps) {
           <Stat label="Name" value={props.name} mono />
           <Stat
             label="Variant"
-            value={iconVariantLabel[props.variant]}
+            value={t(iconVariantLabel[props.variant])}
             divider
           />
           <Stat label="Size" value={`${props.size}px`} mono divider />
@@ -392,7 +393,7 @@ function BrowseView() {
           onChange={setVariant}
           options={iconVariants.map((v) => ({
             value: v,
-            label: iconVariantLabel[v],
+            label: t(iconVariantLabel[v]),
           }))}
         />
 
@@ -580,9 +581,8 @@ function VariantHeader({
   const iso = { unicodeBidi: "isolate" as const };
   return (
     <>
-      {/* The variant label is the font's own name — never translated. */}
-      <span dir="ltr" style={iso}>
-        {iconVariantLabel[variant]}
+      <span style={iso}>
+        <T>{iconVariantLabel[variant]}</T>
       </span>
       <span style={iso}> · </span>
       <span style={iso}>{children}</span>
@@ -746,7 +746,7 @@ export const Variants: StoryObj = {
             <strong
               style={{ fontSize: "14px", color: "var(--cometchat-neutral-color-900)" }}
             >
-              {iconVariantLabel[v]}
+              <T>{iconVariantLabel[v]}</T>
             </strong>
             <span
               style={{

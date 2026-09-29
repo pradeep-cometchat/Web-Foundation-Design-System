@@ -1662,73 +1662,13 @@ export const AR: Readonly<Record<string, string>> = {
   "→ \"Sticker Footage\" category.":
     "← فئة «Sticker Footage».",
 
-  /* ─── Foundation — composed shade labels ─── */
-  "Brand shade 50":
-    "درجة العلامة 50",
-  "Extended Primary 50":
-    "الأساسي الموسّع 50",
-  "Neutral 50":
-    "محايد 50",
-  "Brand shade 100":
-    "درجة العلامة 100",
-  "Extended Primary 100":
-    "الأساسي الموسّع 100",
-  "Neutral 100":
-    "محايد 100",
-  "Brand shade 200":
-    "درجة العلامة 200",
-  "Extended Primary 200":
-    "الأساسي الموسّع 200",
-  "Neutral 200":
-    "محايد 200",
-  "Brand shade 300":
-    "درجة العلامة 300",
-  "Extended Primary 300":
-    "الأساسي الموسّع 300",
-  "Neutral 300":
-    "محايد 300",
-  "Brand shade 400":
-    "درجة العلامة 400",
-  "Extended Primary 400":
-    "الأساسي الموسّع 400",
-  "Neutral 400":
-    "محايد 400",
-  "Brand shade 500":
-    "درجة العلامة 500",
-  "Extended Primary 500":
-    "الأساسي الموسّع 500",
-  "Neutral 500":
-    "محايد 500",
-  "Brand shade 600":
-    "درجة العلامة 600",
-  "Extended Primary 600":
-    "الأساسي الموسّع 600",
-  "Neutral 600":
-    "محايد 600",
-  "Brand shade 700":
-    "درجة العلامة 700",
-  "Extended Primary 700":
-    "الأساسي الموسّع 700",
-  "Neutral 700":
-    "محايد 700",
-  "Brand shade 800":
-    "درجة العلامة 800",
-  "Extended Primary 800":
-    "الأساسي الموسّع 800",
-  "Neutral 800":
-    "محايد 800",
-  "Brand shade 900":
-    "درجة العلامة 900",
-  "Extended Primary 900":
-    "الأساسي الموسّع 900",
-  "Neutral 900":
-    "محايد 900",
-  "Brand shade 950":
-    "درجة العلامة 950",
-  "Extended Primary 950":
-    "الأساسي الموسّع 950",
-  "Neutral 950":
-    "محايد 950",
+  /* ─── Foundation — shade scale labels; the step stays Latin ─── */
+  "Brand shade":
+    "درجة العلامة",
+  "Neutral shade":
+    "درجة محايدة",
+  "Neutral":
+    "محايد",
 
   /* ─── Foundation — meta counts ─── */
   "10 shades":
@@ -4490,6 +4430,20 @@ export const AR: Readonly<Record<string, string>> = {
   "Hello": "مرحبًا",
   "You've reached the limit. You can add up to {n} options.": "لقد بلغت الحد الأقصى. يمكنك إضافة ما يصل إلى {n} خيارات.",
   "On my way!": "أنا في الطريق!",
+
+  /* ─── Foundation — page descriptions (JSDoc) ─── */
+  "Five elevation tokens from **xs** (subtle lift) to **xl** (modals). Each token may stack multiple drop shadows for a more natural falloff.\n\nPair elevation with borders and background tokens, not alone — shadows alone are not a reliable visual cue in high-contrast modes.":
+    "خمسة رموز ارتفاع من **xs** (رفع خفيف) إلى **xl** (النوافذ المنبثقة). قد يجمع كل رمز عدة ظلال مُسقَطة للحصول على تدرّج أكثر طبيعية.\n\nاقرن الارتفاع بالحدود ورموز الخلفية، ولا تعتمد عليه وحده — فالظلال وحدها ليست إشارة بصرية موثوقة في أوضاع التباين العالي.",
+  "Focus states stack three layers:\n1. The base elevation (matches `shadow-xs`).\n2. A 2px white halo to separate the ring from the control.\n3. A 4px colored outer ring — brand or error.\n\nAlways apply a visible focus ring to interactive elements. Use the **error** variant for destructive controls so the focus color matches intent.":
+    "تتكوّن حالات التركيز من ثلاث طبقات:\n1. الارتفاع الأساسي (يطابق `shadow-xs`).\n2. هالة بيضاء بسمك 2px تفصل الحلقة عن عنصر التحكم.\n3. حلقة خارجية ملوّنة بسمك 4px — بلون العلامة أو الخطأ.\n\nطبّق دائمًا حلقة تركيز مرئية على العناصر التفاعلية. استخدم نمط **error** لعناصر التحكم التدميرية حتى يطابق لون التركيز القصد منها.",
+  "**Material Symbols** — Google's modern icon font, served as a single variable font. Every icon can be tuned along four axes (fill, weight, grade, optical size) and rendered in three style variants (Outlined, Rounded, Sharp).\n\nUse the `<Icon />` component (typed props + ligature name) or apply the `.icon-outlined` / `.icon-rounded` / `.icon-sharp` CSS classes. Any icon name from fonts.google.com/icons will work — the Browse page shows a curated selection for quick reference.":
+    "**Material Symbols** — خط الأيقونات الحديث من Google، يُقدَّم كخط متغيّر واحد. يمكن ضبط كل أيقونة على أربعة محاور (التعبئة، الوزن، الدرجة، الحجم البصري) وعرضها بثلاثة أنماط (محدّد، مُدوّر، حاد).\n\nاستخدم مكوّن `<Icon />` (خصائص مُصنَّفة + اسم الرباط) أو طبّق أصناف CSS التالية: `.icon-outlined` / `.icon-rounded` / `.icon-sharp`. يعمل أي اسم أيقونة من fonts.google.com/icons — وتعرض صفحة التصفّح مجموعة مختارة للرجوع السريع.",
+  "Stickers are illustrated character expressions used in chat messages. Each sticker is a pre-rendered PNG asset from the design system's avatar registry.\n\nSource: `foundation/tokens/avatars.ts` → \"Sticker Footage\" category.":
+    "الملصقات هي تعبيرات شخصيات مرسومة تُستخدم في رسائل الدردشة. كل ملصق هو أصل PNG مُهيّأ مسبقًا من سجل الصور الرمزية في نظام التصميم.\n\nالمصدر: `foundation/tokens/avatars.ts` ← فئة «Sticker Footage».",
+
+  "Illustrated character stickers for chat messages. These are pre-rendered PNG assets served from the design system CDN.":
+    "ملصقات شخصيات مرسومة لرسائل الدردشة. وهي أصول PNG مُهيّأة مسبقًا تُقدَّم من شبكة توصيل المحتوى الخاصة بنظام التصميم.",
+
 };
 
 /**
