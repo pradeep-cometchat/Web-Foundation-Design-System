@@ -1451,6 +1451,7 @@ export const AR: Readonly<Record<string, string>> = {
   categories: "الفئات",
 
   /* ─── Tooltip, fixtures and field copy (RTL sweep) ─── */
+  "https://www.cometchat.com/docs": "https://www.cometchat.com/docs/ar",
   "https://": "⁦https://⁩",
   "https://www.example.com": "⁦https://www.مثال.com⁩",
   /* An address mixes scripts, so bidi would otherwise put the domain to the
