@@ -1,3 +1,4 @@
+import { T } from "../../../cometchat-foundation/localization";
 import "./Reaction.css";
 
 export interface ReactionProps {
@@ -28,7 +29,7 @@ export function Reaction({ emoji, count, active = false, onClick }: ReactionProp
       onClick={onClick}
     >
       <span className="reaction__emoji">{emoji}</span>
-      {count && count > 1 && <span className="reaction__count">{count}</span>}
+      {count && count > 1 && <span className="reaction__count"><T>{String(count)}</T></span>}
     </button>
   );
 }

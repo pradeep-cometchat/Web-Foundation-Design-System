@@ -62,7 +62,7 @@ export const ListItem: React.FC<ListItemProps> = ({
           {avatarUrl ? (
             <img src={avatarUrl} alt={title} />
           ) : (
-            <span className="list-item__avatar-initials">{initials ?? title.charAt(0)}</span>
+            <span className="list-item__avatar-initials"><T>{initials ?? title.charAt(0)}</T></span>
           )}
           {statusColor && (
             <span className="list-item__status" style={{ background: statusColor }} />

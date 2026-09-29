@@ -1452,6 +1452,10 @@ export const AR: Readonly<Record<string, string>> = {
 
   /* ─── Tooltip, fixtures and field copy (RTL sweep) ─── */
 
+  /* ─── Base Components — avatar initials hidden by the blind spot ─── */
+  "AL":
+    "عا",
+
   /* ─── Core Components — story name hidden by the same blind spot ─── */
   "Chat":
     "دردشة",

@@ -14,6 +14,7 @@ import {
 import {
   useDocumentDirection,
   toArabic,
+  toArabicDigits,
 } from "../src/cometchat-foundation/localization";
 
 /**
@@ -53,20 +54,26 @@ const LocalizedDescription: React.FC = () => {
       parameters,
     });
 
-  const arabic = typeof english === "string" ? toArabic(english.trim()) : undefined;
+  const arabic =
+    typeof english === "string" ? toArabic(english.trim()) : undefined;
   if (!arabic) return <Description />;
 
   // Every one of these descriptions carries markdown, so render it through
   // Storybook's own renderer rather than as plain text — otherwise the Arabic
   // loses the bold runs and sub-headings the English keeps.
-  return <Markdown>{arabic}</Markdown>;
+  return <Markdown>{toArabicDigits(arabic)}</Markdown>;
 };
 
 /** One story: its heading, its own description, and the canvas. */
 const LocalizedStory: React.FC<{ story: any }> = ({ story }) => {
   const direction = useDocumentDirection();
-  const ar = (v: unknown) =>
-    direction === "rtl" && typeof v === "string" ? toArabic(v.trim()) : undefined;
+  // The docs chrome resolves strings itself rather than through <T>, so the
+  // numeral conversion has to be applied here too.
+  const ar = (v: unknown) => {
+    if (direction !== "rtl" || typeof v !== "string") return undefined;
+    const hit = toArabic(v.trim());
+    return hit === undefined ? undefined : toArabicDigits(hit);
+  };
   const description = ar(story.parameters?.docs?.description?.story);
 
   return (
@@ -126,8 +133,8 @@ const LocalizedTitle: React.FC = () => {
   const meta = (resolved as { preparedMeta?: Record<string, any> })?.preparedMeta;
   const title: unknown = meta?.title;
   const leaf = typeof title === "string" ? title.split("/").pop()?.trim() : undefined;
-  const arabic =
-    direction === "rtl" && leaf ? toArabic(leaf) : undefined;
+  const hit = direction === "rtl" && leaf ? toArabic(leaf) : undefined;
+  const arabic = hit === undefined ? undefined : toArabicDigits(hit);
   return arabic ? <Title>{arabic}</Title> : <Title />;
 };
 
