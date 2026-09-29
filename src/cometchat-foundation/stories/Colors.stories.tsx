@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { T } from "../localization";
+import { T, useIsRTL } from "../localization";
 import { PageHeader } from "../components/PageHeader";
 import { Section } from "../components/Section";
 import { TokenTable } from "../components/TokenTable";
@@ -294,7 +294,10 @@ type TokenRow = { name: string; light: string; dark: string; cssVar: string; usa
  * printed beside it.
  */
 function ScaleLabel({ text }: { text: string }) {
-  const parts = /^(.+?)\s(\d+)$/.exec(text);
+  const isRTL = useIsRTL();
+  const parts = isRTL ? /^(.+?)\s(\d+)$/.exec(text) : null;
+  // Splitting the run costs a hair of glyph antialiasing, so only do it where
+  // it buys something: LTR is already Latin end to end.
   if (!parts) return <T>{text}</T>;
   return (
     <>
