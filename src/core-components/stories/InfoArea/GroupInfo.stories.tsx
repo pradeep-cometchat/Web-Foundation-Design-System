@@ -387,7 +387,7 @@ function MemberItem({ name, avatar, role }: { name: string; avatar: string; role
       </div>
       <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "space-between", minWidth: 0 }}>
         <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: 16, fontWeight: 500, lineHeight: "24px", color: "var(--color-text-primary, #181d27)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}><T>{name}</T></span>
-        {role && <span style={badgeStyles[role]}>{role.charAt(0).toUpperCase() + role.slice(1)}</span>}
+        {role && <span style={badgeStyles[role]}><T>{role.charAt(0).toUpperCase() + role.slice(1)}</T></span>}
       </div>
     </div>
   );

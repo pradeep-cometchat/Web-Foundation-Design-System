@@ -1,5 +1,5 @@
 import "./ThreadView.css";
-import { T } from "../../../cometchat-foundation/localization";
+import { T, useT } from "../../../cometchat-foundation/localization";
 
 export interface ThreadMessage {
   /** Message text */
@@ -100,6 +100,7 @@ export function ThreadView({
   composerPlaceholder = "Type your message...",
   onClose,
 }: ThreadViewProps) {
+  const t = useT();
   const replyCount = replies.length;
 
   return (
@@ -153,8 +154,8 @@ export function ThreadView({
           <input
             className="thread-view__composer-input"
             type="text"
-            placeholder={composerPlaceholder}
-            aria-label={composerPlaceholder}
+            placeholder={t(composerPlaceholder)}
+            aria-label={t(composerPlaceholder)}
           />
           <div className="thread-view__composer-divider" />
           <div className="thread-view__composer-toolbar">
