@@ -1,4 +1,4 @@
-import { T, toArabicOr } from "../../../../cometchat-foundation/localization";
+import { T, useDocumentDirection, toArabicOr } from "../../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import { SearchBar } from "../../../../base-components/components/SearchBar";
 import { UsageDoc, SAMPLE_IMAGES, DocFrontIcon } from "./_shared";
@@ -83,6 +83,8 @@ interface PreviewProps {
 }
 
 function Preview({ sent, sender, kind, count = 1, caption }: PreviewProps) {
+  // typeLabel() reads direction off the document; subscribe so it re-renders.
+  useDocumentDirection();
   const base = typeLabel(kind, count);
   const who = sent ? "You" : sender;
   // Documents append the count after the caption ("caption · 6 Files"). A long

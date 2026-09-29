@@ -1,4 +1,4 @@
-import { T, toArabicOr } from "../../../../cometchat-foundation/localization";
+import { T, useT, useDocumentDirection, toArabicOr } from "../../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect, useRef, useState } from "react";
 import "../../../../shell/Shell.css";
@@ -581,6 +581,10 @@ function EndToEndChat({
   initialPending?: Pending[];
   multiLine?: boolean;
 }) {
+  const t = useT();
+  // quoteSummary() reads direction off the document, so this subscribes
+  // and re-renders the tree when the toggle flips.
+  useDocumentDirection();
   const [pending, setPending] = useState<Pending[]>(initialPending ?? []);
   const [formatting, setFormatting] = useState(multiLine);
   const isMobile = useIsMobile();
@@ -1139,7 +1143,7 @@ function EndToEndChat({
                 onKeyDown={(e) => {
                   if (e.key === "Enter") send();
                 }}
-                placeholder={toArabicOr("Type your message...")}
+                placeholder={t("Type your message...")}
                 style={{
                   border: "none",
                   outline: "none",
@@ -1236,7 +1240,7 @@ function EndToEndChat({
                 onKeyDown={(e) => {
                   if (e.key === "Enter") send();
                 }}
-                placeholder={toArabicOr("Enter your message here")}
+                placeholder={t("Enter your message here")}
                 style={{
                   flex: 1,
                   minWidth: 0,
