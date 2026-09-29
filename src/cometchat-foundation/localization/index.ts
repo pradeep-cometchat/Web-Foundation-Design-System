@@ -12,3 +12,4 @@ export {
 } from "./LocaleProvider";
 export { T, useT, type TProps } from "./T";
 export { AR, toArabic } from "./strings";
+export { toArabicOr } from "./runtime";

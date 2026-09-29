@@ -1452,6 +1452,18 @@ export const AR: Readonly<Record<string, string>> = {
 
   /* ─── Tooltip, fixtures and field copy (RTL sweep) ─── */
 
+  /* ─── Core Components — search count label ─── */
+
+  /* ─── Core Components — composed-label parts and last fixtures ─── */
+  "shared by":
+    "شاركها",
+  "Images":
+    "صور",
+  "hello":
+    "مرحبًا",
+  "the set":
+    "المجموعة",
+
   /* ─── Core Components — remaining JSDoc blocks ─── */
   "**Main Actions — Pin.** Pinning conversations and messages, mirrored from the\nWeb Desktop Chat UI Kit designs.\n\nTwo flows:\n\n- **Pin Conversation** — from a conversation row's context menu: confirm in a\ndialog, the row gains a pin glyph and a toast confirms. Unpinning mirrors\nthe same steps.\n- **Pin Message** — from a message's context menu (*Organise → Pin message*):\nconfirm in a dialog, the bubble gains a pin glyph next to its time and a\ntoast confirms. Pinned messages collect in the **Pinned Messages** panel\n(chat header **⋮ → Pinned messages**), where each item can be unpinned,\ncopied or muted; clicking one jumps to it in the conversation.\n\nRenders identically in dark mode via the theme toggle — every color is a\nFoundations token.":
     "**الإجراءات الرئيسية — التثبيت.** تثبيت المحادثات والرسائل، منقولًا عن\nتصاميم حزمة واجهة الدردشة لسطح المكتب.\n\nمساران:\n\n- **تثبيت المحادثة** — من قائمة سياق صف المحادثة: أكّد في نافذة\nحوارية، فيكتسب الصف أيقونة تثبيت ويؤكّد إشعار منبثق ذلك. وإلغاء التثبيت\nيتبع الخطوات نفسها.\n- **تثبيت الرسالة** — من قائمة سياق الرسالة (*تنظيم ← تثبيت الرسالة*):\nأكّد في نافذة حوارية، فتكتسب الفقاعة أيقونة تثبيت بجوار وقتها ويؤكّد\nإشعار منبثق ذلك. وتُجمع الرسائل المثبّتة في لوحة **الرسائل المثبّتة**\n(ترويسة الدردشة **⋮ ← الرسائل المثبّتة**)، حيث يمكن إلغاء تثبيت كل عنصر\nأو نسخه أو كتم إشعاراته؛ والضغط على أحدها ينقلك إليه في المحادثة.\n\nيُعرض بالشكل نفسه في الوضع الداكن عبر مبدّل السمة — فكل لون هو\nرمز من رموز الأساسيات.",

@@ -1,4 +1,4 @@
-import { T } from "../../../../cometchat-foundation/localization";
+import { T, toArabicOr } from "../../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import { SearchBar } from "../../../../base-components/components/SearchBar";
 import { UsageDoc, SAMPLE_IMAGES, DocFrontIcon } from "./_shared";
@@ -69,7 +69,7 @@ function typeLabel(kind: PreviewKind, count: number): string {
     file: ["Document", "Files"],
   };
   const [one, many] = words[kind];
-  return count > 1 ? `${count} ${many}` : one;
+  return count > 1 ? `${count} ${toArabicOr(many)}` : toArabicOr(one);
 }
 
 interface PreviewProps {

@@ -1,4 +1,4 @@
-import { T } from "../../../../cometchat-foundation/localization";
+import { T, useT } from "../../../../cometchat-foundation/localization";
 /**
  * Shared primitives for the "Multi Attachments" story pages.
  *
@@ -660,7 +660,7 @@ export function ComposerShell({
             : "var(--cometchat-text-color-placeholder)",
         }}
       >
-        {note ?? "Type your message..."}
+        <T>{note ?? "Type your message..."}</T>
       </div>
       <div
         className="ma-scroll"
@@ -909,6 +909,7 @@ export function MultiAttachmentBubble({
   unsupported = false,
   onUnsupportedClick,
 }: MultiAttachmentBubbleProps) {
+  const t = useT();
   const [expanded, setExpanded] = useState(false);
   const isSent = variant === "sent";
   const primary = isSent
@@ -1249,8 +1250,8 @@ export function MultiAttachmentBubble({
     if (!quoted) return null;
     const m = quoted.media;
     const summaryText = m
-      ? `${m.count} ${quotedTypeLabel(m.kind, m.count)}${m.caption ? ` · ${m.caption}` : ""}`
-      : (quoted.text ?? "");
+      ? `${m.count} ${t(quotedTypeLabel(m.kind, m.count))}${m.caption ? ` · ${t(m.caption)}` : ""}`
+      : t(quoted.text ?? "");
     const accent = isSent
       ? "var(--cometchat-static-white)"
       : "var(--cometchat-primary-color)";
