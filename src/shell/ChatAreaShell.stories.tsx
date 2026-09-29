@@ -285,7 +285,7 @@ export const ScrollToBottomWithBadge: StoryObj = {
           <ChatBubble variant="received" text="Sounds good! Take your time." time="4:36 pm" />
         </div>
         <div style={{ position: "absolute", bottom: 120, insetInlineEnd: 24, display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
-          <div style={{ minWidth: 20, height: 20, borderRadius: "var(--cometchat-radius-max)", background: "var(--cometchat-background-color-solid)", color: "var(--cometchat-static-white)", fontSize: "10px", fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 6px" }}>3</div>
+          <div style={{ minWidth: 20, height: 20, borderRadius: "var(--cometchat-radius-max)", background: "var(--cometchat-background-color-solid)", color: "var(--cometchat-static-white)", fontSize: "10px", fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 6px" }}><T>3</T></div>
           <div style={{ width: 44, height: 44, borderRadius: "var(--cometchat-radius-max)", background: "var(--cometchat-background-color-01)", border: "1px solid var(--cometchat-border-color-default)", boxShadow: "var(--cometchat-shadow-md)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
             <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>keyboard_arrow_down</span>
           </div>
