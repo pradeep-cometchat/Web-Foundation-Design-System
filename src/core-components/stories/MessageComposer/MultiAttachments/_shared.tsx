@@ -371,7 +371,7 @@ export function AudioCard({
             lineHeight: "14px",
           }}
         >
-          {elapsed}/{total}
+          <T>{elapsed}</T>/<T>{total}</T>
         </span>
       </div>
       {download &&

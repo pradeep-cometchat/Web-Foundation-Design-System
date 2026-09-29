@@ -84,7 +84,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
         <Avatar key={i} src={a.src} alt={a.alt} fallback={a.fallback} size={sizeMap[size]} />
       ))}
       {remaining > 0 && (
-        <span className="avatar-group__counter">+{remaining}</span>
+        <span className="avatar-group__counter"><T>{`+${remaining}`}</T></span>
       )}
       {showAdd && (
         <button type="button" className="avatar-group__add" onClick={onAdd} aria-label="Add user">

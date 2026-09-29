@@ -209,7 +209,7 @@ function PollBubble({ variant }: { variant: "sent" | "received" }) {
                   ))}
                 </div>
                 {option.showExtra ? (
-                  <span style={{ fontSize: "14px", fontWeight: "500", color: isSent ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-secondary)" }}>+{option.showExtra}</span>
+                  <span style={{ fontSize: "14px", fontWeight: "500", color: isSent ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-secondary)" }}><T>{`+${option.showExtra}`}</T></span>
                 ) : (
                   <span style={{ fontSize: "14px", fontWeight: "500", color: isSent ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-secondary)" }}>{option.voters}</span>
                 )}

@@ -100,7 +100,7 @@ export function MultiLineComposer({
               .filter(Boolean)
               .join(" ")}
           >
-            {duration}
+            <T>{duration}</T>
           </span>
         </>
       ) : (

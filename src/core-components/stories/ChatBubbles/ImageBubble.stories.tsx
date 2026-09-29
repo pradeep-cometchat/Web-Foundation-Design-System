@@ -521,7 +521,7 @@ function ImageBubble({ layout, extraCount = 0, variant = "sent", time = "4:56 pm
             <div style={{ position: "relative", overflow: "hidden" }}>
               <img src={SAMPLE_IMAGES[3]} alt="" style={imgStyle} />
               <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.5)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ color: "var(--cometchat-static-white)", fontSize: "18px", fontWeight: "600" }}>+{extraCount}</span>
+                <span style={{ color: "var(--cometchat-static-white)", fontSize: "18px", fontWeight: "600" }}><T>{`+${extraCount}`}</T></span>
               </div>
             </div>
           </div>

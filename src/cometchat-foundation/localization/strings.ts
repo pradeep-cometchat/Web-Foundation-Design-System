@@ -1452,6 +1452,12 @@ export const AR: Readonly<Record<string, string>> = {
 
   /* ─── Tooltip, fixtures and field copy (RTL sweep) ─── */
 
+  /* ─── Base Components — reply counter ─── */
+  "reply":
+    "ردّ",
+  "replies":
+    "ردود",
+
   /* ─── Base Components — avatar initials hidden by the blind spot ─── */
   "AL":
     "عا",

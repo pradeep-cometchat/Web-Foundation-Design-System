@@ -136,7 +136,8 @@ export function ThreadView({
         {replyCount > 0 && (
           <div className="thread-view__separator">
             <span className="thread-view__separator-text">
-              {replyCount} {replyCount === 1 ? "reply" : "replies"}
+              <T>{String(replyCount)}</T>{" "}
+              <T>{replyCount === 1 ? "reply" : "replies"}</T>
             </span>
             <div className="thread-view__separator-line" />
           </div>
