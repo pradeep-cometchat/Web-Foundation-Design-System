@@ -1392,7 +1392,7 @@ export function MultiAttachmentBubble({
           >
             {expanded ? "expand_less" : "expand_more"}
           </span>
-          {expanded ? "Show less" : `Show ${files.length - 3} more`}
+          {expanded ? <T>Show less</T> : <>{t("Show {n} more").replace("{n}", String(files.length - 3))}</>}
         </button>
       )}
       {caption && (

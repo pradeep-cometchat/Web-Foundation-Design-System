@@ -1,4 +1,4 @@
-import { T } from "../../../cometchat-foundation/localization";
+import { T, useT } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import "./ChatBubbles.css";
 
@@ -210,7 +210,10 @@ function TextBubble({
 }) {
   const isSent = variant === "sent";
   const maxChars = 120;
-  const displayText = truncate && message.length > maxChars ? message.slice(0, maxChars) + "..." : message;
+  const t = useT();
+  // Translate before truncating: a sliced string is never a dictionary key.
+  const full = t(message);
+  const displayText = truncate && full.length > maxChars ? full.slice(0, maxChars) + "..." : full;
 
   return (
     <div className={`chat-bubble-wrapper chat-bubble-wrapper--${variant}`}>
@@ -226,9 +229,9 @@ function TextBubble({
             wordBreak: "break-word",
           }}
         >
-          {displayText}
+          <>{displayText}</>
           {/* Read more link — inline */}
-          {truncate && message.length > maxChars && (
+          {truncate && full.length > maxChars && (
             <span
               style={{
                 marginInlineStart: "var(--cometchat-spacing)",

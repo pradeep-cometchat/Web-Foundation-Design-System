@@ -107,7 +107,7 @@ function Preview({ sent, sender, kind, count = 1, caption }: PreviewProps) {
         fontFamily: "var(--cometchat-font-family, Inter, sans-serif)",
       }}
     >
-      {who && <span style={{ flexShrink: 0 }}>{who}:</span>}
+      {who && <span style={{ flexShrink: 0 }}><T>{who}</T>:</span>}
       {kind !== "text" && (
         <span
           className="icon-rounded"
@@ -124,7 +124,7 @@ function Preview({ sent, sender, kind, count = 1, caption }: PreviewProps) {
         </span>
       )}
       <span style={clamp}><T>{mainText}</T></span>
-      {showCount && <span style={{ flexShrink: 0 }}> · {base}</span>}
+      {showCount && <span style={{ flexShrink: 0 }}> · <T>{base}</T></span>}
     </span>
   );
 }

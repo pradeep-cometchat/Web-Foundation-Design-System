@@ -1452,6 +1452,12 @@ export const AR: Readonly<Record<string, string>> = {
 
   /* ─── Tooltip, fixtures and field copy (RTL sweep) ─── */
 
+  /* ─── Core Components — expand control ─── */
+  "Show less":
+    "عرض أقل",
+  "Show {n} more":
+    "عرض {n} إضافية",
+
   /* ─── Core Components — search count label ─── */
 
   /* ─── Core Components — composed-label parts and last fixtures ─── */
