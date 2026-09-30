@@ -2,7 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { T } from "../../../cometchat-foundation/localization";
 import { Header } from "../../components/Header";
 import { SearchBar } from "../../components/SearchBar";
-import { UserItem, UserItemDivider, UserItemSkeleton } from "../../components/ListItem";
+import { UserItem, UserItemSkeleton } from "../../components/ListItem";
+import { AlphabetSections } from "../_alphabet";
 import { avatarRegistry } from "../../../cometchat-foundation/tokens/avatars";
 
 const female = avatarRegistry["Female Avatar"];
@@ -62,24 +63,19 @@ export const Default: Story = {
             scrollbarWidth: "none",
           }}
         >
-          <UserItemDivider label="A" />
-          <UserItem avatarUrl={male[6].imageUrl} title="Alex Mason" />
-          <UserItem avatarUrl={male[6].imageUrl} title="Andrew Joseph" />
-          <UserItem avatarUrl={female[2].imageUrl} title="Avery Quinn" />
-
-          <UserItemDivider label="B" />
-          <UserItem avatarUrl={male[1].imageUrl} title="Brian Michael" />
-
-          <UserItemDivider label="C" />
-          <UserItem avatarUrl={male[2].imageUrl} title="Chris Nolan" />
-          <UserItem avatarUrl={female[0].imageUrl} title="Camilla Juliette" />
-
-          <UserItemDivider label="D" />
-          <UserItem avatarUrl={male[4].imageUrl} title="David Miller" />
-
-          <UserItemDivider label="E" />
-          <UserItem avatarUrl={female[1].imageUrl} title="Emma Rose" />
-          <UserItem avatarUrl={male[3].imageUrl} title="Evan Parker" />
+          <AlphabetSections
+            users={[
+              { name: "Alex Mason", avatarUrl: male[6].imageUrl },
+              { name: "Andrew Joseph", avatarUrl: male[6].imageUrl },
+              { name: "Avery Quinn", avatarUrl: female[2].imageUrl },
+              { name: "Brian Michael", avatarUrl: male[1].imageUrl },
+              { name: "Chris Nolan", avatarUrl: male[2].imageUrl },
+              { name: "Camilla Juliette", avatarUrl: female[0].imageUrl },
+              { name: "David Miller", avatarUrl: male[4].imageUrl },
+              { name: "Emma Rose", avatarUrl: female[1].imageUrl },
+              { name: "Evan Parker", avatarUrl: male[3].imageUrl },
+            ]}
+          />
         </div>
       </>
     ),
@@ -337,15 +333,16 @@ export const AllStates: Story = {
               <SearchBar placeholder="Search users" />
             </div>
             <div style={{ flex: 1, overflowY: "auto", scrollbarWidth: "none" }}>
-              <UserItemDivider label="A" />
-              <UserItem avatarUrl={male[6].imageUrl} title="Alex Mason" />
-              <UserItem avatarUrl={male[6].imageUrl} title="Andrew Joseph" />
-              <UserItem avatarUrl={female[2].imageUrl} title="Avery Quinn" />
-              <UserItemDivider label="B" />
-              <UserItem avatarUrl={male[1].imageUrl} title="Brian Michael" />
-              <UserItemDivider label="C" />
-              <UserItem avatarUrl={male[2].imageUrl} title="Chris Nolan" />
-              <UserItem avatarUrl={female[0].imageUrl} title="Camilla Juliette" />
+              <AlphabetSections
+                users={[
+                  { name: "Alex Mason", avatarUrl: male[6].imageUrl },
+                  { name: "Andrew Joseph", avatarUrl: male[6].imageUrl },
+                  { name: "Avery Quinn", avatarUrl: female[2].imageUrl },
+                  { name: "Brian Michael", avatarUrl: male[1].imageUrl },
+                  { name: "Chris Nolan", avatarUrl: male[2].imageUrl },
+                  { name: "Camilla Juliette", avatarUrl: female[0].imageUrl },
+                ]}
+              />
             </div>
           </>
         )}

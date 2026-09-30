@@ -1,10 +1,22 @@
-import { T } from "../../../cometchat-foundation/localization";
+import { T, useLanguage } from "../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ActionSheet, CameraIcon, PhotoIcon, VideocamIcon, DescriptionIcon, PollIcon, CollaborativeWhiteboardIcon, CollaborativeDocumentIcon } from "../../../base-components/components/ActionSheet";
 import { MultiLineComposer as VoiceRecorderPopup } from "../../../base-components/components/MediaRecorder";
 import { EmojiKeyboard } from "../../../base-components/components/EmojiKeyboard";
 import { ConversationSummary } from "../../../base-components/components/ConversationSummary";
 import { avatarRegistry } from "../../../cometchat-foundation/tokens/avatars";
+
+/** Arabic puts the action after "لإجراء", so it is one sentence there; the
+ *  English keeps the three runs it has always rendered. */
+function PanelNote({ action }: { action: string }) {
+  return useLanguage() === "ar" ? (
+    <T>{`Panel overlay for ${action} action.`}</T>
+  ) : (
+    <>
+      <T>Panel overlay for</T> <T>{action}</T> <T>action.</T>
+    </>
+  );
+}
 
 /**
  * Actions available in the Multi Line Composer toolbar. Each action button
@@ -64,7 +76,7 @@ const IconAI = () => (
   </svg>
 );
 const IconSend = () => (
-  <svg width="16" height="14" viewBox="0 0 15.78 13.6" fill="none">
+  <svg width="16" height="14" viewBox="0 0 15.78 13.6" fill="none" data-icon-mirror>
     <path d="M1.267 13.52c-.302.121-.589.095-.86-.077-.271-.172-.407-.422-.407-.751V8.47L6.923 6.797 0 5.124V.903C0 .574.136.324.407.152.678-.02.965-.046 1.267.075L15.223 5.96c.372.166.558.447.558.84 0 .393-.186.673-.558.836L1.267 13.52Z" fill="currentColor"/>
   </svg>
 );
@@ -351,7 +363,7 @@ export const Usage: Story = {
           {(["sticker", "emoji", "formatting", "ai"] as const).map(a => (
             <div key={a} style={{ padding: "var(--cometchat-spacing-3)", border: "1px solid var(--cometchat-border-color-default)", borderRadius: "var(--cometchat-radius-3)", background: "var(--cometchat-background-color-01)" }}>
               <strong style={{ fontSize: "14px", color: "var(--cometchat-text-color-primary)", display: "block", marginBottom: "var(--cometchat-spacing-1)" }}><T>{a}</T></strong>
-              <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)" }}><T>Panel overlay for</T> <T>{a}</T> <T>action.</T></span>
+              <span style={{ fontSize: "12px", color: "var(--cometchat-text-color-tertiary)" }}><PanelNote action={a} /></span>
             </div>
           ))}
         </div>

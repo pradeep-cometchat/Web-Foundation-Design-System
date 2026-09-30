@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { T } from "../../../cometchat-foundation/localization";
-import { UserItem, UserItemDivider, UserItemSkeleton } from "../../components/ListItem";
+import { UserItem, UserItemSkeleton } from "../../components/ListItem";
+import { AlphabetSections, FirstLetterDivider } from "../_alphabet";
 import { avatarRegistry } from "../../../cometchat-foundation/tokens/avatars";
 
 const female = avatarRegistry["Female Avatar"];
@@ -123,7 +124,7 @@ export const StatusOffline: Story = {
 
 export const Divider: Story = {
   decorators: [single],
-  render: () => <UserItemDivider label="A" />,
+  render: () => <FirstLetterDivider />,
 };
 
 export const SkeletonStart: Story = {
@@ -199,7 +200,7 @@ export const AllStates: Story = {
           <UserItemSkeleton tone="end" />
         </Wrap>
         <Wrap label="Divider">
-          <UserItemDivider label="A" />
+          <FirstLetterDivider />
         </Wrap>
       </div>
     </div>
@@ -224,17 +225,16 @@ export const AlphabetList: Story = {
           overflow: "hidden",
         }}
       >
-        <UserItemDivider label="A" />
-        <UserItem avatarUrl={female[6].imageUrl} title="Anna Lane" />
-        <UserItem avatarUrl={male[0].imageUrl} title="Aaron Scott" />
-        <UserItemDivider label="B" />
-        <UserItem avatarUrl={male[1].imageUrl} title="Brian Michael" />
-        <UserItemDivider label="E" />
-        <UserItem avatarUrl={female[1].imageUrl} title="Emma Rose" />
-        <UserItemDivider label="G" />
-        <UserItem avatarUrl={male[5].imageUrl} title="George Alan" />
-        <UserItemDivider label="O" />
-        <UserItem avatarUrl={female[10].imageUrl} title="Olivia Rhye" />
+        <AlphabetSections
+          users={[
+            { name: "Anna Lane", avatarUrl: female[6].imageUrl },
+            { name: "Aaron Scott", avatarUrl: male[0].imageUrl },
+            { name: "Brian Michael", avatarUrl: male[1].imageUrl },
+            { name: "Emma Rose", avatarUrl: female[1].imageUrl },
+            { name: "George Alan", avatarUrl: male[5].imageUrl },
+            { name: "Olivia Rhye", avatarUrl: female[10].imageUrl },
+          ]}
+        />
       </div>
     </div>
   ),

@@ -51,6 +51,7 @@ export const mirroredIcons = new Set<string>([
   "first_page",
   "format_indent_decrease",
   "format_indent_increase",
+  "forward",
   "keyboard_arrow_left",
   "keyboard_arrow_right",
   "last_page",

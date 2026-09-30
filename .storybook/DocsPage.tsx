@@ -15,6 +15,7 @@ import {
   useDocumentDirection,
   toArabic,
   toArabicDigits,
+  reflowLike,
 } from "../src/cometchat-foundation/localization";
 
 /**
@@ -27,6 +28,34 @@ import {
  * "Primary" block becomes noise and the Controls table sits empty. This layout
  * drops both and goes straight from description into the curated Stories.
  */
+
+/**
+ * Arabic markdown for an English source. The line structure is restored first
+ * (see reflowLike), and any markdown heading is labelled with its English text
+ * so the on-page nav, which tocbot builds from heading text, stays English.
+ */
+const ArabicMarkdown: React.FC<{ english: string; arabic: string }> = ({ english, arabic }) => {
+  const ref = React.useRef<HTMLDivElement>(null);
+  React.useLayoutEffect(() => {
+    const labels = [...english.matchAll(/^\s*#{1,6}\s+(.+?)\s*$/gm)].map((m) =>
+      m[1].replace(/[*_`]/g, "")
+    );
+    const heads = ref.current?.querySelectorAll("h1, h2, h3, h4, h5, h6");
+    if (!heads || heads.length !== labels.length) return;
+    heads.forEach((h, i) => {
+      h.setAttribute("data-heading-label", labels[i]);
+      // Storybook's markdown slugger drops non-Latin letters, leaving an Arabic
+      // heading with id="" — and the nav link pointing nowhere. Use the id the
+      // English heading gets, so #states links work in both directions.
+      if (!h.id) h.id = labels[i].toLowerCase().replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-");
+    });
+  }, [english, arabic]);
+  return (
+    <div ref={ref} style={{ display: "contents" }}>
+      <Markdown>{toArabicDigits(reflowLike(english, arabic))}</Markdown>
+    </div>
+  );
+};
 
 /**
  * The component description comes from a JSDoc comment that react-docgen
@@ -61,7 +90,7 @@ const LocalizedDescription: React.FC = () => {
   // Every one of these descriptions carries markdown, so render it through
   // Storybook's own renderer rather than as plain text — otherwise the Arabic
   // loses the bold runs and sub-headings the English keeps.
-  return <Markdown>{toArabicDigits(arabic)}</Markdown>;
+  return <ArabicMarkdown english={english as string} arabic={arabic} />;
 };
 
 /** One story: its heading, its own description, and the canvas. */
@@ -74,13 +103,28 @@ const LocalizedStory: React.FC<{ story: any }> = ({ story }) => {
     const hit = toArabic(v.trim());
     return hit === undefined ? undefined : toArabicDigits(hit);
   };
-  const description = ar(story.parameters?.docs?.description?.story);
+  const englishDescription: unknown = story.parameters?.docs?.description?.story;
+  const arabicDescription =
+    direction === "rtl" && typeof englishDescription === "string"
+      ? toArabic(englishDescription.trim())
+      : undefined;
+
+  // The on-page nav is built by tocbot from each heading's text, which is
+  // Arabic in RTL. tocbot prefers data-heading-label when present, so the
+  // heading keeps its Arabic text while the nav shows the English story name.
+  // Subheading doesn't forward props, so it's set through the story's anchor.
+  React.useLayoutEffect(() => {
+    const h3 = document.getElementById(`anchor--${story.id}`)?.querySelector("h3");
+    if (!h3) return;
+    if (direction === "rtl") h3.setAttribute("data-heading-label", story.name);
+    else h3.removeAttribute("data-heading-label");
+  }, [direction, story.id, story.name]);
 
   return (
     <Anchor storyId={story.id}>
       <Subheading>{ar(story.name) ?? story.name}</Subheading>
-      {description ? (
-        <Markdown>{description}</Markdown>
+      {arabicDescription ? (
+        <ArabicMarkdown english={englishDescription as string} arabic={arabicDescription} />
       ) : (
         <Description of={story.moduleExport} />
       )}
@@ -118,7 +162,9 @@ const LocalizedStories: React.FC = () => {
 
   return (
     <>
-      <Heading>{heading}</Heading>
+      <Heading data-heading-label={direction === "rtl" ? "Stories" : undefined}>
+        {heading}
+      </Heading>
       {stories.map((story: any) => (
         <LocalizedStory key={story.id} story={story} />
       ))}

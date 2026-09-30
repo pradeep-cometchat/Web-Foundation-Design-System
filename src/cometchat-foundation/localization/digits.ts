@@ -19,7 +19,20 @@ const PROTECTED = new RegExp(
     "rgba?\\([^)]*\\)", // rgb/rgba value
     "--[\\w-]+", // CSS custom property
     "\\b\\d{3,}:\\d{3,}\\b", // Figma node id (4090:846250)
+    "\\b\\d+px/\\d+\\b", // type spec, size/weight (16px/500) — before CSS length, which would stop at "px"
     "\\b\\d+(?:\\.\\d+)?(?:px|rem|em|vh|vw|%)\\b", // CSS length
+    "\\b\\d+x[sl]\\b", // size step (2xl, 2xs)
+    "\\bf/\\d+(?:\\.\\d+)?", // f-number (f/1.8)
+    // Ordered-list marker at a line start. Markdown only recognises ASCII
+    // digits there, so "١." rendered as text rather than a list; the marker
+    // is drawn in Arabic-Indic by list-style-type instead (preview.css).
+    "(?<=^|\\n)[ \\t]*\\d+\\.(?= )",
+    // Identifiers that carry digits: token names (spacing-1-5, radius-2xl,
+    // neutral-400), utility names (px-12, pt-8), type-scale names (H4/Regular)
+    // and file extensions (.mp3, .m4a). They name something to be looked up.
+    "\\b[A-Za-z][A-Za-z0-9]*(?:-[A-Za-z0-9]+)*-[A-Za-z]*\\d[A-Za-z0-9-]*",
+    "\\b[A-Z][a-z]*\\s?\\d+/[A-Za-z]+",
+    "\\.[a-z]+\\d[a-z0-9]*\\b",
   ].join("|"),
   "g"
 );

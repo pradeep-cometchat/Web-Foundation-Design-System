@@ -77,7 +77,7 @@ function DeleteIcon() {
 
 function SendArrowIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-icon-mirror>
       <path d="M5.5 5.2L18.8 12L5.5 18.8V13.5L13 12L5.5 10.5V5.2Z" fill="currentColor" />
     </svg>
   );

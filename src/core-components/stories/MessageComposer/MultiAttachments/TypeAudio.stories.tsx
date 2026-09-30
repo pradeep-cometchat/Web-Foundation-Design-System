@@ -1,4 +1,4 @@
-import { T } from "../../../../cometchat-foundation/localization";
+import { T, useLanguage } from "../../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import {
   UsageDoc,
@@ -34,11 +34,14 @@ export default meta;
 type Story = StoryObj;
 
 function Callout() {
+  // Arabic has no indefinite article. English keeps ". A " as the single run it
+  // always was — splitting it shifted the glyphs after it by a subpixel.
+  const isArabic = useLanguage() === "ar";
   return (
     <div style={{ display: "flex", gap: "var(--cometchat-spacing-2-5)", padding: "var(--cometchat-spacing-3) var(--cometchat-spacing-3-5)", borderRadius: "var(--cometchat-radius-2)", background: "var(--cometchat-background-color-02)", border: "1px solid var(--cometchat-border-color-default)", maxWidth: 640 }}>
       <span className="icon-rounded" style={{ fontSize: 20, color: "var(--cometchat-icon-color-highlight)", "--icon-fill": 0 } as React.CSSProperties}>info</span>
       <span style={{ fontSize: 13, lineHeight: "20px", color: "var(--cometchat-text-color-secondary)" }}>
-        <T>This is an</T> <strong><T>audio file attachment</T></strong>. A <strong><T>voice note</T></strong> <T>looks identical but is recorded via the mic — it is not attachable in the composer, so it isn't shown as a type here.</T>
+        <T>This is an</T> <strong><T>audio file attachment</T></strong>{isArabic ? ". " : ". A "}<strong><T>voice note</T></strong> <T>looks identical but is recorded via the mic — it is not attachable in the composer, so it isn't shown as a type here.</T>
       </span>
     </div>
   );

@@ -176,7 +176,7 @@ function useIsMobile(breakpoint = 768) {
 }
 
 const IconBack = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" data-icon-mirror>
     <path
       d="M15 19l-7-7 7-7"
       stroke="var(--cometchat-icon-color-primary)"
@@ -254,7 +254,7 @@ const IconSticker = () => (
   </svg>
 );
 const IconSend = () => (
-  <svg width="16" height="14" viewBox="0 0 15.78 13.6" fill="none">
+  <svg width="16" height="14" viewBox="0 0 15.78 13.6" fill="none" data-icon-mirror>
     <path
       d="M1.267 13.52c-.302.121-.589.095-.86-.077-.271-.172-.407-.422-.407-.751V8.47L6.923 6.797 0 5.124V.903C0 .574.136.324.407.152.678-.02.965-.046 1.267.075L15.223 5.96c.372.166.558.447.558.84 0 .393-.186.673-.558.836L1.267 13.52Z"
       fill="currentColor"

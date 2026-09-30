@@ -1,5 +1,5 @@
 import React from "react";
-import { T, useT } from "../../../cometchat-foundation/localization";
+import { T, useT, initialOf } from "../../../cometchat-foundation/localization";
 import "./GroupItem.css";
 
 export type GroupItemState = "default" | "hover" | "pressed";
@@ -97,7 +97,7 @@ const Avatar: React.FC<AvatarPartProps> = ({ variant, url, icon, text, title, st
     <div className="group-item__avatar">
       {variant === "image" && url && <img src={url} alt={title} />}
       {variant === "image" && !url && (
-        <span className="group-item__avatar-fallback"><T>{title.charAt(0)}</T></span>
+        <span className="group-item__avatar-fallback">{initialOf(t(title))}</span>
       )}
       {variant === "text" && (
         <span className="group-item__avatar-fallback">

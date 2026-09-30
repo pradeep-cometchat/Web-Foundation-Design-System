@@ -12,5 +12,6 @@ export {
 } from "./LocaleProvider";
 export { T, useT, type TProps } from "./T";
 export { AR, toArabic } from "./strings";
-export { toArabicOr, localizeDigits } from "./runtime";
+export { toArabicOr, localizeDigits, initialOf } from "./runtime";
 export { toArabicDigits } from "./digits";
+export { reflowLike } from "./reflow";

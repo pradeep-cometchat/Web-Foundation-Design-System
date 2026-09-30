@@ -371,7 +371,7 @@ function CopyIcon() {
 }
 
 function ForwardIcon() {
-  return <span className="icon-rounded" style={fillStyle}>forward</span>;
+  return <span className="icon-rounded" style={fillStyle} data-icon-mirror>forward</span>;
 }
 
 function EditIcon() {

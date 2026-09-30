@@ -1,5 +1,5 @@
 import React from "react";
-import { T } from "../../../cometchat-foundation/localization";
+import { T, useT, initialOf } from "../../../cometchat-foundation/localization";
 import "./ListItem.css";
 
 export interface ListItemProps {
@@ -46,6 +46,7 @@ export const ListItem: React.FC<ListItemProps> = ({
   onClick,
   className,
 }) => {
+  const t = useT();
   const classes = [
     "list-item",
     selected && "list-item--selected",
@@ -62,7 +63,7 @@ export const ListItem: React.FC<ListItemProps> = ({
           {avatarUrl ? (
             <img src={avatarUrl} alt={title} />
           ) : (
-            <span className="list-item__avatar-initials"><T>{initials ?? title.charAt(0)}</T></span>
+            <span className="list-item__avatar-initials">{initials != null ? <T>{initials}</T> : initialOf(t(title))}</span>
           )}
           {statusColor && (
             <span className="list-item__status" style={{ background: statusColor }} />

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { T, useT } from "../../../../cometchat-foundation/localization";
+import { T, useT, initialOf } from "../../../../cometchat-foundation/localization";
 import "./InfoSelectionDialog.css";
 
 export type InfoSelectionDialogVariant = "messageInfo" | "addMembers" | "transferOwnership" | "alert";
@@ -160,6 +160,7 @@ function MessageInfoContent({
   errorMessage?: string;
   groupUsers?: GroupMessageInfoUser[];
 }) {
+  const t = useT();
   return (
     <div className="info-dialog__body">
       {messagePreview && (
@@ -179,7 +180,7 @@ function MessageInfoContent({
                 {user.avatar ? (
                   <img src={user.avatar} alt={user.name} />
                 ) : (
-                  <span><T>{user.name.charAt(0)}</T></span>
+                  <span>{initialOf(t(user.name))}</span>
                 )}
               </div>
               <div className="info-dialog__group-info-content">

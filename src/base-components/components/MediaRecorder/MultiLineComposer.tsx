@@ -172,7 +172,7 @@ export function MultiLineComposer({
             aria-label="Send"
             onClick={onSend}
           >
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" data-icon-mirror>
               <path d="M5.5 5.2L18.8 12L5.5 18.8V13.5L13 12L5.5 10.5V5.2Z" fill="currentColor" />
             </svg>
           </button>

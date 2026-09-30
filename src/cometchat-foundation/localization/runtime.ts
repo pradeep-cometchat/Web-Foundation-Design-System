@@ -29,3 +29,14 @@ export const localizeDigits = (s: string): string => {
     document.documentElement.getAttribute("dir") === "rtl";
   return rtl ? toArabicDigits(s) : s;
 };
+
+/**
+ * The letter an avatar or an alphabet index shows for a name. Pass the name as
+ * displayed — already translated — or an Arabic name gets an English initial.
+ * Arabic names often open with the definite article "ال", which would give
+ * every group ("التسويق", "الهندسة") the same initial, so it is skipped.
+ */
+export const initialOf = (displayed: string): string => {
+  const s = displayed.trim();
+  return (/^ال\S/.test(s) ? s.slice(2) : s).charAt(0);
+};

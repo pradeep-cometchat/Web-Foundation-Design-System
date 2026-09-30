@@ -1,5 +1,5 @@
 import React from "react";
-import { T, useT } from "../../../cometchat-foundation/localization";
+import { T, useT, initialOf } from "../../../cometchat-foundation/localization";
 import "./CallItem.css";
 import { iconMirrorProps } from "../../../cometchat-foundation/tokens/icons";
 
@@ -75,7 +75,7 @@ const Avatar: React.FC<AvatarPartProps> = ({ variant, url, icon, text, title, st
     <div className="call-item__avatar">
       {variant === "image" && url && <img src={url} alt={title} />}
       {variant === "image" && !url && (
-        <span className="call-item__avatar-fallback"><T>{title.charAt(0)}</T></span>
+        <span className="call-item__avatar-fallback">{initialOf(t(title))}</span>
       )}
       {variant === "text" && (
         <span className="call-item__avatar-fallback">

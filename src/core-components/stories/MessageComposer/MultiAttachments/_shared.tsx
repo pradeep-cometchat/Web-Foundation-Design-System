@@ -1,4 +1,4 @@
-import { T, useT, localizeDigits } from "../../../../cometchat-foundation/localization";
+import { T, useT, localizeDigits, initialOf } from "../../../../cometchat-foundation/localization";
 /**
  * Shared primitives for the "Multi Attachments" story pages.
  *
@@ -734,7 +734,7 @@ function ComposerToolbar() {
           boxShadow: "var(--cometchat-shadow-xs)",
         }}
       >
-        <svg width="16" height="14" viewBox="0 0 15.78 13.6" fill="none">
+        <svg width="16" height="14" viewBox="0 0 15.78 13.6" fill="none" data-icon-mirror>
           <path
             d="M1.267 13.52c-.302.121-.589.095-.86-.077-.271-.172-.407-.422-.407-.751V8.47L6.923 6.797 0 5.124V.903C0 .574.136.324.407.152.678-.02.965-.046 1.267.075L15.223 5.96c.372.166.558.447.558.84 0 .393-.186.673-.558.836L1.267 13.52Z"
             fill="currentColor"
@@ -1755,6 +1755,7 @@ export function ConversationResult({
   hue?: number;
   thumbs?: number[];
 }) {
+  const t = useT();
   const idx = thumbs ?? [0, 1, 2];
   return (
     <div
@@ -1765,7 +1766,7 @@ export function ConversationResult({
         padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-1)",
       }}
     >
-      <Avatar label={name[0]} hue={hue} />
+      <Avatar label={initialOf(t(name))} hue={hue} />
       <div
         style={{
           flex: 1,
@@ -2713,7 +2714,7 @@ export const CIconAI = () => (
   </svg>
 );
 const CIconSend = () => (
-  <svg width="16" height="14" viewBox="0 0 15.78 13.6" fill="none">
+  <svg width="16" height="14" viewBox="0 0 15.78 13.6" fill="none" data-icon-mirror>
     <path
       d="M1.267 13.52c-.302.121-.589.095-.86-.077-.271-.172-.407-.422-.407-.751V8.47L6.923 6.797 0 5.124V.903C0 .574.136.324.407.152.678-.02.965-.046 1.267.075L15.223 5.96c.372.166.558.447.558.84 0 .393-.186.673-.558.836L1.267 13.52Z"
       fill="currentColor"

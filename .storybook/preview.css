@@ -184,3 +184,17 @@ samp,
   background: var(--color-ep-200, #d9d6fe);
   color: var(--color-ep-900, #3e1c96);
 }
+
+/* The on-page nav stays English in RTL so it can be used to find your way
+   around; its labels come from data-heading-label (see DocsPage.tsx). English
+   runs need an LTR box, or trailing punctuation in names like "Size (sm)"
+   gets reordered by the bidi algorithm. */
+[dir="rtl"] .toc-wrapper {
+  direction: ltr;
+}
+
+/* Ordered-list markers keep ASCII digits in the markdown source (see
+   localization/digits.ts); draw them Arabic-Indic like every other numeral. */
+[dir="rtl"] .sbdocs ol {
+  list-style-type: arabic-indic;
+}

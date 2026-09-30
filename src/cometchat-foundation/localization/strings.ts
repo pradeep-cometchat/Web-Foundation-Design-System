@@ -375,11 +375,11 @@ export const AR: Readonly<Record<string, string>> = {
   "A right-click or long-press context menu with grouped actions and icons. Appears anchored to a message or element with a compact list of actions. **Structure (from Figma node 4090:878265):** - Container: 160px wide, `--radius-md` (8px), shadow-lg, border `--color-neutral-100` - First item: 44px height, rest: 40px height - Item padding: 16px horizontal, 8px gap between icon and label - Icons: 24×24, color `#A1A1A1` (neutral-400) - Text: 14px, weight 400, line-height 1.2, color `--color-neutral-900` - Hover: `--color-neutral-50` (#fafafa) background - Destructive items: `--color-error` text and icon":
     "قائمة سياقية تظهر بالنقر بالزر الأيمن أو بالضغط المطوّل، بإجراءات مجمَّعة وأيقونات. تظهر مرتبطة برسالة أو عنصر، بقائمة إجراءات مضغوطة. **البنية (من عقدة Figma رقم 4090:878265):** - الحاوية: عرض 160px، `--radius-md` (8px)، shadow-lg، حدّ `--color-neutral-100` - العنصر الأول: ارتفاع 44px، والبقية: 40px - حشو العنصر: 16px أفقيًا، وفجوة 8px بين الأيقونة والتسمية - الأيقونات: 24×24، اللون `#A1A1A1` (neutral-400) - النص: 14px، وزن 400، ارتفاع سطر 1.2، اللون `--color-neutral-900` - التحويم: خلفية `--color-neutral-50` (#fafafa) - العناصر التدميرية: نص وأيقونة بلون `--color-error`",
   "Users List — a full-screen list view composing Header, SearchBar, and UserItem with alphabet section dividers. Used as the \"Users\" tab in the conversation list. **Composed from:** - Header (title: \"Users\") - SearchBar (placeholder: \"Search users\") - UserItemDivider (alphabet letters) - UserItem (user rows)":
-    "قائمة المستخدمين — عرض قائمة بملء الشاشة يجمع بين الترويسة وشريط البحث وعنصر المستخدم مع فواصل أبجدية. تُستخدم كتبويب «المستخدمون» في قائمة المحادثات. **مركّبة من:** - الترويسة (العنوان: \"Users\") - شريط البحث (النص النائب: \"Search users\") - UserItemDivider (الأحرف الأبجدية) - UserItem (صفوف المستخدمين)",
+    "قائمة المستخدمين — عرض قائمة بملء الشاشة يجمع بين الترويسة وشريط البحث وعنصر المستخدم مع فواصل أبجدية. تُستخدم كتبويب «المستخدمون» في قائمة المحادثات. **مركّبة من:** - الترويسة (العنوان: \"المستخدمون\") - شريط البحث (النص النائب: \"ابحث عن مستخدمين\") - UserItemDivider (الأحرف الأبجدية) - UserItem (صفوف المستخدمين)",
   "AI-powered conversation starter suggestions displayed above the message composer. Presents a row of clickable pill-shaped tags with pre-written messages the user can tap to quickly start a conversation. **Structure (from Figma node 4088:704041):** - Container: full width, `--radius-2xl` (16px), wrapping flex layout - Tags: pill-shaped (`--radius-full`), 33px height, `--color-neutral-50` bg, border `--color-neutral-200` - Tag padding: 8px vertical, 20px horizontal - Tag text: 14px, weight 400, line-height 20px, `--color-neutral-900` - Gap between tags: 8px - Hover: `--color-neutral-100` bg, `--color-neutral-300` border":
     "اقتراحات لبدء المحادثة مدعومة بالذكاء الاصطناعي تظهر أعلى محرّر الرسائل. تعرض صفًّا من الوسوم القابلة للنقر بشكل حبّة دواء، تحمل رسائل جاهزة يمكن للمستخدم النقر عليها لبدء محادثة بسرعة. **البنية (من عقدة Figma رقم 4088:704041):** - الحاوية: بعرض كامل، `--radius-2xl` (16px)، تخطيط مرن ملتفّ - الوسوم: بشكل حبّة دواء (`--radius-full`)، ارتفاع 33px، خلفية `--color-neutral-50`، حدّ `--color-neutral-200` - حشو الوسم: 8px رأسيًا، 20px أفقيًا - نص الوسم: 14px، وزن 400، ارتفاع سطر 20px، `--color-neutral-900` - الفجوة بين الوسوم: 8px - التحويم: خلفية `--color-neutral-100`، حدّ `--color-neutral-300`",
   "An AI-generated conversation summary card that appears above the message composer. Displays a condensed overview of the conversation with a close action. **Structure (from Figma node 4043:347990):** - Container: full-width, `radius-md` (8px), `shadow-lg`, border `#f5f5f5` - Padding: 16px horizontal, 12px vertical, gap 8px - Header: \"Conversation summary\" (14px medium, #181d27) + close icon (20×20) - Body: Summary text (14px regular, line-height 20px, #181d27)":
-    "بطاقة ملخّص للمحادثة يولّدها الذكاء الاصطناعي وتظهر أعلى محرّر الرسائل. تعرض نظرة عامة مختصرة عن المحادثة مع إجراء للإغلاق. **البنية (من عقدة Figma رقم 4043:347990):** - الحاوية: بعرض كامل، `radius-md` (8px)، `shadow-lg`، حدّ `#f5f5f5` - الحشو: 16px أفقيًا، 12px رأسيًا، فجوة 8px - الترويسة: \"Conversation summary\" (14px متوسط، #181d27) + أيقونة إغلاق (20×20) - المتن: نص الملخّص (14px عادي، ارتفاع سطر 20px، #181d27)",
+    "بطاقة ملخّص للمحادثة يولّدها الذكاء الاصطناعي وتظهر أعلى محرّر الرسائل. تعرض نظرة عامة مختصرة عن المحادثة مع إجراء للإغلاق. **البنية (من عقدة Figma رقم 4043:347990):** - الحاوية: بعرض كامل، `radius-md` (8px)، `shadow-lg`، حدّ `#f5f5f5` - الحشو: 16px أفقيًا، 12px رأسيًا، فجوة 8px - الترويسة: \"ملخّص المحادثة\" (14px متوسط، #181d27) + أيقونة إغلاق (20×20) - المتن: نص الملخّص (14px عادي، ارتفاع سطر 20px، #181d27)",
 
   /* ─── Base Components: menu item labels ─── */
   "Camera": "الكاميرا",
@@ -686,7 +686,7 @@ export const AR: Readonly<Record<string, string>> = {
   "David Miller": "داوود ميلر",
   "Diana Prince": "ديانا برنس",
   "Emma Davis": "إيمان ديفيس",
-  "Emma Rose": "إيمان رose",
+  "Emma Rose": "إيمان روز",
   "Evan Parker": "عدنان باركر",
   "Eve Wilson": "إيفا ويلسون",
   "Example User": "مستخدم تجريبي",
@@ -969,14 +969,14 @@ export const AR: Readonly<Record<string, string>> = {
   "Empty Name (No Initials)": "اسم فارغ (بلا أحرف أولى)",
   "Empty name — no status": "اسم فارغ — بلا حالة",
   "Empty name — online indicator": "اسم فارغ — مؤشّر اتصال",
-  "Initials — Multi-Word Name (JD)": "أحرف أولى — اسم متعدّد الكلمات (JD)",
-  "Initials — Single-Word Name (AL)": "أحرف أولى — اسم من كلمة واحدة (AL)",
+  "Initials — Multi-Word Name (JD)": "أحرف أولى — اسم متعدّد الكلمات (فف)",
+  "Initials — Single-Word Name (AL)": "أحرف أولى — اسم من كلمة واحدة (عا)",
   "Text (initials) — no status": "نص (أحرف أولى) — بلا حالة",
   "Text (initials) — online indicator": "نص (أحرف أولى) — مؤشّر اتصال",
   "With Image": "مع صورة",
   "With image — no status icon": "مع صورة — بلا أيقونة حالة",
   "With image — online indicator": "مع صورة — مؤشّر اتصال",
-  "Broken Image URL (Fallback to EU)": "رابط صورة معطوب (بديل إلى EU)",
+  "Broken Image URL (Fallback to EU)": "رابط صورة معطوب (بديل إلى مت)",
   "Broken image URL (fallback to initials)": "رابط صورة معطوب (بديل إلى الأحرف الأولى)",
   "Group (with name)": "مجموعة (باسم)",
   "Group — Partially Read": "مجموعة — مقروءة جزئيًا",
@@ -1054,15 +1054,15 @@ export const AR: Readonly<Record<string, string>> = {
   "Ban @toxic_user from Community?": "حظر ‎@toxic_user من المجتمع؟",
   "Block @john_doe?": "حظر ‎@john_doe؟",
   "Delete @jane_smith?": "حذف ‎@jane_smith؟",
-  "Delete Chat with John?": "حذف المحادثة مع John؟",
+  "Delete Chat with John?": "حذف المحادثة مع جون؟",
   "Delete and Exit Marketing Chat?": "حذف محادثة التسويق والخروج منها؟",
-  "Leave Project Alpha?": "مغادرة Project Alpha؟",
+  "Leave Project Alpha?": "مغادرة مشروع ألفا؟",
   "Remove from Design Team?": "الإزالة من فريق التصميم؟",
   "Transfer Ownership to @alex_admin?": "نقل الملكية إلى ‎@alex_admin؟",
 
   /* ─── Base Components: docs-page descriptions ─── */
   "A dialog for creating a new poll. Includes a question input, dynamic option list with drag handles, emoji buttons, delete buttons, an \"Add an option\" link, error states, and Cancel/Create action buttons. **Structure (from Figma):** - Container: 420px, `--radius-3xl` (20px), `--shadow-lg` - Header: 64px, \"Create Poll\" (20px, bold), close X, border-bottom - Question: label (16px, medium) + rounded input (14px, border `--color-neutral-200`) - Options: drag handle (≡) + rounded input with emoji icon (😊) + X delete button - \"+ Add an option\": ⊕ icon + text in `--color-ep-600` - Error: pink banner (`--color-error-50` bg) with error icon + message - Buttons: Cancel (outlined) + Create (disabled: gray / active: `--color-ep-600`) - Max options: 12 **States:** - Empty — 2 blank options, Create disabled - Filled — question + options filled, Create active (purple) - Validation error — \"Please fill in all required fields before creating a poll.\" - Max limit — \"You've reached the limit. You can add up to 12 options.\"":
-    "مربّع حوار لإنشاء استطلاع جديد. يضمّ حقل السؤال، وقائمة خيارات ديناميكية بمقابض سحب، وأزرار إيموجي، وأزرار حذف، ورابط «إضافة خيار»، وحالات الخطأ، وزرَّي الإلغاء والإنشاء. **البنية (من Figma):** - الحاوية: 420px، `--radius-3xl` (20px)، `--shadow-lg` - الترويسة: 64px، \"Create Poll\" (20px، عريض)، زر إغلاق X، حدّ سفلي - السؤال: تسمية (16px، متوسط) + حقل مستدير (14px، حدّ `--color-neutral-200`) - الخيارات: مقبض سحب (≡) + حقل مستدير بأيقونة إيموجي (😊) + زر حذف X - «+ إضافة خيار»: أيقونة ⊕ ونص بلون `--color-ep-600` - الخطأ: شريط وردي (خلفية `--color-error-50`) بأيقونة خطأ ورسالة - الأزرار: إلغاء (محدّد بإطار) + إنشاء (معطّل: رمادي / نشط: `--color-ep-600`) - أقصى عدد خيارات: 12 **الحالات:** - فارغ — خياران فارغان، وزر الإنشاء معطّل - مملوء — السؤال والخيارات مُعبّأة، وزر الإنشاء نشط (بنفسجي) - خطأ تحقّق — \"Please fill in all required fields before creating a poll.\" - بلوغ الحدّ — \"You've reached the limit. You can add up to 12 options.\"",
+    "مربّع حوار لإنشاء استطلاع جديد. يضمّ حقل السؤال، وقائمة خيارات ديناميكية بمقابض سحب، وأزرار إيموجي، وأزرار حذف، ورابط «إضافة خيار»، وحالات الخطأ، وزرَّي الإلغاء والإنشاء. **البنية (من Figma):** - الحاوية: 420px، `--radius-3xl` (20px)، `--shadow-lg` - الترويسة: 64px، \"إنشاء استطلاع\" (20px، عريض)، زر إغلاق ×، حدّ سفلي - السؤال: تسمية (16px، متوسط) + حقل مستدير (14px، حدّ `--color-neutral-200`) - الخيارات: مقبض سحب (≡) + حقل مستدير بأيقونة إيموجي (😊) + زر حذف × - «+ إضافة خيار»: أيقونة ⊕ ونص بلون `--color-ep-600` - الخطأ: شريط وردي (خلفية `--color-error-50`) بأيقونة خطأ ورسالة - الأزرار: إلغاء (محدّد بإطار) + إنشاء (معطّل: رمادي / نشط: `--color-ep-600`) - أقصى عدد خيارات: 12 **الحالات:** - فارغ — خياران فارغان، وزر الإنشاء معطّل - مملوء — السؤال والخيارات مُعبّأة، وزر الإنشاء نشط (بنفسجي) - خطأ تحقّق — \"يُرجى تعبئة جميع الحقول المطلوبة قبل إنشاء الاستطلاع.\" - بلوغ الحدّ — \"لقد بلغت الحدّ الأقصى. يمكنك إضافة 12 خيارًا كحدّ أقصى.\"",
   "The timestamp shown inside message bubbles, indicating when a message was sent. Compact inline element that sits below or beside the message text. **Structure (from Figma):** - Size: Hug content × 24px height - Font: 12px (`--font-size-1`), weight 400, line-height 16px (`--line-height-caption-2`) - Color: `--color-neutral-500` (#717680) - Optional read receipt icon (16×16) with 2px gap **Variants:** - `sent` — timestamp on sent messages (gray, may include read receipts) - `received` — timestamp on received messages (gray) - `separator` — date separator chip between message groups (\"Today\", \"Yesterday\") **Patterns:** - `time` — \"4:56 pm\", \"10:30 am\" - `date` — \"12 Jan\", \"5 Mar 2024\" - `datetime` — \"12 Jan, 4:56 pm\" - `relative` — \"Just now\", \"2 min ago\"":
     "الطابع الزمني المعروض داخل فقاعات الرسائل، ويوضّح وقت إرسال الرسالة. عنصر مضغوط ضمن السطر يقع أسفل نص الرسالة أو بجانبه. **البنية (من Figma):** - الحجم: بمقدار المحتوى × ارتفاع 24px - الخط: 12px (`--font-size-1`)، وزن 400، ارتفاع سطر 16px (`--line-height-caption-2`) - اللون: `--color-neutral-500` (#717680) - أيقونة إيصال قراءة اختيارية (16×16) بفجوة 2px **الأنماط:** - `sent` — طابع زمني على الرسائل المُرسَلة (رمادي، قد يتضمّن إيصالات القراءة) - `received` — طابع زمني على الرسائل الواردة (رمادي) - `separator` — شريحة فاصل تاريخ بين مجموعات الرسائل (\"اليوم\"، \"أمس\") **الأشكال:** - `time` — \"4:56 م\"، \"10:30 ص\" - `date` — \"12 يناير\"، \"5 مارس 2024\" - `datetime` — \"12 يناير، 4:56 م\" - `relative` — \"الآن\"، \"قبل دقيقتين\"",
   "An emoji picker popup with categories, search, and a grid of selectable emojis. Appears above the message composer when the emoji icon is clicked. **Structure (from Figma node 4105:547232 → Emoji Popup):** - Container: 300px × 348px, `--radius-3xl` (20px), `--shadow-lg`, border `--color-neutral-100` - Category label: 14px, weight 400, `--color-neutral-600` - Search: 28px height, `--radius-full`, `--color-neutral-100` bg - Emoji grid: 24px emojis, 12px horizontal gap, 8px vertical gap, 10 per row - Category tabs: 32px icons, 8px gap, active has `--color-ep-100` bg + `--radius-md` **Categories:** Recents, Smileys & People, Animals & Nature, Food & Drink, Activity, Travel & Places, Objects, Symbols, Flags":
@@ -1080,17 +1080,17 @@ export const AR: Readonly<Record<string, string>> = {
   "Emoji reaction tags shown below message bubbles. Users can tap to add/remove their reaction. Displays the emoji and an optional count. **Structure (from Figma — Base_Reaction Tag):** - Container: 24px height, rounded 20px, white bg, border `--color-neutral-100` - Padding: 2px vertical, 8px horizontal - Emoji: 14px, line-height 20px - Count: 12px, regular, `--color-neutral-900` - Gap: 4px between emoji and count - Active state: `--color-ep-50` bg, `--color-ep-200` border, count in `--color-ep-700` - Group: flex-wrap, 4px gap":
     "وسوم تفاعل بالإيموجي تظهر أسفل فقاعات الرسائل. يمكن للمستخدمين النقر لإضافة تفاعلهم أو إزالته. تعرض الإيموجي وعددًا اختياريًا. **البنية (من Figma — Base_Reaction Tag):** - الحاوية: ارتفاع 24px، استدارة 20px، خلفية بيضاء، حدّ `--color-neutral-100` - الحشو: 2px رأسيًا، 8px أفقيًا - الإيموجي: 14px، ارتفاع سطر 20px - العدد: 12px، عادي، `--color-neutral-900` - الفجوة: 4px بين الإيموجي والعدد - الحالة النشطة: خلفية `--color-ep-50`، حدّ `--color-ep-200`، والعدد بلون `--color-ep-700` - المجموعة: flex-wrap بفجوة 4px",
   "A tooltip-style popup that shows who reacted with a specific emoji. Appears on hover over a reaction badge in a message. **Structure (from Figma node 4043:476245):** - Container: radius 8px, shadow-lg (drop-shadow) - Content: bg `#0a0d12` (static-black), radius-xs (4px), padding 8px - Emoji: 24px, line-height 32px, centered - Names: 12px regular, white, line-height 18px - Label (\"reacted\"): 12px regular, text-tertiary (#535862), line-height 18px - Arrow: 6px triangle pointing down, same color as bg":
-    "نافذة منبثقة بنمط التلميح تُظهر من تفاعل بإيموجي معيّن. تظهر عند التحويم على شارة تفاعل في رسالة. **البنية (من عقدة Figma رقم 4043:476245):** - الحاوية: استدارة 8px، shadow-lg (ظلّ مُسقَط) - المحتوى: خلفية `#0a0d12` (static-black)، radius-xs (4px)، حشو 8px - الإيموجي: 24px، ارتفاع سطر 32px، في المنتصف - الأسماء: 12px عادي، أبيض، ارتفاع سطر 18px - التسمية (\"reacted\"): 12px عادي، text-tertiary (#535862)، ارتفاع سطر 18px - السهم: مثلّث 6px يشير للأسفل، بلون الخلفية نفسه",
+    "نافذة منبثقة بنمط التلميح تُظهر من تفاعل بإيموجي معيّن. تظهر عند التحويم على شارة تفاعل في رسالة. **البنية (من عقدة Figma رقم 4043:476245):** - الحاوية: استدارة 8px، shadow-lg (ظلّ مُسقَط) - المحتوى: خلفية `#0a0d12` (static-black)، radius-xs (4px)، حشو 8px - الإيموجي: 24px، ارتفاع سطر 32px، في المنتصف - الأسماء: 12px عادي، أبيض، ارتفاع سطر 18px - التسمية (\"تفاعل\"): 12px عادي، text-tertiary (#535862)، ارتفاع سطر 18px - السهم: مثلّث 6px يشير للأسفل، بلون الخلفية نفسه",
   "A popup showing who reacted to a message, with emoji filter tabs and a list of reactors. Each item shows an avatar, name, optional subtitle, and the emoji they reacted with. **Structure (from Figma node 4043:476218):** - Container: radius-2xl (16px), shadow-lg, border `#f5f5f5`, bg white - Tabs: border-bottom `#e9eaeb`, pt-8, height 40px - Active tab: text `#6852d6`, border-bottom 2px `#6852d6` - Inactive tab: text `#717680` - List items: px-20 py-8, gap-12 - Avatar: 32×32, full-round - Name: 14px medium, #181d27 - Subtitle: 12px regular, #414651 - Emoji: 20px, 24px wide":
     "نافذة منبثقة تُظهر من تفاعل مع رسالة، مع تبويبات لترشيح الإيموجي وقائمة بالمتفاعلين. يعرض كل عنصر صورة رمزية واسمًا وعنوانًا فرعيًا اختياريًا والإيموجي الذي تفاعل به. **البنية (من عقدة Figma رقم 4043:476218):** - الحاوية: radius-2xl (16px)، shadow-lg، حدّ `#f5f5f5`، خلفية بيضاء - التبويبات: حدّ سفلي `#e9eaeb`، pt-8، ارتفاع 40px - التبويب النشط: نص `#6852d6`، حدّ سفلي 2px بلون `#6852d6` - التبويب غير النشط: نص `#717680` - عناصر القائمة: px-20 py-8، gap-12 - الصورة الرمزية: 32×32، دائرية بالكامل - الاسم: 14px متوسط، #181d27 - العنوان الفرعي: 12px عادي، #414651 - الإيموجي: 20px، بعرض 24px",
   "A pill-shaped search input with a search icon and optional clear button. Used for filtering conversations, contacts, or messages. **Structure (from Figma node 4094:1014224):** - Container: full-width, height 40px, radius 1000px (pill), bg `#f5f5f5`, border `#f5f5f5` - Padding: 12px horizontal, 8px vertical - Search icon: 24×24, color `#a1a1a1` - Placeholder: H4/Regular — 16px, weight 400, color `#a1a1a1` - Input text: 16px regular, color `#141414`":
     "حقل بحث بشكل حبّة دواء مع أيقونة بحث وزر مسح اختياري. يُستخدم لترشيح المحادثات أو جهات الاتصال أو الرسائل. **البنية (من عقدة Figma رقم 4094:1014224):** - الحاوية: بعرض كامل، ارتفاع 40px، استدارة 1000px (حبّة دواء)، خلفية `#f5f5f5`، حدّ `#f5f5f5` - الحشو: 12px أفقيًا، 8px رأسيًا - أيقونة البحث: 24×24، اللون `#a1a1a1` - النص النائب: H4/Regular — 16px، وزن 400، اللون `#a1a1a1` - نص الإدخال: 16px عادي، اللون `#141414`",
   "AI-suggested quick reply popup that appears above the message composer. Shows a list of contextual reply suggestions the user can tap to send. **Structure (from Figma node 4088:736840):** - Container: 360px, `--radius-2xl` (16px), `--shadow-lg`, border `--color-neutral-100`, padding 12px - Header: \"Suggest a reply\" (16px, medium, `--color-neutral-900`) + close icon (20px) - Gap between header and content: 16px - Content gap: 8px between items **States:** - Loading: 3 skeleton bars (67px height, radius 12px, gradient shimmer animation) - Loaded: Reply buttons (border `--color-neutral-200`, radius 12px, 14px text, padding 12px 16px) **Interactions:** - Hover on reply: `--color-neutral-50` bg, `--color-neutral-300` border - Click reply: fires `onSelect` with the reply text - Close button dismisses the popup":
-    "نافذة ردود سريعة يقترحها الذكاء الاصطناعي وتظهر أعلى محرّر الرسائل. تعرض قائمة باقتراحات ردّ سياقية يمكن للمستخدم النقر عليها للإرسال. **البنية (من عقدة Figma رقم 4088:736840):** - الحاوية: 360px، `--radius-2xl` (16px)، `--shadow-lg`، حدّ `--color-neutral-100`، حشو 12px - الترويسة: \"Suggest a reply\" (16px، متوسط، `--color-neutral-900`) + أيقونة إغلاق (20px) - الفجوة بين الترويسة والمحتوى: 16px - فجوة المحتوى: 8px بين العناصر **الحالات:** - التحميل: 3 أشرطة هيكلية (ارتفاع 67px، استدارة 12px، حركة تدرّج لامعة) - المحمَّل: أزرار الردّ (حدّ `--color-neutral-200`، استدارة 12px، نص 14px، حشو 12px 16px) **التفاعلات:** - التحويم على الردّ: خلفية `--color-neutral-50`، حدّ `--color-neutral-300` - النقر على الردّ: يُطلق `onSelect` مع نص الردّ - زر الإغلاق يُخفي النافذة",
+    "نافذة ردود سريعة يقترحها الذكاء الاصطناعي وتظهر أعلى محرّر الرسائل. تعرض قائمة باقتراحات ردّ سياقية يمكن للمستخدم النقر عليها للإرسال. **البنية (من عقدة Figma رقم 4088:736840):** - الحاوية: 360px، `--radius-2xl` (16px)، `--shadow-lg`، حدّ `--color-neutral-100`، حشو 12px - الترويسة: \"اقترح ردًّا\" (16px، متوسط، `--color-neutral-900`) + أيقونة إغلاق (20px) - الفجوة بين الترويسة والمحتوى: 16px - فجوة المحتوى: 8px بين العناصر **الحالات:** - التحميل: 3 أشرطة هيكلية (ارتفاع 67px، استدارة 12px، حركة تدرّج لامعة) - المحمَّل: أزرار الردّ (حدّ `--color-neutral-200`، استدارة 12px، نص 14px، حشو 12px 16px) **التفاعلات:** - التحويم على الردّ: خلفية `--color-neutral-50`، حدّ `--color-neutral-300` - النقر على الردّ: يُطلق `onSelect` مع نص الردّ - زر الإغلاق يُخفي النافذة",
   "A transient notification pill that appears briefly to confirm an action. Dark background with white text, auto-dismisses after a set duration. **Structure (from Figma node 4090:837860):** - Outer: radius 8px, drop-shadow (shadow-lg) - Content: bg `#0a0d12` (static-black), radius-xs (4px), padding 8px - Text: Caption 1/Regular — 12px, weight 400, line-height 18px, white, centered":
     "شريحة إشعار عابرة تظهر لوقت قصير لتأكيد إجراء. خلفية داكنة ونص أبيض، وتختفي تلقائيًا بعد مدّة محدّدة. **البنية (من عقدة Figma رقم 4090:837860):** - الإطار الخارجي: استدارة 8px، ظلّ مُسقَط (shadow-lg) - المحتوى: خلفية `#0a0d12` (static-black)، radius-xs (4px)، حشو 8px - النص: Caption 1/Regular — 12px، وزن 400، ارتفاع سطر 18px، أبيض، في المنتصف",
   "An animated indicator showing when users are performing an activity (typing, recording, or uploading). Supports single, group, and multiple contexts. **Structure (from Figma node 17442:55645):** - Container: flex row, gap 4px (spacing-xs), items-center - Dots: 3 animated circles (4px), gap 2px, color `#6852d6` (text-highlight) - Text: Caption 1/Regular — 12px, weight 400, line-height 18px, color `#6852d6` **Variants:** - Activity: Typing, Recording, Uploading - Context: Single (\"Typing\"), Group (\"John is typing\"), Multiple (\"2 people are typing\")":
-    "مؤشّر متحرّك يوضّح متى يقوم المستخدمون بنشاط ما (كتابة أو تسجيل أو رفع). يدعم سياقات المفرد والمجموعة والتعدّد. **البنية (من عقدة Figma رقم 17442:55645):** - الحاوية: صفّ مرن، فجوة 4px (spacing-xs)، محاذاة رأسية للوسط - النقاط: 3 دوائر متحرّكة (4px)، فجوة 2px، اللون `#6852d6` (text-highlight) - النص: Caption 1/Regular — 12px، وزن 400، ارتفاع سطر 18px، اللون `#6852d6` **الأنماط:** - النشاط: كتابة، تسجيل، رفع - السياق: مفرد (\"Typing\")، مجموعة (\"John is typing\")، تعدّد (\"2 people are typing\")",
+    "مؤشّر متحرّك يوضّح متى يقوم المستخدمون بنشاط ما (كتابة أو تسجيل أو رفع). يدعم سياقات المفرد والمجموعة والتعدّد. **البنية (من عقدة Figma رقم 17442:55645):** - الحاوية: صفّ مرن، فجوة 4px (spacing-xs)، محاذاة رأسية للوسط - النقاط: 3 دوائر متحرّكة (4px)، فجوة 2px، اللون `#6852d6` (text-highlight) - النص: Caption 1/Regular — 12px، وزن 400، ارتفاع سطر 18px، اللون `#6852d6` **الأنماط:** - النشاط: كتابة، تسجيل، رفع - السياق: مفرد (\"يكتب\")، مجموعة (\"جون يكتب\")، تعدّد (\"2 أشخاص يكتبون\")",
 
   /* ─── Base Components: per-story descriptions (sweep) ─── */
   "Recording state — red dot pulsing, timer counting, pause button.":
@@ -1148,7 +1148,7 @@ export const AR: Readonly<Record<string, string>> = {
   "With a value typed in.": "مع قيمة مُدخَلة.",
   "Without clear button.": "بلا زر مسح.",
   "Default time format as shown in Figma — \"4:56 pm\" inside a sent message bubble.":
-    "تنسيق الوقت الافتراضي كما يظهر في Figma — \"4:56 pm\" داخل فقاعة رسالة مُرسَلة.",
+    "تنسيق الوقت الافتراضي كما يظهر في Figma — \"4:56 م\" داخل فقاعة رسالة مُرسَلة.",
   "Sent message with read receipt — single tick (sent).":
     "رسالة مُرسَلة مع إيصال قراءة — علامة واحدة (مُرسَلة).",
   "Sent message with double tick — delivered.": "رسالة مُرسَلة بعلامتين — تم التسليم.",
@@ -1158,7 +1158,7 @@ export const AR: Readonly<Record<string, string>> = {
     "الحالة الافتراضية — تفاعل واحد، مطابقة تمامًا لعقدة Figma رقم 4043:476218.",
   "Multiple reactions with different emojis.": "تفاعلات متعدّدة بإيموجي مختلفة.",
   "Single user with \"Tap to remove\" subtitle.":
-    "مستخدم واحد مع العنوان الفرعي \"Tap to remove\".",
+    "مستخدم واحد مع العنوان الفرعي \"انقر للإزالة\".",
   "Avatar online indicator — all sizes.": "مؤشّر اتصال الصورة الرمزية — كل الأحجام.",
   "Avatar group icons — Private, Protected types at all sizes.":
     "أيقونات مجموعة الصور الرمزية — النوعان الخاص والمحمي بكل الأحجام.",
@@ -1175,7 +1175,7 @@ export const AR: Readonly<Record<string, string>> = {
   "The standard attachment action sheet as seen in the message composer. Eight options with filled icons in the primary color.":
     "لوحة إجراءات المرفقات القياسية كما تظهر في محرّر الرسائل. ثمانية خيارات بأيقونات مملوءة باللون الأساسي.",
   "Contextual actions for a message. Includes a destructive \"Delete\" action rendered in error color.":
-    "إجراءات سياقية لرسالة. تتضمّن إجراء \"Delete\" تدميريًا يُعرض بلون الخطأ.",
+    "إجراءات سياقية لرسالة. تتضمّن إجراء \"حذف\" تدميريًا يُعرض بلون الخطأ.",
   "The width can be adjusted. Default is 244px. Here shown at 320px for longer labels.":
     "يمكن ضبط العرض. القيمة الافتراضية 244px، وهي معروضة هنا بـ 320px للتسميات الأطول.",
   "Visual demonstration of all interactive states: default, hover, active, focus, and destructive.":
@@ -1423,7 +1423,7 @@ export const AR: Readonly<Record<string, string>> = {
   "Hey, I was wondering if you could help me with something. I've been trying to figure out how to set up the new project and I'm having some trouble with the configuration.":
     "أهلًا، كنت أتساءل إن كان بإمكانك مساعدتي في أمر ما. أحاول معرفة كيفية إعداد المشروع الجديد وأواجه بعض الصعوبة في الإعدادات.",
   "The conversation began with the buyer inquiring about a vintage camera listed for sale. The seller confirmed the item was still available and provided additional details about its condition, including minor cosmetic wear on the body but fully functional optics and mechanics. The buyer asked about the shutter count and whether the lens was included. The seller confirmed a low shutter count of approximately 12,000 and noted that the 50mm f/1.8 lens was included in the price. After some negotiation, they agreed on a price of $450, down from the original asking price of $500. The buyer requested shipping to their address and the seller agreed to ship via insured priority mail. They exchanged contact information for payment processing and the seller promised to ship within two business days of receiving payment.":
-    "بدأت المحادثة باستفسار المشتري عن كاميرا قديمة معروضة للبيع. وأكّد البائع أن السلعة ما زالت متاحة، وقدّم تفاصيل إضافية عن حالتها، تشمل أثرًا بسيطًا للاستعمال على الهيكل مع بقاء العدسات والأجزاء الميكانيكية تعمل بكامل كفاءتها. وسأل المشتري عن عدد مرّات الغالق وما إذا كانت العدسة مشمولة. فأكّد البائع أن عدد مرّات الغالق منخفض ويبلغ نحو 12,000، وأشار إلى أن عدسة 50mm f/1.8 مشمولة في السعر. وبعد بعض التفاوض، اتفقا على سعر 450 دولارًا بدلًا من السعر المطلوب أصلًا وهو 500 دولار. وطلب المشتري الشحن إلى عنوانه، فوافق البائع على الشحن بالبريد الممتاز المؤمَّن. وتبادلا معلومات التواصل لإتمام الدفع، ووعد البائع بالشحن خلال يومَي عمل من استلام المبلغ.",
+    "بدأت المحادثة باستفسار المشتري عن كاميرا قديمة معروضة للبيع. وأكّد البائع أن السلعة ما زالت متاحة، وقدّم تفاصيل إضافية عن حالتها، تشمل أثرًا بسيطًا للاستعمال على الهيكل مع بقاء العدسات والأجزاء الميكانيكية تعمل بكامل كفاءتها. وسأل المشتري عن عدد مرّات الغالق وما إذا كانت العدسة مشمولة. فأكّد البائع أن عدد مرّات الغالق منخفض ويبلغ نحو 12,000، وأشار إلى أن عدسة 50 مم f/1.8 مشمولة في السعر. وبعد بعض التفاوض، اتفقا على سعر 450 دولارًا بدلًا من السعر المطلوب أصلًا وهو 500 دولار. وطلب المشتري الشحن إلى عنوانه، فوافق البائع على الشحن بالبريد الممتاز المؤمَّن. وتبادلا معلومات التواصل لإتمام الدفع، ووعد البائع بالشحن خلال يومَي عمل من استلام المبلغ.",
 
   /* ─── Meta chip labels ─── */
   tokens: "رموز",
@@ -4444,6 +4444,112 @@ export const AR: Readonly<Record<string, string>> = {
   "Illustrated character stickers for chat messages. These are pre-rendered PNG assets served from the design system CDN.":
     "ملصقات شخصيات مرسومة لرسائل الدردشة. وهي أصول PNG مُهيّأة مسبقًا تُقدَّم من شبكة توصيل المحتوى الخاصة بنظام التصميم.",
 
+
+  /* ─── RTL audit, second pass: strings every earlier scan was blind to ─── */
+  "S":
+    "ذ",
+  "Last seen today at 2:30 PM":
+    "آخر ظهور اليوم الساعة 2:30 م",
+  "Stroke thickness. 100 is thinnest, 700 is heaviest. Default is 400.":
+    "سُمك الخط. 100 هو الأنحف و700 هو الأثقل. القيمة الافتراضية 400.",
+  "Surfaces, text, borders. The scale inverts in dark mode (50 = white in light, 50 = dark in dark).":
+    "الأسطح والنصوص والحدود. يُعكَس المقياس في الوضع الداكن (50 = أبيض في الفاتح، و50 = داكن في الداكن).",
+  "reacted":
+    "تفاعل",
+  "now":
+    "الآن",
+
+  /* state captions over demo cells — the prop value, named for the reader */
+  "default":
+    "افتراضي",
+  "hover":
+    "تمرير",
+  "loading":
+    "تحميل",
+  "error":
+    "خطأ",
+  "retry":
+    "إعادة المحاولة",
+  "uploading":
+    "جارٍ الرفع",
+  "failed":
+    "فشل",
+  "idle":
+    "خامل",
+  "recording":
+    "قيد التسجيل",
+  "paused":
+    "متوقّف مؤقّتًا",
+  "preview":
+    "معاينة",
+
+  /* composer Usage notes — one sentence each, so the Arabic word order holds */
+  "Panel overlay for sticker action.":
+    "لوحة منبثقة لإجراء الملصقات.",
+  "Panel overlay for emoji action.":
+    "لوحة منبثقة لإجراء الإيموجي.",
+  "Panel overlay for formatting action.":
+    "لوحة منبثقة لإجراء التنسيق.",
+  "Panel overlay for ai action.":
+    "لوحة منبثقة لإجراء الذكاء الاصطناعي.",
+
+
+  /* token spec lines: the token stays verbatim, its description is prose */
+  "var(--cometchat-background-color-02) — Subtle gray for the preview area":
+    "var(--cometchat-background-color-02) — رمادي خفيف لمنطقة المعاينة",
+  "var(--cometchat-background-color-03) — Dark muted background":
+    "var(--cometchat-background-color-03) — خلفية داكنة خافتة",
+  "var(--cometchat-background-color-04) — Light gray":
+    "var(--cometchat-background-color-04) — رمادي فاتح",
+  "var(--cometchat-background-color-solid) white background, purple icon":
+    "var(--cometchat-background-color-solid) خلفية بيضاء وأيقونة بنفسجية",
+  "var(--cometchat-border-color-dark) — Darker gray":
+    "var(--cometchat-border-color-dark) — رمادي أغمق",
+  "var(--cometchat-border-color-default) — Default border":
+    "var(--cometchat-border-color-default) — الحدّ الافتراضي",
+  "var(--cometchat-border-color-default) — Light gray":
+    "var(--cometchat-border-color-default) — رمادي فاتح",
+  "var(--cometchat-icon-color-highlight) — Purple on both variants":
+    "var(--cometchat-icon-color-highlight) — بنفسجي في كلا النمطين",
+  "var(--cometchat-icon-color-highlight) — Purple":
+    "var(--cometchat-icon-color-highlight) — بنفسجي",
+  "var(--cometchat-icon-color-highlight) — purple":
+    "var(--cometchat-icon-color-highlight) — بنفسجي",
+  "var(--cometchat-icon-color-secondary) — Medium gray":
+    "var(--cometchat-icon-color-secondary) — رمادي متوسط",
+  "var(--cometchat-primary-color) — Purple":
+    "var(--cometchat-primary-color) — بنفسجي",
+  "var(--cometchat-radius-3) outer, var(--cometchat-radius-2) inner":
+    "var(--cometchat-radius-3) للخارج، var(--cometchat-radius-2) للداخل",
+  "var(--cometchat-radius-3) — 12px uniform corners":
+    "var(--cometchat-radius-3) — زوايا موحّدة 12px",
+  "var(--cometchat-radius-3) — 12px uniform on all corners":
+    "var(--cometchat-radius-3) — 12px موحّدة على جميع الزوايا",
+  "var(--cometchat-radius-max) — Pill shape":
+    "var(--cometchat-radius-max) — شكل حبّة دواء",
+  "var(--cometchat-received-bubble-background) — Light gray":
+    "var(--cometchat-received-bubble-background) — رمادي فاتح",
+  "var(--cometchat-send-bubble-background) — Primary purple":
+    "var(--cometchat-send-bubble-background) — البنفسجي الأساسي",
+  "var(--cometchat-spacing-3) vertical, var(--cometchat-spacing-4) horizontal":
+    "var(--cometchat-spacing-3) رأسيًا، var(--cometchat-spacing-4) أفقيًا",
+  "var(--cometchat-static-white) background, 36×36, full radius":
+    "var(--cometchat-static-white) خلفية، 36×36، استدارة كاملة",
+  "var(--cometchat-static-white) — White":
+    "var(--cometchat-static-white) — أبيض",
+  "var(--cometchat-static-white) — underlined":
+    "var(--cometchat-static-white) — مسطّر",
+  "var(--cometchat-text-color-placeholder) — Muted":
+    "var(--cometchat-text-color-placeholder) — خافت",
+  "var(--cometchat-text-color-primary) for title, var(--cometchat-text-color-tertiary) for description":
+    "var(--cometchat-text-color-primary) للعنوان، var(--cometchat-text-color-tertiary) للوصف",
+  "var(--cometchat-text-color-tertiary) — Gray outline":
+    "var(--cometchat-text-color-tertiary) — إطار رمادي",
+  "var(--cometchat-text-color-tertiary) — Muted dark":
+    "var(--cometchat-text-color-tertiary) — داكن خافت",
+  "review":
+    "مراجعة",
+
 };
 
 /**
@@ -4491,7 +4597,11 @@ const toArabicDateLike = (english: string): string | undefined => {
   ATOM_RE.lastIndex = 0;
   if (!ATOM_RE.test(english)) return undefined;
   ATOM_RE.lastIndex = 0;
-  return english.replace(ATOM_RE, (m) => DATE_ATOMS[m] ?? m);
+  const out = english.replace(ATOM_RE, (m) => DATE_ATOMS[m] ?? m);
+  // Only a timestamp made entirely of date atoms counts. "Last seen today at
+  // 2:30 pm" came out as "Last seen today at 2:30 م" — an English sentence
+  // with one Arabic word, which hid it from every check as "translated".
+  return /[A-Za-z]/.test(out) ? undefined : out;
 };
 
 /**
