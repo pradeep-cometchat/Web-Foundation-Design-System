@@ -35,6 +35,10 @@ export const iconFontFamily: Record<IconVariant, string> = {
  * Arabic. Everything else — a clock, a trash can, a checkmark — means the same
  * thing in both directions and must NOT be flipped.
  *
+ * Membership follows Google's own per-icon flag (android:autoMirrored="true"
+ * on the Material Symbols drawables), which also covers icons whose direction
+ * is less obvious — a video camera's lens, a chat bubble's tail, a flag.
+ *
  * The icon catalog is the deliberate exception: it documents each glyph as the
  * font draws it, so it opts out via `mirror={false}`.
  */
@@ -44,11 +48,15 @@ export const mirroredIcons = new Set<string>([
   "arrow_forward",
   "arrow_forward_ios",
   "call_made",
+  "call_missed",
   "call_received",
+  "chat",
   "chevron_left",
   "chevron_right",
+  "content_copy",
   "double_arrow",
   "first_page",
+  "flag",
   "format_indent_decrease",
   "format_indent_increase",
   "forward",
@@ -57,15 +65,20 @@ export const mirroredIcons = new Set<string>([
   "last_page",
   "login",
   "logout",
+  "missed_video_call",
   "navigate_before",
   "navigate_next",
+  "phone_callback",
+  "phone_missed",
   "redo",
   "reply",
   "reply_all",
   "send",
+  "sticky_note_2",
   "subdirectory_arrow_right",
   "trending_flat",
   "undo",
+  "videocam",
 ]);
 
 /**
@@ -73,8 +86,8 @@ export const mirroredIcons = new Set<string>([
  * rule in cometchat-tokens.css does the flip, so every render path — the Icon
  * component or a raw span — mirrors identically.
  */
-export const iconMirrorProps = (name: string) =>
-  mirroredIcons.has(name) ? { "data-icon-mirror": "" } : {};
+export const iconMirrorProps = (name: unknown) =>
+  typeof name === "string" && mirroredIcons.has(name) ? { "data-icon-mirror": "" } : {};
 
 export type IconCategory =
   | "Navigation"

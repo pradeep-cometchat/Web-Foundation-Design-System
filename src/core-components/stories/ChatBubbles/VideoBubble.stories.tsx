@@ -567,7 +567,7 @@ function VideoBubble({ layout, variant, extraCount = 0 }: { layout: VideoLayout;
       case "placeholder":
         return (
           <div style={{ ...containerStyle, height: size, background: "var(--cometchat-background-color-02)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <span className="icon-rounded" style={{ fontSize: 40, color: "var(--cometchat-text-color-quaternary)", "--icon-fill": 0 } as React.CSSProperties}>videocam</span>
+            <span data-icon-mirror className="icon-rounded" style={{ fontSize: 40, color: "var(--cometchat-text-color-quaternary)", "--icon-fill": 0 } as React.CSSProperties}>videocam</span>
           </div>
         );
       default:

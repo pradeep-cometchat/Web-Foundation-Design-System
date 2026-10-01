@@ -111,7 +111,7 @@ const CopyIcon: React.FC<{ copied: boolean }> = ({ copied }) =>
       />
     </svg>
   ) : (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden>
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden data-icon-mirror>
       <rect
         x="8"
         y="8"

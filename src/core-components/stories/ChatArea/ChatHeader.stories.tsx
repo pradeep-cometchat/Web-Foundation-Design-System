@@ -240,7 +240,7 @@ function ChatHeader({ showBack = true, showTyping = false, status = "Online" }: 
       </div>
       <div className="chat-header__actions">
         <button className="chat-header__action-btn">
-          <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>videocam</span>
+          <span data-icon-mirror className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>videocam</span>
         </button>
         <button className="chat-header__action-btn">
           <span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>call</span>

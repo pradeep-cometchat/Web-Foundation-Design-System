@@ -367,7 +367,7 @@ function ReplyIcon() {
 }
 
 function CopyIcon() {
-  return <span className="icon-rounded" style={fillStyle}>content_copy</span>;
+  return <span data-icon-mirror className="icon-rounded" style={fillStyle}>content_copy</span>;
 }
 
 function ForwardIcon() {
@@ -391,7 +391,7 @@ function BlockIcon() {
 }
 
 function ReportIcon() {
-  return <span className="icon-rounded" style={fillStyle}>flag</span>;
+  return <span data-icon-mirror className="icon-rounded" style={fillStyle}>flag</span>;
 }
 
 /* ─── Usage helpers ─── */

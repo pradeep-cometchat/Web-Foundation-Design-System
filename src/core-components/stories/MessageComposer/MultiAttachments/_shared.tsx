@@ -1,3 +1,4 @@
+import { iconMirrorProps } from "../../../../cometchat-foundation/tokens/icons";
 import { T, useT, localizeDigits, initialOf } from "../../../../cometchat-foundation/localization";
 /**
  * Shared primitives for the "Multi Attachments" story pages.
@@ -1310,7 +1311,7 @@ export function MultiAttachmentBubble({
             }}
           >
             {m && (
-              <span
+              <span {...iconMirrorProps(QUOTED_ICON[m.kind])}
                 className="icon-rounded"
                 style={
                   {
@@ -1388,7 +1389,7 @@ export function MultiAttachmentBubble({
             gap: "var(--cometchat-spacing-1)",
           }}
         >
-          <span
+          <span {...iconMirrorProps(expanded ? "expand_less" : "expand_more")}
             className="icon-rounded"
             style={{ fontSize: 18, "--icon-fill": 0 } as React.CSSProperties}
           >
@@ -2550,7 +2551,7 @@ const CIconMood = () => (
   </svg>
 );
 const CIconSticker = () => (
-  <svg
+  <svg data-icon-mirror
     width="22"
     height="22"
     viewBox="0 -960 960 960"
@@ -2636,13 +2637,19 @@ export function FormatToolbar() {
       <button style={fmtBtn} aria-label="Ordered List">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
           <path
+            data-dir-only="ltr"
             d="M2 17h2v.5H3v1h1v.5H2v1h3v-4H2v1Zm1-9h1V4H2v1h1v3Zm-1 3h1.8L2 13.1v.9h3v-1H3.2L5 10.9V10H2v1Zm5-6v2h14V5H7Zm0 14h14v-2H7v2Zm0-6h14v-2H7v2Z"
+            fill="currentColor"
+          />
+          <path
+            data-dir-only="rtl"
+            d="M18 17h2v.5h-1v1h1v.5h-2v1h3v-4h-3zm1-9h1V4h-2v1h1zm-1 3h1.8L18 13.1v.9h3v-1h-1.8l1.8-2.1V10h-3zM2 5h14v2H2zm0 12h14v2H2zm0-6h14v2H2z"
             fill="currentColor"
           />
         </svg>
       </button>
       <button style={fmtBtn} aria-label="Bullet List">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <svg data-icon-mirror width="16" height="16" viewBox="0 0 24 24" fill="none">
           <path
             d="M4 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5Zm0-6c-.83 0-1.5.67-1.5 1.5S3.17 7.5 4 7.5 5.5 6.83 5.5 6 4.83 4.5 4 4.5Zm0 12c-.83 0-1.5.68-1.5 1.5s.68 1.5 1.5 1.5 1.5-.68 1.5-1.5-.67-1.5-1.5-1.5ZM7 19h14v-2H7v2Zm0-6h14v-2H7v2Zm0-8v2h14V5H7Z"
             fill="currentColor"

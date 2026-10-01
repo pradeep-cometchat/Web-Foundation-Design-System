@@ -440,7 +440,7 @@ function CallBubble({
 
 function VoiceOutgoingIcon() {
   return (
-    <span className="icon-rounded" style={{ fontSize: 20, color: "var(--cometchat-icon-color-highlight)", "--icon-fill": 1 } as React.CSSProperties}>
+    <span data-icon-mirror className="icon-rounded" style={{ fontSize: 20, color: "var(--cometchat-icon-color-highlight)", "--icon-fill": 1 } as React.CSSProperties}>
       phone_callback
     </span>
   );
@@ -448,7 +448,7 @@ function VoiceOutgoingIcon() {
 
 function VoiceIncomingIcon() {
   return (
-    <span className="icon-rounded" style={{ fontSize: 20, color: "var(--cometchat-icon-color-highlight)", "--icon-fill": 1 } as React.CSSProperties}>
+    <span data-icon-mirror className="icon-rounded" style={{ fontSize: 20, color: "var(--cometchat-icon-color-highlight)", "--icon-fill": 1 } as React.CSSProperties}>
       phone_missed
     </span>
   );
@@ -456,7 +456,7 @@ function VoiceIncomingIcon() {
 
 function VideoOutgoingIcon() {
   return (
-    <span className="icon-rounded" style={{ fontSize: 20, color: "var(--cometchat-icon-color-highlight)", "--icon-fill": 1, "--icon-wght": 300 } as React.CSSProperties}>
+    <span data-icon-mirror className="icon-rounded" style={{ fontSize: 20, color: "var(--cometchat-icon-color-highlight)", "--icon-fill": 1, "--icon-wght": 300 } as React.CSSProperties}>
       missed_video_call
     </span>
   );
@@ -464,7 +464,7 @@ function VideoOutgoingIcon() {
 
 function VideoIncomingIcon() {
   return (
-    <span className="icon-rounded" style={{ fontSize: 20, color: "var(--cometchat-icon-color-highlight)", "--icon-fill": 1, "--icon-wght": 300 } as React.CSSProperties}>
+    <span data-icon-mirror className="icon-rounded" style={{ fontSize: 20, color: "var(--cometchat-icon-color-highlight)", "--icon-fill": 1, "--icon-wght": 300 } as React.CSSProperties}>
       missed_video_call
     </span>
   );

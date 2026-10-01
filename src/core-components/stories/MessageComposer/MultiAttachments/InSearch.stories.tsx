@@ -1,3 +1,4 @@
+import { iconMirrorProps } from "../../../../cometchat-foundation/tokens/icons";
 import { T, useDocumentDirection, toArabicOr, localizeDigits } from "../../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import { SearchBar } from "../../../../base-components/components/SearchBar";
@@ -111,7 +112,7 @@ function Preview({ sent, sender, kind, count = 1, caption }: PreviewProps) {
     >
       {who && <span style={{ flexShrink: 0 }}><T>{who}</T>:</span>}
       {kind !== "text" && (
-        <span
+        <span {...iconMirrorProps(TYPE_ICON[kind])}
           className="icon-rounded"
           style={
             {

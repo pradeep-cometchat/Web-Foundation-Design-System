@@ -1,3 +1,4 @@
+import { iconMirrorProps } from "../../../cometchat-foundation/tokens/icons";
 import "./Input.css";
 import { T, useT } from "../../../cometchat-foundation/localization";
 
@@ -52,7 +53,7 @@ export function Input({
       )}
       <div className={`input-field__container ${hasError ? "input-field__container--error" : ""}`}>
         {leadingIcon && (
-          <span className="input-field__icon input-field__icon--leading icon-outlined" style={{ fontFamily: "var(--cometchat-font-family)" }}>
+          <span {...iconMirrorProps(leadingIcon)} className="input-field__icon input-field__icon--leading icon-outlined" style={{ fontFamily: "var(--cometchat-font-family)" }}>
             {leadingIcon}
           </span>
         )}
@@ -65,7 +66,7 @@ export function Input({
           onChange={(e) => onChange?.(e.target.value)}
         />
         {trailingIcon && (
-          <span className="input-field__icon input-field__icon--trailing icon-outlined" style={{ fontFamily: "var(--cometchat-font-family)" }}>
+          <span {...iconMirrorProps(trailingIcon)} className="input-field__icon input-field__icon--trailing icon-outlined" style={{ fontFamily: "var(--cometchat-font-family)" }}>
             {trailingIcon}
           </span>
         )}

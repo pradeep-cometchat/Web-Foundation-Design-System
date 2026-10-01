@@ -1,3 +1,4 @@
+import { iconMirrorProps } from "../../../cometchat-foundation/tokens/icons";
 import React from "react";
 import { T, useT, initialOf } from "../../../cometchat-foundation/localization";
 import "./ListItem.css";
@@ -76,7 +77,7 @@ export const ListItem: React.FC<ListItemProps> = ({
         {subtitle && (
           <div className="list-item__subtitle">
             {subtitleIcon && (
-              <span className="icon-outlined list-item__subtitle-icon" aria-hidden="true">
+              <span {...iconMirrorProps(subtitleIcon)} className="icon-outlined list-item__subtitle-icon" aria-hidden="true">
                 {subtitleIcon}
               </span>
             )}
@@ -89,7 +90,7 @@ export const ListItem: React.FC<ListItemProps> = ({
         {trailingText && <div className="list-item__trailing-text"><T>{trailingText}</T></div>}
         {trailingNode && <div className="list-item__trailing-node">{trailingNode}</div>}
         {trailingIcon && (
-          <span className="icon-outlined list-item__trailing-icon" aria-hidden="true">
+          <span {...iconMirrorProps(trailingIcon)} className="icon-outlined list-item__trailing-icon" aria-hidden="true">
             {trailingIcon}
           </span>
         )}

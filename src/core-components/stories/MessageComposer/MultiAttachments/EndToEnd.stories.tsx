@@ -1,3 +1,4 @@
+import { iconMirrorProps } from "../../../../cometchat-foundation/tokens/icons";
 import { T, useT, useDocumentDirection, toArabicOr } from "../../../../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect, useRef, useState } from "react";
@@ -198,7 +199,7 @@ function TabItem({
 }) {
   return (
     <div className="shell__tab-item">
-      <span
+      <span {...iconMirrorProps(icon)}
         className={`icon-rounded shell__tab-icon ${active ? "shell__tab-icon--active" : ""}`}
         style={active ? { fontVariationSettings: '"FILL" 1' } : undefined}
       >
@@ -240,7 +241,7 @@ const IconMood = () => (
   </svg>
 );
 const IconSticker = () => (
-  <svg
+  <svg data-icon-mirror
     width="22"
     height="22"
     viewBox="0 -960 960 960"
@@ -995,7 +996,7 @@ function EndToEndChat({
           {!isNarrow && (
             <>
               <button className="chat-header__action-btn">
-                <span
+                <span data-icon-mirror
                   className="icon-rounded"
                   style={{
                     fontSize: 24,

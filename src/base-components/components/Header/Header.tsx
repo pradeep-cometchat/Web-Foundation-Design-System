@@ -1,3 +1,4 @@
+import { iconMirrorProps } from "../../../cometchat-foundation/tokens/icons";
 import React from "react";
 import { T } from "../../../cometchat-foundation/localization";
 import "./Header.css";
@@ -61,7 +62,7 @@ export const Header: React.FC<HeaderProps> = ({
             aria-label={action.ariaLabel}
             onClick={action.onClick}
           >
-            <span className="screen-header__action-icon icon-outlined">
+            <span {...iconMirrorProps(action.icon)} className="screen-header__action-icon icon-outlined">
               {action.icon}
             </span>
           </button>

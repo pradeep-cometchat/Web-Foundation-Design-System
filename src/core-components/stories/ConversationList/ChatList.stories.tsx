@@ -142,7 +142,7 @@ export const Empty: StoryObj = {
       <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "var(--cometchat-spacing-10)" }}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-4)" }}>
           <div style={{ width: 48, height: 48, borderRadius: "var(--cometchat-radius-3)", border: "1px solid var(--cometchat-border-color-dark)", background: "var(--cometchat-background-color-01)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
-            <span className="icon-rounded" style={{ fontSize: 28, color: "var(--cometchat-text-color-primary)" }}>chat</span>
+            <span data-icon-mirror className="icon-rounded" style={{ fontSize: 28, color: "var(--cometchat-text-color-primary)" }}>chat</span>
           </div>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-1)", textAlign: "center", maxWidth: 352 }}>
             <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: "600", lineHeight: "24px", color: "var(--cometchat-text-color-primary)" }}><T>No Conversations Yet</T></span>
@@ -292,7 +292,7 @@ export const AllStates: StoryObj = {
           <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "var(--cometchat-spacing-10)" }}>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-4)" }}>
               <div style={{ width: 48, height: 48, borderRadius: "var(--cometchat-radius-3)", border: "1px solid var(--cometchat-border-color-dark)", background: "var(--cometchat-background-color-01)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
-                <span className="icon-rounded" style={{ fontSize: 28, color: "var(--cometchat-text-color-primary)" }}>chat</span>
+                <span data-icon-mirror className="icon-rounded" style={{ fontSize: 28, color: "var(--cometchat-text-color-primary)" }}>chat</span>
               </div>
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--cometchat-spacing-1)", textAlign: "center", maxWidth: 352 }}>
                 <span style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: "600", color: "var(--cometchat-text-color-primary)" }}><T>No Conversations Yet</T></span>

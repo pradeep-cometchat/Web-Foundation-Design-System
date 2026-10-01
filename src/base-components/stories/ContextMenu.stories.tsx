@@ -38,7 +38,7 @@ const fillStyle: React.CSSProperties = {
 };
 
 function CopyIcon() {
-  return <span className="icon-rounded" style={fillStyle}>content_copy</span>;
+  return <span data-icon-mirror className="icon-rounded" style={fillStyle}>content_copy</span>;
 }
 
 function ReplyIcon() {

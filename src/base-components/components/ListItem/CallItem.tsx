@@ -83,7 +83,7 @@ const Avatar: React.FC<AvatarPartProps> = ({ variant, url, icon, text, title, st
         </span>
       )}
       {variant === "icon" && (
-        <span className="icon-outlined call-item__avatar-icon" aria-hidden="true">
+        <span {...iconMirrorProps(icon ?? "person")} className="icon-outlined call-item__avatar-icon" aria-hidden="true">
           {icon ?? "person"}
         </span>
       )}
@@ -167,7 +167,7 @@ export const CallItem: React.FC<CallItemProps> = ({
           onActionClick?.();
         }}
       >
-        <span className="icon-outlined" aria-hidden="true">
+        <span {...iconMirrorProps(trailingIcon)} className="icon-outlined" aria-hidden="true">
           {trailingIcon}
         </span>
       </button>

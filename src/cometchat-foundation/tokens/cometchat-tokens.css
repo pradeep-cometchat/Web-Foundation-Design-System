@@ -325,3 +325,19 @@
 [dir="rtl"] [data-icon-mirror="inverted"] {
   transform: none;
 }
+
+/* An icon whose RTL form is a different drawing rather than a mirror image:
+   a numbered list keeps its digits readable and moves them to the right
+   (Google ships it as format_list_numbered_rtl). Both drawings are in the
+   SVG; the direction picks one. */
+[data-dir-only="rtl"] {
+  display: none;
+}
+
+[dir="rtl"] [data-dir-only="rtl"] {
+  display: inline;
+}
+
+[dir="rtl"] [data-dir-only="ltr"] {
+  display: none;
+}

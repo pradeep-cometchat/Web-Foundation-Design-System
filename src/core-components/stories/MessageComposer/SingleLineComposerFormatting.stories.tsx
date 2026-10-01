@@ -37,7 +37,7 @@ const IconMood = () => (
   </svg>
 );
 const IconSticker = () => (
-  <svg width="22" height="22" viewBox="0 -960 960 960" fill="none" style={{ minWidth: 22, minHeight: 22 }}>
+  <svg data-icon-mirror width="22" height="22" viewBox="0 -960 960 960" fill="none" style={{ minWidth: 22, minHeight: 22 }}>
     <path d="M200-160q-33 0-56.5-23.5T120-240v-480q0-33 23.5-56.5T200-800h560q33 0 56.5 23.5T840-720v320L600-160H200Zm0-80h360v-120q0-33 23.5-56.5T640-440h120v-280H200v480Z" fill="#A4A7AE"/>
   </svg>
 );
@@ -71,8 +71,8 @@ function FormatToolbarRow({ active }: { active?: FormattingType }) {
       <button style={active === "strikethrough" ? fmtBtnActive : fmtBtn} aria-label="Strikethrough"><span style={{ textDecoration: "line-through" }}>S</span></button>
       <div style={separator} />
       <button style={active === "link" ? fmtBtnActive : fmtBtn} aria-label="Link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0 0 10h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1ZM8 13h8v-2H8v2Zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 0-10Z" fill="currentColor"/></svg></button>
-      <button style={active === "orderedList" ? fmtBtnActive : fmtBtn} aria-label="Ordered List"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M2 17h2v.5H3v1h1v.5H2v1h3v-4H2v1Zm1-9h1V4H2v1h1v3Zm-1 3h1.8L2 13.1v.9h3v-1H3.2L5 10.9V10H2v1Zm5-6v2h14V5H7Zm0 14h14v-2H7v2Zm0-6h14v-2H7v2Z" fill="currentColor"/></svg></button>
-      <button style={active === "bulletList" ? fmtBtnActive : fmtBtn} aria-label="Bullet List"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5Zm0-6c-.83 0-1.5.67-1.5 1.5S3.17 7.5 4 7.5 5.5 6.83 5.5 6 4.83 4.5 4 4.5Zm0 12c-.83 0-1.5.68-1.5 1.5s.68 1.5 1.5 1.5 1.5-.68 1.5-1.5-.67-1.5-1.5-1.5ZM7 19h14v-2H7v2Zm0-6h14v-2H7v2Zm0-8v2h14V5H7Z" fill="currentColor"/></svg></button>
+      <button style={active === "orderedList" ? fmtBtnActive : fmtBtn} aria-label="Ordered List"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path data-dir-only="ltr" d="M2 17h2v.5H3v1h1v.5H2v1h3v-4H2v1Zm1-9h1V4H2v1h1v3Zm-1 3h1.8L2 13.1v.9h3v-1H3.2L5 10.9V10H2v1Zm5-6v2h14V5H7Zm0 14h14v-2H7v2Zm0-6h14v-2H7v2Z" fill="currentColor"/><path data-dir-only="rtl" d="M18 17h2v.5h-1v1h1v.5h-2v1h3v-4h-3zm1-9h1V4h-2v1h1zm-1 3h1.8L18 13.1v.9h3v-1h-1.8l1.8-2.1V10h-3zM2 5h14v2H2zm0 12h14v2H2zm0-6h14v2H2z" fill="currentColor"/></svg></button>
+      <button style={active === "bulletList" ? fmtBtnActive : fmtBtn} aria-label="Bullet List"><svg data-icon-mirror width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5Zm0-6c-.83 0-1.5.67-1.5 1.5S3.17 7.5 4 7.5 5.5 6.83 5.5 6 4.83 4.5 4 4.5Zm0 12c-.83 0-1.5.68-1.5 1.5s.68 1.5 1.5 1.5 1.5-.68 1.5-1.5-.67-1.5-1.5-1.5ZM7 19h14v-2H7v2Zm0-6h14v-2H7v2Zm0-8v2h14V5H7Z" fill="currentColor"/></svg></button>
       <div style={separator} />
       <button style={active === "blockQuote" ? fmtBtnActive : fmtBtn} aria-label="Block Quote"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 17h3l2-4V7H5v6h3l-2 4Zm8 0h3l2-4V7h-6v6h3l-2 4Z" fill="currentColor"/></svg></button>
       <button style={active === "code" ? fmtBtnActive : fmtBtn} aria-label="Code"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4Zm5.2 0 4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4Z" fill="currentColor"/></svg></button>

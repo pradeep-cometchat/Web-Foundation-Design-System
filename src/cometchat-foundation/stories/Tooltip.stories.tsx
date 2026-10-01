@@ -1,3 +1,4 @@
+import { iconMirrorProps } from "../tokens/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import { T, useIsRTL } from "../localization";
 import { Tooltip } from "../components/Tooltip/Tooltip.impl";
@@ -165,7 +166,7 @@ function TriggerBtn({ label = "Hover me", icon }: { label?: string; icon?: strin
       }}
     >
       {icon && (
-        <span
+        <span {...iconMirrorProps(icon)}
           className="icon-outlined"
           data-icon="outlined"
           style={{

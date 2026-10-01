@@ -1,3 +1,4 @@
+import { iconMirrorProps } from "../../../cometchat-foundation/tokens/icons";
 import React from "react";
 import { T, useT, initialOf } from "../../../cometchat-foundation/localization";
 import "./GroupItem.css";
@@ -105,7 +106,7 @@ const Avatar: React.FC<AvatarPartProps> = ({ variant, url, icon, text, title, st
         </span>
       )}
       {variant === "icon" && (
-        <span className="icon-outlined group-item__avatar-icon" aria-hidden="true">
+        <span {...iconMirrorProps(icon ?? "group")} className="icon-outlined group-item__avatar-icon" aria-hidden="true">
           {icon ?? "group"}
         </span>
       )}

@@ -1,3 +1,4 @@
+import { iconMirrorProps } from "../cometchat-foundation/tokens/icons";
 import { T } from "../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import "./Shell.css";
@@ -123,7 +124,7 @@ export const ChatAreaEmpty: StoryObj = {
       <div className="shell__main">
         <div className="shell__empty">
           <div className="shell__empty-icon">
-            <span className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-icon-color-tertiary)" }}>chat</span>
+            <span data-icon-mirror className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-icon-color-tertiary)" }}>chat</span>
           </div>
           <div>
             <p className="shell__empty-title"><T>Welcome to Your Conversations</T></p>
@@ -211,7 +212,7 @@ export const ScrollToBottomFAB: StoryObj = {
             </div>
           </div>
           <div className="chat-header__actions">
-            <button className="chat-header__action-btn"><span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>videocam</span></button>
+            <button className="chat-header__action-btn"><span data-icon-mirror className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>videocam</span></button>
             <button className="chat-header__action-btn"><span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>call</span></button>
             <button className="chat-header__action-btn"><span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>more_vert</span></button>
           </div>
@@ -268,7 +269,7 @@ export const ScrollToBottomWithBadge: StoryObj = {
             </div>
           </div>
           <div className="chat-header__actions">
-            <button className="chat-header__action-btn"><span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>videocam</span></button>
+            <button className="chat-header__action-btn"><span data-icon-mirror className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>videocam</span></button>
             <button className="chat-header__action-btn"><span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>call</span></button>
             <button className="chat-header__action-btn"><span className="icon-rounded" style={{ fontSize: 24, color: "var(--cometchat-icon-color-primary)" }}>more_vert</span></button>
           </div>
@@ -340,7 +341,7 @@ function BubbleSkeleton({ align, width }: { align: "left" | "right" | "center"; 
 function TabItem({ icon, label, active }: { icon: string; label: string; active?: boolean }) {
   return (
     <div className="shell__tab-item">
-      <span className={`icon-rounded shell__tab-icon ${active ? "shell__tab-icon--active" : ""}`}>{icon}</span>
+      <span {...iconMirrorProps(icon)} className={`icon-rounded shell__tab-icon ${active ? "shell__tab-icon--active" : ""}`}>{icon}</span>
       <span className={`shell__tab-label ${active ? "shell__tab-label--active" : ""}`}><T>{label}</T></span>
     </div>
   );

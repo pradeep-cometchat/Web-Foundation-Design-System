@@ -115,7 +115,7 @@ export const InContext: StoryObj = {
             <span className="icon-outlined" style={{ fontSize: 20, color: "var(--cometchat-icon-color-tertiary)", padding: "var(--cometchat-spacing-1-5)" }}>add_circle</span>
             <span className="icon-outlined" style={{ fontSize: 20, color: "var(--cometchat-icon-color-tertiary)", padding: "var(--cometchat-spacing-1-5)" }}>mic</span>
             <span className="icon-outlined" style={{ fontSize: 20, color: "var(--cometchat-icon-color-tertiary)", padding: "var(--cometchat-spacing-1-5)" }}>mood</span>
-            <span className="icon-outlined" style={{ fontSize: 20, color: "var(--cometchat-icon-color-tertiary)", padding: "var(--cometchat-spacing-1-5)" }}>sticky_note_2</span>
+            <span data-icon-mirror className="icon-outlined" style={{ fontSize: 20, color: "var(--cometchat-icon-color-tertiary)", padding: "var(--cometchat-spacing-1-5)" }}>sticky_note_2</span>
             <span className="icon-outlined" style={{ fontSize: 20, color: "var(--cometchat-icon-color-tertiary)", padding: "var(--cometchat-spacing-1-5)" }}>match_case</span>
             <span className="icon-outlined" style={{ fontSize: 20, color: "var(--cometchat-icon-color-tertiary)", padding: "var(--cometchat-spacing-1-5)" }}>auto_awesome</span>
           </div>

@@ -1,3 +1,4 @@
+import { iconMirrorProps } from "../cometchat-foundation/tokens/icons";
 import { T } from "../cometchat-foundation/localization";
 import type { Meta, StoryObj } from "@storybook/react";
 import "./Shell.css";
@@ -50,7 +51,7 @@ export const Default: StoryObj = {
       <div className="shell__main">
         <div className="shell__empty">
           <div className="shell__empty-icon">
-            <span className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-icon-color-tertiary)" }}>chat</span>
+            <span data-icon-mirror className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-icon-color-tertiary)" }}>chat</span>
           </div>
           <div>
             <p className="shell__empty-title"><T>Welcome to Your Conversations</T></p>
@@ -71,7 +72,7 @@ export const ListEmptyState: StoryObj = {
         <Header title="Chats" actions={[{ icon: "more_vert", onClick: () => {}, ariaLabel: "More" }]} />
         <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "var(--cometchat-spacing-8)", textAlign: "center" }}>
           <div style={{ width: 48, height: 48, borderRadius: "var(--cometchat-radius-3)", border: "1px solid var(--cometchat-border-color-dark)", background: "var(--cometchat-background-color-01)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "var(--cometchat-spacing-4)" }}>
-            <span className="icon-rounded" style={{ fontSize: 28, color: "var(--cometchat-text-color-primary)" }}>chat</span>
+            <span data-icon-mirror className="icon-rounded" style={{ fontSize: 28, color: "var(--cometchat-text-color-primary)" }}>chat</span>
           </div>
           <p style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "16px", fontWeight: 600, color: "var(--cometchat-text-color-primary)", margin: "0 0 var(--cometchat-spacing-1)" }}><T>No Conversations Yet</T></p>
           <p style={{ fontFamily: "var(--cometchat-font-family)", fontSize: "14px", color: "var(--cometchat-text-color-tertiary)", margin: 0, lineHeight: "16.8px" }}><T>Start a new chat or invite others to join the conversation.</T></p>
@@ -89,7 +90,7 @@ export const ListEmptyState: StoryObj = {
       <div className="shell__main">
         <div className="shell__empty">
           <div className="shell__empty-icon">
-            <span className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-icon-color-tertiary)" }}>chat</span>
+            <span data-icon-mirror className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-icon-color-tertiary)" }}>chat</span>
           </div>
           <div>
             <p className="shell__empty-title"><T>Welcome to Your Conversations</T></p>
@@ -129,7 +130,7 @@ export const ErrorState: StoryObj = {
       <div className="shell__main">
         <div className="shell__empty">
           <div className="shell__empty-icon">
-            <span className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-icon-color-tertiary)" }}>chat</span>
+            <span data-icon-mirror className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-icon-color-tertiary)" }}>chat</span>
           </div>
           <div>
             <p className="shell__empty-title"><T>Welcome to Your Conversations</T></p>
@@ -166,7 +167,7 @@ export const SkeletonLoading: StoryObj = {
       <div className="shell__main">
         <div className="shell__empty">
           <div className="shell__empty-icon">
-            <span className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-icon-color-tertiary)" }}>chat</span>
+            <span data-icon-mirror className="icon-rounded" style={{ fontSize: 48, color: "var(--cometchat-icon-color-tertiary)" }}>chat</span>
           </div>
           <div>
             <p className="shell__empty-title"><T>Welcome to Your Conversations</T></p>
@@ -211,7 +212,7 @@ export const Playground: StoryObj = {
 function TabItem({ icon, label, active }: { icon: string; label: string; active?: boolean }) {
   return (
     <div className="shell__tab-item">
-      <span className={`icon-rounded shell__tab-icon ${active ? "shell__tab-icon--active" : ""}`}>{icon}</span>
+      <span {...iconMirrorProps(icon)} className={`icon-rounded shell__tab-icon ${active ? "shell__tab-icon--active" : ""}`}>{icon}</span>
       <span className={`shell__tab-label ${active ? "shell__tab-label--active" : ""}`}><T>{label}</T></span>
     </div>
   );

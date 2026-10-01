@@ -18,7 +18,7 @@ export function PhotoIcon() {
 }
 
 export function VideocamIcon() {
-  return <span className="icon-rounded" style={fillStyle}>videocam</span>;
+  return <span data-icon-mirror className="icon-rounded" style={fillStyle}>videocam</span>;
 }
 
 export function PlayCircleIcon() {
