@@ -1,0 +1,1 @@
+import{t as r,b as o}from"./T-B-X7QtOX.js";const i=t=>typeof document<"u"&&document.documentElement.getAttribute("dir")==="rtl"?r(o(t)??t):t,c=t=>typeof document<"u"&&document.documentElement.getAttribute("dir")==="rtl"?r(t):t,s=t=>{const e=t.trim();return(/^ال\S/.test(e)?e.slice(2):e).charAt(0)};export{s as i,c as l,i as t};
