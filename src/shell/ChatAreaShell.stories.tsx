@@ -362,7 +362,7 @@ function ChatBubble({ variant, text, time }: { variant: "sent" | "received"; tex
   return (
     <div style={{ display: "flex", justifyContent: isSent ? "flex-end" : "flex-start" }}>
       <div style={{ maxWidth: "65%", padding: "var(--cometchat-spacing-2) var(--cometchat-spacing-3)", borderRadius: "var(--cometchat-radius-2-5)", borderEndEndRadius: isSent ? "var(--cometchat-radius-1)" : 0, borderEndStartRadius: isSent ? 0 : "var(--cometchat-radius-1)", background: isSent ? "var(--cometchat-send-bubble-background)" : "var(--cometchat-received-bubble-background)", color: isSent ? "var(--cometchat-static-white)" : "var(--cometchat-text-color-primary)", fontSize: "14px", lineHeight: "16.8px" }}>
-        <div><T>{text}</T></div>
+        <div dir="auto"><T>{text}</T></div>
         <div style={{ fontSize: "10px", opacity: 0.7, textAlign: "end", marginTop: 2 }}><T>{time}</T></div>
       </div>
     </div>

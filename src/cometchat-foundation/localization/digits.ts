@@ -31,6 +31,8 @@ const PROTECTED = new RegExp(
     // neutral-400), utility names (px-12, pt-8), type-scale names (H4/Regular)
     // and file extensions (.mp3, .m4a). They name something to be looked up.
     "\\b[A-Za-z][A-Za-z0-9]*(?:-[A-Za-z0-9]+)*-[A-Za-z]*\\d[A-Za-z0-9-]*",
+    // Snake-case names with digits, such as the icon sticky_note_2.
+    "\\b[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)*_[A-Za-z]*\\d[A-Za-z0-9_]*",
     "\\b[A-Z][a-z]*\\s?\\d+/[A-Za-z]+",
     "\\.[a-z]+\\d[a-z0-9]*\\b",
   ].join("|"),

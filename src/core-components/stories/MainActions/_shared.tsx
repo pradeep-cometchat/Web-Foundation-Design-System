@@ -128,7 +128,7 @@ export function TextBubble({
           fontFamily: "var(--cometchat-font-family, Inter, sans-serif)",
         }}
       >
-        <T>{text}</T>
+        <div dir="auto"><T>{text}</T></div>
         <div
           style={{
             display: "flex",

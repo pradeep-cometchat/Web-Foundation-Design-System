@@ -330,6 +330,7 @@ function AudioBubble({
       >
         {/* Audio player row */}
         <div
+          data-media-ltr
           style={{
             display: "flex",
             alignItems: "center",

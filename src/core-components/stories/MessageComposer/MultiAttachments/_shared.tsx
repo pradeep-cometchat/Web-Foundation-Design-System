@@ -331,6 +331,7 @@ export function AudioCard({
   const elapsed = playing && current === "00:00" ? "00:12" : current;
   return (
     <div
+      data-media-ltr
       style={{
         display: "flex",
         alignItems: "center",
@@ -350,6 +351,7 @@ export function AudioCard({
         }}
       >
         <span
+          dir="auto"
           style={{
             fontSize: compact ? 12 : 14,
             fontWeight: compact ? 500 : 600,
@@ -1400,6 +1402,7 @@ export function MultiAttachmentBubble({
       )}
       {caption && (
         <div
+          dir="auto"
           style={{
             padding: "0 var(--cometchat-spacing-1)",
             fontSize: 14,
@@ -2018,6 +2021,7 @@ export function AudioResult({
 }) {
   return (
     <div
+      data-media-ltr
       style={{
         display: "flex",
         alignItems: "center",
@@ -2036,6 +2040,7 @@ export function AudioResult({
         }}
       >
         <span
+          dir="auto"
           style={{
             fontSize: 14,
             fontWeight: 600,

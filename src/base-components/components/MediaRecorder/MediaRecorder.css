@@ -189,3 +189,14 @@
   background: var(--cometchat-primary-color);
   color: var(--cometchat-static-white);
 }
+
+/* The recording preview is a player, so it runs left to right in RTL too
+   (see [data-media-ltr] in the tokens). The delete / pause-recording button
+   is a composer action, not a player control: it stays beside Send. */
+[dir="rtl"] .media-recorder__recording {
+  direction: ltr;
+}
+
+[dir="rtl"] .media-recorder__action-btn {
+  order: -1;
+}

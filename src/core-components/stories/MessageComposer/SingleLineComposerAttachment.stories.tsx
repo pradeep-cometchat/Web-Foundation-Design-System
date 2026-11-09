@@ -327,7 +327,7 @@ const waveformHeights = [8, 14, 10, 18, 12, 16, 8, 20, 14, 10, 16, 12, 18, 8, 14
 
 function Waveform({ playing }: { playing?: boolean }) {
   return (
-    <div style={waveformContainer}>
+    <div style={waveformContainer} data-media-ltr>
       {waveformHeights.map((h, i) => (
         <div
           key={i}
@@ -385,7 +385,7 @@ function DocumentAttachmentPreview({ badge = "none" as BadgeState }) {
 
 function AudioAttachmentPreview({ badge = "none" as BadgeState, playing = false }) {
   return (
-    <div style={audioCard}>
+    <div style={audioCard} data-media-ltr="row">
       <div style={audioPlayBtn}><IconPlay /></div>
       <Waveform playing={playing} />
       <span style={durationText}><T>0:32</T></span>
@@ -396,7 +396,7 @@ function AudioAttachmentPreview({ badge = "none" as BadgeState, playing = false 
 
 function VoiceAttachmentPreview({ badge = "none" as BadgeState, playing = false }) {
   return (
-    <div style={audioCard}>
+    <div style={audioCard} data-media-ltr="row">
       <div style={audioPlayBtn}><IconPlay /></div>
       <Waveform playing={playing} />
       <span style={durationText}><T>0:32</T></span>

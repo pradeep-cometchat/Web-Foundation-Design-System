@@ -105,7 +105,7 @@ export function MultiLineComposer({
         </>
       ) : (
         /* Preview / Playback */
-        <div className="ml-composer__preview">
+        <div className="ml-composer__preview" data-media-ltr>
           <button
             type="button"
             className="ml-composer__play-btn"

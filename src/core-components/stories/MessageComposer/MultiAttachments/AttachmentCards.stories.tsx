@@ -490,7 +490,7 @@ function AudioCard({
 }) {
   const mobile = platform === "mobile";
   return (
-    <div style={cardShell(state, mobile)}>
+    <div style={cardShell(state, mobile)} data-media-ltr="row">
       <AudioButton
         loading={state === "loading"}
         error={state === "error" && mobile}
@@ -498,6 +498,7 @@ function AudioCard({
         playing={playing}
       />
       <div
+        data-media-ltr
         style={{
           flex: 1,
           minWidth: 0,
@@ -506,9 +507,9 @@ function AudioCard({
           gap: 6,
         }}
       >
-        <span style={titleStyle}><T>{name}</T></span>
+        <span dir="auto" style={titleStyle}><T>{name}</T></span>
         {state === "error" || state === "retry" ? (
-          <span style={subStyle(state)}><T>{subtitle(state, "")}</T></span>
+          <span dir="auto" style={subStyle(state)}><T>{subtitle(state, "")}</T></span>
         ) : (
           <>
             <SeekBar progress={playing ? 38 : 0} />

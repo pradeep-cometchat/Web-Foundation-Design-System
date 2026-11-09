@@ -103,6 +103,30 @@ export const AllVariants: StoryObj = {
 };
 
 /* ═══════════════════════════════════════════════════════════════════════════
+   MIXED LANGUAGES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+export const MixedLanguages: StoryObj = {
+  name: "Mixed Languages",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "An English message in an Arabic UI, and an Arabic message in an English UI. Each bubble stays on its sender's side; the text inside reads in its own language's direction.",
+      },
+    },
+  },
+  render: () => (
+    <Wrapper>
+      <TextBubble verbatim variant="received" message="مرحباً، هل الساعة ما زالت معروضة للبيع؟" time="4:56 pm" />
+      <TextBubble verbatim variant="sent" status="read" message="Yes, it's still available! Want me to send a few more photos?" time="4:57 pm" />
+      <TextBubble verbatim variant="received" message="نعم من فضلك، أرسل صور الجانبين والحزام. وهل السعر قابل للتفاوض إذا استلمتها اليوم؟" time="4:58 pm" />
+      <TextBubble verbatim variant="sent" status="delivered" message="Sure, sending them now. The price is a little flexible if you can pick it up today, and the original box and charger are included." time="4:59 pm" />
+    </Wrapper>
+  ),
+};
+
+/* ═══════════════════════════════════════════════════════════════════════════
    USAGE / DOCS
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -201,26 +225,32 @@ function TextBubble({
   message,
   time,
   truncate,
+  verbatim,
 }: {
   variant: "sent" | "received";
   status?: "sent" | "delivered" | "read";
   message: string;
   time: string;
   truncate?: boolean;
+  /** Show the message as written, untranslated — for mixed-language demos. */
+  verbatim?: boolean;
 }) {
   const isSent = variant === "sent";
   const maxChars = 120;
   const t = useT();
   // Translate before truncating: a sliced string is never a dictionary key.
-  const full = t(message);
+  const full = verbatim ? message : t(message);
   const displayText = truncate && full.length > maxChars ? full.slice(0, maxChars) + "..." : full;
 
   return (
     <div className={`chat-bubble-wrapper chat-bubble-wrapper--${variant}`}>
       <div className="chat-bubble-body">
-        {/* Message text */}
+        {/* Message text — laid out in its own language's direction, so an
+            English message reads left to right in an Arabic UI and vice versa */}
         <span
+          dir="auto"
           style={{
+            display: "block",
             fontSize: "14px",
             fontFamily: "var(--cometchat-font-family)",
             fontWeight: "400",

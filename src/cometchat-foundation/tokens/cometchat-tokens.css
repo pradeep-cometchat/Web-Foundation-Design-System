@@ -341,3 +341,18 @@
 [dir="rtl"] [data-dir-only="ltr"] {
   display: none;
 }
+
+/* Media players keep their controls and progress left to right in every
+   language: play sits on the left and playback fills rightward ("Media
+   controls for video or audio players are always LTR", Material 3).
+   "row" is for a player card whose corner badge belongs to the UI's
+   direction: the card stays RTL so the badge keeps its corner, and only
+   the order of its pieces is reversed. */
+[dir="rtl"] [data-media-ltr] {
+  direction: ltr;
+}
+
+[dir="rtl"] [data-media-ltr="row"] {
+  direction: rtl;
+  flex-direction: row-reverse;
+}

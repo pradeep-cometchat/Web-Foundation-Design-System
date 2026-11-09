@@ -2987,6 +2987,20 @@ export const AR: Readonly<Record<string, string>> = {
     "مُنشئ الرسائل – اللوحة",
   "Message Composer – State":
     "مُنشئ الرسائل – الحالة",
+  "Mixed Languages": "لغات مختلطة",
+  "Right-to-left": "من اليمين إلى اليسار",
+  "Which icons flip in RTL": "أيّ الأيقونات تنعكس في الاتجاه من اليمين إلى اليسار",
+  "The web kit flips every icon that Google marks to mirror in its Android icon set: arrows, send, reply and call direction, and also videocam, content_copy, chat and sticky_note_2. Apple's guidelines say not to flip icons of real-world objects, so on iOS those four stay as drawn. Each UI Kit follows its own platform's icons; the layout rules are the same everywhere.":
+    "تعكس حزمة الويب كل أيقونة تَسِمها Google بالانعكاس في مجموعة أيقونات Android: الأسهم والإرسال والرد واتجاه المكالمة، وكذلك videocam وcontent_copy وchat وsticky_note_2. تنص إرشادات Apple على عدم عكس أيقونات الأشياء الحقيقية، لذا تبقى هذه الأيقونات الأربع على iOS كما رُسمت. تتّبع كل حزمة واجهة أيقونات منصّتها، أما قواعد التخطيط فهي واحدة في كل مكان.",
+  Icon: "الأيقونة",
+  "As drawn": "كما رُسمت",
+  "Web and Android, RTL": "الويب وAndroid، من اليمين إلى اليسار",
+  "iOS, RTL": "iOS، من اليمين إلى اليسار",
+  "Media controls never flip": "عناصر التحكم في الوسائط لا تنعكس أبدًا",
+  "Play and pause stay as drawn, and audio and video players keep their controls and progress left to right in every language.":
+    "يبقى زرّا التشغيل والإيقاف المؤقت كما رُسما، وتحتفظ مشغّلات الصوت والفيديو بعناصر التحكم والتقدّم من اليسار إلى اليمين في كل لغة.",
+  "An English message in an Arabic UI, and an Arabic message in an English UI. Each bubble stays on its sender's side; the text inside reads in its own language's direction.":
+    "رسالة إنجليزية في واجهة عربية، ورسالة عربية في واجهة إنجليزية. تبقى كل فقاعة في جهة مُرسِلها، ويُقرأ النص داخلها باتجاه لغته.",
   "Mixed Batch":
     "دفعة مختلطة",
   "Multi Attachments — End to End.":

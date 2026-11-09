@@ -1024,6 +1024,60 @@ export const Usage: StoryObj = {
           </Callout>
         </div>
       </Section>
+
+      <Section title="Right-to-left">
+        <Callout kind="info" title="Which icons flip in RTL">
+          <T>
+            The web kit flips every icon that Google marks to mirror in its Android icon set: arrows, send, reply and call direction, and also videocam, content_copy, chat and sticky_note_2. Apple's guidelines say not to flip icons of real-world objects, so on iOS those four stay as drawn. Each UI Kit follows its own platform's icons; the layout rules are the same everywhere.
+          </T>
+        </Callout>
+        <div style={{ height: 16 }} />
+        <div
+          style={{
+            border: "1px solid var(--cometchat-neutral-color-200)",
+            borderRadius: "var(--cometchat-radius-3)",
+            overflow: "hidden",
+            background: "var(--cometchat-static-white)",
+          }}
+        >
+          <table
+            style={{
+              width: "100%",
+              borderCollapse: "separate",
+              borderSpacing: 0,
+              fontSize: "12px",
+            }}
+          >
+            <thead>
+              <tr style={{ background: "var(--cometchat-neutral-color-100)" }}>
+                {/* Not uppercased: it would print "iOS" as "IOS". */}
+                <th style={{ ...th, textTransform: "none" }}><T>Icon</T></th>
+                <th style={{ ...th, textTransform: "none" }}><T>As drawn</T></th>
+                <th style={{ ...th, textTransform: "none" }}><T>Web and Android, RTL</T></th>
+                <th style={{ ...th, textTransform: "none" }}><T>iOS, RTL</T></th>
+              </tr>
+            </thead>
+            <tbody>
+              {["videocam", "content_copy", "chat", "sticky_note_2"].map((name) => (
+                <tr key={name}>
+                  <td style={td}>
+                    <code style={{ fontFamily: "var(--cometchat-font-family-mono, monospace)" }}>{name}</code>
+                  </td>
+                  <td style={td}><Icon name={name} mirror={false} /></td>
+                  <td style={td}><Icon name={name} mirror={false} style={{ transform: "scaleX(-1)" }} /></td>
+                  <td style={td}><Icon name={name} mirror={false} /></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div style={{ height: 16 }} />
+        <Callout kind="tip" title="Media controls never flip">
+          <T>
+            Play and pause stay as drawn, and audio and video players keep their controls and progress left to right in every language.
+          </T>
+        </Callout>
+      </Section>
     </div>
   ),
 };
